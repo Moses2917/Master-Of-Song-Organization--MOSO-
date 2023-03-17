@@ -1,0 +1,67 @@
+from html import parser
+import time, os.path, bs4, requests
+from xml.etree.ElementInclude import include
+from time import sleep
+from bs4 import BeautifulSoup
+bs4.BeautifulSoup()
+songNum = 709
+webpage = r"http://www.ergaran.in/2018/07/" + str(songNum) + ".html"
+reqs = requests.get(webpage)
+borsht = BeautifulSoup(reqs.content.decode('utf-8'), 'html.parser')
+# print(borsht.prettify())
+print(borsht.find(class_ = 'post hentry uncustomized-post-template').get_text(" \n ", strip=True)) ## it works!!!
+
+
+
+parser.HTMLParser()
+
+
+# failedSongs = []
+
+# while songNum < 659: ## 2016/01/
+#     webpage = r"http://www.ergaran.in/2016/01/" + str(songNum) + ".html"
+#     try:
+#         reqs = requests.get(webpage)
+#         sleep(0.5)
+#         borsht = BeautifulSoup(reqs.content, "html.parser")
+#         text = borsht.find(class_ = 'post hentry uncustomized-post-template').text
+#         print(text) ## it works!!!
+#         f = open("M:/newWord/"+ str(songNum) + ".txt", 'w', encoding='utf_8')
+#         sleep(0.5)
+#         f.write(text)
+#         f.close
+#     except:
+#         failedSongs.append(songNum)
+#     songNum += 1
+
+# while songNum < 941: ## 2018/07/
+#     webpage = r"http://www.ergaran.in/2018/07/" + str(songNum) + ".html"
+#     try:
+#         reqs = requests.get(webpage)
+#         sleep(0.5)
+#         borsht = BeautifulSoup(reqs.content, "html.parser")
+#         text = borsht.find(class_ = 'post hentry uncustomized-post-template').text
+#         print(text) ## it works!!!
+#         f = open("M:/newWord/"+ str(songNum) + ".txt", 'w', encoding='utf_8')
+#         sleep(0.5)
+#         f.write(text)
+#         f.close
+#     except:
+#         failedSongs.append(songNum)
+#     songNum += 1
+
+# while songNum < 1001: ## 2018/08/
+#     webpage = r"http://www.ergaran.in/2018/08/" + str(songNum) + ".html"
+#     try:
+#         reqs = requests.get(webpage)
+#         sleep(0.5)
+#         borsht = BeautifulSoup(reqs.content, "html.parser")
+#         text = borsht.find(class_ = 'post hentry uncustomized-post-template').text
+#         print(text) ## it works!!!
+#         f = open("M:/newWord/"+ str(songNum) + ".txt", 'w', encoding='utf_8')
+#         sleep(0.5)
+#         f.write(text)
+#         f.close
+#     except:
+#         failedSongs.append(songNum)
+#     songNum += 1
