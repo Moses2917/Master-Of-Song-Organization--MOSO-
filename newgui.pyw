@@ -112,7 +112,7 @@ def viewPosSongs():
 
     posibleSongsList = createfile.getPosibleSongs(songNum, book, user)
     viewWin = tk.Tk()
-    viewWin.geometry("230x345")
+    viewWin.geometry("280x435")
     viewWin.title("Found Songs")
     posibleSongs = tk.Listbox(viewWin)
     posibleSongs.grid(row=0, column=1)

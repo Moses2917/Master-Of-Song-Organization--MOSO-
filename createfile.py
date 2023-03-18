@@ -93,7 +93,7 @@ def getPosibleSongs(songs, imp, user):
                 #     raise ValueError("Invalid value")
                 # else:
                 #     tempFile = "[start:song]\n" + process(filename) + "[end:song]"
-                posSongList.append(re.findall("Երգարան Word Files"+"\S[0-9][0-9]?|[0-9]",filename)[0])
+                posSongList.append(re.findall("Երգարան Word Files"+"\S[0-9][0-9][0-9]",filename)[0])
 
             except:
                 posSongList.append("RED Words/" + str(x))
@@ -101,7 +101,7 @@ def getPosibleSongs(songs, imp, user):
             
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
-                posSongList.append(re.findall("Word songs"+"\S[0-9][0-9]?|[0-9]",filename)[0])
+                posSongList.append(re.findall("Word songs"+"\S[0-9][0-9][0-9]",filename)[0])
             except:
                 posSongList.append(str(x) + " Old, Could not be located ")
             
