@@ -68,7 +68,7 @@ for song_text in matches:
     font = doc.styles['Normal'].font
     font.name = 'Arial'
     font.size = Pt(22)
-    doc.save("C:/Users/" + user + "/OneDrive/Երգարան Word Files/songUpdaterOut/" + str(song_num[0]) + ".docx")
+    doc.save("C:/Users/" + user + "/OneDrive/Երգարան Word Files/songUpdaterOut/" + str(song_num[0]) + ".docx") # Work on implimenting a Version Control System, such as V1, V2, V3, .... Vn, can do smth like "165 V5 (n)" in MOSO
 
 
 # Saves the newly updated old book songs in "Word Files"

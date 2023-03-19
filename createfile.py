@@ -1,3 +1,4 @@
+#This file/module servers a a helper for my newGui.py app
 import os, docx, time, re
 from glob import glob
 import xml.etree.ElementTree as ET
@@ -19,8 +20,6 @@ year = time.strftime('%y')
 fullYear = time.strftime('%Y')
 day = time.strftime('%d')
 
-# my_doc = docx.Document("C:/Users/moses/OneDrive/Choir Songs Template.docx")
-
 
 def process(filename):
     text = ""
@@ -35,13 +34,7 @@ def date():
     return str(fullYear)
 
 
-def filter(songList):
-    book = []
-    for x in songList:
-        book.append(re.findall("(o|n)", x))
-    return book
-
-
+#parses the data inputed and sends back a python-docx file object
 def getPcSongs(songs, imp, user):
     my_doc = docx.Document("C:/Users/" + user + "/OneDrive/Choir Songs Template.docx")
     for x in songs:
