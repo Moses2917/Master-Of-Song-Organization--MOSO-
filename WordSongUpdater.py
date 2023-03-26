@@ -1,6 +1,4 @@
-import re
-import time
-import docx
+import re, time, docx
 from os import path as pth
 from glob import glob
 from docx.shared import Pt
@@ -82,4 +80,5 @@ for oldSong_text in oldMatches:
     font = doc.styles['Normal'].font
     font.name = 'Arial'
     font.size = Pt(22)
+    # glob("C:/Users/" + user + "/OneDrive/Word songs/" + str(song_num[0]) + " " + title + ".docx")
     doc.save("C:/Users/" + user + "/OneDrive/Word songs/" + str(song_num[0]) + " " + title + ".docx")
