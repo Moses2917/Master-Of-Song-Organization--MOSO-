@@ -1,4 +1,4 @@
-#This file/module servers a a helper for my newGui.py app
+#This file/module serves as a helper for my newGui.py app
 import os, docx, time, re
 from glob import glob
 import xml.etree.ElementTree as ET
@@ -44,14 +44,13 @@ def getPcSongs(songs, imp, user):
             
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name
-                ##Run a check to make sure that it finds 3 and not [3*]
-                # testCheckVar = filename
-                # checker  = re.findall("\S[0-9][0-9]?|[0-9]",testCheckVar)[0]
-                # if checker != x:
-                #     raise ValueError("Invalid value")
-                # else:
-                #     tempFile = "[start:song]\n" + process(filename) + "[end:song]"
-                tempFile = "[start:song]\n" + process(filename) + "[end:song]"
+                ##Run a check to make sure that it finds 3 and not 33
+                tempFile = ""
+                if (re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]) == "Երգարան Word Files\\" + x:
+                    tempFile = "[start:song]\n" + process(filename) + "[end:song]"
+                else:
+                    raise Exception("Wrong file name")
+                # tempFile = "[start:song]\n" + process(filename) + "[end:song]"
 
             except:
                 tempFile = "[start:song]\n" + process("C:/Users/" + user + "/OneDrive/RED Words/" + x + ".docx") + "[end:song]"
@@ -59,8 +58,11 @@ def getPcSongs(songs, imp, user):
             
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
-                doc = docx.Document(filename)
-                tempFile = "[start:song:old]\n" + process(filename) + "[end:song:old]"
+                tempFile = ""
+                if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
+                    tempFile = "[start:song:old]\n" + process(filename) + "[end:song:old]"
+                else:
+                    raise Exception("Wrong file name")
             except:
                 tempFile = "Error: FileNotFoundError \nSong: " + x + " Old, Could not be located "
             
@@ -79,22 +81,19 @@ def getPosibleSongs(songs, imp, user):
             
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name
-                ##Run a check to make sure that it finds 3 and not [3*]
-                # testCheckVar = filename
-                # checker  = re.findall("\S[0-9][0-9]?|[0-9]",testCheckVar)[0]
-                # if checker != x:
-                #     raise ValueError("Invalid value")
-                # else:
-                #     tempFile = "[start:song]\n" + process(filename) + "[end:song]"
-                posSongList.append(re.findall("Երգարան Word Files"+"\S[0-9][0-9][0-9]",filename)[0])
-
+                # Have to go through if loop bc "\S[0-9][0-9][0-9]" does not catch anyhting less than 100, or greater than 1000,
+                # so in order to get more accurate results the if loop is necessary 
+                posSong = re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]
+                if (posSong) == "Երգարան Word Files\\" + x: 
+                    posSongList.append(re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0])
             except:
                 posSongList.append("RED Words/" + str(x))
         else:
             
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
-                posSongList.append(re.findall("Word songs"+"\S[0-9][0-9][0-9]",filename)[0])
+                if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
+                    posSongList.append(re.findall("Word songs"+"\S[0-9]*",filename)[0])
             except:
                 posSongList.append(str(x) + " Old, Could not be located ")
             
