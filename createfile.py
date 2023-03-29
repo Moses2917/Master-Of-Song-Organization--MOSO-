@@ -1,6 +1,7 @@
 #This file/module serves as a helper for my newGui.py app
 import os, docx, time, re
 from glob import glob
+import json
 import xml.etree.ElementTree as ET
 from docx.shared import Pt
 
@@ -46,6 +47,7 @@ def getPcSongs(songs, imp, user):
                 filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name
                 ##Run a check to make sure that it finds 3 and not 33
                 tempFile = ""
+                # verification method to double check and make sure that the program has found found the right song
                 if (re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]) == "Երգարան Word Files\\" + x:
                     tempFile = "[start:song]\n" + process(filename) + "[end:song]"
                 else:
@@ -59,6 +61,7 @@ def getPcSongs(songs, imp, user):
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
                 tempFile = ""
+                # verification method to double check and make sure that the program has found found the right song
                 if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
                     tempFile = "[start:song:old]\n" + process(filename) + "[end:song:old]"
                 else:
@@ -80,11 +83,18 @@ def getPosibleSongs(songs, imp, user):
         if 'n' in imp[y]:
             
             try:
-                filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name
-                # Have to go through if loop bc "\S[0-9][0-9][0-9]" does not catch anyhting less than 100, or greater than 1000,
-                # so in order to get more accurate results the if loop is necessary 
+                f = open("ergaran.json", 'r', encoding='utf-8')
+                ergaran = json.load(f)
+                f.close
+                # filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name # is now kind of obsolete bc of ergaran.json
+                filename = ""
+                for songNum in ergaran["SongNum"]:
+                    if songNum == x:
+                            filename = ergaran["SongNum"][x]["latestVersion"]
+                            # print(filename)
+                # verification method to double check and make sure that the program has found found the right song
                 posSong = re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]
-                if (posSong) == "Երգարան Word Files\\" + x: 
+                if (posSong) == "Երգարան Word Files/" + x: 
                     posSongList.append(re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0])
             except:
                 posSongList.append("RED Words/" + str(x))
@@ -92,6 +102,7 @@ def getPosibleSongs(songs, imp, user):
             
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
+                # verification method to double check and make sure that the program has found found the right song
                 if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
                     posSongList.append(re.findall("Word songs"+"\S[0-9]*",filename)[0])
             except:
@@ -102,3 +113,4 @@ def getPosibleSongs(songs, imp, user):
 
     
     return posSongList
+
