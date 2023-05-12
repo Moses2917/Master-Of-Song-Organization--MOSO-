@@ -1,6 +1,6 @@
 from pytube import YouTube
 # vid_url = input("Please input your video url: ")
-vid_url = "https://www.youtube.com/watch?v=2fQh0Op-p_g&ab_channel=ChristLifeArmenianPentecostalChurch"
+vid_url = "https://youtu.be/RGtZq0W85JU"
 yt = YouTube(vid_url)
 def vidDownLoad(yt):
     filtered = yt.streams.filter(file_extension='mp4',res="1080p")
