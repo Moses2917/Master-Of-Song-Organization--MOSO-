@@ -31,7 +31,6 @@ def getRedSongTitle(text):
 def findLatestVer(file,song_num):
     # filename = file["SongNum"][str(song_num)]["latestVersion"] = "Word songs/" + str(song_num) + " " + title + ".docx"
     song_params = file['SongNum'][song_num]
-    # verList = re.findall("v*",str(file['SongNum'][song_num])) #problem, can't rly run a findall on a json dict/list
     biggest = 0
     for param in song_params:
         if "v" in param:
@@ -41,6 +40,7 @@ def findLatestVer(file,song_num):
                 biggest = ver
     return int(biggest)
     #Also also I could find the file loc of latest version and just add one.
+#Reads the file and returns the text along with a bool if it is from the old book
 def getDocTextAndIndentation(filename:str):
     doc = docx.Document(filename)
     text_and_indentation = [] #turn into a list of lists
@@ -73,7 +73,14 @@ def getDocTextAndIndentation(filename:str):
             song = []
     return text_and_indentation
 def FindNum(song):
-    return (re.findall("\d+",song[0]['text']))[0] #+ str(song[0]['old'])
+    # return (re.findall("\d+",song[0]['text']))[0] #+ str(song[0]['old'])
+    print(song)
+    # try:
+    #     print((re.findall("\d+",song[0]['text'])))
+    # except:
+    #     print((re.findall("\d+",song[1]['text'])))
+    return song['song'][0]['text']
+    
 #Function that checks if the song is already in the index file & gets the song title:
 def getSongTitle(input_filename, bookOld,song_num):
     #I know this method is not the fastest
@@ -95,6 +102,7 @@ def getSongTitle(input_filename, bookOld,song_num):
         with open('songs.json', 'w') as json_file:
             json.dump(data, json_file)
         return song_num + " added to songs.json"
+    
 def getSongText(filename):
     song_doc = getDocText(filename)
     matches = []
@@ -118,12 +126,13 @@ def getSongText(filename):
         })
         print(oldMatch)
     return matches # returns a list of all the songs in the file
+# Assembles the text and indentation of the song into a docx object
 def createDocFromTextAndIndentation(text_and_indentation):
     doc = docx.Document()
     word_doc = []
     for song in text_and_indentation:#gets one song out of the list of songs
         song_num = FindNum(song)
-        oldBook = song[0]['old']
+        oldBook = song['book']
         for song_info in song:#gets on line out of all song lines
             p = doc.add_paragraph(song_info['text'])
             p.paragraph_format.space_after = 0
