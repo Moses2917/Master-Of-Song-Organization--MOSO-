@@ -40,8 +40,9 @@ def findLatestVer(file,song_num):
                 biggest = ver
     return int(biggest)
     #Also also I could find the file loc of latest version and just add one.
-#Reads the file and returns the text along with a bool if it is from the old book
+
 def getDocTextAndIndentation(filename:str):
+    """Reads the file and returns the text along with a bool if it is from the old book"""
     doc = docx.Document(filename)
     text_and_indentation = [] #turn into a list of lists
     song = []
