@@ -7,6 +7,10 @@ year = time.strftime('%y')
 fullYear = time.strftime('%Y')
 day = time.strftime('%d')
 
+oldBook_pth = "wordSongsIndex.json"
+Ergaran_pth = "ergaran.json"
+redErgaran_pth = "REDergaran.json"
+
 def getDocText(filename):
     text = ""
 
@@ -28,18 +32,64 @@ def getOldSongTitle(oldSong_text):
 def getRedSongTitle(text):
     return re.findall("\n(\d.*)\n",text)[0] 
 #Finds the biggest version and returns it as an int
-def findLatestVer(file,song_num):
-    # filename = file["SongNum"][str(song_num)]["latestVersion"] = "Word songs/" + str(song_num) + " " + title + ".docx"
-    song_params = file['SongNum'][song_num]
-    biggest = 0
-    for param in song_params:
-        if "v" in param:
-            #check for biggest version
-            ver = re.findall("\d",param)[0]
-            if int(ver) > int(biggest):
-                biggest = ver
-    return int(biggest)
-    #Also also I could find the file loc of latest version and just add one.
+def latestVer(jsonIndex, songNum:str):
+    """Finds latest version of given songNum in given json index, 
+    if can't find it creates one with empty Title, Version/Latest Version"""
+    latestV = 0
+    try:
+        for attr in jsonIndex["SongNum"][songNum]:
+            if "v" in attr:
+                v = int(re.findall(r"([\d].*)", attr)[0])
+                if v > latestV:
+                    latestV = v            
+        print("The latest version is:", latestV)
+        return latestV
+    except:
+        print("This song number has not been indexed yet")
+        print("Adding index...")
+        jsonIndex['SongNum'][songNum] = {} #create a directory with that song number, and empty values
+        jsonIndex['SongNum'][songNum]["Title"] = ""        
+        jsonIndex['SongNum'][songNum]["latestVersion"] = ""
+        jsonIndex['SongNum'][songNum]["v1"] = ""
+        return None
+
+#had to make a seperate functions bc python does not support function overloading :(
+def latestVerErg(jsonIndex, songNum:str):
+    """Finds latest version of given songNum in given json index, 
+    if can't find it creates one with empty Title, Version/Latest Version"""
+    latestV = 0
+    try:
+        for attr in jsonIndex["SongNum"][songNum]:
+            if "v" in attr:
+                v = int(re.findall(r"([\d].*)", attr)[0])
+                if v > latestV:
+                    latestV = v
+        
+        print("The latest version is:", latestV)
+        return latestV
+    except:
+        print("This song number has not been indexed yet")
+        print("Loading another index...")
+        with open(redErgaran_pth, "r", encoding='utf-8') as f:
+            redErgaran_Index = json.load(f)
+            # latestVerErg(redErgaran_Index)   #lol imagine making this recursive
+        if songNum in redErgaran_Index['SongNum']:
+            jsonIndex['SongNum'][songNum] = redErgaran_Index['SongNum'][songNum] #create a directory with that song number, and values from REDergaran.json
+            
+            #This for loop is a bit redundent, however I want to cover 100% of all cases, 
+            for attr in redErgaran_Index["SongNum"][songNum]:
+                if "v" in attr:
+                    v = int(re.findall(r"([\d].*)", attr)[0])
+                    if v > latestV:
+                        latestV = v            
+            print("The latest version is:", latestV)
+            return latestV
+        else:
+            jsonIndex['SongNum'][songNum] = {} #create a directory with that song number, and empty values
+            jsonIndex['SongNum'][songNum]["Title"] = ""        
+            jsonIndex['SongNum'][songNum]["latestVersion"] = ""
+            jsonIndex['SongNum'][songNum]["v1"] = ""  
+            return None
 
 def getDocTextAndIndentation(filename:str):
     """Reads the file and returns the text along with a bool if it is from the old book"""

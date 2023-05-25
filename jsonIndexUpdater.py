@@ -1,20 +1,25 @@
 import json, re
 
-oldBook = False # if True then song is from old book, if False then song is from new book
+oldBook = True # if True then song is from old book, if False then song is from new book
 
 oldBook_pth = "wordSongsIndex.json"
 Ergaran_pth = "ergaran.json"
 redErgaran_pth = "REDergaran.json"
 
-songNum = "371"
+songNum = "151"
 
 def latestVer(jsonIndex, songNum:str):
     """Finds latest version of given songNum in given json index, 
     if can't find it creates one with empty Title, Version/Latest Version"""
-
+    latestV = 0
     try:
         for attr in jsonIndex["SongNum"][songNum]:
-            print(re.search(r"(v[\d*])", attr))
+            if "v" in attr:
+                v = int(re.findall(r"([\d].*)", attr)[0])
+                if v > latestV:
+                    latestV = v            
+        print("The latest version is:", latestV)
+        return latestV
     except:
         print("This song number has not been indexed yet")
         print("Adding index...")
@@ -22,26 +27,46 @@ def latestVer(jsonIndex, songNum:str):
         jsonIndex['SongNum'][songNum]["Title"] = ""        
         jsonIndex['SongNum'][songNum]["latestVersion"] = ""
         jsonIndex['SongNum'][songNum]["v1"] = ""
+        return None
 
 #had to make a seperate functions bc python does not support function overloading :(
 def latestVerErg(jsonIndex, songNum:str):
     """Finds latest version of given songNum in given json index, 
     if can't find it creates one with empty Title, Version/Latest Version"""
-
+    latestV = 0
     try:
         for attr in jsonIndex["SongNum"][songNum]:
-            print(re.search(r"(v[\d*])", attr))
+            if "v" in attr:
+                v = int(re.findall(r"([\d].*)", attr)[0])
+                if v > latestV:
+                    latestV = v
+        
+        print("The latest version is:", latestV)
+        return latestV
     except:
         print("This song number has not been indexed yet")
         print("Loading another index...")
-        ##Put a try loop just in a case the song is not in here!!!
         with open(redErgaran_pth, "r", encoding='utf-8') as f:
             redErgaran_Index = json.load(f)
             # latestVerErg(redErgaran_Index)   #lol imagine making this recursive
-        jsonIndex['SongNum'][songNum] = redErgaran_Index['SongNum'][songNum] #create a directory with that song number, and empty values
-        # jsonIndex['SongNum'][songNum]["Title"] = ""        
-        # jsonIndex['SongNum'][songNum]["latestVersion"] = ""
-        # jsonIndex['SongNum'][songNum]["v1"] = ""
+        if songNum in redErgaran_Index['SongNum']:
+            jsonIndex['SongNum'][songNum] = redErgaran_Index['SongNum'][songNum] #create a directory with that song number, and values from REDergaran.json
+            
+            #This for loop is a bit redundent, however I want to cover 100% of all cases, 
+            for attr in redErgaran_Index["SongNum"][songNum]:
+                if "v" in attr:
+                    v = int(re.findall(r"([\d].*)", attr)[0])
+                    if v > latestV:
+                        latestV = v            
+            print("The latest version is:", latestV)
+            return latestV
+        else:
+            jsonIndex['SongNum'][songNum] = {} #create a directory with that song number, and empty values
+            jsonIndex['SongNum'][songNum]["Title"] = ""        
+            jsonIndex['SongNum'][songNum]["latestVersion"] = ""
+            jsonIndex['SongNum'][songNum]["v1"] = ""  
+            return None
+
 
 # this part it made to update the indexes
 # method logic:
@@ -51,17 +76,14 @@ def latestVerErg(jsonIndex, songNum:str):
 # 2.5 if not, append to index, "SongNum", "Title", "version", and "latestVersion"
 
 if oldBook:
-    #no matter if indexed or not, I have to open the file, however I can check its existence with a simple [songnum][num]
     with open(oldBook_pth, "r", encoding='utf-8') as f:
         oldBook_Index = json.load(f)
 
     # filepth = "relative filepath" + latestVer(jsonIndex=oldBook_pth, songNum=songNum) # type: ignore
-    latestVer(jsonIndex=oldBook_Index, songNum=songNum)
+    lv = latestVer(jsonIndex=oldBook_Index, songNum=songNum)
     print(oldBook_Index["SongNum"][songNum])
     print("Debug String..")
-    # if oldBook_pth["SongNum"][songNum]: #this means, if the song exists in the old book then ...
-    #     oldBook_pth["SongNum"][songNum]["version"] = filepth
-    #     oldBook_pth["SongNum"][songNum]["latestVersion"] = filepth
+
 
 if not oldBook:
     #compare songNum with ergaran.json index, if not there pull info from REDergarn.json
@@ -69,6 +91,7 @@ if not oldBook:
         Book_Index = json.load(f)
 
     # filepth = "relative filepath" + latestVer(jsonIndex=oldBook_pth, songNum=songNum) # type: ignore
-    latestVerErg(jsonIndex=Book_Index, songNum=songNum)
+    lv = latestVerErg(jsonIndex=Book_Index, songNum=songNum)
     print(Book_Index["SongNum"][songNum])
-    print("Debug String..")
+    print("Debug String..") # Note: Funny enough the test num I used does not have a corresponding title, which does not really matter that much, however I could add some functionality to fill it later on
+    #However I'm not so sure about just saving files in ergaran as songnum.docx like I already do in red ergaran
