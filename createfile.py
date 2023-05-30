@@ -29,14 +29,56 @@ def process(filename):
         text += p.text + "\n"
     return text
 
+def FindNum(song):
+    # print(song)
+    return song['song'][0]['text']
 
-
-def date():
-    return str(fullYear)
-
+def getDocTextAndIndentation(filename:str, my_doc):
+    """Reads a DOCX file and returns a docx file with the text"""
+    doc = docx.Document(filename)
+    text_and_indentation = []
+    for p in doc.paragraphs:
+        first_line_indent = p.paragraph_format.first_line_indent
+        left_indent = p.paragraph_format.left_indent
+        right_indent = p.paragraph_format.right_indent
+        # text_and_indentation.append({
+        #     'text': p.text,
+        #     # 'book': re.findall(pattern, p.text,re.DOTALL)[0],
+        #     # 'old': bookOld,
+        #     'first_line_indent': first_line_indent,
+        #     'left_indent': left_indent,
+        #     'right_indent': right_indent
+        # })
+        Placeholder = my_doc.add_paragraph(p.text)
+        Placeholder.paragraph_format.space_after = 0
+        if first_line_indent is not None:
+            Placeholder.paragraph_format.first_line_indent = first_line_indent
+        if left_indent is not None:
+            Placeholder.paragraph_format.left_indent = left_indent
+        if right_indent is not None:
+            Placeholder.paragraph_format.right_indent = right_indent
+        style = doc.styles['Normal']
+        font = style.font
+        font.name = 'Arial'
+        font.size = Pt(22)
+        
+    return my_doc
 
 #parses the data inputed and sends back a python-docx file object
 def getPcSongs(songs, imp, user):
+    """parses the data inputed and sends back a python-docx file object
+
+    Args:
+        songs (list): A list containing all of the song numbers requested
+        imp (list): used to denote either 'n'ew or 'o'ld databases
+        user (str): a str denoting what pc this is being run on
+
+    Raises:
+        Wrong file name: thrown by a checker that checks to see if the filename matchs with what is found
+
+    Returns:
+        docx: a word file containing the requested songs
+    """
     my_doc = docx.Document("C:/Users/" + user + "/OneDrive/Choir Songs Template.docx")
     for x in songs:
         x = str(x)
@@ -46,32 +88,34 @@ def getPcSongs(songs, imp, user):
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name
                 ##Run a check to make sure that it finds 3 and not 33
-                tempFile = ""
+                
                 # verification method to double check and make sure that the program has found found the right song
                 if (re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]) == "Երգարան Word Files\\" + x:
-                    tempFile = "[start:song]\n" + process(filename) + "[end:song]"
+                    my_doc.add_paragraph("[start:song]")
+                    getDocTextAndIndentation(filename=filename, my_doc=my_doc)
+                    my_doc.add_paragraph("[end:song]")
                 else:
                     raise Exception("Wrong file name")
-                # tempFile = "[start:song]\n" + process(filename) + "[end:song]"
-
+                
             except:
-                tempFile = "[start:song]\n" + process("C:/Users/" + user + "/OneDrive/RED Words/" + x + ".docx") + "[end:song]"
+                my_doc.add_paragraph("[start:song]")
+                getDocTextAndIndentation(filename="C:/Users/" + user + "/OneDrive/RED Words/" + x + ".docx", my_doc=my_doc)
+                my_doc.add_paragraph("[end:song]")
+                
         else:
             
             try:
                 filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
-                tempFile = ""
+                
                 # verification method to double check and make sure that the program has found found the right song
                 if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
-                    tempFile = "[start:song:old]\n" + process(filename) + "[end:song:old]"
+                    my_doc.add_paragraph("[start:song:old]")
+                    getDocTextAndIndentation(filename=filename, my_doc=my_doc)
+                    my_doc.add_paragraph("[end:song:old]")
                 else:
                     raise Exception("Wrong file name")
             except:
-                tempFile = "Error: FileNotFoundError \nSong: " + x + " Old, Could not be located "
-            
-        # word.write("\n" + tempFile + '\n')
-        my_doc.add_paragraph(tempFile + '\n')#.add_run()
-
+                my_doc.add_paragraph("Error: FileNotFoundError \nSong: " + x + " Old, Could not be located ")
     
     return my_doc
 

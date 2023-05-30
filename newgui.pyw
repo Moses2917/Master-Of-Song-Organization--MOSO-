@@ -200,7 +200,7 @@ tickBox_font = TkFont.Font(family="Arial", size=15)
 
 radio_var = tk.StringVar()
 tk.Radiobutton(root, text="Old", variable=radio_var, value="o",font=tickBox_font, relief="raised", bg="#0000a0", fg="#f9d4b8", bd=8).grid(row=2, column=4)
-tk.Radiobutton(root, text="New", variable=radio_var, value="n",font=tickBox_font, relief="raised", bg="#741a1c", fg="#ffce00", bd=8).grid(row=2, column=5, padx=0)
+tk.Radiobutton(root, text="New", variable=radio_var, value="n",font=tickBox_font, relief="raised", bg="#741a1c", fg="#ffce00", bd=8).grid(row=2, column=5)
 
 day_var = tk.StringVar()
 tk.Radiobutton(root, text="Tues/Thurs", variable=day_var, value="Tuesday", font=tickBox_font, relief="raised", bd=8).grid(row=3, column=4, padx=10)
