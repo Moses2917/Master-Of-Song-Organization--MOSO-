@@ -100,8 +100,10 @@ def getDocTextAndIndentation(filename):
             bookOld = False
             song = []
     return text_and_indentation
+
 def FindName(song_text):
     return (re.findall("\d+",song_text[0]['text']))[0] + str(song_text[0]['old'])
+
 def createDocFromTextAndIndentation(text_and_indentation):
     doc = docx.Document()
     for song in text_and_indentation:

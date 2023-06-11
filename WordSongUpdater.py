@@ -1,5 +1,5 @@
 import re, time, docx, json
-from os import path as pth, remove
+from os import path as pth, remove, environ
 from docx.shared import Pt
 
 month = time.strftime('%m')
@@ -33,8 +33,8 @@ def getRedSongTitle(text):
     return re.findall("\n(\d.*)\n",text)[0] 
 #Finds the biggest version and returns it as an int
 def latestVer(jsonIndex, songNum:str):
-    """Finds latest version of given songNum in given json index, 
-    if can't find it creates one with empty Title, Version/Latest Version"""
+    """Finds latest version of given songNum in given json index & returns it,
+    if it can't find it creates one with empty Title, Version/Latest Version"""
     latestV = 0
     try:
         for attr in jsonIndex["SongNum"][songNum]:
@@ -43,7 +43,7 @@ def latestVer(jsonIndex, songNum:str):
                 if v > latestV:
                     latestV = v            
         print("The latest version is:", latestV)
-        return latestV
+        return latestV, jsonIndex["SongNum"][songNum]['Title']
     except:
         print("This song number has not been indexed yet")
         print("Adding index...")
@@ -51,12 +51,11 @@ def latestVer(jsonIndex, songNum:str):
         jsonIndex['SongNum'][songNum]["Title"] = ""        
         jsonIndex['SongNum'][songNum]["latestVersion"] = ""
         jsonIndex['SongNum'][songNum]["v1"] = ""
-        return None
-
+        return 0
 #had to make a seperate functions bc python does not support function overloading :(
 def latestVerErg(jsonIndex, songNum:str):
-    """Finds latest version of given songNum in given json index, 
-    if can't find it creates one with empty Title, Version/Latest Version"""
+    """Finds latest version of given songNum in given json index & returns it,
+    if it can't find it creates one with empty Title, Version/Latest Version"""
     latestV = 0
     try:
         for attr in jsonIndex["SongNum"][songNum]:
@@ -66,7 +65,7 @@ def latestVerErg(jsonIndex, songNum:str):
                     latestV = v
         
         print("The latest version is:", latestV)
-        return latestV
+        return latestV, jsonIndex["SongNum"][songNum]['Title']
     except:
         print("This song number has not been indexed yet")
         print("Loading another index...")
@@ -83,29 +82,51 @@ def latestVerErg(jsonIndex, songNum:str):
                     if v > latestV:
                         latestV = v            
             print("The latest version is:", latestV)
-            return latestV
+            return latestV, redErgaran_Index["SongNum"][songNum]['Title']
         else:
             jsonIndex['SongNum'][songNum] = {} #create a directory with that song number, and empty values
             jsonIndex['SongNum'][songNum]["Title"] = ""        
             jsonIndex['SongNum'][songNum]["latestVersion"] = ""
             jsonIndex['SongNum'][songNum]["v1"] = ""  
-            return None
+            return 0
 
 def getDocTextAndIndentation(filename:str):
-    """Reads the file and returns the text along with a bool if it is from the old book"""
+    """Reads the file and returns a dict with the text along with a bool if it is from the old book"""
     doc = docx.Document(filename)
-    text_and_indentation = [] #turn into a list of lists
+
+    text_and_indentation = [] #turn into a list of dicts
     song = []
     bookOld = False
+    first = True
     for p in doc.paragraphs:
         if "[start:song" in p.text:
+            my_doc = docx.Document()
             song = []
-            if "old" in p.text:
+            songNum = ""
+            first = True
+            if "old" in p.text: #Possible starting loc, or just make the doc file in it's entirety and and send off a list of docs to be saved somewhere else
                 bookOld = True
         if not("end" in p.text or "start" in p.text):
+            if first: 
+                songNum = p.text.split("\n")[0]
+                first=False
             first_line_indent = p.paragraph_format.first_line_indent
             left_indent = p.paragraph_format.left_indent
             right_indent = p.paragraph_format.right_indent
+
+            Placeholder = my_doc.add_paragraph(p.text)
+            Placeholder.paragraph_format.space_after = 0
+            if first_line_indent is not None:
+                Placeholder.paragraph_format.first_line_indent = first_line_indent
+            if left_indent is not None:
+                Placeholder.paragraph_format.left_indent = left_indent
+            if right_indent is not None:
+                Placeholder.paragraph_format.right_indent = right_indent
+            style = doc.styles['Normal']
+            font = style.font
+            font.name = 'Arial'
+            font.size = Pt(22)
+
             song.append({
                 'text': p.text,
                 # 'book': re.findall(pattern, p.text,re.DOTALL)[0],
@@ -114,7 +135,8 @@ def getDocTextAndIndentation(filename:str):
                 'left_indent': left_indent,
                 'right_indent': right_indent
             })
-        if "end" in p.text:
+        if "end" in p.text: # Def ending loc
+            saveDocFromDoc(my_doc, bookOld, songNum)
             #push song to text var and reset song var
             text_and_indentation.append({
                 'song': song,
@@ -122,16 +144,57 @@ def getDocTextAndIndentation(filename:str):
             })
             bookOld = False
             song = []
-    return text_and_indentation
-def FindNum(song):
-    # return (re.findall("\d+",song[0]['text']))[0] #+ str(song[0]['old'])
-    print(song)
-    # try:
-    #     print((re.findall("\d+",song[0]['text'])))
-    # except:
-    #     print((re.findall("\d+",song[1]['text'])))
-    return song['song'][0]['text']
-    
+    # return text_and_indentation
+
+
+def saveDocFromDoc(song_Doc, oldBook, songNum):
+    # method logic:
+    # 1. check if song exists in relevant book/index
+    # 2. if so, append to index, "version", and "latestVersion"
+    # 2.1 Based on this info the program needs to generate a suitable filepath to be logged and saved.
+    # 2.5 if not, append to index, "SongNum", "Title", "version", and "latestVersion"
+    # 3. once the lv(LatestVersion) is acquired, then add one and get new var cv(Current Version)
+    # 4. Given the cv now create file path and amend to json index
+    # 4.5 Save at the newly created file path
+    if oldBook:
+        with open(oldBook_pth, "r", encoding='utf-8') as f:
+            oldBook_Index = json.load(f)
+
+        # filepth = "relative filepath" + latestVer(jsonIndex=oldBook_pth, songNum=songNum) # type: ignore
+        cv, title = latestVer(jsonIndex=oldBook_Index, songNum=songNum)#add 1 to get the current version
+        cv += 1
+        print(oldBook_Index["SongNum"][songNum])
+        print("Debug String..")
+        base_file_path = "Word songs/{} {} v{}.docx".format(str(songNum), title, str(cv))
+        oldBook_Index["SongNum"]["v"+ str(cv)] = base_file_path
+        oldBook_Index["SongNum"]["LatestVersion"] = base_file_path
+        # song_Doc.save("C:/Users/{}/OneDrive/".format(environ.get("USERNAME")) + base_file_path)
+        # with open(oldBook_pth, 'w', encoding='utf-8') as f:
+        #     json.dump(oldBook_Index, f, indent=4, ensure_ascii=False)
+
+
+    if not oldBook:
+        # compare songNum with ergaran.json index, if not there pull info from REDergarn.json
+        with open(Ergaran_pth, "r", encoding='utf-8') as f:
+            Book_Index = json.load(f)
+
+        # filepth = "relative filepath" + latestVer(jsonIndex=oldBook_pth, songNum=songNum) # type: ignore
+        cv, title = latestVerErg(jsonIndex=Book_Index, songNum=songNum)#add 1 to get the current version
+        cv += 1
+        print(Book_Index["SongNum"][songNum])
+        print("Debug String..")  # Note: Funny enough the test num I used does not have a corresponding title, which does not really matter that much, however I could add some functionality to fill it later on
+        # However I'm not so sure about just saving files in ergaran as songnum.docx like I already do in red ergaran
+        base_file_path = "Երգարան Word Files/{} {} v{}.docx".format(str(songNum), title, str(cv))
+        Book_Index["SongNum"]["v"+ str(cv)] = base_file_path
+        Book_Index["SongNum"]["LatestVersion"] = base_file_path
+        # song_Doc.save("C:/Users/{}/OneDrive/".format(environ.get("USERNAME")) + base_file_path)
+        # with open(Ergaran_pth, 'w', encoding='utf-8') as f:
+        #     json.dump(Book_Index, f, indent=4, ensure_ascii=False)
+
+
+
+
+
 #Function that checks if the song is already in the index file & gets the song title:
 def getSongTitle(input_filename, bookOld,song_num):
     #I know this method is not the fastest
@@ -153,7 +216,8 @@ def getSongTitle(input_filename, bookOld,song_num):
         with open('songs.json', 'w') as json_file:
             json.dump(data, json_file)
         return song_num + " added to songs.json"
-    
+
+#not rly needed anymore
 def getSongText(filename):
     song_doc = getDocText(filename)
     matches = []
@@ -177,6 +241,7 @@ def getSongText(filename):
         })
         print(oldMatch)
     return matches # returns a list of all the songs in the file
+
 # Assembles the text and indentation of the song into a docx object
 def createDocFromTextAndIndentation(text_and_indentation):
     doc = docx.Document()
@@ -234,12 +299,13 @@ if pth.exists("C:/Users/moses/"):
 else:
     user = "Armne"
 
-input_filename = '04.06.23.docx'
+# input_filename = '06.11.23.docx'
+input_filename = "C:/Users/moses/OneDrive/Երգեր/Զատիկ/Զատիկ(2023)/Զատիկ(2023).docx"
 # getSongText("04.06.23.docx")
 # getSongTitle(input_filename)
-text_and_indentation = getDocTextAndIndentation(input_filename)
-word_docs = createDocFromTextAndIndentation(text_and_indentation)
-saveDocFromTextAndIndentation(word_docs)
+getDocTextAndIndentation(input_filename)
+# word_docs = createDocFromTextAndIndentation(text_and_indentation)
+# saveDocFromTextAndIndentation(word_docs)
 
 # file={}
 # f=open("wordSongsIndex.json", mode = 'r', encoding='utf-8')

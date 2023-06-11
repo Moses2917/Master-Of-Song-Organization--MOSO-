@@ -2,13 +2,7 @@
 import os, docx, time, re
 from glob import glob
 import json
-import xml.etree.ElementTree as ET
 from docx.shared import Pt
-
-#for getting the user's desired date and/or location
-import tkinter as tk
-from tkinter import messagebox, filedialog
-from tkinter import ttk
 
 def getTemplate():
     wordFile = open("Choir Songs Template.dotx", 'r', encoding='utf_8')
@@ -30,25 +24,15 @@ def process(filename):
     return text
 
 def FindNum(song):
-    # print(song)
     return song['song'][0]['text']
 
 def getDocTextAndIndentation(filename:str, my_doc):
     """Reads a DOCX file and returns a docx file with the text"""
     doc = docx.Document(filename)
-    text_and_indentation = []
     for p in doc.paragraphs:
         first_line_indent = p.paragraph_format.first_line_indent
         left_indent = p.paragraph_format.left_indent
         right_indent = p.paragraph_format.right_indent
-        # text_and_indentation.append({
-        #     'text': p.text,
-        #     # 'book': re.findall(pattern, p.text,re.DOTALL)[0],
-        #     # 'old': bookOld,
-        #     'first_line_indent': first_line_indent,
-        #     'left_indent': left_indent,
-        #     'right_indent': right_indent
-        # })
         Placeholder = my_doc.add_paragraph(p.text)
         Placeholder.paragraph_format.space_after = 0
         if first_line_indent is not None:
@@ -79,6 +63,7 @@ def getPcSongs(songs, imp, user):
     Returns:
         docx: a word file containing the requested songs
     """
+    user = os.getenv("USERNAME")
     my_doc = docx.Document("C:/Users/" + user + "/OneDrive/Choir Songs Template.docx")
     for x in songs:
         x = str(x)
@@ -86,9 +71,10 @@ def getPcSongs(songs, imp, user):
         if 'n' in imp[y]:
             
             try:
-                filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name
-                ##Run a check to make sure that it finds 3 and not 33
-                
+                with open("ergaran.json", 'r', encoding='utf-8') as f:
+                    ergaran = json.load(f)
+                filename = ergaran["SongNum"][x]["latestVersion"]
+                # Run a check to make sure that it finds 3 and not 33
                 # verification method to double check and make sure that the program has found found the right song
                 if (re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]) == "Երգարան Word Files\\" + x:
                     my_doc.add_paragraph("[start:song]")
@@ -105,7 +91,9 @@ def getPcSongs(songs, imp, user):
         else:
             
             try:
-                filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
+                with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+                    index = json.load(f)
+                filename = index["SongNum"][x]["latestVersion"]
                 
                 # verification method to double check and make sure that the program has found found the right song
                 if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
@@ -123,20 +111,14 @@ def getPosibleSongs(songs, imp, user):
     posSongList = []
     for x in songs:
         x = str(x)
-        y = songs.index(x)
+        y = songs.index(x) # gets loc of x in songs:list
         if 'n' in imp[y]:
             
             try:
-                f = open("ergaran.json", 'r', encoding='utf-8')
-                ergaran = json.load(f)
-                f.close
-                # filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name # is now kind of obsolete bc of ergaran.json
-                filename = ""
-                for songNum in ergaran["SongNum"]:
-                    if songNum == x:
-                            filename = ergaran["SongNum"][x]["latestVersion"]
-                            # print(filename)
-                # verification method to double check and make sure that the program has found found the right song
+                with open("ergaran.json", 'r', encoding='utf-8') as f:
+                    ergaran = json.load(f)
+                filename = ergaran["SongNum"][x]["latestVersion"]
+                # verification method to double-check and make sure that the program has found the right song
                 posSong = re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]
                 if (posSong) == "Երգարան Word Files/" + x: 
                     posSongList.append(re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0])
@@ -145,16 +127,13 @@ def getPosibleSongs(songs, imp, user):
         else:
             
             try:
-                filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
-                # verification method to double check and make sure that the program has found found the right song
+                with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+                    index = json.load(f)
+                filename = index["SongNum"][x]["latestVersion"]
                 if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
                     posSongList.append(re.findall("Word songs"+"\S[0-9]*",filename)[0])
             except:
                 posSongList.append(str(x) + " Old, Could not be located ")
-            
-        # word.write("\n" + tempFile + '\n')
-        
 
-    
     return posSongList
 
