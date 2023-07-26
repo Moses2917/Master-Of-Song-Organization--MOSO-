@@ -4,7 +4,7 @@ from docx.shared import Pt
 from glob import glob
 import xml.etree.ElementTree as ET
 import createfile
-
+import WordSongUpdater as SongUpdater
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
@@ -173,11 +173,25 @@ def create_File():
         else:
             my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + "TESTSAVE.docx")
 
-# def update_indexes():
-#     items = [listbox.get(idx) for idx in range(listbox.size())]
-#     listbox.delete(0, tk.END)
-#     for i, item in enumerate(items):
-#         listbox.insert(tk.END, f"{i+1}. {item}")
+def ChooseFile():
+    from tkinter import filedialog as fd
+    filetypes = ( ('word doc', '*.docx'), ('All files', '*.*') )
+    input_filename = None
+    input_filename = fd.askopenfilename(
+                        title='Open a file',
+                        initialdir='C:/Users/{}/OneDrive/Երգեր'.format(os.environ.get("USERNAME")),
+                        filetypes=filetypes)
+    # Possibly throw a window to double check if it really is the file you want
+    if input_filename != None:
+        message= messagebox.askyesnocancel("Yes to cont., No to start again, Cancel to stop","Do you wish to update this file: " + input_filename + "\n\nYes to cont., No to start again, Cancel to stop")
+        print(message)
+        if message == "yes" or message == True:
+            SongUpdater.getDocTextAndIndentation(input_filename)
+        elif message == False:
+            ChooseFile()
+        else:
+            print("Closing window")
+        
 
 
 
@@ -228,7 +242,7 @@ edit_button = Button(root, text="Edit Song", bg='#741a1c', fg='#FFC107', font=('
 edit_button.grid(row=2, column=0)
 
 move_up_button = Button(root, text="Move Up", fg='#cc0000', font=('Arial', 15), command=move_up, padx=13, pady=10, bd=5, relief="raised")
-move_up_button.grid(row=BGroupRow, column=BGroupCol)
+move_up_button.grid(row=BGroupRow, column=BGroupCol,sticky='ew')
 
 move_down_button = Button(root, text="Move Down", fg='#cc0000', font=('Arial', 15), command=move_down, padx=10, pady=10, bd=5, relief="raised")
 move_down_button.grid(row=BGroupRow, column=BGroupCol+1)
@@ -237,6 +251,10 @@ clr_button = Button(root, text="Clear Songs", fg='#cc0000', font=('Arial', 15), 
 clr_button.grid(row=BGroupRow, column=BGroupCol+2)
 
 
+Update_Label = tk.Label(root, text="Song Updater:", font=txtbox_font,bg='#741a1c', fg='#FFC107', padx=20)
+Update_Label.grid(row=6, column=1)
+openFile = Button(root, text="Select file to update", command=ChooseFile)
+openFile.grid(row=7, column=1)
 
 
 #create size 22 font, arial
