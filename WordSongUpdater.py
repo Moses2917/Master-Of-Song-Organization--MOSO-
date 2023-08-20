@@ -166,6 +166,10 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
     # 4. Given the cv now create file path and amend to json index
     # 4.5 Save at the newly created file path
     # 4.7 If tues/thurs no need to save
+    
+    if songNum == None:
+        return
+    
     if oldBook:
         with open(oldBook_pth, 'r', encoding='utf-8') as f:
             oldBook_Index = json.load(f)
@@ -186,7 +190,7 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
         song_Doc.save("C:/Users/{}/OneDrive/".format(environ.get("USERNAME")) + base_file_path)
         with open(oldBook_pth, 'w', encoding='utf-8') as f:
             json.dump(oldBook_Index, f, indent=4, ensure_ascii=False)
-
+        print(base_file_path)
 
     if not oldBook:
         # compare songNum with ergaran.json index, if not there pull info from REDergarn.json
@@ -210,7 +214,7 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
         song_Doc.save("C:/Users/{}/OneDrive/".format(environ.get("USERNAME")) + base_file_path)
         with open(Ergaran_pth, 'w', encoding='utf-8') as f:
             json.dump(Book_Index, f, indent=4, ensure_ascii=False)
-
+        print(base_file_path)
 
 #not rly needed anymore
 def getSongText(filename):
@@ -295,7 +299,7 @@ else:
     user = "Armne"
 
 
-# input_filename = "C:/Users/{}/OneDrive/Երգեր/07.2023/07.16.23.docx".format(environ.get("USERNAME"))
+# input_filename = "C:/Users/{}/OneDrive/Երգեր/08.2023/08.06.23.docx".format(environ.get("USERNAME"))
 # getDocTextAndIndentation(input_filename)
 
 # word_docs = createDocFromTextAndIndentation(text_and_indentation)
