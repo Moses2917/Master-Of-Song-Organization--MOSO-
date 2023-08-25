@@ -117,6 +117,8 @@ def getPcSongs(songs, imp, user):
             except:
                 my_doc.add_paragraph("Error: FileNotFoundError \nSong: " + x + " Old, Could not be located ")
     
+    my_doc.add_page_break()
+    
     return my_doc
 
 def getPosibleSongs(songs, imp, user):
