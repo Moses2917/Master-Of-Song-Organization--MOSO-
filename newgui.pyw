@@ -1,8 +1,6 @@
 # import textToWord
 import docx, os, time, re
 from docx.shared import Pt
-from glob import glob
-import xml.etree.ElementTree as ET
 import createfile
 import WordSongUpdater as SongUpdater
 import tkinter as tk
@@ -10,6 +8,7 @@ from tkinter import messagebox
 from tkinter import ttk
 import tkinter.font as TkFont
 from tkinter import Button
+import scanningDir as SD
 
 listy = []
 
@@ -37,8 +36,17 @@ def add_song():
     if song_num == "" or property == "":
         messagebox.showerror("Error", "Please enter a song number and choose a property")
     else:
-        listbox.insert(tk.END, f"{song_num} ({property})")
-        entry.delete(0, tk.END)
+        if 'n' in property: property = 'New'
+        else: property = 'Old'
+        dupSong = SD.songChecker(songNum=song_num,book=property)
+        print(dupSong)
+        if dupSong: # get value and if used then ask if they wish to continue
+            errMes = messagebox.askyesno("Error: That song was used before in the last 3 months","Do you wish to proced with this song {}".format(song_num + " " + property))
+            if errMes:
+                listbox.insert(tk.END, f"{song_num} ({property})")
+                entry.delete(0, tk.END)
+            else:
+                entry.delete(0, tk.END)
 
 def edit_song():
     curr_selection = listbox.curselection()
@@ -96,11 +104,6 @@ def clr_listbox():
     listy.clear()
 
 def viewPosSongs():
-    user = ""
-    if os.path.exists("C:/Users/moses/"):
-        user = "moses"
-    else:
-        user = "Armne"    
     songsList = listbox.get(0, tk.END)
         #Sort out the old and new, and all numbers
     book = []
@@ -110,7 +113,7 @@ def viewPosSongs():
     for i in songsList:
         songNum.append(re.findall("\S[0-9][0-9]?|[0-9]",i)[0])
 
-    posibleSongsList = createfile.getPosibleSongs(songNum, book, user)
+    posibleSongsList = createfile.getPosibleSongs(songNum, book)
     viewWin = tk.Tk()
     viewWin.geometry("280x435")
     viewWin.title("Found Songs")
@@ -183,7 +186,7 @@ def ChooseFile():
                         filetypes=filetypes)
     # Possibly throw a window to double check if it really is the file you want
     if input_filename != None:
-        message= messagebox.askyesnocancel("Yes to cont., No to start again, Cancel to stop","Do you wish to update this file: " + input_filename + "\n\nYes to cont., No to start again, Cancel to stop")
+        message= messagebox.askyesnocancel("MOSO is asking:","Do you wish to update this file: " + input_filename + "\n\nYes to cont., No to start again, Cancel to stop")
         print(message)
         if message == "yes" or message == True:
             SongUpdater.getDocTextAndIndentation(input_filename)
@@ -192,7 +195,12 @@ def ChooseFile():
         else:
             print("Closing window")
         
+def SongCheck():
+    viewWin = tk.Tk()
+    viewWin.geometry("512x256")
+    viewWin.title("Song Checker")
 
+    
 
 
 root = tk.Tk()
@@ -227,6 +235,9 @@ create_File_Button.grid(row=1, column=2)
 
 PosisbleSongs = Button(root, text="Possible Songs", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=viewPosSongs)
 PosisbleSongs.grid(row=1, column=1)
+
+SongChecker = Button(root, text="SongChecker", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=SongCheck)
+SongChecker.grid(row=1, column=0)
 
 add_button = Button(root, text="Add Song", relief="raised", bg="#741a1c", fg='#FFC107', bd=5, padx=22, pady=10, font=('Arial', 15), command=add_song)
 add_button.grid(row=2, column=2)

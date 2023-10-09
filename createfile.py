@@ -5,10 +5,7 @@ import json
 import xml.etree.ElementTree as ET
 from docx.shared import Pt
 
-#for getting the user's desired date and/or location
-import tkinter as tk
-from tkinter import messagebox, filedialog
-from tkinter import ttk
+
 
 def getTemplate():
     wordFile = open("Choir Songs Template.dotx", 'r', encoding='utf_8')
@@ -121,8 +118,9 @@ def getPcSongs(songs, imp, user):
     
     return my_doc
 
-def getPosibleSongs(songs, imp, user):
+def getPosibleSongs(songs, imp):
     posSongList = []
+    user = os.environ.get("USERNAME")
     for x in songs:
         x = str(x)
         y = songs.index(x)
