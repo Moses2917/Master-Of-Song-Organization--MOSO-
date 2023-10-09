@@ -130,7 +130,6 @@ def viewPosSongs():
     for fv in posibleSongsList:
         posibleSongs.insert(tk.END,fv)
     posibleSongsList.clear()
- 
 
 def create_File():
     print("Firing up databases...")

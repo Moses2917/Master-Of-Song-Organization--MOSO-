@@ -216,6 +216,50 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
             json.dump(Book_Index, f, indent=4, ensure_ascii=False)
         print(base_file_path)
 
+
+def getNums(filename: str):
+    """Reads the file and returns a dict with the text along with a bool if it is from the old book"""
+    doc = docx.Document(filename)
+    SongList = []
+    bookOld = False
+    first = True
+    songNum = None
+    for p in doc.paragraphs:
+        if "[start:song" in p.text:
+            songNum = None
+            first = True
+            if "old" in p.text:  # Possible starting loc, or just make the doc file in it's entirety and and send off a list of docs to be saved somewhere else
+                bookOld = True
+
+            # have to add bc the songNum gets shoved in with the start indicator sometimes: '[start:song]\n171'
+            if (re.search(r"[0-9]", p.text)):
+                songNum = re.sub(r"\D", "", p.text)
+                first = False
+
+        if not ("end" in p.text or "start" in p.text):
+            if first:
+                songNum = p.text.split("\n")[0]
+                first = False
+
+        if "end" in p.text:  # Def ending loc
+            if bookOld == False: bookOld = "New"
+            else: bookOld = "Old"
+            # print(bookOld, songNum)
+            SongList.append({bookOld, songNum})
+
+            # #push song to text var and reset song var
+
+            # text_and_indentation.append({
+            #     'song': song,
+            #     'book': bookOld
+            # })
+            bookOld = False
+            song = []
+    # return text_and_indentation
+    return str(SongList)
+
+
+
 #not rly needed anymore
 def getSongText(filename):
     song_doc = getDocText(filename)
