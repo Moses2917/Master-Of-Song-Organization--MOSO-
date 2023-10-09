@@ -207,7 +207,6 @@ def SongCheck():
     viewWin.geometry("512x256")
     viewWin.title("Song Checker")
 
-
 def screen():
     root = tk.Tk()
     style = ttk.Style()
@@ -291,12 +290,12 @@ def screen():
 if __name__ == "__main__":
     processes = []
 
-    p = Process(target=SD.getAllNums)
-    processes.append(p)
-    p.start()
-    p2 = Process(target=screen)
-    p2.start()
-    processes.append(p2)
+    RecentSongs = Process(target=SD.getAllNums)
+    processes.append(RecentSongs)
+    RecentSongs.start()
+    MOSO = Process(target=screen)
+    MOSO.start()
+    processes.append(MOSO)
 
     for process in processes:
         process.join()
