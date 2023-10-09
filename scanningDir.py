@@ -8,14 +8,14 @@ def getAllNums():
             if ".20" in entry.name:
                 with os.scandir(r'C:\Users\{}\OneDrive\Երգեր/'.format(os.environ.get("USERNAME"))+os.fsdecode(entry.name)) as files:
                     fPath = r'C:\Users\{}\OneDrive\Երգեր/'.format(os.environ.get("USERNAME"))+os.fsdecode(entry.name)
-                    print(fPath)
+                    # print(fPath)
                     f.write("\n"+fPath)
                     for entry in files:
                         # print(entry)
                         if ".docx" and ".23" in entry.name:
                             # print(os.path.join(os.getcwd(), entry.name))#have full file path, just need to check for if its
-                            print("\nFilename/Date:",entry.name, "\nSongs in that file: ")
-                            print(WordSongUpdater.getNums(os.path.join(fPath, entry.name)))
+                            # print("\nFilename/Date:",entry.name, "\nSongs in that file: ")
+                            # print(WordSongUpdater.getNums(os.path.join(fPath, entry.name)))
                             f.write("\nFilename/Date: " + entry.name + "\nSongs in that file: ")
                             f.write(WordSongUpdater.getNums(os.path.join(fPath, entry.name)))
     f.close()
