@@ -72,33 +72,6 @@ def songCollector():
             
             CurrentLine += 1
     return blocked_list
-       
-    def done():
-        recentSongs = open("RecentSongs.txt", 'r', encoding='utf-8')
-        lines = recentSongs.readlines()
-        # print(lines)
-        for line in lines:
-            recentSongs.readline()
-            if "Filename/Date:" in line:
-                line = re.sub("Filename/Date: ", "", line[0])
-                print(line)
-                songDate = re.findall(r"(.*\d)",line)[0]
-                # print(songDate) #relieably sorts out just the date, now need to test the dateChecker
-                # if songDate is smaller than three_Months ago date, then harvest the songs with n/o and add to no sing list
-
-                # Define the date format
-                date_format = "%m.%d.%y"
-                # Parse the dates into datetime objects
-                date1 = datetime.datetime.strptime(three_months_from_now, date_format)
-                date2 = datetime.datetime.strptime(songDate, date_format)
-                if date1 < date2:
-                    print(songDate)
-                    nxtLine=lines[lines[line + 1]]
-                    if "song" in nxtLine:
-                        print(nxtLine)
-
-                else:
-                    lines = ""
 
 def songChecker(songNum:str, book:str):
     """Finds songNum, then go to that index in books and see if it matchs with the given book var and also check and see if there is an "invaild" string to skip the next book
