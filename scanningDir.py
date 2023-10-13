@@ -1,4 +1,4 @@
-import os, time, datetime,docx, re
+import os, datetime, docx, re
 def getAllNums():
     import WordSongUpdater
     f=open("RecentSongs.txt", 'w', encoding='utf-8')
@@ -25,8 +25,14 @@ def getAllNums():
 # Using a regex algo to sort through RecentSongs.txt, extract two things, 1. Date and 2. the list of songs sang on that date
 
 
-# def songChecker(book, songNum):
+# def songChecker(book, songNum): 
+# gets songs fron recentsongs and sorts by last three months
 def songCollector(): 
+    """Generates a list of all of the sunday songs sang in the last three months
+
+    Returns:
+        blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
+    """    
     blocked_list =[]
     current_date = datetime.date.today()
 
@@ -45,6 +51,7 @@ def songCollector():
             if "Filename/Date: " in txt:
                 date = re.sub("Filename/Date: ", "", txt)
                 date = re.findall(r"(.*\d)",date)[0]
+                fileDate = date # saving this for later to be used in list
                 # Define the date format
                 date_format = "%m.%d.%y"
                 # Parse the dates into datetime objects
@@ -52,7 +59,7 @@ def songCollector():
                 date2 = datetime.datetime.strptime(date, date_format)
                 if date1 < date2:
                     # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
-                    if date2.strftime('%A') == "Sunday":
+                    if date2.strftime('%A') == "Sunday": # if date is 3 month fresh and also sunday
                         txtNext = line.readline()
                         CurrentLine += 1
                         if "Songs" in txtNext:
@@ -64,8 +71,8 @@ def songCollector():
                             songs = re.findall(r'(\d+)', txtNext)
                             books = re.findall(r'([A-Za-z]+)', txtNext)###
                             # print(songs, books)
-                            lis = [songs,books]
-                            blocked_list.append([songs,books])
+                            # lis = [songs,books]
+                            blocked_list.append([songs,books,fileDate])
                             # print(lis)
                 else:
                     pass
@@ -102,7 +109,39 @@ def songChecker(songNum:str, book:str):
 
         
         
-        
+def getSongDate(songNum:str, book:str):
+    """Gets the absolute latest date as to when that duplicate song was sang
 
-# songCollector()
-# songChecker(songNum='623', book='Old')
+    Args:
+        songNum (str): _description_
+        book (str): _description_
+
+    Returns:
+        str: returns a date in str of when that song was last sang
+    """    
+    blackList = songCollector()
+    latestDate = "03.13.20"
+    date_format = "%m.%d.%y"
+    for song in blackList:
+    # print(song)
+        if songNum in song[0]: #all instances of/with songNum in them
+            # print(song)
+            bookindex = song[0].index(songNum)
+            # print(bookindex)
+            print("Book:", song[1][bookindex])
+            if song[1][bookindex-1] == 'INVALID':
+                bookindex += 1 #Skips the Invaild one, possible weak link which might cause future problems
+            booked = song[1][bookindex]
+            if book == booked:
+                print(song[2])
+                date1 = datetime.datetime.strptime(latestDate, date_format)
+                date2 = datetime.datetime.strptime(song[2], date_format)
+                if date1 < date2:
+                    latestDate = date2.strftime(date_format)
+                # else:
+
+            elif book != booked:
+                print("Found nothing")
+    print("Found a match in past 3 months",latestDate)
+    return latestDate
+                
