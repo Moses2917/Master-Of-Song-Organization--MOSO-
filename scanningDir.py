@@ -2,24 +2,43 @@ import os, datetime, docx, re
 def getAllNums():
     import WordSongUpdater
     f=open("RecentSongs.txt", 'w', encoding='utf-8')
+    current_date = datetime.datetime.today().strftime('%Y')
+    three_months_from_now = (datetime.date.today() + datetime.timedelta(days=-90)).strftime('%Y') #currently returns '2023'
     with os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(os.environ.get("USERNAME"))) as files:
         for entry in files:
-            # print(entry)
-            if ".20" in entry.name:
+
+            if (not "." in entry.name) and (three_months_from_now in entry.name): #this means that entry is a folder relevant to this year ->
+                print("Folder:", entry.name) ##Folder: '2023'
+                for content in os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(os.environ.get("USERNAME"))):
+                    RelevantDate = (datetime.datetime.today() + datetime.timedelta(days=-90)) # Window of relevancy Now compare the folder names to see if it is relevant to last three months, then pass to next if statement
+                    try:
+                        date = datetime.datetime.strptime(content.name,'%m.%Y')
+                    except:
+                        try:
+                            date = datetime.datetime.strptime(content.name, '%Y')
+                            RelevantDate = datetime.datetime(RelevantDate, '%Y')
+                        except:
+                            date = datetime.datetime(1970, 1, 1, 0, 0, 0) #Unix epoch
+
+                    if date > RelevantDate:
+                        entry = content
+                        print(entry)
+
+            if (".20" in entry.name) or (): # if current date - 3 months yr is same then get folders if no "." in string #Todo: update to compare names like above
                 with os.scandir(r'C:\Users\{}\OneDrive\Երգեր/'.format(os.environ.get("USERNAME"))+os.fsdecode(entry.name)) as files:
                     fPath = r'C:\Users\{}\OneDrive\Երգեր/'.format(os.environ.get("USERNAME"))+os.fsdecode(entry.name)
                     # print(fPath)
                     f.write("\n"+fPath)
                     for entry in files:
                         # print(entry)
-                        if ".docx" and ".23" in entry.name:
+                        if ".docx" and ".23" in entry.name:#Todo: Future proof for 2024, with datetime
                             # print(os.path.join(os.getcwd(), entry.name))#have full file path, just need to check for if its
                             # print("\nFilename/Date:",entry.name, "\nSongs in that file: ")
                             # print(WordSongUpdater.getNums(os.path.join(fPath, entry.name)))
                             f.write("\nFilename/Date: " + entry.name + "\nSongs in that file: ")
                             f.write(WordSongUpdater.getNums(os.path.join(fPath, entry.name)))
     f.close()
-# getAllNums()
+getAllNums()
 #Add pop-up window to check if indiv. song has been sang, also supply date/file name with it
 
 # Using a regex algo to sort through RecentSongs.txt, extract two things, 1. Date and 2. the list of songs sang on that date
@@ -28,13 +47,13 @@ def getAllNums():
 # def songChecker(book, songNum): 
 # gets songs fron recentsongs and sorts by last three months
 def songCollector(): 
-    """Generates a list of all of the sunday songs sang in the last three months
+    """Generates a list of all the sunday songs sang in the last three months
 
     Returns:
         blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
     """    
     blocked_list =[]
-    current_date = datetime.date.today()
+    current_date = datetime.date.today() # should really be
 
     # Format the date and time
     formatted_date = current_date.strftime('%m.%d.%y')
