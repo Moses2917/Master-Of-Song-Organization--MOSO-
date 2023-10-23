@@ -32,10 +32,10 @@ Before you dive into the world of organized church song lyric management, you ne
 
 ```bash
 # Clone the Repository
-git clone https://github.com/yourusername/moso.git
+git clone https://github.com/Moses2917/Master-Of-Song-Organization--MOSO-.git
 
 # Navigate to the Project Directory
-cd moso
+cd Master-Of-Song-Organization--MOSO-
 
 # Install Dependencies
 pip install -r requirements.txt
