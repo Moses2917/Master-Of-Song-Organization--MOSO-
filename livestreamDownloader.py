@@ -1,6 +1,6 @@
 from pytube import YouTube
 # vid_url = input("Please input your video url: ")
-vid_url = "https://youtu.be/RGtZq0W85JU"
+vid_url = "https://www.youtube.com/live/_GWI10dnlAg"
 yt = YouTube(vid_url)
 def vidDownLoad(yt):
     filtered = yt.streams.filter(file_extension='mp4',res="1080p")
@@ -21,4 +21,4 @@ def audioDownload(yt):
     
 # vidDownLoad(yt)
 
-audioDownload(yt)
+# audioDownload(yt)

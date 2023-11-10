@@ -1,50 +1,73 @@
 import os, datetime, docx, re
-def getAllNums():
+def getAllDir():
+    #Todo: posibily change function to always append to it the latest files instead of just rewriting it always
+    # Also bc the program sorts the songs here the current sorting process is now made partly obsolete, but maybe not bc program still needs to sort with3 month window
     import WordSongUpdater
-    f=open("RecentSongs.txt", 'w', encoding='utf-8')
-    current_date = datetime.datetime.today().strftime('%Y')
-    three_months_from_now = (datetime.date.today() + datetime.timedelta(days=-90)).strftime('%Y') #currently returns '2023'
-    with os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(os.environ.get("USERNAME"))) as files:
-        for entry in files:
+    #     Finds all possible dir/paths to docx files that possibly can be used, with datetime and os
+    songBuffer = ""
+    user = os.environ.get("USERNAME")
+    three_months_from_now = (datetime.date.today() + datetime.timedelta(days=-90)).strftime(
+        '%Y')  # currently returns '2023' to use multi funnel/net system to go from big -> fine net
+    RelevantDate = (datetime.datetime.today() + datetime.timedelta(days=-90))
+    with os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(user)) as PosFiles:
+        for file in PosFiles:
+            if three_months_from_now in file.name:
 
-            if (not "." in entry.name) and (three_months_from_now in entry.name): #this means that entry is a folder relevant to this year ->
-                print("Folder:", entry.name) ##Folder: '2023'
-                for content in os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(os.environ.get("USERNAME"))):
-                    RelevantDate = (datetime.datetime.today() + datetime.timedelta(days=-90)) # Window of relevancy Now compare the folder names to see if it is relevant to last three months, then pass to next if statement
-                    try:
-                        date = datetime.datetime.strptime(content.name,'%m.%Y')
-                    except:
-                        try:
-                            date = datetime.datetime.strptime(content.name, '%Y')
-                            RelevantDate = datetime.datetime(RelevantDate, '%Y')
-                        except:
-                            date = datetime.datetime(1970, 1, 1, 0, 0, 0) #Unix epoch
+                if "." in file.name:
 
+                    date = datetime.datetime.strptime(file.name, '%m.%Y')
                     if date > RelevantDate:
-                        entry = content
-                        print(entry)
 
-            if (".20" in entry.name) or (): # if current date - 3 months yr is same then get folders if no "." in string #Todo: update to compare names like above
-                with os.scandir(r'C:\Users\{}\OneDrive\Երգեր/'.format(os.environ.get("USERNAME"))+os.fsdecode(entry.name)) as files:
-                    fPath = r'C:\Users\{}\OneDrive\Երգեր/'.format(os.environ.get("USERNAME"))+os.fsdecode(entry.name)
-                    # print(fPath)
-                    f.write("\n"+fPath)
-                    for entry in files:
-                        # print(entry)
-                        if ".docx" and ".23" in entry.name:#Todo: Future proof for 2024, with datetime
-                            # print(os.path.join(os.getcwd(), entry.name))#have full file path, just need to check for if its
-                            # print("\nFilename/Date:",entry.name, "\nSongs in that file: ")
-                            # print(WordSongUpdater.getNums(os.path.join(fPath, entry.name)))
-                            f.write("\nFilename/Date: " + entry.name + "\nSongs in that file: ")
-                            f.write(WordSongUpdater.getNums(os.path.join(fPath, entry.name)))
-    f.close()
-getAllNums()
-#Add pop-up window to check if indiv. song has been sang, also supply date/file name with it
+                        songBuffer += "\n"+file.path
+                        # print(file.path)
+                        for docs in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}'.format(user,file.name)):
 
-# Using a regex algo to sort through RecentSongs.txt, extract two things, 1. Date and 2. the list of songs sang on that date
+                            #this can be a bit redundant sometimes however its also safer
+                            docName = re.sub(".docx", "", docs.name)
+                            try:
+                                dateD = datetime.datetime.strptime(docName, "%m.%d.%y")
+                            except:
+                                dateD = datetime.datetime(1970, 1, 1, 0, 0, 0)
+                            if dateD > RelevantDate:
+                                # pass
+                                # print(docName) # this is a str not a os.direntry
+                                # print(docs.path) # EX: C:\Users\Armne\OneDrive\Երգեր\09.2023\09.28.23.docx
+                                songBuffer += "\nFilename/Date: " + docName
+                                songBuffer += "\nSongs in that file: " + WordSongUpdater.getNums(docs.path)
+                                # Now it can be passed to WordSongUpdater.getNums()
+                else:
+                    for folders in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}'.format(user,file.name)):
+                        # print(folders.path)
+                        songBuffer += "\n"+folders.path
+                        date = datetime.datetime.strptime(folders.name, '%m.%Y')
+                        if date > RelevantDate:
+                            docName = re.sub(".docx", "", folders.name)
 
+                            try:
+                                dateD = datetime.datetime.strptime(docName, "%m.%Y")
 
-# def songChecker(book, songNum): 
+                            except:
+                                dateD = datetime.datetime(1970, 1, 1, 0, 0, 0)
+
+                            if dateD > RelevantDate:
+                                # pass
+                                # print(docName) # this is all of the indiv songs that are rel, now need to check folders
+                                for files in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}\{}'.format(user,file.name,docName)):
+                                    doc2Name = re.sub(".docx", "", files.name)
+
+                                    dateD = datetime.datetime.strptime(doc2Name, "%m.%d.%y")
+
+                                    if dateD > RelevantDate:
+                                        # print(files.path)
+                                        songBuffer += "\nFilename/Date: " + files.name
+                                        songBuffer += "\nSongs in that file: " + WordSongUpdater.getNums(files.path)
+                                # print(r'C:\Users\{}\OneDrive\Երգեր\{}\{}'.format(user,file.name,folders.name)) # EX: C:\Users\Armne\OneDrive\Երգեր\09.2023\09.28.23.docx
+                                # Now it can be passed to WordSongUpdater.getNums()
+        with open("RecentSongs.txt",'w',encoding='utf-8') as f:
+            f.write(songBuffer)
+
+# getAllDir()
+# def songChecker(book, songNum):
 # gets songs fron recentsongs and sorts by last three months
 def songCollector(): 
     """Generates a list of all the sunday songs sang in the last three months

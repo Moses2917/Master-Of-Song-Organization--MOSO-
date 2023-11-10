@@ -255,8 +255,10 @@ move_down_button.grid(row=BGroupRow, column=BGroupCol+1)
 clr_button = Button(root, text="Clear Songs", fg='#cc0000', font=('Arial', 15), command=clr_listbox, padx=10, pady=10, bd=5, relief="raised")
 clr_button.grid(row=BGroupRow, column=BGroupCol+2)
 
+Update_Label = tk.Label(root, text="", font=txtbox_font,padx=1)
+Update_Label.grid(row=5, column=1)
 
-Update_Label = tk.Label(root, text="Song Updater:", font=txtbox_font,bg='#741a1c', fg='#FFC107', padx=20)
+Update_Label = tk.Label(root, text="Database Updater:", font=txtbox_font,bg='#741a1c', fg='#FFC107', padx=1)
 Update_Label.grid(row=6, column=1)
 openFile = Button(root, text="Select file to update", command=ChooseFile)
 openFile.grid(row=7, column=1)
