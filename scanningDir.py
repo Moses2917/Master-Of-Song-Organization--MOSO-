@@ -66,6 +66,27 @@ def getAllDir():
         with open("RecentSongs.txt",'w',encoding='utf-8') as f:
             f.write(songBuffer)
 
+
+def getAllNums():
+    from WordSongUpdater import getNums
+    f=open("AllSongs.txt", 'w', encoding='utf-8')
+    # startDate = "01.17.23"
+    startDate = datetime.datetime(year=2023,month=1,day=17,)
+    with os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(os.environ.get("USERNAME"))) as folders:
+        for entry in folders:
+            print(entry.name)
+            folderDate = datetime.datetime.strptime(entry.name, '%m.%Y')
+            if "." in entry.name and startDate >= folderDate:
+                f.write("\n" + entry.path)
+                with os.scandir(entry.path) as folderFiles:
+                    for file in folderFiles:
+                        fileDate = datetime.datetime.strptime(file.name, '%m.%d.%y')
+                        if startDate >= fileDate and ".docx" in file.name:
+                            f.write("\nFilename/Date: " + file.name + "\nSongs in that file: ")
+                            f.write(getNums(file.path))
+
+    f.close()
+getAllNums()
 # getAllDir()
 # def songChecker(book, songNum):
 # gets songs fron recentsongs and sorts by last three months

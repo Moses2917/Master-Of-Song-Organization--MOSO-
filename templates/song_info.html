@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .song-info {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to our Song Information Page</h1>
+        <form method="post">
+            <p>Please select the book:</p>
+            <select name="book">
+                <option value="REDergaran">New</option>
+                <option value="ergaran">Ergaran</option>
+                <option value="wordSongsIndex">Old</option>
+            </select>
+            <p>Please enter the song number:</p>
+            <input type="text" name="songNum">
+            <input type="submit" value="Submit">
+        </form>
+        {% if song_info %}
+            <div class="song-info">
+                <p>Key: {{ song_info.key }}</p>
+                <p>Speed/Tempo: {{ song_info["speed/tempo"] }}</p>
+                <p>Style: {{ song_info.style }}</p>
+                <p>Opening Song: {{ song_info.opening_Song }}</p>
+                <p>Worship Song: {{ song_info.Worship_Song }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
