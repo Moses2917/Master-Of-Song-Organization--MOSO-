@@ -3,7 +3,13 @@
         "1": {
             "Title": "Եղբայրնե՛ր, ցնծացե՛ք",
             "latestVersion": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx",
-            "v1": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx"
+            "v1": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx",
+            "key": "",
+            "speed": "Fast",
+            "style": "",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": ""
         },
         "10": {
             "Title": "Աստված իմ, երբ հոգիս նայի",
@@ -22,8 +28,11 @@
         },
         "115": {
             "Title": "Ուրախ եղեք, ո՛վ արդարներ",
-            "latestVersion": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ.docx",
-            "v1": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ.docx"
+            "latestVersion": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v4.docx",
+            "v1": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ.docx",
+            "v2": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v2.docx",
+            "v3": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v3.docx",
+            "v4": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v4.docx"
         },
         "125": {
             "Title": "Փրկի՛չ, գիտեիր հոգուս հույզերը",
@@ -254,7 +263,14 @@
         "312": {
             "Title": "Մեղքի համար մեռած եմ",
             "latestVersion": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx",
-            "v1": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx"
+            "v1": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx",
+            "key": "F",
+            "speed": "95",
+            "style": "Samba",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": ""
         },
         "314": {
             "Title": "Երբ ճանապարհ եմ դուրս գալիս",
@@ -284,7 +300,14 @@
         "340": {
             "Title": "Հիսո՛ւս, Դու ես իմ սերը հավիտյան",
             "latestVersion": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան.docx",
-            "v1": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան.docx"
+            "v1": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան.docx",
+            "key": "D",
+            "speed": "103",
+            "style": "Pop",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "345": {
             "Title": "Փառք ու պատիվ Քեզ, ո՛վ Հայր իմ Աստված",
@@ -298,8 +321,16 @@
         },
         "35": {
             "Title": "",
-            "latestVersion": "Երգարան Word Files/35 .docx",
-            "v1": "Երգարան Word Files/35 .docx"
+            "latestVersion": "Երգարան Word Files/35  v2.docx",
+            "v1": "Երգարան Word Files/35 .docx",
+            "v2": "Երգարան Word Files/35  v2.docx",
+            "key": "E",
+            "speed": "100",
+            "style": "Swing ",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comment": null
         },
         "350": {
             "Title": "Այսօր ուրախության օր է",
@@ -354,8 +385,9 @@
         },
         "372": {
             "Title": "Հիսո՛ւս, սիրում ենք Քեզ",
-            "latestVersion": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ.docx",
-            "v1": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ.docx"
+            "latestVersion": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v2.docx",
+            "v1": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ.docx",
+            "v2": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v2.docx"
         },
         "379": {
             "Title": "Ես երբեք չեմ եղել իմ տան մեջ",
@@ -608,8 +640,9 @@
         },
         "527": {
             "Title": "Շնորհակալ ենք, Տե՛ր Հիսուս",
-            "latestVersion": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս.docx",
-            "v1": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս.docx"
+            "latestVersion": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս v2.docx",
+            "v1": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս.docx",
+            "v2": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս v2.docx"
         },
         "528": {
             "Title": "Քրիստոսն է ժայռը Քորեբի, որ կբխե",
@@ -655,7 +688,14 @@
             "Title": "Հիանալի, հիանալի, Հիսուսն է",
             "latestVersion": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v2.docx",
             "v1": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է.docx",
-            "v2": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v2.docx"
+            "v2": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v2.docx",
+            "key": "D",
+            "speed": "92",
+            "style": "Waltz ",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P1-1"
         },
         "556": {
             "Title": "",
@@ -805,7 +845,14 @@
         "64": {
             "Title": "Տիրոջ կվստահիս կյանքիդ մեջ բոլոր",
             "latestVersion": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր.docx",
-            "v1": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր.docx"
+            "v1": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր.docx",
+            "key": "F",
+            "speed": "95",
+            "style": "Samba",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": ""
         },
         "644": {
             "Title": "Փառաբանություններ, օվսաննաներ",
@@ -874,13 +921,24 @@
         },
         "711": {
             "Title": "Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս",
-            "latestVersion": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս.docx",
-            "v1": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս.docx"
+            "latestVersion": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v4.docx",
+            "v1": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս.docx",
+            "v2": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v2.docx",
+            "v3": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v3.docx",
+            "v4": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v4.docx"
         },
         "724": {
             "Title": "Մի՞թե առանց պտուղներ",
-            "latestVersion": "Երգարան Word Files/724 Մի՞թե առանց պտուղներ.docx",
-            "v1": "Երգարան Word Files/724 Մի՞թե առանց պտուղներ.docx"
+            "latestVersion": "Երգարան Word Files/724 Մի՞թե առանց պտուղներ v2.docx",
+            "v1": "Երգարան Word Files/724 Մի՞թե առանց պտուղներ.docx",
+            "v2": "Երգարան Word Files/724 Մի՞թե առանց պտուղներ v2.docx",
+            "key": "C",
+            "speed": "98",
+            "style": "Samba",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": ""
         },
         "727": {
             "Title": "Սիրո աղբյուր, թագավորի՛ր իմ մեջ,",
@@ -984,7 +1042,14 @@
             "Title": "Ո՞վ է, որ մեզ միշտ հսկում է",
             "latestVersion": "Երգարան Word Files/517 Ո՞վ է, որ մեզ միշտ հսկում է v2.docx",
             "v1": "RED Words/517.docx",
-            "v2": "Երգարան Word Files/517 Ո՞վ է, որ մեզ միշտ հսկում է v2.docx"
+            "v2": "Երգարան Word Files/517 Ո՞վ է, որ մեզ միշտ հսկում է v2.docx",
+            "key": "Em",
+            "speed": "75",
+            "style": "Pop",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "16/8",
+            "Comments": "Pop-P1-4"
         },
         "424": {
             "Title": "Հաճախ ես ընկնում եմ, բայց գիտեմ՝ սիրում ես",
@@ -1055,7 +1120,14 @@
             "Title": "Զարմանալի գաղտնիք կա Քո սիրո մեջ,",
             "latestVersion": "Երգարան Word Files/348 Զարմանալի գաղտնիք կա Քո սիրո մեջ, v2.docx",
             "v1": "RED Words/348.docx",
-            "v2": "Երգարան Word Files/348 Զարմանալի գաղտնիք կա Քո սիրո մեջ, v2.docx"
+            "v2": "Երգարան Word Files/348 Զարմանալի գաղտնիք կա Քո սիրո մեջ, v2.docx",
+            "key": "Em",
+            "speed": "65",
+            "style": "Ballad",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "228": {
             "Title": "Թևերդ, Տե՛ր իմ, թող ըլլան",
@@ -1098,6 +1170,67 @@
             "latestVersion": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v2.docx",
             "v1": "RED Words/239.docx",
             "v2": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v2.docx"
+        },
+        "SongNum": {
+            "Title": "Հիսո՛ւս, Դու ես իմ սերը հավիտյան",
+            "latestVersion": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան.docx",
+            "v1": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան.docx",
+            "key": "D",
+            "speed": "103",
+            "style": "Pop",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
+        },
+        "": {
+            "Title": "",
+            "latestVersion": "Երգարան Word Files/  v1.docx",
+            "v1": "Երգարան Word Files/  v1.docx"
+        },
+        "324": {
+            "Title": "Ու սրտիս անհուն թևերով խնդուն,",
+            "latestVersion": "Երգարան Word Files/324 Ու սրտիս անհուն թևերով խնդուն, v2.docx",
+            "v1": "RED Words/324.docx",
+            "key": "Em",
+            "speed": "",
+            "style": "",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "3/4",
+            "v2": "Երգարան Word Files/324 Ու սրտիս անհուն թևերով խնդուն, v2.docx"
+        },
+        "74": {
+            "Title": "Փառք է քայլել Անոր հետ,",
+            "latestVersion": "Երգարան Word Files/74 Փառք է քայլել Անոր հետ, v2.docx",
+            "v1": "RED Words/74.docx",
+            "v2": "Երգարան Word Files/74 Փառք է քայլել Անոր հետ, v2.docx",
+            "key": "A",
+            "speed": "100",
+            "style": "swing",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comment": null
+        },
+        "98": {
+            "Title": "Սուրբ ես (3), Տե՛ր,",
+            "latestVersion": "Երգարան Word Files/98 Սուրբ ես (3), Տե՛ր, v2.docx",
+            "v1": "RED Words/98.docx",
+            "v2": "Երգարան Word Files/98 Սուրբ ես (3), Տե՛ր, v2.docx",
+            "key": "D",
+            "speed": "85",
+            "style": "Waltz ",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
+        },
+        "708": {
+            "Title": "Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5):",
+            "latestVersion": "Երգարան Word Files/708 Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5): v2.docx",
+            "v1": "RED Words/708.docx",
+            "v2": "Երգարան Word Files/708 Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5): v2.docx"
         }
     }
 }

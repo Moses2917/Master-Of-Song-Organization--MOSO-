@@ -3,7 +3,13 @@
         "14": {
             "Title": "Վստահ եմ` Տերս պիտ պատրաստե ճամփաս",
             "latestVersion": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
-            "v1": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx"
+            "v1": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
+            "key": "A Minor Key",
+            "speed": "Fast",
+            "timeSig": "3/4",
+            "style": "Ballad",
+            "opening_Song": "True",
+            "Worship_Song": "False"
         },
         "151": {
             "Title": "Ծափ զարկ, աշխարհ, ցնծա այսօր",
@@ -32,8 +38,10 @@
         },
         "266": {
             "Title": "Այսպես է ասում Տերը քո ստեղծողը",
-            "latestVersion": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը.docx",
-            "v1": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը.docx"
+            "latestVersion": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v3.docx",
+            "v1": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը.docx",
+            "v2": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v2.docx",
+            "v3": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v3.docx"
         },
         "281": {
             "Title": "Վիշտ ու ցավով պատած հոգի",
@@ -72,8 +80,10 @@
         },
         "312": {
             "Title": "Թագավորների Թագավոր",
-            "latestVersion": "Word songs/312 Թագավորների Թագավոր.docx",
-            "v1": "Word songs/312 Թագավորների Թագավոր.docx"
+            "latestVersion": "Word songs/312 Թագավորների Թագավոր v3.docx",
+            "v1": "Word songs/312 Թագավորների Թագավոր.docx",
+            "v2": "Word songs/312 Թագավորների Թագավոր v2.docx",
+            "v3": "Word songs/312 Թագավորների Թագավոր v3.docx"
         },
         "313": {
             "Title": "Աստված մարդ չէ որ սուտ խոսի",
@@ -92,9 +102,9 @@
         },
         "319": {
             "Title": "Բարձրացնենք մեր ձեռքերը դոպի վերը ",
-            "latestVersion": "C:/Users/Armne/OneDrive/Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx",
+            "latestVersion": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx",
             "v1": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը.docx",
-            "v2": "C:/Users/Armne/OneDrive/Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx"
+            "v2": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx"
         },
         "320": {
             "Title": "Հիսուս դու ես իմ Տերը",
@@ -123,8 +133,9 @@
         },
         "358": {
             "Title": "Եհովան ինգն է իմ Աստվածն է",
-            "latestVersion": "Word songs/358 Եհովան ինգն է իմ Աստվածն է.docx",
-            "v1": "Word songs/358 Եհովան ինգն է իմ Աստվածն է.docx"
+            "latestVersion": "Word songs/358 Եհովան ինգն է իմ Աստվածն է v2.docx",
+            "v1": "Word songs/358 Եհովան ինգն է իմ Աստվածն է.docx",
+            "v2": "Word songs/358 Եհովան ինգն է իմ Աստվածն է v2.docx"
         },
         "360": {
             "Title": "Երբ կյանքի վիճակներ կբեռնավորեն քեզ",
@@ -208,8 +219,9 @@
         },
         "417": {
             "Title": "Մեծարում եմ անունդ ով Տեր",
-            "latestVersion": "Word songs/417 Մեծարում եմ անունդ ով Տեր.docx",
-            "v1": "Word songs/417 Մեծարում եմ անունդ ով Տեր.docx"
+            "latestVersion": "Word songs/417 Մեծարում եմ անունդ ով Տեր v2.docx",
+            "v1": "Word songs/417 Մեծարում եմ անունդ ով Տեր.docx",
+            "v2": "Word songs/417 Մեծարում եմ անունդ ով Տեր v2.docx"
         },
         "421": {
             "Title": "Համեցե՛ք Տիրոջ խնջույքին",
@@ -218,8 +230,9 @@
         },
         "424": {
             "Title": "Երբ կենանք աղոթքի",
-            "latestVersion": "Word songs/424 Երբ կենանք աղոթքի.docx",
-            "v1": "Word songs/424 Երբ կենանք աղոթքի.docx"
+            "latestVersion": "Word songs/424 Երբ կենանք աղոթքի v2.docx",
+            "v1": "Word songs/424 Երբ կենանք աղոթքի.docx",
+            "v2": "Word songs/424 Երբ կենանք աղոթքի v2.docx"
         },
         "425": {
             "Title": "Առաջնորդող մի ձեռք ունեմ",
@@ -278,8 +291,9 @@
         },
         "473": {
             "Title": "Տեր քո ճամփաները ցույց տուր մեզ",
-            "latestVersion": "Word songs/473 Տեր քո ճամփաները ցույց տուր մեզ.docx",
-            "v1": "Word songs/473 Տեր քո ճամփաները ցույց տուր մեզ.docx"
+            "latestVersion": "Word songs/473 Տեր քո ճամփաները ցույց տուր մեզ v2.docx",
+            "v1": "Word songs/473 Տեր քո ճամփաները ցույց տուր մեզ.docx",
+            "v2": "Word songs/473 Տեր քո ճամփաները ցույց տուր մեզ v2.docx"
         },
         "474": {
             "Title": "Քո ձեռքը շինեց ինձ,հաստատեց",
@@ -328,8 +342,10 @@
         },
         "502": {
             "Title": "",
-            "latestVersion": "Word songs/502 .docx",
-            "v1": "Word songs/502 .docx"
+            "latestVersion": "Word songs/502  v3.docx",
+            "v1": "Word songs/502 .docx",
+            "v2": "Word songs/502  v2.docx",
+            "v3": "Word songs/502  v3.docx"
         },
         "503": {
             "Title": "",
@@ -338,13 +354,15 @@
         },
         "504": {
             "Title": "Շփոթված ու մոլորված",
-            "latestVersion": "Word songs/504 Շփոթված ու մոլորված.docx",
-            "v1": "Word songs/504 Շփոթված ու մոլորված.docx"
+            "latestVersion": "Word songs/504 Շփոթված ու մոլորված v2.docx",
+            "v1": "Word songs/504 Շփոթված ու մոլորված.docx",
+            "v2": "Word songs/504 Շփոթված ու մոլորված v2.docx"
         },
         "505": {
             "Title": "Գերել ես սիրտը իմ Քո սիրով",
-            "latestVersion": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով.docx",
-            "v1": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով.docx"
+            "latestVersion": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v2.docx",
+            "v1": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով.docx",
+            "v2": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v2.docx"
         },
         "506": {
             "Title": "Սա է Ծառան Իմ, ում կհավանեմ,",
@@ -363,8 +381,10 @@
         },
         "510": {
             "Title": "",
-            "latestVersion": "Word songs/510.docx",
-            "v1": "Word songs/510.docx"
+            "latestVersion": "Word songs/510  v3.docx",
+            "v1": "Word songs/510.docx",
+            "v2": "Word songs/510  v2.docx",
+            "v3": "Word songs/510  v3.docx"
         },
         "511": {
             "Title": "Աղաղակեցեք դեաի Տեր",
@@ -383,8 +403,9 @@
         },
         "514": {
             "Title": "Հայր մեր ահա ժողովուրդըդ",
-            "latestVersion": "Word songs/514 Հայր մեր ահա ժողովուրդըդ.docx",
-            "v1": "Word songs/514 Հայր մեր ահա ժողովուրդըդ.docx"
+            "latestVersion": "Word songs/514 Հայր մեր ահա ժողովուրդըդ v2.docx",
+            "v1": "Word songs/514 Հայր մեր ահա ժողովուրդըդ.docx",
+            "v2": "Word songs/514 Հայր մեր ահա ժողովուրդըդ v2.docx"
         },
         "515": {
             "Title": "Ամենից վեր, վեր երկնից",
@@ -393,8 +414,11 @@
         },
         "517": {
             "Title": "Փառաբանություններ, Օվսաննաներ",
-            "latestVersion": "Word songs/517 Փառաբանություններ, Օվսաննաներ.docx",
-            "v1": "Word songs/517 Փառաբանություններ, Օվսաննաներ.docx"
+            "latestVersion": "Word songs/517 Փառաբանություններ, Օվսաննաներ v4.docx",
+            "v1": "Word songs/517 Փառաբանություններ, Օվսաննաներ.docx",
+            "v2": "Word songs/517 Փառաբանություններ, Օվսաննաներ v2.docx",
+            "v3": "Word songs/517 Փառաբանություններ, Օվսաննաներ v3.docx",
+            "v4": "Word songs/517 Փառաբանություններ, Օվսաննաներ v4.docx"
         },
         "518": {
             "Title": "Տերն է իմ լույսն ու փրկությունը",
@@ -428,8 +452,9 @@
         },
         "533": {
             "Title": "Տրտմության մեջ իմ հոգու՝ հույսն ես միակ",
-            "latestVersion": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ.docx",
-            "v1": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ.docx"
+            "latestVersion": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ v2.docx",
+            "v1": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ.docx",
+            "v2": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ v2.docx"
         },
         "534": {
             "Title": "Շալոմ բարեկամներ Տիրոջմով շալոմ",
@@ -558,13 +583,15 @@
         },
         "578": {
             "Title": "Տերն է փրկությունը մեր",
-            "latestVersion": "Word songs/578 Տերն է փրկությունը մեր.docx",
-            "v1": "Word songs/578 Տերն է փրկությունը մեր.docx"
+            "latestVersion": "Word songs/578 Տերն է փրկությունը մեր v2.docx",
+            "v1": "Word songs/578 Տերն է փրկությունը մեր.docx",
+            "v2": "Word songs/578 Տերն է փրկությունը մեր v2.docx"
         },
         "579": {
             "Title": "Հիսուս Հիսուս",
-            "latestVersion": "Word songs/579 Հիսուս Հիսուս.docx",
-            "v1": "Word songs/579 Հիսուս Հիսուս.docx"
+            "latestVersion": "Word songs/579 Հիսուս Հիսուս v2.docx",
+            "v1": "Word songs/579 Հիսուս Հիսուս.docx",
+            "v2": "Word songs/579 Հիսուս Հիսուս v2.docx"
         },
         "580": {
             "Title": "Կատարյալ է Օրենքը Քո՝ նորոգում է իմ հոգին",
@@ -583,14 +610,15 @@
         },
         "599": {
             "Title": "Շալոմ բարեկամնէր Տիրոջմով շալոմ",
-            "latestVersion": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ.docx",
-            "v1": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ.docx"
+            "latestVersion": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v3.docx",
+            "v1": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ.docx",
+            "v2": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v2.docx",
+            "v3": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v3.docx"
         },
         "602": {
             "Title": "Սիրիր Հիսուսին ամեն բանից առավել",
-            "latestVersion": "C:/Users/Armne/OneDrive/Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել v2.docx",
-            "v1": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել.docx",
-            "v2": "C:/Users/Armne/OneDrive/Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել v2.docx"
+            "latestVersion": "C:/Users/Armne/OneDrive/Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել.docx",
+            "v1": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել.docx"
         },
         "603": {
             "Title": "Օրհնենք(3) Գառնուկին(2)",
@@ -654,8 +682,10 @@
         },
         "634": {
             "Title": "Երբ օրհնյալ Տերն հպավ շուրթիս",
-            "latestVersion": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս.docx",
-            "v1": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս.docx"
+            "latestVersion": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v3.docx",
+            "v1": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս.docx",
+            "v2": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v2.docx",
+            "v3": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v3.docx"
         },
         "636": {
             "Title": "Դուն որ գիտես ով Տեր",
@@ -669,13 +699,16 @@
         },
         "643": {
             "Title": "Ով Տեր իմ Աստված",
-            "latestVersion": "Word songs/643 Ով Տեր իմ Աստված.docx",
-            "v1": "Word songs/643 Ով Տեր իմ Աստված.docx"
+            "latestVersion": "Word songs/643 Ով Տեր իմ Աստված v3.docx",
+            "v1": "Word songs/643 Ով Տեր իմ Աստված.docx",
+            "v2": "Word songs/643 Ով Տեր իմ Աստված v2.docx",
+            "v3": "Word songs/643 Ով Տեր իմ Աստված v3.docx"
         },
         "644": {
             "Title": "Գալիս եմ ներկայությանդ մեջ",
-            "latestVersion": "Word songs/644 Գալիս եմ ներկայությանդ մեջ.docx",
-            "v1": "Word songs/644 Գալիս եմ ներկայությանդ մեջ.docx"
+            "latestVersion": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v2.docx",
+            "v1": "Word songs/644 Գալիս եմ ներկայությանդ մեջ.docx",
+            "v2": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v2.docx"
         },
         "645": {
             "Title": "Փառք ու պատիվ Քեզ, ով հայր իմ Աստված",
@@ -684,9 +717,8 @@
         },
         "648": {
             "Title": "Գողգոթայի ճանապարհին ",
-            "latestVersion": "C:/Users/Armne/OneDrive/Word songs/648 Գողգոթայի ճանապարհին  v2.docx",
-            "v1": "Word songs/648 Գողքոթայի ճանապարհին մեկին տեսա.docx",
-            "v2": "C:/Users/Armne/OneDrive/Word songs/648 Գողգոթայի ճանապարհին  v2.docx"
+            "latestVersion": "C:/Users/Armne/OneDrive/Word songs/648 Գողգոթայի ճանապարհին.docx",
+            "v1": "Word songs/648 Գողքոթայի ճանապարհին մեկին տեսա.docx"
         },
         "649": {
             "Title": "Առավոտ է հարության",
@@ -735,8 +767,10 @@
         },
         "662": {
             "Title": "Գոհութուն Աստծո բոլոր սրտով",
-            "latestVersion": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով.docx",
-            "v1": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով.docx"
+            "latestVersion": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v3.docx",
+            "v1": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով.docx",
+            "v2": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v2.docx",
+            "v3": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v3.docx"
         },
         "663": {
             "Title": "Ահա ծնվեց լույսն աշխարհի",
@@ -750,8 +784,9 @@
         },
         "674": {
             "Title": "Քո Հոգով զորությամբ լցրու կյանքս ամբողջ",
-            "latestVersion": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ.docx",
-            "v1": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ.docx"
+            "latestVersion": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ v2.docx",
+            "v1": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ.docx",
+            "v2": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ v2.docx"
         },
         "675": {
             "Title": "Օրհնե Տերը, ով իմ անձս",
@@ -780,8 +815,10 @@
         },
         "682": {
             "Title": "Ես ու իմ տունը Եհովան պիտ պաշտենք",
-            "latestVersion": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք.docx",
-            "v1": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք.docx"
+            "latestVersion": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v3.docx",
+            "v1": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք.docx",
+            "v2": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v2.docx",
+            "v3": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v3.docx"
         },
         "683": {
             "Title": "Տառապանքով լի մեղքերովս լի",
@@ -790,8 +827,11 @@
         },
         "684": {
             "Title": "Դու Տեր ես Դու իմ Էլոհիմ",
-            "latestVersion": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ.docx",
-            "v1": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ.docx"
+            "latestVersion": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v4.docx",
+            "v1": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ.docx",
+            "v2": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v2.docx",
+            "v3": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v3.docx",
+            "v4": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v4.docx"
         },
         "685": {
             "Title": "Արժանի է Գառն Աստծո",
@@ -800,8 +840,9 @@
         },
         "688": {
             "Title": "Տեր բարի",
-            "latestVersion": "Word songs/688 Տեր բարի.docx",
-            "v1": "Word songs/688 Տեր բարի.docx"
+            "latestVersion": "Word songs/688 Տեր բարի v2.docx",
+            "v1": "Word songs/688 Տեր բարի.docx",
+            "v2": "Word songs/688 Տեր բարի v2.docx"
         },
         "689": {
             "Title": "Տեր կաղոթենք",
@@ -850,23 +891,29 @@
         },
         "700": {
             "Title": "Փառաբանենք Տիրոջը ով նրա սուրբերը",
-            "latestVersion": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը.docx",
-            "v1": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը.docx"
+            "latestVersion": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v2.docx",
+            "v1": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը.docx",
+            "v2": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v2.docx"
         },
         "702": {
             "Title": "Սիրում եմ քեզ տեր Հիսուս",
-            "latestVersion": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս.docx",
-            "v1": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս.docx"
+            "latestVersion": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս v2.docx",
+            "v1": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս.docx",
+            "v2": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս v2.docx"
         },
         "705": {
             "Title": "Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել",
-            "latestVersion": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել.docx",
-            "v1": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել.docx"
+            "latestVersion": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել v3.docx",
+            "v1": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել.docx",
+            "v2": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել v2.docx",
+            "v3": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել v3.docx"
         },
         "708": {
             "Title": "Իմ Հիսուս, իմ Փրկիչ",
-            "latestVersion": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ.docx",
-            "v1": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ.docx"
+            "latestVersion": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ v3.docx",
+            "v1": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ.docx",
+            "v2": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ v2.docx",
+            "v3": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ v3.docx"
         },
         "709": {
             "Title": "Ով էր որ ինձ նոր կյանք պարգևեց",
@@ -885,18 +932,23 @@
         },
         "715": {
             "Title": "Մտել եմ Սրբություն Սրբոցդ",
-            "latestVersion": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ.docx",
-            "v1": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ.docx"
+            "latestVersion": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ v2.docx",
+            "v1": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ.docx",
+            "v2": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ v2.docx"
         },
         "716": {
             "Title": "Տերն է իմ արքաների Արքան",
-            "latestVersion": "Word songs/716 Տերն է իմ արքաների Արքան.docx",
-            "v1": "Word songs/716 Տերն է իմ արքաների Արքան.docx"
+            "latestVersion": "Word songs/716 Տերն է իմ արքաների Արքան v4.docx",
+            "v1": "Word songs/716 Տերն է իմ արքաների Արքան.docx",
+            "v2": "Word songs/716 Տերն է իմ արքաների Արքան v2.docx",
+            "v3": "Word songs/716 Տերն է իմ արքաների Արքան v3.docx",
+            "v4": "Word songs/716 Տերն է իմ արքաների Արքան v4.docx"
         },
         "718": {
             "Title": "Գաղգոթայի ճամփան հեռու է ու փշոտ",
-            "latestVersion": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ.docx",
-            "v1": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ.docx"
+            "latestVersion": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ v2.docx",
+            "v1": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ.docx",
+            "v2": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ v2.docx"
         },
         "720": {
             "Title": "Թույլ տուր մնամ",
@@ -945,8 +997,9 @@
         },
         "734": {
             "Title": "Դու ապավենն ես իմ սրտի",
-            "latestVersion": "Word songs/734 Դու ապավենն ես իմ սրտի.docx",
-            "v1": "Word songs/734 Դու ապավենն ես իմ սրտի.docx"
+            "latestVersion": "Word songs/734 Դու ապավենն ես իմ սրտի v2.docx",
+            "v1": "Word songs/734 Դու ապավենն ես իմ սրտի.docx",
+            "v2": "Word songs/734 Դու ապավենն ես իմ սրտի v2.docx"
         },
         "735": {
             "Title": "Թարմացրու դու ինձ նորացրու դու սիրտը իմ",
@@ -954,8 +1007,8 @@
             "v1": "Word songs/735 Թարմացրու դու ինձ նորացրու դու սիրտը իմ.docx"
         },
         "736": {
-            "Title": "",
-            "latestVersion": "Word songs/736 .docx",
+            "Title": "Կադոշ Կադոշ",
+            "latestVersion": "Word songs/736.docx",
             "v1": "Word songs/736 .docx"
         },
         "738": {
@@ -1040,8 +1093,10 @@
         },
         "772": {
             "Title": "Բարձրյալի ծածկոցի տակ բնակվողը",
-            "latestVersion": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը.docx",
-            "v1": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը.docx"
+            "latestVersion": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v3.docx",
+            "v1": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը.docx",
+            "v2": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v2.docx",
+            "v3": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v3.docx"
         },
         "773": {
             "Title": "Տեր չկա մեկը քեզ պես",
@@ -1120,8 +1175,10 @@
         },
         "790": {
             "Title": "Տեր Դու Սուրբ ես Սուրբ ես",
-            "latestVersion": "Word songs/790 Տեր Դու Սուրբ ես Սուրբ ես.docx",
-            "v1": "Word songs/790 Տեր Դու Սուրբ ես Սուրբ ես.docx"
+            "latestVersion": "Word songs/790 Տեր Դու Սուրբ ես Սուրբ ես v3.docx",
+            "v1": "Word songs/790 Տեր Դու Սուրբ ես Սուրբ ես.docx",
+            "v2": "Word songs/790 Տեր Դու Սուրբ ես Սուրբ ես v2.docx",
+            "v3": "Word songs/790 Տեր Դու Սուրբ ես Սուրբ ես v3.docx"
         },
         "792": {
             "Title": "Տոնեցեք օրը փրկության",
@@ -1160,8 +1217,9 @@
         },
         "799": {
             "Title": "Դու, Տե՜ր գիտես ամեն մեկին",
-            "latestVersion": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին.docx",
-            "v1": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին.docx"
+            "latestVersion": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx",
+            "v1": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին.docx",
+            "v2": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx"
         },
         "800": {
             "Title": "Սիրիր, Սիրիր քո Տեր Աստծուն,",
@@ -1182,6 +1240,37 @@
             "Title": "",
             "latestVersion": "Word songs/903 .docx",
             "v1": "Word songs/903 .docx"
+        },
+        "610": {
+            "Title": "",
+            "latestVersion": "Word songs/610  v1.docx",
+            "v1": "Word songs/610  v1.docx"
+        },
+        "429": {
+            "Title": "",
+            "latestVersion": "Word songs/429  v1.docx",
+            "v1": "Word songs/429  v1.docx"
+        },
+        "-774-": {
+            "Title": "",
+            "latestVersion": "Word songs/-774-  v2.docx",
+            "v1": "Word songs/-774-  v1.docx",
+            "v2": "Word songs/-774-  v2.docx"
+        },
+        "495": {
+            "Title": "",
+            "latestVersion": "Word songs/495  v1.docx",
+            "v1": "Word songs/495  v1.docx"
+        },
+        "": {
+            "Title": "",
+            "latestVersion": "Word songs/  v1.docx",
+            "v1": "Word songs/  v1.docx"
+        },
+        "3 ": {
+            "Title": "",
+            "latestVersion": "Word songs/3   v1.docx",
+            "v1": "Word songs/3   v1.docx"
         }
     }
 }

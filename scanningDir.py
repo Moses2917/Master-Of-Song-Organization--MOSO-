@@ -74,20 +74,30 @@ def getAllNums():
     startDate = datetime.datetime(year=2023,month=1,day=17,)
     with os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(os.environ.get("USERNAME"))) as folders:
         for entry in folders:
-            print(entry.name)
-            folderDate = datetime.datetime.strptime(entry.name, '%m.%Y')
-            if "." in entry.name and startDate >= folderDate:
-                f.write("\n" + entry.path)
-                with os.scandir(entry.path) as folderFiles:
-                    for file in folderFiles:
-                        fileDate = datetime.datetime.strptime(file.name, '%m.%d.%y')
-                        if startDate >= fileDate and ".docx" in file.name:
-                            f.write("\nFilename/Date: " + file.name + "\nSongs in that file: ")
-                            f.write(getNums(file.path))
-
+            if re.match(r'\d',entry.name):
+                # print(entry.path)
+                if "." in entry.name and datetime.datetime.strptime(entry.name, '%m.%Y') >= startDate: #this means it is something like mm.YY
+                    # print(entry.name)
+                    # print("\nFilename/Date: {}".format(entry.name))
+                    f.write("\nFilename/Date: {}".format(entry.name))
+                    for condesedFolders in os.scandir(entry.path): #gets all the docx files
+                       # print("\nSongs in that file: "+ getNums(condesedFolders.path))
+                        f.write("\nSongs in that file: "+ getNums(condesedFolders.path))
+                else:
+                    if not "." in entry.name and datetime.datetime.strptime(entry.name, '%Y') >= datetime.datetime.strptime('2023', '%Y'):
+                        for condesedFileFolders in os.scandir(entry.path):
+                            # print(condesedFileFolders)
+                            if "." in condesedFileFolders.name and datetime.datetime.strptime(condesedFileFolders.name, '%m.%Y') >= startDate:  # this means it is something like mm.YY
+                                # print(entry.name)
+                                # print("\nFilename/Date: {}".format(entry.name))
+                                f.write("\nFilename/Date: {}".format(condesedFileFolders.name))
+                                for condesedFoldersDocx in os.scandir(entry.path):  # gets all the docx files
+                                    # print("\nSongs in that file: "+ getNums(condesedFolders.path))
+                                    f.write("\nSongs in that file: " + getNums(condesedFoldersDocx.path))
     f.close()
+
 getAllNums()
-# getAllDir()
+
 # def songChecker(book, songNum):
 # gets songs fron recentsongs and sorts by last three months
 def songCollector(): 

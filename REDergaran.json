@@ -118,7 +118,12 @@
         "12": {
             "Title": "Քա՛ջ եղեք, ո՛վ եղբայրներս,",
             "latestVersion": "RED Words/12.docx",
-            "v1": "RED Words/12.docx"
+            "v1": "RED Words/12.docx",
+            "key": "",
+            "speed": "",
+            "style": "",
+            "opening_Song": "",
+            "Worship_Song": ""
         },
         "120": {
             "Title": "Ո՜վ բարերար, Փրկիչ Աստուած,",
@@ -543,7 +548,14 @@
         "197": {
             "Title": "Դու եկար այս աշխարհ",
             "latestVersion": "RED Words/197.docx",
-            "v1": "RED Words/197.docx"
+            "v1": "RED Words/197.docx",
+            "key": "Dm",
+            "speed": "95",
+            "style": "",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "198": {
             "Title": "Գողգոթայի սարը ելա երազով,",
@@ -1253,7 +1265,14 @@
         "324": {
             "Title": "Ու սրտիս անհուն թևերով խնդուն,",
             "latestVersion": "RED Words/324.docx",
-            "v1": "RED Words/324.docx"
+            "v1": "RED Words/324.docx",
+            "key": "Em",
+            "speed": "",
+            "style": "",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "3/4",
+            "Comment": null
         },
         "325": {
             "Title": "Երկինքը Աստծո փառքը կպատմե,",
@@ -1393,7 +1412,13 @@
         "35": {
             "Title": "Երբ հնչե մեծ փողն վերջին,",
             "latestVersion": "RED Words/35.docx",
-            "v1": "RED Words/35.docx"
+            "v1": "RED Words/35.docx",
+            "key": "E",
+            "speed": "100",
+            "style": "Swing",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4"
         },
         "350": {
             "Title": "Այսօր ուրախության օր է,",
@@ -2053,7 +2078,14 @@
         "469": {
             "Title": "Արարիչ երկնքի, որ երկիրն արարեցիր,",
             "latestVersion": "RED Words/469.docx",
-            "v1": "RED Words/469.docx"
+            "v1": "RED Words/469.docx",
+            "key": "Am",
+            "speed": "68",
+            "style": "Ballad ",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "47": {
             "Title": "Ինչպես բարեկամ է Տերը,",
@@ -3458,7 +3490,14 @@
         "724": {
             "Title": "Մի՞թե առանց պտուղներ",
             "latestVersion": "RED Words/724.docx",
-            "v1": "RED Words/724.docx"
+            "v1": "RED Words/724.docx",
+            "key": "",
+            "speed": "",
+            "style": "",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "",
+            "Comment": null
         },
         "725": {
             "Title": "Ծաղիկներն են, որ պարտեզին կտան",
@@ -4949,6 +4988,18 @@
             "Title": "Երկնքի վրա բարձրացի՛ր,",
             "latestVersion": "RED Words/999.docx",
             "v1": "RED Words/999.docx"
+        },
+        "SongNum": {
+            "Title": "Դու եկար այս աշխարհ",
+            "latestVersion": "RED Words/197.docx",
+            "v1": "RED Words/197.docx",
+            "key": "Dm",
+            "speed": "95",
+            "style": "",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         }
     }
 }
