@@ -48,7 +48,14 @@
         "142": {
             "Title": "Տե՜ր գթության, աղբյուր ողորմության",
             "latestVersion": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության.docx",
-            "v1": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության.docx"
+            "v1": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության.docx",
+            "key": "Dm",
+            "speed": "113",
+            "style": "Bossa Nova",
+            "opening_Song": "",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P3-4"
         },
         "146": {
             "Title": "Լույսը ձեռքիդ առա՛ջ գնա, ո՛վ զինվոր",
@@ -1172,16 +1179,16 @@
             "v2": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v2.docx"
         },
         "SongNum": {
-            "Title": "Հիսո՛ւս, Դու ես իմ սերը հավիտյան",
-            "latestVersion": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան.docx",
-            "v1": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան.docx",
-            "key": "D",
-            "speed": "103",
-            "style": "Pop",
+            "Title": "Տե՜ր գթության, աղբյուր ողորմության",
+            "latestVersion": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության.docx",
+            "v1": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության.docx",
+            "key": "Dm",
+            "speed": "113",
+            "style": "Bossa Nova",
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Ballad-P3-4"
         },
         "": {
             "Title": "",
