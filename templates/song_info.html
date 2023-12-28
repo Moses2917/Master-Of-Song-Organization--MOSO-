@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            color: #333;
         }
         .container {
             width: 100%;
@@ -20,7 +21,8 @@
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #007BFF;
+            font-weight: bold;
         }
         form, .song-info, .current-values {
             background-color: #fff;
@@ -28,9 +30,23 @@
             padding: 20px;
             margin-bottom: 20px;
             width: 100%;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
+<!--        .song-info {-->
+<!--            background-color: #f9f9f9;-->
+<!--            border: 1px solid #e0e0e0;-->
+<!--            box-shadow: 0px 0px 1px rgba(0,0,0,0.05);-->
+<!--        }-->
+<!--        .song-info h2 {-->
+<!--            color: #007BFF;-->
+<!--            font-weight: bold;-->
+<!--            margin-bottom: 15px;-->
+<!--        }-->
+<!--        .song-info p {-->
+<!--            line-height: 1.6;-->
+<!--        }-->
         input[type="text"], select {
-            width: 50%;  /* Reduced width */
+            width: 50%;  
             padding: 10px;
             margin-bottom: 10px;
             border-radius: 5px;
@@ -43,6 +59,7 @@
             background-color: #007BFF;
             color: #fff;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         input[type="submit"]:hover {
             background-color: #0056b3;
@@ -53,13 +70,14 @@
                 justify-content: space-between;
             }
             form, .song-info, .current-values {
-                width: 45%;
+                width: 50%;
             }
             input[type="text"], select {
                 width: 50%;
             }
         }
     </style>
+  
 </head>
 <body>
     <h1>Welcome to our Song Information Page</h1>
@@ -71,6 +89,7 @@
                 <option value="ergaran">Երգարան Word Files</option>
                 <option value="wordSongsIndex">Old Book</option>
             </select>
+            <a href="/search">Go to song search</a>
             <p>Please enter the song number:</p>
             <input type="text" name="songNum">
             <input type="submit" value="Submit">
@@ -86,7 +105,7 @@
                     <p>Speed/Tempo: {{ song_info.speed }}</p>
                     <p>Time Signature: {{song_info.timeSig}}</p>
                     <p>Style: {{ song_info.style }}</p>
-                    <p>Opening Song: {{ song_info.opening_Song }}</p>
+                    <p>Song Type: {{ song_info.song_type }}</p>
                     <p>Worship Song: {{ song_info.Worship_Song }}</p>
                     <p>Comments: {{song_info.Comments}}</p>
             </div>
@@ -99,7 +118,15 @@
                     <p>Speed: <input type="text" name="speed" value="{{ song_info.speed}}"></p>
                     <p>Time Signature: <input type="text" name="Time Signature", value="{{song_info.timeSig}}"></p>
                     <p>Style: <input type="text" name="style" value="{{ song_info.style }}"></p>
-                    <p>Opening Song: <input type="text" name="opening_Song" value="{{ song_info.opening_Song }}"></p>
+                    <p>Song Type: 
+                        
+                        <select name="Song Type">
+                            <option value="None">None</option>
+                            <option value="Opening Song">Opening Song</option>
+                            <option value="Worship Song">Worship Song</option>
+                            <option value="Single Song">Single Song</option>
+                        </select>
+                    </p>
                     <p>Worship Song: <input type="text" name="Worship_Song" value="{{ song_info.Worship_Song }}"></p>
                     <p>Comments: <input type="text" name="Comments" value="{{song_info.Comments}}"></p>
                     <input type="submit" value="Save Changes">

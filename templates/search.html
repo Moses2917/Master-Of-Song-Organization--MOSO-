@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please type in your song number and choose the book</title>
+<style>
+    /* General styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+        color: #555;
+    }
+
+    /* Header styles */
+    header {
+        background-color: #3498db;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .large-label {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+
+    /* Form styles */
+    form {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    /* Select styles */
+    select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+        background-color: #fff;
+    }
+
+    /* Submit button styles */
+    input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #2980b9;
+    }
+
+    /* Heading styles */
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+        color: #555;
+    }
+
+    /* Link styles */
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /* Table styles */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        color: #555;
+        font-family: 'Arial', sans-serif;
+        font-size: 16px;
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    /* Table header styles */
+    th {
+        background-color: #3498db;
+        color: #fff;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* Zebra stripe even table rows */
+    tr:nth-child(even) {
+        background-color: #f5f5f5;
+    }
+
+    /* Add a hover effect to table rows */
+    tr:hover {
+        background-color: #e0e0e0;
+        cursor: pointer;
+    }
+
+    /* Table cell styles */
+    td {
+        border: 1px solid #ccc;
+        padding: 8px;
+    }
+</style>
+
+</head>
+    <body>
+        <header>
+            <h1>Please Choose the Book: </h1>
+            <form method="post">
+                <select name="book">
+                    <option value="">--Please choose an option--</option>
+                    <option value="REDergaran" {{ 'selected' if request.form.get('book') == 'REDergaran' }}>RED Ergaran</option>
+                    <option value="ergaran" {{ 'selected' if request.form.get('book') == 'ergaran' }}>Երգարան Word Files</option>
+                    <option value="wordSongsIndex" {{ 'selected' if request.form.get('book') == 'wordSongsIndex' }}>Old Book</option>
+                </select>
+                <label for="query" class="large-label">Search Query:</label>
+                <input type="text" id="query" name="query" value="{{ query }}">
+                <label for="attribute" class="large-label">Search Attribute:</label>
+                <select id="attribute" name="attribute" class="large-label">
+                    <option value="all" {{ 'selected' if attribute == 'all' }}>All Attributes</option>
+                    <option value="Title" {{ 'selected' if attribute == 'Title' }}>Title</option>
+                    <option value="latestVersion" {{ 'selected' if attribute == 'latestVersion' }}>Latest Version</option>
+                    <option value="key" {{ 'selected' if attribute == 'key' }}>Key</option>
+                    <option value="speed" {{ 'selected' if attribute == 'speed' }}>Speed</option>
+                    <option value="timeSig" {{ 'selected' if attribute == 'timeSig' }}>Time Signature</option>
+                    <option value="style" {{ 'selected' if attribute == 'style' }}>Style</option>
+                    <option value="song_type" {{ 'selected' if attribute == 'song_type' }}>Song Type</option>
+                    <option value="Comments" {{ 'selected' if attribute == 'Comments' }}>Comments</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+            <h2><a href="/">Home</a></h2>
+        </header>
+    <table>
+        <tr>
+            <th>SongNum</th>
+            <th>Title</th>
+            <th>Latest Version</th>
+            <th>Key</th>
+            <th>Speed</th>
+            <th>Time Signature</th>
+            <th>Style</th>
+            <th>Song Type</th>
+            <th>Comments</th>
+        </tr>
+    <!--    Reminder: "table_data" is the name of the table var inputted from flask backend-->
+    {% for row, attr in table_data.items() %}
+        <tr>
+            <td>{{row}}</td>
+            <td>{{attr['Title']}}</td>
+            <td>{{attr['latestVersion']}}</td>
+            <td>{{attr['key']}}</td>
+            <td>{{attr['speed']}}</td>
+            <td>{{attr['timeSig']}}</td>
+            <td>{{attr['style']}}</td>
+            <td>{{attr['song_type']}}</td>
+            <td>{{attr['Comments']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    </body>
+</html>

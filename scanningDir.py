@@ -96,7 +96,7 @@ def getAllNums():
                                     f.write("\nSongs in that file: " + getNums(condesedFoldersDocx.path))
     f.close()
 
-getAllNums()
+#getAllNums()
 
 # def songChecker(book, songNum):
 # gets songs fron recentsongs and sorts by last three months
@@ -218,3 +218,86 @@ def getSongDate(songNum:str, book:str):
     print("Found a match in past 3 months",latestDate)
     return latestDate
                 
+def jsonifySongList():
+    TotalLineCt = len(open('RecentSongs.txt','r',encoding='utf-8').readlines())
+    CurrentLine = 0
+    with open("AllSongs.txt",'r',encoding='utf-8') as line:
+    #     while (CurrentLine < TotalLineCt):
+    #
+    #         txt = line.readline()
+    #         if "Filename/Date: " in txt:
+    #             date = re.sub("Filename/Date: ", "", txt)
+    #             date = re.findall(r"(.*\d)", date)[0]
+    #             fileDate = date  # saving this for later to be used in list
+    #
+    #         txtNext = line.readline()
+    #         CurrentLine += 1
+    #
+    #         txtNext = re.sub("Songs in that file: ", "", txtNext)
+    #         # txtNext = re.sub('', '0', txtNext)
+    #         txtNext = re.sub(r"''", 'INVALID', txtNext)
+    #         # print(txtNext) #TODO: fix problem of empty strings
+    #         # print(date2.strftime('%A'))
+    #         songs = re.findall(r'(\d+)', txtNext)
+    #         books = re.findall(r'([A-Za-z]+)', txtNext)  ###
+    #         # print(songs, books)
+    #         # lis = [songs,books]
+    #         list_of_songs.append([songs, books, fileDate])
+    #         CurrentLine += 1
+    #
+    # Split the data into lines
+        data = line.read()
+        data = data.strip().split("\n")
+        result = []
+
+        for line in data:
+            if 'Filename/Date' in line:
+                filename_date = line.split(': ')[1]
+            elif 'Songs in that file' in line:
+                songs_str = line.split(': ')[1]
+                songs_list = eval(songs_str)
+                songs = []
+                for song in songs_list:
+                    song_type, song_id = song
+                    songs.append({"type": song_type, "id": song_id})
+                result.append({"filename_date": filename_date, "songs": songs})
+
+        print(result)
+
+        # Print the result as a JSON
+        import json
+        print(json.dumps(result, indent=4,ensure_ascii=False))
+    return json.dumps(result, indent=4, ensure_ascii=False)
+
+
+
+def search_song(data, song_num, book):
+    found_list = []
+    found = False
+    for item in data:
+        for song in item['songs']:
+            if song['id'] == song_num and song['type'] == book:
+                found_list.append(item)
+                found = True
+                # return item
+    if found:
+        return found_list
+    return None
+
+def songSearch(song_num,book):
+    import json
+    data = json.loads(jsonifySongList())
+
+    # Define the search function
+
+
+    result = search_song(data, song_num, book)
+
+    if result:
+        # print(f"Found song number {song_num} in book {book} in the file for {result['filename_date']}.")
+        for x in result:
+            print(x['filename_date'])
+    else:
+        print(f"Song number {song_num} in book {book} not found.")
+
+# songSearch("320","Old")

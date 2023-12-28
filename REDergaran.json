@@ -8,7 +8,14 @@
         "10": {
             "Title": "Աստված իմ, երբ հոգիս նայի",
             "latestVersion": "RED Words/10.docx",
-            "v1": "RED Words/10.docx"
+            "v1": "RED Words/10.docx",
+            "key": "",
+            "speed": "",
+            "style": "",
+            "song_type": "None",
+            "Worship_Song": "",
+            "timeSig": "",
+            "Comments": ""
         },
         "100": {
             "Title": "",
@@ -123,7 +130,10 @@
             "speed": "",
             "style": "",
             "opening_Song": "",
-            "Worship_Song": ""
+            "Worship_Song": "",
+            "song_type": "Worship Song",
+            "timeSig": "",
+            "Comments": ""
         },
         "120": {
             "Title": "Ո՜վ բարերար, Փրկիչ Աստուած,",
@@ -233,7 +243,14 @@
         "14": {
             "Title": "Միայն Քեզ է կարոտում հոգիս,",
             "latestVersion": "RED Words/14.docx",
-            "v1": "RED Words/14.docx"
+            "v1": "RED Words/14.docx",
+            "key": "N/A",
+            "speed": "",
+            "style": "",
+            "song_type": "Worship Song",
+            "Worship_Song": "",
+            "timeSig": "",
+            "Comments": ""
         },
         "140": {
             "Title": "Երանի՜ հոգով ես Քեզ հանդիպեի,",
@@ -1382,7 +1399,13 @@
         "344": {
             "Title": "Չարը մեզ գերի տարավ ահով ու մեղքով,",
             "latestVersion": "RED Words/344.docx",
-            "v1": "RED Words/344.docx"
+            "v1": "RED Words/344.docx",
+            "key": "",
+            "speed": "",
+            "style": "",
+            "Worship_Song": "",
+            "timeSig": "",
+            "Comments": ""
         },
         "345": {
             "Title": "Փառք ու պատիվ Քեզ, ո՛վ Հայր իմ Աստված,",
@@ -4990,16 +5013,16 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "Դու եկար այս աշխարհ",
-            "latestVersion": "RED Words/197.docx",
-            "v1": "RED Words/197.docx",
-            "key": "Dm",
-            "speed": "95",
+            "Title": "Միայն Քեզ է կարոտում հոգիս,",
+            "latestVersion": "RED Words/14.docx",
+            "v1": "RED Words/14.docx",
+            "key": "N/A",
+            "speed": "",
             "style": "",
-            "opening_Song": "",
+            "song_type": "Worship Song",
             "Worship_Song": "",
-            "timeSig": "12/8",
-            "Comments": "Ballad-P4-1"
+            "timeSig": "",
+            "Comments": ""
         }
     }
 }

@@ -1,74 +1,74 @@
 
-C:\Users\Armne\OneDrive\Երգեր\09.2023
-Filename/Date: 09.03.23
-Songs in that file: [{'417', 'Old'}, {'514', 'Old'}, {'-774-', 'Old'}, {'684', 'Old'}, {'579', 'Old'}, {'533', 'Old'}, {'702', 'Old'}, {'134', 'New'}]
-Filename/Date: 09.05.23
-Songs in that file: [{None, 'New'}, {'New', '216'}, {'222', 'New'}, {'465', 'New'}, {'253', 'New'}, {'New', '360'}]
-Filename/Date: 09.07.23
-Songs in that file: [{'770', 'New'}, {'506', 'New'}, {None, 'New'}, {'1', 'New'}, {'384', 'New'}, {'312', 'New'}]
-Filename/Date: 09.10.23
-Songs in that file: [{'406', 'Old'}, {'304', 'Old'}, {'495', 'Old'}, {'New', '664'}, {'531', 'New'}, {'638', 'Old'}]
-Filename/Date: 09.12.23
-Songs in that file: [{'662', 'New'}, {'New', '223'}, {'New', '325'}, {'309', 'New'}, {'New', '307'}, {'411', 'New'}]
-Filename/Date: 09.14.23
-Songs in that file: [{'43', 'New'}, {'New', '293'}, {'449 ', 'New'}, {'528', 'New'}, {'472', 'New'}, {'363', 'New'}]
-Filename/Date: 09.17.23
-Songs in that file: [{'578', 'Old'}, {'518', 'Old'}, {'498', 'Old'}, {'490', 'Old'}, {'720', 'Old'}, {'733', 'Old'}, {'693', 'Old'}, {'', 'Old'}]
-Filename/Date: 09.19.23
-Songs in that file: [{'527', 'New'}, {'15', 'New'}, {'41', 'New'}, {'170', 'New'}, {'142', 'New'}, {'67', 'New'}]
-Filename/Date: 09.21.23
-Songs in that file: [{'231', 'New'}, {'418', 'New'}, {'665', 'New'}, {'151', 'New'}, {'New', '530'}, {'17', 'New'}]
-Filename/Date: 09.24.23
-Songs in that file: [{'199', 'New'}, {'358', 'Old'}, {'491', 'Old'}, {'503', 'Old'}, {'470', 'Old'}, {'421', 'Old'}, {'471', 'Old'}]
-Filename/Date: 09.26.23
-Songs in that file: [{None, 'New'}, {'New', '216'}, {'63', 'New'}, {'New', '508'}, {'New', '426'}, {'179', 'New'}]
-Filename/Date: 09.28.23
-Songs in that file: [{'529', 'New'}, {None, 'New'}, {'New', '680'}, {'202', 'New'}, {'New', '487'}, {'446', 'New'}]
-C:\Users\Armne\OneDrive\Երգեր\10.2023
+C:\Users\moses\OneDrive\Երգեր\10.2023
 Filename/Date: 10.01.23
-Songs in that file: [{'New', '512'}, {'542', 'New'}, {'689', 'Old'}, {'', 'Old'}, {'660', 'Old'}, {'710', 'Old'}, {'New', '727'}, {'785', 'Old'}]
+Songs in that file: [{'New', '512'}, {'New', '542'}, {'Old', '689'}, {'', 'Old'}, {'660', 'Old'}, {'710', 'Old'}, {'727', 'New'}, {'785', 'Old'}]
 Filename/Date: 10.03.23
-Songs in that file: [{None, 'New'}, {'New', '35'}, {'74', 'New'}, {'724', 'New'}, {'324', 'New'}, {'708', 'New'}]
+Songs in that file: [{'New', None}, {'New', '35'}, {'New', '74'}, {'724', 'New'}, {'324', 'New'}, {'708', 'New'}]
 Filename/Date: 10.05.23
-Songs in that file: [{'549', 'New'}, {'285', 'New'}, {'3251', 'New'}, {'464', 'New'}, {'New', '553'}, {'318', 'New'}]
+Songs in that file: [{'New', '549'}, {'New', '285'}, {'New', '3251'}, {'464', 'New'}, {'New', '553'}, {'318', 'New'}]
 Filename/Date: 10.08.23
-Songs in that file: [{'664', 'Old'}, {'', 'Old'}, {'571', 'Old'}, {'410', 'New'}, {'New', '513'}, {'', 'New'}, {'New', '760'}, {'602', 'Old'}]
+Songs in that file: [{'Old', '664'}, {'', 'Old'}, {'Old', '571'}, {'New', '410'}, {'513', 'New'}, {'', 'New'}, {'760', 'New'}, {'602', 'Old'}]
 Filename/Date: 10.10.23
-Songs in that file: [{'133', 'New'}, {'197', 'New'}, {'154', 'New'}, {'350', 'New'}, {'New', '189'}, {'195', 'New'}]
+Songs in that file: [{'133', 'New'}, {'197', 'New'}, {'New', '154'}, {'350', 'New'}, {'189', 'New'}, {'New', '195'}]
 Filename/Date: 10.12.23
-Songs in that file: [{'106', 'New'}, {'255', 'New'}, {None, 'New'}, {'501', 'New'}, {'New', '90'}, {'139', 'New'}]
+Songs in that file: [{'106', 'New'}, {'New', '255'}, {'New', None}, {'501', 'New'}, {'90', 'New'}, {'139', 'New'}]
 Filename/Date: 10.15.23
-Songs in that file: [{'320', 'Old'}, {'321', 'Old'}, {'738', 'Old'}, {'603', 'Old'}, {'443', 'New'}, {'172', 'New'}, {'817', 'New'}]
+Songs in that file: [{'320', 'Old'}, {'321', 'Old'}, {'Old', '738'}, {'603', 'Old'}, {'443', 'New'}, {'172', 'New'}, {'817', 'New'}]
 Filename/Date: 10.17.23
-Songs in that file: [{'549', 'New'}, {'416', 'New'}, {'33', 'New'}, {'New', '805'}, {'384', 'New'}, {'134', 'New'}]
+Songs in that file: [{'New', '549'}, {'New', '416'}, {'33', 'New'}, {'805', 'New'}, {'New', '384'}, {'New', '134'}]
 Filename/Date: 10.19.23
-Songs in that file: [{'131', 'New'}, {'348', 'New'}, {None, 'New'}, {'399', 'New'}, {'221', 'New'}, {'546', 'New'}]
+Songs in that file: [{'New', '131'}, {'348', 'New'}, {'New', None}, {'399', 'New'}, {'221', 'New'}, {'New', '546'}]
 Filename/Date: 10.22.23
-Songs in that file: [{'599', 'Old'}, {'269', 'New'}, {None, 'Old'}, {'715', 'Old'}, {'688', 'Old'}, {'772', 'Old'}, {'682', 'Old'}, {None, 'Old'}]
+Songs in that file: [{'599', 'Old'}, {'269', 'New'}, {'Old', None}, {'Old', '715'}, {'Old', '688'}, {'772', 'Old'}, {'682', 'Old'}, {'Old', None}]
 Filename/Date: 10.24.23
-Songs in that file: [{'10', 'New'}, {'309', 'New'}, {'332', 'New'}, {'580', 'New'}, {'New', '177 '}, {'65', 'New'}]
+Songs in that file: [{'New', '10'}, {'309', 'New'}, {'332', 'New'}, {'New', '580'}, {'New', '177 '}, {'65', 'New'}]
 Filename/Date: 10.26.23
-Songs in that file: [{None, 'New'}, {'New', '426'}, {'New', '565'}, {'New', '123'}, {'186', 'New'}, {'534', 'New'}]
+Songs in that file: [{'New', None}, {'New', '426'}, {'565', 'New'}, {'123', 'New'}, {'New', '186'}, {'534', 'New'}]
 Filename/Date: 10.29.23
-Songs in that file: [{'312', 'Old'}, {'266', 'Old'}, {'510', 'Old'}, {'502', 'Old'}, {'684', 'Old'}, {'705', 'Old'}, {'643', 'Old'}, {'634', 'Old'}]
+Songs in that file: [{'312', 'Old'}, {'Old', '266'}, {'510', 'Old'}, {'Old', '502'}, {'684', 'Old'}, {'705', 'Old'}, {'Old', '643'}, {'Old', '634'}]
 Filename/Date: 10.31.23
-Songs in that file: [{'116', 'New'}, {'New', '54'}, {'New', '7'}, {'22', 'New'}, {None, 'New'}, {'303', 'New'}]
-C:\Users\Armne\OneDrive\Երգեր\11.2023
+Songs in that file: [{'116', 'New'}, {'New', '54'}, {'7', 'New'}, {'22', 'New'}, {'New', None}, {'303', 'New'}]
+C:\Users\moses\OneDrive\Երգեր\11.2023
 Filename/Date: 11.02.23
-Songs in that file: [{'New', '118'}, {'187', 'New'}, {'170', 'New'}, {'366', 'New'}, {'New', '511'}, {'528', 'New'}]
+Songs in that file: [{'New', '118'}, {'187', 'New'}, {'170', 'New'}, {'366', 'New'}, {'511', 'New'}, {'528', 'New'}]
 Filename/Date: 11.05.23
-Songs in that file: [{'New', '508'}, {'319', 'Old'}, {'662', 'Old'}, {'448', 'New'}, {'362', 'New'}, {'505', 'Old'}, {'776', 'New'}, {'New', '282'}]
+Songs in that file: [{'508', 'New'}, {'319', 'Old'}, {'Old', '662'}, {'448', 'New'}, {'362', 'New'}, {'505', 'Old'}, {'New', '776'}, {'282', 'New'}]
 Filename/Date: 11.09.23
-Songs in that file: [{'186', 'New'}, {'25', 'New'}, {'464', 'New'}, {'151', 'New'}, {'New', '233'}, {'239', 'New'}]
+Songs in that file: [{'New', '186'}, {'25', 'New'}, {'464', 'New'}, {'151', 'New'}, {'233', 'New'}, {'239', 'New'}]
 Filename/Date: 11.12.23
 Songs in that file: [{'578', 'Old'}, {'700', 'Old'}, {'', 'Old'}, {'674', 'Old'}, {'716', 'Old'}, {'708', 'Old'}, {'718', 'Old'}, {'682', 'Old'}]
 Filename/Date: 11.14.23
-Songs in that file: [{'226', 'New'}, {'New', '90'}, {'25', 'New'}, {'17', 'New'}, {'349', 'New'}, {'New', '117'}]
+Songs in that file: [{'226', 'New'}, {'90', 'New'}, {'25', 'New'}, {'New', '17'}, {'349', 'New'}, {'117', 'New'}]
 Filename/Date: 11.16.23
-Songs in that file: [{'New', '343123'}, {'4311271', 'New'}, {'New', '4071222'}, {'636981', 'New'}, {'New', '4151232'}, {'281', 'Old'}]
+Songs in that file: [{'343', 'New'}, {'New', '431'}, {'407', 'New'}, {'63', 'New'}, {'415', 'New'}, {'281', 'Old'}]
 Filename/Date: 11.19.23
-Songs in that file: [{'31226622', 'Old'}, {'26052', 'Old'}, {'598', 'Old'}, {None, 'Old'}, {'24431232234', 'Old'}, {'New', '24431232234'}, {'446', 'Old'}]
+Songs in that file: [{'Old', None}, {'2', 'Old'}, {'Old', None}, {'Old', None}, {'2', 'Old'}, {'Old', '1232234'}, {'1232234', 'New'}, {'446', 'Old'}]
 Filename/Date: 11.21.23
-Songs in that file: [{'546', 'New'}, {'517', 'New'}, {'197', 'New'}, {'340', 'New'}, {'142', 'New'}, {'256', 'New'}]
+Songs in that file: [{'New', '546'}, {'517', 'New'}, {'197', 'New'}, {'New', '340'}, {'New', '142'}, {'256', 'New'}]
 Filename/Date: 11.26.23
-Songs in that file: [{'711', 'New'}, {'New', '115'}, {'790', 'Old'}, {'517', 'Old'}, {'716', 'Old'}, {'', 'New'}, {'', 'Old'}, {'745', 'Old'}]
+Songs in that file: [{'New', '711'}, {'115', 'New'}, {'Old', '790'}, {'517', 'Old'}, {'716', 'Old'}, {'5', 'New'}, {'Old', '702'}, {'745', 'Old'}, {'693', 'Old'}]
+Filename/Date: 11.28.23
+Songs in that file: [{'New', '10'}, {'469', 'New'}, {'348', 'New'}, {'312', 'New'}, {'New', '69'}, {'64', 'New'}]
+Filename/Date: 11.30.23
+Songs in that file: [{'324', 'New'}, {'New', '35'}, {'New', '74'}, {'724', 'New'}, {'New', '98'}, {'708', 'New'}]
+C:\Users\moses\OneDrive\Երգեր\12.2023
+Filename/Date: 12.03.23
+Songs in that file: [{'Old', '406'}, {'Old', '304'}, {'495', 'Old'}, {'664', 'New'}, {'531', 'New'}, {'638', 'Old'}]
+Filename/Date: 12.05.23
+Songs in that file: [{'New', '70'}, {'420', 'New'}, {'314', 'New'}, {'28', 'New'}, {'New', '278'}, {'446', 'New'}]
+Filename/Date: 12.07.23
+Songs in that file: [{'566', 'New'}, {'251', 'New'}, {'New', '549'}, {'23', 'New'}, {'210', 'New'}, {'159', 'New'}]
+Filename/Date: 12.10.23
+Songs in that file: [{'724', 'Old'}, {'362', 'Old'}, {'Old', '503'}, {'787', 'Old'}, {'Old', '788'}, {'733', 'Old'}, {'200', 'New'}, {'565', 'New'}]
+Filename/Date: 12.12.23
+Songs in that file: [{'264', 'New'}, {'223', 'New'}, {'New', '253'}, {'411', 'New'}, {'New', '305'}, {'303', 'New'}]
+Filename/Date: 12.14.23
+Songs in that file: [{'44', 'New'}, {'276', 'New'}, {'New', '553'}, {'414', 'New'}, {'235', 'New'}, {'202', 'New'}]
+Filename/Date: 12.17.23
+Songs in that file: [{'179', 'New'}, {'346', 'New'}, {'603', 'Old'}, {'447', 'New'}, {'367', 'New'}, {'New', '203'}, {'New', '26'}, {'380', 'Old'}]
+Filename/Date: 12.19.23
+Songs in that file: [{'New', '361'}, {'New', '498'}, {'New', '286'}, {'379', 'New'}, {'New', '142'}, {'287', 'New'}]
+Filename/Date: 12.21.23
+Songs in that file: [{'217', 'New'}, {'New', '148'}, {'New', '585'}, {'115', 'New'}, {'563', 'New'}, {'New', '160'}]
+Filename/Date: 12.26.23
+Songs in that file: [{'193', 'New'}, {'36', 'New'}, {'257', 'New'}, {'1', 'New'}, {'279', 'New'}, {'115', 'New'}]

@@ -1,9 +1,10 @@
-from pytube import YouTube
-# vid_url = input("Please input your video url: ")
-vid_url = "https://www.youtube.com/live/_GWI10dnlAg"
+import pytube
+
+
+vid_url = "https://www.youtube.com/live/sFpCaRTrcQI?si=FLITPCkjBqj5_x0c"
 yt = YouTube(vid_url)
 def vidDownLoad(yt):
-    filtered = yt.streams.filter(file_extension='mp4',res="1080p")
+    filtered = yt.streams.filter(file_extension='mp4',res="1080")
     print(filtered)
     print("itag=" + str(filtered[0].itag))
     input("Is this the correct stream?")
@@ -19,6 +20,6 @@ def audioDownload(yt):
     stream = yt.streams.get_by_itag(filtered[0].itag)
     stream.download()
     
-# vidDownLoad(yt)
+vidDownLoad(yt)
 
 # audioDownload(yt)

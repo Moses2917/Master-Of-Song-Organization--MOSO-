@@ -171,6 +171,8 @@ def create_File():
                my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + ".docx")
         else:
             my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + "TESTSAVE.docx")
+    import scanningDir
+    scanningDir.getAllDir()
 
 def ChooseFile():
     from tkinter import filedialog as fd

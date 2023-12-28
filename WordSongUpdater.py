@@ -166,7 +166,9 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
     # 4. Given the cv now create file path and amend to json index
     # 4.5 Save at the newly created file path
     # 4.7 If tues/thurs no need to save
-    
+
+    #Possibly add a check where it checks to see if any songs have the same title and updates with the latest ie: song '3' and '3 ' should be combined so as to not cause later confusion
+
     if songNum == None:
         return
     
