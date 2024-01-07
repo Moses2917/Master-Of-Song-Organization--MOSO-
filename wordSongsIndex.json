@@ -384,7 +384,14 @@
         "508": {
             "Title": "Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ",
             "latestVersion": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ.docx",
-            "v1": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ.docx"
+            "v1": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ.docx",
+            "key": "E",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "509": {
             "Title": "Ամեն օր Հիսուս",
@@ -436,7 +443,14 @@
         "518": {
             "Title": "Տերն է իմ լույսն ու փրկությունը",
             "latestVersion": "Word songs/518 Տերն է իմ լույսն ու փրկությունը.docx",
-            "v1": "Word songs/518 Տերն է իմ լույսն ու փրկությունը.docx"
+            "v1": "Word songs/518 Տերն է իմ լույսն ու փրկությունը.docx",
+            "key": "Dm",
+            "speed": "116",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4"
         },
         "519": {
             "Title": "Աղքատին աղբանոցից վեր բարձրացնող Տեր",
@@ -726,7 +740,14 @@
             "Title": "Գալիս եմ ներկայությանդ մեջ",
             "latestVersion": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v2.docx",
             "v1": "Word songs/644 Գալիս եմ ներկայությանդ մեջ.docx",
-            "v2": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v2.docx"
+            "v2": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v2.docx",
+            "key": "Dm",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Any type of ballad"
         },
         "645": {
             "Title": "Փառք ու պատիվ Քեզ, ով հայր իմ Աստված",
@@ -897,7 +918,14 @@
         "695": {
             "Title": "Երգիր Տիրոջը ողջ երկիր",
             "latestVersion": "Word songs/695 Երգիր Տիրոջը ողջ երկիր.docx",
-            "v1": "Word songs/695 Երգիր Տիրոջը ողջ երկիր.docx"
+            "v1": "Word songs/695 Երգիր Տիրոջը ողջ երկիր.docx",
+            "key": "Dm",
+            "speed": "113",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "697": {
             "Title": "Քո խոսքը ճշմարիտ կյանքի խոսք",
@@ -1022,7 +1050,14 @@
             "Title": "Դու ապավենն ես իմ սրտի",
             "latestVersion": "Word songs/734 Դու ապավենն ես իմ սրտի v2.docx",
             "v1": "Word songs/734 Դու ապավենն ես իմ սրտի.docx",
-            "v2": "Word songs/734 Դու ապավենն ես իմ սրտի v2.docx"
+            "v2": "Word songs/734 Դու ապավենն ես իմ սրտի v2.docx",
+            "key": "F",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Any type of ballad"
         },
         "735": {
             "Title": "Թարմացրու դու ինձ նորացրու դու սիրտը իմ",
@@ -1078,7 +1113,14 @@
         "753": {
             "Title": "Հայր կսիրենք քեզ",
             "latestVersion": "Word songs/753 Հայր կսիրենք քեզ.docx",
-            "v1": "Word songs/753 Հայր կսիրենք քեզ.docx"
+            "v1": "Word songs/753 Հայր կսիրենք քեզ.docx",
+            "key": "Gm",
+            "speed": "64",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "754": {
             "Title": "Արժան ես փառքերի",
@@ -1255,7 +1297,14 @@
             "Title": "Դու, Տե՜ր գիտես ամեն մեկին",
             "latestVersion": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx",
             "v1": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին.docx",
-            "v2": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx"
+            "v2": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx",
+            "key": "Dm",
+            "speed": "80",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "800": {
             "Title": "Սիրիր, Սիրիր քո Տեր Աստծուն,",
@@ -1300,17 +1349,17 @@
             "v2": "Word songs/495  v2.docx"
         },
         "SongNum": {
-            "Title": "Վստահ եմ` Տերս պիտ պատրաստե ճամփաս",
-            "latestVersion": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
-            "v1": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
-            "key": "A Minor Key",
-            "speed": "Slow",
-            "timeSig": "3/4",
-            "style": "Ballad",
-            "opening_Song": "True",
-            "Worship_Song": "False",
-            "Comments": "https://youtu.be/mY_NNhCHcXE?si=PSPEVZlfSV5PiWEF",
-            "song_type": "None"
+            "Title": "Դու, Տե՜ր գիտես ամեն մեկին",
+            "latestVersion": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx",
+            "v1": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին.docx",
+            "v2": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx",
+            "key": "Dm",
+            "speed": "80",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "404": {
             "Title": "",

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searching</title>
+
+    <style>
+    /* General styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+        color: #555;
+    }
+
+    /* Header styles */
+    header {
+        background-color: #3498db;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* Form styles */
+    form {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    /* Select styles */
+    select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+        background-color: #fff;
+    }
+
+    /* Submit button styles */
+    input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #2980b9;
+    }
+
+    /* Heading styles */
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+        color: #555;
+    }
+
+    /* Link styles */
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /* Table styles */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        color: #555;
+        font-family: 'Arial', sans-serif;
+        font-size: 16px;
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    /* Table header styles */
+    th {
+        background-color: #3498db;
+        color: #fff;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* Zebra stripe even table rows */
+    tr:nth-child(even) {
+        background-color: #f5f5f5;
+    }
+
+    /* Add a hover effect to table rows */
+    tr:hover {
+        background-color: #e0e0e0;
+        cursor: pointer;
+    }
+
+    /* Table cell styles */
+    td {
+        border: 1px solid #ccc;
+        padding: 8px;
+    }
+</style>
+</head>
+<body>
+    <form method="post" action="/searching">
+        <label for="book">Select Book:</label>
+        <select id="book" name="book">
+            <option value="book1" {{ 'selected' if book == 'book1' }}>Book 1</option>
+            <option value="book2" {{ 'selected' if book == 'book2' }}>Book 2</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <label for="query">Search Query:</label>
+        <input type="text" id="query" name="query" value="{{ query }}">
+
+        <label for="attribute">Search Attribute:</label>
+        <select id="attribute" name="attribute">
+            <option value="all" {{ 'selected' if attribute == 'all' }}>All Attributes</option>
+            <option value="Title" {{ 'selected' if attribute == 'Title' }}>Title</option>
+            <option value="latestVersion" {{ 'selected' if attribute == 'latestVersion' }}>Latest Version</option>
+            <option value="key" {{ 'selected' if attribute == 'key' }}>Key</option>
+            <option value="speed" {{ 'selected' if attribute == 'speed' }}>Speed</option>
+            <option value="timeSig" {{ 'selected' if attribute == 'timeSig' }}>Time Signature</option>
+            <option value="style" {{ 'selected' if attribute == 'style' }}>Style</option>
+            <option value="song_type" {{ 'selected' if attribute == 'song_type' }}>Song Type</option>
+            <option value="Comments" {{ 'selected' if attribute == 'Comments' }}>Comments</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <input type="submit" value="Search">
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th><a href="?sort=song_num&order={{ 'desc' if sort_column == 'song_num' and not reverse_sort else 'asc' }}">SongNum</a></th>
+            <th><a href="?sort=title&order={{ 'desc' if sort_column == 'title' and not reverse_sort else 'asc' }}">Title</a></th>
+            <th><a href="?sort=latest_version&order={{ 'desc' if sort_column == 'latest_version' and not reverse_sort else 'asc' }}">Latest Version</a></th>
+            <th><a href="?sort=key&order={{ 'desc' if sort_column == 'key' and not reverse_sort else 'asc' }}">Key</a></th>
+            <th><a href="?sort=speed&order={{ 'desc' if sort_column == 'speed' and not reverse_sort else 'asc' }}">Speed</a></th>
+            <th><a href="?sort=timeSig&order={{ 'desc' if sort_column == 'timeSig' and not reverse_sort else 'asc' }}">Time Signature</a></th>
+            <th><a href="?sort=style&order={{ 'desc' if sort_column == 'style' and not reverse_sort else 'asc' }}">Style</a></th>
+            <th><a href="?sort=song_type&order={{ 'desc' if sort_column == 'song_type' and not reverse_sort else 'asc' }}">Song Type</a></th>
+            <th><a href="?sort=Comments&order={{ 'desc' if sort_column == 'Comments' and not reverse_sort else 'asc' }}">Comments</a></th>
+        </tr>
+        {% for row, attr in table_data.items() %}
+            <tr>
+                <td>{{ row }}</td>
+                <td>{{ attr['Title'] }}</td>
+                <td>{{ attr['latestVersion'] }}</td>
+                <td>{{ attr['key'] }}</td>
+                <td>{{ attr['speed'] }}</td>
+                <td>{{ attr['timeSig'] }}</td>
+                <td>{{ attr['style'] }}</td>
+                <td>{{ attr['song_type'] }}</td>
+                <td>{{ attr['Comments'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
