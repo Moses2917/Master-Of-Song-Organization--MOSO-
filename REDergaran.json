@@ -2734,7 +2734,14 @@
         "565": {
             "Title": "Հրեշտակներն երկնքում",
             "latestVersion": "RED Words/565.docx",
-            "v1": "RED Words/565.docx"
+            "v1": "RED Words/565.docx",
+            "key": "Em",
+            "speed": "92",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P5-1"
         },
         "566": {
             "Title": "Արարատ լեռան ձյունապատ սրտից",
@@ -4123,7 +4130,14 @@
         "817": {
             "Title": "Մերկ ենք եկել, մերկ կգնանք աշխարհից,",
             "latestVersion": "RED Words/817.docx",
-            "v1": "RED Words/817.docx"
+            "v1": "RED Words/817.docx",
+            "key": "Dm (-1)",
+            "speed": "108",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "818": {
             "Title": "Ա՜խ, որքան եմ Քեզ կարոտել,",
@@ -5118,16 +5132,16 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "Եկեք, մեր ճամբան նորոգենք,",
-            "latestVersion": "RED Words/89.docx",
-            "v1": "RED Words/89.docx",
-            "key": "E ",
-            "speed": "150",
-            "style": "Waltz ",
-            "song_type": "Single Song",
+            "Title": "Մերկ ենք եկել, մերկ կգնանք աշխարհից,",
+            "latestVersion": "RED Words/817.docx",
+            "v1": "RED Words/817.docx",
+            "key": "Dm (-1)",
+            "speed": "108",
+            "style": "Disco",
+            "song_type": "Opening Song",
             "Worship_Song": "",
-            "timeSig": "3/4",
-            "Comments": "Trad.-P4-4"
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         }
     }
 }

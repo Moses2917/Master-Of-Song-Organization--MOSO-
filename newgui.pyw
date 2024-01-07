@@ -202,7 +202,7 @@ def ChooseFile():
 root = tk.Tk()
 style = ttk.Style()
 root.title("Master Of Song Organization (MOSO)") #Old Title: "Song Manager"
-root.geometry("1099x720")
+root.geometry("1200x720")
 
 txtbox_font = TkFont.Font(family="Tahoma", size=18)
 
@@ -213,17 +213,22 @@ entry_var = tk.StringVar()
 entry = tk.Entry(root, textvariable=entry_var, width=50)
 entry.grid(row=0, column=5, pady=10)
 
-
 tickBox_font = TkFont.Font(family="Arial", size=15)
 
 radio_var = tk.StringVar()
-tk.Radiobutton(root, text="Old", variable=radio_var, value="o",font=tickBox_font, relief="raised", bg="#0000a0", fg="#f9d4b8", bd=8).grid(row=2, column=4)
-tk.Radiobutton(root, text="New", variable=radio_var, value="n",font=tickBox_font, relief="raised", bg="#741a1c", fg="#ffce00", bd=8).grid(row=2, column=5)
+tk.Radiobutton(root, text="Old", variable=radio_var, value="o", font=tickBox_font, relief="raised", bg="#0000a0", fg="#ffce00", bd=8).grid(row=1, column=4)
+tk.Radiobutton(root, text="New", variable=radio_var, value="n", font=tickBox_font, relief="raised", bg="#741a1c", fg="#ffce00", bd=8).grid(row=1, column=5)
+
+DatabaseLabel = tk.Label(root, text="Song Database", font=txtbox_font,bd=2, relief="solid", padx=5, pady=5)  
+DatabaseLabel.grid(row=1, column=6)
+
+DateLabel = tk.Label(root, text="Release Date:", font=txtbox_font,bd=2, relief="solid", padx=5, pady=5)  
+DateLabel.grid(row=2, column=5)
 
 day_var = tk.StringVar()
 tk.Radiobutton(root, text="Tues/Thurs", variable=day_var, value="Tuesday", font=tickBox_font, relief="raised", bd=8).grid(row=3, column=4, padx=10)
-tk.Radiobutton(root, text="None", variable=day_var, value=None, font=tickBox_font, relief="raised", bd=8).grid(row=3, column=4,columnspan=5)
-tk.Radiobutton(root, text="Sun/Porc", variable=day_var, value="Sunday",font=tickBox_font, relief="raised", bd=8).grid(row=3, column=6)
+tk.Radiobutton(root, text="None", variable=day_var, value=None, font=tickBox_font, relief="raised", bd=8).grid(row=3, column=4, columnspan=5)
+tk.Radiobutton(root, text="Sun/Porc", variable=day_var, value="Sunday", font=tickBox_font, relief="raised", bd=8).grid(row=3, column=6)
 
 
 create_File_Button = Button(root, text="Create File", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, padx=10, pady=10, font=('Arial', 15), command=create_File)
@@ -257,10 +262,10 @@ move_down_button.grid(row=BGroupRow, column=BGroupCol+1)
 clr_button = Button(root, text="Clear Songs", fg='#cc0000', font=('Arial', 15), command=clr_listbox, padx=10, pady=10, bd=5, relief="raised")
 clr_button.grid(row=BGroupRow, column=BGroupCol+2)
 
-Update_Label = tk.Label(root, text="", font=txtbox_font,padx=1)
-Update_Label.grid(row=5, column=1)
+Update_Label_Blank = tk.Label(root, text="", font=txtbox_font,padx=1)
+Update_Label_Blank.grid(row=5, column=1)
 
-Update_Label = tk.Label(root, text="Database Updater:", font=txtbox_font,bg='#741a1c', fg='#FFC107', padx=1)
+Update_Label = tk.Label(root, text="Database Updater:", font=txtbox_font,bg='#741a1c', fg='#FFC107', padx=1,relief="raised")
 Update_Label.grid(row=6, column=1)
 openFile = Button(root, text="Select file to update", command=ChooseFile)
 openFile.grid(row=7, column=1)
