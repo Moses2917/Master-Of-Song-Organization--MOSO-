@@ -45,7 +45,7 @@ python newgui.pyw
 ```
 
 ## Usage
-MOSO is designed with simplicity in mind. Once you launch the script, you'll be greeted by an easy-to-use interface that lets you manage your song lyrics effortlessly. Add, update, or delete song lyrics by following the on-screen instructions.
+MOSO is designed with simplicity in mind. Once you launch the script, you'll be greeted by an easy-to-use interface that lets you manage your song lyrics effortlessly. Add, update, or delete song lyrics by following the on-screen instructions. MOSO also comes with a web app that runs locally and allows modification to the json index of the songs by anyone who access it.
 
 Don't forget to explore the customization options to make your church's music library truly your own.
 
