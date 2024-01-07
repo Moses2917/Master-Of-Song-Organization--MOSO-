@@ -23,7 +23,7 @@ def song_info():
             song_info['speed'] = request.form.get('speed')
             song_info['style'] = request.form.get('style')
             song_info['song_type'] = request.form.get('Song Type')
-            song_info['Worship_Song'] = request.form.get('Worship_Song')
+            # song_info['Worship_Song'] = request.form.get('Worship_Song')
             song_info['timeSig'] = request.form.get('Time Signature')
             song_info['Comments'] = request.form.get('Comments')
             songs["SongNum"] = song_info
@@ -34,7 +34,7 @@ def song_info():
             song_info['speed'] = request.form.get('speed')
             song_info['style'] = request.form.get('style')
             song_info['song_type'] = request.form.get('Song Type')
-            song_info['Worship_Song'] = request.form.get('Worship_Song')
+            # song_info['Worship_Song'] = request.form.get('Worship_Song')
             song_info['timeSig'] = request.form.get('Time Signature')
             song_info['Comments'] = request.form.get('Comments')
             songs[song_num] = song_info
