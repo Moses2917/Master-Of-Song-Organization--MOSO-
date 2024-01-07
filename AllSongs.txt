@@ -98,7 +98,7 @@ Songs in that file: [{'429', 'Old'}, {'536', 'Old'}, {'787', 'Old'}, {'New', '62
 Songs in that file: [{'New', '261'}, {'New', '367'}, {'106', 'New'}, {'411', 'New'}, {'315', 'New'}, {'319', 'New'}]
 Songs in that file: [{'487', 'New'}, {'33', 'New'}, {'New', '235'}, {'New', '15'}, {'New', '530'}, {'345', 'New'}]
 Filename/Date: 09.2023
-Songs in that file: [{'Old', '417'}, {'514', 'Old'}, {'-774-', 'Old'}, {'Old', '684'}, {'579', 'Old'}, {'533', 'Old'}, {'702', 'Old'}, {'134', 'New'}]
+Songs in that file: [{'Old', '417'}, {'514', 'Old'}, {'774', 'Old'}, {'Old', '684'}, {'579', 'Old'}, {'533', 'Old'}, {'702', 'Old'}, {'134', 'New'}]
 Songs in that file: [{'New', None}, {'New', '216'}, {'New', '222'}, {'465', 'New'}, {'New', '253'}, {'New', '360'}]
 Songs in that file: [{'New', '770'}, {'New', '506'}, {'New', None}, {'1', 'New'}, {'384', 'New'}, {'New', '312'}]
 Songs in that file: [{'406', 'Old'}, {'304', 'Old'}, {'495', 'Old'}, {'New', '664'}, {'New', '531'}, {'638', 'Old'}]

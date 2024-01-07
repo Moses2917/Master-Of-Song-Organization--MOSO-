@@ -3,7 +3,14 @@
         "1": {
             "Title": "Եղբայրնե՛ր, ցնծացե՛ք,",
             "latestVersion": "RED Words/1.docx",
-            "v1": "RED Words/1.docx"
+            "v1": "RED Words/1.docx",
+            "key": "Em",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "10": {
             "Title": "Աստված իմ, երբ հոգիս նայի",
@@ -40,7 +47,14 @@
         "104": {
             "Title": "Երանելի այն օրն է, Տե՛ր,",
             "latestVersion": "RED Words/104.docx",
-            "v1": "RED Words/104.docx"
+            "v1": "RED Words/104.docx",
+            "key": "E",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "105": {
             "Title": "Թե չստանան այստեղ լուծում",
@@ -360,7 +374,14 @@
         "16": {
             "Title": "Մեր լավագույն օրերն անգին",
             "latestVersion": "RED Words/16.docx",
-            "v1": "RED Words/16.docx"
+            "v1": "RED Words/16.docx",
+            "key": "F",
+            "speed": "100",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "160": {
             "Title": "Մեղքի մեջ եմ ես ապրել,",
@@ -470,7 +491,14 @@
         "18": {
             "Title": "Հայր մեր, այժմ կնվիրենք",
             "latestVersion": "RED Words/18.docx",
-            "v1": "RED Words/18.docx"
+            "v1": "RED Words/18.docx",
+            "key": "F",
+            "speed": "100",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "180": {
             "Title": "Քրիստո՜ս, ո՞վ չգիտե անունը Քո",
@@ -510,7 +538,14 @@
         "187": {
             "Title": "Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝",
             "latestVersion": "RED Words/187.docx",
-            "v1": "RED Words/187.docx"
+            "v1": "RED Words/187.docx",
+            "key": "F#m",
+            "speed": "69",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-1"
         },
         "188": {
             "Title": "Գոհանում եմ, Տե՜ր իմ, (2)",
@@ -545,7 +580,14 @@
         "193": {
             "Title": "Մի՞թե գնում ես՝ Քրիստոսին չընդունած,",
             "latestVersion": "RED Words/193.docx",
-            "v1": "RED Words/193.docx"
+            "v1": "RED Words/193.docx",
+            "key": "Gm",
+            "speed": "94",
+            "style": "12/8 Ballad",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "194": {
             "Title": "Գոհացէք Տէրից, որ բարի է,",
@@ -867,7 +909,14 @@
         "25": {
             "Title": "Տեր Հիսուս կհրավիրե.",
             "latestVersion": "RED Words/25.docx",
-            "v1": "RED Words/25.docx"
+            "v1": "RED Words/25.docx",
+            "key": "",
+            "speed": "",
+            "style": "Pop",
+            "song_type": "None",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "250": {
             "Title": "Անպտուղ և այրող անապատով",
@@ -972,7 +1021,14 @@
         "269": {
             "Title": "Շուտով իմ Տերը՝ Հիսուս արքան,",
             "latestVersion": "RED Words/269.docx",
-            "v1": "RED Words/269.docx"
+            "v1": "RED Words/269.docx",
+            "key": "Em",
+            "speed": "100",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "27": {
             "Title": "Ահա տեսեք՝ Գառն Աստծո",
@@ -1027,7 +1083,14 @@
         "279": {
             "Title": "Ուրա՞խ ես, որ Հիսուսը մեղքերդ ներեց",
             "latestVersion": "RED Words/279.docx",
-            "v1": "RED Words/279.docx"
+            "v1": "RED Words/279.docx",
+            "key": "C",
+            "speed": "113",
+            "style": "Beguine",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-7"
         },
         "28": {
             "Title": "28",
@@ -1067,7 +1130,14 @@
         "286": {
             "Title": "Ժամերը հաշված, քայլերը պատրաստ,",
             "latestVersion": "RED Words/286.docx",
-            "v1": "RED Words/286.docx"
+            "v1": "RED Words/286.docx",
+            "key": "Em",
+            "speed": "",
+            "style": "",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "6/8",
+            "Comments": "Pop-P5-4"
         },
         "287": {
             "Title": "Մնայուն բան չունեմ երկրում,",
@@ -1496,7 +1566,14 @@
         "36": {
             "Title": "Մի՛ վախենար երբեք,",
             "latestVersion": "RED Words/36.docx",
-            "v1": "RED Words/36.docx"
+            "v1": "RED Words/36.docx",
+            "key": "G",
+            "speed": "94",
+            "style": "12/8 Ballad",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "360": {
             "Title": "Անվեհեր և հաղթող Քրիստոսով,",
@@ -1726,7 +1803,14 @@
         "400": {
             "Title": "Տարինե՜ր, որ անցնում եք շատ շուտ և արագ,",
             "latestVersion": "RED Words/400.docx",
-            "v1": "RED Words/400.docx"
+            "v1": "RED Words/400.docx",
+            "key": "Am",
+            "speed": "95",
+            "style": "",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "401": {
             "Title": "Ես շատ եմ Քեզ վշտացրել",
@@ -1781,7 +1865,14 @@
         "410": {
             "Title": "Օ՜, ի՜նչ հրաշք մեծություն ես,",
             "latestVersion": "RED Words/410.docx",
-            "v1": "RED Words/410.docx"
+            "v1": "RED Words/410.docx",
+            "key": "Am (-1)",
+            "speed": "",
+            "style": "",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "6/8",
+            "Comments": ""
         },
         "411": {
             "Title": "Ահա մենք եկել ենք առջևդ, Տե՛ր Հիսուս,",
@@ -3448,7 +3539,14 @@
         "711": {
             "Title": "Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս,",
             "latestVersion": "RED Words/711.docx",
-            "v1": "RED Words/711.docx"
+            "v1": "RED Words/711.docx",
+            "key": "C",
+            "speed": "100",
+            "style": "Pop",
+            "song_type": "None",
+            "Worship_Song": "",
+            "timeSig": "4/4",
+            "Comments": "Pop-P4-P1"
         },
         "713": {
             "Title": "Սիրելի՜ Հիսուս, ամբողջ սրտով գալիս եմ Քեզ:",
@@ -4425,7 +4523,14 @@
         "89": {
             "Title": "Եկեք, մեր ճամբան նորոգենք,",
             "latestVersion": "RED Words/89.docx",
-            "v1": "RED Words/89.docx"
+            "v1": "RED Words/89.docx",
+            "key": "E ",
+            "speed": "150",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "Worship_Song": "",
+            "timeSig": "3/4",
+            "Comments": "Trad.-P4-4"
         },
         "890": {
             "Title": "Քո սրտի միջով հոսած",
@@ -5013,16 +5118,16 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "Միայն Քեզ է կարոտում հոգիս,",
-            "latestVersion": "RED Words/14.docx",
-            "v1": "RED Words/14.docx",
-            "key": "N/A",
-            "speed": "",
-            "style": "",
-            "song_type": "Worship Song",
+            "Title": "Եկեք, մեր ճամբան նորոգենք,",
+            "latestVersion": "RED Words/89.docx",
+            "v1": "RED Words/89.docx",
+            "key": "E ",
+            "speed": "150",
+            "style": "Waltz ",
+            "song_type": "Single Song",
             "Worship_Song": "",
-            "timeSig": "",
-            "Comments": ""
+            "timeSig": "3/4",
+            "Comments": "Trad.-P4-4"
         }
     }
 }

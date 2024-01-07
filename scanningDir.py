@@ -219,48 +219,37 @@ def getSongDate(songNum:str, book:str):
     return latestDate
                 
 def jsonifySongList():
-    TotalLineCt = len(open('RecentSongs.txt','r',encoding='utf-8').readlines())
-    CurrentLine = 0
-    with open("AllSongs.txt",'r',encoding='utf-8') as line:
-    #     while (CurrentLine < TotalLineCt):
-    #
-    #         txt = line.readline()
-    #         if "Filename/Date: " in txt:
-    #             date = re.sub("Filename/Date: ", "", txt)
-    #             date = re.findall(r"(.*\d)", date)[0]
-    #             fileDate = date  # saving this for later to be used in list
-    #
-    #         txtNext = line.readline()
-    #         CurrentLine += 1
-    #
-    #         txtNext = re.sub("Songs in that file: ", "", txtNext)
-    #         # txtNext = re.sub('', '0', txtNext)
-    #         txtNext = re.sub(r"''", 'INVALID', txtNext)
-    #         # print(txtNext) #TODO: fix problem of empty strings
-    #         # print(date2.strftime('%A'))
-    #         songs = re.findall(r'(\d+)', txtNext)
-    #         books = re.findall(r'([A-Za-z]+)', txtNext)  ###
-    #         # print(songs, books)
-    #         # lis = [songs,books]
-    #         list_of_songs.append([songs, books, fileDate])
-    #         CurrentLine += 1
-    #
-    # Split the data into lines
-        data = line.read()
+    with open("AllSongs.txt",'r',encoding='utf-8') as lines:
+        data = lines.read()
         data = data.strip().split("\n")
         result = []
 
         for line in data:
-            if 'Filename/Date' in line:
-                filename_date = line.split(': ')[1]
-            elif 'Songs in that file' in line:
+            if 'Songs in that file' in line:
                 songs_str = line.split(': ')[1]
-                songs_list = eval(songs_str)
+                songs_list = ast.literal_eval(songs_str)
                 songs = []
+
                 for song in songs_list:
-                    song_type, song_id = song
+                    song_elements = list(song)
+                    
+                    # Check if the list is not empty before accessing the first element
+                    song_id_list = [element for element in song_elements if element is not None and element.isdigit()]
+                    song_type_list = [element for element in song_elements if element is not None and not element.isdigit()]
+
+                    if song_id_list:
+                        song_id = song_id_list[0]
+                    else:
+                        song_id = None
+
+                    if song_type_list:
+                        song_type = song_type_list[0]
+                    else:
+                        song_type = None
+
                     songs.append({"type": song_type, "id": song_id})
-                result.append({"filename_date": filename_date, "songs": songs})
+
+                result.append({"songs": songs})
 
         print(result)
 
