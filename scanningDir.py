@@ -96,7 +96,7 @@ def getAllNums():
                                     f.write("\nSongs in that file: " + getNums(condesedFoldersDocx.path))
     f.close()
 
-#getAllNums()
+# getAllNums()
 
 # def songChecker(book, songNum):
 # gets songs fron recentsongs and sorts by last three months

@@ -1,4 +1,4 @@
-#This file/module serves as a helper for my newGui.py app
+#This file/module serves as a helper for my newGui.pyw app, otherwise known as MOSO
 import os, docx, time, re
 from glob import glob
 import json
@@ -32,20 +32,12 @@ def FindNum(song):
 
 def getDocTextAndIndentation(filename:str, my_doc):
     """Reads a DOCX file and returns a docx file with the text"""
-    doc = docx.Document(filename)
-    text_and_indentation = []
+    user = os.environ.get("USERNAME")
+    doc = docx.Document("C:/Users/" + user + "/OneDrive/" + filename)
     for p in doc.paragraphs:
         first_line_indent = p.paragraph_format.first_line_indent
         left_indent = p.paragraph_format.left_indent
         right_indent = p.paragraph_format.right_indent
-        # text_and_indentation.append({
-        #     'text': p.text,
-        #     # 'book': re.findall(pattern, p.text,re.DOTALL)[0],
-        #     # 'old': bookOld,
-        #     'first_line_indent': first_line_indent,
-        #     'left_indent': left_indent,
-        #     'right_indent': right_indent
-        # })
         Placeholder = my_doc.add_paragraph(p.text)
         Placeholder.paragraph_format.space_after = 0
         if first_line_indent is not None:
@@ -82,37 +74,34 @@ def getPcSongs(songs, imp, user):
         y = songs.index(x)
         if 'n' in imp[y]:
             
-            try:
-                filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name
-                ##Run a check to make sure that it finds 3 and not 33
-                
-                # verification method to double check and make sure that the program has found found the right song
-                if (re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]) == "Երգարան Word Files\\" + x:
-                    my_doc.add_paragraph("[start:song]")
-                    getDocTextAndIndentation(filename=filename, my_doc=my_doc)
-                    my_doc.add_paragraph("[end:song]")
-                else:
-                    raise Exception("Wrong file name")
-                
-            except:
+        
+            with open("ergaran.json", 'r', encoding='utf-8') as f:
+                ergaran = json.load(f)
+            filename = ""
+            if x in ergaran["SongNum"]:
+                filename = ergaran["SongNum"][x]["latestVersion"]
                 my_doc.add_paragraph("[start:song]")
-                getDocTextAndIndentation(filename="C:/Users/" + user + "/OneDrive/RED Words/" + x + ".docx", my_doc=my_doc)
+                getDocTextAndIndentation(filename=filename, my_doc=my_doc)
+                my_doc.add_paragraph("[end:song]")
+            else:
+                my_doc.add_paragraph("[start:song]")
+                getDocTextAndIndentation(filename="RED Words/" + x + ".docx", my_doc=my_doc)
                 my_doc.add_paragraph("[end:song]")
                 
         else:
-            
-            try:
-                filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
-                
-                # verification method to double check and make sure that the program has found found the right song
-                if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
-                    my_doc.add_paragraph("[start:song:old]")
-                    getDocTextAndIndentation(filename=filename, my_doc=my_doc)
-                    my_doc.add_paragraph("[end:song:old]")
-                else:
-                    raise Exception("Wrong file name")
-            except:
+            with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+                OldErgaran = json.load(f)
+            filename = ""
+            if x in OldErgaran["SongNum"]:
+                filename = OldErgaran["SongNum"][x]["latestVersion"]
+            else:
                 my_doc.add_paragraph("Error: FileNotFoundError \nSong: " + x + " Old, Could not be located ")
+                
+            my_doc.add_paragraph("[start:song:old]")
+            getDocTextAndIndentation(filename=filename, my_doc=my_doc)
+            my_doc.add_paragraph("[end:song:old]")
+
+
     
     my_doc.add_page_break()
     
@@ -127,14 +116,12 @@ def getPosibleSongs(songs, imp):
         if 'n' in imp[y]:
             
             try:
-                f = open("ergaran.json", 'r', encoding='utf-8')
-                ergaran = json.load(f)
-                f.close
+                with open("ergaran.json", 'r', encoding='utf-8') as f:
+                    ergaran = json.load(f)
                 # filename = glob("C:/Users/" + user + "/OneDrive/Երգարան Word Files/" + x + "*.docx")[0] #gets name # is now kind of obsolete bc of ergaran.json
                 filename = ""
-                for songNum in ergaran["SongNum"]:
-                    if songNum == x:
-                            filename = ergaran["SongNum"][x]["latestVersion"]
+                if x in ergaran["SongNum"]:
+                    filename = ergaran["SongNum"][x]["latestVersion"]
                             # print(filename)
                 # verification method to double check and make sure that the program has found found the right song
                 posSong = re.findall("Երգարան Word Files"+"\S[0-9]*",filename)[0]
@@ -145,7 +132,12 @@ def getPosibleSongs(songs, imp):
         else:
             
             try:
-                filename = glob("C:/Users/" + user + "/OneDrive/Word songs/" + x + "*")[0] # gets name
+                with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+                    OldErgaran = json.load(f)
+                filename = ""
+                if x in OldErgaran["SongNum"]:
+                    filename = OldErgaran["SongNum"][x]["latestVersion"]
+                
                 # verification method to double check and make sure that the program has found found the right song
                 if (re.findall("Word songs"+"\S[0-9]*",filename)[0]) == "Word songs\\" + x:
                     posSongList.append(re.findall("Word songs"+"\S[0-9]*",filename)[0])
