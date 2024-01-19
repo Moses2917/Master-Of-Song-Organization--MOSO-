@@ -14,7 +14,7 @@ from multiprocessing import Pool
 
 listy = []
            
-def add_song():
+def add_song(self):
     song_num = entry.get()
     bookType = radio_var.get()
     if song_num == "" or bookType == "":
@@ -201,20 +201,27 @@ def Compatibility():
     song_num = entry.get()
     bookType = radio_var.get()
     myFont = TkFont.Font(family="Arial", size=18)
-    import threading
+    import threading as th
 
     def clicked(self): #curselection give the index of the thing clicked, in a tuple ie:(10,)
-        import subprocess
+        
         MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
         index = PastSongsListbox.curselection()[0]
         selected_item = PastSongsListbox.get(index)
+        PastSongsListbox.activate(index)
         Path = ""
         if 'Filename' in selected_item: #if filename is clicked THEN open Word
             Path = selected_item.split(": ")[1]#Should be mm.dd.yy.docx
             for attr in pastSongs:
                 if Path in attr['Filename/Date']:
                     basePth = attr['basePath']
-            subprocess.run([MS_WORD,basePth+"/"+Path])
+            wordDocThread = th.Thread(target=openWord,args=[MS_WORD,basePth+"/"+Path])
+            wordDocThread.start()
+            # wordDocThread.run()
+            
+    def openWord(MS_WORD,path):
+        import subprocess
+        subprocess.run([MS_WORD,path])
         
     if song_num == "" or bookType == "":
         if song_num == "" and (bookType == 'n' or bookType == 'o'):
@@ -234,11 +241,12 @@ def Compatibility():
             # messagebox.showinfo(title="Compatability Chart",message="Filename/Date:"+pastSongs["Filename/Date"])
             windowListSize = len(pastSongs)
             viewWin = tk.Tk()
-            viewWin.geometry("280x{}".format(240*windowListSize))
+            viewWin.geometry("280x{}".format(260*windowListSize))
             viewWin.title("Past Songs")
             viewWin.columnconfigure(1,weight=1)    #confiugures column 1 to stretch with a scaler of 1.
             viewWin.rowconfigure(0,weight=1)       #confiugures row 0 to stretch with a scaler of 1.
             viewWin.bind("<Button-1>",clicked)
+            viewWin.bind("<Return>",clicked)
             PastSongsListbox = tk.Listbox(viewWin)
             PastSongsListbox.grid(row=0, column=1,sticky='nsew')
             PastSongsListbox.config(width=25, height=18, font=myFont)
@@ -266,7 +274,7 @@ txtbox_font = TkFont.Font(family="Tahoma", size=18)
 
 label = tk.Label(root, text="Song Num:", font=txtbox_font)
 label.grid(row=0, column=4)
-
+root.bind("<Return>",add_song)
 entry_var = tk.StringVar()
 entry = tk.Entry(root, textvariable=entry_var, width=50)
 entry.grid(row=0, column=5, pady=10)
@@ -292,8 +300,8 @@ tk.Radiobutton(root, text="Sun/Porc", variable=day_var, value="Sunday", font=tic
 create_File_Button = Button(root, text="Create File", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, padx=10, pady=10, font=('Arial', 15), command=create_File)
 create_File_Button.grid(row=1, column=2)
 
-Compatibility = Button(root, text="Compatibility", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=Compatibility)
-Compatibility.grid(row=1, column=0)
+CompatibilityCompare = Button(root, text="Compatibility", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=Compatibility)
+CompatibilityCompare.grid(row=1, column=0)
 
 PosisbleSongs = Button(root, text="Possible Songs", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=viewPosSongs)
 PosisbleSongs.grid(row=1, column=1)
