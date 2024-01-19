@@ -13,36 +13,40 @@ from multiprocessing import Process
 from multiprocessing import Pool
 
 listy = []
-
            
 def add_song():
     song_num = entry.get()
-    property = radio_var.get()
-    if song_num == "" or property == "":
-        messagebox.showerror("Error", "Please enter a song number and choose a property")
+    bookType = radio_var.get()
+    if song_num == "" or bookType == "":
+        if song_num == "" and (bookType == 'n' or bookType == 'o'):
+            messagebox.showerror("Error", "Please enter a song number")
+        elif bookType == "" and song_num != "":
+            messagebox.showerror("Error", "Please choose a database")
+        else:
+            messagebox.showerror("Error", "Please enter a song number and choose a database")
     else:
-        if 'n' in property: property = 'New'
-        else: property = 'Old'
-        dupSong = SD.songChecker(songNum=song_num,book=property)
+        if 'n' in bookType: bookType = 'New'
+        else: bookType = 'Old'
+        dupSong = SD.songChecker(songNum=song_num,book=bookType)
         print(dupSong)
         if dupSong: # get value and if used then ask if they wish to continue
             errMes = messagebox.askyesno("Error: That song was used before in the last 3 months",
                                          "Do you wish to proced with this song {}\nFilename/Date: {}"
-                                         .format(song_num + " " + property,
-                                                 SD.getSongDate(songNum=song_num,book=property)
+                                         .format(song_num + " " + bookType,
+                                                 SD.getSongDate(songNum=song_num,book=bookType)
                                                  )
                                          )
             if errMes:
-                if 'New' in property: property = 'n'
-                else: property = 'o'                
-                listbox.insert(tk.END, f"{song_num} ({property})")
+                if 'New' in bookType: bookType = 'n'
+                else: bookType = 'o'                
+                listbox.insert(tk.END, f"{song_num} ({bookType})")
                 entry.delete(0, tk.END)
             else:
                 entry.delete(0, tk.END)
         else:
-            if 'New' in property: property = 'n'
-            else: property = 'o'
-            listbox.insert(tk.END, f"{song_num} ({property})")
+            if 'New' in bookType: bookType = 'n'
+            else: bookType = 'o'
+            listbox.insert(tk.END, f"{song_num} ({bookType})")
             entry.delete(0, tk.END)
 
 def edit_song():
@@ -192,17 +196,71 @@ def ChooseFile():
             ChooseFile()
         else:
             print("Closing window")
+
+def Compatibility():
+    song_num = entry.get()
+    bookType = radio_var.get()
+    myFont = TkFont.Font(family="Arial", size=18)
+    import threading
+
+    def clicked(self): #curselection give the index of the thing clicked, in a tuple ie:(10,)
+        import subprocess
+        MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
+        index = PastSongsListbox.curselection()[0]
+        selected_item = PastSongsListbox.get(index)
+        Path = ""
+        if 'Filename' in selected_item: #if filename is clicked THEN open Word
+            Path = selected_item.split(": ")[1]#Should be mm.dd.yy.docx
+            for attr in pastSongs:
+                if Path in attr['Filename/Date']:
+                    basePth = attr['basePath']
+            subprocess.run([MS_WORD,basePth+"/"+Path])
         
-# def SongCheck():
-#     viewWin = tk.Tk()
-#     viewWin.geometry("512x256")
-#     viewWin.title("Song Checker")
+    if song_num == "" or bookType == "":
+        if song_num == "" and (bookType == 'n' or bookType == 'o'):
+            messagebox.showerror("Error", "Please enter a song number")
+        elif bookType == "" and song_num != "":
+            messagebox.showerror("Error", "Please choose a database")
+        else:
+            messagebox.showerror("Error", "Please enter a song number and choose a database")
+    else:
+        if radio_var.get() == 'n':
+            bookType = "New"
+        else:
+            bookType = "Old"
+            
+        pastSongs=SD.songSearch(song_num, bookType)
+        if pastSongs:
+            # messagebox.showinfo(title="Compatability Chart",message="Filename/Date:"+pastSongs["Filename/Date"])
+            windowListSize = len(pastSongs)
+            viewWin = tk.Tk()
+            viewWin.geometry("280x{}".format(240*windowListSize))
+            viewWin.title("Past Songs")
+            viewWin.columnconfigure(1,weight=1)    #confiugures column 1 to stretch with a scaler of 1.
+            viewWin.rowconfigure(0,weight=1)       #confiugures row 0 to stretch with a scaler of 1.
+            viewWin.bind("<Button-1>",clicked)
+            PastSongsListbox = tk.Listbox(viewWin)
+            PastSongsListbox.grid(row=0, column=1,sticky='nsew')
+            PastSongsListbox.config(width=25, height=18, font=myFont)
+            
+            for attr in pastSongs:
+                filename = attr['Filename/Date']
+                folderPath = attr['basePath']
+                PastSongsListbox.insert(tk.END,"Folder: " + folderPath)
+                PastSongsListbox.insert(tk.END,"Filename/Date: " + filename)
+                PastSongsListbox.insert(tk.END,"\nSongs:")
+                for song in attr['songs']:
+                    PastSongsListbox.insert(tk.END,song['id']+":"+song['type'])
+            
+        else:
+            messagebox.showinfo(title="Compatability Chart",message=f"Song number: {song_num} in Book: {bookType} not found.")
+
 
 # def screen():
 root = tk.Tk()
 style = ttk.Style()
 root.title("Master Of Song Organization (MOSO)") #Old Title: "Song Manager"
-root.geometry("1200x720")
+root.geometry("1280x720")
 
 txtbox_font = TkFont.Font(family="Tahoma", size=18)
 
@@ -233,6 +291,9 @@ tk.Radiobutton(root, text="Sun/Porc", variable=day_var, value="Sunday", font=tic
 
 create_File_Button = Button(root, text="Create File", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, padx=10, pady=10, font=('Arial', 15), command=create_File)
 create_File_Button.grid(row=1, column=2)
+
+Compatibility = Button(root, text="Compatibility", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=Compatibility)
+Compatibility.grid(row=1, column=0)
 
 PosisbleSongs = Button(root, text="Possible Songs", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=viewPosSongs)
 PosisbleSongs.grid(row=1, column=1)

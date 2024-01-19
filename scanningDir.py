@@ -303,12 +303,9 @@ def songSearch(song_num,book):
         # print(f"Found song number {song_num} in book {book} in the file for {result['filename_date']}.")
         for x in result:
             print(x)
+        return result
     else:
-        print(f"Song number {song_num} in book {book} not found.")
+        # print(f"Song number {song_num} in book {book} not found.")
+        return None
 
 # songSearch("320","Old")
-
-# with open("jsonedUp.json", 'w') as f:
-#     import json
-#     data = json.loads(jsonifySongList())
-#     json.dump(data,f,indent="4")
