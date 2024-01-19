@@ -1210,17 +1210,17 @@
             "v2": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v2.docx"
         },
         "SongNum": {
-            "Title": "Սա այն օրն է",
-            "latestVersion": "Երգարան Word Files/238 Սա այն օրն է v2.docx",
-            "v1": "Երգարան Word Files/238 Սա այն օրն է.docx",
-            "v2": "Երգարան Word Files/238 Սա այն օրն է v2.docx",
-            "key": "E",
-            "speed": "100",
-            "style": "Samba",
-            "song_type": "Opening Song",
-            "Worship_Song": "",
+            "Title": "Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ,",
+            "latestVersion": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
+            "v1": "RED Words/563.docx",
+            "v2": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v2.docx",
+            "v3": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
+            "key": "Dm(-1)",
+            "speed": "65",
+            "style": "Beat",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Pop-P1-3"
         },
         "": {
             "Title": "",
@@ -1326,7 +1326,13 @@
             "latestVersion": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
             "v1": "RED Words/563.docx",
             "v2": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v2.docx",
-            "v3": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx"
+            "v3": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
+            "key": "Dm(-1)",
+            "speed": "65",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "160": {
             "Title": "Մեղքի մեջ եմ ես ապրել,",

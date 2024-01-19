@@ -89,7 +89,13 @@
         "110": {
             "Title": "Ողորմե՜ ինձ, ողորմե՜ ինձ,",
             "latestVersion": "RED Words/110.docx",
-            "v1": "RED Words/110.docx"
+            "v1": "RED Words/110.docx",
+            "key": "Em",
+            "speed": "",
+            "style": "no style",
+            "song_type": "Single Song",
+            "timeSig": "",
+            "Comments": "PIANO"
         },
         "111": {
             "Title": "Տիրոջ ահեղ գահուն առջև",
@@ -344,7 +350,13 @@
         "154": {
             "Title": "Դու ինձ մոտ ես, քան ծովին իր ափը,",
             "latestVersion": "RED Words/154.docx",
-            "v1": "RED Words/154.docx"
+            "v1": "RED Words/154.docx",
+            "key": "Fm",
+            "speed": "100",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P1-1"
         },
         "155": {
             "Title": "Ո՜վ Տեր Հիսուս, ես Քեզ տեսա",
@@ -406,7 +418,13 @@
         "164": {
             "Title": "Աստծո սերը մեծ է շատ,",
             "latestVersion": "RED Words/164.docx",
-            "v1": "RED Words/164.docx"
+            "v1": "RED Words/164.docx",
+            "key": "E",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "165": {
             "Title": "Երբ մահվան շուքը քեզի չարչարե,",
@@ -550,7 +568,13 @@
         "188": {
             "Title": "Գոհանում եմ, Տե՜ր իմ, (2)",
             "latestVersion": "RED Words/188.docx",
-            "v1": "RED Words/188.docx"
+            "v1": "RED Words/188.docx",
+            "key": "Cm",
+            "speed": "140",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Jazz-P3-8"
         },
         "189": {
             "Title": "Սերը քննում են, սերը ճանաչում,",
@@ -613,8 +637,9 @@
             "style": "",
             "opening_Song": "",
             "Worship_Song": "",
-            "timeSig": "12/8",
-            "Comments": "Ballad-P4-1"
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1",
+            "song_type": "Single Song"
         },
         "198": {
             "Title": "Գողգոթայի սարը ելա երազով,",
@@ -779,7 +804,13 @@
         "226": {
             "Title": "Տե՜ր իմ Ամենակալ,",
             "latestVersion": "RED Words/226.docx",
-            "v1": "RED Words/226.docx"
+            "v1": "RED Words/226.docx",
+            "key": "Dm",
+            "speed": "82",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P1-1"
         },
         "227": {
             "Title": "Ո՜վ խաչյալ Փրկիչ Քրիստոս,",
@@ -1095,7 +1126,13 @@
         "28": {
             "Title": "28",
             "latestVersion": "RED Words/28.docx",
-            "v1": "RED Words/28.docx"
+            "v1": "RED Words/28.docx",
+            "key": "Am",
+            "speed": "103",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P4-1"
         },
         "280": {
             "Title": "Թեկուզ տկար կերևնամ ես",
@@ -1162,7 +1199,13 @@
         "290": {
             "Title": "Կուզեմ ապրել Քեզնով միայն,",
             "latestVersion": "RED Words/290.docx",
-            "v1": "RED Words/290.docx"
+            "v1": "RED Words/290.docx",
+            "key": "Em",
+            "speed": "86",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P1-1"
         },
         "291": {
             "Title": "Սիրում եմ (3) Քեզ, ի՛մ Տեր, (2)",
@@ -1267,7 +1310,13 @@
         "309": {
             "Title": "Ելնեմ ճամփա՝ ցուպը ձեռքիս,",
             "latestVersion": "RED Words/309.docx",
-            "v1": "RED Words/309.docx"
+            "v1": "RED Words/309.docx",
+            "key": "Em",
+            "speed": "100",
+            "style": "Beat ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P4-1"
         },
         "31": {
             "Title": "Լույս է տալիս կյանքին մեր",
@@ -1322,7 +1371,13 @@
         "319": {
             "Title": "Ինչքա՜ն բարի է Տերը,",
             "latestVersion": "RED Words/319.docx",
-            "v1": "RED Words/319.docx"
+            "v1": "RED Words/319.docx",
+            "key": "Bm",
+            "speed": "95",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "32": {
             "Title": "Մարել են հույսդ ու սերդ,",
@@ -1384,7 +1439,13 @@
         "329": {
             "Title": "Քեզ եմ սպասում, արի՜ Դու, ի՛մ Տեր, ալելուիա՜,",
             "latestVersion": "RED Words/329.docx",
-            "v1": "RED Words/329.docx"
+            "v1": "RED Words/329.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "33": {
             "Title": "Ուրախացի՛ր, օրհներգ հյուսի՛ր,",
@@ -1394,7 +1455,13 @@
         "330": {
             "Title": "Ունայնություն է աշխարհը այս սին,",
             "latestVersion": "RED Words/330.docx",
-            "v1": "RED Words/330.docx"
+            "v1": "RED Words/330.docx",
+            "key": "Cm",
+            "speed": "100",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "331": {
             "Title": "",
@@ -1464,7 +1531,13 @@
         "343": {
             "Title": "Խոսքերդ վառ լույս են իմ ճամփին,",
             "latestVersion": "RED Words/343.docx",
-            "v1": "RED Words/343.docx"
+            "v1": "RED Words/343.docx",
+            "key": "Dm",
+            "speed": "93",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P1-1"
         },
         "344": {
             "Title": "Չարը մեզ գերի տարավ ահով ու մեղքով,",
@@ -1593,7 +1666,13 @@
         "363": {
             "Title": "Հիսուսն է կյանքը և ճանապարհը,",
             "latestVersion": "RED Words/363.docx",
-            "v1": "RED Words/363.docx"
+            "v1": "RED Words/363.docx",
+            "key": "F#m",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "364": {
             "Title": "Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք,",
@@ -1608,7 +1687,13 @@
         "366": {
             "Title": "Ուրախությամբ սպասում ենք Քեզ, Հիսո՛ւս մեր Տեր,",
             "latestVersion": "RED Words/366.docx",
-            "v1": "RED Words/366.docx"
+            "v1": "RED Words/366.docx",
+            "key": "Am",
+            "speed": "95",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "367": {
             "Title": "Դու արժանի ես փառքերի, (2)",
@@ -1678,7 +1763,13 @@
         "379": {
             "Title": "Ես երբեք չեմ եղել իմ տան մեջ,",
             "latestVersion": "RED Words/379.docx",
-            "v1": "RED Words/379.docx"
+            "v1": "RED Words/379.docx",
+            "key": "Fm",
+            "speed": "115",
+            "style": "Bossa",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-4"
         },
         "38": {
             "Title": "Ո՜հ, այն գիշեր Գեթսեմանում,",
@@ -1783,7 +1874,13 @@
         "398": {
             "Title": "Տե՜ր, տո՛ւր ինձ այն հոգին,",
             "latestVersion": "RED Words/398.docx",
-            "v1": "RED Words/398.docx"
+            "v1": "RED Words/398.docx",
+            "key": "Fm",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "399": {
             "Title": "Փառքն ու պատիվը Աստծուն վայել են.",
@@ -2062,7 +2159,13 @@
         "445": {
             "Title": "Հիշի՛ր քո Տեր Աստծուն",
             "latestVersion": "RED Words/445.docx",
-            "v1": "RED Words/445.docx"
+            "v1": "RED Words/445.docx",
+            "key": "Fm",
+            "speed": "95",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "446": {
             "Title": "",
@@ -2219,7 +2322,13 @@
         "472": {
             "Title": "Որքա՜ն կուզեմ, օրհնյա՜լ Տեր իմ,",
             "latestVersion": "RED Words/472.docx",
-            "v1": "RED Words/472.docx"
+            "v1": "RED Words/472.docx",
+            "key": "Am",
+            "speed": "60",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "473": {
             "Title": "Արթնացրո՜ւ ինձ, Տե՛ր,",
@@ -2419,7 +2528,13 @@
         "508": {
             "Title": "",
             "latestVersion": "RED Words/508.docx",
-            "v1": "RED Words/508.docx"
+            "v1": "RED Words/508.docx",
+            "key": "C#m",
+            "speed": "100",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "509": {
             "Title": "Տե՛ր, ինչպես Պենտեկոստեին",
@@ -2604,7 +2719,13 @@
         "541": {
             "Title": "Երկիր իջավ Աստծո Որդին,",
             "latestVersion": "RED Words/541.docx",
-            "v1": "RED Words/541.docx"
+            "v1": "RED Words/541.docx",
+            "key": "Em(-1)",
+            "speed": "64",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "542": {
             "Title": "Եկե՛ք միացեք մեր երգին,",
@@ -2738,9 +2859,9 @@
             "key": "Em",
             "speed": "92",
             "style": "Ballad",
-            "song_type": "Single Song",
+            "song_type": "Worship Song",
             "Worship_Song": "",
-            "timeSig": "12/8",
+            "timeSig": "6/8",
             "Comments": "Ballad-P5-1"
         },
         "566": {
@@ -3206,7 +3327,13 @@
         "65": {
             "Title": "Հիսուսին միայն սրտումս պիտ ունենամ,",
             "latestVersion": "RED Words/65.docx",
-            "v1": "RED Words/65.docx"
+            "v1": "RED Words/65.docx",
+            "key": "E",
+            "speed": "100",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "650": {
             "Title": "Ո՜վ Հայր երկնավոր, նայէ գահէդ վերին",
@@ -3306,7 +3433,13 @@
         "668": {
             "Title": "Օրհնված ջուրն է իջնում երկնքից",
             "latestVersion": "RED Words/668.docx",
-            "v1": "RED Words/668.docx"
+            "v1": "RED Words/668.docx",
+            "key": "Cm",
+            "speed": "63",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "669": {
             "Title": "Հոգիս միայն Քեզ է ուզում,",
@@ -3870,7 +4003,13 @@
         "770": {
             "Title": "Ո՜վ փառավոր, բարձրյալ Աստված,",
             "latestVersion": "RED Words/770.docx",
-            "v1": "RED Words/770.docx"
+            "v1": "RED Words/770.docx",
+            "key": "Bm",
+            "speed": "85",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "771": {
             "Title": "Ինչքան էլ որ տխուր",
@@ -5132,16 +5271,15 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "Մերկ ենք եկել, մերկ կգնանք աշխարհից,",
-            "latestVersion": "RED Words/817.docx",
-            "v1": "RED Words/817.docx",
-            "key": "Dm (-1)",
-            "speed": "108",
-            "style": "Disco",
+            "Title": "",
+            "latestVersion": "RED Words/508.docx",
+            "v1": "RED Words/508.docx",
+            "key": "C#m",
+            "speed": "100",
+            "style": "Samba",
             "song_type": "Opening Song",
-            "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Latin Dance-P2-3"
         }
     }
 }
