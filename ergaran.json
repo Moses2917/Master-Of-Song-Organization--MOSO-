@@ -512,7 +512,13 @@
         "433": {
             "Title": "Գալիս եմ Քեզ մոտ փառաբանության",
             "latestVersion": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության.docx",
-            "v1": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության.docx"
+            "v1": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության.docx",
+            "key": "C",
+            "speed": "63",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "439": {
             "Title": "Դաժան է այս աշխարհը սին",
@@ -1210,17 +1216,15 @@
             "v2": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v2.docx"
         },
         "SongNum": {
-            "Title": "Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ,",
-            "latestVersion": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
-            "v1": "RED Words/563.docx",
-            "v2": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v2.docx",
-            "v3": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
-            "key": "Dm(-1)",
-            "speed": "65",
-            "style": "Beat",
-            "song_type": "Single Song",
+            "Title": "Գալիս եմ Քեզ մոտ փառաբանության",
+            "latestVersion": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության.docx",
+            "v1": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության.docx",
+            "key": "C",
+            "speed": "63",
+            "style": "Ballad",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Ballad-P1-8"
         },
         "": {
             "Title": "",

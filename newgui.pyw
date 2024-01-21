@@ -297,37 +297,37 @@ tk.Radiobutton(root, text="None", variable=day_var, value=None, font=tickBox_fon
 tk.Radiobutton(root, text="Sun/Porc", variable=day_var, value="Sunday", font=tickBox_font, relief="raised", bd=8).grid(row=3, column=6)
 
 
-create_File_Button = Button(root, text="Create File", relief="raised", bg="#D90012", fg='#FFC107', bd=5, padx=10, pady=10, font=('Arial', 15), command=create_File)
+create_File_Button = Button(root, text="Create File", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, padx=10, pady=10, font=('Arial', 15), command=create_File)
 create_File_Button.grid(row=1, column=2)
 
-CompatibilityCompare = Button(root, text="Compatibility", relief="raised", bg="#D90012", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=Compatibility)
+CompatibilityCompare = Button(root, text="Compatibility", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=Compatibility)
 CompatibilityCompare.grid(row=1, column=0)
 
-PosisbleSongs = Button(root, text="Possible Songs", relief="raised", bg="#D90012", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=viewPosSongs)
+PosisbleSongs = Button(root, text="Possible Songs", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=viewPosSongs)
 PosisbleSongs.grid(row=1, column=1)
 
 # SongChecker = Button(root, text="SongChecker", relief="raised", bg="#0000a0", fg='#FFC107', bd=5, pady=10, font=('Arial', 15), command=SongCheck)
 # SongChecker.grid(row=1, column=0)
 
-add_button = Button(root, text="Add Song", relief="raised", bg="#0033A0", fg='#FFC107', bd=5, padx=22, pady=10, font=('Arial', 15), command=add_song)
+add_button = Button(root, text="Add Song", relief="raised", bg="#741a1c", fg='#FFC107', bd=5, padx=22, pady=10, font=('Arial', 15), command=add_song)
 add_button.grid(row=2, column=2)
 
 BGroupRow = 3
 BGroupCol = 0
 
-delete_button = Button(root, text="Delete Song", bg='#0033A0', fg='#FFC107', font=('Arial', 15), command=delete_song, padx=10, pady=10, bd=5, relief="raised")
+delete_button = Button(root, text="Delete Song", bg='#741a1c', fg='#FFC107', font=('Arial', 15), command=delete_song, padx=10, pady=10, bd=5, relief="raised")
 delete_button.grid(row=2, column=1)
 
-edit_button = Button(root, text="Edit Song", bg='#0033A0', fg='#FFC107', font=('Arial', 15), command=edit_song,padx=10, pady=10, bd=5, relief="raised")
+edit_button = Button(root, text="Edit Song", bg='#741a1c', fg='#FFC107', font=('Arial', 15), command=edit_song,padx=10, pady=10, bd=5, relief="raised")
 edit_button.grid(row=2, column=0)
 
-move_up_button = Button(root, text="Move Up", bg='#F2A800', fg='#cc0000', font=('Arial', 15), command=move_up, padx=13, pady=10, bd=5, relief="raised")
+move_up_button = Button(root, text="Move Up", bg='#F2A800', fg='#0000a0', font=('Arial', 15), command=move_up, padx=13, pady=10, bd=5, relief="raised")
 move_up_button.grid(row=BGroupRow, column=BGroupCol,sticky='ew')
 
-move_down_button = Button(root, text="Move Down", bg='#F2A800', fg='#cc0000', font=('Arial', 15), command=move_down, padx=10, pady=10, bd=5, relief="raised")
+move_down_button = Button(root, text="Move Down", bg='#F2A800', fg='#0000a0', font=('Arial', 15), command=move_down, padx=10, pady=10, bd=5, relief="raised")
 move_down_button.grid(row=BGroupRow, column=BGroupCol+1)
 
-clr_button = Button(root, text="Clear Songs", bg='#F2A800', fg='#cc0000', font=('Arial', 15), command=clr_listbox, padx=10, pady=10, bd=5, relief="raised")
+clr_button = Button(root, text="Clear Songs", bg='#F2A800', fg='#0000a0', font=('Arial', 15), command=clr_listbox, padx=10, pady=10, bd=5, relief="raised")
 clr_button.grid(row=BGroupRow, column=BGroupCol+2)
 
 

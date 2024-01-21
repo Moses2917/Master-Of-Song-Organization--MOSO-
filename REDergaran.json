@@ -2388,7 +2388,13 @@
         "483": {
             "Title": "Տե՜ր Հիսուս, խնդրում ենք Քեզ,",
             "latestVersion": "RED Words/483.docx",
-            "v1": "RED Words/483.docx"
+            "v1": "RED Words/483.docx",
+            "key": "G",
+            "speed": "63",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "484": {
             "Title": "Քո ծննդով փոխեցիր Դու ինձ`",
@@ -2810,7 +2816,13 @@
         "557": {
             "Title": "Օրհնյալ ես Դու, Թագավոր,",
             "latestVersion": "RED Words/557.docx",
-            "v1": "RED Words/557.docx"
+            "v1": "RED Words/557.docx",
+            "key": "F",
+            "speed": "55",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "558": {
             "Title": "",
@@ -4471,7 +4483,13 @@
         "852": {
             "Title": "Աբրահամի, Իսահակի, Հակոբի Աստվա՛ծ,",
             "latestVersion": "RED Words/852.docx",
-            "v1": "RED Words/852.docx"
+            "v1": "RED Words/852.docx",
+            "key": "Fm",
+            "speed": "65",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "853": {
             "Title": "Տե՛ր, Դու ես իմ բաժինը,",
@@ -5271,15 +5289,15 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "",
-            "latestVersion": "RED Words/508.docx",
-            "v1": "RED Words/508.docx",
-            "key": "C#m",
-            "speed": "100",
-            "style": "Samba",
-            "song_type": "Opening Song",
+            "Title": "Աբրահամի, Իսահակի, Հակոբի Աստվա՛ծ,",
+            "latestVersion": "RED Words/852.docx",
+            "v1": "RED Words/852.docx",
+            "key": "Fm",
+            "speed": "65",
+            "style": "Beat",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Pop-P1-3"
         }
     }
 }
