@@ -226,7 +226,7 @@
         },
         "417": {
             "Title": "Մեծարում եմ անունդ ով Տեր",
-            "latestVersion": "Word songs/417 Մեծարում եմ անունդ ով Տեր v2.docx",
+            "latestVersion": "Word songs/417 Մեծարում եմ անունդ ով Տեր v3.docx",
             "v1": "Word songs/417 Մեծարում եմ անունդ ով Տեր.docx",
             "v2": "Word songs/417 Մեծարում եմ անունդ ով Տեր v2.docx",
             "key": "G",
@@ -234,7 +234,8 @@
             "style": "Beat",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P4-1"
+            "Comments": "Pop-P4-1",
+            "v3": "Word songs/417 Մեծարում եմ անունդ ով Տեր v3.docx"
         },
         "421": {
             "Title": "Համեցե՛ք Տիրոջ խնջույքին",
@@ -259,14 +260,15 @@
         },
         "440": {
             "Title": "Օրհնյալ լինի քո անունը Տեր հզոր",
-            "latestVersion": "Word songs/440 Օրհնյալ լինի քո անունը Տեր հզոր.docx",
+            "latestVersion": "Word songs/440 Օրհնյալ լինի քո անունը Տեր հզոր v2.docx",
             "v1": "Word songs/440 Օրհնյալ լինի քո անունը Տեր հզոր.docx",
             "key": "Gm",
             "speed": "115",
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Pop-P3-4",
+            "v2": "Word songs/440 Օրհնյալ լինի քո անունը Տեր հզոր v2.docx"
         },
         "442": {
             "Title": "Միաշաբթի լուսաբացին",
@@ -798,14 +800,15 @@
         },
         "656": {
             "Title": "Ամեն օր տեսնում եմ քեզ իմ Տեր",
-            "latestVersion": "Word songs/656 Ամեն օր տեսնում եմ քեզ իմ Տեր.docx",
+            "latestVersion": "Word songs/656 Ամեն օր տեսնում եմ քեզ իմ Տեր v2.docx",
             "v1": "Word songs/656 Ամեն օր տեսնում եմ քեզ իմ Տեր.docx",
             "key": "G",
             "speed": "92",
             "style": "Beat",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P4-1"
+            "Comments": "Pop-P4-1",
+            "v2": "Word songs/656 Ամեն օր տեսնում եմ քեզ իմ Տեր v2.docx"
         },
         "659": {
             "Title": "Նայում եմ Քեզ Տեր իմ թագավոր",
@@ -930,14 +933,15 @@
         },
         "694": {
             "Title": "Տեր ծարավ եմ Քեզ",
-            "latestVersion": "Word songs/694 Տեր ծարավ եմ Քեզ.docx",
+            "latestVersion": "Word songs/694 Տեր ծարավ եմ Քեզ v2.docx",
             "v1": "Word songs/694 Տեր ծարավ եմ Քեզ.docx",
             "key": "Gm",
             "speed": "65",
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v2": "Word songs/694 Տեր ծարավ եմ Քեզ v2.docx"
         },
         "695": {
             "Title": "Երգիր Տիրոջը ողջ երկիր",

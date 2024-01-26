@@ -1,8 +1,6 @@
 #This file/module serves as a helper for my newGui.pyw app, otherwise known as MOSO
 import os, docx, time, re
-from glob import glob
 import json
-import xml.etree.ElementTree as ET
 from docx.shared import Pt
 
 
@@ -68,6 +66,7 @@ def getPcSongs(songs, imp, user):
     Returns:
         docx: a word file containing the requested songs
     """
+    user = os.environ.get("USERNAME")
     my_doc = docx.Document("C:/Users/" + user + "/OneDrive/Choir Songs Template.docx")
     for x in songs:
         x = str(x)

@@ -330,7 +330,13 @@
         "150": {
             "Title": "Ների՜ր ինձ այսօր ու ողորմի՛ր",
             "latestVersion": "RED Words/150.docx",
-            "v1": "RED Words/150.docx"
+            "v1": "RED Words/150.docx",
+            "key": "G",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pip-P1-3"
         },
         "151": {
             "Title": "Հիսուսի սերը մեծ է, անսահման,",
@@ -957,7 +963,13 @@
         "251": {
             "Title": "Շատ անգամ է իմ նավակը",
             "latestVersion": "RED Words/251.docx",
-            "v1": "RED Words/251.docx"
+            "v1": "RED Words/251.docx",
+            "key": "Em",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pip-P1-3"
         },
         "252": {
             "Title": "Ես թողեցի մի օրինակ,",
@@ -2796,7 +2808,13 @@
         "553": {
             "Title": "Սիրո տիեզերք, սիրո օվկիան,",
             "latestVersion": "RED Words/553.docx",
-            "v1": "RED Words/553.docx"
+            "v1": "RED Words/553.docx",
+            "key": "Dm",
+            "speed": "85",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P1-6"
         },
         "554": {
             "Title": "Քեզ եմ փափագում, Հիսո՛ւս, իմ Փրկիչ,",
@@ -2852,7 +2870,13 @@
         "562": {
             "Title": "Սիրեցիր ինձ, Տե՛ր, փրկեցիր հոգիս,",
             "latestVersion": "RED Words/562.docx",
-            "v1": "RED Words/562.docx"
+            "v1": "RED Words/562.docx",
+            "key": "Am",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "563": {
             "Title": "Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ,",
@@ -3069,7 +3093,13 @@
         "60": {
             "Title": "Փորձանքներու մեջ անհամար",
             "latestVersion": "RED Words/60.docx",
-            "v1": "RED Words/60.docx"
+            "v1": "RED Words/60.docx",
+            "key": "F",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "600": {
             "Title": "Քո գահի առջև ահա կանգնել եմ,",
@@ -5289,15 +5319,15 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "Աբրահամի, Իսահակի, Հակոբի Աստվա՛ծ,",
-            "latestVersion": "RED Words/852.docx",
-            "v1": "RED Words/852.docx",
-            "key": "Fm",
-            "speed": "65",
-            "style": "Beat",
+            "Title": "Սիրո տիեզերք, սիրո օվկիան,",
+            "latestVersion": "RED Words/553.docx",
+            "v1": "RED Words/553.docx",
+            "key": "Dm",
+            "speed": "85",
+            "style": "Ballad",
             "song_type": "Single Song",
-            "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "timeSig": "6/8",
+            "Comments": "Ballad-P1-6"
         }
     }
 }

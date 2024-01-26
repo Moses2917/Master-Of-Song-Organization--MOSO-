@@ -14,7 +14,7 @@ from multiprocessing import Pool
 
 listy = []
            
-def add_song(self):
+def add_song(event=None):
     song_num = entry.get()
     bookType = radio_var.get()
     if song_num == "" or bookType == "":
@@ -128,11 +128,11 @@ def viewPosSongs():
 def create_File():
     print("Firing up databases...")
     ##Used to determine which file path to save to
-    user = ""
-    if os.path.exists("C:/Users/moses/"):
-        user = "moses"
-    else:
-        user = "Armne"
+    user = os.environ.get("USERNAME")
+    # if os.path.exists("C:/Users/moses/"):
+    #     user = "moses"
+    # else:
+    #     user = "Armne"
     songsList = listbox.get(0, tk.END)
 
     #Sort out the old and new, and all numbers
@@ -176,7 +176,7 @@ def create_File():
         else:
             my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + "TESTSAVE.docx")
     import scanningDir
-    scanningDir.getAllDir()
+    scanningDir.getAllNums()
 
 def ChooseFile():
     from tkinter import filedialog as fd
@@ -203,7 +203,7 @@ def Compatibility():
     myFont = TkFont.Font(family="Arial", size=18)
     import threading as th
 
-    def clicked(self): #curselection give the index of the thing clicked, in a tuple ie:(10,)
+    def clicked(event=None): #curselection give the index of the thing clicked, in a tuple ie:(10,)
         
         MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
         index = PastSongsListbox.curselection()[0]
