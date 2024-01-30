@@ -24,7 +24,6 @@ Here's what MOSO brings to the table:
 - **Easy Song Lyric Management**: Add, update, and delete song lyrics effortlessly.
 - **User-Friendly Interface**: A simple and intuitive UI that won't leave you scratching your head.
 - **Efficiency**: Streamline your church music management tasks for a more organized worship experience.
-- **Cross-Platform**: Works on Windows, macOS, and Linux.
 
 ## Getting Started
 
