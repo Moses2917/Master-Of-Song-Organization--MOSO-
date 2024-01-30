@@ -759,8 +759,9 @@
         },
         "562": {
             "Title": "Սիրեցիր ինձ, Տեր, փրկեցիր հոգիս",
-            "latestVersion": "Երգարան Word Files/562 Սիրեցիր ինձ, Տեր, փրկեցիր հոգիս.docx",
-            "v1": "Երգարան Word Files/562 Սիրեցիր ինձ, Տեր, փրկեցիր հոգիս.docx"
+            "latestVersion": "Երգարան Word Files/562 Սիրեցիր ինձ, Տեր, փրկեցիր հոգիս v2.docx",
+            "v1": "Երգարան Word Files/562 Սիրեցիր ինձ, Տեր, փրկեցիր հոգիս.docx",
+            "v2": "Երգարան Word Files/562 Սիրեցիր ինձ, Տեր, փրկեցիր հոգիս v2.docx"
         },
         "565": {
             "Title": "Հրեշտակներն երկնքում",
@@ -825,8 +826,9 @@
         },
         "60": {
             "Title": "Փորձանքներու մեջ անհամար",
-            "latestVersion": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար.docx",
-            "v1": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար.docx"
+            "latestVersion": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար v2.docx",
+            "v1": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար.docx",
+            "v2": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար v2.docx"
         },
         "607": {
             "Title": "Ներկա է Տերը",
@@ -1397,6 +1399,48 @@
             "latestVersion": "Երգարան Word Files/89 Եկեք, մեր ճամբան նորոգենք, v2.docx",
             "v1": "RED Words/89.docx",
             "v2": "Երգարան Word Files/89 Եկեք, մեր ճամբան նորոգենք, v2.docx"
+        },
+        "251": {
+            "Title": "Շատ անգամ է իմ նավակը",
+            "latestVersion": "Երգարան Word Files/251 Շատ անգամ է իմ նավակը v2.docx",
+            "v1": "RED Words/251.docx",
+            "key": "Em",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pip-P1-3",
+            "v2": "Երգարան Word Files/251 Շատ անգամ է իմ նավակը v2.docx"
+        },
+        "150": {
+            "Title": "Ների՜ր ինձ այսօր ու ողորմի՛ր",
+            "latestVersion": "Երգարան Word Files/150 Ների՜ր ինձ այսօր ու ողորմի՛ր v2.docx",
+            "v1": "RED Words/150.docx",
+            "key": "G",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pip-P1-3",
+            "v2": "Երգարան Word Files/150 Ների՜ր ինձ այսօր ու ողորմի՛ր v2.docx"
+        },
+        "553": {
+            "Title": "Սիրո տիեզերք, սիրո օվկիան,",
+            "latestVersion": "Երգարան Word Files/553 Սիրո տիեզերք, սիրո օվկիան, v2.docx",
+            "v1": "RED Words/553.docx",
+            "key": "Dm",
+            "speed": "85",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P1-6",
+            "v2": "Երգարան Word Files/553 Սիրո տիեզերք, սիրո օվկիան, v2.docx"
+        },
+        "21": {
+            "Title": "Ո՜վ Տեր, պահե սիրտս օրէ օր",
+            "latestVersion": "Երգարան Word Files/21 Ո՜վ Տեր, պահե սիրտս օրէ օր v2.docx",
+            "v1": "RED Words/21.docx",
+            "v2": "Երգարան Word Files/21 Ո՜վ Տեր, պահե սիրտս օրէ օր v2.docx"
         }
     }
 }
