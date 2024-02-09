@@ -2,8 +2,7 @@
 
 Welcome to the MOSO project! 🎵
 
-This project is still a major work in progress with many features yet to come!
-This means that everything on the readme, is not neccisarily fully implimented yet, but it will be soon!
+<h1>This project is still a major work in progress with many features yet to come! This means that everything on the readme, is not necessarily fully implimented yet, but it will be soon!<h1>
 
 ## Table of Contents
 - [Introduction](#introduction)
