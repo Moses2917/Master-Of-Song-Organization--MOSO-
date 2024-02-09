@@ -861,7 +861,13 @@
         "234": {
             "Title": "Ինչո՞ւ ես տանջում քեզ այդպես,",
             "latestVersion": "RED Words/234.docx",
-            "v1": "RED Words/234.docx"
+            "v1": "RED Words/234.docx",
+            "key": "Dm",
+            "speed": "95",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Pop-P5-4"
         },
         "235": {
             "Title": "Կհանձնվիմ Քեզ, Հիսո՜ւս իմ,",
@@ -1181,8 +1187,8 @@
             "latestVersion": "RED Words/286.docx",
             "v1": "RED Words/286.docx",
             "key": "Em",
-            "speed": "",
-            "style": "",
+            "speed": "90",
+            "style": "Pop",
             "song_type": "Single Song",
             "Worship_Song": "",
             "timeSig": "6/8",
@@ -1292,7 +1298,13 @@
         "303": {
             "Title": "Եկե՛ք գովենք ու երգենք մեր Աստծուն,",
             "latestVersion": "RED Words/303.docx",
-            "v1": "RED Words/303.docx"
+            "v1": "RED Words/303.docx",
+            "key": "Em",
+            "speed": "100",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "304": {
             "Title": "Խոստացյալ Սուրբ Հոգի`",
@@ -1363,7 +1375,13 @@
         "315": {
             "Title": "Ահա ցուրտ ձմեռն է անցել,",
             "latestVersion": "RED Words/315.docx",
-            "v1": "RED Words/315.docx"
+            "v1": "RED Words/315.docx",
+            "key": "Em",
+            "speed": "73",
+            "style": "Bossa Nova",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin-P1-3"
         },
         "316": {
             "Title": "Ուղեղովս են անցնում մտքեր,",
@@ -1421,12 +1439,14 @@
             "latestVersion": "RED Words/324.docx",
             "v1": "RED Words/324.docx",
             "key": "Em",
-            "speed": "",
-            "style": "",
+            "speed": "88",
+            "style": "Waltz",
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "3/4",
-            "Comment": null
+            "Comment": null,
+            "song_type": "None",
+            "Comments": "Ballroom-P1-1"
         },
         "325": {
             "Title": "Երկինքը Աստծո փառքը կպատմե,",
@@ -1596,7 +1616,9 @@
             "style": "Swing",
             "opening_Song": "",
             "Worship_Song": "",
-            "timeSig": "4/4"
+            "timeSig": "4/4",
+            "song_type": "Single Song",
+            "Comments": ""
         },
         "350": {
             "Title": "Այսօր ուրախության օր է,",
@@ -1897,7 +1919,13 @@
         "399": {
             "Title": "Փառքն ու պատիվը Աստծուն վայել են.",
             "latestVersion": "RED Words/399.docx",
-            "v1": "RED Words/399.docx"
+            "v1": "RED Words/399.docx",
+            "key": "Am",
+            "speed": "107",
+            "style": "Samba",
+            "song_type": "None",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "4": {
             "Title": "Ինչպե՞ս երթամ պարապ ձեռքով,",
@@ -2319,7 +2347,13 @@
         "47": {
             "Title": "Ինչպես բարեկամ է Տերը,",
             "latestVersion": "RED Words/47.docx",
-            "v1": "RED Words/47.docx"
+            "v1": "RED Words/47.docx",
+            "key": "E (-8)",
+            "speed": "93",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "470": {
             "Title": "Տերն իմ Հովիվն է.",
@@ -3701,7 +3735,13 @@
         "708": {
             "Title": "Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5):",
             "latestVersion": "RED Words/708.docx",
-            "v1": "RED Words/708.docx"
+            "v1": "RED Words/708.docx",
+            "key": "F#",
+            "speed": "78",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P3-5"
         },
         "709": {
             "Title": "Երբ չէի փնտրում ես Քեզ, գտար ինձ,",
@@ -3794,13 +3834,15 @@
             "Title": "Մի՞թե առանց պտուղներ",
             "latestVersion": "RED Words/724.docx",
             "v1": "RED Words/724.docx",
-            "key": "",
-            "speed": "",
-            "style": "",
+            "key": "B",
+            "speed": "100",
+            "style": "Samba",
             "opening_Song": "",
             "Worship_Song": "",
-            "timeSig": "",
-            "Comment": null
+            "timeSig": "4/4",
+            "Comment": null,
+            "song_type": "Opening Song",
+            "Comments": "Latin Dance-P2-3"
         },
         "725": {
             "Title": "Ծաղիկներն են, որ պարտեզին կտան",
@@ -3880,7 +3922,13 @@
         "74": {
             "Title": "Փառք է քայլել Անոր հետ,",
             "latestVersion": "RED Words/74.docx",
-            "v1": "RED Words/74.docx"
+            "v1": "RED Words/74.docx",
+            "key": "A",
+            "speed": "95",
+            "style": "Swing",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Jazz-P3-5"
         },
         "740": {
             "Title": "Թափառում էր իմ հոգին",
@@ -5211,7 +5259,13 @@
         "98": {
             "Title": "Սուրբ ես (3), Տե՛ր,",
             "latestVersion": "RED Words/98.docx",
-            "v1": "RED Words/98.docx"
+            "v1": "RED Words/98.docx",
+            "key": "E",
+            "speed": "84",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P1-1"
         },
         "980": {
             "Title": "Եթե դու չունես քեզ մտերիմ,",
@@ -5319,15 +5373,15 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "Սիրո տիեզերք, սիրո օվկիան,",
-            "latestVersion": "RED Words/553.docx",
-            "v1": "RED Words/553.docx",
-            "key": "Dm",
-            "speed": "85",
-            "style": "Ballad",
+            "Title": "Ահա ցուրտ ձմեռն է անցել,",
+            "latestVersion": "RED Words/315.docx",
+            "v1": "RED Words/315.docx",
+            "key": "Em",
+            "speed": "73",
+            "style": "Bossa Nova",
             "song_type": "Single Song",
-            "timeSig": "6/8",
-            "Comments": "Ballad-P1-6"
+            "timeSig": "4/4",
+            "Comments": "Latin-P1-3"
         }
     }
 }

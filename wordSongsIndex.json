@@ -113,13 +113,27 @@
         },
         "320": {
             "Title": "Հիսուս դու ես իմ Տերը",
-            "latestVersion": "Word songs/320 Հիսուս դու ես իմ Տերը.docx",
-            "v1": "Word songs/320 Հիսուս դու ես իմ Տերը.docx"
+            "latestVersion": "Word songs/320 Հիսուս դու ես իմ Տերը v2.docx",
+            "v1": "Word songs/320 Հիսուս դու ես իմ Տերը.docx",
+            "v2": "Word songs/320 Հիսուս դու ես իմ Տերը v2.docx",
+            "key": "D ",
+            "speed": "118",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4"
         },
         "321": {
             "Title": "Ամբողջ իմ սրտով",
-            "latestVersion": "Word songs/321 Ամբողջ իմ սրտով.docx",
-            "v1": "Word songs/321 Ամբողջ իմ սրտով.docx"
+            "latestVersion": "Word songs/321 Ամբողջ իմ սրտով v2.docx",
+            "v1": "Word songs/321 Ամբողջ իմ սրտով.docx",
+            "v2": "Word songs/321 Ամբողջ իմ սրտով v2.docx",
+            "key": "E",
+            "speed": "118",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4"
         },
         "322": {
             "Title": "Գալիս եմ Քեզ մոտ փառաբանությամբ",
@@ -983,7 +997,13 @@
             "Title": "Սիրում եմ քեզ տեր Հիսուս",
             "latestVersion": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս v2.docx",
             "v1": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս.docx",
-            "v2": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս v2.docx"
+            "v2": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս v2.docx",
+            "key": "D#m (-6)",
+            "speed": "86",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "705": {
             "Title": "Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել",
@@ -1165,8 +1185,15 @@
         },
         "755": {
             "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
-            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
-            "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx"
+            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
+            "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
+            "v2": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
+            "key": "F#m",
+            "speed": "100",
+            "style": "Beguine ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance- P2-8"
         },
         "756": {
             "Title": "Օրհնյալ է Տերը օրհնյալ ամեն օր",
@@ -1372,12 +1399,6 @@
             "latestVersion": "Word songs/429  v1.docx",
             "v1": "Word songs/429  v1.docx"
         },
-        "-774-": {
-            "Title": "",
-            "latestVersion": "Word songs/-774-  v2.docx",
-            "v1": "Word songs/-774-  v1.docx",
-            "v2": "Word songs/-774-  v2.docx"
-        },
         "495": {
             "Title": "",
             "latestVersion": "Word songs/495  v2.docx",
@@ -1385,23 +1406,24 @@
             "v2": "Word songs/495  v2.docx"
         },
         "SongNum": {
-            "Title": "Օրհնյալ լինի քո անունը Տեր հզոր",
-            "latestVersion": "Word songs/440 Օրհնյալ լինի քո անունը Տեր հզոր.docx",
-            "v1": "Word songs/440 Օրհնյալ լինի քո անունը Տեր հզոր.docx",
-            "key": "Gm",
-            "speed": "115",
-            "style": "Beat",
+            "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
+            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
+            "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
+            "v2": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
+            "key": "F#m",
+            "speed": "100",
+            "style": "Beguine ",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Latin Dance- P2-8"
         },
         "404": {
-            "Title": "",
+            "Title": "Հույսի ճառագայթ ճախրեց երկնքում",
             "latestVersion": "Word songs/404  v4.docx",
             "v1": "Word songs/404  v1.docx",
             "v2": "Word songs/404  v2.docx",
             "v3": "Word songs/404  v3.docx",
-            "v4": "Word songs/404  v4.docx"
+            "v4": "Word songs/404 Հույսի ճառագայթ ճախրեց երկնքում v4.docx"
         }
     }
 }

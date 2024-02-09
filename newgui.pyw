@@ -129,10 +129,6 @@ def create_File():
     print("Firing up databases...")
     ##Used to determine which file path to save to
     user = os.environ.get("USERNAME")
-    # if os.path.exists("C:/Users/moses/"):
-    #     user = "moses"
-    # else:
-    #     user = "Armne"
     songsList = listbox.get(0, tk.END)
 
     #Sort out the old and new, and all numbers
@@ -258,7 +254,16 @@ def Compatibility():
                 PastSongsListbox.insert(tk.END,"Filename/Date: " + filename)
                 PastSongsListbox.insert(tk.END,"\nSongs:")
                 for song in attr['songs']:
-                    PastSongsListbox.insert(tk.END,song['id']+":"+song['type'])
+                    # if isinstance(song['type'],int):
+                    #     song['id'] = song['type']
+                    #     song['type'] = None
+                        
+                    # if song['id'] == None:
+                    #     PastSongsListbox.insert(tk.END,"-1:"+song['type'])
+                    # if song['type'] == None:
+                    #     PastSongsListbox.insert(tk.END,song['id']+":N/A")
+                    # else:
+                    PastSongsListbox.insert(tk.END,[song['id'],":",song['type']]) #making a list allows me to dodge the edge cases of song search results
             
         else:
             messagebox.showinfo(title="Compatability Chart",message=f"Song number: {song_num} in Book: {bookType} not found.")

@@ -274,6 +274,8 @@ def jsonifySongList():
         # Print the result as a JSON
         import json
         # print(json.dumps(result, indent=4,ensure_ascii=False))
+    # with open('allSongs.json','w',encoding='utf-8') as f:
+    #     json.dump(result,f,indent=4,ensure_ascii=False)
     return json.dumps(result, indent=4)
     # return result
 
@@ -303,6 +305,7 @@ def songSearch(song_num,book):
         # print(f"Found song number {song_num} in book {book} in the file for {result['filename_date']}.")
         for x in result:
             print(x)
+            
         return result
     else:
         # print(f"Song number {song_num} in book {book} not found.")
