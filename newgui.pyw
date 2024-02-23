@@ -1,4 +1,4 @@
-# import textToWord
+ # import textToWord
 import docx, os, time, re
 from docx.shared import Pt
 import createfile
@@ -200,7 +200,6 @@ def Compatibility():
     import threading as th
 
     def clicked(event=None): #curselection give the index of the thing clicked, in a tuple ie:(10,)
-        
         MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
         index = PastSongsListbox.curselection()[0]
         selected_item = PastSongsListbox.get(index)
@@ -210,7 +209,7 @@ def Compatibility():
             Path = selected_item.split(": ")[1]#Should be mm.dd.yy.docx
             for attr in pastSongs:
                 if Path in attr['Filename/Date']:
-                    basePth = attr['basePath']
+                    basePth = "C:/Users/{}/OneDrive/".format(os.environ.get("USERNAME"))+attr['basePath']                    
             wordDocThread = th.Thread(target=openWord,args=[MS_WORD,basePth+"/"+Path])
             wordDocThread.start()
             # wordDocThread.run()

@@ -184,13 +184,27 @@
         },
         "383": {
             "Title": "Երբ Տերն է ելնում շքերթի",
-            "latestVersion": "Word songs/383 Երբ Տերն է ելնում շքերթի.docx",
-            "v1": "Word songs/383 Երբ Տերն է ելնում շքերթի.docx"
+            "latestVersion": "Word songs/383 Երբ Տերն է ելնում շքերթի v2.docx",
+            "v1": "Word songs/383 Երբ Տերն է ելնում շքերթի.docx",
+            "key": "Am",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4",
+            "v2": "Word songs/383 Երբ Տերն է ելնում շքերթի v2.docx"
         },
         "390": {
             "Title": "Հիսուս, այս անվան մեջ փրկություն կա",
-            "latestVersion": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա.docx",
-            "v1": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա.docx"
+            "latestVersion": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա v2.docx",
+            "v1": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա.docx",
+            "key": "Bm",
+            "speed": "92",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4",
+            "v2": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա v2.docx"
         },
         "391": {
             "Title": "Հիսուս, սիրում ենք Քեզ",
@@ -406,8 +420,15 @@
         },
         "506": {
             "Title": "Սա է Ծառան Իմ, ում կհավանեմ,",
-            "latestVersion": "Word songs/506 Սա է Ծառան Իմ, ում կհավանեմ,.docx",
-            "v1": "Word songs/506 Սա է Ծառան Իմ, ում կհավանեմ,.docx"
+            "latestVersion": "Word songs/506 Սա է Ծառան Իմ, ում կհավանեմ, v2.docx",
+            "v1": "Word songs/506 Սա է Ծառան Իմ, ում կհավանեմ,.docx",
+            "key": "-9 (E flat)",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4",
+            "v2": "Word songs/506 Սա է Ծառան Իմ, ում կհավանեմ, v2.docx"
         },
         "508": {
             "Title": "Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ",
@@ -667,8 +688,15 @@
         },
         "598": {
             "Title": "Մտիր նրա սրահները",
-            "latestVersion": "Word songs/598 Մտիր նրա սրահները.docx",
-            "v1": "Word songs/598 Մտիր նրա սրահները.docx"
+            "latestVersion": "Word songs/598 Մտիր նրա սրահները v2.docx",
+            "v1": "Word songs/598 Մտիր նրա սրահները.docx",
+            "key": "F",
+            "speed": "68",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8",
+            "v2": "Word songs/598 Մտիր նրա սրահները v2.docx"
         },
         "599": {
             "Title": "Շալոմ բարեկամնէր Տիրոջմով շալոմ",
@@ -929,8 +957,15 @@
         },
         "689": {
             "Title": "Տեր կաղոթենք",
-            "latestVersion": "Word songs/689 Տեր կաղոթենք.docx",
-            "v1": "Word songs/689 Տեր կաղոթենք.docx"
+            "latestVersion": "Word songs/689 Տեր կաղոթենք v2.docx",
+            "v1": "Word songs/689 Տեր կաղոթենք.docx",
+            "key": "C",
+            "speed": "78",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3",
+            "v2": "Word songs/689 Տեր կաղոթենք v2.docx"
         },
         "690": {
             "Title": "Ամբողջ կյանքում ես փնտրել եմ",
@@ -1285,7 +1320,13 @@
         "785": {
             "Title": "Բոլոր ժողովուրդներ, միասին երգ երգեցեք",
             "latestVersion": "Word songs/785 Բոլոր ժողովուրդներ, միասին երգ երգեցեք.docx",
-            "v1": "Word songs/785 Բոլոր ժողովուրդներ, միասին երգ երգեցեք.docx"
+            "v1": "Word songs/785 Բոլոր ժողովուրդներ, միասին երգ երգեցեք.docx",
+            "key": "E",
+            "speed": "105",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "786": {
             "Title": "Գիշերն իջավ մեղմիկ լուր",
@@ -1406,16 +1447,15 @@
             "v2": "Word songs/495  v2.docx"
         },
         "SongNum": {
-            "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
-            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
-            "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
-            "v2": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
-            "key": "F#m",
-            "speed": "100",
-            "style": "Beguine ",
+            "Title": "Հիսուս, այս անվան մեջ փրկություն կա",
+            "latestVersion": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա.docx",
+            "v1": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա.docx",
+            "key": "Bm",
+            "speed": "92",
+            "style": "Pop",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance- P2-8"
+            "Comments": "Pop-P3-4"
         },
         "404": {
             "Title": "Հույսի ճառագայթ ճախրեց երկնքում",
@@ -1424,6 +1464,16 @@
             "v2": "Word songs/404  v2.docx",
             "v3": "Word songs/404  v3.docx",
             "v4": "Word songs/404 Հույսի ճառագայթ ճախրեց երկնքում v4.docx"
+        },
+        "": {
+            "Title": "",
+            "latestVersion": "Word songs/  v1.docx",
+            "v1": "Word songs/  v1.docx"
+        },
+        "448 ": {
+            "Title": "",
+            "latestVersion": "Word songs/448   v1.docx",
+            "v1": "Word songs/448   v1.docx"
         }
     }
 }

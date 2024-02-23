@@ -43,9 +43,16 @@
         },
         "134": {
             "Title": "Ո՛վ իմ բարեկամ, գիտեմ` դու էլ ես",
-            "latestVersion": "Երգարան Word Files/134  v2.docx",
+            "latestVersion": "Երգարան Word Files/134 Ո՛վ իմ բարեկամ, գիտեմ` դու էլ ես v3.docx",
             "v1": "Երգարան Word Files/134 .docx",
-            "v2": "Երգարան Word Files/134  v2.docx"
+            "v2": "Երգարան Word Files/134  v2.docx",
+            "v3": "Երգարան Word Files/134 Ո՛վ իմ բարեկամ, գիտեմ` դու էլ ես v3.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Samba",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "142": {
             "Title": "Տե՜ր գթության, աղբյուր ողորմության",
@@ -308,8 +315,15 @@
         },
         "33": {
             "Title": "Ուրախացի՛ր, օրհներգ հյուսի՛ր",
-            "latestVersion": "Երգարան Word Files/33 Ուրախացի՛ր, օրհներգ հյուսի՛ր.docx",
-            "v1": "Երգարան Word Files/33 Ուրախացի՛ր, օրհներգ հյուսի՛ր.docx"
+            "latestVersion": "Երգարան Word Files/33 Ուրախացի՛ր, օրհներգ հյուսի՛ր v2.docx",
+            "v1": "Երգարան Word Files/33 Ուրախացի՛ր, օրհներգ հյուսի՛ր.docx",
+            "v2": "Երգարան Word Files/33 Ուրախացի՛ր, օրհներգ հյուսի՛ր v2.docx",
+            "key": "Bm",
+            "speed": "84",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "330": {
             "Title": "Ունայնություն է աշխարհը այս սին",
@@ -485,7 +499,7 @@
         },
         "411": {
             "Title": "Ահա մենք եկել ենք առջևդ, Տե՛ր Հիսուս",
-            "latestVersion": "Երգարան Word Files/411 Ահա մենք եկել ենք առջևդ, Տե՛ր Հիսուս v2.docx",
+            "latestVersion": "Երգարան Word Files/411 Ահա մենք եկել ենք առջևդ, Տե՛ր Հիսուս v3.docx",
             "v1": "Երգարան Word Files/411 Ահա մենք եկել ենք առջևդ, Տե՛ր Հիսուս.docx",
             "v2": "Երգարան Word Files/411 Ահա մենք եկել ենք առջևդ, Տե՛ր Հիսուս v2.docx",
             "key": "Gm",
@@ -493,7 +507,8 @@
             "style": "Disco",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v3": "Երգարան Word Files/411 Ահա մենք եկել ենք առջևդ, Տե՛ր Հիսուս v3.docx"
         },
         "412": {
             "Title": "Հիսո՜ւս, փափագում եմ Քեզ տեսնել",
@@ -517,8 +532,15 @@
         },
         "416": {
             "Title": "Քեզ տեսա, որ խաչվեցիր ինձ համար",
-            "latestVersion": "Երգարան Word Files/416 Քեզ տեսա, որ խաչվեցիր ինձ համար.docx",
-            "v1": "Երգարան Word Files/416 Քեզ տեսա, որ խաչվեցիր ինձ համար.docx"
+            "latestVersion": "Երգարան Word Files/416 Քեզ տեսա, որ խաչվեցիր ինձ համար v2.docx",
+            "v1": "Երգարան Word Files/416 Քեզ տեսա, որ խաչվեցիր ինձ համար.docx",
+            "v2": "Երգարան Word Files/416 Քեզ տեսա, որ խաչվեցիր ինձ համար v2.docx",
+            "key": "Em",
+            "speed": "94",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "420": {
             "Title": "Կապուտակ երկինք՝ բյուրեղյա, մաքուր",
@@ -585,7 +607,13 @@
             "Title": "Հիսո՛ւս, Քեզ բարձրացնում եմ",
             "latestVersion": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v2.docx",
             "v1": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ.docx",
-            "v2": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v2.docx"
+            "v2": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v2.docx",
+            "key": "F",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "449": {
             "Title": "Մի՛ հիշիր մեր առաջվա ",
@@ -973,8 +1001,9 @@
         },
         "662": {
             "Title": "Երբ մտնում եմ սրբարանը Քո",
-            "latestVersion": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո.docx",
-            "v1": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո.docx"
+            "latestVersion": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո v2.docx",
+            "v1": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո.docx",
+            "v2": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո v2.docx"
         },
         "668": {
             "Title": "Օրհնված ջուրն է իջնում երկնքից",
@@ -1081,8 +1110,15 @@
         },
         "805": {
             "Title": "",
-            "latestVersion": "Երգարան Word Files/805 .docx",
-            "v1": "Երգարան Word Files/805 .docx"
+            "latestVersion": "Երգարան Word Files/805  v2.docx",
+            "v1": "Երգարան Word Files/805.docx",
+            "v2": "Երգարան Word Files/805  v2.docx",
+            "key": "E ",
+            "speed": "100",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "817": {
             "Title": "Մերկ ենք եկել, մերկ կգնանք աշխարհից",
@@ -1193,14 +1229,10 @@
         },
         "223": {
             "Title": "Եթե հոգնել ես ճանապարհին,",
-            "latestVersion": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v2.docx",
+            "latestVersion": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v3.docx",
             "v1": "RED Words/223.docx",
-            "v2": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v2.docx"
-        },
-        "null": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/None  v1.docx",
-            "v1": "Երգարան Word Files/None  v1.docx"
+            "v2": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v2.docx",
+            "v3": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v3.docx"
         },
         "217": {
             "Title": "Եթե դժվարության հանդիպես",
@@ -1212,9 +1244,10 @@
         },
         "309": {
             "Title": "Ելնեմ ճամփա՝ ցուպը ձեռքիս,",
-            "latestVersion": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v2.docx",
+            "latestVersion": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v3.docx",
             "v1": "RED Words/309.docx",
-            "v2": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v2.docx"
+            "v2": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v2.docx",
+            "v3": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v3.docx"
         },
         "247": {
             "Title": "Մեկն ընթրիք սարքեց, կանչեց բոլորին.",
@@ -1291,17 +1324,16 @@
             "v3": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v3.docx"
         },
         "SongNum": {
-            "Title": "Հիսո՛ւս, սիրում ենք Քեզ",
-            "latestVersion": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v3.docx",
-            "v1": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ.docx",
-            "v2": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v2.docx",
-            "v3": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v3.docx",
-            "key": "D",
-            "speed": "68",
-            "style": "Beat",
+            "Title": "Հիսո՛ւս, Քեզ բարձրացնում եմ",
+            "latestVersion": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v2.docx",
+            "v1": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ.docx",
+            "v2": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v2.docx",
+            "key": "F",
+            "speed": "67",
+            "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Ballad-P1-8"
         },
         "": {
             "Title": "",
@@ -1579,6 +1611,42 @@
             "latestVersion": "Երգարան Word Files/315 Ահա ցուրտ ձմեռն է անցել, v2.docx",
             "v1": "RED Words/315.docx",
             "v2": "Երգարան Word Files/315 Ահա ցուրտ ձմեռն է անցել, v2.docx"
+        },
+        "549": {
+            "Title": "Ապրելով այս մեղքի աշխարհում՝",
+            "latestVersion": "Երգարան Word Files/549 Ապրելով այս մեղքի աշխարհում՝ v2.docx",
+            "v1": "RED Words/549.docx",
+            "v2": "Երգարան Word Files/549 Ապրելով այս մեղքի աշխարհում՝ v2.docx",
+            "key": "C#m",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any ballad"
+        },
+        "384": {
+            "Title": "Որդյա՛կ, գնա այգիս գործե,",
+            "latestVersion": "Երգարան Word Files/384 Որդյա՛կ, գնա այգիս գործե, v2.docx",
+            "v1": "RED Words/384.docx",
+            "v2": "Երգարան Word Files/384 Որդյա՛կ, գնա այգիս գործե, v2.docx",
+            "key": "Cm",
+            "speed": "105",
+            "style": "Beguine ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-7"
+        },
+        "325": {
+            "Title": "Երկինքը Աստծո փառքը կպատմե,",
+            "latestVersion": "Երգարան Word Files/325 Երկինքը Աստծո փառքը կպատմե, v2.docx",
+            "v1": "RED Words/325.docx",
+            "v2": "Երգարան Word Files/325 Երկինքը Աստծո փառքը կպատմե, v2.docx"
+        },
+        "307": {
+            "Title": "Քայլում էի տխուր անապատի մեջ,",
+            "latestVersion": "Երգարան Word Files/307 Քայլում էի տխուր անապատի մեջ, v2.docx",
+            "v1": "RED Words/307.docx",
+            "v2": "Երգարան Word Files/307 Քայլում էի տխուր անապատի մեջ, v2.docx"
         }
     }
 }

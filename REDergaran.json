@@ -280,7 +280,13 @@
         "141": {
             "Title": "Տեր Հիսուս գնաց երկինքը,",
             "latestVersion": "RED Words/141.docx",
-            "v1": "RED Words/141.docx"
+            "v1": "RED Words/141.docx",
+            "key": "C",
+            "speed": "100",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P4-1"
         },
         "142": {
             "Title": "Տե՜ր գթության, աղբյուր ողորմության,",
@@ -5373,15 +5379,15 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "Ահա ցուրտ ձմեռն է անցել,",
-            "latestVersion": "RED Words/315.docx",
-            "v1": "RED Words/315.docx",
-            "key": "Em",
-            "speed": "73",
-            "style": "Bossa Nova",
+            "Title": "Տեր Հիսուս գնաց երկինքը,",
+            "latestVersion": "RED Words/141.docx",
+            "v1": "RED Words/141.docx",
+            "key": "C",
+            "speed": "100",
+            "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Latin-P1-3"
+            "Comments": "Pop-P4-1"
         }
     }
 }

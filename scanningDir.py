@@ -80,7 +80,7 @@ def getAllNums():
                 if "." in entry.name and datetime.datetime.strptime(entry.name, '%m.%Y') >= startDate: #this means it is something like mm.YY
                     # print(entry.name)
                     # print("\nFilename/Date: {}".format(entry.name))
-                    bufferList.append("\nFolder Path: {}".format(entry.path))
+                    bufferList.append("\nFolder Path: {}".format("Երգեր/"+entry.name)) #in theory could just make it only folder name
                     # f.write("\nFilename/Date: {}".format(entry.name))
                     for condesedFolders in os.scandir(entry.path): #gets all the docx files
                        # print("\nSongs in that file: "+ getNums(condesedFolders.path))
@@ -94,7 +94,7 @@ def getAllNums():
                             if "." in condesedFileFolders.name and (datetime.datetime.strptime(condesedFileFolders.name, '%m.%Y') > startDate):  # this means it is something like mm.YY
                                 # print(entry.name)
                                 # print("\nFilename/Date: {}".format(entry.name))
-                                f.write("\nFolder Path: {}".format(condesedFileFolders.path))
+                                f.write("\nFolder Path: {}".format("Երգեր/"+entry.name+"/"+condesedFileFolders.name))
                                 for condesedFoldersDocx in os.scandir(condesedFileFolders.path):  # gets all the docx files
                                     # print("\nSongs in that file: "+ getNums(condesedFoldersDocx.path))
                                     # if ".docx" in condesedFoldersDocx.name:
@@ -104,7 +104,7 @@ def getAllNums():
         f.write(filePth)
     f.close()
 
-# getAllNums()
+getAllNums()
 
 # gets songs fron recentsongs and sorts by last three months
 def songCollector(): 
