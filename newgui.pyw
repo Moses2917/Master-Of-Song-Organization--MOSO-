@@ -63,7 +63,7 @@ def edit_song():
         listbox.delete(curr_selection)
         # update_indexes()
 
-def delete_song():
+def delete_song(event=None):
     curr_selection = listbox.curselection()
     if not curr_selection:
         messagebox.showerror("Error", "Please select a song to delete")
@@ -321,6 +321,9 @@ BGroupCol = 0
 
 delete_button = Button(root, text="Delete Song", bg='#741a1c', fg='#FFC107', font=('Arial', 15), command=delete_song, padx=10, pady=10, bd=5, relief="raised")
 delete_button.grid(row=2, column=1)
+#Now both backsapce and the delete key will delete the currntly selected song
+root.bind("<Delete>",delete_song)
+root.bind("<BackSpace>",delete_song)
 
 edit_button = Button(root, text="Edit Song", bg='#741a1c', fg='#FFC107', font=('Arial', 15), command=edit_song,padx=10, pady=10, bd=5, relief="raised")
 edit_button.grid(row=2, column=0)

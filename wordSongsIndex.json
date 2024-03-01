@@ -350,8 +350,15 @@
         },
         "474": {
             "Title": "Քո ձեռքը շինեց ինձ,հաստատեց",
-            "latestVersion": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց.docx",
-            "v1": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց.docx"
+            "latestVersion": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
+            "v1": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց.docx",
+            "v2": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
+            "key": "C#m",
+            "speed": "68",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-3"
         },
         "481": {
             "Title": "Փառքն ու պատիվը Աստծուն վայել են",
@@ -466,8 +473,9 @@
         },
         "513": {
             "Title": "Թագավոր ես մեր հոգու մեջ Տեր Հիսուս",
-            "latestVersion": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս.docx",
-            "v1": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս.docx"
+            "latestVersion": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx",
+            "v1": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս.docx",
+            "v2": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx"
         },
         "514": {
             "Title": "Հայր մեր ահա ժողովուրդըդ",
@@ -596,8 +604,15 @@
         },
         "552": {
             "Title": "Մենք ակնթարթ ենք, դու հավերժություն ես",
-            "latestVersion": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես.docx",
-            "v1": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես.docx"
+            "latestVersion": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես v2.docx",
+            "v1": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես.docx",
+            "v2": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես v2.docx",
+            "key": "C",
+            "speed": "140",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P4-4"
         },
         "553": {
             "Title": "Մենք երեք մոգերով",
@@ -762,8 +777,15 @@
         },
         "632": {
             "Title": "Իմ սիրտը պատրաստ է ով Սուրբ Աստված",
-            "latestVersion": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված.docx",
-            "v1": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված.docx"
+            "latestVersion": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v2.docx",
+            "v1": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված.docx",
+            "v2": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v2.docx",
+            "key": "F#m",
+            "speed": "105",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "633": {
             "Title": "",
@@ -1102,9 +1124,16 @@
         },
         "724": {
             "Title": "Եկ գնանք բնակավայրը մեր Տիրոջ",
-            "latestVersion": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v2.docx",
+            "latestVersion": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v3.docx",
             "v1": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ.docx",
-            "v2": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v2.docx"
+            "v2": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v2.docx",
+            "v3": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v3.docx",
+            "key": "Am",
+            "speed": "80",
+            "style": "Beguine ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-8"
         },
         "725": {
             "Title": "Քեզ եմ նվիրում սիրտը իմ",
@@ -1188,8 +1217,15 @@
         },
         "749": {
             "Title": "Սիրո աղբյուր, թագավորիր իմ մեջ",
-            "latestVersion": "Word songs/749 Սիրո աղբյուր, թագավորիր իմ մեջ.docx",
-            "v1": "Word songs/749 Սիրո աղբյուր, թագավորիր իմ մեջ.docx"
+            "latestVersion": "Word songs/749 Սիրո աղբյուր, թագավորիր իմ մեջ v2.docx",
+            "v1": "Word songs/749 Սիրո աղբյուր, թագավորիր իմ մեջ.docx",
+            "v2": "Word songs/749 Սիրո աղբյուր, թագավորիր իմ մեջ v2.docx",
+            "key": "+1",
+            "speed": "66",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-1"
         },
         "750": {
             "Title": "Փառք տվեք Աստծուն, Նա բարի է",
@@ -1447,15 +1483,16 @@
             "v2": "Word songs/495  v2.docx"
         },
         "SongNum": {
-            "Title": "Հիսուս, այս անվան մեջ փրկություն կա",
-            "latestVersion": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա.docx",
-            "v1": "Word songs/390 Հիսուս, այս անվան մեջ փրկություն կա.docx",
-            "key": "Bm",
-            "speed": "92",
-            "style": "Pop",
+            "Title": "Քո ձեռքը շինեց ինձ,հաստատեց",
+            "latestVersion": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
+            "v1": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց.docx",
+            "v2": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
+            "key": "C#m",
+            "speed": "68",
+            "style": "Ballad",
             "song_type": "Single Song",
-            "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-3"
         },
         "404": {
             "Title": "Հույսի ճառագայթ ճախրեց երկնքում",

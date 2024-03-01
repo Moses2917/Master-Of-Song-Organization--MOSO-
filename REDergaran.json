@@ -3696,7 +3696,13 @@
         "7": {
             "Title": "Փորձություններ ամեն վայրկյան",
             "latestVersion": "RED Words/7.docx",
-            "v1": "RED Words/7.docx"
+            "v1": "RED Words/7.docx",
+            "key": "A",
+            "speed": "94",
+            "style": "waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "70": {
             "Title": "Այնպես անուշ անուն չկա,",
@@ -5379,15 +5385,15 @@
             "v1": "RED Words/999.docx"
         },
         "SongNum": {
-            "Title": "Տեր Հիսուս գնաց երկինքը,",
-            "latestVersion": "RED Words/141.docx",
-            "v1": "RED Words/141.docx",
-            "key": "C",
-            "speed": "100",
-            "style": "Beat",
+            "Title": "Փորձություններ ամեն վայրկյան",
+            "latestVersion": "RED Words/7.docx",
+            "v1": "RED Words/7.docx",
+            "key": "A",
+            "speed": "94",
+            "style": "waltz ",
             "song_type": "Single Song",
-            "timeSig": "4/4",
-            "Comments": "Pop-P4-1"
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         }
     }
 }
