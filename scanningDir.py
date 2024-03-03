@@ -72,7 +72,7 @@ def getAllNums():
     from WordSongUpdater import getNums
     f=open("AllSongs.txt", 'w', encoding='utf-8')
     bufferList = []
-    startDate = datetime.datetime(year=2023,month=1,day=17,)
+    startDate = datetime.datetime(year=2023,month=1,day=17)
     with os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(os.environ.get("USERNAME"))) as folders:
         for entry in folders:
             if re.match(r'\d',entry.name):  # if file/folder contains a number
@@ -104,7 +104,7 @@ def getAllNums():
         f.write(filePth)
     f.close()
 
-getAllNums()
+# getAllNums()
 
 # gets songs fron recentsongs and sorts by last three months
 def songCollector(): 
@@ -262,6 +262,7 @@ def jsonifySongList():
                         song_type = None
 
                     songs.append({"type": song_type, "id": song_id})
+                    
                 result.append({
                 "songs": songs,
                 "basePath": basePath,
@@ -312,3 +313,29 @@ def songSearch(song_num,book):
         return None
 
 # songSearch("320","Old")
+
+# import json
+# with open("AllSongs.json", "w",encoding="utf-8") as f:
+#     allSongsJson = jsonifySongList()
+#     json.dump(allSongsJson,f,indent=4,ensure_ascii=False)
+
+def findNewFiles(): #is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
+    def check_blacklist(text, blacklist):
+        return any(item in text for item in blacklist)
+    OneDrivePth = os.environ.get("OneDrive") #gets the base path to onedrive from enviornment variables!
+    startDate = datetime.datetime(year=2023,month=1,day=17)
+    blacklist = ['Սուրբ ծնունդ','Պենտեկոստե','Զատիկ','Գոհաբանության Օր','Wedding','2020','2021','2022'] #list of unneeded dirs
+    for root, dirs, files, in os.walk(OneDrivePth+"\\Երգեր"):
+        if not check_blacklist(root, blacklist):#any('2020' in blacklist for x in blacklist)
+            try:
+                BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1].split("\\")[1] 
+                if "." not in BaseRoot: #added bc some dirs are yr\\month and some are just month
+                    BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1].split("\\")[2]
+            except:
+                BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1]
+                
+            if '.' in BaseRoot and datetime.datetime.strptime(BaseRoot, '%m.%Y') >= startDate:
+                print("Root:",root,"\nBaseRoot:",BaseRoot)
+                
+# if re.match(r'\d',entry.name):
+findNewFiles()

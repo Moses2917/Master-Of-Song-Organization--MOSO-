@@ -38,14 +38,15 @@ for p in doc_list:
     songNum = re.findall("[\d]+",text)
     filename = re.sub(r"C:\\Users\\\w+\\OneDrive\\","",filename)
     posTitle = re.sub(r"Word songs\\pptSong\\\d+\s","",filename)
-    index["SongNum"] = {
-        songNum:{
-            "Title": posTitle,
-            "latestversion": filename,
-            "v1": filename,
-        }
+    index["SongNum"][songNum[0]] = {
+        "Title": posTitle,
+        "latestversion": filename,
+        "v1": filename,
     }
-    print(index)
+    # print(index)
+
+with open("PPTWordSongs.json", "w", encoding='utf-8') as f:
+    index = json.dump(index,f,ensure_ascii=False,indent=4)
 
 #bc it takes to long I will only load song 1 and work from there
 # print(doc_list[0])

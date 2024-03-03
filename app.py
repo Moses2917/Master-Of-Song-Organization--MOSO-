@@ -56,7 +56,7 @@ def song_info():
 #     return render_template('search.html',table_data=table_data)
 
 
-# Sample data loading logic
+# Table data loading logic
 def load_table_data(book):
     try:
         with open(f'{book}.json', mode='r', encoding='utf-8') as json_file:
