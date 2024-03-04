@@ -32,19 +32,6 @@
             width: 100%;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
-<!--        .song-info {-->
-<!--            background-color: #f9f9f9;-->
-<!--            border: 1px solid #e0e0e0;-->
-<!--            box-shadow: 0px 0px 1px rgba(0,0,0,0.05);-->
-<!--        }-->
-<!--        .song-info h2 {-->
-<!--            color: #007BFF;-->
-<!--            font-weight: bold;-->
-<!--            margin-bottom: 15px;-->
-<!--        }-->
-<!--        .song-info p {-->
-<!--            line-height: 1.6;-->
-<!--        }-->
         input[type="text"], select {
             width: 50%;  
             padding: 10px;
@@ -64,6 +51,7 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        
         @media (min-width: 768px) {
             .container {
                 flex-direction: row;
@@ -77,7 +65,7 @@
             }
         }
     </style>
-  
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Welcome to our Song Information Page</h1>
@@ -89,7 +77,7 @@
                 <option value="ergaran">Երգարան Word Files</option>
                 <option value="wordSongsIndex">Old Book</option>
             </select>
-            <a href="/search">Go to song search</a>
+            <a href="/search"class="gotosearch">Go to song search</a>
             <p>Please enter the song number:</p>
             <input type="text" name="songNum">
             <input type="submit" value="Submit">
