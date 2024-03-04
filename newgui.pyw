@@ -172,7 +172,10 @@ def create_File():
         else:
             my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + "TESTSAVE.docx")
     import scanningDir
-    scanningDir.getAllNums()
+    try:
+        scanningDir.getAllNums()
+    except:
+        messagebox.showerror("File Open","A word doc is probably open, please close it and then try to create the file.")
 
 def ChooseFile():
     from tkinter import filedialog as fd

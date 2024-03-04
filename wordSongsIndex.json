@@ -267,8 +267,15 @@
         },
         "421": {
             "Title": "Համեցե՛ք Տիրոջ խնջույքին",
-            "latestVersion": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին.docx",
-            "v1": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին.docx"
+            "latestVersion": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին v2.docx",
+            "v1": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին.docx",
+            "v2": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին v2.docx",
+            "key": "B flat (-2)",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any Ballad"
         },
         "424": {
             "Title": "Երբ կենանք աղոթքի",
@@ -339,8 +346,15 @@
         },
         "470": {
             "Title": "Ծարավ եմ ես Քո ջրին, ով Տեր",
-            "latestVersion": "Word songs\\470 Ծարավ եմ Քո ջրին, ով Տեր.docx",
-            "v1": "Word songs/470 Ծարավ եմ ես Քո ջրին, ով Տեր.docx"
+            "latestVersion": "Word songs/470 Ծարավ եմ ես Քո ջրին, ով Տեր v2.docx",
+            "v1": "Word songs/470 Ծարավ եմ ես Քո ջրին, ով Տեր.docx",
+            "v2": "Word songs/470 Ծարավ եմ ես Քո ջրին, ով Տեր v2.docx",
+            "key": "B flat (-2)",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any Ballad"
         },
         "473": {
             "Title": "Տեր քո ճամփաները ցույց տուր մեզ",
@@ -421,9 +435,16 @@
         },
         "505": {
             "Title": "Գերել ես սիրտը իմ Քո սիրով",
-            "latestVersion": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v2.docx",
+            "latestVersion": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v3.docx",
             "v1": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով.docx",
-            "v2": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v2.docx"
+            "v2": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v2.docx",
+            "v3": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v3.docx",
+            "key": "F#",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "506": {
             "Title": "Սա է Ծառան Իմ, ում կհավանեմ,",
@@ -1477,22 +1498,23 @@
             "v1": "Word songs/429  v1.docx"
         },
         "495": {
-            "Title": "",
-            "latestVersion": "Word songs/495  v2.docx",
+            "Title": "Հիսուսն է Տերը, մեր Մեսիան, միակ Թագավորը և Արքան",
+            "latestVersion": "Word songs/495 Հիսուսն է Տերը, մեր Մեսիան, միակ Թագավորը և Արքան v3.docx",
             "v1": "Word songs/495  v1.docx",
-            "v2": "Word songs/495  v2.docx"
+            "v2": "Word songs/495  v2.docx",
+            "v3": "Word songs/495  v3.docx"
         },
         "SongNum": {
-            "Title": "Քո ձեռքը շինեց ինձ,հաստատեց",
-            "latestVersion": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
-            "v1": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց.docx",
-            "v2": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
-            "key": "C#m",
-            "speed": "68",
+            "Title": "Համեցե՛ք Տիրոջ խնջույքին",
+            "latestVersion": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին v2.docx",
+            "v1": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին.docx",
+            "v2": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին v2.docx",
+            "key": "B flat (-2)",
+            "speed": "67",
             "style": "Ballad",
-            "song_type": "Single Song",
-            "timeSig": "6/8",
-            "Comments": "Ballad-P4-3"
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any Ballad"
         },
         "404": {
             "Title": "Հույսի ճառագայթ ճախրեց երկնքում",

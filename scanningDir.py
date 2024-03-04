@@ -104,7 +104,7 @@ def getAllNums():
         f.write(filePth)
     f.close()
 
-# getAllNums()
+# getAllNums() #If left uncommented can cause errors during use of MOSO
 
 # gets songs fron recentsongs and sorts by last three months
 def songCollector(): 
@@ -312,19 +312,68 @@ def songSearch(song_num,book):
         # print(f"Song number {song_num} in book {book} not found.")
         return None
 
-# songSearch("320","Old")
 
-# import json
-# with open("AllSongs.json", "w",encoding="utf-8") as f:
-#     allSongsJson = jsonifySongList()
-#     json.dump(allSongsJson,f,indent=4,ensure_ascii=False)
+def toJson():
+    """Generates a json version of AllSongs.txt and save it to the disk
+    underneath the same name, so AllSongs.json
+    """    
+    import json
+    with open("AllSongs.txt",'r',encoding='utf-8') as lines:
+        data = lines.read()
+        data = data.strip().split("\n")
+        result = {}
+        # basePath = ""
+        for line in data:
+            songs = []
+            if 'Folder Path: ' in line:
+                line = re.sub('Folder Path: ', '', line)
+                basePath = line
+            if 'Filename/Date: ' in line:
+                line = re.sub('Filename/Date: ', '', line)
+                filenameDate = line
+            if 'Songs in that file' in line:
+                songs_str = line.split(': ')[1]
+                # songs_list = ast.literal_eval(songs_str)
+                songs_list = eval(songs_str)
+                
+                for song in songs_list:
+                    song_elements = list(song)
+                    
+                    # Check if the list is not empty before accessing the first element
+                    song_id_list = [element for element in song_elements if element is not None and element.isdigit()]
+                    song_type_list = [element for element in song_elements if element is not None and not element.isdigit()]
 
+                    if song_id_list:
+                        song_id = song_id_list[0]
+                    else:
+                        song_id = None
+
+                    if song_type_list:
+                        song_type = song_type_list[0]
+                    else:
+                        song_type = None
+                    
+                    songs.append({"type": song_type, "id": song_id})
+                    
+                result.update({
+                    filenameDate:{
+                    "songs": songs,
+                    "basePath": basePath,
+                }})                
+    with open('allSongs.json','w',encoding='utf-8') as f:
+        json.dump(result,f,indent=4,ensure_ascii=False)
+
+#WIP
 def findNewFiles(): #is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
     def check_blacklist(text, blacklist):
         return any(item in text for item in blacklist)
+    # toJson() #run this to update the json index -_-
     OneDrivePth = os.environ.get("OneDrive") #gets the base path to onedrive from enviornment variables!
     startDate = datetime.datetime(year=2023,month=1,day=17)
     blacklist = ['Սուրբ ծնունդ','Պենտեկոստե','Զատիկ','Գոհաբանության Օր','Wedding','2020','2021','2022'] #list of unneeded dirs
+    from json import load
+    with open("AllSongs.json", 'r', encoding='utf-8') as f:
+        allsongs = load(f)
     for root, dirs, files, in os.walk(OneDrivePth+"\\Երգեր"):
         if not check_blacklist(root, blacklist):#any('2020' in blacklist for x in blacklist)
             try:
@@ -335,7 +384,9 @@ def findNewFiles(): #is for finding new files so as to only go through and add t
                 BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1]
                 
             if '.' in BaseRoot and datetime.datetime.strptime(BaseRoot, '%m.%Y') >= startDate:
-                print("Root:",root,"\nBaseRoot:",BaseRoot)
-                
-# if re.match(r'\d',entry.name):
-findNewFiles()
+                # print("Root:",root,"\nBaseRoot:",BaseRoot)
+                with os.scandir(root) as files:
+                    for file in files:
+                        #time to iterativly check and see if the found file.name is already in the index & if not to update it.
+                        print(file.name)
+
