@@ -1,6 +1,7 @@
 # app.py
 from flask import Flask, render_template, request
-import json
+import json, pandas
+from os import environ
 
 app = Flask(__name__)
 
@@ -103,6 +104,21 @@ def searching():
         table_data = filtered_data
 
     return render_template('search.html', table_data=table_data, book=book, query=query, attribute=attribute)
+
+@app.route('/tsank', methods=['GET','POST'])
+def tsank():
+    book = request.form.get('book', None)
+    # table_data = {}
+    table_data = None
+    if book:#checks to make sure it is not none
+        if book == "wordSongsIndex": #reder the excel workbook
+            excel_pth = environ.get("OneDrive") + "\\Documents\\Ցանկ.xlsx"
+            data = pandas.read_excel(excel_pth)
+            table_data = data.to_dict('list')
+            # return render_template('tsank.html',table_data=Table_Data) #Doing it here bc the other options
+        if book == "ergaran":
+            return render_template("temma.html")
+    return render_template('tsank.html',table_data=table_data)
 
 
 if __name__ == '__main__':

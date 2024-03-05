@@ -65,10 +65,14 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 <body>
     <h1>Welcome to our Song Information Page</h1>
+    <a href="/search"><button>Go to Song Search</button></a>
+    <span></span>
+    <a href="/tsank"><button>Go to Tsank</button></a>
+    <!-- <a href="/temmatsank"><button>Go to Tsank ust Temma</button></a> -->
     <div class="container">
         <form method="post">
             <p>Please select the book:</p>
@@ -77,11 +81,13 @@
                 <option value="ergaran">Երգարան Word Files</option>
                 <option value="wordSongsIndex">Old Book</option>
             </select>
-            <a href="/search"class="gotosearch">Go to song search</a>
+            <!-- <a href="/search"class="gotosearch">Go to song search</a> -->
+            <!-- <a href="/search"><button>Go to Another Page</button></a> -->
             <p>Please enter the song number:</p>
             <input type="text" name="songNum">
             <input type="submit" value="Submit">
         </form>
+        
         {% if song_info %}
             <div class="current-values">
                     <h2>Current Values</h2>

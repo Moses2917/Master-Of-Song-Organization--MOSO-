@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Please type in your song number and choose the book</title>
+    <title>Search</title>
 <style>
     /* General styles */
     body {
@@ -22,7 +22,21 @@
         padding: 20px;
         border-bottom: 1px solid #ccc;
     }
-
+    .Home{
+        background-color:#236c9c;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+        border: #555;
+        border-radius: 15%;
+        font-size: large;
+        font-weight: bold;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    }
+    .Home:hover{
+        background-color: #46dff769;
+    }
     .large-label {
         font-size: 18px;
         font-weight: bold;
@@ -59,7 +73,7 @@
     }
 
     input[type="submit"]:hover {
-        background-color: #2980b9;
+        background-color: #46dff769;
     }
 
     /* Heading styles */
@@ -112,36 +126,40 @@
 </style>
 
 </head>
-    <body>
-        <header>
-            <h1>Please Choose the Book: </h1>
-            <form method="post">
-                <select name="book">
-                    <option value="">--Please choose an option--</option>
-                    <option value="REDergaran" {{ 'selected' if request.form.get('book') == 'REDergaran' }}>RED Ergaran</option>
-                    <option value="ergaran" {{ 'selected' if request.form.get('book') == 'ergaran' }}>Երգարան Word Files</option>
-                    <option value="wordSongsIndex" {{ 'selected' if request.form.get('book') == 'wordSongsIndex' }}>Old Book</option>
-                    <option value="pptsongs" {{ 'selected' if request.form.get('book') == 'pptsongs' }}>PPT Songs</option>
-                </select>
-                <label for="query" class="large-label">Search Query:</label>
-                <input type="text" id="query" name="query" value="{{ query }}">
-                <label for="attribute" class="large-label">Search Attribute:</label>
-                <select id="attribute" name="attribute" class="large-label">
-                    <option value="all" {{ 'selected' if attribute == 'all' }}>All Attributes</option>
-                    <option value="Title" {{ 'selected' if attribute == 'Title' }}>Title</option>
-                    <option value="latestVersion" {{ 'selected' if attribute == 'latestVersion' }}>Latest Version</option>
-                    <option value="key" {{ 'selected' if attribute == 'key' }}>Key</option>
-                    <option value="speed" {{ 'selected' if attribute == 'speed' }}>Speed</option>
-                    <option value="timeSig" {{ 'selected' if attribute == 'timeSig' }}>Time Signature</option>
-                    <option value="style" {{ 'selected' if attribute == 'style' }}>Style</option>
-                    <option value="song_type" {{ 'selected' if attribute == 'song_type' }}>Song Type</option>
-                    <option value="Comments" {{ 'selected' if attribute == 'Comments' }}>Comments</option>
-                    <!-- Add more options as needed -->
-                </select>
-                <input type="submit" value="Submit">
-            </form>
-            <h2><a href="/">Home</a></h2>
-        </header>
+<body>
+    <header>
+        <h1>Please Choose the Book: </h1>
+        <form method="post">
+            <select name="book">
+                <option value="">--Please choose an option--</option>
+                <option value="REDergaran" {{ 'selected' if request.form.get('book') == 'REDergaran' }}>RED Ergaran</option>
+                <option value="ergaran" {{ 'selected' if request.form.get('book') == 'ergaran' }}>Երգարան Word Files</option>
+                <option value="wordSongsIndex" {{ 'selected' if request.form.get('book') == 'wordSongsIndex' }}>Old Book</option>
+                <option value="pptsongs" {{ 'selected' if request.form.get('book') == 'pptsongs' }}>PPT Songs</option>
+            </select>
+            <label for="query" class="large-label">Search Query:</label>
+            <input type="text" id="query" name="query" value="{{ query }}">
+            <label for="attribute" class="large-label">Search Attribute:</label>
+            <select id="attribute" name="attribute" class="large-label">
+                <option value="all" {{ 'selected' if attribute == 'all' }}>All Attributes</option>
+                <option value="Title" {{ 'selected' if attribute == 'Title' }}>Title</option>
+                <option value="latestVersion" {{ 'selected' if attribute == 'latestVersion' }}>Latest Version</option>
+                <option value="key" {{ 'selected' if attribute == 'key' }}>Key</option>
+                <option value="speed" {{ 'selected' if attribute == 'speed' }}>Speed</option>
+                <option value="timeSig" {{ 'selected' if attribute == 'timeSig' }}>Time Signature</option>
+                <option value="style" {{ 'selected' if attribute == 'style' }}>Style</option>
+                <option value="song_type" {{ 'selected' if attribute == 'song_type' }}>Song Type</option>
+                <option value="Comments" {{ 'selected' if attribute == 'Comments' }}>Comments</option>
+                <!-- Add more options as needed -->
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+        <h2>
+            <a href="/">
+                <button class="Home">Home</button>
+            </a>
+        </h2>
+    </header>
     <table>
         <tr>
             <th>SongNum</th>
@@ -169,5 +187,5 @@
         </tr>
     {% endfor %}
     </table>
-    </body>
+</body>
 </html>
