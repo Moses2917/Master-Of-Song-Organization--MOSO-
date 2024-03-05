@@ -5,130 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tsank</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-        body{
-            background-color:#007BFF;
-        }
-        .Home {
-            background-color: #236c9c;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-            border: #555;
-            border-radius: 15%;
-            font-size: large;
-            font-weight: bold;
-            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .Home:hover {
-            background-color: #46dff769;
-        }
-        h1{
-            text-align: center;
-            font: bold;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 2.5vw;
-            color: #111;
-        }
-        .temma{
-            text-align: center;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1vw;
-        }
-        .TemmaSelect{
-            font-family: 'Times New Roman', Times, serif;
-            text-align: center;
-            font-size: 20px;
-            padding: 10px 20px;
+        body {
+            background-color: #f8f8f8;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="navBar">
-            <a href="/"><button class="Home">Home</button></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Home</a>
         </div>
-        <form method="post" class="temma">
-            <h1>Please Choose a Book:</h1>
-            <select name="book" class="temma">
+    </nav>
+
+    <div class="container my-5">
+        <form method="post" class="form-group">
+            <h1 class="text-center mb-4">Please Choose a Book:</h1>
+            <select name="book" class="form-control">
                 <option value="ergaran">Երգարան Word Files</option>
                 <option value="wordSongsIndex">Old Book</option>
             </select>
-            <input type="submit" value="Submit">
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
-        <!-- The idea here is that if the user chooses old book, flask renders the excel workbook, 
-                and if they choose ergaran it either goes to a different page with the same header of Choose A Book,
-                but its a long list of links of topics-->
-    
-    </header>
-    <h1>Ցանկ Ըստ Թեմա</h1>
-    <form method="post" class="temma">
-        <!-- Could asgin these temmas to the numbers in the tsank for easier searching + future ai training  -->
-        <div>
-            <input type="submit" value="ԱՍՏՎԱԾ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՍՈՒՐԲ ՀՈԳԻ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՀԱՎԱՏՔ ԵՎ ՎՍՏԱՀՈւԹՅՈւՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՔԱՋՈւԹՅՈւՆ ԵՎ ՀԱՂԹՈւԹՅՈւՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՈւՐԱԽՈւԹՅՈւՆ ԵՎ ՑՆԾՈւԹՅՈւՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՊՍԱԿ, ՀԱՐՍԱՆԻՔ, ԸՆՏԱՆԻՔ ԵՎ ՀԱՐՍ ԵԿԵՂԵՑԻ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՄԱՆԿԱՆՑ ԵՐԳԵՐ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՄԱՆԿԱՆՑ ԵՐԳԵՐ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՍՈւՐԲ ԾՆՈւՆԴ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՀԻՍՈւՍ ՔՐԻՍՏՈՍ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ԲԱՐԻ ՀՈՎԻՎ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՀԱՂՈՐԴՈւԹՅՈւՆ (ոտնլվա)" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՉԱՐՉԱՐԱՆՔ, ԽԱՉ, ՄԱՀ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ԱՐՅՈւՆ, ՔԱՎՈւԹՅՈւՆ ԵՎ ԹՈՂՈւԹՅՈւՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՍՐԲՈւԹՅՈւՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ԵՂԲԱՅՐԱՍԻՐՈւԹՅՈւՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՇԱՐԱԿԱՆՆԵՐ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՀԱՐՈւԹՅՈւՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՇՆՈՐՀՔ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՀՈԳԵՎՈՐ ՓՈՐՁՈւԹՅՈՒՆ, ՊԱՅՔԱՐ, ՊԱՏԵՐԱԶՄ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ԱՊԱՇԽԱՐՈւԹՅՈւՆ, ԶՂՋՈւՄ, ԴԱՐՁ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՄԱՀ, ՀԱՎԻՏԵՆՈւԹՅՈՒՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ԳԱԼՈւՍՏ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ԱՎԵՏԱՐԱՆՉՈւԹՅՈւՆ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՓԱՌԱԲԱՆՈւԹ. ԵՐԿՐՊԱԳՈւԹ. ՊԱՇՏԱՄՈւՆՔ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՔՐԻՍՏՈՆԵԱԿԱՆ  ԿՅԱՆՔ"name="temma" class="TemmaSelect">
-            <input type="submit" value="ՍԵՐ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ՀՐԱՎԵՐ, ՀՈՐԴՈՐ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ԱՂՈԹՔ, ԽՆԴՐՎԱԾՔ" name="temma" class="TemmaSelect">
-            <input type="submit" value="ԱՍՏԾՈ ԽՈՍՔ" name="temma" class="TemmaSelect">
 
-        </div>
-        <!-- 1. ԱՍՏՎԱԾ
-        2. ՍՈՒՐԲ ՀՈԳԻ
-        3. ՀԱՎԱՏՔ ԵՎ ՎՍՏԱՀՈւԹՅՈւՆ
-        4. ՔԱՋՈւԹՅՈւՆ ԵՎ ՀԱՂԹՈւԹՅՈւՆ
-        5. ՈւՐԱԽՈւԹՅՈւՆ ԵՎ ՑՆԾՈւԹՅՈւՆ
-        6. ՊՍԱԿ, ՀԱՐՍԱՆԻՔ, ԸՆՏԱՆԻՔ ԵՎ ՀԱՐՍ ԵԿԵՂԵՑԻ
-        7. ՄԱՆԿԱՆՑ ԵՐԳԵՐ
-        8. ՍՈւՐԲ ԾՆՈւՆԴ
-        9. ՀԻՍՈւՍ ՔՐԻՍՏՈՍ
-        10. ԲԱՐԻ ՀՈՎԻՎ
-        11. ՀԱՂՈՐԴՈւԹՅՈւՆ (ոտնլվա)
-        12. ՉԱՐՉԱՐԱՆՔ, ԽԱՉ, ՄԱՀ
-        13. ԱՐՅՈւՆ, ՔԱՎՈւԹՅՈւՆ ԵՎ ԹՈՂՈւԹՅՈւՆ
-        14. ՍՐԲՈւԹՅՈւՆ
-        15. ԵՂԲԱՅՐԱՍԻՐՈւԹՅՈւՆ
-        16. ՇԱՐԱԿԱՆՆԵՐ
-        17. ՀԱՐՈւԹՅՈւՆ
-        18. ՇՆՈՐՀՔ
-        19. ՀՈԳԵՎՈՐ ՓՈՐՁՈւԹՅՈՒՆ, ՊԱՅՔԱՐ, ՊԱՏԵՐԱԶՄ
-        20. ԱՊԱՇԽԱՐՈւԹՅՈւՆ, ԶՂՋՈւՄ, ԴԱՐՁ
-        21. ՄԱՀ, ՀԱՎԻՏԵՆՈւԹՅՈՒՆ
-        22. ԳԱԼՈւՍՏ
-        23. ԱՎԵՏԱՐԱՆՉՈւԹՅՈւՆ
-        24. ՓԱՌԱԲԱՆՈւԹ. ԵՐԿՐՊԱԳՈւԹ. ՊԱՇՏԱՄՈւՆՔ
-        25. ՔՐԻՍՏՈՆԵԱԿԱՆ ԿՅԱՆՔ
-        26. ՍԵՐ
-        27. ՀՐԱՎԵՐ, ՀՈՐԴՈՐ
-        28. ԱՂՈԹՔ, ԽՆԴՐՎԱԾՔ
-        29. ԱՍՏԾՈ ԽՈՍՔ -->
-    </form>
-
+        <h1 class="text-center mt-5">Ցանկ Ըստ Թեմա</h1>
+        <form method="post" class="d-flex flex-wrap justify-content-center mt-4">
+            <input type="submit" value="ԱՍՏՎԱԾ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՍՈՒՐԲ ՀՈԳԻ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՀԱՎԱՏՔ ԵՎ ՎՍՏԱՀՈւԹՅՈւՆ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՔԱՋՈւԹՅՈւՆ ԵՎ ՀԱՂԹՈւԹՅՈւՆ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՈւՐԱԽՈւԹՅՈւՆ ԵՎ ՑՆԾՈւԹՅՈւՆ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՊՍԱԿ, ՀԱՐՍԱՆԻՔ, ԸՆՏԱՆԻՔ ԵՎ ՀԱՐՍ ԵԿԵՂԵՑԻ" name="temma"
+                class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՄԱՆԿԱՆՑ ԵՐԳԵՐ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՍՈւՐԲ ԾՆՈւՆԴ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՀԻՍՈւՍ ՔՐԻՍՏՈՍ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ԲԱՐԻ ՀՈՎԻՎ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՀԱՂՈՐԴՈւԹՅՈւՆ (ոտնլվա)" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՉԱՐՉԱՐԱՆՔ, ԽԱՉ, ՄԱՀ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ԱՐՅՈւՆ, ՔԱՎՈւԹՅՈւՆ ԵՎ ԹՈՂՈւԹՅՈւՆ" name="temma"
+                class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՍՐԲՈւԹՅՈւՆ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ԵՂԲԱՅՐԱՍԻՐՈւԹՅՈւՆ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՇԱՐԱԿԱՆՆԵՐ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՀԱՐՈւԹՅՈւՆ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՇՆՈՐՀՔ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՀՈԳԵՎՈՐ ՓՈՐՁՈւԹՅՈւՆ, ՊԱՅՔԱՐ, ՊԱՏԵՐԱԶՄ" name="temma"
+                class="btn btn-outline-primary m-2">
+            <input type="submit" value="ԱՊԱՇԽԱՐՈւԹՅՈւՆ, ԶՂՋՈւՄ, ԴԱՐՁ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՄԱՀ, ՀԱՎԻՏԵՆՈւԹՅՈւՆ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ԳԱԼՈւՍՏ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ԱՎԵՏԱՐԱՆՉՈւԹՅՈւՆ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՓԱՌԱԲԱՆՈւԹ. ԵՐԿՐՊԱԳՈւԹ. ՊԱՇՏԱՄՈւՆՔ" name="temma"
+                class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՔՐԻՍՏՈՆԵԱԿԱՆ ԿՅԱՆՔ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՍԵՐ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ՀՐԱՎԵՐ, ՀՈՐԴՈՐ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ԱՂՈԹՔ, ԽՆԴՐՎԱԾՔ" name="temma" class="btn btn-outline-primary m-2">
+            <input type="submit" value="ԱՍՏԾՈ ԽՈՍՔ" name="temma" class="btn btn-outline-primary m-2">
+        </form>
+    </div>
 </body>
+
+</html>

@@ -5,115 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tsank</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-        body{
-            margin: 0;
-            padding: 0;
-        }
-        .Home {
-            background-color: rgb(15, 15, 141);
-            color: #fff;
-            text-align: left;
-            padding: 15px;
-            border-bottom: 1px solid #ccc;
-            border: #555;
-            border-radius: 15%;
-            font-size: large;
-            font-weight: bold;
-            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .Home:hover {
-            background-color: green;
-        }
-        h1{
-            text-align: center;
-        }
-        .temma{
-            text-align: center;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1.25vw;
-            background-color: rgb(189, 255, 255);
-        }
-        /* Table styles */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            color: #555;
-            font-family: 'Arial', sans-serif;
-            font-size: 1.5vw;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        /* Table header styles */
-        th {
-            background-color: #3498db;
-            color: #fff;
-            border-bottom: 1px solid #ccc;
-        }
-
-        /* Zebra stripe even table rows */
-        tr:nth-child(even) {
-            background-color: #f5f5f5;
-        }
-
-        /* Add a hover effect to table rows */
-        tr:hover {
-            background-color: #e0e0e0;
-            cursor: pointer;
-        }
-
-        /* Table cell styles */
-        td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        .navBar{
-            align-self: center;
-            width: auto;
-            height: auto;
-            background-color: #3498db;
-            overflow: hidden;
+        body {
+            background-color: #f8f8f8;
         }
     </style>
-  
 </head>
 
 <body>
-    <header>
-        <div class="navBar">
-            <a href="/"><button class="Home">Home</button></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Home</a>
         </div>
-        <form method="post" class="temma">
-            <h1>Please Choose a Book:</h1>
-            <select name="book" class="temma">
+    </nav>
+
+    <div class="container my-5">
+        <form method="post" class="form-group">
+            <h1 class="text-center mb-4">Please Choose a Book:</h1>
+            <select name="book" class="form-control">
                 <option value="ergaran">Երգարան Word Files</option>
                 <option value="wordSongsIndex">Old Book</option>
             </select>
-            <input type="submit" value="Submit">
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
-        <!-- The idea here is that if the user chooses old book, flask renders the excel workbook, 
-            and if they choose ergaran it either goes to a different page with the same header of Choose A Book,
-            but its a long list of links of topics-->
 
-    </header>
-    {% if table_data %}
-        <table>
-            <tr>
-                <th>SongNum/Title</th>
-            </tr>
-            <!-- Reminder: "table_data" is the name of the table var inputted from flask backend -->
-            {% for song in table_data["Songs"] %}
-            <tr>
-                <td>{{ song }}</td>
-            </tr>
-            {% endfor %}
-
+        {% if table_data %}
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th>SongNum/Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in table_data["Songs"] %}
+                <tr>
+                    <td>{{ song }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
-    {% else %}
-<!-- Do nothing -->
-    {% endif %}
+        {% endif %}
+    </div>
 </body>
 
 </html>
