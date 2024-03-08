@@ -40,6 +40,9 @@ pip install -r requirements.txt
 
 # Run the Script
 python newgui.pyw
+
+# Run the webapp
+python app.py
 ```
 
 ## Usage
