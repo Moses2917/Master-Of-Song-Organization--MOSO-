@@ -108,17 +108,25 @@ def searching():
 @app.route('/tsank', methods=['GET','POST'])
 def tsank():
     book = request.form.get('book', None)
+    temma = request.form.get("temmas", None)
     # table_data = {}
     table_data = None
-    if book:#checks to make sure it is not none
+    if book or temma:#checks to make sure it is not none
         if book == "wordSongsIndex": #reder the excel workbook
             excel_pth = environ.get("OneDrive") + "\\Documents\\Ցանկ.xlsx"
             data = pandas.read_excel(excel_pth)
             table_data = data.to_dict('list')
             # return render_template('tsank.html',table_data=Table_Data) #Doing it here bc the other options
-        if book == "ergaran":
-            return render_template("temma.html")
-    return render_template('tsank.html',table_data=table_data)
+        if book == "ergaran" or temma:
+            temmalist = None
+            if temma:
+                from re import findall
+                temmaNumber = findall(r"\d+", temma)
+                with open("templates/temmas.txt", 'r', encoding='utf-8') as f:
+                    temmalist = f.read().splitlines()
+                temmalist = temmalist[int(temmaNumber[0])-1]
+            return render_template("temma.html", temmas=temma, temmalist=temmalist)#call a func. to get the list of songs
+    return render_template('tsank.html',table_data=table_data,temmas=temma)
 
 
 if __name__ == '__main__':

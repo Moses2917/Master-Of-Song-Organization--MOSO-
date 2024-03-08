@@ -56,15 +56,17 @@
         },
         "142": {
             "Title": "Տե՜ր գթության, աղբյուր ողորմության",
-            "latestVersion": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության.docx",
+            "latestVersion": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության v2.docx",
             "v1": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության.docx",
-            "key": "Dm",
-            "speed": "113",
+            "key": "Em flat (-6)",
+            "speed": "110",
             "style": "Bossa Nova",
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Ballad-P3-4"
+            "Comments": "Ballad-P3-4",
+            "v2": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության v2.docx",
+            "song_type": "Single Song"
         },
         "146": {
             "Title": "Լույսը ձեռքիդ առա՛ջ գնա, ո՛վ զինվոր",
@@ -279,8 +281,15 @@
         },
         "287": {
             "Title": "Մնայուն բան չունեմ երկրում",
-            "latestVersion": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում.docx",
-            "v1": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում.docx"
+            "latestVersion": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում v2.docx",
+            "v1": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում.docx",
+            "v2": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում v2.docx",
+            "key": "Dm",
+            "speed": "94",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "290": {
             "Title": "Կուզեմ ապրել Քեզնով միայն",
@@ -475,7 +484,13 @@
         "379": {
             "Title": "Ես երբեք չեմ եղել իմ տան մեջ",
             "latestVersion": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ.docx",
-            "v1": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ.docx"
+            "v1": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ.docx",
+            "key": "Fm",
+            "speed": "115",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "385": {
             "Title": "Արյունը Նրա խոսում է այսօր",
@@ -1393,24 +1408,6 @@
             "v2": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v2.docx",
             "v3": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v3.docx"
         },
-        "SongNum": {
-            "Title": "Օ՜, ի՜նչ հրաշք մեծություն ես,",
-            "latestVersion": "Երգարան Word Files/410 Օ՜, ի՜նչ հրաշք մեծություն ես, v3.docx",
-            "v1": "RED Words/410.docx",
-            "v2": "Երգարան Word Files/410 Օ՜, ի՜նչ հրաշք մեծություն ես, v2.docx",
-            "v3": "Երգարան Word Files/410 Օ՜, ի՜նչ հրաշք մեծություն ես, v3.docx",
-            "key": "Bm (or -1 then -2)",
-            "speed": "89",
-            "style": "Ballad",
-            "song_type": "Single Song",
-            "timeSig": "6/8",
-            "Comments": "Ballad-P4-1"
-        },
-        "": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/  v1.docx",
-            "v1": "Երգարան Word Files/  v1.docx"
-        },
         "324": {
             "Title": "Ու սրտիս անհուն թևերով խնդուն,",
             "latestVersion": "Երգարան Word Files/324 Ու սրտիս անհուն թևերով խնդուն, v2.docx",
@@ -1762,6 +1759,53 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P4-1"
+        },
+        "403": {
+            "Title": "Մեր Տերը կգա շուտով ամպերով,",
+            "latestVersion": "Երգարան Word Files/403 Մեր Տերը կգա շուտով ամպերով, v2.docx",
+            "v1": "RED Words/403.docx",
+            "v2": "Երգարան Word Files/403 Մեր Տերը կգա շուտով ամպերով, v2.docx",
+            "key": "F#m",
+            "speed": "100",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P5-4"
+        },
+        "361": {
+            "Title": "Հիսուսի արյունը մաքրել է ինձ,",
+            "latestVersion": "Երգարան Word Files/361 Հիսուսի արյունը մաքրել է ինձ, v2.docx",
+            "v1": "RED Words/361.docx",
+            "v2": "Երգարան Word Files/361 Հիսուսի արյունը մաքրել է ինձ, v2.docx",
+            "key": "F",
+            "speed": "60",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
+        },
+        "498": {
+            "Title": "Տե՜ր իմ, գործերովս չէ, որ պիտ արդարանամ,",
+            "latestVersion": "Երգարան Word Files/498 Տե՜ր իմ, գործերովս չէ, որ պիտ արդարանամ, v2.docx",
+            "v1": "RED Words/498.docx",
+            "v2": "Երգարան Word Files/498 Տե՜ր իմ, գործերովս չէ, որ պիտ արդարանամ, v2.docx",
+            "key": "Bm",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
+        },
+        "SongNum": {
+            "Title": "Ես երբեք չեմ եղել իմ տան մեջ",
+            "latestVersion": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ.docx",
+            "v1": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ.docx",
+            "key": "Fm",
+            "speed": "115",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         }
     }
 }
