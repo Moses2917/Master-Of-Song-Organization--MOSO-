@@ -26,11 +26,12 @@ def extract_song_info(file_path):
             if cleaned_paragraph_text and not cleaned_paragraph_text.startswith('-'):
                 title = cleaned_paragraph_text
                 break
-
+    file_path = file_path.split('\\Word songs\\pptSong')
+    file_path = 'Word songs\\pptSong' + file_path[1]
     return song_number, title, file_path
 
 def main():
-    word_folder = 'C:\\Users\\moses\\OneDrive\\Word songs\\pptSong'
+    word_folder = '{}\\Word songs\\pptSong'.format(os.environ.get("ONEDRIVE"))
     song_info = {}
 
     for root, dirs, files in os.walk(word_folder):

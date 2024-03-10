@@ -42,19 +42,11 @@
                 </tr>
             </thead>
             <tbody>
-                {% if 'ppt' in book %}
-                    {% for song in table_data["SongNum"] %}
-                    <tr>
-                        <td>{{ song }}</td>
-                    </tr>
-                {% endfor %}
-                {% else %}
-                {% for song in table_data["Songs"] %}
+                {% for song in table_data["SongNum"] %}
                 <tr>
                     <td>{{ song }}</td>
                 </tr>
                 {% endfor %}
-                {% endif %}
             </tbody>
         </table>
         {% endif %}

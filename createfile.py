@@ -94,8 +94,13 @@ def getPcSongs(songs, imp, user):
             if x in OldErgaran["SongNum"]:
                 filename = OldErgaran["SongNum"][x]["latestVersion"]
             else:
-                my_doc.add_paragraph("Error: FileNotFoundError \nSong: " + x + " Old, Could not be located ")
-                
+                with open("pptsonginfo.json", 'r', encoding='utf-8') as f:
+                    OldErgaran = json.load(f)
+                filename = ""
+                if x in OldErgaran["SongNum"]:
+                    filename = OldErgaran["SongNum"][x]["latestVersion"]
+                else:
+                    my_doc.add_paragraph("Error: FileNotFoundError \nSong: " + x + " Old, Could not be located ")
             my_doc.add_paragraph("[start:song:old]")
             getDocTextAndIndentation(filename=filename, my_doc=my_doc)
             my_doc.add_paragraph("[end:song:old]")

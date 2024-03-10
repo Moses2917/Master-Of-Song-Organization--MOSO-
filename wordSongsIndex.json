@@ -713,9 +713,16 @@
         },
         "579": {
             "Title": "Հիսուս Հիսուս",
-            "latestVersion": "Word songs/579 Հիսուս Հիսուս v2.docx",
+            "latestVersion": "Word songs/579 Հիսուս Հիսուս v3.docx",
             "v1": "Word songs/579 Հիսուս Հիսուս.docx",
-            "v2": "Word songs/579 Հիսուս Հիսուս v2.docx"
+            "v2": "Word songs/579 Հիսուս Հիսուս v2.docx",
+            "v3": "Word songs/579 Հիսուս Հիսուս v3.docx",
+            "key": "Am",
+            "speed": "74",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "580": {
             "Title": "Կատարյալ է Օրենքը Քո՝ նորոգում է իմ հոգին",
@@ -773,8 +780,15 @@
         },
         "614": {
             "Title": "Վեր է ամենից, Սուրբ անունը Քո Հիսուս",
-            "latestVersion": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս.docx",
-            "v1": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս.docx"
+            "latestVersion": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս v2.docx",
+            "v1": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս.docx",
+            "v2": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս v2.docx",
+            "key": "Em",
+            "speed": "78",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "618": {
             "Title": "Տեր իմ, կաղաչեմ ու կպաղատեմ",
@@ -832,9 +846,16 @@
         },
         "638": {
             "Title": "Ես կյանքի լույսն եմ",
-            "latestVersion": "Word songs/638 Ես կյանքի լույսն եմ v2.docx",
+            "latestVersion": "Word songs/638 Ես կյանքի լույսն եմ v3.docx",
             "v1": "Word songs/638 Ես կյանքի լույսն եմ.docx",
-            "v2": "Word songs/638 Ես կյանքի լույսն եմ v2.docx"
+            "v2": "Word songs/638 Ես կյանքի լույսն եմ v2.docx",
+            "v3": "Word songs/638 Ես կյանքի լույսն եմ v3.docx",
+            "key": "Em flat (-6)",
+            "speed": "117",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4"
         },
         "643": {
             "Title": "Ով Տեր իմ Աստված",
@@ -933,8 +954,15 @@
         },
         "664": {
             "Title": "Տերը թագավոր է",
-            "latestVersion": "Word songs/664 Տերը թագավոր է.docx",
-            "v1": "Word songs/664 Տերը թագավոր է.docx"
+            "latestVersion": "Word songs/664 Տերը թագավոր է v2.docx",
+            "v1": "Word songs/664 Տերը թագավոր է.docx",
+            "v2": "Word songs/664 Տերը թագավոր է v2.docx",
+            "key": "Em",
+            "speed": "114",
+            "style": "Samba",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "674": {
             "Title": "Քո Հոգով զորությամբ լցրու կյանքս ամբողջ",
@@ -998,10 +1026,17 @@
         },
         "688": {
             "Title": "Տեր բարի",
-            "latestVersion": "Word songs/688 Տեր բարի v3.docx",
+            "latestVersion": "Word songs/688 Տեր բարի v4.docx",
             "v1": "Word songs/688 Տեր բարի.docx",
             "v2": "Word songs/688 Տեր բարի v2.docx",
-            "v3": "Word songs/688 Տեր բարի v3.docx"
+            "v3": "Word songs/688 Տեր բարի v3.docx",
+            "v4": "Word songs/688 Տեր բարի v4.docx",
+            "key": "Dm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "689": {
             "Title": "Տեր կաղոթենք",
@@ -1233,8 +1268,9 @@
         },
         "747": {
             "Title": "Տերն է իմ հովիվը կարիք չեմ ունենա",
-            "latestVersion": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա.docx",
-            "v1": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա.docx"
+            "latestVersion": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx",
+            "v1": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա.docx",
+            "v2": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx"
         },
         "748": {
             "Title": "Արթնացա մի օր, քո իսկ պարգևած",
@@ -1510,16 +1546,17 @@
             "v3": "Word songs/495  v3.docx"
         },
         "SongNum": {
-            "Title": "Համեցե՛ք Տիրոջ խնջույքին",
-            "latestVersion": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին v2.docx",
-            "v1": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին.docx",
-            "v2": "Word songs/421 Համեցե՛ք Տիրոջ խնջույքին v2.docx",
-            "key": "B flat (-2)",
-            "speed": "67",
-            "style": "Ballad",
-            "song_type": "Worship Song",
+            "Title": "Ես կյանքի լույսն եմ",
+            "latestVersion": "Word songs/638 Ես կյանքի լույսն եմ v3.docx",
+            "v1": "Word songs/638 Ես կյանքի լույսն եմ.docx",
+            "v2": "Word songs/638 Ես կյանքի լույսն եմ v2.docx",
+            "v3": "Word songs/638 Ես կյանքի լույսն եմ v3.docx",
+            "key": "Em flat (-6)",
+            "speed": "117",
+            "style": "Disco",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Any Ballad"
+            "Comments": "Dance-P5-4"
         },
         "404": {
             "Title": "Հույսի ճառագայթ ճախրեց երկնքում",
@@ -1538,6 +1575,11 @@
             "Title": "",
             "latestVersion": "Word songs/448   v1.docx",
             "v1": "Word songs/448   v1.docx"
+        },
+        "568 Այս անլույս կյանքում": {
+            "Title": "",
+            "latestVersion": "Word songs/568 Այս անլույս կյանքում  v1.docx",
+            "v1": "Word songs/568 Այս անլույս կյանքում  v1.docx"
         }
     }
 }
