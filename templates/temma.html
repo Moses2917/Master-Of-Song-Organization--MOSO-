@@ -90,8 +90,10 @@
         </form>
     </div class="container my-5">
         {% if temmas %}
-            <h2 class="text-center mb-4"> {{temmas|pprint}} </h2>
-            <h2 class="text-center mb-4"> {{temmalist|pprint}} </h2>
+            <h2 class="text-center text-primary mb-4"> {{temmas|safe}} </h2>
+            <h2 class="text-center text-primary mb-2"> {{temmalist|safe}} </h2>
+            <br>
+            <br>
         {%endif%}
     <div>
 
