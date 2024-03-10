@@ -29,6 +29,7 @@
             <select name="book" class="form-control">
                 <option value="ergaran">Երգարան Word Files</option>
                 <option value="wordSongsIndex">Old Book</option>
+                <option value="pptsonginfo">Old Book PPT</option>
             </select>
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
@@ -41,11 +42,19 @@
                 </tr>
             </thead>
             <tbody>
+                {% if 'ppt' in book %}
+                    {% for song in table_data["SongNum"] %}
+                    <tr>
+                        <td>{{ song }}</td>
+                    </tr>
+                {% endfor %}
+                {% else %}
                 {% for song in table_data["Songs"] %}
                 <tr>
                     <td>{{ song }}</td>
                 </tr>
                 {% endfor %}
+                {% endif %}
             </tbody>
         </table>
         {% endif %}
