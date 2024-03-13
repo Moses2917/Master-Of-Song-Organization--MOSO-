@@ -28,13 +28,20 @@
         },
         "115": {
             "Title": "Ուրախ եղեք, ո՛վ արդարներ",
-            "latestVersion": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v6.docx",
+            "latestVersion": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v7.docx",
             "v1": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ.docx",
             "v2": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v2.docx",
             "v3": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v3.docx",
             "v4": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v4.docx",
             "v5": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v5.docx",
-            "v6": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v6.docx"
+            "v6": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v6.docx",
+            "v7": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v7.docx",
+            "key": "Em",
+            "speed": "100",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P4-1"
         },
         "125": {
             "Title": "Փրկի՛չ, գիտեիր հոգուս հույզերը",
@@ -1321,11 +1328,18 @@
         },
         "217": {
             "Title": "Եթե դժվարության հանդիպես",
-            "latestVersion": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v4.docx",
+            "latestVersion": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v5.docx",
             "v1": "RED Words/217.docx",
             "v2": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v2.docx",
             "v3": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v3.docx",
-            "v4": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v4.docx"
+            "v4": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v4.docx",
+            "v5": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v5.docx",
+            "key": "Bm",
+            "speed": "95",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "309": {
             "Title": "Ելնեմ ճամփա՝ ցուպը ձեռքիս,",
@@ -1498,21 +1512,35 @@
         },
         "148": {
             "Title": "Հիսուսի սիրուց ես չեմ բաժանվի,",
-            "latestVersion": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v3.docx",
+            "latestVersion": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v4.docx",
             "v1": "RED Words/148.docx",
             "v2": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v2.docx",
-            "v3": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v3.docx"
+            "v3": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v3.docx",
+            "v4": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v4.docx",
+            "key": "Em",
+            "speed": "95",
+            "style": "Ballad ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "585": {
             "Title": "Անցկացրո՛ւ ինձ գավիթով",
-            "latestVersion": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v3.docx",
+            "latestVersion": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v4.docx",
             "v1": "RED Words/585.docx",
             "v2": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v2.docx",
-            "v3": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v3.docx"
+            "v3": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v3.docx",
+            "v4": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v4.docx",
+            "key": "Em",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "563": {
             "Title": "Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ,",
-            "latestVersion": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
+            "latestVersion": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v4.docx",
             "v1": "RED Words/563.docx",
             "v2": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v2.docx",
             "v3": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
@@ -1521,14 +1549,22 @@
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v4": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v4.docx"
         },
         "160": {
             "Title": "Մեղքի մեջ եմ ես ապրել,",
-            "latestVersion": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v3.docx",
+            "latestVersion": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v4.docx",
             "v1": "RED Words/160.docx",
             "v2": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v2.docx",
-            "v3": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v3.docx"
+            "v3": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v3.docx",
+            "v4": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v4.docx",
+            "key": "C#m",
+            "speed": "105",
+            "style": "Disco ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Disco-P5-5"
         },
         "261": {
             "Title": "Տեր Հիսուս սեր է, Նա զիս կսիրե,",
@@ -1804,18 +1840,18 @@
             "Comments": "Pop-P1-3"
         },
         "SongNum": {
-            "Title": "Շուտով իմ Տերը՝ Հիսուս արքան",
-            "latestVersion": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v4.docx",
-            "v1": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան.docx",
-            "v2": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v2.docx",
-            "v3": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v3.docx",
-            "v4": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v4.docx",
-            "key": "Fm",
-            "speed": "114",
-            "style": "Samba",
-            "song_type": "Worship Song",
+            "Title": "Մեղքի մեջ եմ ես ապրել,",
+            "latestVersion": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v4.docx",
+            "v1": "RED Words/160.docx",
+            "v2": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v2.docx",
+            "v3": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v3.docx",
+            "v4": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v4.docx",
+            "key": "C#m",
+            "speed": "105",
+            "style": "Disco ",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Disco-P5-5"
         }
     }
 }
