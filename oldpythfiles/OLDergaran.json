@@ -4,12 +4,13 @@
             "Title": "Եղբայրնե՛ր, ցնծացե՛ք",
             "latestVersion": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx",
             "v1": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx",
-            "key": "",
-            "speed": "Fast",
-            "style": "",
-            "opening_Song": "",
+            "key": "Em",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Opening Song",
             "Worship_Song": "",
-            "timeSig": ""
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "10": {
             "Title": "Աստված իմ, երբ հոգիս նայի",
@@ -1851,21 +1852,6 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3"
-        },
-        "SongNum": {
-            "Title": "Հիանալի, հիանալի, Հիսուսն է",
-            "latestVersion": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v3.docx",
-            "v1": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է.docx",
-            "v2": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v2.docx",
-            "key": "D",
-            "speed": "92",
-            "style": "Waltz ",
-            "opening_Song": "",
-            "Worship_Song": "",
-            "timeSig": "3/4",
-            "Comments": "Ballroom-P1-1",
-            "v3": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v3.docx",
-            "song_type": "Single Song"
         },
         "191": {
             "Title": "Երբ Հիսուսին հավատացի,",
