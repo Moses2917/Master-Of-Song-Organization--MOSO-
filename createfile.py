@@ -74,7 +74,7 @@ def getPcSongs(songs, imp, user):
         if 'n' in imp[y]:
             
         
-            with open("ergaran.json", 'r', encoding='utf-8') as f:
+            with open("REDergaran.json", 'r', encoding='utf-8') as f:
                 ergaran = json.load(f)
             filePath = ""
             if x in ergaran["SongNum"]:
@@ -114,7 +114,7 @@ def getPosibleSongs(songs, imp):
         if 'n' in imp[y]:
             
             try:
-                with open("ergaran.json", 'r', encoding='utf-8') as f:
+                with open("REDergaran.json", 'r', encoding='utf-8') as f:
                     ergaran = json.load(f)
                 filePath = ""
                 if x in ergaran["SongNum"]:

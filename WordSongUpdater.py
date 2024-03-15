@@ -8,8 +8,8 @@ fullYear = time.strftime('%Y')
 day = time.strftime('%d')
 
 oldBook_pth = "wordSongsIndex.json"
-Ergaran_pth = "ergaran.json"
-redErgaran_pth = "REDergaran.json"
+Ergaran_pth = "REDergaran.json" # after combining red and ergaran this is now the main index file for the red book songs
+redErgaran_pth = "oldpythfiles\REDergaran.json" #However for extra redunency I will leave this in
 
 def getDocText(filename):
     text = ""
