@@ -251,7 +251,13 @@
             "Title": "Որտե՞ղ ես թափառում, դժբախտ որդի",
             "latestVersion": "Երգարան Word Files/256 Որտե՞ղ ես թափառում, դժբախտ որդի v2.docx",
             "v1": "Երգարան Word Files/256 Որտե՞ղ ես թափառում, դժբախտ որդի.docx",
-            "v2": "Երգարան Word Files/256 Որտե՞ղ ես թափառում, դժբախտ որդի v2.docx"
+            "v2": "Երգարան Word Files/256 Որտե՞ղ ես թափառում, դժբախտ որդի v2.docx",
+            "key": "F#m",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "26": {
             "Title": "Ահա մեզի մանուկ ծնավ",
@@ -384,14 +390,15 @@
             "Title": "Հիսո՛ւս, Դու ես իմ սերը հավիտյան",
             "latestVersion": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան v2.docx",
             "v1": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան.docx",
-            "key": "D",
+            "key": "C#m",
             "speed": "103",
             "style": "Pop",
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
             "Comments": "Pop-P3-4",
-            "v2": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան v2.docx"
+            "v2": "Երգարան Word Files/340 Հիսո՛ւս, Դու ես իմ սերը հավիտյան v2.docx",
+            "song_type": "Single Song"
         },
         "345": {
             "Title": "Փառք ու պատիվ Քեզ, ո՛վ Հայր իմ Աստված",
@@ -900,7 +907,8 @@
             "Worship_Song": "",
             "timeSig": "3/4",
             "Comments": "Ballroom-P1-1",
-            "v3": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v3.docx"
+            "v3": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v3.docx",
+            "song_type": "Single Song"
         },
         "556": {
             "Title": "",
@@ -1845,18 +1853,18 @@
             "Comments": "Pop-P1-3"
         },
         "SongNum": {
-            "Title": "Ո՞վ է, որ մեզ միշտ հսկում է",
-            "latestVersion": "Երգարան Word Files/517 Ո՞վ է, որ մեզ միշտ հսկում է v3.docx",
-            "v1": "RED Words/517.docx",
-            "v2": "Երգարան Word Files/517 Ո՞վ է, որ մեզ միշտ հսկում է v2.docx",
-            "key": "Em",
-            "speed": "75",
-            "style": "Beat",
+            "Title": "Հիանալի, հիանալի, Հիսուսն է",
+            "latestVersion": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v3.docx",
+            "v1": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է.docx",
+            "v2": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v2.docx",
+            "key": "D",
+            "speed": "92",
+            "style": "Waltz ",
             "opening_Song": "",
             "Worship_Song": "",
-            "timeSig": "4/4",
-            "Comments": "Pop-P1-4",
-            "v3": "Երգարան Word Files/517 Ո՞վ է, որ մեզ միշտ հսկում է v3.docx",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P1-1",
+            "v3": "Երգարան Word Files/546 Հիանալի, հիանալի, Հիսուսն է v3.docx",
             "song_type": "Single Song"
         },
         "191": {
@@ -1876,8 +1884,8 @@
             "latestVersion": "Երգարան Word Files/197 Դու եկար այս աշխարհ v2.docx",
             "v1": "RED Words/197.docx",
             "key": "Dm",
-            "speed": "95",
-            "style": "",
+            "speed": "100",
+            "style": "Ballad",
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "6/8",
