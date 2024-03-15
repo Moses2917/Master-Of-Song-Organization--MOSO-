@@ -119,6 +119,7 @@ def getPosibleSongs(songs, imp):
                 filePath = ""
                 if x in ergaran["SongNum"]:
                     filePath = ergaran["SongNum"][x]["latestVersion"]
+                    filePath = re.sub('.*/+',"",filePath)
                 posSongList.append(filePath)
             except:
                 posSongList.append("RED Words/" + str(x))
@@ -130,6 +131,7 @@ def getPosibleSongs(songs, imp):
                 filePath = ""
                 if x in OldErgaran["SongNum"]:
                     filePath = OldErgaran["SongNum"][x]["latestVersion"]
+                    filePath = re.sub('.*/+',"",filePath)
                 posSongList.append(filePath)
             except:
                 posSongList.append("Could not find old song: {}".format(x))

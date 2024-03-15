@@ -9,8 +9,8 @@ from tkinter import ttk
 import tkinter.font as TkFont
 from tkinter import Button
 import scanningDir as SD
-from multiprocessing import Process
-from multiprocessing import Pool
+# from multiprocessing import Process
+# from multiprocessing import Pool
 
 listy = []
            
