@@ -112,14 +112,7 @@ def tsank():
     # table_data = {}
     table_data = None
     if book or temma:#checks to make sure it is not none
-        if book == "wordSongsIndex": #reder the excel workbook
-            excel_pth = environ.get("OneDrive") + "\\Documents\\Ցանկ.xlsx"
-            data = pandas.read_excel(excel_pth)#.rename(columns={"Songs":"SongNum"})
-            table_data = data.to_dict('list')
-            # return render_template('tsank.html',table_data=Table_Data) #Doing it here bc the other options
-        # if book == "pptsonginfo":
-        #     table_data = load_table_data(book)
-        if book == "ergaran" or temma:
+        if book == "REDergaran" or temma:
             temmalist = None
             if temma:
                 from re import findall
@@ -133,4 +126,4 @@ def tsank():
 
 if __name__ == '__main__':
     #,ssl_context='adhoc'
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True,host='192.168.1.151')
