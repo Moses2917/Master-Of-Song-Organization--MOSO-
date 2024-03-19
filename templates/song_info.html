@@ -67,6 +67,13 @@
             <a href="/search" class="btn btn-primary me-2">Go to Song Search</a>
             <a href="/tsank" class="btn btn-primary">Go to Tsank</a>
         </div>
+        {% if session %}
+        <h1>Welcome {{session.userinfo.name}}!</h1>
+        <p><a href="/logout">Logout</a></p>
+        <div>
+            <pre>{{pretty}}</pre>
+        </div>
+
         <div class="legend" style="text-align: center;">
             <h2 style="font-weight: bold;">Legend</h2>
             <div class="form-control text-center" style="max-width: 400px; margin: 0 auto;">
@@ -149,6 +156,10 @@
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% else %}
+        <h1>Welcome Guest</h1>
+        <p><a href="/login">Login</a></p>
         {% endif %}
     </div>
 

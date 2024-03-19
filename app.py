@@ -1,74 +1,123 @@
-# app.py
+from os import environ as env
+from urllib.parse import quote_plus, urlencode
+from authlib.integrations.flask_client import OAuth
+from dotenv import find_dotenv, load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, session
-import json, pandas
-from os import environ
+import json
+
+ENV_FILE = find_dotenv("{}\Documents\Code\.env".format(env.get("OneDrive")))
+if ENV_FILE:
+    load_dotenv(ENV_FILE)
 
 app = Flask(__name__)
 
-app.secret_key = 'your_secret_key'
+app.secret_key = env.get("APP_SECRET_KEY")
+
+oauth = OAuth(app)
+
+oauth.register(
+    "auth0",
+    client_id=env.get("AUTH0_CLIENT_ID"),
+    client_secret=env.get("AUTH0_CLIENT_SECRET"),
+    client_kwargs={
+        "scope": "openid profile email",
+    },
+    server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
+)
 
 # Dummy user data for demonstration purposes
 users = {
     'admin': 'password'
 }
 
-@app.route('/', methods=['GET', 'POST'])
+#the /login route, users will be redirected to Auth0 to begin the authentication flow.
+@app.route("/login")
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+    return oauth.auth0.authorize_redirect(
+        redirect_uri=url_for("callback", _external=True)
+    )
 
-        # Check if the username and password are correct
-        if username in users and users[username] == password:
-            session['logged_in'] = True
-            return redirect(url_for('song_info'))
-        else:
-            error = 'Invalid username or password'
-            return render_template('login.html', error=error)
+#This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
+@app.route("/callbacks", methods=["GET", "POST"])
+def callback():
+    token = oauth.auth0.authorize_access_token()
+    session["user"] = token
+    return redirect("/")
 
-    return render_template('login.html')
+#this route handles signing a user out from your application.
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(
+        "https://" + env.get("AUTH0_DOMAIN")
+        + "/v2/logout?"
+        + urlencode(
+            {
+                "returnTo": url_for("home", _external=True),
+                "client_id": env.get("AUTH0_CLIENT_ID"),
+            },
+            quote_via=quote_plus,
+        )
+    )
+
+# @app.route('/', methods=['GET', 'POST'])
+# def login():
+#     if request.method == 'POST':
+#         username = request.form['username']
+#         password = request.form['password']
+
+#         # Check if the username and password are correct
+#         if username in users and users[username] == password:
+#             session['logged_in'] = True
+#             return redirect(url_for('song_info'))
+#         else:
+#             error = 'Invalid username or password'
+#             return render_template('login.html', error=error)
+
+#     return render_template('login.html')
+
+@app.route("/")
+def home():
+    return render_template("song_info.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
 
 @app.route('/songinfo', methods=['GET', 'POST'])
 def song_info():
-    if 'logged_in' in session:
-        song_info = None
-        current_values = None
-        if request.method == 'POST':
-            song_num = request.form.get('songNum')
-            book = request.form.get('book')
-            with open(f'{book}.json',encoding='utf-8') as f:
-                data = json.load(f)
-            songs = data.get('SongNum')  # Get the songs under the "SongNum" key
-            song_info = songs.get(song_num)
-            if song_info:
-                # Save the current values before they are edited
-                current_values = song_info.copy()
-            if request.form.get('edit'):
-                song_info['key'] = request.form.get('key')
-                song_info['speed'] = request.form.get('speed')
-                song_info['style'] = request.form.get('style')
-                song_info['song_type'] = request.form.get('Song Type')
-                # song_info['Worship_Song'] = request.form.get('Worship_Song')
-                song_info['timeSig'] = request.form.get('Time Signature')
-                song_info['Comments'] = request.form.get('Comments')
-                songs["SongNum"] = song_info
-                # with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
-                #     json.dump(songs, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
-            if request.form.get('submit'):
-                song_info['key'] = request.form.get('key')
-                song_info['speed'] = request.form.get('speed')
-                song_info['style'] = request.form.get('style')
-                song_info['song_type'] = request.form.get('Song Type')
-                # song_info['Worship_Song'] = request.form.get('Worship_Song')
-                song_info['timeSig'] = request.form.get('Time Signature')
-                song_info['Comments'] = request.form.get('Comments')
-                songs[song_num] = song_info
-            with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
-                json.dump(data, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
+    song_info = None
+    current_values = None
+    if request.method == 'POST':
+        song_num = request.form.get('songNum')
+        book = request.form.get('book')
+        with open(f'{book}.json',encoding='utf-8') as f:
+            data = json.load(f)
+        songs = data.get('SongNum')  # Get the songs under the "SongNum" key
+        song_info = songs.get(song_num)
+        if song_info:
+            # Save the current values before they are edited
+            current_values = song_info.copy()
+        if request.form.get('edit'):
+            song_info['key'] = request.form.get('key')
+            song_info['speed'] = request.form.get('speed')
+            song_info['style'] = request.form.get('style')
+            song_info['song_type'] = request.form.get('Song Type')
+            # song_info['Worship_Song'] = request.form.get('Worship_Song')
+            song_info['timeSig'] = request.form.get('Time Signature')
+            song_info['Comments'] = request.form.get('Comments')
+            songs["SongNum"] = song_info
+            # with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
+            #     json.dump(songs, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
+        if request.form.get('submit'):
+            song_info['key'] = request.form.get('key')
+            song_info['speed'] = request.form.get('speed')
+            song_info['style'] = request.form.get('style')
+            song_info['song_type'] = request.form.get('Song Type')
+            # song_info['Worship_Song'] = request.form.get('Worship_Song')
+            song_info['timeSig'] = request.form.get('Time Signature')
+            song_info['Comments'] = request.form.get('Comments')
+            songs[song_num] = song_info
+        with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
+            json.dump(data, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
 
-        return render_template('song_info.html', song_info=song_info, current_values=current_values)
-    else:
-        return redirect(url_for('login'))
+    return render_template('song_info.html', session=session.get('user'), song_info=song_info, current_values=current_values)
 
 # Table data loading logic
 def load_table_data(book):
@@ -97,7 +146,7 @@ def searching():
             if not table_data:
                 return render_template('search.html', table_data=table_data, book=book,
                                     message='No data found for the selected book.')
-        
+
 
         # Filter data based on search parameters
         query = request.form.get('query', '').lower()
