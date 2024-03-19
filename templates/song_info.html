@@ -62,14 +62,14 @@
 
 <body>
     <div class="container">
+        
         <h1>Welcome to our Song Information Page</h1>
         <div class="d-flex justify-content-center mb-4">
-            <a href="/search" class="btn btn-primary me-2">Go to Song Search</a>
+            <a href="{{url_for( 'searching' )}}" class="btn btn-primary me-2">Go to Song Search</a>
             <a href="/tsank" class="btn btn-primary">Go to Tsank</a>
         </div>
         {% if session %}
-        <h1>Welcome {{session.userinfo.name}}!</h1>
-        <p><a href="/logout">Logout</a></p>
+        <h1> Բարի Գալուստ, {{session.userinfo.name}}! <a href="/logout" class="btn btn-outline-danger">Logout</a></h1>
         <div>
             <pre>{{pretty}}</pre>
         </div>
@@ -158,8 +158,8 @@
         </div>
         {% endif %}
         {% else %}
-        <h1>Welcome Guest</h1>
-        <p><a href="/login">Login</a></p>
+        <h1>Welcome Guest, Please Login.</h1>
+        <h1><a href="/login" class="btn btn-primary me-2" style="text-align: center;">Login</a></h1>
         {% endif %}
     </div>
 

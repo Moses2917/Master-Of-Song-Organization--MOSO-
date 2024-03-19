@@ -22,7 +22,7 @@
             <a class="navbar-brand" href="{{ url_for('song_info') }}">Home</a>
         </div>
     </nav>
-
+    {% if session %}
     <div class="container my-5">
         <header class="header mb-4">
             <h1 class="text-center">Please Choose the Book:</h1>
@@ -91,6 +91,9 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+        {% include 'guest.html' %}
+    {% endif %}
 </body>
 
 </html>

@@ -70,7 +70,7 @@
             "style": "Ballad",
             "opening_Song": "True",
             "Worship_Song": "False",
-            "Comments": "https://youtu.be/mY_NNhCHcXE?si=PSPEVZlfSV5PiWEF",
+            "Comments": "HEY OH!",
             "song_type": "None"
         },
         "18": {
@@ -3812,6 +3812,19 @@
             "Title": "",
             "latestVersion": "Word songs/903 .docx",
             "v1": "Word songs/903 .docx"
+        },
+        "SongNum": {
+            "Title": "Վստահ եմ` Տերս պիտ պատրաստե ճամփաս",
+            "latestVersion": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
+            "v1": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
+            "key": "A Minor Key",
+            "speed": "Slow",
+            "timeSig": "3/4",
+            "style": "Ballad",
+            "opening_Song": "True",
+            "Worship_Song": "False",
+            "Comments": "HEY OH!",
+            "song_type": "None"
         }
     }
 }
