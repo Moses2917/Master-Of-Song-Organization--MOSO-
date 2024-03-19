@@ -107,7 +107,7 @@
             "key": "N/A",
             "speed": "",
             "style": "",
-            "song_type": "Worship Song",
+            "song_type": "None",
             "Worship_Song": "",
             "timeSig": "",
             "Comments": ""
@@ -5860,6 +5860,18 @@
             "Title": "",
             "latestVersion": "Երգարան Word Files/10000 .docx",
             "v1": "Երգարան Word Files/10000 .docx"
+        },
+        "SongNum": {
+            "Title": "Միայն Քեզ է կարոտում հոգիս,",
+            "latestVersion": "RED Words/14.docx",
+            "v1": "RED Words/14.docx",
+            "key": "N/A",
+            "speed": "",
+            "style": "",
+            "song_type": "None",
+            "Worship_Song": "",
+            "timeSig": "",
+            "Comments": ""
         }
     }
 }

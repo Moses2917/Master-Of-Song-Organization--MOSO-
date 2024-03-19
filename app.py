@@ -65,12 +65,22 @@ def isUserAllowed(email):
     with open("{}\\Documents\\Code\\allowedEmails.csv".format(env.get("OneDrive")), 'r') as f:
         return email in f.read()
 
+# Table data loading logic
+def load_table_data(book):
+    try:
+        with open(f'{book}.json', mode='r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+        return data.get('SongNum')
+    except FileNotFoundError:
+        return None
+
 @app.route('/', methods=['GET', 'POST'])
 def song_info():
     song_info = None
     current_values = None
     if len(session) > 1:
         if isUserAllowed(session['user']['userinfo']['email']):
+            
             if request.method == 'POST':
                 song_num = request.form.get('songNum')
                 book = request.form.get('book')
@@ -103,6 +113,7 @@ def song_info():
                     songs[song_num] = song_info
                 with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
                     json.dump(data, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
+                
             return render_template('song_info.html', session=session.get('user'), song_info=song_info, current_values=current_values) #add pretty=json.dumps(session.get('user'), indent=4) for debuging auth
         
         else:
@@ -110,14 +121,7 @@ def song_info():
     
     return render_template('song_info.html', session=session.get('user'))
 
-# Table data loading logic
-def load_table_data(book):
-    try:
-        with open(f'{book}.json', mode='r', encoding='utf-8') as json_file:
-            data = json.load(json_file)
-        return data.get('SongNum')
-    except FileNotFoundError:
-        return None
+
 
 
 @app.route('/search', methods=['GET', 'POST'])
