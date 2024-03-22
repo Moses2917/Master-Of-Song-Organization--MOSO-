@@ -20,6 +20,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('song_info') }}">Home</a>
+            <a class="navbar-brand" href="{{url_for('tsank')}}">Tsank</a>
         </div>
     </nav>
     {% if session %}
@@ -59,37 +60,38 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </header>
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>SongNum</th>
-                    <th>Title</th>
-                    <th>Latest Version</th>
-                    <th>Key</th>
-                    <th>Speed</th>
-                    <th>Time Signature</th>
-                    <th>Style</th>
-                    <th>Song Type</th>
-                    <th>Comments</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row, attr in table_data.items() %}
-                <tr>
-                    <td>{{row}}</td>
-                    <td>{{attr['Title']}}</td>
-                    <td>{{attr['latestVersion']}}</td>
-                    <td>{{attr['key']}}</td>
-                    <td>{{attr['speed']}}</td>
-                    <td>{{attr['timeSig']}}</td>
-                    <td>{{attr['style']}}</td>
-                    <td>{{attr['song_type']}}</td>
-                    <td>{{attr['Comments']}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead class="table-secondary table-group-divider">
+                    <tr>
+                        <th>SongNum</th>
+                        <th>Title</th>
+                        <th>Latest Version</th>
+                        <th>Key</th>
+                        <th>Speed</th>
+                        <th>Time Signature</th>
+                        <th>Style</th>
+                        <th>Song Type</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row, attr in table_data.items() %}
+                    <tr>
+                        <td>{{row}}</td>
+                        <td>{{attr['Title']}}</td>
+                        <td>{{attr['latestVersion']}}</td>
+                        <td>{{attr['key']}}</td>
+                        <td>{{attr['speed']}}</td>
+                        <td>{{attr['timeSig']}}</td>
+                        <td>{{attr['style']}}</td>
+                        <td>{{attr['song_type']}}</td>
+                        <td>{{attr['Comments']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
     {% else %}
         {% include 'guest.html' %}
