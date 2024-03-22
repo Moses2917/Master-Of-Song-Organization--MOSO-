@@ -140,13 +140,17 @@ def create_File():
         songNum.append(re.findall("\S[0-9][0-9]?|[0-9]",i)[0])
     print("Downloading songs...")
     #Now send cmd to make file
-    my_doc = createfile.getPcSongs(songNum, book, user)
+    fail = False
+    try:    my_doc = createfile.getPcSongs(songNum, book, user)
+    except BaseException as err:
+        fail = True
+        messagebox.showerror(err,str(err))
+    
     print("Adjusting for readability....")
     font = my_doc.styles['Normal'].font
     font.name = 'Arial'
     font.size = Pt(22)
     print("it is done")
-    
     
     #gets date and time
     month = time.strftime('%m')
