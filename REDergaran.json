@@ -385,8 +385,15 @@
         },
         "56": {
             "Title": "Փրկչին եկե՛ք, ո՜հ, մի՛ ուշանաք,",
-            "latestVersion": "RED Words/56.docx",
-            "v1": "RED Words/56.docx"
+            "latestVersion": "Երգարան Word Files/56 Փրկչին եկե՛ք, ո՜հ, մի՛ ուշանաք, v2.docx",
+            "v1": "RED Words/56.docx",
+            "v2": "Երգարան Word Files/56 Փրկչին եկե՛ք, ո՜հ, մի՛ ուշանաք, v2.docx",
+            "key": "G",
+            "speed": "110",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P4-1"
         },
         "57": {
             "Title": "Ժամ աղոթքի, ժամ աղոթքի,",
@@ -568,9 +575,16 @@
             "v1": "RED Words/87.docx"
         },
         "88": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/88 .docx",
-            "v1": "Երգարան Word Files/88 .docx"
+            "Title": "Թափառական հոգիս",
+            "latestVersion": "Երգարան Word Files/88  v2.docx",
+            "v1": "Երգարան Word Files/88.docx",
+            "v2": "Երգարան Word Files/88  v2.docx",
+            "key": "Em",
+            "speed": "115",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P1-1"
         },
         "89": {
             "Title": "Եկեք, մեր ճամբան նորոգենք,",
@@ -1074,8 +1088,15 @@
         },
         "170": {
             "Title": "Որքան որ կուզես լարված ուժերով",
-            "latestVersion": "RED Words/170.docx",
-            "v1": "RED Words/170.docx"
+            "latestVersion": "Երգարան Word Files/170 Որքան որ կուզես լարված ուժերով v2.docx",
+            "v1": "RED Words/170.docx",
+            "v2": "Երգարան Word Files/170 Որքան որ կուզես լարված ուժերով v2.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "171": {
             "Title": "Արի՜, Սո՛ւրբ Հոգի, և հպվի՜ր Դու ինձ",
@@ -1385,9 +1406,16 @@
         },
         "221": {
             "Title": "Իմ տխրության ժամին,",
-            "latestVersion": "Երգարան Word Files/221 Իմ տխրության ժամին, v2.docx",
+            "latestVersion": "Երգարան Word Files/221 Իմ տխրության ժամին, v3.docx",
             "v1": "RED Words/221.docx",
-            "v2": "Երգարան Word Files/221 Իմ տխրության ժամին, v2.docx"
+            "v2": "Երգարան Word Files/221 Իմ տխրության ժամին, v2.docx",
+            "v3": "Երգարան Word Files/221 Իմ տխրության ժամին, v3.docx",
+            "key": "Em",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "222": {
             "Title": "Պատահում է՝ հոգիդ խիստ տխրում է",
@@ -1445,8 +1473,15 @@
         },
         "231": {
             "Title": "Այնպես պատահեց, որ ինքս մի օր",
-            "latestVersion": "RED Words/231.docx",
-            "v1": "RED Words/231.docx"
+            "latestVersion": "Երգարան Word Files/231 Այնպես պատահեց, որ ինքս մի օր v2.docx",
+            "v1": "RED Words/231.docx",
+            "v2": "Երգարան Word Files/231 Այնպես պատահեց, որ ինքս մի օր v2.docx",
+            "key": "Dm",
+            "speed": "65",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-1"
         },
         "232": {
             "Title": "Ճերմակաթույր հագած մեկին",
@@ -1952,7 +1987,7 @@
         },
         "312": {
             "Title": "Մեղքի համար մեռած եմ",
-            "latestVersion": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx",
+            "latestVersion": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v2.docx",
             "v1": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx",
             "key": "F",
             "speed": "95",
@@ -1960,7 +1995,8 @@
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": ""
+            "Comments": "",
+            "v2": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v2.docx"
         },
         "313": {
             "Title": "Հոգիս կենաց ջուրդ է ուզում",
@@ -2160,14 +2196,15 @@
         },
         "343": {
             "Title": "Խոսքերդ վառ լույս են իմ ճամփին,",
-            "latestVersion": "RED Words/343.docx",
+            "latestVersion": "Երգարան Word Files/343 Խոսքերդ վառ լույս են իմ ճամփին, v2.docx",
             "v1": "RED Words/343.docx",
             "key": "Dm",
             "speed": "93",
             "style": "Waltz ",
             "song_type": "Single Song",
             "timeSig": "3/4",
-            "Comments": "Ballroom-P1-1"
+            "Comments": "Ballroom-P1-1",
+            "v2": "Երգարան Word Files/343 Խոսքերդ վառ լույս են իմ ճամփին, v2.docx"
         },
         "344": {
             "Title": "Չարը մեզ գերի տարավ ահով ու մեղքով,",
@@ -2347,7 +2384,7 @@
         },
         "369": {
             "Title": "Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում,",
-            "latestVersion": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v2.docx",
+            "latestVersion": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v3.docx",
             "v1": "RED Words/369.docx",
             "v2": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v2.docx",
             "key": "F#m",
@@ -2355,7 +2392,8 @@
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P4-1"
+            "Comments": "Ballad-P4-1",
+            "v3": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v3.docx"
         },
         "370": {
             "Title": "Շնորհակալ ենք, Տեր Հիսուս",
@@ -2694,9 +2732,16 @@
         },
         "420": {
             "Title": "Կապուտակ երկինք՝ բյուրեղյա, մաքուր",
-            "latestVersion": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v2.docx",
+            "latestVersion": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v3.docx",
             "v1": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր.docx",
-            "v2": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v2.docx"
+            "v2": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v2.docx",
+            "v3": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v3.docx",
+            "key": "Am",
+            "speed": "94",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "421": {
             "Title": "Դուստր Սիոնի, լեր ուրախ,",
@@ -2766,8 +2811,15 @@
         },
         "431": {
             "Title": "Օրհնության անձրևներ պիտ տամ",
-            "latestVersion": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ.docx",
-            "v1": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ.docx"
+            "latestVersion": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ v2.docx",
+            "v1": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ.docx",
+            "v2": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ v2.docx",
+            "key": "G",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P1-6"
         },
         "432": {
             "Title": "Գարուն կբացվի, ձյունը կհալվի,",
@@ -3308,8 +3360,15 @@
         },
         "520": {
             "Title": "Ո՜վ Քրիստոս, լույս աշխարհի",
-            "latestVersion": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի.docx",
-            "v1": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի.docx"
+            "latestVersion": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի v2.docx",
+            "v1": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի.docx",
+            "v2": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի v2.docx",
+            "key": "Dm",
+            "speed": "103",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "521": {
             "Title": "Ինչո՞ւ ես դու տխուր ու տրտում այդպես,",
@@ -3785,9 +3844,16 @@
             "v1": "RED Words/597.docx"
         },
         "598": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/598 .docx",
-            "v1": "Երգարան Word Files/598 .docx"
+            "Title": "Տե՜ր Հիսուս, արի՛, Փրկիչ աշխարհի",
+            "latestVersion": "Երգարան Word Files/598 Տե՜ր Հիսուս, արի՛, Փրկիչ աշխարհի v2.docx",
+            "v1": "Երգարան Word Files/598.docx",
+            "v2": "Երգարան Word Files/598 Տե՜ր Հիսուս, արի՛, Փրկիչ աշխարհի v2.docx",
+            "key": "F#m",
+            "speed": "85",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "599": {
             "Title": "Մի սեր ունեմ սքանչելի,",
@@ -5862,16 +5928,16 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Միայն Քեզ է կարոտում հոգիս,",
-            "latestVersion": "RED Words/14.docx",
-            "v1": "RED Words/14.docx",
-            "key": "N/A",
-            "speed": "",
-            "style": "",
-            "song_type": "None",
-            "Worship_Song": "",
-            "timeSig": "",
-            "Comments": ""
+            "Title": "Որքան որ կուզես լարված ուժերով",
+            "latestVersion": "Երգարան Word Files/170 Որքան որ կուզես լարված ուժերով v2.docx",
+            "v1": "RED Words/170.docx",
+            "v2": "Երգարան Word Files/170 Որքան որ կուզես լարված ուժերով v2.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         }
     }
 }

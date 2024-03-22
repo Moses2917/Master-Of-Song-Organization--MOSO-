@@ -78,7 +78,7 @@ def load_table_data(book):
 def song_info():
     song_info = None
     current_values = None
-    if len(session) > 1:
+    if session.get('user', None):
         if isUserAllowed(session['user']['userinfo']['email']):
             
             if request.method == 'POST':
