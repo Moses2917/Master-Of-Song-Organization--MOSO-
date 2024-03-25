@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('song_info') }}">Home</a>
+            <form action="" method="post">
+                <input type="hidden" name="book" value="{{book}}">
+                <button type="submit" class="btn btn-primary">Back To Search</button>
+            </form>
+        </div>
+    </nav>
+    {% if session %}
+    <div class="container py-5">
+        <h2 class="text-center text-primary mb-4"> {{ lyrics|safe }} </h2>
+    </div>
+    {% else %}
+    {% include 'guest.html' %}
+    {% endif %}
+</body>

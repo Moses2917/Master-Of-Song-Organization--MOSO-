@@ -144,16 +144,9 @@ def getDocTextAndIndentation(filename:str):
             })
         if "end" in p.text: # Def ending loc
             saveDocFromDoc(my_doc, bookOld, songNum)
-            
-            # #push song to text var and reset song var
-            
-            # text_and_indentation.append({
-            #     'song': song,
-            #     'book': bookOld
-            # })
+            #push song to text var and reset song var
             bookOld = False
             song = []
-    # return text_and_indentation
 
 
 def saveDocFromDoc(song_Doc, oldBook, songNum):

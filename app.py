@@ -122,14 +122,54 @@ def song_info():
     return render_template('song_info.html', session=session.get('user'))
 
 
+def openWord(songNum,book):
+    from docx import Document
+    #Used to find and open word doc, sends back a str of it
+    if "word" in book:
+        with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+            index = json.load(f)
+    else:
+        with open("REDergaran.json", 'r', encoding='utf-8') as f:
+            index = json.load(f)
+    
+    if index["SongNum"].get(songNum,None):
+        songPth = index["SongNum"][songNum]["latestVersion"]
+        filePth = env.get("OneDrive")+"\\"+songPth #find pth from index, and attach the location for onedrive
+        doc = Document(filePth) #load doc file
+        docParagraphs = doc.paragraphs # returns a list of doc paragrpahs from which text will be extracted
+        text = ''
+        
+        for para in docParagraphs:
+            text += para.text + '\n'
+        
+        # Split the text into chunks based on line breaks
+        chunks = text.split('\n\n')
 
+        # Convert chunks to HTML
+        html_chunks = []
+        for chunk in chunks:
+            lines = chunk.split('\n')
+            html_lines = ['<p>' + line + '</p>' for line in lines]
+            html_chunk = ''.join(html_lines)
+            html_chunks.append(html_chunk)
+
+        # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
+        html_text = '<br>'.join(html_chunks)
+        
+        return html_text
+        
 
 @app.route('/search', methods=['GET', 'POST'])
 def searching():
     table_data = {}
     book = request.form.get('book', '')
-
+    SongNum = request.form.get('SongNum',None)
+    
     if request.method == 'POST':
+        
+        if SongNum != None:
+            return render_template('song.html', lyrics = openWord(SongNum, book), book=book) #sending the book var inorder for the back button to function properly
+        
         # Validate if book is selected
         if not book:
             return render_template('search.html', table_data=table_data)
@@ -139,7 +179,7 @@ def searching():
 
         if not table_data:
             return render_template('search.html', table_data=table_data, book=book,
-                                message='No data found for the selected book.')
+                                message='No data found for the selected book.')  
 
 
     # Filter data based on search parameters

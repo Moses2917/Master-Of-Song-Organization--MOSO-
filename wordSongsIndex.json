@@ -62,7 +62,7 @@
         },
         "14": {
             "Title": "Վստահ եմ` Տերս պիտ պատրաստե ճամփաս",
-            "latestVersion": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
+            "latestVersion": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս v2.docx",
             "v1": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
             "key": "A Minor Key",
             "speed": "Slow",
@@ -71,7 +71,8 @@
             "opening_Song": "True",
             "Worship_Song": "False",
             "Comments": "HEY OH!",
-            "song_type": "None"
+            "song_type": "None",
+            "v2": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս v2.docx"
         },
         "18": {
             "Title": "Անուշ է անունն Հիսուսին,\nՈրքան քաղցր հնչե ականջին,\nՈհ, կբերկրե սիրտս լիովին\nՍիրուն անունն իմ Փրկչին։",
@@ -2325,7 +2326,7 @@
         },
         "518": {
             "Title": "Տերն է իմ լույսն ու փրկությունը",
-            "latestVersion": "Word songs/518 Տերն է իմ լույսն ու փրկությունը.docx",
+            "latestVersion": "Word songs/518 Տերն է իմ լույսն ու փրկությունը v2.docx",
             "v1": "Word songs/518 Տերն է իմ լույսն ու փրկությունը.docx",
             "key": "Dm",
             "speed": "116",
@@ -2333,7 +2334,8 @@
             "song_type": "Opening Song",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-4"
+            "Comments": "Dance-P5-4",
+            "v2": "Word songs/518 Տերն է իմ լույսն ու փրկությունը v2.docx"
         },
         "519": {
             "Title": "Աղքատին աղբանոցից վեր բարձրացնող Տեր",
@@ -2939,8 +2941,9 @@
         },
         "648": {
             "Title": "Գողգոթայի ճանապարհին",
-            "latestVersion": "Word songs/648 Գողգոթայի ճանապարհին.docx",
-            "v1": "Word songs/648 Գողքոթայի ճանապարհին մեկին տեսա.docx"
+            "latestVersion": "Word songs/648 Գողգոթայի ճանապարհին v2.docx",
+            "v1": "Word songs/648 Գողքոթայի ճանապարհին մեկին տեսա.docx",
+            "v2": "Word songs/648 Գողգոթայի ճանապարհին v2.docx"
         },
         "649": {
             "Title": "Առավոտ է հարության",
@@ -3002,8 +3005,9 @@
         },
         "659": {
             "Title": "Նայում եմ Քեզ Տեր իմ թագավոր",
-            "latestVersion": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր.docx",
-            "v1": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր.docx"
+            "latestVersion": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v2.docx",
+            "v1": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր.docx",
+            "v2": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v2.docx"
         },
         "660": {
             "Title": "Երբ ով Տեր հպվում ես Դու ինձ",
@@ -3220,7 +3224,7 @@
         },
         "695": {
             "Title": "Երգիր Տիրոջը ողջ երկիր",
-            "latestVersion": "Word songs/695 Երգիր Տիրոջը ողջ երկիր.docx",
+            "latestVersion": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v2.docx",
             "v1": "Word songs/695 Երգիր Տիրոջը ողջ երկիր.docx",
             "key": "Dm",
             "speed": "113",
@@ -3228,7 +3232,8 @@
             "song_type": "Opening Song",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v2": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v2.docx"
         },
         "696": {
             "Title": "Բարձրերում բնակվող, Քո երեսն եմ փնտրում",
@@ -3507,9 +3512,10 @@
         },
         "745": {
             "Title": "Օրհնեցեք Տիրոջը ով նրա հրեշտակներ",
-            "latestVersion": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx",
+            "latestVersion": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
             "v1": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ.docx",
-            "v2": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx"
+            "v2": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx",
+            "v3": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx"
         },
         "746": {
             "Title": "Գալիս է թագավոր փառքի",
@@ -3825,6 +3831,11 @@
             "Worship_Song": "False",
             "Comments": "HEY OH!",
             "song_type": "None"
+        },
+        "21": {
+            "Title": "",
+            "latestVersion": "Word songs/21  v1.docx",
+            "v1": "Word songs/21  v1.docx"
         }
     }
 }

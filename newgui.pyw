@@ -260,15 +260,6 @@ def Compatibility():
                 PastSongsListbox.insert(tk.END,"Filename/Date: " + filename)
                 PastSongsListbox.insert(tk.END,"\nSongs:")
                 for song in attr['songs']:
-                    # if isinstance(song['type'],int):
-                    #     song['id'] = song['type']
-                    #     song['type'] = None
-                        
-                    # if song['id'] == None:
-                    #     PastSongsListbox.insert(tk.END,"-1:"+song['type'])
-                    # if song['type'] == None:
-                    #     PastSongsListbox.insert(tk.END,song['id']+":N/A")
-                    # else:
                     PastSongsListbox.insert(tk.END,[song['id'],":",song['type']]) #making a list allows me to dodge the edge cases of song search results
             
         else:

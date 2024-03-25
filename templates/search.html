@@ -76,9 +76,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <form action="" method="post">
+                    <input type="hidden" name="book" value="{{book}}">
                     {% for row, attr in table_data.items() %}
                     <tr>
-                        <td>{{row}}</td>
+                        <td><input type="submit" name="SongNum" value="{{row}}"></td>
                         <td>{{attr['Title']}}</td>
                         <td>{{attr['latestVersion']}}</td>
                         <td>{{attr['key']}}</td>
@@ -89,6 +91,7 @@
                         <td>{{attr['Comments']}}</td>
                     </tr>
                     {% endfor %}
+                    </form>
                 </tbody>
             </table>
         </div>
