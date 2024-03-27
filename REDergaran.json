@@ -924,8 +924,15 @@
         },
         "145": {
             "Title": "Ամենօրյա Իր լույսին հետ,",
-            "latestVersion": "RED Words/145.docx",
-            "v1": "RED Words/145.docx"
+            "latestVersion": "Երգարան Word Files/145 Ամենօրյա Իր լույսին հետ, v2.docx",
+            "v1": "RED Words/145.docx",
+            "v2": "Երգարան Word Files/145 Ամենօրյա Իր լույսին հետ, v2.docx",
+            "key": "Em",
+            "speed": "",
+            "style": "",
+            "song_type": "None",
+            "timeSig": "",
+            "Comments": "Piano play"
         },
         "146": {
             "Title": "Լույսը ձեռքիդ առա՛ջ գնա, ո՛վ զինվոր",
@@ -1017,8 +1024,15 @@
         },
         "159": {
             "Title": "Մի՛ տխրիր, մի՛ դժգոհիր դու նրա համար,",
-            "latestVersion": "RED Words/159.docx",
-            "v1": "RED Words/159.docx"
+            "latestVersion": "Երգարան Word Files/159 Մի՛ տխրիր, մի՛ դժգոհիր դու նրա համար, v2.docx",
+            "v1": "RED Words/159.docx",
+            "v2": "Երգարան Word Files/159 Մի՛ տխրիր, մի՛ դժգոհիր դու նրա համար, v2.docx",
+            "key": "Em",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "160": {
             "Title": "Մեղքի մեջ եմ ես ապրել,",
@@ -1814,7 +1828,7 @@
         },
         "286": {
             "Title": "Ժամերը հաշված, քայլերը պատրաստ",
-            "latestVersion": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v2.docx",
+            "latestVersion": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v3.docx",
             "v1": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ.docx",
             "v2": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v2.docx",
             "key": "Em",
@@ -1822,7 +1836,8 @@
             "style": "Pop",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Pop-P5-4"
+            "Comments": "Pop-P5-4",
+            "v3": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v3.docx"
         },
         "287": {
             "Title": "Մնայուն բան չունեմ երկրում",
@@ -2894,7 +2909,13 @@
             "Title": "Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր",
             "latestVersion": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx",
             "v1": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր.docx",
-            "v2": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx"
+            "v2": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx",
+            "key": "E",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "444": {
             "Title": "Տեր Հիսուսին սիրեցի,",
@@ -4119,8 +4140,15 @@
         },
         "648": {
             "Title": "Յիսուսին կուտամ իմ կեանքս բոլոր,",
-            "latestVersion": "RED Words/648.docx",
-            "v1": "RED Words/648.docx"
+            "latestVersion": "Երգարան Word Files/648 Յիսուսին կուտամ իմ կեանքս բոլոր, v2.docx",
+            "v1": "RED Words/648.docx",
+            "v2": "Երգարան Word Files/648 Յիսուսին կուտամ իմ կեանքս բոլոր, v2.docx",
+            "key": "Bm",
+            "speed": "96",
+            "style": "Ballad-P4-1",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "649": {
             "Title": "Խաչեալ Յիսուս, Խաչիդ առջին",
@@ -4445,7 +4473,7 @@
         },
         "711": {
             "Title": "Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս",
-            "latestVersion": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v5.docx",
+            "latestVersion": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v6.docx",
             "v1": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս.docx",
             "v2": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v2.docx",
             "v3": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v3.docx",
@@ -4456,7 +4484,8 @@
             "style": "Pop",
             "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Pop-P4-P1"
+            "Comments": "Pop-P4-P1",
+            "v6": "Երգարան Word Files/711 Ցնծա՛ հոգիս, ցնծա՛, Հիսուսն է գալիս v6.docx"
         },
         "713": {
             "Title": "Սիրելի՜ Հիսուս, ամբողջ սրտով գալիս եմ Քեզ:",
@@ -5929,16 +5958,27 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Որքան որ կուզես լարված ուժերով",
-            "latestVersion": "Երգարան Word Files/170 Որքան որ կուզես լարված ուժերով v2.docx",
-            "v1": "RED Words/170.docx",
-            "v2": "Երգարան Word Files/170 Որքան որ կուզես լարված ուժերով v2.docx",
-            "key": "Dm",
-            "speed": "100",
-            "style": "Disco",
-            "song_type": "Single Song",
+            "Title": "Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր",
+            "latestVersion": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx",
+            "v1": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր.docx",
+            "v2": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx",
+            "key": "E",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Pop-P1-4"
+        },
+        "94": {
+            "Title": "Մէկը տեսա խաչին գամված",
+            "latestVersion": "Երգարան Word Files/94  v1.docx",
+            "v1": "Երգարան Word Files/94  v1.docx",
+            "key": "Dm",
+            "speed": "114",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": " Ballroom-P1-1"
         }
     }
 }

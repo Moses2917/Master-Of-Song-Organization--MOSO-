@@ -101,7 +101,12 @@
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="current-values">
-                    <h2>Current Values</h2>
+                    <form action="" method="post">
+                        <input type="hidden" name="book" value="{{book}}">
+                        <input type="hidden" name="songNum" value="{{request.form.songNum}}">
+                        <input type="hidden" name="lyrics" value="True">
+                        <h2>Current Values  <button type="submit" class="btn btn-primary bg-gradient">Lyrics</button></h2>
+                    </form>
                     <p>Song Number: {{request.form.songNum}}</p>
                     <p>From book: {{request.form.book}}</p>
                     <p>Title: {{ song_info.Title }}</p>

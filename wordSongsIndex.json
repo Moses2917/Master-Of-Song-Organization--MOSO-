@@ -64,14 +64,14 @@
             "Title": "Վստահ եմ` Տերս պիտ պատրաստե ճամփաս",
             "latestVersion": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս v2.docx",
             "v1": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
-            "key": "A Minor Key",
+            "key": "Am",
             "speed": "Slow",
-            "timeSig": "3/4",
+            "timeSig": "4/4",
             "style": "Ballad",
             "opening_Song": "True",
             "Worship_Song": "False",
-            "Comments": "HEY OH!",
-            "song_type": "None",
+            "Comments": "Piano",
+            "song_type": "Worship Song",
             "v2": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս v2.docx"
         },
         "18": {
@@ -2328,7 +2328,7 @@
             "Title": "Տերն է իմ լույսն ու փրկությունը",
             "latestVersion": "Word songs/518 Տերն է իմ լույսն ու փրկությունը v2.docx",
             "v1": "Word songs/518 Տերն է իմ լույսն ու փրկությունը.docx",
-            "key": "Dm",
+            "key": "Em",
             "speed": "116",
             "style": "Disco",
             "song_type": "Opening Song",
@@ -2943,7 +2943,13 @@
             "Title": "Գողգոթայի ճանապարհին",
             "latestVersion": "Word songs/648 Գողգոթայի ճանապարհին v2.docx",
             "v1": "Word songs/648 Գողքոթայի ճանապարհին մեկին տեսա.docx",
-            "v2": "Word songs/648 Գողգոթայի ճանապարհին v2.docx"
+            "v2": "Word songs/648 Գողգոթայի ճանապարհին v2.docx",
+            "key": "Em flat(-6)",
+            "speed": "68",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "649": {
             "Title": "Առավոտ է հարության",
@@ -3007,7 +3013,13 @@
             "Title": "Նայում եմ Քեզ Տեր իմ թագավոր",
             "latestVersion": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v2.docx",
             "v1": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր.docx",
-            "v2": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v2.docx"
+            "v2": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v2.docx",
+            "key": "C",
+            "speed": "86",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "660": {
             "Title": "Երբ ով Տեր հպվում ես Դու ինձ",
@@ -3226,8 +3238,8 @@
             "Title": "Երգիր Տիրոջը ողջ երկիր",
             "latestVersion": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v2.docx",
             "v1": "Word songs/695 Երգիր Տիրոջը ողջ երկիր.docx",
-            "key": "Dm",
-            "speed": "113",
+            "key": "Em",
+            "speed": "110",
             "style": "Disco",
             "song_type": "Opening Song",
             "Worship_Song": "",
@@ -3515,7 +3527,13 @@
             "latestVersion": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
             "v1": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ.docx",
             "v2": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx",
-            "v3": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx"
+            "v3": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
+            "key": "C#m",
+            "speed": "106",
+            "style": "Samba",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "746": {
             "Title": "Գալիս է թագավոր փառքի",
@@ -3820,17 +3838,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Վստահ եմ` Տերս պիտ պատրաստե ճամփաս",
-            "latestVersion": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
-            "v1": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
-            "key": "A Minor Key",
-            "speed": "Slow",
-            "timeSig": "3/4",
-            "style": "Ballad",
-            "opening_Song": "True",
-            "Worship_Song": "False",
-            "Comments": "HEY OH!",
-            "song_type": "None"
+            "Title": "Օրհնեցեք Տիրոջը ով նրա հրեշտակներ",
+            "latestVersion": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
+            "v1": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ.docx",
+            "v2": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx",
+            "v3": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
+            "key": "C#m",
+            "speed": "106",
+            "style": "Samba",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "21": {
             "Title": "",
