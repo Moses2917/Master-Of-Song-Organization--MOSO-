@@ -202,8 +202,8 @@
             "v1": "RED Words/27.docx"
         },
         "28": {
-            "Title": "28",
-            "latestVersion": "Երգարան Word Files/28 28 v2.docx",
+            "Title": "Հիսուսն է հույսը սրտերի",
+            "latestVersion": "Երգարան Word Files/28 Հիսուսն է հույսը սրտերի v3.docx",
             "v1": "RED Words/28.docx",
             "v2": "Երգարան Word Files/28 28 v2.docx",
             "key": "Am",
@@ -211,7 +211,8 @@
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P4-1"
+            "Comments": "Pop-P4-1",
+            "v3": "Երգարան Word Files/28 Հիսուսն է հույսը սրտերի v3.docx"
         },
         "29": {
             "Title": "Աստված իմ...",
@@ -307,8 +308,9 @@
         },
         "43": {
             "Title": "Ինչո՞ւ կմերժես դու հրավերը",
-            "latestVersion": "RED Words/43.docx",
-            "v1": "RED Words/43.docx"
+            "latestVersion": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx",
+            "v1": "RED Words/43.docx",
+            "v2": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx"
         },
         "44": {
             "Title": "Վշտաց աշխարհեն Քեզ կաղաղակեմ,",
@@ -600,8 +602,9 @@
         },
         "90": {
             "Title": "Հիսուս ներած է իմ մեղքերս",
-            "latestVersion": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս.docx",
-            "v1": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս.docx"
+            "latestVersion": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx",
+            "v1": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս.docx",
+            "v2": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx"
         },
         "91": {
             "Title": "Երբ մերժես շարունակ Տերոջ հրավերն անուշ,",
@@ -625,7 +628,7 @@
         },
         "98": {
             "Title": "Սուրբ ես (3), Տե՛ր,",
-            "latestVersion": "Երգարան Word Files/98 Սուրբ ես (3), Տե՛ր, v2.docx",
+            "latestVersion": "Երգարան Word Files/98 Սուրբ ես (3), Տե՛ր, v3.docx",
             "v1": "RED Words/98.docx",
             "v2": "Երգարան Word Files/98 Սուրբ ես (3), Տե՛ր, v2.docx",
             "key": "D",
@@ -634,7 +637,8 @@
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "3/4",
-            "Comments": "Ballad-P1-6"
+            "Comments": "Ballad-P1-6",
+            "v3": "Երգարան Word Files/98 Սուրբ ես (3), Տե՛ր, v3.docx"
         },
         "99": {
             "Title": "Երբ հավատքով կարող ըլլամ",
@@ -748,8 +752,9 @@
         },
         "116": {
             "Title": "Թանկագին րոպեներ է Աստված պարգևել.",
-            "latestVersion": "RED Words/116.docx",
-            "v1": "RED Words/116.docx"
+            "latestVersion": "Երգարան Word Files/116 Թանկագին րոպեներ է Աստված պարգևել. v2.docx",
+            "v1": "RED Words/116.docx",
+            "v2": "Երգարան Word Files/116 Թանկագին րոպեներ է Աստված պարգևել. v2.docx"
         },
         "117": {
             "Title": "Ալելուիա՜, ալելուիա՜, ալելուիա՜, (3)",
@@ -3594,7 +3599,7 @@
         },
         "553": {
             "Title": "Սիրո տիեզերք, սիրո օվկիան,",
-            "latestVersion": "Երգարան Word Files/553 Սիրո տիեզերք, սիրո օվկիան, v2.docx",
+            "latestVersion": "Երգարան Word Files/553 Սիրո տիեզերք, սիրո օվկիան, v3.docx",
             "v1": "RED Words/553.docx",
             "key": "Dm",
             "speed": "85",
@@ -3602,7 +3607,8 @@
             "song_type": "Single Song",
             "timeSig": "6/8",
             "Comments": "Ballad-P1-6",
-            "v2": "Երգարան Word Files/553 Սիրո տիեզերք, սիրո օվկիան, v2.docx"
+            "v2": "Երգարան Word Files/553 Սիրո տիեզերք, սիրո օվկիան, v2.docx",
+            "v3": "Երգարան Word Files/553 Սիրո տիեզերք, սիրո օվկիան, v3.docx"
         },
         "554": {
             "Title": "Քեզ եմ փափագում, Հիսո՛ւս, իմ Փրկիչ,",
