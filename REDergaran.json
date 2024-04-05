@@ -203,16 +203,17 @@
         },
         "28": {
             "Title": "Հիսուսն է հույսը սրտերի",
-            "latestVersion": "Երգարան Word Files/28 Հիսուսն է հույսը սրտերի v3.docx",
+            "latestVersion": "Երգարան Word Files/28 Հիսուսն է հույսը սրտերի v4.docx",
             "v1": "RED Words/28.docx",
             "v2": "Երգարան Word Files/28 28 v2.docx",
-            "key": "Am",
+            "key": "Bm",
             "speed": "103",
             "style": "Beat",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Pop-P4-1",
-            "v3": "Երգարան Word Files/28 Հիսուսն է հույսը սրտերի v3.docx"
+            "v3": "Երգարան Word Files/28 Հիսուսն է հույսը սրտերի v3.docx",
+            "v4": "Երգարան Word Files/28 Հիսուսն է հույսը սրտերի v4.docx"
         },
         "29": {
             "Title": "Աստված իմ...",
@@ -310,7 +311,13 @@
             "Title": "Ինչո՞ւ կմերժես դու հրավերը",
             "latestVersion": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx",
             "v1": "RED Words/43.docx",
-            "v2": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx"
+            "v2": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx",
+            "key": "C#m",
+            "speed": "71",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any ballad"
         },
         "44": {
             "Title": "Վշտաց աշխարհեն Քեզ կաղաղակեմ,",
@@ -479,9 +486,16 @@
         },
         "70": {
             "Title": "Այնպես անուշ անուն չկա,",
-            "latestVersion": "Երգարան Word Files/70 Այնպես անուշ անուն չկա, v2.docx",
+            "latestVersion": "Երգարան Word Files/70 Այնպես անուշ անուն չկա, v3.docx",
             "v1": "RED Words/70.docx",
-            "v2": "Երգարան Word Files/70 Այնպես անուշ անուն չկա, v2.docx"
+            "v2": "Երգարան Word Files/70 Այնպես անուշ անուն չկա, v2.docx",
+            "v3": "Երգարան Word Files/70 Այնպես անուշ անուն չկա, v3.docx",
+            "key": "D (+2)",
+            "speed": "",
+            "style": "N/A",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Piano"
         },
         "71": {
             "Title": "Ո՜հ, թե սուրբ ըլլամ ես՝ միշտ ալ ավելի,",
@@ -604,7 +618,13 @@
             "Title": "Հիսուս ներած է իմ մեղքերս",
             "latestVersion": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx",
             "v1": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս.docx",
-            "v2": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx"
+            "v2": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx",
+            "key": "F",
+            "speed": "92",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P2-2"
         },
         "91": {
             "Title": "Երբ մերժես շարունակ Տերոջ հրավերն անուշ,",
@@ -1784,9 +1804,10 @@
         },
         "278": {
             "Title": "Թող օրհնվի մեր հավաքը,",
-            "latestVersion": "Երգարան Word Files/278 Թող օրհնվի մեր հավաքը, v2.docx",
+            "latestVersion": "Երգարան Word Files/278 Թող օրհնվի մեր հավաքը, v3.docx",
             "v1": "RED Words/278.docx",
-            "v2": "Երգարան Word Files/278 Թող օրհնվի մեր հավաքը, v2.docx"
+            "v2": "Երգարան Word Files/278 Թող օրհնվի մեր հավաքը, v2.docx",
+            "v3": "Երգարան Word Files/278 Թող օրհնվի մեր հավաքը, v3.docx"
         },
         "279": {
             "Title": "Ուրա՞խ ես, որ Հիսուսը մեղքերդ ներեց",
@@ -2025,9 +2046,16 @@
         },
         "314": {
             "Title": "Երբ ճանապարհ եմ դուրս գալիս",
-            "latestVersion": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v2.docx",
+            "latestVersion": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v3.docx",
             "v1": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս.docx",
-            "v2": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v2.docx"
+            "v2": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v2.docx",
+            "v3": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v3.docx",
+            "key": "Cm",
+            "speed": "85",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P1-6"
         },
         "315": {
             "Title": "Ահա ցուրտ ձմեռն է անցել,",
@@ -2752,7 +2780,7 @@
         },
         "420": {
             "Title": "Կապուտակ երկինք՝ բյուրեղյա, մաքուր",
-            "latestVersion": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v3.docx",
+            "latestVersion": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v4.docx",
             "v1": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր.docx",
             "v2": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v2.docx",
             "v3": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v3.docx",
@@ -2761,7 +2789,8 @@
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P4-1"
+            "Comments": "Ballad-P4-1",
+            "v4": "Երգարան Word Files/420 Կապուտակ երկինք՝ բյուրեղյա, մաքուր v4.docx"
         },
         "421": {
             "Title": "Դուստր Սիոնի, լեր ուրախ,",
@@ -2940,11 +2969,18 @@
         },
         "446": {
             "Title": "Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր",
-            "latestVersion": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v4.docx",
+            "latestVersion": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v5.docx",
             "v1": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր.docx",
             "v2": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v2.docx",
             "v3": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v3.docx",
-            "v4": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v4.docx"
+            "v4": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v4.docx",
+            "v5": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v5.docx",
+            "key": "Am",
+            "speed": "100",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P4-1"
         },
         "447": {
             "Title": "Ներկա է Տերը",
@@ -5964,16 +6000,19 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր",
-            "latestVersion": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx",
-            "v1": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր.docx",
-            "v2": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx",
-            "key": "E",
-            "speed": "70",
+            "Title": "Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր",
+            "latestVersion": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v5.docx",
+            "v1": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր.docx",
+            "v2": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v2.docx",
+            "v3": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v3.docx",
+            "v4": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v4.docx",
+            "v5": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v5.docx",
+            "key": "Am",
+            "speed": "100",
             "style": "Beat",
-            "song_type": "Worship Song",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-4"
+            "Comments": "Pop-P4-1"
         },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",
