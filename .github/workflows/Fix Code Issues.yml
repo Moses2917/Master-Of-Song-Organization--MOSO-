@@ -24,8 +24,8 @@ jobs:
         
     - name: Analysing the code with pylint
       run: |
-        files=$(find . -type f \( -name "*.py" -o -name "*.pyw" \))
-        pylint $files --evaluation=bad-names,unused-variable,unused-argument,unused-import,missing-module-docstring,missing-function-docstring,missing-class-docstring,missing-final-newline,multiple-imports,trailing-whitespace
+        ##files=$(find . -type f \( -name "*.py" -o -name "*.pyw" \))
+        pylint *.py ##--evaluation=bad-names,unused-variable,unused-argument,unused-import,missing-module-docstring,missing-function-docstring,missing-class-docstring,missing-final-newline,multiple-imports,trailing-whitespace
         
     - name: Fixing code issues
       run: |
