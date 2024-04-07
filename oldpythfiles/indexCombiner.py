@@ -25,7 +25,9 @@ def unifiedErgaran():
             # Add the entry to ergaran from PPTSONGS
             ergaran["SongNum"][num] = REDergaran["SongNum"][num]
 
-    ergaran["SongNum"] = dict(sorted(ergaran["SongNum"].items(), key=lambda x: int(x[0])))
+    ergaran["SongNum"] = {}
+    for item in sorted_items:
+        ergaran["SongNum"][item[0]] = item[1]
 
     # Save the updated ergaran JSON file
     with open('updated_ergaran.json', 'w', encoding='utf-8') as f:

@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-widt, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>Tsank</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -88,15 +89,13 @@
             <input type="submit" value="28. ԱՂՈԹՔ, ԽՆԴՐՎԱԾՔ" name="temmas" class="btn btn-outline-primary m-2">
             <input type="submit" value="29. ԱՍՏԾՈ ԽՈՍՔ" name="temmas" class="btn btn-outline-primary m-2"></p>
         </form>
-    </div class="container my-5">
+    <div id="songs" class="container my-5 scrollable-container">
         {% if temmas %}
             <h2 class="text-center text-primary mb-4"> {{temmas|safe}} </h2>
             <h2 class="text-center text-primary mb-2"> {{temmalist|safe}} </h2>
             <br>
             <br>
         {%endif%}
-    <div>
-
     </div>
 </body>
 

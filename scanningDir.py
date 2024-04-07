@@ -312,7 +312,6 @@ def songSearch(song_num,book):
         # print(f"Song number {song_num} in book {book} not found.")
         return None
 
-
 def toJson():
     """Generates a json version of AllSongs.txt and save it to the disk
     underneath the same name, so AllSongs.json

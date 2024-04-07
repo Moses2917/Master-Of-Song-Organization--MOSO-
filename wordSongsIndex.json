@@ -12,8 +12,15 @@
         },
         "3": {
             "Title": "Հաճախ ինձ համար պահեր կան դժվար",
-            "latestVersion": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար.docx",
-            "v1": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար.docx"
+            "latestVersion": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար v2.docx",
+            "v1": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար.docx",
+            "v2": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար v2.docx",
+            "key": "G#m (-1)",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "/4",
+            "Comments": "Pop-P1-4"
         },
         "4": {
             "Title": "Ինչպե՞ս երթամ պարապ ձեռքով,",
@@ -1250,9 +1257,16 @@
         },
         "304": {
             "Title": "Դու բնակվում ես իմ մեջ",
-            "latestVersion": "Word songs/304 Դու բնակվում ես իմ մեջ v2.docx",
+            "latestVersion": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
             "v1": "Word songs/304 Դու բնակվում ես իմ մեջ.docx",
-            "v2": "Word songs/304 Դու բնակվում ես իմ մեջ v2.docx"
+            "v2": "Word songs/304 Դու բնակվում ես իմ մեջ v2.docx",
+            "v3": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
+            "key": "Gm",
+            "speed": "110",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "305": {
             "Title": "Հիսուսի սիրուց ես չեմ բաժանվի, \nԹեև հալածանք ու սուր սպառնի, \nՆեղություն տառապանք սիրով կկրեմ, \nՈր սուրբ հավատքս կենդանի պահեմ:",
@@ -2352,9 +2366,16 @@
         },
         "520": {
             "Title": "Եղջերուի պես որ փափագում է",
-            "latestVersion": "Word songs/520 Եղջերուի պես որ փափագում է v2.docx",
+            "latestVersion": "Word songs/520 Եղջերուի պես որ փափագում է v3.docx",
             "v1": "Word songs/520 Եղջերուի պես որ փափագում է.docx",
-            "v2": "Word songs/520 Եղջերուի պես որ փափագում է v2.docx"
+            "v2": "Word songs/520 Եղջերուի պես որ փափագում է v2.docx",
+            "v3": "Word songs/520 Եղջերուի պես որ փափագում է v3.docx",
+            "key": "C#m",
+            "speed": "142",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Jazz-P3-8"
         },
         "521": {
             "Title": "Ուրախ ենք մենք Տիրոջմով",
@@ -2759,7 +2780,7 @@
         },
         "614": {
             "Title": "Վեր է ամենից, Սուրբ անունը Քո Հիսուս",
-            "latestVersion": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս v2.docx",
+            "latestVersion": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս v3.docx",
             "v1": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս.docx",
             "v2": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս v2.docx",
             "key": "Em",
@@ -2767,7 +2788,8 @@
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v3": "Word songs/614 Վեր է ամենից, Սուրբ անունը Քո Հիսուս v3.docx"
         },
         "615": {
             "Title": "Ահա ցուրտ ձմեռն է անցել, \nԱնձրեւն է անհայտացել, \nԵկեղեցում գարնանային, \nԳեղեցիկ վարդեր են բացվել:",
@@ -3225,14 +3247,28 @@
         },
         "690": {
             "Title": "Ամբողջ կյանքում ես փնտրել եմ",
-            "latestVersion": "Word songs/690 Ամբողջ կյանքում ես փնտրել եմ v2.docx",
+            "latestVersion": "Word songs/690 Ամբողջ կյանքում ես փնտրել եմ v3.docx",
             "v1": "Word songs/690 Ամբողջ կյանքում ես փնտրել եմ.docx",
-            "v2": "Word songs/690 Ամբողջ կյանքում ես փնտրել եմ v2.docx"
+            "v2": "Word songs/690 Ամբողջ կյանքում ես փնտրել եմ v2.docx",
+            "v3": "Word songs/690 Ամբողջ կյանքում ես փնտրել եմ v3.docx",
+            "key": "Fm",
+            "speed": "115",
+            "style": "Beat",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P4-1"
         },
         "691": {
             "Title": "Սիրում եմ Քեզ իմ Տեր",
-            "latestVersion": "Word songs/691 Սիրում եմ Քեզ իմ Տեր.docx",
-            "v1": "Word songs/691 Սիրում եմ Քեզ իմ Տեր.docx"
+            "latestVersion": "Word songs/691 Սիրում եմ Քեզ իմ Տեր v2.docx",
+            "v1": "Word songs/691 Սիրում եմ Քեզ իմ Տեր.docx",
+            "v2": "Word songs/691 Սիրում եմ Քեզ իմ Տեր v2.docx",
+            "key": "Em",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "692": {
             "Title": "Լսում ես ձայն երկնքից",
@@ -3404,8 +3440,15 @@
         },
         "720": {
             "Title": "Թույլ տուր մնամ",
-            "latestVersion": "Word songs/720 Թույլ տուր մնամ.docx",
-            "v1": "Word songs/720 Թույլ տուր մնամ.docx"
+            "latestVersion": "Word songs/720 Թույլ տուր մնամ v2.docx",
+            "v1": "Word songs/720 Թույլ տուր մնամ.docx",
+            "v2": "Word songs/720 Թույլ տուր մնամ v2.docx",
+            "key": "G#m",
+            "speed": "71",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "721": {
             "Title": "Մեծ է Արարիչ մեր Աստված",
@@ -3889,18 +3932,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Մեծարում եմ անունդ ով Տեր",
-            "latestVersion": "Word songs/417 Մեծարում եմ անունդ ով Տեր v4.docx",
-            "v1": "Word songs/417 Մեծարում եմ անունդ ով Տեր.docx",
-            "v2": "Word songs/417 Մեծարում եմ անունդ ով Տեր v2.docx",
-            "key": "G",
-            "speed": "86",
-            "style": "Beat",
+            "Title": "Դու բնակվում ես իմ մեջ",
+            "latestVersion": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
+            "v1": "Word songs/304 Դու բնակվում ես իմ մեջ.docx",
+            "v2": "Word songs/304 Դու բնակվում ես իմ մեջ v2.docx",
+            "v3": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
+            "key": "Gm",
+            "speed": "110",
+            "style": "Pop",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P6-1",
-            "v3": "Word songs/417 Մեծարում եմ անունդ ով Տեր v3.docx",
-            "v4": "Word songs/417 Մեծարում եմ անունդ ով Տեր v4.docx"
+            "Comments": "Pop-P3-4"
         },
         "21": {
             "Title": "Ես համոզված եմ եվ հաստատ ուխտած",
