@@ -68,14 +68,15 @@
         },
         "10": {
             "Title": "Աստված իմ, երբ հոգիս նայի",
-            "latestVersion": "Երգարան Word Files/10 Աստված իմ, երբ հոգիս նայի.docx",
+            "latestVersion": "Երգարան Word Files/10 Աստված իմ, երբ հոգիս նայի v2.docx",
             "v1": "Երգարան Word Files/10 Աստված իմ, երբ հոգիս նայի.docx",
-            "key": "",
-            "speed": "",
-            "style": "",
-            "song_type": "None",
-            "timeSig": "",
-            "Comments": ""
+            "key": "C",
+            "speed": "110",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P2-2",
+            "v2": "Երգարան Word Files/10 Աստված իմ, երբ հոգիս նայի v2.docx"
         },
         "11": {
             "Title": "Ով հոգվույս սիրող Քրիստոս,",
@@ -438,8 +439,15 @@
         },
         "63": {
             "Title": "Սրտիս մեջ կա անուշ երգ մ'այսօր",
-            "latestVersion": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր.docx",
-            "v1": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր.docx"
+            "latestVersion": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
+            "v1": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր.docx",
+            "v2": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
+            "key": "Fm",
+            "speed": "100",
+            "style": "Samba",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "64": {
             "Title": "Տիրոջ կվստահիս կյանքիդ մեջ բոլոր",
@@ -1581,10 +1589,11 @@
         },
         "239": {
             "Title": "Կյանքս Քեզ եմ ընծայում,",
-            "latestVersion": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v3.docx",
+            "latestVersion": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v4.docx",
             "v1": "RED Words/239.docx",
             "v2": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v2.docx",
-            "v3": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v3.docx"
+            "v3": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v3.docx",
+            "v4": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v4.docx"
         },
         "240": {
             "Title": "",
@@ -1688,8 +1697,15 @@
         },
         "257": {
             "Title": "Ո՜վ սուրբ Արարիչ, Քո եկեղեցում",
-            "latestVersion": "RED Words/257.docx",
-            "v1": "RED Words/257.docx"
+            "latestVersion": "Երգարան Word Files/257 Ո՜վ սուրբ Արարիչ, Քո եկեղեցում v2.docx",
+            "v1": "RED Words/257.docx",
+            "v2": "Երգարան Word Files/257 Ո՜վ սուրբ Արարիչ, Քո եկեղեցում v2.docx",
+            "key": "Am",
+            "speed": "94",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "258": {
             "Title": "Հզոր Աստված խաղաղության, սքանչելի՜ Տեր Հիսուս,",
@@ -2834,7 +2850,7 @@
         },
         "426": {
             "Title": "Այդ ի՜նչ խաղաղ աչքեր ունես",
-            "latestVersion": "Երգարան Word Files/426 Այդ ի՜նչ խաղաղ աչքեր ունես v3.docx",
+            "latestVersion": "Երգարան Word Files/426 Այդ ի՜նչ խաղաղ աչքեր ունես v4.docx",
             "v1": "Երգարան Word Files/426 Այդ ի՜նչ խաղաղ աչքեր ունես.docx",
             "v2": "Երգարան Word Files/426 Այդ ի՜նչ խաղաղ աչքեր ունես v2.docx",
             "v3": "Երգարան Word Files/426 Այդ ի՜նչ խաղաղ աչքեր ունես v3.docx",
@@ -2843,7 +2859,8 @@
             "style": "Waltz ",
             "song_type": "Single Song",
             "timeSig": "3/4",
-            "Comments": "Ballroom-P1-1"
+            "Comments": "Ballroom-P1-1",
+            "v4": "Երգարան Word Files/426 Այդ ի՜նչ խաղաղ աչքեր ունես v4.docx"
         },
         "427": {
             "Title": "Աղավնին է, ալելուիա",
@@ -4034,16 +4051,17 @@
         },
         "620": {
             "Title": "Տեր, Քո ճամփաները ցույց տուր մեզ",
-            "latestVersion": "Երգարան Word Files/620 Տեր, Քո ճամփաները ցույց տուր մեզ v2.docx",
+            "latestVersion": "Երգարան Word Files/620 Տեր, Քո ճամփաները ցույց տուր մեզ v3.docx",
             "v1": "Երգարան Word Files/620 Տեր, Քո ճամփաները ցույց տուր մեզ.docx",
             "v2": "Երգարան Word Files/620 Տեր, Քո ճամփաները ցույց տուր մեզ v2.docx",
             "key": "Dm",
-            "speed": "",
+            "speed": "70",
             "style": "Ballad",
-            "song_type": "Single Song",
+            "song_type": "None",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-P4"
+            "Comments": "Pop-P1-P4",
+            "v3": "Երգարան Word Files/620 Տեր, Քո ճամփաները ցույց տուր մեզ v3.docx"
         },
         "621": {
             "Title": "",
@@ -6007,16 +6025,16 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Կյանքում ամենաանհրաժեշտ բաները",
-            "latestVersion": "Երգարան Word Files/202 Կյանքում ամենաանհրաժեշտ բաները v2.docx",
-            "v1": "Երգարան Word Files/202 Կյանքում ամենաանհրաժեշտ բաները.docx",
-            "v2": "Երգարան Word Files/202 Կյանքում ամենաանհրաժեշտ բաները v2.docx",
-            "key": "Em",
-            "speed": "110",
-            "style": "Disco",
-            "song_type": "Opening Song",
+            "Title": "Սրտիս մեջ կա անուշ երգ մ'այսօր",
+            "latestVersion": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
+            "v1": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր.docx",
+            "v2": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
+            "key": "Fm",
+            "speed": "100",
+            "style": "Samba",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Disco-P5-5"
+            "Comments": "Latin Dance-P2-3"
         },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",
