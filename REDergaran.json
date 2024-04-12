@@ -120,7 +120,7 @@
         },
         "16": {
             "Title": "Մեր լավագույն օրերն անգին",
-            "latestVersion": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v2.docx",
+            "latestVersion": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v3.docx",
             "v1": "RED Words/16.docx",
             "v2": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v2.docx",
             "key": "F",
@@ -128,7 +128,8 @@
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P5-5"
+            "Comments": "Ballad-P5-7",
+            "v3": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v3.docx"
         },
         "17": {
             "Title": "Այս կյանքս պատերազմ է, և մենք՝ զինվորներ",
@@ -1478,10 +1479,17 @@
         },
         "223": {
             "Title": "Եթե հոգնել ես ճանապարհին,",
-            "latestVersion": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v3.docx",
+            "latestVersion": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v4.docx",
             "v1": "RED Words/223.docx",
             "v2": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v2.docx",
-            "v3": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v3.docx"
+            "v3": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v3.docx",
+            "v4": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v4.docx",
+            "key": "Em",
+            "speed": "125",
+            "style": "Bossa Nova",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-4"
         },
         "224": {
             "Title": "Աչքերս եմ բացել Քրիստոսի խաչի տակ",
@@ -2028,7 +2036,7 @@
         },
         "309": {
             "Title": "Ելնեմ ճամփա՝ ցուպը ձեռքիս,",
-            "latestVersion": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v3.docx",
+            "latestVersion": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v4.docx",
             "v1": "RED Words/309.docx",
             "v2": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v2.docx",
             "v3": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v3.docx",
@@ -2037,7 +2045,8 @@
             "style": "Beat ",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P4-1"
+            "Comments": "Pop-P4-1",
+            "v4": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v4.docx"
         },
         "310": {
             "Title": "Հիսուսը, սրտիդ դռան",
@@ -2051,7 +2060,7 @@
         },
         "312": {
             "Title": "Մեղքի համար մեռած եմ",
-            "latestVersion": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v2.docx",
+            "latestVersion": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v3.docx",
             "v1": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx",
             "key": "F",
             "speed": "95",
@@ -2059,8 +2068,10 @@
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "",
-            "v2": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v2.docx"
+            "Comments": "Latin Dance-P2-3",
+            "v2": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v2.docx",
+            "v3": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v3.docx",
+            "song_type": "None"
         },
         "313": {
             "Title": "Հոգիս կենաց ջուրդ է ուզում",
@@ -3372,8 +3383,15 @@
         },
         "511": {
             "Title": "Դժվարության պահին միշտ",
-            "latestVersion": "RED Words/511.docx",
-            "v1": "RED Words/511.docx"
+            "latestVersion": "Երգարան Word Files/511 Դժվարության պահին միշտ v2.docx",
+            "v1": "RED Words/511.docx",
+            "v2": "Երգարան Word Files/511 Դժվարության պահին միշտ v2.docx",
+            "key": "Em",
+            "speed": "80",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "512": {
             "Title": "Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ",
@@ -3417,8 +3435,15 @@
         },
         "516": {
             "Title": "Մի՛ վախենա, Ես քեզ հետ եմ",
-            "latestVersion": "Երգարան Word Files/516 Մի՛ վախենա, Ես քեզ հետ եմ.docx",
-            "v1": "Երգարան Word Files/516 Մի՛ վախենա, Ես քեզ հետ եմ.docx"
+            "latestVersion": "Երգարան Word Files/516 Մի՛ վախենա, Ես քեզ հետ եմ v2.docx",
+            "v1": "Երգարան Word Files/516 Մի՛ վախենա, Ես քեզ հետ եմ.docx",
+            "v2": "Երգարան Word Files/516 Մի՛ վախենա, Ես քեզ հետ եմ v2.docx",
+            "key": "Em",
+            "speed": "110",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "517": {
             "Title": "Ո՞վ է, որ մեզ միշտ հսկում է",
@@ -6025,16 +6050,19 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Սրտիս մեջ կա անուշ երգ մ'այսօր",
-            "latestVersion": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
-            "v1": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր.docx",
-            "v2": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
-            "key": "Fm",
-            "speed": "100",
+            "Title": "Մեղքի համար մեռած եմ",
+            "latestVersion": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v3.docx",
+            "v1": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx",
+            "key": "F",
+            "speed": "95",
             "style": "Samba",
-            "song_type": "Single Song",
+            "opening_Song": "",
+            "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v2": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v2.docx",
+            "v3": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v3.docx",
+            "song_type": "None"
         },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",

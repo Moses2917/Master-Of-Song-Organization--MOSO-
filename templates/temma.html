@@ -28,7 +28,7 @@
             <a class="navbar-brand" href="{{url_for('searching')}}">Song Search</a>
         </div>
     </nav>
-
+    {% if session %}
     <div class="container my-5">
         <!-- <form method="post" class="form-group">
             <h1 class="text-center mb-4">Please Choose a Book:</h1>
@@ -98,6 +98,10 @@
             <br>
         {%endif%}
     </div>
+    {% else %}
+    <h1 class="text-primary text-center">Welcome Guest, Please Login.</h1>
+    <h1 class="text-center"><a href="/login" class="btn btn-primary me-2" style="text-align: center;">Login</a></h1>
+    {% endif %}
 </body>
 
 </html>

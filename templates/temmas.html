@@ -32,12 +32,17 @@
         <button type="submit" class="btn btn-primary btn-lg" >Back To Search</button>
     </form>
     <br>
-    <div class="container-md bg-primary">
+    {% if session %}
+    <div class="container-md">
         <br>
-        <h2 class="text-center text-white mb-4"> {{temmas|safe}} </h2>
-        <h2 class="text-center text-white mb-2"> {{temmalist|safe}} </h2>
+        <h2 class="text-center text-primary mb-4"> {{temmas|safe}} </h2>
+        <h2 class="text-center text-primary mb-2"> {{temmalist|safe}} </h2>
         <br>
         <br>
     </div>
+    {% else %}
+    <h1 class="text-sm-center">Welcome Guest, Please Login.</h1>
+    <h1><a href="/login" class="btn btn-primary me-2" style="text-align: center;">Login</a></h1>
+    {% endif %}
     
 </body>
