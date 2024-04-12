@@ -74,12 +74,12 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WKQ726W"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="container">
+    <div class="container p-3 mb-2 bg-light">
         
         <h1>Welcome to our Song Information Page</h1>
         <div class="d-flex justify-content-center mb-4">
             <a href="{{url_for( 'searching' )}}" class="btn btn-primary me-2">Go to Song Search</a>
-            <a href="/tsank" class="btn btn-primary">Go to Tsank</a>
+            <a href="{{url_for( 'tsank' )}}" class="btn btn-primary">Go to Tsank</a>
         </div>
         {% if session %}
         <h1> Բարի Գալուստ, {{session.userinfo.name}}! <a href="/logout" class="btn btn-outline-danger">Logout</a></h1>
@@ -94,19 +94,23 @@
                 <strong>REDergaran</strong>=red book songs,<br><strong>Old Book or Word Songs</strong>=old church songs
             </div>
         </div>
+        
         <form method="post" class="mb-4 bg-primary bg-gradient text-dark">
-            <div class="mb-3">
-                <label for="book" class="form-label">Please select the book:</label>
-                <select name="book" id="book" class="form-select">
-                    <option value="REDergaran">RED Ergaran</option>
-                    <option value="wordSongsIndex">Old Book</option>
-                </select>
+            <div class="container-sm">
+                <div class="mx-auto">
+                    <label for="book" class="form-label">Please select the book:</label>
+                    <select name="book" id="book" class="form-select">
+                        <option value="REDergaran">RED Ergaran</option>
+                        <option value="wordSongsIndex">Old Book</option>
+                    </select>
+                </div>
+                <div class="mx-auto">
+                    <label for="songNum" class="form-label">Please enter the song number:</label>
+                    <input type="text" name="songNum" id="songNum" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success bg-gradient">Submit</button>
             </div>
-            <div class="mb-3">
-                <label for="songNum" class="form-label">Please enter the song number:</label>
-                <input type="text" name="songNum" id="songNum" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success bg-gradient">Submit</button>
+                
         </form>
 
         {% if song_info %}
