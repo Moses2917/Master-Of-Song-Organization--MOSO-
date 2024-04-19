@@ -24,8 +24,10 @@
         },
         "4": {
             "Title": "Ինչպե՞ս երթամ պարապ ձեռքով,",
-            "latestVersion": "Word songs\\pptSong\\4.Ինչպե՞ս երթամ պարապ ձեռքով.docx",
-            "v1": "Word songs\\pptSong\\4.Ինչպե՞ս երթամ պարապ ձեռքով.docx"
+            "latestVersion": "Word songs/4 Ինչպե՞ս երթամ պարապ ձեռքով, v3.docx",
+            "v1": "Word songs\\pptSong\\4.Ինչպե՞ս երթամ պարապ ձեռքով.docx",
+            "v2": "Word songs/4 Ինչպե՞ս երթամ պարապ ձեռքով, v2.docx",
+            "v3": "Word songs/4 Ինչպե՞ս երթամ պարապ ձեռքով, v3.docx"
         },
         "5": {
             "Title": "Ով մեծ Աստված, երբ զննեմ այս աշխարհ,",
@@ -98,8 +100,10 @@
         },
         "23": {
             "Title": "․Այս կյանքս պատերազմ է, և մենք՝ զինվորներ,",
-            "latestVersion": "Word songs\\pptSong\\23.Այս կյանքս պատերազմ է.docx",
-            "v1": "Word songs\\pptSong\\23.Այս կյանքս պատերազմ է.docx"
+            "latestVersion": "Word songs/23 ․Այս կյանքս պատերազմ է, և մենք՝ զինվորներ, v3.docx",
+            "v1": "Word songs\\pptSong\\23.Այս կյանքս պատերազմ է.docx",
+            "v2": "Word songs/23 ․Այս կյանքս պատերազմ է, և մենք՝ զինվորներ, v2.docx",
+            "v3": "Word songs/23 ․Այս կյանքս պատերազմ է, և մենք՝ զինվորներ, v3.docx"
         },
         "24": {
             "Title": "Լուռ գիշեր, սուրբ գիշեր",
@@ -2252,9 +2256,16 @@
         },
         "504": {
             "Title": "Շփոթված ու մոլորված",
-            "latestVersion": "Word songs/504 Շփոթված ու մոլորված v2.docx",
+            "latestVersion": "Word songs/504 Շփոթված ու մոլորված v3.docx",
             "v1": "Word songs/504 Շփոթված ու մոլորված.docx",
-            "v2": "Word songs/504 Շփոթված ու մոլորված v2.docx"
+            "v2": "Word songs/504 Շփոթված ու մոլորված v2.docx",
+            "v3": "Word songs/504 Շփոթված ու մոլորված v3.docx",
+            "key": "F",
+            "speed": "122",
+            "style": "Disco ",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4"
         },
         "505": {
             "Title": "Գերել ես սիրտը իմ Քո սիրով",
@@ -2439,9 +2450,17 @@
         },
         "533": {
             "Title": "Տրտմության մեջ իմ հոգու՝ հույսն ես միակ",
-            "latestVersion": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ v2.docx",
+            "latestVersion": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ v4.docx",
             "v1": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ.docx",
-            "v2": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ v2.docx"
+            "v2": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ v2.docx",
+            "v3": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ v3.docx",
+            "v4": "Word songs/533 Տրտմության մեջ իմ հոգու՝ հույսն ես միակ v4.docx",
+            "key": "Dm",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "534": {
             "Title": "Շալոմ բարեկամներ Տիրոջմով շալոմ",
@@ -2494,7 +2513,13 @@
         "542": {
             "Title": "Օրհնե Տերը ով անձ, ով իմ անձ",
             "latestVersion": "Word songs/542 Օրհնե Տերը ով անձ, ով իմ անձ.docx",
-            "v1": "Word songs/542 Օրհնե Տերը ով անձ, ով իմ անձ.docx"
+            "v1": "Word songs/542 Օրհնե Տերը ով անձ, ով իմ անձ.docx",
+            "key": "C#m",
+            "speed": "112",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "543": {
             "Title": "Արժանի ես Տեր գոհության և պատվի",
@@ -3072,8 +3097,16 @@
         },
         "661": {
             "Title": "Աստծո ժողովուրդ ով բոլոր սուրբեր",
-            "latestVersion": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր.docx",
-            "v1": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր.docx"
+            "latestVersion": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v3.docx",
+            "v1": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր.docx",
+            "v2": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v2.docx",
+            "v3": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v3.docx",
+            "key": "-9",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "662": {
             "Title": "Գոհութուն Աստծո բոլոր սրտով",
@@ -3501,7 +3534,13 @@
         "729": {
             "Title": "Հպվիր ինձ Սուրբ Հոգի  հպվիր",
             "latestVersion": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր.docx",
-            "v1": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր.docx"
+            "v1": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր.docx",
+            "key": "C#m",
+            "speed": "72",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "730": {
             "Title": "Օ քո փառքը, ներկայությունը",
@@ -3932,17 +3971,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Դու բնակվում ես իմ մեջ",
-            "latestVersion": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
-            "v1": "Word songs/304 Դու բնակվում ես իմ մեջ.docx",
-            "v2": "Word songs/304 Դու բնակվում ես իմ մեջ v2.docx",
-            "v3": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
-            "key": "Gm",
+            "Title": "Աստծո ժողովուրդ ով բոլոր սուրբեր",
+            "latestVersion": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v3.docx",
+            "v1": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր.docx",
+            "v2": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v2.docx",
+            "v3": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v3.docx",
+            "key": "-9",
             "speed": "110",
-            "style": "Pop",
+            "style": "Disco",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Dance-P5-5"
         },
         "21": {
             "Title": "Ես համոզված եմ եվ հաստատ ուխտած",

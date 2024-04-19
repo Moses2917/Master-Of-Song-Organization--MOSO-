@@ -67,7 +67,7 @@ def getPcSongs(songs, imp, user):
         docx: a word file containing the requested songs
     """
     DrivePath = os.environ.get("OneDrive")
-    my_doc = docx.Document("{}\\Choir Songs Template.docx".format(DrivePath))
+    my_doc = docx.Document("{}\\Choir Songs Template - Alt.docx".format(DrivePath))
     for x in songs:
         x = str(x)
         y = songs.index(x)
@@ -85,7 +85,7 @@ def getPcSongs(songs, imp, user):
             else:
                 my_doc.add_paragraph("[start:song]")
                 getDocTextAndIndentation(filePath="RED Words/" + x + ".docx", my_doc=my_doc)
-                my_doc.add_paragraph("[end:song]")
+                my_doc.add_paragraph("[end:song]\n")
                 
         else:
             with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:

@@ -11,6 +11,23 @@ oldBook_pth = "wordSongsIndex.json"
 Ergaran_pth = "REDergaran.json" # after combining red and ergaran this is now the main index file for the red book songs
 redErgaran_pth = "oldpythfiles\REDergaran.json" #However for extra redunency I will leave this in
 
+# def sortIndex(index):
+#     """sorts a json index
+
+#     Args:
+#         index (json): a json obj, is song index
+#     """    
+#     ergaran["SongNum"] = {}
+#     for item in sorted_items:
+#         ergaran["SongNum"][item[0]] = item[1]
+#     #returns a sorted index
+#     return dict(sorted(index["SongNum"].items(), key=lambda x: int(x[0])))
+# with open(oldBook_pth,"r",encoding="utf-8") as f:
+#     sortedIndex = json.load(f)
+#     sortedIndex["SongNum"] = sortIndex(sortedIndex["SongNum"])
+# with open(oldBook_pth, "w", encoding='utf-8') as f:
+#     json.dump(sortedIndex,f,indent=4,ensure_ascii=False)
+
 def getDocText(filename):
     text = ""
 
@@ -18,6 +35,7 @@ def getDocText(filename):
     for p in doc.paragraphs:
         text += p.text + "\n"
     return text
+
 def getOldSongTitle(oldSong_text):
     tab = re.findall("\n.+", oldSong_text) # for finding title
     # print(tab[1])
@@ -28,9 +46,11 @@ def getOldSongTitle(oldSong_text):
     title = re.sub(r"\n", "", title)
     print(title)
     return title
+
 #gets first line of song and uses that as title
 def getRedSongTitle(text):
     return re.findall("\n(\d.*)\n",text)[0] 
+
 #Finds the biggest version and returns it as an int
 def latestVer(jsonIndex, songNum:str):
     """Finds latest version of given songNum in given json index & returns it,
@@ -184,6 +204,7 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
         font.size = Pt(22)
         song_Doc.save("C:/Users/{}/OneDrive/".format(environ.get("USERNAME")) + base_file_path)
         with open(oldBook_pth, 'w', encoding='utf-8') as f:
+            #oldBook_Index["SongNum"] = dict(sorted(oldBook_Index["SongNum"].items(), key=lambda x: int(x[0]))) # should sort the songs before saving
             json.dump(oldBook_Index, f, indent=4, ensure_ascii=False)
         print(base_file_path)
 
@@ -208,6 +229,7 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
         font.size = Pt(22)        
         song_Doc.save("C:/Users/{}/OneDrive/".format(environ.get("USERNAME")) + base_file_path)
         with open(Ergaran_pth, 'w', encoding='utf-8') as f:
+            #Book_Index["SongNum"] = dict(sorted(Book_Index["SongNum"].items(), key=lambda x: int(x[0]))) # should sort the songs before saving
             json.dump(Book_Index, f, indent=4, ensure_ascii=False)
         print(base_file_path)
 
@@ -223,37 +245,30 @@ def getNums(filename: str):
         if "[start:song" in p.text:
             songNum = None
             first = True
-            if "old" in p.text:  # Possible starting loc, or just make the doc file in it's entirety and and send off a list of docs to be saved somewhere else
+            if "old" in p.text: #Possible starting loc, or just make the doc file in it's entirety and and send off a list of docs to be saved somewhere else
                 bookOld = True
-
-            # have to add bc the songNum gets shoved in with the start indicator sometimes: '[start:song]\n171'
-            if (re.search(r"[0-9]", p.text)):
+                
+            #have to add bc the songNum gets shoved in with the start indicator sometimes: '[start:song]\n171'
+            if (re.search(r"[0-9]",p.text)):
                 songNum = re.sub(r"\D", "", p.text)
                 first = False
-
-        if not ("end" in p.text or "start" in p.text):
-            if first:
+                
+        if not("end" in p.text or "start" in p.text):
+            if first: 
                 songNum = p.text.split("\n")[0]
-                first = False
+                first=False
 
         if "end" in p.text:  # Def ending loc
             if bookOld == False: bookOld = "New"
             else: bookOld = "Old"
             # print(bookOld, songNum)
             SongList.append({bookOld, songNum})
-
-            # #push song to text var and reset song var
-
-            # text_and_indentation.append({
-            #     'song': song,
-            #     'book': bookOld
-            # })
             bookOld = False
-            song = []
+            
     # return text_and_indentation
     return str(SongList)
 
-
+##print(getNums(r"D:\updaterTest_4.14.2024.docx"))
 
 #not rly needed anymore
 def getSongText(filename):

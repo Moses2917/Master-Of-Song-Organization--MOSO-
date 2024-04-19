@@ -223,8 +223,8 @@ def tsank():
                 with open("templates/temmas.json", 'r', encoding='utf-8') as f:
                     temmalist = json.load(f)
                 temmalist = temmalist[int(temmaNumber[0])-1]
-            return render_template("temma.html", temmas=temma, temmalist=temmalist)#call a func. to get the list of songs
-    return render_template('tsank.html', session=session.get('user'),table_data=table_data,temmas=temma)
+            return render_template("temmas.html", temmas=temma, temmalist=temmalist)#call a func. to get the list of songs
+    return render_template("temma.html", session=session.get('user'),table_data=table_data,temmas=temma)
 
 
 if __name__ == '__main__':

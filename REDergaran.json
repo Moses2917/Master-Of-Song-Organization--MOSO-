@@ -25,8 +25,10 @@
         },
         "4": {
             "Title": "Ինչպե՞ս երթամ պարապ ձեռքով,",
-            "latestVersion": "RED Words/4.docx",
-            "v1": "RED Words/4.docx"
+            "latestVersion": "Երգարան Word Files/4 Ինչպե՞ս երթամ պարապ ձեռքով, v3.docx",
+            "v1": "RED Words/4.docx",
+            "v2": "Երգարան Word Files/4 Ինչպե՞ս երթամ պարապ ձեռքով, v2.docx",
+            "v3": "Երգարան Word Files/4 Ինչպե՞ս երթամ պարապ ձեռքով, v3.docx"
         },
         "5": {
             "Title": "Ով մեծ Աստված^J երբ զննեմ այս աշխարհ",
@@ -452,7 +454,7 @@
         },
         "64": {
             "Title": "Տիրոջ կվստահիս կյանքիդ մեջ բոլոր",
-            "latestVersion": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր.docx",
+            "latestVersion": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր v2.docx",
             "v1": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր.docx",
             "key": "F",
             "speed": "95",
@@ -460,7 +462,9 @@
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": ""
+            "Comments": "Latin Dance-P2-3",
+            "v2": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր v2.docx",
+            "song_type": "Single Song"
         },
         "65": {
             "Title": "Հիսուսին միայն սրտումս պիտ ունենամ",
@@ -682,7 +686,13 @@
         "101": {
             "Title": "Երբ որ Նա ամպերով վերադառնա,",
             "latestVersion": "RED Words/101.docx",
-            "v1": "RED Words/101.docx"
+            "v1": "RED Words/101.docx",
+            "key": "",
+            "speed": "",
+            "style": "",
+            "song_type": "Opening Song",
+            "timeSig": "",
+            "Comments": ""
         },
         "102": {
             "Title": "Ո՜հ, չկա մեկը տիեզերքում,",
@@ -1270,7 +1280,7 @@
         },
         "191": {
             "Title": "Երբ Հիսուսին հավատացի,",
-            "latestVersion": "Երգարան Word Files/191 Երբ Հիսուսին հավատացի, v2.docx",
+            "latestVersion": "Երգարան Word Files/191 Երբ Հիսուսին հավատացի, v3.docx",
             "v1": "RED Words/191.docx",
             "v2": "Երգարան Word Files/191 Երբ Հիսուսին հավատացի, v2.docx",
             "key": "Em",
@@ -1278,7 +1288,8 @@
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v3": "Երգարան Word Files/191 Երբ Հիսուսին հավատացի, v3.docx"
         },
         "192": {
             "Title": "Կքալեի տրտմագին, հոգիս՝ ճնշված,",
@@ -1579,8 +1590,15 @@
         },
         "237": {
             "Title": "Երբ Սուրբ Հոգին իմ մեջ գործի",
-            "latestVersion": "Երգարան Word Files/237 Երբ Սուրբ Հոգին իմ մեջ գործի.docx",
-            "v1": "Երգարան Word Files/237 Երբ Սուրբ Հոգին իմ մեջ գործի.docx"
+            "latestVersion": "Երգարան Word Files/237 Երբ Սուրբ Հոգին իմ մեջ գործի v2.docx",
+            "v1": "Երգարան Word Files/237 Երբ Սուրբ Հոգին իմ մեջ գործի.docx",
+            "v2": "Երգարան Word Files/237 Երբ Սուրբ Հոգին իմ մեջ գործի v2.docx",
+            "key": "Em",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-3"
         },
         "238": {
             "Title": "Սա այն օրն է",
@@ -3283,8 +3301,15 @@
         },
         "494": {
             "Title": "Քո Սուրբ Հոգու աղբյուրներն են",
-            "latestVersion": "RED Words/494.docx",
-            "v1": "RED Words/494.docx"
+            "latestVersion": "Երգարան Word Files/494 Քո Սուրբ Հոգու աղբյուրներն են v2.docx",
+            "v1": "RED Words/494.docx",
+            "v2": "Երգարան Word Files/494 Քո Սուրբ Հոգու աղբյուրներն են v2.docx",
+            "key": "Fm",
+            "speed": "68",
+            "style": "Ballad ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any Ballad"
         },
         "495": {
             "Title": "Երբ եկա Քեզ մոտ, տխուր էի ու միայնակ,",
@@ -3472,15 +3497,16 @@
         },
         "520": {
             "Title": "Ո՜վ Քրիստոս, լույս աշխարհի",
-            "latestVersion": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի v2.docx",
+            "latestVersion": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի v3.docx",
             "v1": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի.docx",
             "v2": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի v2.docx",
-            "key": "Dm",
+            "key": "Em",
             "speed": "103",
             "style": "Disco",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v3": "Երգարան Word Files/520 Ո՜վ Քրիստոս, լույս աշխարհի v3.docx"
         },
         "521": {
             "Title": "Ինչո՞ւ ես դու տխուր ու տրտում այդպես,",
@@ -3612,8 +3638,10 @@
         },
         "542": {
             "Title": "Եկե՛ք միացեք մեր երգին",
-            "latestVersion": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին.docx",
-            "v1": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին.docx"
+            "latestVersion": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v3.docx",
+            "v1": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին.docx",
+            "v2": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v2.docx",
+            "v3": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v3.docx"
         },
         "543": {
             "Title": "Երբ կենանք աղոթքի, մեր սրտերն",
@@ -3884,7 +3912,7 @@
         },
         "585": {
             "Title": "Անցկացրո՛ւ ինձ գավիթով",
-            "latestVersion": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v4.docx",
+            "latestVersion": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v5.docx",
             "v1": "RED Words/585.docx",
             "v2": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v2.docx",
             "v3": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v3.docx",
@@ -3894,7 +3922,8 @@
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v5": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v5.docx"
         },
         "586": {
             "Title": "Ես ուզում եմ, իմ լավ բարեկամ,",
@@ -4493,7 +4522,13 @@
         "697": {
             "Title": "Մեծ ու զարմանալի են",
             "latestVersion": "RED Words/697.docx",
-            "v1": "RED Words/697.docx"
+            "v1": "RED Words/697.docx",
+            "key": "C#m",
+            "speed": "72",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "698": {
             "Title": "",
@@ -4538,7 +4573,13 @@
         "707": {
             "Title": "Գալիս եմ ներկայությանդ մեջ",
             "latestVersion": "Երգարան Word Files/707 Գալիս եմ ներկայությանդ մեջ.docx",
-            "v1": "Երգարան Word Files/707 Գալիս եմ ներկայությանդ մեջ.docx"
+            "v1": "Երգարան Word Files/707 Գալիս եմ ներկայությանդ մեջ.docx",
+            "key": "Dm",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "708": {
             "Title": "Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5):",
@@ -6050,9 +6091,9 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Մեղքի համար մեռած եմ",
-            "latestVersion": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v3.docx",
-            "v1": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx",
+            "Title": "Տիրոջ կվստահիս կյանքիդ մեջ բոլոր",
+            "latestVersion": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր v2.docx",
+            "v1": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր.docx",
             "key": "F",
             "speed": "95",
             "style": "Samba",
@@ -6060,9 +6101,8 @@
             "Worship_Song": "",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3",
-            "v2": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v2.docx",
-            "v3": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v3.docx",
-            "song_type": "None"
+            "v2": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր v2.docx",
+            "song_type": "Single Song"
         },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",
