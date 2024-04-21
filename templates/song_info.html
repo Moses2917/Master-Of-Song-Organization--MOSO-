@@ -180,6 +180,21 @@
                 </div>
             </div>
         </div>
+        {%else%}
+        <div class="container my-4">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
         {% endif %}
         {% else %}
         <h1>Welcome Guest, Please Login.</h1>

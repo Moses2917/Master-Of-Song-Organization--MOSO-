@@ -4672,8 +4672,15 @@
         },
         "723": {
             "Title": "Թեև թզենին չծաղկի,",
-            "latestVersion": "RED Words/723.docx",
-            "v1": "RED Words/723.docx"
+            "latestVersion": "Երգարան Word Files/723 Թեև թզենին չծաղկի, v2.docx",
+            "v1": "RED Words/723.docx",
+            "v2": "Երգարան Word Files/723 Թեև թզենին չծաղկի, v2.docx",
+            "key": "Em(flat) (-6)",
+            "speed": "112",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "",
+            "Comments": "Pop-P4-1"
         },
         "724": {
             "Title": "Մի՞թե առանց պտուղներ",
@@ -6091,18 +6098,16 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Տիրոջ կվստահիս կյանքիդ մեջ բոլոր",
-            "latestVersion": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր v2.docx",
-            "v1": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր.docx",
-            "key": "F",
-            "speed": "95",
-            "style": "Samba",
-            "opening_Song": "",
-            "Worship_Song": "",
-            "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3",
-            "v2": "Երգարան Word Files/64 Տիրոջ կվստահիս կյանքիդ մեջ բոլոր v2.docx",
-            "song_type": "Single Song"
+            "Title": "Թեև թզենին չծաղկի,",
+            "latestVersion": "Երգարան Word Files/723 Թեև թզենին չծաղկի, v2.docx",
+            "v1": "RED Words/723.docx",
+            "v2": "Երգարան Word Files/723 Թեև թզենին չծաղկի, v2.docx",
+            "key": "Em(flat) (-6)",
+            "speed": "112",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "",
+            "Comments": "Pop-P4-1"
         },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",

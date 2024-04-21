@@ -1516,9 +1516,16 @@
         },
         "358": {
             "Title": "Եհովան ինգն է իմ Աստվածն է",
-            "latestVersion": "Word songs/358 Եհովան ինգն է իմ Աստվածն է v2.docx",
+            "latestVersion": "Word songs/358 Եհովան ինգն է իմ Աստվածն է v3.docx",
             "v1": "Word songs/358 Եհովան ինգն է իմ Աստվածն է.docx",
-            "v2": "Word songs/358 Եհովան ինգն է իմ Աստվածն է v2.docx"
+            "v2": "Word songs/358 Եհովան ինգն է իմ Աստվածն է v2.docx",
+            "v3": "Word songs/358 Եհովան ինգն է իմ Աստվածն է v3.docx",
+            "key": "Em",
+            "speed": "117",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "359": {
             "Title": "Երկինքը Աստծո փառքը կպատմե\nՕ, լույս կուտա,\nԱնոր ձեռքերի գործը կցուցնե\nՕ, լույս կուտա:",
@@ -2127,7 +2134,13 @@
         "475": {
             "Title": "Օրերը այս կարճ թռչում են արագ \nԿյանքն այս նման է մի թելի բարակ \nԿյանքն այս նման է նաև սափորի \nԵրբ չի կոտրվել մոտն աղբյուր:",
             "latestVersion": "Word songs\\pptSong\\475.docx",
-            "v1": "Word songs\\pptSong\\475.docx"
+            "v1": "Word songs\\pptSong\\475.docx",
+            "key": "Cm",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "476": {
             "Title": "Առանց քեզ աչքերս թաց են",
@@ -2334,9 +2347,16 @@
         },
         "514": {
             "Title": "Հայր մեր ահա ժողովուրդըդ",
-            "latestVersion": "Word songs/514 Հայր մեր ահա ժողովուրդըդ v2.docx",
+            "latestVersion": "Word songs/514 Հայր մեր ահա ժողովուրդըդ v3.docx",
             "v1": "Word songs/514 Հայր մեր ահա ժողովուրդըդ.docx",
-            "v2": "Word songs/514 Հայր մեր ահա ժողովուրդըդ v2.docx"
+            "v2": "Word songs/514 Հայր մեր ահա ժողովուրդըդ v2.docx",
+            "v3": "Word songs/514 Հայր մեր ահա ժողովուրդըդ v3.docx",
+            "key": "G",
+            "speed": "118",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Disco-P5-4"
         },
         "515": {
             "Title": "Ամենից վեր, վեր երկնից",
@@ -3412,13 +3432,21 @@
         },
         "709": {
             "Title": "Ով էր որ ինձ նոր կյանք պարգևեց",
-            "latestVersion": "Word songs/709 Ով էր որ ինձ նոր կյանք պարգևեց.docx",
-            "v1": "Word songs/709 Ով էր որ ինձ նոր կյանք պարգևեց.docx"
+            "latestVersion": "Word songs/709 Ով էր որ ինձ նոր կյանք պարգևեց v2.docx",
+            "v1": "Word songs/709 Ով էր որ ինձ նոր կյանք պարգևեց.docx",
+            "v2": "Word songs/709 Ով էր որ ինձ նոր կյանք պարգևեց v2.docx",
+            "key": "F",
+            "speed": "73",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "710": {
             "Title": "Սքանչելի, խորհրդական և խաղաղության իշխան",
-            "latestVersion": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան.docx",
-            "v1": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան.docx"
+            "latestVersion": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան v2.docx",
+            "v1": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան.docx",
+            "v2": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան v2.docx"
         },
         "711": {
             "Title": "Մեղավոր մարդ կանգ առ մի պահ",
@@ -3565,21 +3593,29 @@
         },
         "734": {
             "Title": "Դու ապավենն ես իմ սրտի",
-            "latestVersion": "Word songs/734 Դու ապավենն ես իմ սրտի v2.docx",
+            "latestVersion": "Word songs/734 Դու ապավենն ես իմ սրտի v3.docx",
             "v1": "Word songs/734 Դու ապավենն ես իմ սրտի.docx",
             "v2": "Word songs/734 Դու ապավենն ես իմ սրտի v2.docx",
             "key": "F",
             "speed": "65",
             "style": "Ballad",
-            "song_type": "Worship Song",
+            "song_type": "None",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Any type of ballad"
+            "Comments": "Any type of ballad",
+            "v3": "Word songs/734 Դու ապավենն ես իմ սրտի v3.docx"
         },
         "735": {
             "Title": "Թարմացրու դու ինձ նորացրու դու սիրտը իմ",
-            "latestVersion": "Word songs/735 Թարմացրու դու ինձ նորացրու դու սիրտը իմ.docx",
-            "v1": "Word songs/735 Թարմացրու դու ինձ նորացրու դու սիրտը իմ.docx"
+            "latestVersion": "Word songs/735 Թարմացրու դու ինձ նորացրու դու սիրտը իմ v2.docx",
+            "v1": "Word songs/735 Թարմացրու դու ինձ նորացրու դու սիրտը իմ.docx",
+            "v2": "Word songs/735 Թարմացրու դու ինձ նորացրու դու սիրտը իմ v2.docx",
+            "key": "Fm",
+            "speed": "75",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "736": {
             "Title": "Կադոշ Կադոշ",
@@ -3971,13 +4007,11 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Աստծո ժողովուրդ ով բոլոր սուրբեր",
-            "latestVersion": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v3.docx",
-            "v1": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր.docx",
-            "v2": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v2.docx",
-            "v3": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v3.docx",
-            "key": "-9",
-            "speed": "110",
+            "Title": "Օրերը այս կարճ թռչում են արագ \nԿյանքն այս նման է մի թելի բարակ \nԿյանքն այս նման է նաև սափորի \nԵրբ չի կոտրվել մոտն աղբյուր:",
+            "latestVersion": "Word songs\\pptSong\\475.docx",
+            "v1": "Word songs\\pptSong\\475.docx",
+            "key": "Cm",
+            "speed": "105",
             "style": "Disco",
             "song_type": "Single Song",
             "timeSig": "4/4",
