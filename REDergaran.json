@@ -117,8 +117,15 @@
         },
         "15": {
             "Title": "Թող ուրախ լինեն սրտերը մեր",
-            "latestVersion": "Երգարան Word Files/15 Թող ուրախ լինեն սրտերը մեր.docx",
-            "v1": "Երգարան Word Files/15 Թող ուրախ լինեն սրտերը մեր.docx"
+            "latestVersion": "Երգարան Word Files/15 Թող ուրախ լինեն սրտերը մեր v2.docx",
+            "v1": "Երգարան Word Files/15 Թող ուրախ լինեն սրտերը մեր.docx",
+            "v2": "Երգարան Word Files/15 Թող ուրախ լինեն սրտերը մեր v2.docx",
+            "key": "G",
+            "speed": "205",
+            "style": "Pop",
+            "song_type": "None",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "16": {
             "Title": "Մեր լավագույն օրերն անգին",
@@ -494,8 +501,15 @@
         },
         "69": {
             "Title": "Ի՜նչ մեծ ու քաղցր է պատգամն այն, երբ հավատանք,",
-            "latestVersion": "RED Words/69.docx",
-            "v1": "RED Words/69.docx"
+            "latestVersion": "Երգարան Word Files/69 Ի՜նչ մեծ ու քաղցր է պատգամն այն, երբ հավատանք, v2.docx",
+            "v1": "RED Words/69.docx",
+            "v2": "Երգարան Word Files/69 Ի՜նչ մեծ ու քաղցր է պատգամն այն, երբ հավատանք, v2.docx",
+            "key": "G",
+            "speed": "94",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-5"
         },
         "70": {
             "Title": "Այնպես անուշ անուն չկա,",
@@ -1247,15 +1261,16 @@
         },
         "187": {
             "Title": "Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝",
-            "latestVersion": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v2.docx",
+            "latestVersion": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v3.docx",
             "v1": "RED Words/187.docx",
             "v2": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v2.docx",
-            "key": "F#m",
+            "key": "Gm",
             "speed": "69",
             "style": "Ballad",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Ballad-P6-1"
+            "Comments": "Ballad-P6-1",
+            "v3": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v3.docx"
         },
         "188": {
             "Title": "Գոհանում եմ, Տե՜ր իմ",
@@ -1916,7 +1931,7 @@
         },
         "287": {
             "Title": "Մնայուն բան չունեմ երկրում",
-            "latestVersion": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում v2.docx",
+            "latestVersion": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում v3.docx",
             "v1": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում.docx",
             "v2": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում v2.docx",
             "key": "Dm",
@@ -1924,7 +1939,8 @@
             "style": "Disco",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v3": "Երգարան Word Files/287 Մնայուն բան չունեմ երկրում v3.docx"
         },
         "288": {
             "Title": "Աշխարհում չունեի սուրբ սեր,",
@@ -2341,7 +2357,7 @@
         },
         "348": {
             "Title": "Զարմանալի գաղտնիք կա Քո սիրո մեջ,",
-            "latestVersion": "Երգարան Word Files/348 Զարմանալի գաղտնիք կա Քո սիրո մեջ, v2.docx",
+            "latestVersion": "Երգարան Word Files/348 Զարմանալի գաղտնիք կա Քո սիրո մեջ, v3.docx",
             "v1": "RED Words/348.docx",
             "v2": "Երգարան Word Files/348 Զարմանալի գաղտնիք կա Քո սիրո մեջ, v2.docx",
             "key": "Em",
@@ -2350,7 +2366,8 @@
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v3": "Երգարան Word Files/348 Զարմանալի գաղտնիք կա Քո սիրո մեջ, v3.docx"
         },
         "349": {
             "Title": "Միայն թող Քեզ նայեմ, ո՜վ Տեր, (3)",
@@ -3037,8 +3054,16 @@
         },
         "447": {
             "Title": "Ներկա է Տերը",
-            "latestVersion": "Երգարան Word Files/447 Ներկա է Տերը.docx",
-            "v1": "Երգարան Word Files/447 Ներկա է Տերը.docx"
+            "latestVersion": "Երգարան Word Files/447 Ներկա է Տերը v3.docx",
+            "v1": "Երգարան Word Files/447 Ներկա է Տերը.docx",
+            "v2": "Երգարան Word Files/447 Ներկա է Տերը v2.docx",
+            "v3": "Երգարան Word Files/447 Ներկա է Տերը v3.docx",
+            "key": "E (-8)",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any ballad"
         },
         "448": {
             "Title": "Հիսո՛ւս, Քեզ բարձրացնում եմ",
@@ -3155,15 +3180,17 @@
         },
         "469": {
             "Title": "Արարիչ երկնքի, որ երկիրն արարեցիր,",
-            "latestVersion": "RED Words/469.docx",
+            "latestVersion": "Երգարան Word Files/469 Արարիչ երկնքի, որ երկիրն արարեցիր, v2.docx",
             "v1": "RED Words/469.docx",
-            "key": "Am",
+            "key": "Gm",
             "speed": "68",
             "style": "Ballad ",
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v2": "Երգարան Word Files/469 Արարիչ երկնքի, որ երկիրն արարեցիր, v2.docx",
+            "song_type": "None"
         },
         "470": {
             "Title": "Տերն իմ Հովիվն է.",
@@ -3340,8 +3367,16 @@
         },
         "499": {
             "Title": "Քո ծառային, ո՛վ Տեր, բարիք արա",
-            "latestVersion": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա.docx",
-            "v1": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա.docx"
+            "latestVersion": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա v3.docx",
+            "v1": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա.docx",
+            "v2": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա v2.docx",
+            "v3": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա v3.docx",
+            "key": "Cm",
+            "speed": "67",
+            "style": "Ballad ",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "500": {
             "Title": "Այսօր դու, քո՛ւյր իմ սիրելի,",
@@ -6098,16 +6133,17 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Թեև թզենին չծաղկի,",
-            "latestVersion": "Երգարան Word Files/723 Թեև թզենին չծաղկի, v2.docx",
-            "v1": "RED Words/723.docx",
-            "v2": "Երգարան Word Files/723 Թեև թզենին չծաղկի, v2.docx",
-            "key": "Em(flat) (-6)",
-            "speed": "112",
-            "style": "Beat",
-            "song_type": "Single Song",
-            "timeSig": "",
-            "Comments": "Pop-P4-1"
+            "Title": "Քո ծառային, ո՛վ Տեր, բարիք արա",
+            "latestVersion": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա v3.docx",
+            "v1": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա.docx",
+            "v2": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա v2.docx",
+            "v3": "Երգարան Word Files/499 Քո ծառային, ո՛վ Տեր, բարիք արա v3.docx",
+            "key": "Cm",
+            "speed": "67",
+            "style": "Ballad ",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",

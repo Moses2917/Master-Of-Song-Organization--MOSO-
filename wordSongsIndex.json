@@ -1346,9 +1346,17 @@
         },
         "319": {
             "Title": "Բարձրացնենք մեր ձեռքերը դոպի վերը ",
-            "latestVersion": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx",
+            "latestVersion": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v4.docx",
             "v1": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը.docx",
-            "v2": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx"
+            "v2": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx",
+            "v3": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v3.docx",
+            "v4": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v4.docx",
+            "key": "Gm",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance -P5-5"
         },
         "320": {
             "Title": "Հիսուս դու ես իմ Տերը",
@@ -2204,8 +2212,15 @@
         },
         "491": {
             "Title": "Երկնային տաճարը մտնենք",
-            "latestVersion": "Word songs/491 Երկնային տաճարը մտնենք.docx",
-            "v1": "Word songs/491 Երկնային տաճարը մտնենք.docx"
+            "latestVersion": "Word songs/491 Երկնային տաճարը մտնենք v2.docx",
+            "v1": "Word songs/491 Երկնային տաճարը մտնենք.docx",
+            "v2": "Word songs/491 Երկնային տաճարը մտնենք v2.docx",
+            "key": "A",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "492": {
             "Title": "Արարիչ երկնքի, որ երկիրն արարեցիր, \nԱմենագեղեցիկն ինձանում իրականացրիր, \nՀրեշտակներն էլ երգում են,",
@@ -2307,15 +2322,17 @@
         },
         "508": {
             "Title": "Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ",
-            "latestVersion": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ.docx",
+            "latestVersion": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v3.docx",
             "v1": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ.docx",
-            "key": "E",
+            "key": "E (-8)",
             "speed": "65",
             "style": "Ballad",
             "song_type": "Worship Song",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v2": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v2.docx",
+            "v3": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v3.docx"
         },
         "509": {
             "Title": "Ամեն օր Հիսուս",
@@ -2765,8 +2782,15 @@
         },
         "602": {
             "Title": "Սիրիր Հիսուսին ամեն բանից առավել",
-            "latestVersion": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել.docx",
-            "v1": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել.docx"
+            "latestVersion": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել v2.docx",
+            "v1": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել.docx",
+            "v2": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել v2.docx",
+            "key": "Dm",
+            "speed": "110",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Samba"
         },
         "603": {
             "Title": "Օրհնենք(3) Գառնուկին(2)",
@@ -2940,10 +2964,18 @@
         },
         "634": {
             "Title": "Երբ օրհնյալ Տերն հպավ շուրթիս",
-            "latestVersion": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v3.docx",
+            "latestVersion": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v5.docx",
             "v1": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս.docx",
             "v2": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v2.docx",
-            "v3": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v3.docx"
+            "v3": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v3.docx",
+            "v4": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v4.docx",
+            "v5": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v5.docx",
+            "key": "F#m",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "635": {
             "Title": "Ազատ եմ Հիսուսով 2",
@@ -3130,10 +3162,18 @@
         },
         "662": {
             "Title": "Գոհութուն Աստծո բոլոր սրտով",
-            "latestVersion": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v3.docx",
+            "latestVersion": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v5.docx",
             "v1": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով.docx",
             "v2": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v2.docx",
-            "v3": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v3.docx"
+            "v3": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v3.docx",
+            "v4": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v4.docx",
+            "v5": "Word songs/662 Գոհութուն Աստծո բոլոր սրտով v5.docx",
+            "key": "F",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "663": {
             "Title": "Ահա ծնվեց լույսն աշխարհի",
@@ -4007,15 +4047,16 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Օրերը այս կարճ թռչում են արագ \nԿյանքն այս նման է մի թելի բարակ \nԿյանքն այս նման է նաև սափորի \nԵրբ չի կոտրվել մոտն աղբյուր:",
-            "latestVersion": "Word songs\\pptSong\\475.docx",
-            "v1": "Word songs\\pptSong\\475.docx",
-            "key": "Cm",
-            "speed": "105",
-            "style": "Disco",
-            "song_type": "Single Song",
+            "Title": "Սիրիր Հիսուսին ամեն բանից առավել",
+            "latestVersion": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել v2.docx",
+            "v1": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել.docx",
+            "v2": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել v2.docx",
+            "key": "Dm",
+            "speed": "110",
+            "style": "Samba",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Samba"
         },
         "21": {
             "Title": "Ես համոզված եմ եվ հաստատ ուխտած",
@@ -4032,6 +4073,16 @@
             "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Disco-P5-4"
+        },
+        "22": {
+            "Title": "Կյանքդ կանցնի արագ արագ",
+            "latestVersion": "Word songs/22  v1.docx",
+            "v1": "Word songs/22  v1.docx"
+        },
+        "31": {
+            "Title": "Տիրոջ հաղթության դրոշ",
+            "latestVersion": "Word songs/31  v1.docx",
+            "v1": "Word songs/31  v1.docx"
         }
     }
 }

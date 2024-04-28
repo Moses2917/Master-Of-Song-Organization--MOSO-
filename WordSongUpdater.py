@@ -268,7 +268,7 @@ def getNums(filename: str):
     # return text_and_indentation
     return str(SongList)
 
-##print(getNums(r"D:\updaterTest_4.14.2024.docx"))
+# print(getDocTextAndIndentation(r"C:\Users\Armne\OneDrive\Documents\Code\Python\newSong.docx"))
 
 #not rly needed anymore
 def getSongText(filename):

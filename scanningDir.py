@@ -1,6 +1,8 @@
 import os, datetime, docx, re
+
+
 def getRecentSongs():
-    #Todo: posibily change function to always append to it the latest files instead of just rewriting it always
+    # Todo: posibily change function to always append to it the latest files instead of just rewriting it always
     # Also bc the program sorts the songs here the current sorting process is now made partly obsolete, but maybe not bc program still needs to sort with3 month window
     import WordSongUpdater
     #     Finds all possible dir/paths to docx files that possibly can be used, with datetime and os
@@ -18,11 +20,11 @@ def getRecentSongs():
                     date = datetime.datetime.strptime(file.name, '%m.%Y')
                     if date > RelevantDate:
 
-                        songBuffer += "\n"+file.path
+                        songBuffer += "\n" + file.path
                         # print(file.path)
-                        for docs in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}'.format(user,file.name)):
+                        for docs in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}'.format(user, file.name)):
 
-                            #this can be a bit redundant sometimes however its also safer
+                            # this can be a bit redundant sometimes however its also safer
                             docName = re.sub(".docx", "", docs.name)
                             try:
                                 dateD = datetime.datetime.strptime(docName, "%m.%d.%y")
@@ -36,11 +38,11 @@ def getRecentSongs():
                                 songBuffer += "\nSongs in that file: " + WordSongUpdater.getNums(docs.path)
                                 # Now it can be passed to WordSongUpdater.getNums()
                 else:
-                    for folders in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}'.format(user,file.name)):
+                    for folders in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}'.format(user, file.name)):
                         # print(folders.path)
                         date = datetime.datetime.strptime(folders.name, '%m.%Y')
                         if date > RelevantDate:
-                            songBuffer += "\n"+folders.path
+                            songBuffer += "\n" + folders.path
                             docName = re.sub(".docx", "", folders.name)
 
                             try:
@@ -52,7 +54,8 @@ def getRecentSongs():
                             if dateD > RelevantDate:
                                 # pass
                                 # print(docName) # this is all of the indiv songs that are rel, now need to check folders
-                                for files in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}\{}'.format(user,file.name,docName)):
+                                for files in os.scandir(
+                                        r'C:\Users\{}\OneDrive\Երգեր\{}\{}'.format(user, file.name, docName)):
                                     doc2Name = re.sub(".docx", "", files.name)
                                     doc2Name = re.sub("PORC_PORC", "", doc2Name)
                                     doc2Name = re.sub("TESTSAVE", "", doc2Name)
@@ -65,37 +68,44 @@ def getRecentSongs():
                                         songBuffer += "\nSongs in that file: " + WordSongUpdater.getNums(files.path)
                                 # print(r'C:\Users\{}\OneDrive\Երգեր\{}\{}'.format(user,file.name,folders.name)) # EX: C:\Users\Armne\OneDrive\Երգեր\09.2023\09.28.23.docx
                                 # Now it can be passed to WordSongUpdater.getNums()
-    with open("RecentSongs.txt",'w',encoding='utf-8') as f:
+    with open("RecentSongs.txt", 'w', encoding='utf-8') as f:
         f.write(songBuffer)
+
 
 def getAllNums():
     from WordSongUpdater import getNums
-    f=open("AllSongs.txt", 'w', encoding='utf-8')
+    f = open("AllSongs.txt", 'w', encoding='utf-8')
     bufferList = []
-    startDate = datetime.datetime(year=2023,month=1,day=17)
+    startDate = datetime.datetime(year=2023, month=1, day=17)
     with os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(os.environ.get("USERNAME"))) as folders:
         for entry in folders:
-            if re.match(r'\d',entry.name):  # if file/folder contains a number
+            if re.match(r'\d', entry.name):  # if file/folder contains a number
                 # print(entry.path)
-                if "." in entry.name and datetime.datetime.strptime(entry.name, '%m.%Y') >= startDate: #this means it is something like mm.YY
+                if "." in entry.name and datetime.datetime.strptime(entry.name,
+                                                                    '%m.%Y') >= startDate:  # this means it is something like mm.YY
                     # print(entry.name)
                     # print("\nFilename/Date: {}".format(entry.name))
-                    bufferList.append("\nFolder Path: {}".format("Երգեր/"+entry.name)) #in theory could just make it only folder name
+                    bufferList.append("\nFolder Path: {}".format(
+                        "Երգեր/" + entry.name))  # in theory could just make it only folder name
                     # f.write("\nFilename/Date: {}".format(entry.name))
-                    for condesedFolders in os.scandir(entry.path): #gets all the docx files
-                       # print("\nSongs in that file: "+ getNums(condesedFolders.path))
-                       bufferList.append("\nFilename/Date: {}".format(condesedFolders.name))
-                       bufferList.append("\nSongs in that file: "+ getNums(condesedFolders.path))
+                    for condesedFolders in os.scandir(entry.path):  # gets all the docx files
+                        # print("\nSongs in that file: "+ getNums(condesedFolders.path))
+                        bufferList.append("\nFilename/Date: {}".format(condesedFolders.name))
+                        bufferList.append("\nSongs in that file: " + getNums(condesedFolders.path))
                         # f.write("\nSongs in that file: "+ getNums(condesedFolders.path))
                 else:
-                    if not "." in entry.name and (datetime.datetime.strptime(entry.name, '%Y') >= datetime.datetime.strptime('2023', '%Y')):
+                    if not "." in entry.name and (
+                            datetime.datetime.strptime(entry.name, '%Y') >= datetime.datetime.strptime('2023', '%Y')):
                         for condesedFileFolders in os.scandir(entry.path):
                             # print(condesedFileFolders)
-                            if "." in condesedFileFolders.name and (datetime.datetime.strptime(condesedFileFolders.name, '%m.%Y') > startDate):  # this means it is something like mm.YY
+                            if "." in condesedFileFolders.name and (datetime.datetime.strptime(condesedFileFolders.name,
+                                                                                               '%m.%Y') > startDate):  # this means it is something like mm.YY
                                 # print(entry.name)
                                 # print("\nFilename/Date: {}".format(entry.name))
-                                f.write("\nFolder Path: {}".format("Երգեր/"+entry.name+"/"+condesedFileFolders.name))
-                                for condesedFoldersDocx in os.scandir(condesedFileFolders.path):  # gets all the docx files
+                                f.write(
+                                    "\nFolder Path: {}".format("Երգեր/" + entry.name + "/" + condesedFileFolders.name))
+                                for condesedFoldersDocx in os.scandir(
+                                        condesedFileFolders.path):  # gets all the docx files
                                     # print("\nSongs in that file: "+ getNums(condesedFoldersDocx.path))
                                     # if ".docx" in condesedFoldersDocx.name:
                                     f.write("\nFilename/Date: {}".format(condesedFoldersDocx.name))
@@ -104,34 +114,35 @@ def getAllNums():
         f.write(filePth)
     f.close()
 
+
 # getAllNums() #If left uncommented can cause errors during use of MOSO
 
 # gets songs fron recentsongs and sorts by last three months
-def songCollector(): 
+def songCollector():
     """Generates a list of all the sunday songs sang in the last three months
 
     Returns:
         blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
-    """    
-    blocked_list =[]
-    current_date = datetime.date.today() # should really be
+    """
+    blocked_list = []
+    current_date = datetime.date.today()  # should really be
 
     # Format the date and time
     formatted_date = current_date.strftime('%m.%d.%y')
     # print("The current date is:", formatted_date)
     three_months_from_now = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y')
     # print("Three months ago it was:", three_months_from_now)
-    TotalLineCt = len(open('AllSongs.txt','r',encoding='utf-8').readlines())
+    TotalLineCt = len(open('AllSongs.txt', 'r', encoding='utf-8').readlines())
     CurrentLine = 0
     with open('AllSongs.txt', 'r', encoding='utf-8') as line:
-        
-        while(CurrentLine<TotalLineCt):
-                
+
+        while (CurrentLine < TotalLineCt):
+
             txt = line.readline()
             if "Filename/Date: " in txt:
                 date = re.sub("Filename/Date: ", "", txt)
-                date = re.findall(r"(.*\d)",date)[0]
-                fileDate = date # saving this for later to be used in list
+                date = re.findall(r"(.*\d)", date)[0]
+                fileDate = date  # saving this for later to be used in list
                 # Define the date format
                 date_format = "%m.%d.%y"
                 # Parse the dates into datetime objects
@@ -139,28 +150,29 @@ def songCollector():
                 date2 = datetime.datetime.strptime(date, date_format)
                 if date1 < date2:
                     # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
-                    if date2.strftime('%A') == "Sunday": # if date is 3 month fresh and also sunday
+                    if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
                         txtNext = line.readline()
                         CurrentLine += 1
                         if "Songs" in txtNext:
                             txtNext = re.sub("Songs in that file: ", "", txtNext)
                             # txtNext = re.sub('', '0', txtNext)
-                            txtNext = re.sub(r"''",'INVALID',txtNext)
+                            txtNext = re.sub(r"''", 'INVALID', txtNext)
                             # print(txtNext) #TODO: fix problem of empty strings
                             # print(date2.strftime('%A'))
                             songs = re.findall(r'(\d+)', txtNext)
-                            books = re.findall(r'([A-Za-z]+)', txtNext)###
+                            books = re.findall(r'([A-Za-z]+)', txtNext)  ###
                             # print(songs, books)
                             # lis = [songs,books]
-                            blocked_list.append([songs,books,fileDate])
+                            blocked_list.append([songs, books, fileDate])
                             # print(lis)
                 else:
                     pass
-            
+
             CurrentLine += 1
     return blocked_list
 
-def songChecker(songNum:str, book:str):
+
+def songChecker(songNum: str, book: str):
     """Finds songNum, then go to that index in books and see if it matchs with the given book var and also check and see if there is an "invaild" string to skip the next book
 
     Args:
@@ -169,25 +181,26 @@ def songChecker(songNum:str, book:str):
 
     Returns:
         Bool: True if used False if not
-    """    
+    """
     blackList = songCollector()
     for song in blackList:
         # print(song)
-        if songNum in song[0]: #all instances of/with songNum in them
+        if songNum in song[0]:  # all instances of/with songNum in them
             # print(song)
             bookindex = song[0].index(songNum)
             # print(bookindex)
             print("Book:", song[1][bookindex])
-            if song[1][bookindex-1] == 'INVALID':
-                bookindex += 1 #Skips the Invaild one, possible weak link which might cause future problems
+            if song[1][bookindex - 1] == 'INVALID':
+                bookindex += 1  # Skips the Invaild one, possible weak link which might cause future problems
             booked = song[1][bookindex]
             if book == booked:
                 print("Found a match in past 3 months")
                 return True
             elif book != booked:
                 print("Found nothing")
- 
-def getSongDate(songNum:str, book:str):
+
+
+def getSongDate(songNum: str, book: str):
     """Gets the absolute latest date as to when that duplicate song was sang
 
     Args:
@@ -196,19 +209,19 @@ def getSongDate(songNum:str, book:str):
 
     Returns:
         str: returns a date in str of when that song was last sang
-    """    
+    """
     blackList = songCollector()
     latestDate = "03.13.20"
     date_format = "%m.%d.%y"
     for song in blackList:
-    # print(song)
-        if songNum in song[0]: #all instances of/with songNum in them
+        # print(song)
+        if songNum in song[0]:  # all instances of/with songNum in them
             # print(song)
             bookindex = song[0].index(songNum)
             # print(bookindex)
             print("Book:", song[1][bookindex])
-            if song[1][bookindex-1] == 'INVALID':
-                bookindex += 1 #Skips the Invaild one, possible weak link which might cause future problems
+            if song[1][bookindex - 1] == 'INVALID':
+                bookindex += 1  # Skips the Invaild one, possible weak link which might cause future problems
             booked = song[1][bookindex]
             if book == booked:
                 print(song[2])
@@ -220,13 +233,14 @@ def getSongDate(songNum:str, book:str):
 
             elif book != booked:
                 print("Found nothing")
-    print("Found a match in past 3 months",latestDate)
+    print("Found a match in past 3 months", latestDate)
     return latestDate
 
-#Translation layer from txt to json
-#TODO: Just save in JSON
+
+# Translation layer from txt to json
+# TODO: Just save in JSON
 def jsonifySongList():
-    with open("AllSongs.txt",'r',encoding='utf-8') as lines:
+    with open("AllSongs.txt", 'r', encoding='utf-8') as lines:
         data = lines.read()
         data = data.strip().split("\n")
         result = []
@@ -243,13 +257,14 @@ def jsonifySongList():
                 songs_str = line.split(': ')[1]
                 # songs_list = ast.literal_eval(songs_str)
                 songs_list = eval(songs_str)
-                
+
                 for song in songs_list:
                     song_elements = list(song)
-                    
+
                     # Check if the list is not empty before accessing the first element
                     song_id_list = [element for element in song_elements if element is not None and element.isdigit()]
-                    song_type_list = [element for element in song_elements if element is not None and not element.isdigit()]
+                    song_type_list = [element for element in song_elements if
+                                      element is not None and not element.isdigit()]
 
                     if song_id_list:
                         song_id = song_id_list[0]
@@ -262,13 +277,12 @@ def jsonifySongList():
                         song_type = None
 
                     songs.append({"type": song_type, "id": song_id})
-                    
+
                 result.append({
-                "songs": songs,
-                "basePath": basePath,
-                "Filename/Date": filenameDate
+                    "songs": songs,
+                    "basePath": basePath,
+                    "Filename/Date": filenameDate
                 })
-                
 
         # print(result)
 
@@ -279,6 +293,7 @@ def jsonifySongList():
     #     json.dump(result,f,indent=4,ensure_ascii=False)
     return json.dumps(result, indent=4)
     # return result
+
 
 def search_song(data, song_num, book):
     found_list = []
@@ -293,31 +308,32 @@ def search_song(data, song_num, book):
         return found_list
     return None
 
-def songSearch(song_num,book):
+
+def songSearch(song_num, book):
     import json
     data = json.loads(jsonifySongList())
 
     # Define the search function
 
-
     result = search_song(data, song_num, book)
-    
+
     if result:
         # print(f"Found song number {song_num} in book {book} in the file for {result['filename_date']}.")
         for x in result:
             print(x)
-            
+
         return result
     else:
         # print(f"Song number {song_num} in book {book} not found.")
         return None
 
+
 def toJson():
     """Generates a json version of AllSongs.txt and save it to the disk
     underneath the same name, so AllSongs.json
-    """    
+    """
     import json
-    with open("AllSongs.txt",'r',encoding='utf-8') as lines:
+    with open("AllSongs.txt", 'r', encoding='utf-8') as lines:
         data = lines.read()
         data = data.strip().split("\n")
         result = {}
@@ -334,13 +350,14 @@ def toJson():
                 songs_str = line.split(': ')[1]
                 # songs_list = ast.literal_eval(songs_str)
                 songs_list = eval(songs_str)
-                
+
                 for song in songs_list:
                     song_elements = list(song)
-                    
+
                     # Check if the list is not empty before accessing the first element
                     song_id_list = [element for element in song_elements if element is not None and element.isdigit()]
-                    song_type_list = [element for element in song_elements if element is not None and not element.isdigit()]
+                    song_type_list = [element for element in song_elements if
+                                      element is not None and not element.isdigit()]
 
                     if song_id_list:
                         song_id = song_id_list[0]
@@ -351,41 +368,108 @@ def toJson():
                         song_type = song_type_list[0]
                     else:
                         song_type = None
-                    
-                    songs.append({"type": song_type, "id": song_id})
-                    
-                result.update({
-                    filenameDate:{
-                    "songs": songs,
-                    "basePath": basePath,
-                }})                
-    with open('allSongs.json','w',encoding='utf-8') as f:
-        json.dump(result,f,indent=4,ensure_ascii=False)
 
-#WIP
-def findNewFiles(): #is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
+                    songs.append({"type": song_type, "id": song_id})
+
+                result.update({
+                    filenameDate: {
+                        "songs": songs,
+                        "basePath": basePath,
+                    }})
+    with open('allSongs.json', 'w', encoding='utf-8') as f:
+        json.dump(result, f, indent=4, ensure_ascii=False)
+
+
+# WIP
+def findNewFiles():  # is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
+    def check_blacklist(text):
+        blacklist = ['Սուրբ ծնունդ', 'Պենտեկոստե', 'Զատիկ', 'Գոհաբանության Օր', 'Wedding', '2020', '2021',
+                     '2022']  # list of unneeded dirs
+        return any(item in text for item in blacklist)
+
+    def fileCrawler(filePth: str):  # is_file or is_folder
+
+        os.scandir(filePth)
+
+    # toJson() #run this to update the json index -_-
+    OneDrivePth = os.environ.get("OneDrive")  # gets the base path to onedrive from enviornment variables!
+    startDate = datetime.datetime(year=2023, month=1, day=17)
+    ErgerFolder = os.scandir(OneDrivePth + "\\Երգեր")
+    blacklist = ['Սուրբ ծնունդ', 'Պենտեկոստե', 'Զատիկ', 'Գոհաբանության Օր', 'Wedding', '2020', '2021',
+                 '2022', '01.2023']  # list of unneeded dirs
+    with os.scandir(OneDrivePth + "\\Երգեր") as ErgerFolders:
+        filePths = []
+        for ergfolder in ErgerFolders:
+            if ergfolder.name not in blacklist:
+                # Circa 4/23/2024
+                # returns:
+                # C:\Users\Armne\OneDrive\Երգեր\01.2024
+                # C:\Users\Armne\OneDrive\Երգեր\02.2024
+                # C:\Users\Armne\OneDrive\Երգեր\03.2024
+                # C:\Users\Armne\OneDrive\Երգեր\04.2024
+                # C:\Users\Armne\OneDrive\Երգեր\2023
+                if '.' in ergfolder.name:
+                    # must be within current yr, so not in a folder like '2023'
+                    # these folders go by the format of Month.Yr
+                    # Ex:
+                    # 01.2024
+                    # 02.2024
+                    # 03.2024
+                    # 04.2024
+                    filePths.append(ergfolder.path)  # add to a stack(array) for processing later via filePths.pop
+                else:
+                    with os.scandir(ergfolder.path) as fullYrFolder:
+                        for months in fullYrFolder:
+                            if months.name not in blacklist:  # to filter out 01.2023 which is made with MOSO, also
+                                # replaces a lot of datetime calls
+                                filePths.append(months.path)
+    # begin processing the files
+    from json import load
+    with open("songs.json", mode='r', encoding='utf-8') as f:
+        allsongs = load(f)
+    print(allsongs)
+    for filepth in filePths:
+        with os.scandir(filepth) as songFolder:
+            for songs in songFolder:
+                if not songs.name in allsongs:
+                    print(songs.name)
+
+        # if not check_blacklist(root):#any('2020' in blacklist for x in blacklist)
+        #     try:
+        #         BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1].split("\\")[1]
+        #         if "." not in BaseRoot: #added bc some dirs are yr\\month and some are just month
+        #             BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1].split("\\")[2]
+        #     except:
+        #         BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1]
+        #
+        #     if '.' in BaseRoot and datetime.datetime.strptime(BaseRoot, '%m.%Y') >= startDate:
+        #         # print("Root:",root,"\nBaseRoot:",BaseRoot)
+        #         with os.scandir(root) as files:
+        #             for file in files:
+        #                 #time to iterativly check and see if the found file.name is already in the index & if not to update it.
+        #                 print(file.name)
+
+
+def getNewSongs():
+    """This will make a dict. stored and accessed as a json file. It will store the name of the doc,
+        as well as all songs it found in the doc, a basepath where the os path for onedrive can be appended,
+        and it will store the last modified date, so when searching for files to update it can ignore certain ones.
+
+    Returns:
+        None: Saves a json file.
+    """
+
     def check_blacklist(text, blacklist):
         return any(item in text for item in blacklist)
-    # toJson() #run this to update the json index -_-
-    OneDrivePth = os.environ.get("OneDrive") #gets the base path to onedrive from enviornment variables!
-    startDate = datetime.datetime(year=2023,month=1,day=17)
-    blacklist = ['Սուրբ ծնունդ','Պենտեկոստե','Զատիկ','Գոհաբանության Օր','Wedding','2020','2021','2022'] #list of unneeded dirs
-    from json import load
-    with open("AllSongs.json", 'r', encoding='utf-8') as f:
-        allsongs = load(f)
-    for root, dirs, files, in os.walk(OneDrivePth+"\\Երգեր"):
-        if not check_blacklist(root, blacklist):#any('2020' in blacklist for x in blacklist)
-            try:
-                BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1].split("\\")[1] 
-                if "." not in BaseRoot: #added bc some dirs are yr\\month and some are just month
-                    BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1].split("\\")[2]
-            except:
-                BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1]
-                
-            if '.' in BaseRoot and datetime.datetime.strptime(BaseRoot, '%m.%Y') >= startDate:
-                # print("Root:",root,"\nBaseRoot:",BaseRoot)
-                with os.scandir(root) as files:
-                    for file in files:
-                        #time to iterativly check and see if the found file.name is already in the index & if not to update it.
-                        print(file.name)
 
+    def fileCrawler(filePth: str):
+        os.scandir(filePth)
+
+    OneDrive = os.environ.get("OneDrive")
+    with os.scandir(OneDrive + "\\Երգեր") as ErgerFolder:
+        for ergFolder in ErgerFolder:
+            print(ergFolder.path)
+    return None
+
+
+findNewFiles()

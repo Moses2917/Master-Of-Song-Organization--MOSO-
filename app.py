@@ -2,7 +2,7 @@ from os import environ as env
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import json
 
 ENV_FILE = find_dotenv("{}\Documents\Code\.env".format(env.get("OneDrive")))
@@ -114,6 +114,7 @@ def openWord(songNum,book):
 def song_info():
     song_info = None
     current_values = None
+    is_found = False
     if session.get('user', None):
         if isUserAllowed(session['user']['userinfo']['email']):
             
@@ -128,11 +129,18 @@ def song_info():
                 
                 with open(f'{book}.json',encoding='utf-8') as f:
                     data = json.load(f)
+                
                 songs = data.get('SongNum')  # Get the songs under the "SongNum" key
                 song_info = songs.get(song_num)
+                
                 if song_info:
                     # Save the current values before they are edited
                     current_values = song_info.copy()
+                    if not current_values:
+                        flash("That song does not exist",'error')
+                # else:
+                #     flash("That song does not exist")
+                    
                 if request.form.get('edit'):
                     song_info['key'] = request.form.get('key')
                     song_info['speed'] = request.form.get('speed')
@@ -144,6 +152,7 @@ def song_info():
                     songs["SongNum"] = song_info
                     # with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
                     #     json.dump(songs, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
+                
                 if request.form.get('submit'):
                     song_info['key'] = request.form.get('key')
                     song_info['speed'] = request.form.get('speed')
@@ -153,6 +162,8 @@ def song_info():
                     song_info['timeSig'] = request.form.get('Time Signature')
                     song_info['Comments'] = request.form.get('Comments')
                     songs[song_num] = song_info
+                    # if song_info:
+                    #     return flash("That song does not exist",'error')
                 with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
                     json.dump(data, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
                 
@@ -162,6 +173,46 @@ def song_info():
             return redirect('logout')
     
     return render_template('song_info.html', session=session.get('user'))
+
+def saveHtml():
+    from docx import Document
+
+    songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
+    filePth = songPth  # find pth from index, and attach the location for onedrive
+    doc = Document(filePth)  # load doc file
+    docParagraphs = doc.paragraphs  # returns a list of doc paragrpahs from which text will be extracted
+    text = ''
+
+    for para in docParagraphs:
+        text += para.text + '\n'
+
+    # Split the text into chunks based on line breaks
+    chunks = text.split('\n\n')
+
+    # Convert chunks to HTML
+    html_chunks = []
+    for chunk in chunks:
+        lines = chunk.split('\n')
+        html_lines = ['<p>' + line + '</p>' for line in lines]
+        html_chunk = ''.join(html_lines)
+        html_chunks.append(html_chunk)
+
+    # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
+    html_text = '<br>'.join(html_chunks)
+    with open(r"C:\Users\Armne\OneDrive\Documents\Code\Python\templates\songLyr.txt", 'w', encoding='utf-8') as f:
+        f.write(html_text)
+
+@app.route('/pentecost', methods=['GET'])
+def DayofPentecost():
+    import threading as th
+    songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
+    MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
+    wordDocThread = th.Thread(target=saveHtml)#, args=[MS_WORD, songPth])
+    wordDocThread.start()
+    # saveHtml()
+    with open(r"C:\Users\Armne\OneDrive\Documents\Code\Python\templates\songLyr.txt", 'r', encoding='utf-8') as f:
+        html_text = f.read()
+    return render_template("songNew.html", lyrics=html_text)
 
 @app.route('/search', methods=['GET', 'POST'])
 def searching():
@@ -229,4 +280,4 @@ def tsank():
 
 if __name__ == '__main__':
     #,ssl_context='adhoc'
-    app.run(debug=True,host='0.0.0.0',port=env.get("PORT", 5000))
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
