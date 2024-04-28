@@ -61,6 +61,7 @@
             </form>
         </header>
         <div class="table-responsive-sm">
+
             <table class="table table-striped">
                 <thead class="table-secondary table-group-divider">
                     <tr>
@@ -97,7 +98,8 @@
         </div>
     </div>
     {% else %}
-        {% include 'guest.html' %}
+        <h1 class="text-sm-center">Welcome Guest, Please Login.</h1>
+        <h1><a href="/login" class="btn btn-primary me-2" style="text-align: center;">Login</a></h1>
     {% endif %}
 </body>
 

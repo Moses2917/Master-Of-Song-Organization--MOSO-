@@ -79,7 +79,8 @@
         <h1>Welcome to our Song Information Page</h1>
         <div class="d-flex justify-content-center mb-4">
             <a href="{{url_for( 'searching' )}}" class="btn btn-primary me-2">Go to Song Search</a>
-            <a href="{{url_for( 'tsank' )}}" class="btn btn-primary">Go to Tsank</a>
+            <a href="{{url_for( 'tsank' )}}" class="btn btn-primary me-2">Go to Tsank</a>
+            <a href="{{url_for( 'DayofPentecost' )}}" class="btn btn-primary me-2">Day of Pentecost</a>
         </div>
         {% if session %}
         <h1> Բարի Գալուստ, {{session.userinfo.name}}! <a href="/logout" class="btn btn-outline-danger">Logout</a></h1>
