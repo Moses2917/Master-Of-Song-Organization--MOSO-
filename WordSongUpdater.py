@@ -262,11 +262,12 @@ def getNums(filename: str):
             if bookOld == False: bookOld = "New"
             else: bookOld = "Old"
             # print(bookOld, songNum)
-            SongList.append({bookOld, songNum})
+            SongList.append((bookOld, songNum))
             bookOld = False
             
     # return text_and_indentation
     return str(SongList)
+    # return  SongList
 
 # print(getDocTextAndIndentation(r"C:\Users\Armne\OneDrive\Documents\Code\Python\newSong.docx"))
 

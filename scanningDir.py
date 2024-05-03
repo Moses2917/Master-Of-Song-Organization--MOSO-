@@ -382,6 +382,14 @@ def toJson():
 
 # WIP
 def findNewFiles():  # is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
+    """This will make a dict. stored and accessed as a json file. It will store the name of the doc, as well as all
+    songs it found in the doc, a basepath where the os path for onedrive can be appended, and it will store the last
+    modified date, so when searching for files to update it can ignore certain ones whose modified date has not changed.
+
+    Returns:
+        None: Saves a json file.
+    """
+
     def check_blacklist(text):
         blacklist = ['Սուրբ ծնունդ', 'Պենտեկոստե', 'Զատիկ', 'Գոհաբանության Օր', 'Wedding', '2020', '2021',
                      '2022']  # list of unneeded dirs
@@ -393,7 +401,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
 
     # toJson() #run this to update the json index -_-
     OneDrivePth = os.environ.get("OneDrive")  # gets the base path to onedrive from enviornment variables!
-    startDate = datetime.datetime(year=2023, month=1, day=17)
+
     ErgerFolder = os.scandir(OneDrivePth + "\\Երգեր")
     blacklist = ['Սուրբ ծնունդ', 'Պենտեկոստե', 'Զատիկ', 'Գոհաբանության Օր', 'Wedding', '2020', '2021',
                  '2022', '01.2023']  # list of unneeded dirs
@@ -416,60 +424,60 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                     # 02.2024
                     # 03.2024
                     # 04.2024
-                    filePths.append(ergfolder.path)  # add to a stack(array) for processing later via filePths.pop
+                    basePth = 'Երգեր\\' + ergfolder.name
+                    print(basePth)
+                    filePths.append([
+                        ergfolder.path,
+                        basePth
+                    ])  # add to a stack(array) for processing later via filePths.pop
+
                 else:
                     with os.scandir(ergfolder.path) as fullYrFolder:
                         for months in fullYrFolder:
                             if months.name not in blacklist:  # to filter out 01.2023 which is made with MOSO, also
+                                basePth = 'Երգեր\\' + ergfolder.name + months.name
                                 # replaces a lot of datetime calls
-                                filePths.append(months.path)
+                                filePths.append([
+                                    months.path,
+                                    basePth
+                                ])
+
     # begin processing the files
-    from json import load
+    from json import load, dump
+    from WordSongUpdater import getNums
+    from datetime import datetime
+    from os import stat
     with open("songs.json", mode='r', encoding='utf-8') as f:
         allsongs = load(f)
-    print(allsongs)
-    for filepth in filePths:
+
+    for filepth, basePth in filePths:
         with os.scandir(filepth) as songFolder:
             for songs in songFolder:
-                if not songs.name in allsongs:
-                    print(songs.name)
+                if allsongs.get(songs.name, None):
+                    dateModOnFile = datetime.fromtimestamp(allsongs[songs.name]['dateMod'])
+                    currDateMod = datetime.fromtimestamp(stat(songs.path).st_mtime)
 
-        # if not check_blacklist(root):#any('2020' in blacklist for x in blacklist)
-        #     try:
-        #         BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1].split("\\")[1]
-        #         if "." not in BaseRoot: #added bc some dirs are yr\\month and some are just month
-        #             BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1].split("\\")[2]
-        #     except:
-        #         BaseRoot = (root.split("{}\\Երգեր".format(OneDrivePth)))[1]
-        #
-        #     if '.' in BaseRoot and datetime.datetime.strptime(BaseRoot, '%m.%Y') >= startDate:
-        #         # print("Root:",root,"\nBaseRoot:",BaseRoot)
-        #         with os.scandir(root) as files:
-        #             for file in files:
-        #                 #time to iterativly check and see if the found file.name is already in the index & if not to update it.
-        #                 print(file.name)
+                    if not (currDateMod <= dateModOnFile):
+                        allsongs[songs.name] = {
+                            'dateMod': stat(songs.path).st_mtime,
+                            'path': songs.path,
+                            'basePth': basePth,
+                            'songList': getNums(songs.path)
 
+                        }
+                        print("Updated this file", songs.name)
+                else:
+                    allsongs[songs.name] = {
+                        'dateMod': stat(songs.path).st_mtime,
+                        'path': songs.path,
+                        'basePth': basePth,
+                        'songList': getNums(songs.path)
 
-def getNewSongs():
-    """This will make a dict. stored and accessed as a json file. It will store the name of the doc,
-        as well as all songs it found in the doc, a basepath where the os path for onedrive can be appended,
-        and it will store the last modified date, so when searching for files to update it can ignore certain ones.
+                    }
 
-    Returns:
-        None: Saves a json file.
-    """
+    with open("songs.json", mode='w', encoding='utf-8') as saveFile:
+        dump(allsongs, saveFile, indent=4, ensure_ascii=False)
 
-    def check_blacklist(text, blacklist):
-        return any(item in text for item in blacklist)
-
-    def fileCrawler(filePth: str):
-        os.scandir(filePth)
-
-    OneDrive = os.environ.get("OneDrive")
-    with os.scandir(OneDrive + "\\Երգեր") as ErgerFolder:
-        for ergFolder in ErgerFolder:
-            print(ergFolder.path)
-    return None
 
 
 findNewFiles()
