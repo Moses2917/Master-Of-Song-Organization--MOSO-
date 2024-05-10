@@ -124,6 +124,7 @@ def songCollector():
     Returns:
         blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
     """
+    from json import load
     blocked_list = []
     current_date = datetime.date.today()  # should really be
 
@@ -132,48 +133,40 @@ def songCollector():
     # print("The current date is:", formatted_date)
     three_months_from_now = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y')
     # print("Three months ago it was:", three_months_from_now)
+
+    with open('songs.json', 'r', encoding='utf-8') as f:
+        allSongs = load(f)
+
+    for key in allSongs:
+        date = key
+        date = re.findall(r"(.*\d)", date)[0]
+
     TotalLineCt = len(open('AllSongs.txt', 'r', encoding='utf-8').readlines())
     CurrentLine = 0
     with open('AllSongs.txt', 'r', encoding='utf-8') as line:
 
-        while (CurrentLine < TotalLineCt):
-
-            txt = line.readline()
-            if "Filename/Date: " in txt:
-                date = re.sub("Filename/Date: ", "", txt)
-                date = re.findall(r"(.*\d)", date)[0]
-                fileDate = date  # saving this for later to be used in list
-                # Define the date format
-                date_format = "%m.%d.%y"
-                # Parse the dates into datetime objects
-                date1 = datetime.datetime.strptime(three_months_from_now, date_format)
-                date2 = datetime.datetime.strptime(date, date_format)
-                if date1 < date2:
-                    # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
-                    if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
-                        txtNext = line.readline()
-                        CurrentLine += 1
-                        if "Songs" in txtNext:
-                            txtNext = re.sub("Songs in that file: ", "", txtNext)
-                            # txtNext = re.sub('', '0', txtNext)
-                            txtNext = re.sub(r"''", 'INVALID', txtNext)
-                            # print(txtNext) #TODO: fix problem of empty strings
-                            # print(date2.strftime('%A'))
-                            songs = re.findall(r'(\d+)', txtNext)
-                            books = re.findall(r'([A-Za-z]+)', txtNext)  ###
-                            # print(songs, books)
-                            # lis = [songs,books]
-                            blocked_list.append([songs, books, fileDate])
-                            # print(lis)
-                else:
-                    pass
-
-            CurrentLine += 1
+        for key in allSongs:
+            date = key
+            date = re.findall(r"(.*\d)", date)[0]
+            fileDate = date  # saving this for later to be used in list
+            # Define the date format
+            date_format = "%m.%d.%y"
+            # Parse the dates into datetime objects
+            date1 = datetime.datetime.strptime(three_months_from_now, date_format)
+            date2 = datetime.datetime.strptime(date, date_format)
+            if date1 < date2:
+                # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
+                if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
+                    blocked_list.append([
+                        eval(allSongs[key]['songList']), # [('book','songnum'), ('book','songnum'), ('book','songnum')]
+                        fileDate
+                    ])
+                    # print(lis)
     return blocked_list
 
 
-def songChecker(songNum: str, book: str):
-    """Finds songNum, then go to that index in books and see if it matchs with the given book var and also check and see if there is an "invaild" string to skip the next book
+def songChecker(book: str, songNum: str):
+    """Finds songNum, then go to that index in books and see if it matches with the given book var and also check and see if there is an "invalid" string to skip the next book
 
     Args:
         songNum str: song number being checked
@@ -181,127 +174,31 @@ def songChecker(songNum: str, book: str):
 
     Returns:
         Bool: True if used False if not
+        Str: Returns the date it was sang if true
     """
-    blackList = songCollector()
-    for song in blackList:
-        # print(song)
-        if songNum in song[0]:  # all instances of/with songNum in them
-            # print(song)
-            bookindex = song[0].index(songNum)
-            # print(bookindex)
-            print("Book:", song[1][bookindex])
-            if song[1][bookindex - 1] == 'INVALID':
-                bookindex += 1  # Skips the Invaild one, possible weak link which might cause future problems
-            booked = song[1][bookindex]
-            if book == booked:
-                print("Found a match in past 3 months")
-                return True
-            elif book != booked:
-                print("Found nothing")
+    blocked_list = songCollector()
+    pair = (book, songNum)
+    for songlist in blocked_list:
+        for song_pair in songlist[0]:
+            if pair == song_pair:
+                return True, songlist[1]
+    return False
 
-
-def getSongDate(songNum: str, book: str):
-    """Gets the absolute latest date as to when that duplicate song was sang
-
-    Args:
-        songNum (str): Unique song identifier.
-        book (str): Describes what database its from.
-
-    Returns:
-        str: returns a date in str of when that song was last sang
-    """
-    blackList = songCollector()
-    latestDate = "03.13.20"
-    date_format = "%m.%d.%y"
-    for song in blackList:
-        # print(song)
-        if songNum in song[0]:  # all instances of/with songNum in them
-            # print(song)
-            bookindex = song[0].index(songNum)
-            # print(bookindex)
-            print("Book:", song[1][bookindex])
-            if song[1][bookindex - 1] == 'INVALID':
-                bookindex += 1  # Skips the Invaild one, possible weak link which might cause future problems
-            booked = song[1][bookindex]
-            if book == booked:
-                print(song[2])
-                date1 = datetime.datetime.strptime(latestDate, date_format)
-                date2 = datetime.datetime.strptime(song[2], date_format)
-                if date1 < date2:
-                    latestDate = date2.strftime(date_format)
-                # else:
-
-            elif book != booked:
-                print("Found nothing")
-    print("Found a match in past 3 months", latestDate)
-    return latestDate
-
-
-# Translation layer from txt to json
-# TODO: Just save in JSON
-def jsonifySongList():
-    with open("AllSongs.txt", 'r', encoding='utf-8') as lines:
-        data = lines.read()
-        data = data.strip().split("\n")
-        result = []
-        # basePath = ""
-        for line in data:
-            songs = []
-            if 'Folder Path: ' in line:
-                line = re.sub('Folder Path: ', '', line)
-                basePath = line
-            if 'Filename/Date: ' in line:
-                line = re.sub('Filename/Date: ', '', line)
-                filenameDate = line
-            if 'Songs in that file' in line:
-                songs_str = line.split(': ')[1]
-                # songs_list = ast.literal_eval(songs_str)
-                songs_list = eval(songs_str)
-
-                for song in songs_list:
-                    song_elements = list(song)
-
-                    # Check if the list is not empty before accessing the first element
-                    song_id_list = [element for element in song_elements if element is not None and element.isdigit()]
-                    song_type_list = [element for element in song_elements if
-                                      element is not None and not element.isdigit()]
-
-                    if song_id_list:
-                        song_id = song_id_list[0]
-                    else:
-                        song_id = None
-
-                    if song_type_list:
-                        song_type = song_type_list[0]
-                    else:
-                        song_type = None
-
-                    songs.append({"type": song_type, "id": song_id})
-
-                result.append({
-                    "songs": songs,
-                    "basePath": basePath,
-                    "Filename/Date": filenameDate
-                })
-
-        # print(result)
-
-        # Print the result as a JSON
-        import json
-        # print(json.dumps(result, indent=4,ensure_ascii=False))
-    # with open('allSongs.json','w',encoding='utf-8') as f:
-    #     json.dump(result,f,indent=4,ensure_ascii=False)
-    return json.dumps(result, indent=4)
-    # return result
-
+# print(songChecker('New','199'))
 
 def search_song(data, song_num, book):
     found_list = []
     found = False
     for item in data:
-        for song in item['songs']:
-            if song['id'] == song_num and song['type'] == book:
-                found_list.append(item)
+        songList = eval(data[item]['songList'])
+        for song in songList:
+            if song[1] == song_num and song[0] == book:
+                found_list.append({
+                    'Filename/Date': item,
+                    'basePath': data[item]['basePth'],
+                    'songs': songList
+
+                })
                 found = True
                 # return item
     if found:
@@ -311,7 +208,8 @@ def search_song(data, song_num, book):
 
 def songSearch(song_num, book):
     import json
-    data = json.loads(jsonifySongList())
+    with open('songs.json', 'r',encoding='utf-8') as f:
+        data = json.load(f)
 
     # Define the search function
 
@@ -327,6 +225,7 @@ def songSearch(song_num, book):
         # print(f"Song number {song_num} in book {book} not found.")
         return None
 
+# songSearch('312', 'Old')
 
 def toJson():
     """Generates a json version of AllSongs.txt and save it to the disk
@@ -380,7 +279,7 @@ def toJson():
         json.dump(result, f, indent=4, ensure_ascii=False)
 
 
-# WIP
+# TODO Handle case where a file is deleted and no longer exists think file deletions and file renaming
 def findNewFiles():  # is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
     """This will make a dict. stored and accessed as a json file. It will store the name of the doc, as well as all
     songs it found in the doc, a basepath where the os path for onedrive can be appended, and it will store the last
@@ -435,7 +334,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                     with os.scandir(ergfolder.path) as fullYrFolder:
                         for months in fullYrFolder:
                             if months.name not in blacklist:  # to filter out 01.2023 which is made with MOSO, also
-                                basePth = 'Երգեր\\' + ergfolder.name + months.name
+                                basePth = 'Երգեր\\' + ergfolder.name + "\\" + months.name
                                 # replaces a lot of datetime calls
                                 filePths.append([
                                     months.path,
@@ -478,6 +377,3 @@ def findNewFiles():  # is for finding new files so as to only go through and add
     with open("songs.json", mode='w', encoding='utf-8') as saveFile:
         dump(allsongs, saveFile, indent=4, ensure_ascii=False)
 
-
-
-findNewFiles()
