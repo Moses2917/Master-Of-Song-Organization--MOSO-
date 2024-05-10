@@ -62,8 +62,8 @@
         </header>
         <div class="table-responsive-sm">
 
-            <table class="table table-striped">
-                <thead class="table-secondary table-group-divider">
+            <table class="table table-striped table table-hover">
+                <thead class="table-secondary table-group-divider ">
                     <tr>
                         <th>SongNum</th>
                         <th>Title</th>
@@ -98,8 +98,15 @@
         </div>
     </div>
     {% else %}
-        <h1 class="text-sm-center">Welcome Guest, Please Login.</h1>
-        <h1><a href="/login" class="btn btn-primary me-2" style="text-align: center;">Login</a></h1>
+        <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center text-primary">
+                <h1 class="text-sm-center">Welcome Guest, Please Login.</h1>
+                <h1><a href="/login" class="btn btn-primary me-2" style="text-align: center;">Login</a></h1>
+            </div>
+        </div>
+    </div>
+`
     {% endif %}
 </body>
 
