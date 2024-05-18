@@ -31,10 +31,8 @@ def add_song(event=None):
         print(dupSong)
         if dupSong: # get value and if used then ask if they wish to continue
             errMes = messagebox.askyesno("Error: That song was used before in the last 3 months",
-                                         "Do you wish to proced with this song {}\nFilename/Date: {}"
-                                         .format(song_num + " " + bookType,
-                                                 SD.getSongDate(songNum=song_num,book=bookType)
-                                                 )
+                                         "Do you wish to proceed with this song {}\nFilename/Date: {}"
+                                         .format(song_num + " " + bookType, dupSong[1])#SD.getSongDate(songNum=song_num,book=bookType))
                                          )
             if errMes:
                 if 'New' in bookType: bookType = 'n'
@@ -177,7 +175,7 @@ def create_File():
             my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + "TESTSAVE.docx")
     import scanningDir
     try:
-        scanningDir.getAllNums()
+        scanningDir.findNewFiles()
     except:
         messagebox.showerror("File Open","A word doc is probably open, please close it and then try to create the file.")
 
@@ -260,7 +258,7 @@ def Compatibility():
                 PastSongsListbox.insert(tk.END,"Filename/Date: " + filename)
                 PastSongsListbox.insert(tk.END,"\nSongs:")
                 for song in attr['songs']:
-                    PastSongsListbox.insert(tk.END,[song['id'],":",song['type']]) #making a list allows me to dodge the edge cases of song search results
+                    PastSongsListbox.insert(tk.END,song) #making a list allows me to dodge the edge cases of song search results
             
         else:
             messagebox.showinfo(title="Compatability Chart",message=f"Song number: {song_num} in Book: {bookType} not found.")

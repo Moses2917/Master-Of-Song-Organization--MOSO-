@@ -24,10 +24,9 @@
         },
         "4": {
             "Title": "Ինչպե՞ս երթամ պարապ ձեռքով,",
-            "latestVersion": "Word songs/4 Ինչպե՞ս երթամ պարապ ձեռքով, v3.docx",
+            "latestVersion": "Word songs/4 Ինչպե՞ս երթամ պարապ ձեռքով, v2.docx",
             "v1": "Word songs\\pptSong\\4.Ինչպե՞ս երթամ պարապ ձեռքով.docx",
-            "v2": "Word songs/4 Ինչպե՞ս երթամ պարապ ձեռքով, v2.docx",
-            "v3": "Word songs/4 Ինչպե՞ս երթամ պարապ ձեռքով, v3.docx"
+            "v2": "Word songs/4 Ինչպե՞ս երթամ պարապ ձեռքով, v2.docx"
         },
         "5": {
             "Title": "Ով մեծ Աստված, երբ զննեմ այս աշխարհ,",
@@ -1393,9 +1392,16 @@
             "v1": "Word songs/323 Դու այստեղ ես, Հիսուս.docx"
         },
         "327": {
-            "Title": "Ով իմ բարեկամ, գիտեմ դու էլ ես \nՈրոնում մեկին, որ քեզ հասկանա, \nԻմ և քո կողքին փնտրողներ շատ կան, \nԲայց դեռ չեն գտել սերը իսկական:",
-            "latestVersion": "Word songs\\pptSong\\327.docx",
-            "v1": "Word songs\\pptSong\\327.docx"
+            "Title": "Ով իմ բարեկամ, գիտեմ դու էլ ես",
+            "latestVersion": "Word songs/327 Ով իմ բարեկամ, գիտեմ դու էլ ես v2.docx",
+            "v1": "Word songs\\pptSong\\327.docx",
+            "key": "Em",
+            "speed": "107",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3",
+            "v2": "Word songs/327 Ով իմ բարեկամ, գիտեմ դու էլ ես v2.docx"
         },
         "328": {
             "Title": "Ալելույա (2) \nՕվսաննաներ մենք երգենք, \nԼույսեր հագած, լույս Հիսուսին \nՕվսաննաներ գովերգենք:",
@@ -1542,8 +1548,9 @@
         },
         "360": {
             "Title": "Երբ կյանքի վիճակներ կբեռնավորեն քեզ",
-            "latestVersion": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ.docx",
-            "v1": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ.docx"
+            "latestVersion": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ v2.docx",
+            "v1": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ.docx",
+            "v2": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ v2.docx"
         },
         "361": {
             "Title": "Հիսուսը սրտիդ դռան \nԿանգնած կթակե Ան, \nԿթակե որ դուն բանաս, \nՍրտումդ Իրեն տեղ տաս:",
@@ -1633,7 +1640,7 @@
         },
         "383": {
             "Title": "Երբ Տերն է ելնում շքերթի",
-            "latestVersion": "Word songs/383 Երբ Տերն է ելնում շքերթի v2.docx",
+            "latestVersion": "Word songs/383 Երբ Տերն է ելնում շքերթի v3.docx",
             "v1": "Word songs/383 Երբ Տերն է ելնում շքերթի.docx",
             "key": "Am",
             "speed": "110",
@@ -1641,7 +1648,8 @@
             "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Dance-P5-4",
-            "v2": "Word songs/383 Երբ Տերն է ելնում շքերթի v2.docx"
+            "v2": "Word songs/383 Երբ Տերն է ելնում շքերթի v2.docx",
+            "v3": "Word songs/383 Երբ Տերն է ելնում շքերթի v3.docx"
         },
         "385": {
             "Title": "Ով պարտիզպան Դու ինձ ասա, \nՈւր դրիր Հիսուս միածնին, \nՈվ պարտիզպան Դու ինձ ասա, \nՈր կարծեմ թե Դու ես նման:",
@@ -2246,8 +2254,15 @@
         },
         "497": {
             "Title": "Տեր իմ, գործերովս չէ, որ պիտ արդարանամ",
-            "latestVersion": "Word songs/497 Տեր իմ, գործերովս չէ, որ պիտ արդարանամ.docx",
-            "v1": "Word songs/497 Տեր իմ, գործերովս չէ, որ պիտ արդարանամ.docx"
+            "latestVersion": "Word songs/497 Տեր իմ, գործերովս չէ, որ պիտ արդարանամ v2.docx",
+            "v1": "Word songs/497 Տեր իմ, գործերովս չէ, որ պիտ արդարանամ.docx",
+            "v2": "Word songs/497 Տեր իմ, գործերովս չէ, որ պիտ արդարանամ v2.docx",
+            "key": "C# (+1)",
+            "speed": "68",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": ""
         },
         "498": {
             "Title": "Հիսուս ես սիրում եմ Քեզ",
@@ -2794,8 +2809,15 @@
         },
         "603": {
             "Title": "Օրհնենք(3) Գառնուկին(2)",
-            "latestVersion": "Word songs/603 Օրհնենք(3) Գառնուկին(2).docx",
-            "v1": "Word songs/603 Օրհնենք(3) Գառնուկին(2).docx"
+            "latestVersion": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v2.docx",
+            "v1": "Word songs/603 Օրհնենք(3) Գառնուկին(2).docx",
+            "v2": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v2.docx",
+            "key": "C",
+            "speed": "68",
+            "style": "Beat ",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat-ballad"
         },
         "604": {
             "Title": "Քայլում էի ես ճանապարհով կորած մոլորված",
@@ -2804,8 +2826,15 @@
         },
         "605": {
             "Title": "Երբ տկար եմ, իմ անձը ընկճված է",
-            "latestVersion": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է.docx",
-            "v1": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է.docx"
+            "latestVersion": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է v2.docx",
+            "v1": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է.docx",
+            "v2": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է v2.docx",
+            "key": "B flat (-2)",
+            "speed": "",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat-ballad"
         },
         "606": {
             "Title": "Քո օրենքը սիրեցի\nԵվ այդ սիրով կյանք գտավ իմ հոգին\nՔո խոսքերը սիրեցի և այդ սիրով \nԿյանք գտավ իմ հոգին ողորմություն \nԵվ օրհնություն շնորհեցիր անճարիս",
@@ -3089,9 +3118,16 @@
         },
         "652": {
             "Title": "Սերը մեզ կանչում է",
-            "latestVersion": "Word songs/652 Սերը մեզ կանչում է v2.docx",
+            "latestVersion": "Word songs/652 Սերը մեզ կանչում է v3.docx",
             "v1": "Word songs/652 Սերը մեզ կանչում է.docx",
-            "v2": "Word songs/652 Սերը մեզ կանչում է v2.docx"
+            "v2": "Word songs/652 Սերը մեզ կանչում է v2.docx",
+            "v3": "Word songs/652 Սերը մեզ կանչում է v3.docx",
+            "key": "Gm",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "653": {
             "Title": "Հիսուս, սիրո Աստված",
@@ -3291,11 +3327,18 @@
         },
         "684": {
             "Title": "Դու Տեր ես Դու իմ Էլոհիմ",
-            "latestVersion": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v4.docx",
+            "latestVersion": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v5.docx",
             "v1": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ.docx",
             "v2": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v2.docx",
             "v3": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v3.docx",
-            "v4": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v4.docx"
+            "v4": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v4.docx",
+            "v5": "Word songs/684 Դու Տեր ես Դու իմ Էլոհիմ v5.docx",
+            "key": "Am",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "685": {
             "Title": "Արժանի է Գառն Աստծո",
@@ -3846,8 +3889,15 @@
         },
         "774": {
             "Title": "Գթա՜, ով Բարձրյալ  Աստված",
-            "latestVersion": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված.docx",
-            "v1": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված.docx"
+            "latestVersion": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված v2.docx",
+            "v1": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված.docx",
+            "v2": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված v2.docx",
+            "key": "Em",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat or ballad"
         },
         "775": {
             "Title": "Երկիր իջավ Աստծո որդին",
@@ -4047,16 +4097,16 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Սիրիր Հիսուսին ամեն բանից առավել",
-            "latestVersion": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել v2.docx",
-            "v1": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել.docx",
-            "v2": "Word songs/602 Սիրիր Հիսուսին ամեն բանից առավել v2.docx",
-            "key": "Dm",
-            "speed": "110",
-            "style": "Samba",
-            "song_type": "Opening Song",
+            "Title": "Օրհնենք(3) Գառնուկին(2)",
+            "latestVersion": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v2.docx",
+            "v1": "Word songs/603 Օրհնենք(3) Գառնուկին(2).docx",
+            "v2": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v2.docx",
+            "key": "C",
+            "speed": "68",
+            "style": "Beat ",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Samba"
+            "Comments": "Any beat-ballad"
         },
         "21": {
             "Title": "Ես համոզված եմ եվ հաստատ ուխտած",
