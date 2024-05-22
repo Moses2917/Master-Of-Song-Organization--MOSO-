@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <style>
         body {
             background-color: #f8f8f8;
@@ -18,24 +16,99 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
+        <div class="container-xl">
             <a class="navbar-brand" href="{{ url_for('song_info') }}">Home</a>
-            <a class="navbar-brand" href="{{url_for('tsank')}}">Tsank</a>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <div class="input-group">
+                    <!-- <span class="input-group-text btn btn-primary fs-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+                      </svg>
+                    </span> -->
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <input class="form-control me-5" type="text" placeholder="Search" aria-label="Search" readonly>
+                </button>
+                </div>
+
+            </div>
+            <a class="navbar-brand " href="{{url_for('tsank')}}">Tsank</a>
         </div>
     </nav>
+
     {% if session %}
+        <div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4" id="searchModalLabel">Enter Song Lyrics</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="input-group">
+                        <input type="text" name="searchLyrics" id="searchLyrics" class="form-control me-2" placeholder="Search" aria-label="Search" onkeyup="getResults()">
+                    </div>
+                    <br>
+                    <form method="post">
+                        <ul class="list-group" id="searchResults"></ul>
+                    </form>
+                    <!-- search results -->
+
+<script>
+async function getResults() {
+    lyrics = document.getElementById('searchLyrics').value;
+    let search_url = {{ url_for('songSearch',lyrics=lyrics)|tojson }}
+    if (lyrics){
+        search_url = search_url + lyrics;
+    }
+    //const foundLyrics = await fetch(search_url);
+    const resultsUl = document.getElementById("searchResults");
+    resultsUl.innerHTML = '';
+    fetch(search_url)
+        .then(response => response.json())
+        //.then(text => resultsUl.innerHTML = `<li class="list-group-item"> ${text} </li>`)
+        .then(text => {
+            //text = Array.from(text);
+            //text.forEach(manifestResults);
+            for (const element of text){
+                //resultsUl.innerHTML += `<li class="list-group-item"> Song Number: ${element.songNum} Book: ${element.book} </li>`
+                resultsUl.innerHTML += `<input value = "Song Number: ${element.songNum}, Book: ${element.book}" type="submit" name="SearchResultSong" class="list-group-item list-group-item-action">`
+                
+            }
+        });
+
+    console.log(search_url)
+/*    if (!lyrics){
+        resultsUl.innerHTML = `<li class="list-group-item"> No results found. </li>`;
+    }
+    fix to make it work later    */
+    console.log(resultsUl.innerHTML.text)
+}
+</script>
+                    
+            </div>
+            
+                <div class="modal-footer">
+                    <p class="text-start text-secondary" id="hint">
+                        Hint: Just click the song you want to open.
+                    </p>
+                    
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    
     <div class="container my-5">
+
         <header class="header mb-4">
             <h1 class="text-center">Please Choose the Book:</h1>
             <form method="post" class="form-group">
                 <div class="form-group">
                     <select name="book" class="form-control">
                         <option value="">--Please choose an option--</option>
-                        <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }}>RED
-                            Ergaran</option>
-                        <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>
-                            Old Book</option>
-                        </option>
+                        <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }} > REDErgaran</option>
+                        <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>Old Book</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -47,8 +120,7 @@
                     <select id="attribute" name="attribute" class="form-control">
                         <option value="all" {{ 'selected' if attribute=='all' }}>All Attributes</option>
                         <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
-                        <option value="latestVersion" {{ 'selected' if attribute=='latestVersion' }}>Latest Version
-                        </option>
+                        <option value="latestVersion" {{ 'selected' if attribute=='latestVersion' }}>Latest Version</option>
                         <option value="key" {{ 'selected' if attribute=='key' }}>Key</option>
                         <option value="speed" {{ 'selected' if attribute=='speed' }}>Speed</option>
                         <option value="timeSig" {{ 'selected' if attribute=='timeSig' }}>Time Signature</option>
@@ -60,8 +132,9 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </header>
-        <div class="table-responsive-sm">
 
+        {% if not table_date %}
+        <div class="table-responsive-sm">
             <table class="table table-striped table table-hover">
                 <thead class="table-secondary table-group-divider ">
                     <tr>
@@ -81,7 +154,7 @@
                     <input type="hidden" name="book" value="{{book}}">
                     {% for row, attr in table_data.items() %}
                     <tr>
-                        <td><input type="submit" name="SongNum" value="{{row}}"></td>
+                        <td><input type="submit" name="SongNum" value="{{row}}" class="btn btn-primary"></td>
                         <td>{{attr['Title']}}</td>
                         <td>{{attr['latestVersion']}}</td>
                         <td>{{attr['key']}}</td>
@@ -96,6 +169,7 @@
                 </tbody>
             </table>
         </div>
+        {%endif%}
     </div>
     {% else %}
         <div class="container mt-5 mb-5">
@@ -106,8 +180,10 @@
             </div>
         </div>
     </div>
-`
     {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 
 </html>

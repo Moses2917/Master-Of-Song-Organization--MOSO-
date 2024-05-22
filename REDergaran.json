@@ -246,8 +246,15 @@
         },
         "31": {
             "Title": "Լույս է տալիս կյանքին մեր",
-            "latestVersion": "RED Words/31.docx",
-            "v1": "RED Words/31.docx"
+            "latestVersion": "Երգարան Word Files/31 Լույս է տալիս կյանքին մեր v2.docx",
+            "v1": "RED Words/31.docx",
+            "v2": "Երգարան Word Files/31 Լույս է տալիս կյանքին մեր v2.docx",
+            "key": "Bm",
+            "speed": "60",
+            "style": "Bossa",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin-P6-2"
         },
         "32": {
             "Title": "Մարել են հույսդ ու սերդ,",
@@ -558,16 +565,19 @@
         },
         "74": {
             "Title": "Փառք է քայլել Անոր հետ,",
-            "latestVersion": "Երգարան Word Files/74 Փառք է քայլել Անոր հետ, v2.docx",
+            "latestVersion": "Երգարան Word Files/74 Փառք է քայլել Անոր հետ, v3.docx",
             "v1": "RED Words/74.docx",
             "v2": "Երգարան Word Files/74 Փառք է քայլել Անոր հետ, v2.docx",
-            "key": "A",
+            "key": "B flat major (-2)",
             "speed": "100",
             "style": "swing",
             "opening_Song": "",
             "Worship_Song": "",
             "timeSig": "4/4",
-            "Comment": null
+            "Comment": null,
+            "v3": "Երգարան Word Files/74 Փառք է քայլել Անոր հետ, v3.docx",
+            "song_type": "Single Song",
+            "Comments": "Jazz-P3-7"
         },
         "75": {
             "Title": "Վիշտ ու ցավով պատած հոգի,",
@@ -754,8 +764,15 @@
         },
         "106": {
             "Title": "Երբ մեղքերով էի մեռած,",
-            "latestVersion": "RED Words/106.docx",
-            "v1": "RED Words/106.docx"
+            "latestVersion": "Երգարան Word Files/106 Երբ մեղքերով էի մեռած, v2.docx",
+            "v1": "RED Words/106.docx",
+            "v2": "Երգարան Word Files/106 Երբ մեղքերով էի մեռած, v2.docx",
+            "key": "F",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P5-5"
         },
         "107": {
             "Title": "Կանձկամ ավելի Փրկչիս նմանիլ,",
@@ -805,7 +822,7 @@
         },
         "115": {
             "Title": "Ուրախ եղեք, ո՛վ արդարներ",
-            "latestVersion": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v7.docx",
+            "latestVersion": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v8.docx",
             "v1": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ.docx",
             "v2": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v2.docx",
             "v3": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v3.docx",
@@ -818,7 +835,8 @@
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P4-1"
+            "Comments": "Pop-P4-1",
+            "v8": "Երգարան Word Files/115 Ուրախ եղեք, ո՛վ արդարներ v8.docx"
         },
         "116": {
             "Title": "Թանկագին րոպեներ է Աստված պարգևել.",
@@ -975,7 +993,7 @@
         },
         "142": {
             "Title": "Տե՜ր գթության, աղբյուր ողորմության",
-            "latestVersion": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության v2.docx",
+            "latestVersion": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության v3.docx",
             "v1": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության.docx",
             "key": "Em flat (-6)",
             "speed": "110",
@@ -985,7 +1003,8 @@
             "timeSig": "4/4",
             "Comments": "Ballad-P3-4",
             "v2": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության v2.docx",
-            "song_type": "Single Song"
+            "song_type": "Single Song",
+            "v3": "Երգարան Word Files/142 Տե՜ր գթության, աղբյուր ողորմության v3.docx"
         },
         "143": {
             "Title": "Փոքր կաթիլները",
@@ -1021,7 +1040,7 @@
         },
         "148": {
             "Title": "Հիսուսի սիրուց ես չեմ բաժանվի,",
-            "latestVersion": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v4.docx",
+            "latestVersion": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v5.docx",
             "v1": "RED Words/148.docx",
             "v2": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v2.docx",
             "v3": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v3.docx",
@@ -1031,7 +1050,8 @@
             "style": "Ballad ",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P5-5"
+            "Comments": "Ballad-P5-5",
+            "v5": "Երգարան Word Files/148 Հիսուսի սիրուց ես չեմ բաժանվի, v5.docx"
         },
         "149": {
             "Title": "Սիրում եմ Քեզ այսօր ավելի, քան երեկ,",
@@ -1111,7 +1131,7 @@
         },
         "160": {
             "Title": "Մեղքի մեջ եմ ես ապրել,",
-            "latestVersion": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v4.docx",
+            "latestVersion": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v5.docx",
             "v1": "RED Words/160.docx",
             "v2": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v2.docx",
             "v3": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v3.docx",
@@ -1121,7 +1141,8 @@
             "style": "Disco ",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Disco-P5-5"
+            "Comments": "Disco-P5-5",
+            "v5": "Երգարան Word Files/160 Մեղքի մեջ եմ ես ապրել, v5.docx"
         },
         "161": {
             "Title": "Փարվեմ Քո կրծքին, Տե՜ր Հիսուս,",
@@ -1347,8 +1368,15 @@
         },
         "195": {
             "Title": "Օ՜ ալելուիա",
-            "latestVersion": "Երգարան Word Files/195 Օ՜ ալելուիա.docx",
-            "v1": "Երգարան Word Files/195 Օ՜ ալելուիա.docx"
+            "latestVersion": "Երգարան Word Files/195 Օ՜ ալելուիա v2.docx",
+            "v1": "Երգարան Word Files/195 Օ՜ ալելուիա.docx",
+            "v2": "Երգարան Word Files/195 Օ՜ ալելուիա v2.docx",
+            "key": "Em",
+            "speed": "100",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "196": {
             "Title": "",
@@ -1376,8 +1404,15 @@
         },
         "199": {
             "Title": "Քո տանդ մեջ",
-            "latestVersion": "Երգարան Word Files/199 Քո տանդ մեջ.docx",
-            "v1": "Երգարան Word Files/199 Քո տանդ մեջ.docx"
+            "latestVersion": "Երգարան Word Files/199 Քո տանդ մեջ v2.docx",
+            "v1": "Երգարան Word Files/199 Քո տանդ մեջ.docx",
+            "key": "A",
+            "speed": "105",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3",
+            "v2": "Երգարան Word Files/199 Քո տանդ մեջ v2.docx"
         },
         "200": {
             "Title": "Ծնվեցիր գոմում, մանուկ Հիսուս իմ,",
@@ -1475,7 +1510,7 @@
         },
         "217": {
             "Title": "Եթե դժվարության հանդիպես",
-            "latestVersion": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v5.docx",
+            "latestVersion": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v6.docx",
             "v1": "RED Words/217.docx",
             "v2": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v2.docx",
             "v3": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v3.docx",
@@ -1486,7 +1521,8 @@
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P5-5"
+            "Comments": "Ballad-P5-5",
+            "v6": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v6.docx"
         },
         "218": {
             "Title": "Եղի՛ր ներող, օրհնի՛ր քեզ հալածողներին,",
@@ -1547,14 +1583,15 @@
         },
         "226": {
             "Title": "Տե՜ր իմ Ամենակալ",
-            "latestVersion": "Երգարան Word Files/226 Տե՜ր իմ Ամենակալ.docx",
+            "latestVersion": "Երգարան Word Files/226 Տե՜ր իմ Ամենակալ v2.docx",
             "v1": "Երգարան Word Files/226 Տե՜ր իմ Ամենակալ.docx",
             "key": "Dm",
             "speed": "82",
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P1-1"
+            "Comments": "Ballad-P1-1",
+            "v2": "Երգարան Word Files/226 Տե՜ր իմ Ամենակալ v2.docx"
         },
         "227": {
             "Title": "Ո՜վ խաչյալ Փրկիչ Քրիստոս,",
@@ -1936,7 +1973,7 @@
         },
         "286": {
             "Title": "Ժամերը հաշված, քայլերը պատրաստ",
-            "latestVersion": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v3.docx",
+            "latestVersion": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v4.docx",
             "v1": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ.docx",
             "v2": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v2.docx",
             "key": "Em",
@@ -1945,7 +1982,8 @@
             "song_type": "Single Song",
             "timeSig": "6/8",
             "Comments": "Pop-P5-4",
-            "v3": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v3.docx"
+            "v3": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v3.docx",
+            "v4": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v4.docx"
         },
         "287": {
             "Title": "Մնայուն բան չունեմ երկրում",
@@ -2172,7 +2210,7 @@
         },
         "319": {
             "Title": "Ինչքա՜ն բարի է Տերը",
-            "latestVersion": "Երգարան Word Files/319 Ինչքա՜ն բարի է Տերը v4.docx",
+            "latestVersion": "Երգարան Word Files/319 Ինչքա՜ն բարի է Տերը v5.docx",
             "v1": "Երգարան Word Files/319 Ինչքա՜ն բարի է Տերը.docx",
             "v2": "Երգարան Word Files/319 Ինչքա՜ն բարի է Տերը v2.docx",
             "v3": "Երգարան Word Files/319 Ինչքա՜ն բարի է Տերը v3.docx",
@@ -2182,7 +2220,8 @@
             "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v5": "Երգարան Word Files/319 Ինչքա՜ն բարի է Տերը v5.docx"
         },
         "320": {
             "Title": "Միակ Աստվածն է Եհովան, (2)",
@@ -2272,13 +2311,20 @@
         },
         "333": {
             "Title": "",
-            "latestVersion": "Երգարան Word Files/333 .docx",
-            "v1": "Երգարան Word Files/333 .docx"
+            "latestVersion": "Երգարան Word Files/333  v2.docx",
+            "v1": "Երգարան Word Files/333 .docx",
+            "v2": "Երգարան Word Files/333  v2.docx"
         },
         "334": {
             "Title": "Հոգնած՝ ունայն և սին կյանքից,",
             "latestVersion": "RED Words/334.docx",
-            "v1": "RED Words/334.docx"
+            "v1": "RED Words/334.docx",
+            "key": "Am",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat/ballad"
         },
         "335": {
             "Title": "",
@@ -2586,14 +2632,15 @@
         },
         "379": {
             "Title": "Ես երբեք չեմ եղել իմ տան մեջ",
-            "latestVersion": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ.docx",
+            "latestVersion": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ v2.docx",
             "v1": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ.docx",
             "key": "Fm",
             "speed": "115",
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Pop-P3-4",
+            "v2": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ v2.docx"
         },
         "380": {
             "Title": "Հոգնած հոգիս հանգիստ գտավ",
@@ -3276,8 +3323,15 @@
         },
         "477": {
             "Title": "Հիսուս. այս անվան մեջ փրկություն կա,",
-            "latestVersion": "RED Words/477.docx",
-            "v1": "RED Words/477.docx"
+            "latestVersion": "Երգարան Word Files/477 Հիսուս. այս անվան մեջ փրկություն կա, v2.docx",
+            "v1": "RED Words/477.docx",
+            "v2": "Երգարան Word Files/477 Հիսուս. այս անվան մեջ փրկություն կա, v2.docx",
+            "key": "Bm",
+            "speed": "100",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "478": {
             "Title": "Փրկչիս խաչին ներքևը",
@@ -3445,8 +3499,15 @@
         },
         "505": {
             "Title": "Աստծո բանակն է գնում՝",
-            "latestVersion": "Երգարան Word Files/505 Աստծո բանակն է գնում՝.docx",
-            "v1": "Երգարան Word Files/505 Աստծո բանակն է գնում՝.docx"
+            "latestVersion": "Երգարան Word Files/505 Աստծո բանակն է գնում՝ v2.docx",
+            "v1": "Երգարան Word Files/505 Աստծո բանակն է գնում՝.docx",
+            "v2": "Երգարան Word Files/505 Աստծո բանակն է գնում՝ v2.docx",
+            "key": "Gm",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "506": {
             "Title": "Սա է Ծառան Իմ, ում կհավանեմ,",
@@ -3495,8 +3556,15 @@
         },
         "512": {
             "Title": "Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ",
-            "latestVersion": "Երգարան Word Files/512 Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ.docx",
-            "v1": "Երգարան Word Files/512 Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ.docx"
+            "latestVersion": "Երգարան Word Files/512 Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ v2.docx",
+            "v1": "Երգարան Word Files/512 Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ.docx",
+            "v2": "Երգարան Word Files/512 Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ v2.docx",
+            "key": "Dm",
+            "speed": "110",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Samba"
         },
         "513": {
             "Title": "Թագավոր ես մեր հոգու մեջ, Տե՛ր Հիսուս",
@@ -3605,7 +3673,7 @@
         },
         "525": {
             "Title": "Երկինքը Աստծո փառքը կպատմե",
-            "latestVersion": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v2.docx",
+            "latestVersion": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v3.docx",
             "v1": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե.docx",
             "v2": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v2.docx",
             "key": "Em",
@@ -3613,7 +3681,8 @@
             "style": "6/8 country ballad",
             "song_type": "Single Song",
             "timeSig": "3/4",
-            "Comments": "Country-P1-6"
+            "Comments": "Country-P1-6",
+            "v3": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v3.docx"
         },
         "526": {
             "Title": "Գալիս եմ Քեզ, Հիսո՛ւս,",
@@ -3859,7 +3928,7 @@
         },
         "563": {
             "Title": "Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ,",
-            "latestVersion": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v4.docx",
+            "latestVersion": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v5.docx",
             "v1": "RED Words/563.docx",
             "v2": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v2.docx",
             "v3": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
@@ -3869,7 +3938,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3",
-            "v4": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v4.docx"
+            "v4": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v4.docx",
+            "v5": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v5.docx"
         },
         "564": {
             "Title": "Քո ձեռքը շինեց ինձ, հաստատեց,",
@@ -3987,7 +4057,7 @@
         },
         "585": {
             "Title": "Անցկացրո՛ւ ինձ գավիթով",
-            "latestVersion": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v5.docx",
+            "latestVersion": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v6.docx",
             "v1": "RED Words/585.docx",
             "v2": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v2.docx",
             "v3": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v3.docx",
@@ -3998,7 +4068,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3",
-            "v5": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v5.docx"
+            "v5": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v5.docx",
+            "v6": "Երգարան Word Files/585 Անցկացրո՛ւ ինձ գավիթով v6.docx"
         },
         "586": {
             "Title": "Ես ուզում եմ, իմ լավ բարեկամ,",
@@ -4246,8 +4317,15 @@
         },
         "630": {
             "Title": "Օ՜, ի՜նչ մեծ ես, մեր Արքա",
-            "latestVersion": "Երգարան Word Files/630 Օ՜, ի՜նչ մեծ ես, մեր Արքա.docx",
-            "v1": "Երգարան Word Files/630 Օ՜, ի՜նչ մեծ ես, մեր Արքա.docx"
+            "latestVersion": "Երգարան Word Files/630 Օ՜, ի՜նչ մեծ ես, մեր Արքա v2.docx",
+            "v1": "Երգարան Word Files/630 Օ՜, ի՜նչ մեծ ես, մեր Արքա.docx",
+            "v2": "Երգարան Word Files/630 Օ՜, ի՜նչ մեծ ես, մեր Արքա v2.docx",
+            "key": "A",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat-ballad"
         },
         "631": {
             "Title": "",
@@ -4316,8 +4394,15 @@
         },
         "644": {
             "Title": "Փառաբանություններ, օվսաննաներ",
-            "latestVersion": "Երգարան Word Files/644 Փառաբանություններ, օվսաննաներ.docx",
-            "v1": "Երգարան Word Files/644 Փառաբանություններ, օվսաննաներ.docx"
+            "latestVersion": "Երգարան Word Files/644 Փառաբանություններ, օվսաննաներ v2.docx",
+            "v1": "Երգարան Word Files/644 Փառաբանություններ, օվսաննաներ.docx",
+            "v2": "Երգարան Word Files/644 Փառաբանություններ, օվսաննաներ v2.docx",
+            "key": "F",
+            "speed": "68",
+            "style": "Ballad ",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "645": {
             "Title": "Արդյոք գիտե՞ս Հիսուսին, մարդ,",
@@ -4939,15 +5024,16 @@
         },
         "760": {
             "Title": "Տե՜ր, Դու ստեղծել ես ինձ",
-            "latestVersion": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v2.docx",
+            "latestVersion": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v3.docx",
             "v1": "RED Words/760.docx",
             "v2": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v2.docx",
-            "key": "Em",
+            "key": "Em (or Fm)",
             "speed": "67",
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v3": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v3.docx"
         },
         "761": {
             "Title": "Գիշեր էր, բայց լուսավոր էր,",
@@ -4996,14 +5082,15 @@
         },
         "770": {
             "Title": "Ո՜վ փառավոր, բարձրյալ Աստված",
-            "latestVersion": "Երգարան Word Files/770 Ո՜վ փառավոր, բարձրյալ Աստված.docx",
+            "latestVersion": "Երգարան Word Files/770 Ո՜վ փառավոր, բարձրյալ Աստված v2.docx",
             "v1": "Երգարան Word Files/770 Ո՜վ փառավոր, բարձրյալ Աստված.docx",
             "key": "Bm",
             "speed": "85",
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P4-1"
+            "Comments": "Ballad-P4-1",
+            "v2": "Երգարան Word Files/770 Ո՜վ փառավոր, բարձրյալ Աստված v2.docx"
         },
         "771": {
             "Title": "Ինչքան էլ որ տխուր",
@@ -6175,17 +6262,16 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Ժողովուրդն ենք մենք՝ սուրբ արյամբ գնված,",
-            "latestVersion": "Երգարան Word Files/464 Ժողովուրդն ենք մենք՝ սուրբ արյամբ գնված, v3.docx",
-            "v1": "RED Words/464.docx",
-            "v2": "Երգարան Word Files/464 Ժողովուրդն ենք մենք՝ սուրբ արյամբ գնված, v2.docx",
-            "v3": "Երգարան Word Files/464 Ժողովուրդն ենք մենք՝ սուրբ արյամբ գնված, v3.docx",
-            "key": "Em",
-            "speed": "100",
-            "style": "Beat",
-            "song_type": "Single Song",
+            "Title": "Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ",
+            "latestVersion": "Երգարան Word Files/512 Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ v2.docx",
+            "v1": "Երգարան Word Files/512 Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ.docx",
+            "v2": "Երգարան Word Files/512 Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ v2.docx",
+            "key": "Dm",
+            "speed": "110",
+            "style": "Samba",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P4-1"
+            "Comments": "Samba"
         },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",

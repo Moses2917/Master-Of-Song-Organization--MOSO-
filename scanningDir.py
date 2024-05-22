@@ -137,31 +137,28 @@ def songCollector():
     with open('songs.json', 'r', encoding='utf-8') as f:
         allSongs = load(f)
 
+    # for key in allSongs:
+    #     date = key
+    #     date = re.findall(r"(.*\d)", date)[0]
+
+
     for key in allSongs:
         date = key
         date = re.findall(r"(.*\d)", date)[0]
-
-    TotalLineCt = len(open('AllSongs.txt', 'r', encoding='utf-8').readlines())
-    CurrentLine = 0
-    with open('AllSongs.txt', 'r', encoding='utf-8') as line:
-
-        for key in allSongs:
-            date = key
-            date = re.findall(r"(.*\d)", date)[0]
-            fileDate = date  # saving this for later to be used in list
-            # Define the date format
-            date_format = "%m.%d.%y"
-            # Parse the dates into datetime objects
-            date1 = datetime.datetime.strptime(three_months_from_now, date_format)
-            date2 = datetime.datetime.strptime(date, date_format)
-            if date1 < date2:
-                # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
-                if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
-                    blocked_list.append([
-                        eval(allSongs[key]['songList']), # [('book','songnum'), ('book','songnum'), ('book','songnum')]
-                        fileDate
-                    ])
-                    # print(lis)
+        fileDate = date  # saving this for later to be used in list
+        # Define the date format
+        date_format = "%m.%d.%y"
+        # Parse the dates into datetime objects
+        date1 = datetime.datetime.strptime(three_months_from_now, date_format)
+        date2 = datetime.datetime.strptime(date, date_format)
+        if date1 < date2:
+            # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
+            if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
+                blocked_list.append([
+                    eval(allSongs[key]['songList']), # [('book','songnum'), ('book','songnum'), ('book','songnum')]
+                    fileDate
+                ])
+                # print(lis)
     return blocked_list
 
 
