@@ -24,7 +24,7 @@
                 {%endif%}
                 <button type="submit" class="btn btn-primary">Back To Search</button>
             </form>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPastSongs" aria-controls="offcanvasPastSongs">
                 Check Past Songs
             </button>
         </div>
@@ -33,32 +33,46 @@
     <div class="container py-5">
         <h3 class="text-center text-black mb-4"> {{ lyrics|safe }} </h3>
        
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasPastSongs" aria-labelledby="offcanvasPastSongsLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasPastSongsLabel">Check Past Songs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="dropdown mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+            <div class="offcanvas-body">
+                {%if past_songs %}
+                {%for songs in past_songs%}
+                <form method="post">
+                    <div class="list-group">
+                        <input type="submit" class="list-group-item list-group-item-action active" aria-current="true" value="{{songs['Filename/Date']}}">
+                        
+
+                        {% for song in songs['songs'] %}
+
+                            {%if song[1] %}
+                            <input type="submit" class="list-group-item list-group-item-action" value="{{song}}" name="SongNumTuple">
+                            {% endif %}
+                        {%endfor%}
+                    
+                    </div>
+                    <br>
+                </form>
+                {%endfor%}
+                <p class="text-start text-secondary" id="hint">
+                    Hint: Just click the song you want to open.
+                </p>
+                <p class="text-start text-secondary" id="hint">
+                    Խորհուրդ. Ուղակի սեղմեք այն երգը, որը ցանկանում եք բացել։
+                </p>
+                {%else%}
+                <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">
+                    No Past Songs Found
+                </p>
+                {%endif%}
             </div>
-        </div>
         </div>
     </div>
     {% else %}
     {% include 'guest.html' %}
     {% endif %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
