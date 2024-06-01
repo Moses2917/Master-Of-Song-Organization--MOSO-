@@ -2,7 +2,8 @@
 
 Welcome to the MOSO project! 🎵
 
-![ComfyUI_temp_dffmr_00017_](https://github.com/Moses2917/Master-Of-Song-Organization--MOSO-/assets/65843759/f101a26d-ee50-48f6-b863-36dec584f230)
+
+![ComfyUI_temp_dffmr_00017_ (2)](https://github.com/Moses2917/Master-Of-Song-Organization--MOSO-/assets/65843759/a405ddc3-63bd-4792-a912-9e3801b2375b)
 
 
 **This project is still a major work in progress with many features yet to come! This means that everything on the readme, is not necessarily fully implimented yet, but it will be soon!** 
