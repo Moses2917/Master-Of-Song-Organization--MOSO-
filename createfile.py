@@ -67,7 +67,7 @@ def getPcSongs(songs, imp, user):
         docx: a word file containing the requested songs
     """
     DrivePath = os.environ.get("OneDrive")
-    my_doc = docx.Document("{}\\Choir Songs Template - Alt.docx".format(DrivePath))
+    my_doc = docx.Document("{}\\Choir Songs Template - Alt - Copy.docx".format(DrivePath))
     for x in songs:
         x = str(x)
         y = songs.index(x)

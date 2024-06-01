@@ -19,17 +19,16 @@
         <div class="container-xl">
             <a class="navbar-brand" href="{{ url_for('song_info') }}">Home</a>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <div class="input-group">
-                    <!-- <span class="input-group-text btn btn-primary fs-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
-                      </svg>
-                    </span> -->
                 <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
-                    <input class="form-control me-5" type="text" placeholder="Search" aria-label="Search" readonly>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+                            </svg>
+                        </span>
+                        <input class="form-control d-flex" type="text" placeholder="Search" aria-label="Search" readonly>
+                    </div>
                 </button>
-                </div>
-
             </div>
             <a class="navbar-brand " href="{{url_for('tsank')}}">Tsank</a>
         </div>
@@ -37,7 +36,7 @@
 
     {% if session %}
         <div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-4" id="searchModalLabel">Enter Song Lyrics</h1>
@@ -72,7 +71,7 @@ async function getResults() {
             //text.forEach(manifestResults);
             for (const element of text){
                 //resultsUl.innerHTML += `<li class="list-group-item"> Song Number: ${element.songNum} Book: ${element.book} </li>`
-                resultsUl.innerHTML += `<input value = "Song Number: ${element.songNum}, Book: ${element.book}" type="submit" name="SearchResultSong" class="list-group-item list-group-item-action">`
+                resultsUl.innerHTML += `<input value = "Song Number: ${element.songNum}, Book: ${element.book}, Title: ${element.title}" type="submit" name="SearchResultSong" class="list-group-item list-group-item-action">`
                 
             }
         });
@@ -89,7 +88,7 @@ async function getResults() {
             </div>
             
                 <div class="modal-footer">
-                    <p class="text-start text-secondary" id="hint">Խորհուրդ. Ուղակի սեղմեք այն երգը,<br> Որը ցանկանում եք բացել։</p>
+                    <p class="text-start text-secondary fs-5" id="hint">Խորհուրդ. Ուղակի սեղմեք այն երգը,<br> Որը ցանկանում եք բացել։</p>
                     
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>

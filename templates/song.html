@@ -49,8 +49,9 @@
                         {% for song in songs['songs'] %}
 
                             {%if song[1] %}
-                            <input type="submit" class="list-group-item list-group-item-action" value="{{song}}" name="SongNumTuple">
+                            <input type="submit" class="list-group-item list-group-item-action" value="SongNum: {{song[1]}}, Book: {{song[0]}}, Title: {{title}}" name="SongNumTuple">
                             {% endif %}
+
                         {%endfor%}
                     
                     </div>

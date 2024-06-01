@@ -1999,9 +1999,16 @@
             "v1": "Word songs\\pptSong\\447.docx"
         },
         "448": {
-            "Title": "",
-            "latestVersion": "Word songs/448   v1.docx",
-            "v1": "Word songs/448   v1.docx"
+            "Title": "Հիսուս Քեզ բարձրացնում եմ",
+            "latestVersion": "Word songs/448  v2.docx",
+            "v1": "Word songs/448   v1.docx",
+            "v2": "Word songs/448  v2.docx",
+            "key": "F# (-6)",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "None",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "450": {
             "Title": "Քեզ սիրեմ բարձրացնեմ",
@@ -2516,8 +2523,15 @@
         },
         "534": {
             "Title": "Շալոմ բարեկամներ Տիրոջմով շալոմ",
-            "latestVersion": "Word songs/534 Շալոմ բարեկամներ Տիրոջմով շալոմ.docx",
-            "v1": "Word songs/534 Շալոմ բարեկամներ Տիրոջմով շալոմ.docx"
+            "latestVersion": "Word songs/534 Շալոմ բարեկամներ Տիրոջմով շալոմ v2.docx",
+            "v1": "Word songs/534 Շալոմ բարեկամներ Տիրոջմով շալոմ.docx",
+            "v2": "Word songs/534 Շալոմ բարեկամներ Տիրոջմով շալոմ v2.docx",
+            "key": "Em",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Disco-P5-4"
         },
         "535": {
             "Title": "Փառք Աստծո շնորհաց աղյուրին",
@@ -3218,7 +3232,7 @@
         },
         "664": {
             "Title": "Տերը թագավոր է",
-            "latestVersion": "Word songs/664 Տերը թագավոր է v2.docx",
+            "latestVersion": "Word songs/664 Տերը թագավոր է v3.docx",
             "v1": "Word songs/664 Տերը թագավոր է.docx",
             "v2": "Word songs/664 Տերը թագավոր է v2.docx",
             "key": "Em",
@@ -3226,7 +3240,8 @@
             "style": "Samba",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v3": "Word songs/664 Տերը թագավոր է v3.docx"
         },
         "665": {
             "Title": "Թող սիրո Աստված լեցնե սիրտդ",
@@ -3712,8 +3727,15 @@
         },
         "738": {
             "Title": "Հիսուս Հիսուս",
-            "latestVersion": "Word songs/738 Հիսուս Հիսուս.docx",
-            "v1": "Word songs/738 Հիսուս Հիսուս.docx"
+            "latestVersion": "Word songs/738 Հիսուս Հիսուս v2.docx",
+            "v1": "Word songs/738 Հիսուս Հիսուս.docx",
+            "v2": "Word songs/738 Հիսուս Հիսուս v2.docx",
+            "key": "C",
+            "speed": "75",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "739": {
             "Title": "Քոնն եմ ես քոնն եմ ես հավետ Սիրո Արքա",
@@ -3834,15 +3856,16 @@
         },
         "755": {
             "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
-            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
+            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v3.docx",
             "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
             "v2": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
-            "key": "F#m",
+            "key": "Em (?)",
             "speed": "100",
             "style": "Beguine ",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance- P2-8"
+            "Comments": "Latin Dance- P2-8",
+            "v3": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v3.docx"
         },
         "756": {
             "Title": "Օրհնյալ է Տերը օրհնյալ ամեն օր",
@@ -4097,16 +4120,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Օրհնենք(3) Գառնուկին(2)",
-            "latestVersion": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v2.docx",
-            "v1": "Word songs/603 Օրհնենք(3) Գառնուկին(2).docx",
-            "v2": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v2.docx",
-            "key": "C",
-            "speed": "68",
-            "style": "Beat ",
-            "song_type": "Worship Song",
+            "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
+            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v3.docx",
+            "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
+            "v2": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
+            "key": "Em (?)",
+            "speed": "100",
+            "style": "Beguine ",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Any beat-ballad"
+            "Comments": "Latin Dance- P2-8",
+            "v3": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v3.docx"
         },
         "21": {
             "Title": "Ես համոզված եմ եվ հաստատ ուխտած",

@@ -4,6 +4,16 @@ from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import json
+#Setup mongodb
+from pymongo import MongoClient
+
+with open('{}\\Documents\\Code\\mongoPass.txt'.format(env.get("OneDrive")), 'r') as mongoPass:
+    uri = "mongodb+srv://{}@cluster0.kgkoljn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0".format(mongoPass.read()) #env.get('mongo_user')
+
+# Create a new client and connect to the server
+client = MongoClient(uri)
+songDB = client.get_database("songs")
+songDB = songDB.get_collection("allSongs")
 
 ENV_FILE = find_dotenv("{}\Documents\Code\.env".format(env.get("OneDrive")))
 if ENV_FILE:
@@ -74,10 +84,11 @@ def load_table_data(book):
     except FileNotFoundError:
         return None
 
-def openWord(songNum,book):
+def openWord(songNum, book):
     from docx import Document
-    #Used to find and open word doc, sends back a str of it
-    if "word" in book:
+    #Used to find and open word doc, sends back a html formated str of it
+    
+    if ("word" in book.lower() or "old" in book.lower()):
         with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
             index = json.load(f)
     else:
@@ -214,20 +225,98 @@ def DayofPentecost():
         html_text = f.read()
     return render_template("songNew.html", lyrics=html_text)
 
+@app.route('/search/<lyrics>', methods=['GET'])
+def songSearch(lyrics):
+    # lyrics = request.args.get('lyrics', None)
+    #Looks for a song, given any lyric and return x(default of 10) search results
+
+    if lyrics:
+
+        query = {
+            "$search": {
+                "index": "search_index",
+                "text": {
+                    "query": lyrics,
+                    "path": {
+                        "wildcard": "*"
+                    }
+                }
+            }
+        }
+        results = songDB.aggregate([query])
+        searchResults = []
+        
+        
+        
+        n = 1
+        for result in results:
+            if n <= 10:
+                if result['book'] == 'Old':
+                    with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
+                        index = json.load(f)
+                else:
+                    with open('REDergaran.json', 'r', encoding='utf-8') as f:
+                        index = json.load(f) 
+                
+                title = index['SongNum'][result['songNum']]['Title']
+                
+                title = title.split('\n')[0]
+                    
+                searchResults.append({
+                    # 'lyrics': result['lyrics'],
+                    'book': result['book'],
+                    'songNum': result['songNum'], # add a title var
+                    'title': title
+                })
+            else:
+                break
+            n += 1
+
+        return json.dumps(searchResults)
+
 @app.route('/search', methods=['GET', 'POST'])
 def searching():
-    table_data = {}
-    book = request.form.get('book', '')
-    SongNum = request.form.get('SongNum',None)
-    
+    table_data = None
+    book = request.form.get('book', None)
+    SongNum = request.form.get('SongNum', None)
+    SongNumTuple = request.form.get('SongNumTuple', None)
+    SearchResultSong = request.form.get('SearchResultSong', None)
+    # searchLyrics = request.args.get('searchLyrics', None)
+
+    # if searchLyrics:
+    #     return render_template('search.html', session=session.get('user'), table_data=table_data, words=songSearch(searchLyrics))
+
     if request.method == 'POST':
         
-        if SongNum != None:
-            return render_template('song.html', lyrics = openWord(SongNum, book), book=book) #sending the book var inorder for the back button to function properly
+        if SearchResultSong:
+            pair = SearchResultSong.split(', ') # Song Number: ${element.songNum}, Book: ${element.book}, Title: hkjh
+            SongNum = pair[0].split(': ')[1]
+            book = pair[1].split(': ')[1]
+            # title = pair[2].split(': ')[1]
+            return render_template('song.html', lyrics= openWord(SongNum, book))
+        
+        if (SongNum != None) or (SongNumTuple != None):
+            from scanningDir import songSearch #used to search for past songs
+            if SongNumTuple:
+                pair = SearchResultSong.split(', ') # Song Number: ${element.songNum}, Book: ${element.book}
+                SongNum = pair[0].split(': ')[1]
+                book = pair[1].split(': ')[1]
+                # book, SongNum = eval(SongNumTuple)
+            if book == 'Old':#run past songs then use as input for this func
+                with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
+                    index = json.load(f)
+            else:
+                with open('REDergaran.json', 'r', encoding='utf-8') as f:
+                    index = json.load(f) 
+            
+            title = index['SongNum'][SongNum]['Title']
+            
+            title = title.split('\n')[0]
+            return render_template('song.html', lyrics = openWord(SongNum, book), book=book, past_songs = songSearch(SongNum, book), title=title) #sending the book var inorder for the back button to function properly
         
         # Validate if book is selected
         if not book:
-            return render_template('search.html', table_data=table_data)
+            return render_template('search.html', table_data= {})
 
         # Load table data based on the selected book
         table_data = load_table_data(book)
@@ -258,7 +347,6 @@ def searching():
 
     return render_template('search.html', session=session.get('user'), table_data=table_data, book=book, query=query, attribute=attribute)
 
-
 @app.route('/tsank', methods=['GET','POST'])
 def tsank():
     book = request.form.get('book', None)
@@ -277,7 +365,11 @@ def tsank():
             return render_template("temmas.html", temmas=temma, temmalist=temmalist)#call a func. to get the list of songs
     return render_template("temma.html", session=session.get('user'),table_data=table_data,temmas=temma)
 
+@app.route('/song', methods=['GET','POST'])
+def display_song():
+    return render_template('song.html')
+
+
 
 if __name__ == '__main__':
-    #,ssl_context='adhoc'
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))

@@ -208,8 +208,12 @@ def songSearch(song_num, book):
     with open('songs.json', 'r',encoding='utf-8') as f:
         data = json.load(f)
 
+    if (book == "REDergaran") or (book == "New"):
+        book = 'New'
+    if (book == "Old") or (book == "wordSongsIndex"):
+        book = 'Old'
+    
     # Define the search function
-
     result = search_song(data, song_num, book)
 
     if result:
@@ -219,10 +223,10 @@ def songSearch(song_num, book):
 
         return result
     else:
-        # print(f"Song number {song_num} in book {book} not found.")
+        print(f"Song number {song_num} in book {book} not found.")
         return None
 
-# songSearch('312', 'Old')
+
 
 def toJson():
     """Generates a json version of AllSongs.txt and save it to the disk
@@ -350,16 +354,18 @@ def findNewFiles():  # is for finding new files so as to only go through and add
         with os.scandir(filepth) as songFolder:
             for songs in songFolder:
                 if allsongs.get(songs.name, None):
+                    # lookup file in index, and if none do not run code go to else statement
                     dateModOnFile = datetime.fromtimestamp(allsongs[songs.name]['dateMod'])
                     currDateMod = datetime.fromtimestamp(stat(songs.path).st_mtime)
-
+                    
+                    # if it exists in the index then do this after setting vars for comparison of dates
                     if not (currDateMod <= dateModOnFile):
+                        # if the date modified of a file is greater than the one on file repalce it
                         allsongs[songs.name] = {
                             'dateMod': stat(songs.path).st_mtime,
                             'path': songs.path,
                             'basePth': basePth,
                             'songList': getNums(songs.path)
-
                         }
                         print("Updated this file", songs.name)
                 else:
@@ -368,7 +374,6 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                         'path': songs.path,
                         'basePth': basePth,
                         'songList': getNums(songs.path)
-
                     }
 
     with open("songs.json", mode='w', encoding='utf-8') as saveFile:

@@ -153,7 +153,6 @@ def getDocTextAndIndentation(filename:str):
             if right_indent is not None:
                 Placeholder.paragraph_format.right_indent = right_indent
 
-
             song.append({
                 'text': p.text,
                 # 'book': re.findall(pattern, p.text,re.DOTALL)[0],
@@ -163,7 +162,10 @@ def getDocTextAndIndentation(filename:str):
                 'right_indent': right_indent
             })
         if "end" in p.text: # Def ending loc
-            saveDocFromDoc(my_doc, bookOld, songNum)
+            if doc.paragraphs[1].text:
+                saveDocFromDoc(my_doc, bookOld, songNum)
+            else:
+                print("No Pass!")
             #push song to text var and reset song var
             bookOld = False
             song = []
