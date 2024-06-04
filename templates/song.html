@@ -35,21 +35,24 @@
        
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasPastSongs" aria-labelledby="offcanvasPastSongsLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasPastSongsLabel">Check Past Songs</h5>
+                <div class="list-group list-group-flush">
+                    <li  class="list-group-item"><h5 class="offcanvas-title" id="offcanvasPastSongsLabel">Check Past Songs</h5></li>
+                    <p class="list-group-item text-secondary" id="hint">Խորհուրդ. Սեղմեք այն երգը, որը ցանկանում եք բացել։</p>
+                </div>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 {%if past_songs %}
                 {%for songs in past_songs%}
                 <form method="post">
-                    <div class="list-group">
+                    <div class="list-group d-flex">
                         <input type="submit" class="list-group-item list-group-item-action active" aria-current="true" value="{{songs['Filename/Date']}}">
                         
 
                         {% for song in songs['songs'] %}
 
                             {%if song[1] %}
-                            <input type="submit" class="list-group-item list-group-item-action" value="SongNum: {{song[1]}}, Book: {{song[0]}}, Title: {{title}}" name="SongNumTuple">
+                            <input type="submit" class="list-group-item list-group-item-action" value="SongNum: {{song[1]}}, Book: {{song[0]}}, Title: {{song[2]}}" name="SongNumTuple">
                             {% endif %}
 
                         {%endfor%}

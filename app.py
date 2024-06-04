@@ -298,21 +298,37 @@ def searching():
         if (SongNum != None) or (SongNumTuple != None):
             from scanningDir import songSearch #used to search for past songs
             if SongNumTuple:
-                pair = SearchResultSong.split(', ') # Song Number: ${element.songNum}, Book: ${element.book}
+                pair = SongNumTuple.split(', ') # Song Number: ${element.songNum}, Book: ${element.book}
                 SongNum = pair[0].split(': ')[1]
                 book = pair[1].split(': ')[1]
                 # book, SongNum = eval(SongNumTuple)
-            if book == 'Old':#run past songs then use as input for this func
-                with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
-                    index = json.load(f)
-            else:
-                with open('REDergaran.json', 'r', encoding='utf-8') as f:
-                    index = json.load(f) 
+           
+            with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
+                wordSongsIndex = json.load(f)
+        
+            with open('REDergaran.json', 'r', encoding='utf-8') as f:
+                REDergaran = json.load(f)
             
-            title = index['SongNum'][SongNum]['Title']
-            
-            title = title.split('\n')[0]
-            return render_template('song.html', lyrics = openWord(SongNum, book), book=book, past_songs = songSearch(SongNum, book), title=title) #sending the book var inorder for the back button to function properly
+            past_songs = songSearch(SongNum, book)
+            if past_songs != None:
+                for songs in past_songs:
+                    song_titles = []
+                    for song_pair in songs['songs']:
+                        if not (None in song_pair):
+                            # each song is a tuple ie: ('Old', '495')
+                            # here I am simply adding a tuple(list(title))
+                            title = ""
+                            if song_pair[0] == 'Old':
+                                if song_pair[1] in wordSongsIndex['SongNum']:
+                                    title = wordSongsIndex['SongNum'][song_pair[1]]["Title"]
+                                    title = title.split('\n')[0]
+                            else:
+                                if song_pair[1] in REDergaran['SongNum']:
+                                    title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
+                                    title = title.split('\n')[0]
+                            song_titles.append(song_pair + tuple([title]))
+                    songs['songs'] = song_titles
+            return render_template('song.html', lyrics = openWord(SongNum, book), book=book, past_songs = past_songs)#, title=title) #sending the book var inorder for the back button to function properly
         
         # Validate if book is selected
         if not book:

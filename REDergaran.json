@@ -3783,9 +3783,10 @@
         },
         "531": {
             "Title": "Եկել եմ, հոգսերս վերցրո՜ւ,",
-            "latestVersion": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v2.docx",
+            "latestVersion": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v3.docx",
             "v1": "RED Words/531.docx",
-            "v2": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v2.docx"
+            "v2": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v2.docx",
+            "v3": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v3.docx"
         },
         "532": {
             "Title": "Եկա Քեզ մոտ պայծառ մի օր,",
@@ -4027,7 +4028,7 @@
         },
         "565": {
             "Title": "Հրեշտակներն երկնքում",
-            "latestVersion": "Երգարան Word Files/565 Հրեշտակներն երկնքում v3.docx",
+            "latestVersion": "Երգարան Word Files/565 Հրեշտակներն երկնքում v4.docx",
             "v1": "Երգարան Word Files/565 Հրեշտակներն երկնքում.docx",
             "v2": "Երգարան Word Files/565 Հրեշտակներն երկնքում v2.docx",
             "v3": "Երգարան Word Files/565 Հրեշտակներն երկնքում v3.docx",
@@ -4036,7 +4037,8 @@
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P4-1"
+            "Comments": "Ballad-P4-1",
+            "v4": "Երգարան Word Files/565 Հրեշտակներն երկնքում v4.docx"
         },
         "566": {
             "Title": "Արարատ լեռան ձյունապատ սրտից",

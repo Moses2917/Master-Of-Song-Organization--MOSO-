@@ -218,8 +218,9 @@ def songSearch(song_num, book):
 
     if result:
         # print(f"Found song number {song_num} in book {book} in the file for {result['filename_date']}.")
-        for x in result:
-            print(x)
+
+        # for x in result:
+        #     print(x)
 
         return result
     else:
