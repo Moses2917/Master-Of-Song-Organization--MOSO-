@@ -1,3 +1,4 @@
+import json
 import os, datetime, docx, re
 
 
@@ -141,7 +142,7 @@ def songCollector():
     #     date = key
     #     date = re.findall(r"(.*\d)", date)[0]
 
-
+    blocked_dict = {}
     for key in allSongs:
         date = key
         date = re.findall(r"(.*\d)", date)[0]
@@ -155,35 +156,19 @@ def songCollector():
             # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
             if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
                 blocked_list.append([
-                    eval(allSongs[key]['songList']), # [('book','songnum'), ('book','songnum'), ('book','songnum')]
+                    eval(allSongs[key]['songList']),  # [('book','songnum'), ('book','songnum'), ('book','songnum')]
                     fileDate
                 ])
+                blocked_dict[fileDate] = {
+                    'songList': allSongs[key]['songList'],
+                    'basePth': allSongs[key]['basePth'],
+
+                }
                 # print(lis)
-    return blocked_list
+    return blocked_dict
+    # return blocked_list
 
-
-def songChecker(book: str, songNum: str):
-    """Finds songNum, then go to that index in books and see if it matches with the given book var and also check and see if there is an "invalid" string to skip the next book
-
-    Args:
-        songNum str: song number being checked
-        book str: from olds or new book
-
-    Returns:
-        Bool: True if used False if not
-        Str: Returns the date it was sang if true
-    """
-    blocked_list = songCollector()
-    pair = (book, songNum)
-    for songlist in blocked_list:
-        for song_pair in songlist[0]:
-            if pair == song_pair:
-                return True, songlist[1]
-    return False
-
-# print(songChecker('New','199'))
-
-def search_song(data, song_num, book):
+def search_song(data: json, song_num, book):
     found_list = []
     found = False
     for item in data:
@@ -205,14 +190,14 @@ def search_song(data, song_num, book):
 
 def songSearch(song_num, book):
     import json
-    with open('songs.json', 'r',encoding='utf-8') as f:
+    with open('songs.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     if (book == "REDergaran") or (book == "New"):
         book = 'New'
     if (book == "Old") or (book == "wordSongsIndex"):
         book = 'Old'
-    
+
     # Define the search function
     result = search_song(data, song_num, book)
 
@@ -227,7 +212,35 @@ def songSearch(song_num, book):
         print(f"Song number {song_num} in book {book} not found.")
         return None
 
+# print(songSearch("490","Old"))
 
+def songChecker(book: str, songNum: str):
+    """Finds songNum, then go to that index in books and see if it matches with the given book var and also check and see if there is an "invalid" string to skip the next book
+
+    Args:
+        songNum str: song number being checked
+        book str: from olds or new book
+
+    Returns:
+        Bool: True if used False if not
+        Str: Returns the date it was sang if true
+    """
+
+    blocked_list = songCollector()
+    date_format = "%m.%d.%y"
+    # print(blocked_list)
+    song_search_results = search_song(blocked_list, songNum, book)
+    date_newest = datetime.datetime.strptime("01.01.70", date_format)
+    if song_search_results:
+        # print(song_search_results)
+        for key in song_search_results:
+            print(key['Filename/Date'])
+            date_compare = datetime.datetime.strptime(key['Filename/Date'], date_format)
+            if date_newest < date_compare:
+                date_newest = date_compare
+        return True, date_newest.strftime(date_format)
+        return True, date_newest
+    return False
 
 def toJson():
     """Generates a json version of AllSongs.txt and save it to the disk
@@ -358,7 +371,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                     # lookup file in index, and if none do not run code go to else statement
                     dateModOnFile = datetime.fromtimestamp(allsongs[songs.name]['dateMod'])
                     currDateMod = datetime.fromtimestamp(stat(songs.path).st_mtime)
-                    
+
                     # if it exists in the index then do this after setting vars for comparison of dates
                     if not (currDateMod <= dateModOnFile):
                         # if the date modified of a file is greater than the one on file repalce it
@@ -380,3 +393,6 @@ def findNewFiles():  # is for finding new files so as to only go through and add
     with open("songs.json", mode='w', encoding='utf-8') as saveFile:
         dump(allsongs, saveFile, indent=4, ensure_ascii=False)
 
+
+# Uncomment this to manually update the index
+# print(findNewFiles())

@@ -2258,7 +2258,13 @@
             "v1": "Word songs/495  v1.docx",
             "v2": "Word songs/495  v2.docx",
             "v3": "Word songs/495  v3.docx",
-            "v4": "Word songs/495 Հիսուսն է Տերը, մեր Մեսիան, միակ Թագավորը և Արքան v4.docx"
+            "v4": "Word songs/495 Հիսուսն է Տերը, մեր Մեսիան, միակ Թագավորը և Արքան v4.docx",
+            "key": "C",
+            "speed": "116",
+            "style": "Samba",
+            "song_type": "None",
+            "timeSig": "4/4",
+            "Comments": "Hisusn (C), Ekeq ergenq (C), Alelu aleluya (+1) , Ov Asvac (+2)"
         },
         "497": {
             "Title": "Տեր իմ, գործերովս չէ, որ պիտ արդարանամ",
@@ -2335,10 +2341,10 @@
             "Title": "Սա է Ծառան Իմ, ում կհավանեմ,",
             "latestVersion": "Word songs/506 Սա է Ծառան Իմ, ում կհավանեմ, v3.docx",
             "v1": "Word songs/506 Սա է Ծառան Իմ, ում կհավանեմ,.docx",
-            "key": "-9 (E flat)",
+            "key": "E (-8)",
             "speed": "68",
             "style": "Beat",
-            "song_type": "Worship Song",
+            "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Pop-P1-4",
             "v2": "Word songs/506 Սա է Ծառան Իմ, ում կհավանեմ, v2.docx",
@@ -2403,7 +2409,13 @@
             "Title": "Ամենից վեր, վեր երկնից",
             "latestVersion": "Word songs/515 Ամենից վեր, վեր երկնից v2.docx",
             "v1": "Word songs/515 Ամենից վեր, վեր երկնից.docx",
-            "v2": "Word songs/515 Ամենից վեր, վեր երկնից v2.docx"
+            "v2": "Word songs/515 Ամենից վեր, վեր երկնից v2.docx",
+            "key": "G",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "516": {
             "Title": "Մի վախենա Ես քեզ հետ եմ \nԿյանքիդ բոլոր վայրկյաններում, \nՎստահ նետիր քո քայլերը \nԴժվարության շավիղներում:",
@@ -2706,7 +2718,13 @@
             "Title": "Այս անլույս կյանքում",
             "latestVersion": "Word songs/568 Այս անլույս կյանքում v2.docx",
             "v1": "Word songs/568 Այս անլույս կյանքում.docx",
-            "v2": "Word songs/568 Այս անլույս կյանքում v2.docx"
+            "v2": "Word songs/568 Այս անլույս կյանքում v2.docx",
+            "key": "Em",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "570": {
             "Title": "Բոլոր ծարավներ եկեք խմեք\nԱղբյուրից կենդանի ջրից\n      Ով կհավատա կսիրի որդուն\n     Կօրհնվի նա բոլոր կյանքում",
@@ -3045,10 +3063,10 @@
             "v1": "Word songs/638 Ես կյանքի լույսն եմ.docx",
             "v2": "Word songs/638 Ես կյանքի լույսն եմ v2.docx",
             "v3": "Word songs/638 Ես կյանքի լույսն եմ v3.docx",
-            "key": "Em flat (-6)",
+            "key": "Em ",
             "speed": "117",
             "style": "Disco",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Dance-P5-4",
             "v4": "Word songs/638 Ես կյանքի լույսն եմ v4.docx"
@@ -4125,17 +4143,18 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
-            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v3.docx",
-            "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
-            "v2": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
-            "key": "Em (?)",
-            "speed": "100",
-            "style": "Beguine ",
-            "song_type": "Single Song",
+            "Title": "Ես կյանքի լույսն եմ",
+            "latestVersion": "Word songs/638 Ես կյանքի լույսն եմ v4.docx",
+            "v1": "Word songs/638 Ես կյանքի լույսն եմ.docx",
+            "v2": "Word songs/638 Ես կյանքի լույսն եմ v2.docx",
+            "v3": "Word songs/638 Ես կյանքի լույսն եմ v3.docx",
+            "key": "Em ",
+            "speed": "117",
+            "style": "Disco",
+            "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Latin Dance- P2-8",
-            "v3": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v3.docx"
+            "Comments": "Dance-P5-4",
+            "v4": "Word songs/638 Ես կյանքի լույսն եմ v4.docx"
         },
         "21": {
             "Title": "Ես համոզված եմ եվ հաստատ ուխտած",

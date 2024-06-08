@@ -31,8 +31,7 @@ def add_song(event=None):
         print(dupSong)
         if dupSong: # get value and if used then ask if they wish to continue
             errMes = messagebox.askyesno("Error: That song was used before in the last 3 months",
-                                         "Do you wish to proceed with this song {}\nFilename/Date: {}"
-                                         .format(song_num + " " + bookType, dupSong[1])#SD.getSongDate(songNum=song_num,book=bookType))
+                                         "Do you wish to proceed with this song {}\nFilename/Date: {}".format(song_num + " " + bookType, dupSong[1])#SD.getSongDate(songNum=song_num,book=bookType))
                                          )
             if errMes:
                 if 'New' in bookType: bookType = 'n'
