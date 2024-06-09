@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{%block content%}
+        <div class="container my-5">
+
+            <header class="header mb-4">
+                <h1 class="text-center">Please Choose the Book:</h1>
+                
+                <form method="post" class="form-group">
+                    <div class="form-group">
+                        <select name="book" class="form-control">
+                            <option value="">--Please choose an option--</option>
+                            <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }} > REDErgaran</option>
+                            <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>Old Book</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="query" class="form-label">Search Query:</label>
+                        <input type="text" id="query" name="query" value="{{ query }}" class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="attribute" class="form-label">Search Attribute:</label>
+                        <select id="attribute" name="attribute" class="form-control">
+                            <option value="all" {{ 'selected' if attribute=='all' }}>All Attributes</option>
+                            <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
+                            <option value="latestVersion" {{ 'selected' if attribute=='latestVersion' }}>Latest Version</option>
+                            <option value="key" {{ 'selected' if attribute=='key' }}>Key</option>
+                            <option value="speed" {{ 'selected' if attribute=='speed' }}>Speed</option>
+                            <option value="timeSig" {{ 'selected' if attribute=='timeSig' }}>Time Signature</option>
+                            <option value="style" {{ 'selected' if attribute=='style' }}>Style</option>
+                            <option value="song_type" {{ 'selected' if attribute=='song_type' }}>Song Type</option>
+                            <option value="Comments" {{ 'selected' if attribute=='Comments' }}>Comments</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </form>
+            </header>
+
+            {% if not table_date %}
+            <div class="table-responsive-md">
+                <table class="table table-striped table table-hover table-bordered">
+                    <thead class="">
+                        <tr>
+                            <th>SongNum</th>
+                            <th>Title</th>
+                            <th>Latest Version</th>
+                            <th>Key</th>
+                            <th>Speed</th>
+                            <th>Time Signature</th>
+                            <th>Style</th>
+                            <th>Song Type</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form method="post">
+                            <input type="hidden" name="book" value="{{book}}">
+                            {%if table_data%}
+                            {% for row, attr in table_data.items() %}
+                                <tr>
+                                    <td><input type="submit" name="SongNum" value="{{row}}" class="btn btn-primary"></td>
+                                    <td>{{attr['Title']}}</td>
+                                    <td>{{attr['latestVersion']}}</td>
+                                    <td>{{attr['key']}}</td>
+                                    <td>{{attr['speed']}}</td>
+                                    <td>{{attr['timeSig']}}</td>
+                                    <td>{{attr['style']}}</td>
+                                    <td>{{attr['song_type']}}</td>
+                                    <td>{{attr['Comments']}}</td>
+                                </tr>
+                            {% endfor %}
+                            {%endif%}
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+            {%endif%}
+        </div>
+{%endblock%}

@@ -1,0 +1,22 @@
+{%if past_songs %}
+{%for songs in past_songs%}
+<form method="post">
+    <div class="list-group d-flex">
+        <input type="submit" class="list-group-item list-group-item-action active" aria-current="true"
+            value="{{songs['Filename/Date']}}">
+
+
+        {% for song in songs['songs'] %}
+
+        {%if song[1] %}
+        <input type="submit" class="list-group-item list-group-item-action"
+            value="SongNum: {{song[1]}}, Book: {{song[0]}}, Title: {{song[2]}}" name="SongNumTuple">
+        {% endif %}
+
+        {%endfor%}
+
+    </div>
+    <br>
+</form>
+{%endfor%}
+{%endif%}

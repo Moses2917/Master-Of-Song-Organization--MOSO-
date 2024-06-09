@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput" oninput="getPastSongs()">
+  <div class="row align-items-start">
+    <h2 class="text-center">Please Enter The Song Number:</h2>
+    <div class="row justify-content-center" id="book">
+      <div class="form-check">
+        <label class="form-check-label" for="old">
+          Old Book
+        </label>
+        <input class="form-check-input" type="checkbox" id="old" value="Old" onclick="checkboxCheck('old')">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="new">
+          Red Book
+        </label>
+        <input class="form-check-input" type="checkbox" name="Book" id="new" value="New" onclick="checkboxCheck('new')">
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum">
+    </div>
+  </div>
+  <p class="text-start" id="hint-en">
+    Hint: Just click the song you want to open.
+  </p>
+  <p class="text-start" id="hint-am">
+    Խորհուրդ. Սեղմեք այն երգը որը ցանկանում եք բացել։
+  </p>
+</div>
+
+<div class="container-md" id="Results">
+</div>
+
+<script>
+  function checkboxCheck(clickedId) {
+    // Get the checkboxes by their IDs
+    var oldCheckbox = document.getElementById('old');
+    var newCheckbox = document.getElementById('new');
+
+    // If the 'old' checkbox is clicked and it's checked, uncheck the 'new' checkbox
+    if (clickedId === 'old' && oldCheckbox.checked) {
+      newCheckbox.checked = false;
+    }
+
+    // If the 'new' checkbox is clicked and it's checked, uncheck the 'old' checkbox
+    if (clickedId === 'new' && newCheckbox.checked) {
+      oldCheckbox.checked = false;
+    }
+  }
+  
+  async function getPastSongs() {
+    // Get the checkboxes by their IDs
+    var oldCheckbox = document.getElementById('old');
+    var newCheckbox = document.getElementById('new');
+    var book = "";
+
+    // If the 'old' checkbox is clicked and it's checked, uncheck the 'new' checkbox
+    if (oldCheckbox.checked) {
+      book = "Old";
+    }
+
+    // If the 'new' checkbox is clicked and it's checked, uncheck the 'old' checkbox
+    if (newCheckbox.checked) {
+      book = "New";
+    }
+    
+    const Results = document.getElementById('Results');
+    var songnum = document.getElementById('SongNum').value;
+    if (book == ""){
+      if(songnum){
+        Results.innerHTML = '<p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">No Book Selected</p>'
+      }
+    }
+    else{
+      //const Results = document.getElementById('Results')
+      Results.innerHTML = ""
+      // Get the song number, and make the url
+      
+      var url = {{ url_for('past_songs',songnum="")| tojson }}
+      if (songnum){
+        if(songnum<=1000 && songnum>0){
+          url = url + String(songnum);
+          fetch(url,{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+          },
+            body: JSON.stringify({'book':book})
+          })
+          .then(response =>response.text())
+          .then(text =>{
+            Results.innerHTML += text
+          })
+        }
+        else{
+          Results.innerHTML = '<p class="p-3 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">Song Number is Too Large</p>'
+        }
+        console.log(url);
+        
+      }
+    }
+  }
+</script>
+{%endblock%}

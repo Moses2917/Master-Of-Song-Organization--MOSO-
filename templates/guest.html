@@ -1,20 +1,9 @@
-<!--<style>-->
-<!--    h1 {-->
-<!--            text-align: center;-->
-<!--            color: #007BFF;-->
-<!--            font-weight: bold;-->
-<!--            margin-bottom: 30px;-->
-<!--            margin-top: 30px;-->
-<!--        }-->
-<!--    </style>-->
-
-<div class="container mt-5 mb-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 text-center text-primary">
-            <h1 class="text-sm-center">Welcome our Guest!</h1>
-            <h3 class="mt-2">Please log in to continue.</h3>
-            <a href="/login" class="btn btn-primary me-2">Login</a>
-            <!-- <a href="/register" class="btn btn-secondary me-2">Register</a> -->
+<div class="container mt-5 d-flex justify-content-center fs-5">
+    <div class="card border-light mb-3 w-75">
+        <div class="card-body">
+            <h5 class="card-title">Please Sign In</h5>
+            <p class="card-text">You need to sign in to access the application.</p>
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Sign In</a>
         </div>
     </div>
 </div>

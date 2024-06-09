@@ -446,8 +446,15 @@
         },
         "59": {
             "Title": "Ամեն երկիրներ, Տերոջմով ցնծացեք",
-            "latestVersion": "Երգարան Word Files/59 Ամեն երկիրներ, Տերոջմով ցնծացեք.docx",
-            "v1": "Երգարան Word Files/59 Ամեն երկիրներ, Տերոջմով ցնծացեք.docx"
+            "latestVersion": "Երգարան Word Files/59 Ամեն երկիրներ, Տերոջմով ցնծացեք v2.docx",
+            "v1": "Երգարան Word Files/59 Ամեն երկիրներ, Տերոջմով ցնծացեք.docx",
+            "v2": "Երգարան Word Files/59 Ամեն երկիրներ, Տերոջմով ցնծացեք v2.docx",
+            "key": "C",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "60": {
             "Title": "Փորձանքներու մեջ անհամար",
@@ -1318,16 +1325,17 @@
         },
         "187": {
             "Title": "Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝",
-            "latestVersion": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v3.docx",
+            "latestVersion": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v4.docx",
             "v1": "RED Words/187.docx",
             "v2": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v2.docx",
-            "key": "Gm",
+            "key": "F#m",
             "speed": "69",
             "style": "Ballad",
             "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Ballad-P6-1",
-            "v3": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v3.docx"
+            "v3": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v3.docx",
+            "v4": "Երգարան Word Files/187 Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝ v4.docx"
         },
         "188": {
             "Title": "Գոհանում եմ, Տե՜ր իմ",
@@ -1592,7 +1600,7 @@
         },
         "223": {
             "Title": "Եթե հոգնել ես ճանապարհին,",
-            "latestVersion": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v4.docx",
+            "latestVersion": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v5.docx",
             "v1": "RED Words/223.docx",
             "v2": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v2.docx",
             "v3": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v3.docx",
@@ -1600,9 +1608,10 @@
             "key": "Em",
             "speed": "125",
             "style": "Bossa Nova",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Ballad-P6-4"
+            "Comments": "Ballad-P6-4",
+            "v5": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v5.docx"
         },
         "224": {
             "Title": "Աչքերս եմ բացել Քրիստոսի խաչի տակ",
@@ -3155,10 +3164,10 @@
             "Title": "Հիշի՛ր քո Տեր Աստծուն",
             "latestVersion": "RED Words/445.docx",
             "v1": "RED Words/445.docx",
-            "key": "Fm",
-            "speed": "95",
+            "key": "F#m",
+            "speed": "97",
             "style": "Ballad",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "6/8",
             "Comments": "Ballad-P4-1"
         },
@@ -3347,7 +3356,7 @@
             "Title": "Որքա՜ն կուզեմ, օրհնյա՜լ Տեր իմ",
             "latestVersion": "Երգարան Word Files/472 Որքա՜ն կուզեմ, օրհնյա՜լ Տեր իմ.docx",
             "v1": "Երգարան Word Files/472 Որքա՜ն կուզեմ, օրհնյա՜լ Տեր իմ.docx",
-            "key": "Am",
+            "key": "Bm",
             "speed": "60",
             "style": "Beat",
             "song_type": "Single Song",
@@ -3356,9 +3365,16 @@
         },
         "473": {
             "Title": "Արթնացրո՜ւ ինձ, Տե՛ր,",
-            "latestVersion": "Երգարան Word Files/473 Արթնացրո՜ւ ինձ, Տե՛ր, v2.docx",
+            "latestVersion": "Երգարան Word Files/473 Արթնացրո՜ւ ինձ, Տե՛ր, v3.docx",
             "v1": "RED Words/473.docx",
-            "v2": "Երգարան Word Files/473 Արթնացրո՜ւ ինձ, Տե՛ր, v2.docx"
+            "v2": "Երգարան Word Files/473 Արթնացրո՜ւ ինձ, Տե՛ր, v2.docx",
+            "v3": "Երգարան Word Files/473 Արթնացրո՜ւ ինձ, Տե՛ր, v3.docx",
+            "key": "E (flat) m (-6)",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "474": {
             "Title": "Հայր Աստված, օրհնում ենք Քեզ Քո Որդու անունով",
@@ -3399,8 +3415,15 @@
         },
         "480": {
             "Title": "Ահա մենք ուրախ երգերով,",
-            "latestVersion": "RED Words/480.docx",
-            "v1": "RED Words/480.docx"
+            "latestVersion": "Երգարան Word Files/480 Ահա մենք ուրախ երգերով, v2.docx",
+            "v1": "RED Words/480.docx",
+            "v2": "Երգարան Word Files/480 Ահա մենք ուրախ երգերով, v2.docx",
+            "key": "Dm",
+            "speed": "95",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "481": {
             "Title": "Օվսաննա՜ (3)",
@@ -3786,7 +3809,13 @@
             "latestVersion": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v3.docx",
             "v1": "RED Words/531.docx",
             "v2": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v2.docx",
-            "v3": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v3.docx"
+            "v3": "Երգարան Word Files/531 Եկել եմ, հոգսերս վերցրո՜ւ, v3.docx",
+            "key": "Dm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any Beat"
         },
         "532": {
             "Title": "Եկա Քեզ մոտ պայծառ մի օր,",
@@ -6096,8 +6125,15 @@
         },
         "950": {
             "Title": "Ամենի համար գոհանում եմ",
-            "latestVersion": "Երգարան Word Files/950 Ամենի համար գոհանում եմ.docx",
-            "v1": "Երգարան Word Files/950 Ամենի համար գոհանում եմ.docx"
+            "latestVersion": "Երգարան Word Files/950 Ամենի համար գոհանում եմ v2.docx",
+            "v1": "Երգարան Word Files/950 Ամենի համար գոհանում եմ.docx",
+            "v2": "Երգարան Word Files/950 Ամենի համար գոհանում եմ v2.docx",
+            "key": "F",
+            "speed": "",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "951": {
             "Title": "Լույսի ճառագայթ ճախրեց երկնքում,",
@@ -6350,16 +6386,16 @@
             "v1": "Երգարան Word Files/10000 .docx"
         },
         "SongNum": {
-            "Title": "Գոհացէք Տէրից, որ բարի է",
-            "latestVersion": "Երգարան Word Files/194 Գոհացէք Տէրից, որ բարի է v2.docx",
-            "v1": "Երգարան Word Files/194 Գոհացէք Տէրից, որ բարի է.docx",
-            "v2": "Երգարան Word Files/194 Գոհացէք Տէրից, որ բարի է v2.docx",
-            "key": "Em sharp (-6)",
-            "speed": "101",
-            "style": "Beguine ",
+            "Title": "Ամենի համար գոհանում եմ",
+            "latestVersion": "Երգարան Word Files/950 Ամենի համար գոհանում եմ v2.docx",
+            "v1": "Երգարան Word Files/950 Ամենի համար գոհանում եմ.docx",
+            "v2": "Երգարան Word Files/950 Ամենի համար գոհանում եմ v2.docx",
+            "key": "F",
+            "speed": "",
+            "style": "Waltz ",
             "song_type": "Single Song",
-            "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-7"
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",
