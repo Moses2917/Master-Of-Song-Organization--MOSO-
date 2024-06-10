@@ -1,24 +1,34 @@
 {% extends 'base.html' %}
 {%block content%}
 <div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput" oninput="getPastSongs()">
-  <div class="row align-items-start">
+  <div class="row align-items-start justify-content-center ">
     <h2 class="text-center">Please Enter The Song Number:</h2>
-    <div class="row justify-content-center" id="book">
-      <div class="form-check">
-        <label class="form-check-label" for="old">
-          Old Book
-        </label>
-        <input class="form-check-input" type="checkbox" id="old" value="Old" onclick="checkboxCheck('old')">
-      </div>
-      <div class="form-check">
-        <label class="form-check-label" for="new">
-          Red Book
-        </label>
-        <input class="form-check-input" type="checkbox" name="Book" id="new" value="New" onclick="checkboxCheck('new')">
+    <div class="col-9">
+      <div class="input-group mb-3">
+        <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum">
       </div>
     </div>
-    <div class="input-group mb-3">
-      <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum">
+    <div class="row justify-content-center " id="book">
+      <div class="col-auto">
+        <div class="btn btn-dark shadow border border-dark-subtle rounded-3">
+          <div class="form-check">
+            <label class="form-check-label" for="old">
+              Old Book
+            </label>
+            <input class="form-check-input" type="checkbox" id="old" value="Old" onclick="checkboxCheck('old')">
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="btn btn-dark shadow border border-dark-subtle rounded-3">
+          <div class="form-check">
+            <label class="form-check-label" for="new">
+              Red Book
+            </label>
+            <input class="form-check-input" type="checkbox" name="Book" id="new" value="New" onclick="checkboxCheck('new')">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <p class="text-start" id="hint-en">

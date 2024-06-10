@@ -28,10 +28,10 @@
                 <a class="nav-link active" href="{{url_for('tsank')}}">Ցանկ Ըստ Թեմա</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{{url_for('tsank_A_Z')}}">Այբբենական ցանկ (Ա-Ֆ)</a>
+                <a class="nav-link active" href="{{url_for('tsank_A_Z')}}">Այբուբենական Ցանկ (Ա-Ֆ)</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{{url_for('check_past_songs')}}">Check Past Songs</a>
+                <a class="nav-link active" href="{{url_for('check_past_songs')}}">Look Up Past Songs</a>
             </li>
             </ul>
 <!--            <li class="nav-item">-->
@@ -82,10 +82,10 @@
 
 <script>
 async function getResults() {
-    lyrics = document.getElementById('searchLyrics').value;
-    let search_url = {{ url_for('songSearch',lyrics=lyrics)|tojson }}
-    if (lyrics){
-        search_url = search_url + lyrics;
+    searchLyrics = document.getElementById('searchLyrics').value;
+    let search_url = {{ url_for('songSearch', searchLyrics =searchLyrics)|tojson }}
+    if (searchLyrics){
+        search_url = search_url + searchLyrics;
     }
     //const foundLyrics = await fetch(search_url);
     const resultsUl = document.getElementById("searchResults");
@@ -98,8 +98,8 @@ async function getResults() {
             //text.forEach(manifestResults);
             for (const element of text){
                 //resultsUl.innerHTML += `<li class="list-group-item"> Song Number: ${element.songNum} Book: ${element.book} </li>`
-                resultsUl.innerHTML += `<input value = "Song Number: ${element.songNum}, Book: ${element.book}, Title: ${element.title}" type="submit" name="SearchResultSong" class="list-group-item list-group-item-action">`
-
+                //resultsUl.innerHTML += `<input value = "Song Number: ${element.songNum}, Book: ${element.book}, Title: ${element.title}" type="submit" name="SearchResultSong" class="list-group-item list-group-item-action">`
+                resultsUl.innerHTML += element;
             }
         });
 

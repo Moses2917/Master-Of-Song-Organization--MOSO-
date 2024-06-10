@@ -1,45 +1,46 @@
 {% extends 'base.html' %}
 {%block content%}
         <div class="container my-5">
-
-            <header class="header mb-4">
-                <h1 class="text-center">Please Choose the Book:</h1>
-                
-                <form method="post" class="form-group">
-                    <div class="form-group">
-                        <select name="book" class="form-control">
-                            <option value="">--Please choose an option--</option>
-                            <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }} > REDErgaran</option>
-                            <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>Old Book</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="query" class="form-label">Search Query:</label>
-                        <input type="text" id="query" name="query" value="{{ query }}" class="form-control">
-
-                    </div>
-                    <div class="form-group">
-                        <label for="attribute" class="form-label">Search Attribute:</label>
-                        <select id="attribute" name="attribute" class="form-control">
-                            <option value="all" {{ 'selected' if attribute=='all' }}>All Attributes</option>
-                            <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
-                            <option value="latestVersion" {{ 'selected' if attribute=='latestVersion' }}>Latest Version</option>
-                            <option value="key" {{ 'selected' if attribute=='key' }}>Key</option>
-                            <option value="speed" {{ 'selected' if attribute=='speed' }}>Speed</option>
-                            <option value="timeSig" {{ 'selected' if attribute=='timeSig' }}>Time Signature</option>
-                            <option value="style" {{ 'selected' if attribute=='style' }}>Style</option>
-                            <option value="song_type" {{ 'selected' if attribute=='song_type' }}>Song Type</option>
-                            <option value="Comments" {{ 'selected' if attribute=='Comments' }}>Comments</option>
-                        </select>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-secondary">Submit</button>
-                </form>
-            </header>
+            <div class="container-md fw-bold shadow p-3 mb-5 bg-secondary rounded">
+                <header class="header mb-4">
+                    <h1 class="text-center">Please Choose the Book:</h1>
+                    
+                    <form method="post" class="form-group">
+                        <div class="form-group">
+                            <select name="book" class="form-control">
+                                <option value="">--Please choose an option--</option>
+                                <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }} > REDErgaran</option>
+                                <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>Old Book</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="query" class="form-label">Search Query:</label>
+                            <input type="text" id="query" name="query" value="{{ query }}" class="form-control">
+    
+                        </div>
+                        <div class="form-group">
+                            <label for="attribute" class="form-label">Search Attribute:</label>
+                            <select id="attribute" name="attribute" class="form-control">
+                                <option value="all" {{ 'selected' if attribute=='all' }}>All Attributes</option>
+                                <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
+                                <option value="latestVersion" {{ 'selected' if attribute=='latestVersion' }}>Latest Version</option>
+                                <option value="key" {{ 'selected' if attribute=='key' }}>Key</option>
+                                <option value="speed" {{ 'selected' if attribute=='speed' }}>Speed</option>
+                                <option value="timeSig" {{ 'selected' if attribute=='timeSig' }}>Time Signature</option>
+                                <option value="style" {{ 'selected' if attribute=='style' }}>Style</option>
+                                <option value="song_type" {{ 'selected' if attribute=='song_type' }}>Song Type</option>
+                                <option value="Comments" {{ 'selected' if attribute=='Comments' }}>Comments</option>
+                            </select>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-light">Submit</button>
+                    </form>
+                </header>
+            </div>
 
             {% if not table_date %}
-            <div class="table-responsive-md">
-                <table class="table table-striped table table-hover table-bordered">
+            <div class="table-responsive-md fw-bold rounded">
+                <table class="table table-striped table table-hover ">
                     <thead class="">
                         <tr>
                             <th>SongNum</th>
@@ -59,7 +60,8 @@
                             {%if table_data%}
                             {% for row, attr in table_data.items() %}
                                 <tr>
-                                    <td><input type="submit" name="SongNum" value="{{row}}" class="btn btn-primary"></td>
+                                    <!-- <td><input type="submit" name="SongNum" value="{{row}}" class="btn btn-primary"></td> -->
+                                    <td><a class="btn btn-primary" href="{{url_for('display_song',book=book,songnum=row)}}">{{row}}</a></td>
                                     <td>{{attr['Title']}}</td>
                                     <td>{{attr['latestVersion']}}</td>
                                     <td>{{attr['key']}}</td>

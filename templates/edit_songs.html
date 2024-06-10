@@ -1,31 +1,34 @@
 {%extends 'base.html'%}
 {% block content %}
     <!-- <h1>Welcome to our Song Information Page</h1> maybe add something to explain the purpose of this page-->
-
-    <div class="legend" style="text-align: center;">
-        <h2 style="font-weight: bold;">Legend</h2>
-        <div class="form-control text-center">
-            <strong>REDergaran</strong>=red book songs,<br><strong>Old Book or Word Songs</strong>=old church songs
+    <div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div class="legend" style="text-align: center;">
+            <h2 style="font-weight: bold;">Song Editor</h2>
+            <h4>Here you can change certain attributes of any song</h4>
+            <div class="form-control text-center">
+                <strong>REDergaran</strong>=red book songs,<br><strong>Old Book or Word Songs</strong>=old church songs
+            </div>
         </div>
+        
+        <form method="post" class="">
+            <div class="container-sm">
+                <div class="mx-auto">
+                    <label for="book" class="form-label">Please select the book:</label>
+                    <select name="book" id="book" class="form-select">
+                        <option value="REDergaran">RED Ergaran</option>
+                        <option value="wordSongsIndex">Old Book</option>
+                    </select>
+                </div>
+                <div class="mx-auto">
+                    <label for="songNum" class="form-label">Please enter the song number:</label>
+                    <input type="text" name="songNum" id="songNum" class="form-control">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-secondary bg-gradient">Submit</button>
+            </div>
+                
+        </form>
     </div>
-    
-    <form method="post" class="">
-        <div class="container-sm">
-            <div class="mx-auto">
-                <label for="book" class="form-label">Please select the book:</label>
-                <select name="book" id="book" class="form-select">
-                    <option value="REDergaran">RED Ergaran</option>
-                    <option value="wordSongsIndex">Old Book</option>
-                </select>
-            </div>
-            <div class="mx-auto">
-                <label for="songNum" class="form-label">Please enter the song number:</label>
-                <input type="text" name="songNum" id="songNum" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success bg-gradient">Submit</button>
-        </div>
-            
-    </form>
     {%if song_info%}
     <div class="row">
         <div class="col-md-6 mb-4">

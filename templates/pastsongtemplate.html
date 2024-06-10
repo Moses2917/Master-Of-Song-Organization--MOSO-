@@ -9,8 +9,8 @@
         {% for song in songs['songs'] %}
 
         {%if song[1] %}
-        <input type="submit" class="list-group-item list-group-item-action"
-            value="SongNum: {{song[1]}}, Book: {{song[0]}}, Title: {{song[2]}}" name="SongNumTuple">
+        {{song|safe}}
+        <!-- <input type="submit" class="list-group-item list-group-item-action" value="SongNum: {{song[1]}}, Book: {{song[0]}}, Title: {{song[2]}}" name="SongNumTuple"> -->
         {% endif %}
 
         {%endfor%}
@@ -19,4 +19,14 @@
     <br>
 </form>
 {%endfor%}
+<p class="text-start text-secondary" id="hint">
+    Hint: Just click the song you want to open.
+</p>
+<p class="text-start text-secondary" id="hint">
+    Խորհուրդ. Ուղակի սեղմեք այն երգը, որը ցանկանում եք բացել։
+</p>
+{%else%}
+<p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">
+    No Past Songs Found
+</p>
 {%endif%}
