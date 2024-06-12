@@ -183,7 +183,13 @@
         "22": {
             "Title": "Լուսո բլրան վրա կանգնած,",
             "latestVersion": "RED Words/22.docx",
-            "v1": "RED Words/22.docx"
+            "v1": "RED Words/22.docx",
+            "key": "C",
+            "speed": "86",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Any waltz"
         },
         "23": {
             "Title": "Կվախնա՞ս, թե թշնամին պիտի հաղթե,",
@@ -339,10 +345,10 @@
             "latestVersion": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx",
             "v1": "RED Words/43.docx",
             "v2": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx",
-            "key": "C#m",
+            "key": "Dm",
             "speed": "71",
             "style": "Ballad",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Any ballad"
         },
@@ -1560,7 +1566,7 @@
             "key": "Bm",
             "speed": "95",
             "style": "Ballad",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Ballad-P5-5",
             "v6": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v6.docx"
@@ -3886,7 +3892,13 @@
             "latestVersion": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v3.docx",
             "v1": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին.docx",
             "v2": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v2.docx",
-            "v3": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v3.docx"
+            "v3": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v3.docx",
+            "key": "Dm",
+            "speed": "120",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "543": {
             "Title": "Երբ կենանք աղոթքի, մեր սրտերն",
@@ -4383,7 +4395,13 @@
         "621": {
             "Title": "",
             "latestVersion": "RED Words/621.docx",
-            "v1": "RED Words/621.docx"
+            "v1": "RED Words/621.docx",
+            "key": "Dm",
+            "speed": "64-70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any Beat"
         },
         "622": {
             "Title": "Կուզենք ներկայությունդ ապրել,",
@@ -5651,7 +5669,13 @@
         "854": {
             "Title": "Այսպիսի մեծ սեր",
             "latestVersion": "Երգարան Word Files/854 Այսպիսի մեծ սեր.docx",
-            "v1": "Երգարան Word Files/854 Այսպիսի մեծ սեր.docx"
+            "v1": "Երգարան Word Files/854 Այսպիսի մեծ սեր.docx",
+            "key": "Em flat (-6) ",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "855": {
             "Title": "Գովեմ Քո անունը, ի՛մ Հիսուս,",

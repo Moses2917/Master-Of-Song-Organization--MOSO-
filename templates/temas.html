@@ -1,0 +1,17 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-4">
+  <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="card-body">
+      <h2 class="card-title mb-4">Song List</h2>
+      <div class="card-text">
+        {{ temmalist|safe }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="text-center mb-2"> {{temmalist|safe}} </h2>
+{% endblock %}

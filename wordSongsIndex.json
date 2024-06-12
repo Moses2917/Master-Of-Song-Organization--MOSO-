@@ -2223,7 +2223,13 @@
         "490": {
             "Title": "Տերն իմ, Սերն իմ, Կյանքն իմ",
             "latestVersion": "Word songs/490 Տերն իմ, Սերն իմ, Կյանքն իմ.docx",
-            "v1": "Word songs/490 Տերն իմ, Սերն իմ, Կյանքն իմ.docx"
+            "v1": "Word songs/490 Տերն իմ, Սերն իմ, Կյանքն իմ.docx",
+            "key": "Em",
+            "speed": "72",
+            "style": " Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "491": {
             "Title": "Երկնային տաճարը մտնենք",
@@ -2317,10 +2323,10 @@
             "v1": "Word songs/504 Շփոթված ու մոլորված.docx",
             "v2": "Word songs/504 Շփոթված ու մոլորված v2.docx",
             "v3": "Word songs/504 Շփոթված ու մոլորված v3.docx",
-            "key": "F",
+            "key": "F (or -6)",
             "speed": "122",
             "style": "Disco ",
-            "song_type": "Opening Song",
+            "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Dance-P5-4"
         },
@@ -3678,7 +3684,13 @@
         "728": {
             "Title": "Ոչ թե մեզի ով Տեր այլ Քո անվանդ թող փառք լինի",
             "latestVersion": "Word songs/728 Ոչ թե մեզի ով Տեր այլ Քո անվանդ թող փառք լինի.docx",
-            "v1": "Word songs/728 Ոչ թե մեզի ով Տեր այլ Քո անվանդ թող փառք լինի.docx"
+            "v1": "Word songs/728 Ոչ թե մեզի ով Տեր այլ Քո անվանդ թող փառք լինի.docx",
+            "key": "Bm",
+            "speed": "89",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-1"
         },
         "729": {
             "Title": "Հպվիր ինձ Սուրբ Հոգի  հպվիր",
@@ -4143,18 +4155,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Ես կյանքի լույսն եմ",
-            "latestVersion": "Word songs/638 Ես կյանքի լույսն եմ v4.docx",
-            "v1": "Word songs/638 Ես կյանքի լույսն եմ.docx",
-            "v2": "Word songs/638 Ես կյանքի լույսն եմ v2.docx",
-            "v3": "Word songs/638 Ես կյանքի լույսն եմ v3.docx",
-            "key": "Em ",
-            "speed": "117",
-            "style": "Disco",
+            "Title": "Շփոթված ու մոլորված",
+            "latestVersion": "Word songs/504 Շփոթված ու մոլորված v3.docx",
+            "v1": "Word songs/504 Շփոթված ու մոլորված.docx",
+            "v2": "Word songs/504 Շփոթված ու մոլորված v2.docx",
+            "v3": "Word songs/504 Շփոթված ու մոլորված v3.docx",
+            "key": "F (or -6)",
+            "speed": "122",
+            "style": "Disco ",
             "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-4",
-            "v4": "Word songs/638 Ես կյանքի լույսն եմ v4.docx"
+            "Comments": "Dance-P5-4"
         },
         "21": {
             "Title": "Ես համոզված եմ եվ հաստատ ուխտած",
@@ -4175,7 +4186,13 @@
         "22": {
             "Title": "Կյանքդ կանցնի արագ արագ",
             "latestVersion": "Word songs/22  v1.docx",
-            "v1": "Word songs/22  v1.docx"
+            "v1": "Word songs/22  v1.docx",
+            "key": "Em",
+            "speed": "114",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "31": {
             "Title": "Տիրոջ հաղթության դրոշ",

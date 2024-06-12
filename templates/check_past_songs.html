@@ -8,34 +8,34 @@
         <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum">
       </div>
     </div>
-    <div class="row justify-content-center " id="book">
-      <div class="col-auto">
-        <div class="btn btn-dark shadow border border-dark-subtle rounded-3">
-          <div class="form-check">
-            <label class="form-check-label" for="old">
-              Old Book
-            </label>
-            <input class="form-check-input" type="checkbox" id="old" value="Old" onclick="checkboxCheck('old')">
+    <div class="row justify-content-center" id="book">
+      <!-- <div class="btn-group" role="group"> -->
+        <div class="col-auto">
+          <div class="">
+            <div class="form-check">
+              <input class="btn-check" type="checkbox" id="old" value="Old" onclick="checkboxCheck('old')">
+              <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="old">
+                Old Book
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-auto">
-        <div class="btn btn-dark shadow border border-dark-subtle rounded-3">
-          <div class="form-check">
-            <label class="form-check-label" for="new">
-              Red Book
-            </label>
-            <input class="form-check-input" type="checkbox" name="Book" id="new" value="New" onclick="checkboxCheck('new')">
+        <div class="col-auto">
+          <div class="">
+            <!-- <div class="form-check"> -->
+              <input class="btn-check" type="checkbox" name="Book" id="new" value="New" onclick="checkboxCheck('new')">
+              <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="new">Red Book</label>
+            <!-- </div> -->
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
-  <p class="text-start" id="hint-en">
-    Hint: Just click the song you want to open.
-  </p>
-  <p class="text-start" id="hint-am">
+  <p class="text-end" id="hint-am">
     Խորհուրդ. Սեղմեք այն երգը որը ցանկանում եք բացել։
+  </p>
+  <p class="text-end" id="hint-en">
+    Hint: Just click the song you want to open.
   </p>
 </div>
 

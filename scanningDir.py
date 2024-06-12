@@ -190,7 +190,7 @@ def search_song(data: json, song_num, book):
 
 def songSearch(song_num, book):
     import json
-    with open('songs.json', 'r', encoding='utf-8') as f:
+    with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     if (book == "REDergaran") or (book == "New"):

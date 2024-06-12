@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {%block content%}
 
-
+<p class="text-center mb-2">
+    {% for x in selected_letter%}
+        {{x|safe}}
+    {%endfor%}
+</p>
 
 {%endblock%}

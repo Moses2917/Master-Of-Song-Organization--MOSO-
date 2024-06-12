@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<h1 class="text-center mt-5">Ցանկ Ըստ Թեմա</h1>
+<form method="post" class="d-flex flex-wrap justify-content-center text-center mt-4">
+    <p><input type="submit" value="1. ԱՍՏՎԱԾ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="2. ՍՈՒՐԲ ՀՈԳԻ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="3. ՀԱՎԱՏՔ ԵՎ ՎՍՏԱՀՈւԹՅՈւՆ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="4. ՔԱՋՈւԹՅՈւՆ ԵՎ ՀԱՂԹՈւԹՅՈւՆ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="5. ՈւՐԱԽՈւԹՅՈւՆ ԵՎ ՑՆԾՈւԹՅՈւՆ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="6. ՊՍԱԿ, ՀԱՐՍԱՆԻՔ, ԸՆՏԱՆԻՔ ԵՎ ՀԱՐՍ ԵԿԵՂԵՑԻ" name="temmas"
+        class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="7. ՄԱՆԿԱՆՑ ԵՐԳԵՐ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="8. ՍՈւՐԲ ԾՆՈւՆԴ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="9. ՀԻՍՈւՍ ՔՐԻՍՏՈՍ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="10. ԲԱՐԻ ՀՈՎԻՎ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="11. ՀԱՂՈՐԴՈւԹՅՈւՆ (ոտնլվա)" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="12. ՉԱՐՉԱՐԱՆՔ, ԽԱՉ, ՄԱՀ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="13. ԱՐՅՈւՆ, ՔԱՎՈւԹՅՈւՆ ԵՎ ԹՈՂՈւԹՅՈւՆ" name="temmas"
+        class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="14. ՍՐԲՈւԹՅՈւՆ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="15. ԵՂԲԱՅՐԱՍԻՐՈւԹՅՈւՆ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="16. ՇԱՐԱԿԱՆՆԵՐ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="17. ՀԱՐՈւԹՅՈւՆ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="18. ՇՆՈՐՀՔ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="19. ՀՈԳԵՎՈՐ ՓՈՐՁՈւԹՅՈւՆ, ՊԱՅՔԱՐ, ՊԱՏԵՐԱԶՄ" name="temmas"
+        class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="20. ԱՊԱՇԽԱՐՈւԹՅՈւՆ, ԶՂՋՈւՄ, ԴԱՐՁ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="21. ՄԱՀ, ՀԱՎԻՏԵՆՈւԹՅՈւՆ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="22. ԳԱԼՈւՍՏ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="23. ԱՎԵՏԱՐԱՆՉՈւԹՅՈւՆ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="24. ՓԱՌԱԲԱՆՈւԹ. ԵՐԿՐՊԱԳՈւԹ. ՊԱՇՏԱՄՈւՆՔ" name="temmas"
+        class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="25. ՔՐԻՍՏՈՆԵԱԿԱՆ ԿՅԱՆՔ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="26. ՍԵՐ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <br>
+    <input type="submit" value="27. ՀՐԱՎԵՐ, ՀՈՐԴՈՐ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="28. ԱՂՈԹՔ, ԽՆԴՐՎԱԾՔ" name="temmas" class="btn btn-outline-secondary text-white  m-2">
+    <input type="submit" value="29. ԱՍՏԾՈ ԽՈՍՔ" name="temmas" class="btn btn-outline-secondary text-white  m-2"></p> 
+</form>
+<div id="songs" class="container my-5 scrollable-container">
+    {% if temmas %}
+        <h2 class="text-center text-secondary text-white  mb-4"> {{temmas|safe}} </h2>
+        <h2 class="text-center text-secondary text-white  mb-2"> {{temmalist|safe}} </h2>
+        <br>
+        <br>
+    {%endif%}
+</div>
+{%endblock%}

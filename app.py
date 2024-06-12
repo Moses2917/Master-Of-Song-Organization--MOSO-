@@ -46,8 +46,8 @@ def callback():
     session["user"] = token
     # print(session["user"])
     #remember to flash('Բարի Գալուստ, {{session.user.userinfo.name}}!')
-    return redirect("/")
-    # return redirect(url_for('temp_home'))
+    # return redirect("/")
+    return redirect(url_for('temp_home'))
 
 #the /login route, users will be redirected to Auth0 to begin the authentication flow.
 @app.route("/login")
@@ -132,7 +132,7 @@ def openWord(songNum, book):
         
         return html_text
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/old', methods=['GET', 'POST'])
 def song_info():
     song_info = None
     current_values = None
@@ -376,24 +376,6 @@ def songSearch(searchLyrics):
 
     # return render_template('search.html', session=session.get('user'), table_data=table_data, book=book, query=query, attribute=attribute)
 
-@app.route('/tsank', methods=['GET','POST'])
-def tsank():
-    book = request.form.get('book', None)
-    temma = request.form.get("temmas", None)
-    # table_data = {}
-    table_data = None
-    if book or temma:#checks to make sure it is not none
-        if book == "REDergaran" or temma:
-            temmalist = None
-            if temma:
-                from re import findall
-                temmaNumber = findall(r"\d+", temma)
-                with open("templates/temmas.json", 'r', encoding='utf-8') as f:
-                    temmalist = json.load(f)
-                temmalist = temmalist[int(temmaNumber[0])-1]
-            return render_template("temmas.html", temmas=temma, temmalist=temmalist)#call a func. to get the list of songs
-    return render_template("temma.html", session=session.get('user'),table_data=table_data,temmas=temma)
-
 @app.route('/song/<book>/<songnum>', methods=['GET','POST'])
 def display_song(book, songnum):
     from scanningDir import songSearch
@@ -425,7 +407,7 @@ def display_song(book, songnum):
             songs['songs'] = song_titles
     return render_template('song_temp.html', lyrics=openWord(songnum,book), past_songs=past_songs)
 
-@app.route('/temp', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def temp_home():
     
     if session.get('user', None):
@@ -514,13 +496,31 @@ def edit_songs():
 
     # return render_template('edit_songs.html')
 
+@app.route('/tsank', methods=['GET','POST'])
+def tsank():
+    temma = request.form.get("temmas", None)
+    temmalist = None
+    if temma:#checks to make sure it is not none
+        from re import findall
+        temmaNumber = findall(r"\d+", temma)
+        with open("templates/temmas.json", 'r', encoding='utf-8') as f:
+            temmalist = json.load(f)
+        temmalist = temmalist[int(temmaNumber[0])-1]
+        return render_template('temas.html', temmalist=temmalist)
+            
+    return render_template("tema.html", temmas=temma,temmalist=temmalist)
+
 @app.route('/tsank_a_z', methods=['GET','POST'])
 def tsank_A_Z():
     return render_template('tsank_A_Z.html')
 
 @app.route('/tsank_a_z/<letter>', methods=['GET','POST'])
 def tsank_letter(letter):
-    return render_template('tsank_letter.html')
+    lookup_table = ['Ա','Բ','Գ','Դ','Ե','Զ','Է','Ը','Թ','Ժ','Ի','Լ','Խ','Ծ','Կ','Հ','Ձ','Ղ','Ճ','Մ','Յ','Ն','Շ','Ո','Չ','Պ','Ջ','Ս','Վ','Տ','Ց','Ու','Փ','Ք','ԵՎ','Օ']
+    lookup_index = lookup_table.index(letter)
+    with open('starting_with_letter.txt', 'r', encoding='utf-8') as f:
+        table = eval(f.read())[lookup_index]
+    return render_template('tsank_letter.html', selected_letter= table)
 
 @app.route('/past_songs', methods=['GET','POST'])
 def check_past_songs():
