@@ -182,14 +182,15 @@
         },
         "22": {
             "Title": "Լուսո բլրան վրա կանգնած,",
-            "latestVersion": "RED Words/22.docx",
+            "latestVersion": "Երգարան Word Files/22 Լուսո բլրան վրա կանգնած, v2.docx",
             "v1": "RED Words/22.docx",
             "key": "C",
             "speed": "86",
             "style": "Waltz ",
             "song_type": "Single Song",
             "timeSig": "3/4",
-            "Comments": "Any waltz"
+            "Comments": "Any waltz",
+            "v2": "Երգարան Word Files/22 Լուսո բլրան վրա կանգնած, v2.docx"
         },
         "23": {
             "Title": "Կվախնա՞ս, թե թշնամին պիտի հաղթե,",
@@ -342,7 +343,7 @@
         },
         "43": {
             "Title": "Ինչո՞ւ կմերժես դու հրավերը",
-            "latestVersion": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx",
+            "latestVersion": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v3.docx",
             "v1": "RED Words/43.docx",
             "v2": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v2.docx",
             "key": "Dm",
@@ -350,7 +351,8 @@
             "style": "Ballad",
             "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Any ballad"
+            "Comments": "Any ballad",
+            "v3": "Երգարան Word Files/43 Ինչո՞ւ կմերժես դու հրավերը v3.docx"
         },
         "44": {
             "Title": "Վշտաց աշխարհեն Քեզ կաղաղակեմ,",
@@ -1557,7 +1559,7 @@
         },
         "217": {
             "Title": "Եթե դժվարության հանդիպես",
-            "latestVersion": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v6.docx",
+            "latestVersion": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v7.docx",
             "v1": "RED Words/217.docx",
             "v2": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v2.docx",
             "v3": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v3.docx",
@@ -1569,7 +1571,8 @@
             "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Ballad-P5-5",
-            "v6": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v6.docx"
+            "v6": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v6.docx",
+            "v7": "Երգարան Word Files/217 Եթե դժվարության հանդիպես v7.docx"
         },
         "218": {
             "Title": "Եղի՛ր ներող, օրհնի՛ր քեզ հալածողներին,",
@@ -2471,7 +2474,7 @@
         },
         "346": {
             "Title": "Ե՛կ Տիրոջը գովենք",
-            "latestVersion": "Երգարան Word Files/346 Ե՛կ Տիրոջը գովենք v2.docx",
+            "latestVersion": "Երգարան Word Files/346 Ե՛կ Տիրոջը գովենք v3.docx",
             "v1": "Երգարան Word Files/346 Ե՛կ Տիրոջը գովենք.docx",
             "v2": "Երգարան Word Files/346 Ե՛կ Տիրոջը գովենք v2.docx",
             "key": "Dm",
@@ -2479,7 +2482,8 @@
             "style": "Disco",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v3": "Երգարան Word Files/346 Ե՛կ Տիրոջը գովենք v3.docx"
         },
         "347": {
             "Title": "Հիսուսն է միայն ամեն բան,",
@@ -2633,7 +2637,7 @@
         },
         "369": {
             "Title": "Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում,",
-            "latestVersion": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v3.docx",
+            "latestVersion": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v4.docx",
             "v1": "RED Words/369.docx",
             "v2": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v2.docx",
             "key": "F#m",
@@ -2642,7 +2646,8 @@
             "song_type": "Single Song",
             "timeSig": "6/8",
             "Comments": "Ballad-P4-1",
-            "v3": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v3.docx"
+            "v3": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v3.docx",
+            "v4": "Երգարան Word Files/369 Դուք գիտե՞ք, թե հիմա ում եմ ես շատ սիրում, v4.docx"
         },
         "370": {
             "Title": "Շնորհակալ ենք, Տեր Հիսուս",
@@ -2656,7 +2661,7 @@
         },
         "372": {
             "Title": "Հիսո՛ւս, սիրում ենք Քեզ",
-            "latestVersion": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v3.docx",
+            "latestVersion": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v4.docx",
             "v1": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ.docx",
             "v2": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v2.docx",
             "v3": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v3.docx",
@@ -2665,7 +2670,8 @@
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v4": "Երգարան Word Files/372 Հիսո՛ւս, սիրում ենք Քեզ v4.docx"
         },
         "373": {
             "Title": "Տե՜ր իմ, կաղաչեմ ու կպաղատեմ,",

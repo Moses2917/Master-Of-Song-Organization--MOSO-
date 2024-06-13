@@ -71,14 +71,19 @@ def check_simil():
 
 
 
+def sort_and_save():
+    with open('song_occurrences.json', 'r',encoding='utf-8') as f:
+        occr = json.load(f)
 
-with open('song_occurrences.json', 'r',encoding='utf-8') as f:
-    occr = json.load(f)
+    # print(occr['New']['805'])
+    for book in occr:
+        for songnum in occr[book]:
+            inner_data = occr[book][songnum]
+            sorted_data = sorted(inner_data.items(), key=lambda x: x[1]["occur"], reverse=True)
+            sorted_data = {k: v for k, v in sorted_data}
+            occr[book][songnum] = sorted_data
+    # print(occr['New']['805'])
+    with open('song_occurrences.json', 'w', encoding='utf-8') as f:
+        json.dump(occr,f,ensure_ascii=False,indent=4)
 
-
-for book in occr:
-    for songnum in occr[book]:
-        # for song in occr[book][songnum]:
-        print(occr[book][songnum])
-        print(sorted(occr[book][songnum]))
-        break
+sort_and_save()

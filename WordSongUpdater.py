@@ -271,7 +271,7 @@ def getNums(filename: str):
     return str(SongList)
     # return  SongList
 
-# print(getDocTextAndIndentation(r"C:\Users\Armne\OneDrive\Documents\Code\Python\newSong.docx"))
+# print(getDocTextAndIndentation(r"C:\Users\Armne\OneDrive\Երգեր\03.2024\03.17.24.docx")) #am getting weird error
 
 #not rly needed anymore
 def getSongText(filename):

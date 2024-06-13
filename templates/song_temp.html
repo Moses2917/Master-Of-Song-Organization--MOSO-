@@ -32,7 +32,7 @@
             {%for songs in past_songs%}
             <form method="post">
                 <div class="list-group d-flex">
-                    <input type="submit" class="list-group-item list-group-item-action active" aria-current="true" value="{{songs['Filename/Date']}}">
+                    <input type="submit" class="list-group-item list-group-item-action active" aria-current="true" name="docx" value="{{songs['Filename/Date']}}">
                     
 
                     {% for song in songs['songs'] %}
@@ -73,9 +73,10 @@
             {%if past_songs %}
             
             <form method="post">
-                <div class="list-group d-flex">                    
+                <div class="list-group d-flex">
                     <!-- <table class="table table-borderless table-sm text-center"> -->
-                        <div class="row justify-content-start fw-bold shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="row justify-content-start fw-bold shadow p-3 mb-5 bg-body-tertiary rounded">
+                    {% if similar_songs%}
                     {% for song in similar_songs %}
 
                         {%if song[1] %}
@@ -84,6 +85,7 @@
                         {% endif %}
 
                     {%endfor%}
+                    {%endif%}
                 </div>
                     <!-- </table> -->
                 </div>

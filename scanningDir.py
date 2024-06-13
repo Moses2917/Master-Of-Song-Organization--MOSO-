@@ -212,7 +212,7 @@ def songSearch(song_num, book):
         print(f"Song number {song_num} in book {book} not found.")
         return None
 
-# print(songSearch("504","Old"))
+# print(songSearch("817","Old"))
 
 def songChecker(book: str, songNum: str):
     """Finds songNum, then go to that index in books and see if it matches with the given book var and also check and see if there is an "invalid" string to skip the next book

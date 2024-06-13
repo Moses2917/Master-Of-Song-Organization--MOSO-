@@ -224,17 +224,17 @@ def saveHtml():
     with open(r"C:\Users\Armne\OneDrive\Documents\Code\Python\templates\songLyr.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
 
-@app.route('/pentecost', methods=['GET'])
-def DayofPentecost():
-    import threading as th
-    songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
-    MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
-    wordDocThread = th.Thread(target=saveHtml)#, args=[MS_WORD, songPth])
-    wordDocThread.start()
-    # saveHtml()
-    with open(r"C:\Users\Armne\OneDrive\Documents\Code\Python\templates\songLyr.txt", 'r', encoding='utf-8') as f:
-        html_text = f.read()
-    return render_template("songNew.html", lyrics=html_text)
+# @app.route('/pentecost', methods=['GET'])
+# def DayofPentecost():
+#     import threading as th
+#     songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
+#     MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
+#     wordDocThread = th.Thread(target=saveHtml)#, args=[MS_WORD, songPth])
+#     wordDocThread.start()
+#     # saveHtml()
+#     with open(r"C:\Users\Armne\OneDrive\Documents\Code\Python\templates\songLyr.txt", 'r', encoding='utf-8') as f:
+#         html_text = f.read()
+#     return render_template("songNew.html", lyrics=html_text)
 
 @app.route('/search/<searchLyrics>', methods=['GET'])
 def songSearch(searchLyrics):
@@ -287,97 +287,102 @@ def songSearch(searchLyrics):
 
         return json.dumps(searchResults)
 
-# @app.route('/search', methods=['GET', 'POST'])
-# def searching():
-    # table_data = None
-    # book = request.form.get('book', None)
-    # SongNum = request.form.get('SongNum', None)
-    # SongNumTuple = request.form.get('SongNumTuple', None)
-    # SearchResultSong = request.form.get('SearchResultSong', None)
-    # # searchLyrics = request.args.get('searchLyrics', None)
+def unused():
+    # @app.route('/search', methods=['GET', 'POST'])
+    # def searching():
+        # table_data = None
+        # book = request.form.get('book', None)
+        # SongNum = request.form.get('SongNum', None)
+        # SongNumTuple = request.form.get('SongNumTuple', None)
+        # SearchResultSong = request.form.get('SearchResultSong', None)
+        # # searchLyrics = request.args.get('searchLyrics', None)
 
-    # # if searchLyrics:
-    # #     return render_template('search.html', session=session.get('user'), table_data=table_data, words=songSearch(searchLyrics))
+        # # if searchLyrics:
+        # #     return render_template('search.html', session=session.get('user'), table_data=table_data, words=songSearch(searchLyrics))
 
-    # if request.method == 'POST':
-        
-    #     if SearchResultSong:
-    #         pair = SearchResultSong.split(', ') # Song Number: ${element.songNum}, Book: ${element.book}, Title: hkjh
-    #         SongNum = pair[0].split(': ')[1]
-    #         book = pair[1].split(': ')[1]
-    #         # title = pair[2].split(': ')[1]
-    #         return render_template('song.html', lyrics= openWord(SongNum, book))
-        
-    #     if (SongNum != None) or (SongNumTuple != None):
-    #         from scanningDir import songSearch #used to search for past songs
-    #         if SongNumTuple:
-    #             pair = SongNumTuple.split(', ') # Song Number: ${element.songNum}, Book: ${element.book}
-    #             SongNum = pair[0].split(': ')[1]
-    #             book = pair[1].split(': ')[1]
-    #             # book, SongNum = eval(SongNumTuple)
-           
-    #         with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
-    #             wordSongsIndex = json.load(f)
-        
-    #         with open('REDergaran.json', 'r', encoding='utf-8') as f:
-    #             REDergaran = json.load(f)
+        # if request.method == 'POST':
             
-    #         past_songs = songSearch(SongNum, book)
-    #         if past_songs != None:
-    #             for songs in past_songs:
-    #                 song_titles = []
-    #                 for song_pair in songs['songs']:
-    #                     if not (None in song_pair):
-    #                         # each song is a tuple ie: ('Old', '495')
-    #                         # here I am simply adding a tuple(list(title))
-    #                         title = ""
-    #                         if song_pair[0] == 'Old':
-    #                             if song_pair[1] in wordSongsIndex['SongNum']:
-    #                                 title = wordSongsIndex['SongNum'][song_pair[1]]["Title"]
-    #                                 title = title.split('\n')[0]
-    #                         else:
-    #                             if song_pair[1] in REDergaran['SongNum']:
-    #                                 title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
-    #                                 title = title.split('\n')[0]
-    #                         song_titles.append(song_pair + tuple([title]))
-    #                 songs['songs'] = song_titles
-    #         return render_template('song.html', lyrics = openWord(SongNum, book), book=book, past_songs = past_songs)#, title=title) #sending the book var inorder for the back button to function properly
-        
-    #     # Validate if book is selected
-    #     if not book:
-    #         return render_template('search.html', table_data= {})
+        #     if SearchResultSong:
+        #         pair = SearchResultSong.split(', ') # Song Number: ${element.songNum}, Book: ${element.book}, Title: hkjh
+        #         SongNum = pair[0].split(': ')[1]
+        #         book = pair[1].split(': ')[1]
+        #         # title = pair[2].split(': ')[1]
+        #         return render_template('song.html', lyrics= openWord(SongNum, book))
+            
+        #     if (SongNum != None) or (SongNumTuple != None):
+        #         from scanningDir import songSearch #used to search for past songs
+        #         if SongNumTuple:
+        #             pair = SongNumTuple.split(', ') # Song Number: ${element.songNum}, Book: ${element.book}
+        #             SongNum = pair[0].split(': ')[1]
+        #             book = pair[1].split(': ')[1]
+        #             # book, SongNum = eval(SongNumTuple)
+            
+        #         with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
+        #             wordSongsIndex = json.load(f)
+            
+        #         with open('REDergaran.json', 'r', encoding='utf-8') as f:
+        #             REDergaran = json.load(f)
+                
+        #         past_songs = songSearch(SongNum, book)
+        #         if past_songs != None:
+        #             for songs in past_songs:
+        #                 song_titles = []
+        #                 for song_pair in songs['songs']:
+        #                     if not (None in song_pair):
+        #                         # each song is a tuple ie: ('Old', '495')
+        #                         # here I am simply adding a tuple(list(title))
+        #                         title = ""
+        #                         if song_pair[0] == 'Old':
+        #                             if song_pair[1] in wordSongsIndex['SongNum']:
+        #                                 title = wordSongsIndex['SongNum'][song_pair[1]]["Title"]
+        #                                 title = title.split('\n')[0]
+        #                         else:
+        #                             if song_pair[1] in REDergaran['SongNum']:
+        #                                 title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
+        #                                 title = title.split('\n')[0]
+        #                         song_titles.append(song_pair + tuple([title]))
+        #                 songs['songs'] = song_titles
+        #         return render_template('song.html', lyrics = openWord(SongNum, book), book=book, past_songs = past_songs)#, title=title) #sending the book var inorder for the back button to function properly
+            
+        #     # Validate if book is selected
+        #     if not book:
+        #         return render_template('search.html', table_data= {})
 
-    #     # Load table data based on the selected book
-    #     table_data = load_table_data(book)
+        #     # Load table data based on the selected book
+        #     table_data = load_table_data(book)
 
-    #     if not table_data:
-    #         return render_template('search.html', table_data=table_data, book=book,
-    #                             message='No data found for the selected book.')  
+        #     if not table_data:
+        #         return render_template('search.html', table_data=table_data, book=book,
+        #                             message='No data found for the selected book.')  
 
 
-    # # Filter data based on search parameters
-    # query = request.form.get('query', '').lower()
-    # attribute = request.form.get('attribute', 'all')  # Default to 'all' if not specified
+        # # Filter data based on search parameters
+        # query = request.form.get('query', '').lower()
+        # attribute = request.form.get('attribute', 'all')  # Default to 'all' if not specified
 
-    # if query:
-    #     filtered_data = {}
-    #     for song_num, attr in table_data.items():
-    #         # Customize the search criteria based on your needs
-    #         if attribute == 'all':
-    #             # Search in all attributes
-    #             if any(query in str(val).lower() for val in attr.values()):
-    #                 filtered_data[song_num] = attr
-    #         elif attribute in attr:
-    #             # Search only in the specified attribute
-    #             if query in str(attr[attribute]).lower():
-    #                 filtered_data[song_num] = attr
+        # if query:
+        #     filtered_data = {}
+        #     for song_num, attr in table_data.items():
+        #         # Customize the search criteria based on your needs
+        #         if attribute == 'all':
+        #             # Search in all attributes
+        #             if any(query in str(val).lower() for val in attr.values()):
+        #                 filtered_data[song_num] = attr
+        #         elif attribute in attr:
+        #             # Search only in the specified attribute
+        #             if query in str(attr[attribute]).lower():
+        #                 filtered_data[song_num] = attr
 
-    #     table_data = filtered_data
+        #     table_data = filtered_data
 
-    # return render_template('search.html', session=session.get('user'), table_data=table_data, book=book, query=query, attribute=attribute)
+        # return render_template('search.html', session=session.get('user'), table_data=table_data, book=book, query=query, attribute=attribute)
+    pass
 
 @app.route('/song/<book>/<songnum>', methods=['GET','POST'])
 def display_song(book, songnum):
+    docx_file = request.form.get('docx', None)
+    if docx_file:
+        return render_template('display_docx.html', lyrics = openWord(docx_file))
     from scanningDir import songSearch
     with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
         wordSongsIndex = json.load(f)
@@ -394,6 +399,7 @@ def display_song(book, songnum):
         book = 'Old'
     else:
         book = 'New'
+    similar_songs = None
     if songnum in occr[book]:
         similar_songs = occr[book][songnum]
     
@@ -416,23 +422,28 @@ def display_song(book, songnum):
                             title = title.split('\n')[0]
                     song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
             songs['songs'] = song_titles
-            
-    song_titles = []
-    for song_pair in similar_songs:
-        song_pair = tuple(song_pair)
-        if not (None in song_pair):
-            title = ""
-            if song_pair[0] == 'Old':
-                if song_pair[1] in wordSongsIndex['SongNum']:
-                    title = wordSongsIndex['SongNum'][song_pair[1]]["Title"]
-                    title = title.split('\n')[0]
-            else:
-                if song_pair[1] in REDergaran['SongNum']:
-                    title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
-                    title = title.split('\n')[0]
-            song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
-    similar_songs = song_titles
+    if similar_songs != None:
+        song_titles = []
+        for song_pair in similar_songs:
+            # print(song_pair)
+            song_pair = tuple(eval(song_pair))
+            # print(song_pair)
+            if not (None in song_pair):
+                title = ""
+                if song_pair[0] == 'Old':
+                    if song_pair[1] in wordSongsIndex['SongNum']:
+                        title = wordSongsIndex['SongNum'][song_pair[1]]["Title"]
+                        title = title.split('\n')[0]
+                else:
+                    if song_pair[1] in REDergaran['SongNum']:
+                        title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
+                        title = title.split('\n')[0]
+                song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
+        similar_songs = song_titles
+        # print(similar_songs)
     return render_template('song_temp.html', lyrics=openWord(songnum,book), past_songs=past_songs, similar_songs=similar_songs)
+
+# @app.route('/song/docx/')
 
 @app.route('/', methods=['GET', 'POST'])
 def temp_home():
@@ -446,7 +457,7 @@ def temp_home():
             
             query = request.form.get('query', None)
             attribute = request.form.get('attribute', 'all')
-            if query:
+            if query and book:
                 query = query.lower()
                 filtered_data = {}
                 for song_num, attr in table_data.items():
@@ -459,6 +470,8 @@ def temp_home():
                         if query in str(attr[attribute]).lower():
                             filtered_data[song_num] = attr
                 table_data = filtered_data
+            elif not book:
+                flash('No book selected','warning')
             
             return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
         else:
