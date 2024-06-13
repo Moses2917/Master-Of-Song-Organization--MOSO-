@@ -2,12 +2,16 @@
 {%block content%}
 <div class="container-md">
     <div class="row algin-items-start">
-        <div class="fw-bold shadow p-3 bg-body-tertiary rounded">
+        <div class="fw-bold shadow p-2 bg-body-tertiary rounded">
             <label for="toolbar" class="">Song Toolbar:</label>
             <!-- <nav class="navbar navbar-expand-lg rounded-3 fs-5" id="toolbar"> -->
                 <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPastSongs"
                     aria-controls="offcanvasPastSongs">
                     Check Past Songs
+                </button>
+                <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSimilarSongs"
+                    aria-controls="offcanvasSimilarSongs">
+                    Similar Songs
                 </button>
             <!-- </nav> -->
         </div>
@@ -53,6 +57,48 @@
             {%else%}
             <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">
                 No Past Songs Found
+            </p>
+            {%endif%}
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasSimilarSongs" aria-labelledby="offcanvasSimilarSongsLabel">
+        <div class="offcanvas-header">
+            <div class="list-group list-group-flush">
+                <li  class="list-group-item"><h5 class="offcanvas-title" id="offcanvasSimilarSongsLabel">Check Similar Songs</h5></li>
+                <p class="list-group-item text-secondary" id="hint">Խորհուրդ. Սեղմեք այն երգը, որը ցանկանում եք բացել։</p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            {%if past_songs %}
+            
+            <form method="post">
+                <div class="list-group d-flex">                    
+                    <!-- <table class="table table-borderless table-sm text-center"> -->
+                        <div class="row justify-content-start fw-bold shadow p-3 mb-5 bg-body-tertiary rounded">
+                    {% for song in similar_songs %}
+
+                        {%if song[1] %}
+                           <div class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5"> {{song|safe}} </div>
+                        <!-- <input type="submit" class="list-group-item list-group-item-action" value="SongNum: {{song[1]}}, Book: {{song[0]}}, Title: {{song[2]}}" name="SongNumTuple"> -->
+                        {% endif %}
+
+                    {%endfor%}
+                </div>
+                    <!-- </table> -->
+                </div>
+                <br>
+            </form>
+            
+            <p class="text-start text-secondary" id="hint">
+                Hint: Just click the song you want to open.
+            </p>
+            <p class="text-start text-secondary" id="hint">
+                Խորհուրդ. Ուղակի սեղմեք այն երգը, որը ցանկանում եք բացել։
+            </p>
+            {%else%}
+            <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">
+                No Similar Songs Found
             </p>
             {%endif%}
         </div>

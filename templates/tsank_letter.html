@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 {%block content%}
 
-<p class="text-center mb-2">
+<p class="row justify-content-center">
+    <div class="text-center fw-bold">
+        <h2>Այբբենական Ցանկ</h2>
+        <p class="fs-5" id="hint">Խորհուրդ. Սեղմեք այն երգը, որը ցանկանում եք բացել։</p>
+    </div>
+    <table class="table table-borderless table-sm text-center">
+        <div class="text-start text-break">
     {% for x in selected_letter%}
-        {{x|safe}}
-    {%endfor%}
+            {{x|safe}}
+        {%endfor%}
+        </div>
+    </table>
 </p>
 
 {%endblock%}

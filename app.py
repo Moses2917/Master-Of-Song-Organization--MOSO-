@@ -385,7 +385,18 @@ def display_song(book, songnum):
     with open('REDergaran.json', 'r', encoding='utf-8') as f:
         REDergaran = json.load(f)
     
+    with open('song_occurrences.json', 'r', encoding='utf-8') as f:
+        occr = json.load(f)
+    
     past_songs = songSearch(songnum, book)
+    
+    if book == 'wordSongsIndex' or book == 'Old':
+        book = 'Old'
+    else:
+        book = 'New'
+    if songnum in occr[book]:
+        similar_songs = occr[book][songnum]
+    
     # template = f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=book,songnum=songnum)}">{songnum}: {title}</a>'''
     if past_songs != None:
         for songs in past_songs:
@@ -405,7 +416,23 @@ def display_song(book, songnum):
                             title = title.split('\n')[0]
                     song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
             songs['songs'] = song_titles
-    return render_template('song_temp.html', lyrics=openWord(songnum,book), past_songs=past_songs)
+            
+    song_titles = []
+    for song_pair in similar_songs:
+        song_pair = tuple(song_pair)
+        if not (None in song_pair):
+            title = ""
+            if song_pair[0] == 'Old':
+                if song_pair[1] in wordSongsIndex['SongNum']:
+                    title = wordSongsIndex['SongNum'][song_pair[1]]["Title"]
+                    title = title.split('\n')[0]
+            else:
+                if song_pair[1] in REDergaran['SongNum']:
+                    title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
+                    title = title.split('\n')[0]
+            song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
+    similar_songs = song_titles
+    return render_template('song_temp.html', lyrics=openWord(songnum,book), past_songs=past_songs, similar_songs=similar_songs)
 
 @app.route('/', methods=['GET', 'POST'])
 def temp_home():
@@ -516,7 +543,7 @@ def tsank_A_Z():
 
 @app.route('/tsank_a_z/<letter>', methods=['GET','POST'])
 def tsank_letter(letter):
-    lookup_table = ['Ա','Բ','Գ','Դ','Ե','Զ','Է','Ը','Թ','Ժ','Ի','Լ','Խ','Ծ','Կ','Հ','Ձ','Ղ','Ճ','Մ','Յ','Ն','Շ','Ո','Չ','Պ','Ջ','Ս','Վ','Տ','Ց','Ու','Փ','Ք','ԵՎ','Օ']
+    lookup_table = ['Ա','Բ','Գ','Դ','Ե','Զ','Է','Ը','Թ','Ժ','Ի','Լ','Խ','Ծ','Կ','Հ','Ձ','Ղ','Ճ','Մ','Յ','Ն','Շ','Ո','Չ','Պ','Ջ','Ս','Վ','Տ','Ց','Ու','Փ','Ք','Եւ','Օ']
     lookup_index = lookup_table.index(letter)
     with open('starting_with_letter.txt', 'r', encoding='utf-8') as f:
         table = eval(f.read())[lookup_index]
@@ -555,7 +582,8 @@ def check_past_songs():
                                 title = title.split('\n')[0]
                         song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
                 songs['songs'] = song_titles
-        return render_template('song_temp.html', lyrics = openWord(SongNum, book), past_songs = past_songs)#, title=title) #sending the book var inorder for the back button to function properly
+        # return render_template('song_temp.html', lyrics = openWord(SongNum, book), past_songs = past_songs)
+        return redirect(url_for('display_song'), book=book,songnum=SongNum)#, title=title) #sending the book var inorder for the back button to function properly
     return render_template('check_past_songs.html')
 
 #helper function for check_past_songs(), used with fetch api
