@@ -452,26 +452,27 @@ def temp_home():
         if isUserAllowed(session['user']['userinfo']['email']):
             table_data = None # doing this so that it does not get referenced before assginment
             book = request.form.get('book', None)
-            if book:
-                table_data = load_table_data(book=book)
-            
-            query = request.form.get('query', None)
-            attribute = request.form.get('attribute', 'all')
-            if query and book:
-                query = query.lower()
-                filtered_data = {}
-                for song_num, attr in table_data.items():
-                    if attribute == 'all':
-                        # Search in all attributes
-                        if any(query in str(val).lower() for val in attr.values()):
-                            filtered_data[song_num] = attr
-                    elif attribute in attr:
-                        # Search only in the specified attribute
-                        if query in str(attr[attribute]).lower():
-                            filtered_data[song_num] = attr
-                table_data = filtered_data
-            elif not book:
-                flash('No book selected','warning')
+            if request.method == 'POST':
+                if book:
+                    table_data = load_table_data(book=book)
+                
+                query = request.form.get('query', None)
+                attribute = request.form.get('attribute', 'all')
+                if query and book:
+                    query = query.lower()
+                    filtered_data = {}
+                    for song_num, attr in table_data.items():
+                        if attribute == 'all':
+                            # Search in all attributes
+                            if any(query in str(val).lower() for val in attr.values()):
+                                filtered_data[song_num] = attr
+                        elif attribute in attr:
+                            # Search only in the specified attribute
+                            if query in str(attr[attribute]).lower():
+                                filtered_data[song_num] = attr
+                    table_data = filtered_data
+                elif not book:
+                    flash('No book selected','warning')
             
             return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
         else:
@@ -487,10 +488,10 @@ def edit_songs():
         
         song_num = request.form.get('songNum')
         book = request.form.get('book')
-        Bool_Lyrics = request.form.get('lyrics', False)
+        # Bool_Lyrics = request.form.get('lyrics', False)
         
-        if Bool_Lyrics:
-            return render_template('song.html', lyrics = openWord(song_num, book), book=book) #sending the book var inorder for the back button to function properly
+        # if Bool_Lyrics:
+        #     return render_template('song.html', lyrics = openWord(song_num, book), book=book) #sending the book var inorder for the back button to function properly
         
         with open(f'{book}.json',encoding='utf-8') as f:
             data = json.load(f)

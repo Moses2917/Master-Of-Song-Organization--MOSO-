@@ -1006,7 +1006,13 @@
         "139": {
             "Title": "Քրիստոս թագավոր է սիրո, զորության,",
             "latestVersion": "RED Words/139.docx",
-            "v1": "RED Words/139.docx"
+            "v1": "RED Words/139.docx",
+            "key": "F",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "140": {
             "Title": "Երանի՜ հոգով ես Քեզ հանդիպեի,",
@@ -1525,7 +1531,13 @@
         "210": {
             "Title": "Հիսուսն ասաց Իր աշակերտներին.",
             "latestVersion": "RED Words/210.docx",
-            "v1": "RED Words/210.docx"
+            "v1": "RED Words/210.docx",
+            "key": "Am",
+            "speed": "100",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "211": {
             "Title": "Ուզում եմ երգել ու գովաբանել,",
@@ -1828,7 +1840,13 @@
         "255": {
             "Title": "Ե՛կ Փրկչիդ, անմահ հոգի,",
             "latestVersion": "RED Words/255.docx",
-            "v1": "RED Words/255.docx"
+            "v1": "RED Words/255.docx",
+            "key": "Em",
+            "speed": "80",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "256": {
             "Title": "Որտե՞ղ ես թափառում, դժբախտ որդի",
@@ -3570,7 +3588,13 @@
         "501": {
             "Title": "Ո՜վ Աստված, երկնքի Տե՛ր,",
             "latestVersion": "RED Words/501.docx",
-            "v1": "RED Words/501.docx"
+            "v1": "RED Words/501.docx",
+            "key": "C#m",
+            "speed": "100",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "502": {
             "Title": "Իմ Տե՜ր, իմ սե՜ր,",
@@ -6425,6 +6449,18 @@
             "song_type": "Single Song",
             "timeSig": "3/4",
             "Comments": " Ballroom-P1-1"
+        },
+        "SongNum": {
+            "Title": "Հիսուս ներած է իմ մեղքերս",
+            "latestVersion": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx",
+            "v1": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս.docx",
+            "v2": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx",
+            "key": "F",
+            "speed": "92",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P2-2"
         }
     }
 }

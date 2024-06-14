@@ -1,5 +1,9 @@
 {%extends 'base.html'%}
 {%block content%}
+<script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+</script>
 <div class="container-md">
     <div class="row algin-items-start">
         <div class="fw-bold shadow p-2 bg-body-tertiary rounded">
@@ -9,8 +13,8 @@
                     aria-controls="offcanvasPastSongs">
                     Check Past Songs
                 </button>
-                <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSimilarSongs"
-                    aria-controls="offcanvasSimilarSongs">
+                <button class="btn btn-primary shadow border border-primary-emphasis rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSimilarSongs"
+                    aria-controls="offcanvasSimilarSongs" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">
                     Similar Songs
                 </button>
             <!-- </nav> -->
@@ -65,7 +69,8 @@
         <div class="offcanvas-header">
             <div class="list-group list-group-flush">
                 <li  class="list-group-item"><h5 class="offcanvas-title" id="offcanvasSimilarSongsLabel">Check Similar Songs</h5></li>
-                <p class="list-group-item text-secondary" id="hint">Խորհուրդ. Սեղմեք այն երգը, որը ցանկանում եք բացել։</p>
+                <li class="list-group-item"> <p> This tool helps you see which songs are most often sung together </p> </li>
+                <p class="list-group-item text-light" id="hint">Խորհուրդ. Սեղմեք այն երգը, որը ցանկանում եք բացել։</p>
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>

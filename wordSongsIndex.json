@@ -18,8 +18,8 @@
             "key": "G#m (-1)",
             "speed": "72",
             "style": "Beat",
-            "song_type": "Worship Song",
-            "timeSig": "/4",
+            "song_type": "None",
+            "timeSig": "4/4",
             "Comments": "Pop-P1-4"
         },
         "4": {
@@ -4185,6 +4185,18 @@
             "Title": "Տիրոջ հաղթության դրոշ",
             "latestVersion": "Word songs/31  v1.docx",
             "v1": "Word songs/31  v1.docx"
+        },
+        "SongNum": {
+            "Title": "Հաճախ ինձ համար պահեր կան դժվար",
+            "latestVersion": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար v2.docx",
+            "v1": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար.docx",
+            "v2": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար v2.docx",
+            "key": "G#m (-1)",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "None",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         }
     }
 }
