@@ -555,13 +555,17 @@ def tsank():
 def tsank_A_Z():
     return render_template('tsank_A_Z.html')
 
-@app.route('/tsank_a_z/<letter>', methods=['GET','POST'])
-def tsank_letter(letter):
-    lookup_table = ['Ա','Բ','Գ','Դ','Ե','Զ','Է','Ը','Թ','Ժ','Ի','Լ','Խ','Ծ','Կ','Հ','Ձ','Ղ','Ճ','Մ','Յ','Ն','Շ','Ո','Չ','Պ','Ջ','Ս','Վ','Տ','Ց','Ու','Փ','Ք','Եւ','Օ']
-    lookup_index = lookup_table.index(letter)
-    with open('starting_with_letter.txt', 'r', encoding='utf-8') as f:
-        table = eval(f.read())[lookup_index]
-    return render_template('tsank_letter.html', selected_letter= table)
+@app.route('/tsank_a_z/<book>/<letter>', methods=['GET','POST'])
+def tsank_letter(book, letter):
+    # lookup_table = ['Ա','Բ','Գ','Դ','Ե','Զ','Է','Ը','Թ','Ժ','Ի','Լ','Խ','Ծ','Կ','Հ','Ձ','Ղ','Ճ','Մ','Յ','Ն','Շ','Ո','Չ','Պ','Ջ','Ս','Վ','Տ','Ց','Ու','Փ','Ք','Եւ','Օ']
+    # lookup_index = lookup_table.index(letter)
+    with open('first_letter.json', 'r', encoding='utf-8') as f:
+        first_letter = json.load(f)
+    selected_letter = [first_letter[book][letter][songnum] for songnum in first_letter[book][letter]]
+    # selected_letter = []
+    # for songnum in first_letter[book][letter]:
+    #     selected_letter.append(first_letter[book][letter][songnum])
+    return render_template('tsank_letter.html', selected_letter = selected_letter)
 
 @app.route('/past_songs', methods=['GET','POST'])
 def check_past_songs():

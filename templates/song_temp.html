@@ -1,20 +1,16 @@
 {%extends 'base.html'%}
 {%block content%}
-<script>
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-</script>
 <div class="container-md">
     <div class="row algin-items-start">
         <div class="fw-bold shadow p-2 bg-body-tertiary rounded">
-            <label for="toolbar" class="">Song Toolbar:</label>
+            <label class="">Song Toolbar:</label>
             <!-- <nav class="navbar navbar-expand-lg rounded-3 fs-5" id="toolbar"> -->
                 <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPastSongs"
                     aria-controls="offcanvasPastSongs">
                     Check Past Songs
                 </button>
-                <button class="btn btn-primary shadow border border-primary-emphasis rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSimilarSongs"
-                    aria-controls="offcanvasSimilarSongs" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+                <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSimilarSongs"
+                    aria-controls="offcanvasSimilarSongs">
                     Similar Songs
                 </button>
             <!-- </nav> -->

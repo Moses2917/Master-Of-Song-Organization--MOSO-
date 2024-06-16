@@ -37,7 +37,7 @@
                     <input type="hidden" name="book" value="{{book}}">
                     <input type="hidden" name="songNum" value="{{request.form.songNum}}">
                     <input type="hidden" name="lyrics" value="True">
-                    <h2>Current Values  <a href="{{ url_for('display_song', book= {{book}} , songnum = {{request.form.songNum}}) }}" class="btn btn-primary bg-gradient">Lyrics</a></h2>
+                    <h2>Current Values  <a class="btn btn-primary bg-gradient" href="{{ url_for('display_song', book = request.form.book , songnum = request.form.songNum) }}">Lyrics</a></h2>
                 
                 <p>Song Number: {{request.form.songNum}}</p>
                 <p>From book: {{request.form.book}}</p>

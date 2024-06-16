@@ -7,9 +7,9 @@
         <p class="fs-5" id="hint">Խորհուրդ. Սեղմեք այն երգը, որը ցանկանում եք բացել։</p>
     </div>
     <table class="table table-borderless table-sm text-center">
-        <div class="text-start text-break">
-    {% for x in selected_letter%}
-            {{x|safe}}
+        <div class="text-center text-break">
+        {% for x in selected_letter%}
+            {{x|safe}}<br>
         {%endfor%}
         </div>
     </table>

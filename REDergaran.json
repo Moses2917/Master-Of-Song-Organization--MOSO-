@@ -6434,11 +6434,6 @@
             "latestVersion": "RED Words/999.docx",
             "v1": "RED Words/999.docx"
         },
-        "10000": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/10000 .docx",
-            "v1": "Երգարան Word Files/10000 .docx"
-        },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",
             "latestVersion": "Երգարան Word Files/94  v1.docx",
@@ -6449,18 +6444,6 @@
             "song_type": "Single Song",
             "timeSig": "3/4",
             "Comments": " Ballroom-P1-1"
-        },
-        "SongNum": {
-            "Title": "Հիսուս ներած է իմ մեղքերս",
-            "latestVersion": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx",
-            "v1": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս.docx",
-            "v2": "Երգարան Word Files/90 Հիսուս ներած է իմ մեղքերս v2.docx",
-            "key": "F",
-            "speed": "92",
-            "style": "Waltz ",
-            "song_type": "Single Song",
-            "timeSig": "3/4",
-            "Comments": "Ballroom-P2-2"
         }
     }
 }
