@@ -2286,8 +2286,15 @@
         },
         "498": {
             "Title": "Հիսուս ես սիրում եմ Քեզ",
-            "latestVersion": "Word songs/498 Հիսուս ես սիրում եմ Քեզ.docx",
-            "v1": "Word songs/498 Հիսուս ես սիրում եմ Քեզ.docx"
+            "latestVersion": "Word songs/498 Հիսուս ես սիրում եմ Քեզ v2.docx",
+            "v1": "Word songs/498 Հիսուս ես սիրում եմ Քեզ.docx",
+            "key": "Em",
+            "speed": "74",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3",
+            "v2": "Word songs/498 Հիսուս ես սիրում եմ Քեզ v2.docx"
         },
         "499": {
             "Title": "Երկնքի զորությունները անվերջ",
@@ -2800,8 +2807,15 @@
         },
         "580": {
             "Title": "Կատարյալ է Օրենքը Քո՝ նորոգում է իմ հոգին",
-            "latestVersion": "Word songs/580 Կատարյալ է Օրենքը Քո՝ նորոգում է իմ հոգին.docx",
-            "v1": "Word songs/580 Կատարյալ է Օրենքը Քո՝ նորոգում է իմ հոգին.docx"
+            "latestVersion": "Word songs/580 Կատարյալ է Օրենքը Քո՝ նորոգում է իմ հոգին v2.docx",
+            "v1": "Word songs/580 Կատարյալ է Օրենքը Քո՝ նորոգում է իմ հոգին.docx",
+            "key": "A",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3",
+            "v2": "Word songs/580 Կատարյալ է Օրենքը Քո՝ նորոգում է իմ հոգին v2.docx"
         },
         "581": {
             "Title": "Տեր, ամեն օր",
@@ -3018,7 +3032,7 @@
         },
         "632": {
             "Title": "Իմ սիրտը պատրաստ է ով Սուրբ Աստված",
-            "latestVersion": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v2.docx",
+            "latestVersion": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v3.docx",
             "v1": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված.docx",
             "v2": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v2.docx",
             "key": "F#m",
@@ -3026,7 +3040,8 @@
             "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v3": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v3.docx"
         },
         "633": {
             "Title": "",
@@ -3343,8 +3358,15 @@
         },
         "679": {
             "Title": "Արժան ես, իրավ ես, Սուրբ ես",
-            "latestVersion": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես.docx",
-            "v1": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես.docx"
+            "latestVersion": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես v2.docx",
+            "v1": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես.docx",
+            "key": "F#m",
+            "speed": "66",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8",
+            "v2": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես v2.docx"
         },
         "680": {
             "Title": "Արթնացա մի օր Քո իսկ պարգևած արևի շողից",
@@ -3462,7 +3484,7 @@
         },
         "694": {
             "Title": "Տեր ծարավ եմ Քեզ",
-            "latestVersion": "Word songs/694 Տեր ծարավ եմ Քեզ v2.docx",
+            "latestVersion": "Word songs/694 Տեր ծարավ եմ Քեզ v3.docx",
             "v1": "Word songs/694 Տեր ծարավ եմ Քեզ.docx",
             "key": "Gm",
             "speed": "65",
@@ -3470,11 +3492,12 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Ballad-P1-8",
-            "v2": "Word songs/694 Տեր ծարավ եմ Քեզ v2.docx"
+            "v2": "Word songs/694 Տեր ծարավ եմ Քեզ v2.docx",
+            "v3": "Word songs/694 Տեր ծարավ եմ Քեզ v3.docx"
         },
         "695": {
             "Title": "Երգիր Տիրոջը ողջ երկիր",
-            "latestVersion": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v2.docx",
+            "latestVersion": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v3.docx",
             "v1": "Word songs/695 Երգիր Տիրոջը ողջ երկիր.docx",
             "key": "Em",
             "speed": "110",
@@ -3483,7 +3506,8 @@
             "Worship_Song": "",
             "timeSig": "4/4",
             "Comments": "Dance-P5-5",
-            "v2": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v2.docx"
+            "v2": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v2.docx",
+            "v3": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v3.docx"
         },
         "696": {
             "Title": "Բարձրերում բնակվող, Քո երեսն եմ փնտրում",
@@ -3507,9 +3531,16 @@
         },
         "700": {
             "Title": "Փառաբանենք Տիրոջը ով նրա սուրբերը",
-            "latestVersion": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v2.docx",
+            "latestVersion": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v3.docx",
             "v1": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը.docx",
-            "v2": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v2.docx"
+            "v2": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v2.docx",
+            "key": "E sharp (-9)",
+            "speed": "116",
+            "style": "",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4",
+            "v3": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v3.docx"
         },
         "701": {
             "Title": "Միայն քեզ է կարոտում հոգիս...Ամեն",
@@ -4185,6 +4216,18 @@
             "Title": "Տիրոջ հաղթության դրոշ",
             "latestVersion": "Word songs/31  v1.docx",
             "v1": "Word songs/31  v1.docx"
+        },
+        "SongNum": {
+            "Title": "Իմ սիրտը պատրաստ է ով Սուրբ Աստված",
+            "latestVersion": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v2.docx",
+            "v1": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված.docx",
+            "v2": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v2.docx",
+            "key": "F#m",
+            "speed": "105",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         }
     }
 }

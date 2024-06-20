@@ -1154,7 +1154,13 @@
         "158": {
             "Title": "Մանկության վաղ տարիներին",
             "latestVersion": "Երգարան Word Files/158 Մանկության վաղ տարիներին.docx",
-            "v1": "Երգարան Word Files/158 Մանկության վաղ տարիներին.docx"
+            "v1": "Երգարան Word Files/158 Մանկության վաղ տարիներին.docx",
+            "key": "F",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "159": {
             "Title": "Մի՛ տխրիր, մի՛ դժգոհիր դու նրա համար,",
@@ -1243,7 +1249,7 @@
             "key": "Dm",
             "speed": "100",
             "style": "Disco",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Dance-P5-5"
         },
@@ -1817,9 +1823,9 @@
             "key": "Em",
             "speed": "68",
             "style": "Beat",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Pip-P1-3",
+            "Comments": "Pop-P1-3",
             "v2": "Երգարան Word Files/251 Շատ անգամ է իմ նավակը v2.docx"
         },
         "252": {
@@ -2469,7 +2475,7 @@
             "key": "Dm",
             "speed": "93",
             "style": "Waltz ",
-            "song_type": "Single Song",
+            "song_type": "None",
             "timeSig": "3/4",
             "Comments": "Ballroom-P1-1",
             "v2": "Երգարան Word Files/343 Խոսքերդ վառ լույս են իմ ճամփին, v2.docx"
@@ -3661,8 +3667,15 @@
         },
         "510": {
             "Title": "Ուզում եմ Հոգով ես ապրել",
-            "latestVersion": "Երգարան Word Files/510 Ուզում եմ Հոգով ես ապրել.docx",
-            "v1": "Երգարան Word Files/510 Ուզում եմ Հոգով ես ապրել.docx"
+            "latestVersion": "Երգարան Word Files/510 Ուզում եմ Հոգով ես ապրել v2.docx",
+            "v1": "Երգարան Word Files/510 Ուզում եմ Հոգով ես ապրել.docx",
+            "key": "F#m",
+            "speed": "110",
+            "style": "Bossa Nova",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any bossa",
+            "v2": "Երգարան Word Files/510 Ուզում եմ Հոգով ես ապրել v2.docx"
         },
         "511": {
             "Title": "Դժվարության պահին միշտ",
@@ -6444,6 +6457,18 @@
             "song_type": "Single Song",
             "timeSig": "3/4",
             "Comments": " Ballroom-P1-1"
+        },
+        "SongNum": {
+            "Title": "Որքան որ կուզես լարված ուժերով",
+            "latestVersion": "Երգարան Word Files/170 Որքան որ կուզես լարված ուժերով v2.docx",
+            "v1": "RED Words/170.docx",
+            "v2": "Երգարան Word Files/170 Որքան որ կուզես լարված ուժերով v2.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Disco",
+            "song_type": "None",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         }
     }
 }
