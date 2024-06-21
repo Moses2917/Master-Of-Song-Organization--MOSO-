@@ -113,10 +113,13 @@ def viewPosSongs():
 
     posibleSongsList = createfile.getPosibleSongs(songNum, book)
     viewWin = tk.Tk()
-    viewWin.geometry("280x435")
+    # viewWin.geometry("280x435")
+    viewWin.geometry("480x200")
+    viewWin.columnconfigure(1,weight=1)    #confiugures column 1 to stretch with a scaler of 1.
+    viewWin.rowconfigure(0,weight=1)       #confiugures row 0 to stretch with a scaler of 1.
     viewWin.title("Found Songs")
     posibleSongs = tk.Listbox(viewWin)
-    posibleSongs.grid(row=0, column=1)
+    posibleSongs.grid(row=0, column=1,sticky='nsew')
     posibleSongs.config(width=25, height=18, font=myFont)
     for fv in posibleSongsList:
         posibleSongs.insert(tk.END,fv)
@@ -317,8 +320,9 @@ BGroupCol = 0
 delete_button = Button(root, text="Delete Song", bg='#741a1c', fg='#FFC107', font=('Arial', 15), command=delete_song, padx=10, pady=10, bd=5, relief="raised")
 delete_button.grid(row=2, column=1)
 #Now both backsapce and the delete key will delete the currntly selected song
-root.bind("<Delete>",delete_song)
-root.bind("<BackSpace>",delete_song)
+# Causeing more harm than good
+# root.bind("<Delete>",delete_song)
+# root.bind("<BackSpace>",delete_song)
 
 edit_button = Button(root, text="Edit Song", bg='#741a1c', fg='#FFC107', font=('Arial', 15), command=edit_song,padx=10, pady=10, bd=5, relief="raised")
 edit_button.grid(row=2, column=0)
