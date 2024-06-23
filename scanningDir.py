@@ -74,6 +74,16 @@ def getRecentSongs():
 
 
 def getAllNums():
+    """
+    Retrieves all songs from the 'Երգեր' directory and its subdirectories that were created or modified after January 17, 2023.
+    The songs are stored in a text file named 'AllSongs.txt' in the current working directory.
+    
+    Parameters:
+    None
+    
+    Returns:
+    None
+    """
     from WordSongUpdater import getNums
     f = open("AllSongs.txt", 'w', encoding='utf-8')
     bufferList = []
@@ -169,6 +179,17 @@ def songCollector():
     # return blocked_list
 
 def search_song(data: json, song_num, book):
+    """
+    Searches for a song in the given data based on the song number and book.
+
+    Parameters:
+        data (json): The data to search for the song.
+        song_num (str): The number of the song to search for.
+        book (str): The book to search for the song in.
+
+    Returns:
+        list or None: A list of dictionaries containing the filename/date, basePath, and songList if the song is found, or None if the song is not found.
+    """
     found_list = []
     found = False
     for item in data:
@@ -188,7 +209,17 @@ def search_song(data: json, song_num, book):
     return None
 
 
-def songSearch(song_num, book):
+def songSearch(song_num:str, book:str):
+    """
+    A function that searches for a song based on the song number and book provided.
+
+    Parameters:
+        song_num (str): The number of the song to search for.
+        book (str): The book to search for the song in.
+
+    Returns:
+        dict: A dictionary containing information about the found song if it exists, None otherwise.
+    """
     import json
     with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -319,6 +350,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
     ErgerFolder = os.scandir(OneDrivePth + "\\Երգեր")
     blacklist = ['Սուրբ ծնունդ', 'Պենտեկոստե', 'Զատիկ', 'Գոհաբանության Օր', 'Wedding', '2020', '2021',
                  '2022', '01.2023']  # list of unneeded dirs
+    blacklist.append(['02.2023', '03.2023', '04.2023', '05.2023']) # additional dates where the algo was buggy and reported the wrong song nums
     with os.scandir(OneDrivePth + "\\Երգեր") as ErgerFolders:
         filePths = []
         for ergfolder in ErgerFolders:

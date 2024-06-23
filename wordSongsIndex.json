@@ -1231,7 +1231,13 @@
         "298": {
             "Title": "Ահա մենք մեր ուրախ երգերով",
             "latestVersion": "Word songs/298 Ահա մենք մեր ուրախ երգերով.docx",
-            "v1": "Word songs/298 Ահա մենք մեր ուրախ երգերով.docx"
+            "v1": "Word songs/298 Ահա մենք մեր ուրախ երգերով.docx",
+            "key": "E#m",
+            "speed": "97",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "299": {
             "Title": "Հիսուս, Դու ես իմ սերը հավիտյան",
@@ -3586,7 +3592,13 @@
             "latestVersion": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ v3.docx",
             "v1": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ.docx",
             "v2": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ v2.docx",
-            "v3": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ v3.docx"
+            "v3": "Word songs/708 Իմ Հիսուս, իմ Փրկիչ v3.docx",
+            "key": "Gm",
+            "speed": "71",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any ballad or beat"
         },
         "709": {
             "Title": "Ով էր որ ինձ նոր կյանք պարգևեց",
@@ -3855,7 +3867,13 @@
             "Title": "Տերն է իմ հովիվը կարիք չեմ ունենա",
             "latestVersion": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx",
             "v1": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա.docx",
-            "v2": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx"
+            "v2": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx",
+            "key": "Em",
+            "speed": "64",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "748": {
             "Title": "Արթնացա մի օր, քո իսկ պարգևած",
@@ -4218,16 +4236,15 @@
             "v1": "Word songs/31  v1.docx"
         },
         "SongNum": {
-            "Title": "Իմ սիրտը պատրաստ է ով Սուրբ Աստված",
-            "latestVersion": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v2.docx",
-            "v1": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված.docx",
-            "v2": "Word songs/632 Իմ սիրտը պատրաստ է ով Սուրբ Աստված v2.docx",
-            "key": "F#m",
-            "speed": "105",
-            "style": "Samba",
-            "song_type": "Opening Song",
+            "Title": "Ահա մենք մեր ուրախ երգերով",
+            "latestVersion": "Word songs/298 Ահա մենք մեր ուրախ երգերով.docx",
+            "v1": "Word songs/298 Ահա մենք մեր ուրախ երգերով.docx",
+            "key": "E#m",
+            "speed": "97",
+            "style": "Disco",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Dance-P5-5"
         }
     }
 }
