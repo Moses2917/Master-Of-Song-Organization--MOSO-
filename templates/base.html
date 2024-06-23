@@ -7,12 +7,27 @@
   <title>MOSO</title>
   <link rel="shortcut icon" href="{{url_for('static', filename='pictures/moso.png')}}" type="image/png">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- <style>
+    /* Custom styles to offset the container */
+    .sticky-container {
+      top: 56px;
+    }
+  </style> -->
+  <style>
+    #btn-back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-secondary bg-gradient fs-5"> <!-- used to have 'sticky-top' got rid of it for clarity-->
+  <nav class="navbar navbar-expand-lg bg-secondary bg-gradient fs-5 sticky-top"> <!-- used to have 'sticky-top' got rid of it for clarity-->
     <div class="container-fluid">
 <!--      <a href="{{url_for('temp_home')}}" class="navbar-brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="80" height="80"></a>-->
-      <a href="{{url_for('temp_home')}}" class="navbar-brand"><img src="https://i.imgur.com/OHnHkT5.png" width="50" height="50"></a>
+      <!-- <a href="{{url_for('temp_home')}}" class="navbar-brand"><img src="https://i.imgur.com/OHnHkT5.png" width="50" height="50"></a> -->
+       <a href="{{url_for('temp_home')}}" class="navbar-brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50"></a>
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,30 +49,19 @@
                 <a class="nav-link active" href="{{url_for('check_past_songs')}}">Look Up Past Songs</a>
             </li>
             </ul>
-<!--            <li class="nav-item">-->
-                <div class="d-flex">
-                    <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
-                    <div class="input-group">
-                        <span class="input-group-text">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
-                            </svg>
-                        </span>
-                        <input class="form-control d-flex" type="text" placeholder="Search" aria-label="Search" readonly>
-                    </div>
-                </button>
-                </div>
-<!--            </li>-->
-<!--            <li class="nav-item dropdown">-->
-<!--                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">lang</a>-->
-<!--                <ul class="dropdown-menu">-->
-<!--                    <li><p class="dropdown-item">&#x1f1e6;&#x1f1f2;</p> </li>-->
-<!--                    <li><a class="dropdown-item" href="#">	&#x1f1fa;&#x1f1f8;</a></li>-->
-<!--                    <li><a class="dropdown-item"><i class="flag-united-kingdom flag">MERICA</i></a></li>-->
-<!--                </ul>-->
-<!--            </li>-->
 
-<!--        </ul>-->
+            <div class="d-flex">
+                <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+                        </svg>
+                    </span>
+                    <input class="form-control d-flex" type="text" placeholder="Search" aria-label="Search" readonly>
+                </div>
+            </button>
+            </div>
       </div>
     </div>
   </nav>
@@ -121,7 +125,7 @@ async function getResults() {
         </div>
         </div>
 
-<div class="container my-4">
+<div class="container my-4" id="top">
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
     {% for category, message in messages %}
@@ -131,9 +135,46 @@ async function getResults() {
     {% endfor %}
     {% endif %}
     {% endwith %}
-    
+    <!-- {% if request.url %}  {%endif%}    -->
+
     {% if session['user'] %}
-        {% block content %}{% endblock %}
+    <button
+    type="button"
+    class="btn btn-danger btn-floating btn-lg rounded-circle"
+    id="btn-back-to-top"
+    >
+    <!-- <i class="fas fa-arrow-up"></i> -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up fw-bold" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+      </svg>
+    </button>
+    {% block content %}{% endblock %}
+
+        <script type="text/javascript">{//Get the button
+            let mybutton = document.getElementById("btn-back-to-top");
+            
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+              scrollFunction();
+            };
+            
+            function scrollFunction() {
+              if (
+                document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20
+              ) {
+                mybutton.style.display = "block";
+              } else {
+                mybutton.style.display = "none";
+              }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            mybutton.addEventListener("click", backToTop);
+            
+            function backToTop() {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }}</script>
     {% else %}
     {%include 'guest.html'%}
     {%endif%}
