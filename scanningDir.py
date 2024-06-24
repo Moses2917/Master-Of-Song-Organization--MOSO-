@@ -326,6 +326,7 @@ def toJson():
 
 
 # TODO Handle case where a file is deleted and no longer exists think file deletions and file renaming
+# could do a sort of git difference, where if it doesn't find the file, but it exists in the index, it will be deleted
 def findNewFiles():  # is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
     """This will make a dict. stored and accessed as a json file. It will store the name of the doc, as well as all
     songs it found in the doc, a basepath where the os path for onedrive can be appended, and it will store the last
@@ -350,7 +351,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
     ErgerFolder = os.scandir(OneDrivePth + "\\Երգեր")
     blacklist = ['Սուրբ ծնունդ', 'Պենտեկոստե', 'Զատիկ', 'Գոհաբանության Օր', 'Wedding', '2020', '2021',
                  '2022', '01.2023']  # list of unneeded dirs
-    blacklist.append(['02.2023', '03.2023', '04.2023', '05.2023']) # additional dates where the algo was buggy and reported the wrong song nums
+    blacklist.extend(['02.2023', '03.2023', '04.2023', '05.2023']) # additional dates where the algo was buggy and reported the wrong song nums
     with os.scandir(OneDrivePth + "\\Երգեր") as ErgerFolders:
         filePths = []
         for ergfolder in ErgerFolders:
@@ -395,7 +396,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
     from os import stat
     with open("songs.json", mode='r', encoding='utf-8') as f:
         allsongs = load(f)
-
+    
     for filepth, basePth in filePths:
         with os.scandir(filepth) as songFolder:
             for songs in songFolder:
@@ -422,7 +423,42 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                         'songList': getNums(songs.path)
                     }
 
+    # save to json
     with open("songs.json", mode='w', encoding='utf-8') as saveFile:
+        dump(allsongs, saveFile, indent=4, ensure_ascii=False)
+    
+    
+    # Same as above but for songs_cleaned.json which has stricter date reqs
+    with open("songs_cleaned.json", mode='r', encoding='utf-8') as f:
+        allsongs = load(f)
+    # allsongs = {} # uncomment this if you want to start from scratch or use this when making a new json, not based on songs.json
+    for filepth, basePth in filePths:
+        with os.scandir(filepth) as songFolder:
+            for songs in songFolder:
+                if allsongs.get(songs.name, None):
+                    # lookup file in index, and if none do not run code go to else statement
+                    dateModOnFile = datetime.fromtimestamp(allsongs[songs.name]['dateMod'])
+                    currDateMod = datetime.fromtimestamp(stat(songs.path).st_mtime)
+
+                    # if it exists in the index then do this after setting vars for comparison of dates
+                    if not (currDateMod <= dateModOnFile):
+                        # if the date modified of a file is greater than the one on file repalce it
+                        allsongs[songs.name] = {
+                            'dateMod': stat(songs.path).st_mtime,
+                            'path': songs.path,
+                            'basePth': basePth,
+                            'songList': getNums(songs.path)
+                        }
+                        print("Updated this file", songs.name)
+                else:
+                    allsongs[songs.name] = {
+                        'dateMod': stat(songs.path).st_mtime,
+                        'path': songs.path,
+                        'basePth': basePth,
+                        'songList': getNums(songs.path)
+                    }
+                    
+    with open("songs_cleaned.json", mode='w', encoding='utf-8') as saveFile:
         dump(allsongs, saveFile, indent=4, ensure_ascii=False)
 
 
