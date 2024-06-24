@@ -60,16 +60,16 @@
                         {%if table_data%}
                         {% for row, attr in table_data.items() %}
                             <tr>
-                                <!-- <td><input type="submit" name="SongNum" value="{{row}}" class="btn btn-primary"></td> -->
+                                
                                 <td><a class="btn btn-primary" href="{{url_for('display_song',book=book,songnum=row)}}">{{row}}</a></td>
-                                <td>{{attr['Title']}}</td>
-                                <td>{{attr['latestVersion']}}</td>
-                                <td>{{attr['key']}}</td>
-                                <td>{{attr['speed']}}</td>
-                                <td>{{attr['timeSig']}}</td>
-                                <td>{{attr['style']}}</td>
-                                <td>{{attr['song_type']}}</td>
-                                <td>{{attr['Comments']}}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">{{attr['Title']}}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Latest Version">{{attr['latestVersion']}}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Key">{{attr['key']}}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Speed">{{attr['speed']}}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">{{attr['timeSig']}}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">{{attr['style']}}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">{{attr['song_type']}}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">{{attr['Comments']}}</td>
                             </tr>
                         {% endfor %}
                         {%endif%}
@@ -78,5 +78,10 @@
             </table>
         </div>
         {%endif%}
+        <script>
+            // Initialize all tooltips
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        </script>
     </div>
 {%endblock%}
