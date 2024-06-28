@@ -53,6 +53,17 @@
             "latestVersion": "Word songs\\pptSong\\9 Գերեզմանի մեջ մութ.docx",
             "v1": "Word songs\\pptSong\\9 Գերեզմանի մեջ մութ.docx"
         },
+        "10": {
+            "Title": "Օրհնենք հարեալ և զորավոր Տիրոջը",
+            "latestVersion": "Word songs/10  v1.docx",
+            "v1": "Word songs/10  v1.docx",
+            "key": "Dm",
+            "speed": "118",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Disco-P5-4"
+        },
         "11": {
             "Title": "Խորհրդավոր է այս հանդես,",
             "latestVersion": "Word songs\\pptSong\\11.Խորհրդավոր է այս հանդես.docx",
@@ -97,6 +108,22 @@
             "latestVersion": "Word songs\\pptSong\\20.Մեր լավագույն օրերն անգին.docx",
             "v1": "Word songs\\pptSong\\20.Մեր լավագույն օրերն անգին.docx"
         },
+        "21": {
+            "Title": "Ես համոզված եմ եվ հաստատ ուխտած",
+            "latestVersion": "Word songs/21  v1.docx",
+            "v1": "Word songs/21  v1.docx"
+        },
+        "22": {
+            "Title": "Կյանքդ կանցնի արագ արագ",
+            "latestVersion": "Word songs/22  v1.docx",
+            "v1": "Word songs/22  v1.docx",
+            "key": "Em",
+            "speed": "114",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
+        },
         "23": {
             "Title": "Այս կյանքս պատերազմ է, և մենք՝ զինվորներ,",
             "latestVersion": "Word songs/23 ․Այս կյանքս պատերազմ է, և մենք՝ զինվորներ, v3.docx",
@@ -138,6 +165,11 @@
             "Title": "Կուզե՞ս ազատ ըլլալ մեղքի բեռեն, \nՄեծ զորություն կա սուրբ արեան մեջ, \nԿուզե՞ս հաղթող ըլլալ չարին ամեն, \nՄեծ զորություն կա արեան մեջ:",
             "latestVersion": "Word songs\\pptSong\\30.docx",
             "v1": "Word songs\\pptSong\\30.docx"
+        },
+        "31": {
+            "Title": "Տիրոջ հաղթության դրոշ",
+            "latestVersion": "Word songs/31  v1.docx",
+            "v1": "Word songs/31  v1.docx"
         },
         "32": {
             "Title": "Ահա մեզի մանուկ ծնավ, \nԾնավ զավակ Դավթի, \nՄեզի Որդի մը տրվեցավ, }2 \nՈւրախություն երկրին:",
@@ -3558,7 +3590,7 @@
             "latestVersion": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս v2.docx",
             "v1": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս.docx",
             "v2": "Word songs/702 Սիրում եմ քեզ տեր Հիսուս v2.docx",
-            "key": "D#m (-6)",
+            "key": "Em",
             "speed": "86",
             "style": "Waltz ",
             "song_type": "Single Song",
@@ -4202,49 +4234,6 @@
             "Title": "",
             "latestVersion": "Word songs/903 .docx",
             "v1": "Word songs/903 .docx"
-        },
-        "21": {
-            "Title": "Ես համոզված եմ եվ հաստատ ուխտած",
-            "latestVersion": "Word songs/21  v1.docx",
-            "v1": "Word songs/21  v1.docx"
-        },
-        "10": {
-            "Title": "Օրհնենք հարեալ և զորավոր Տիրոջը",
-            "latestVersion": "Word songs/10  v1.docx",
-            "v1": "Word songs/10  v1.docx",
-            "key": "Dm",
-            "speed": "118",
-            "style": "Disco",
-            "song_type": "Opening Song",
-            "timeSig": "4/4",
-            "Comments": "Disco-P5-4"
-        },
-        "22": {
-            "Title": "Կյանքդ կանցնի արագ արագ",
-            "latestVersion": "Word songs/22  v1.docx",
-            "v1": "Word songs/22  v1.docx",
-            "key": "Em",
-            "speed": "114",
-            "style": "Samba",
-            "song_type": "Opening Song",
-            "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
-        },
-        "31": {
-            "Title": "Տիրոջ հաղթության դրոշ",
-            "latestVersion": "Word songs/31  v1.docx",
-            "v1": "Word songs/31  v1.docx"
-        },
-        "SongNum": {
-            "Title": "Ահա մենք մեր ուրախ երգերով",
-            "latestVersion": "Word songs/298 Ահա մենք մեր ուրախ երգերով.docx",
-            "v1": "Word songs/298 Ահա մենք մեր ուրախ երգերով.docx",
-            "key": "E#m",
-            "speed": "97",
-            "style": "Disco",
-            "song_type": "Single Song",
-            "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
         }
     }
 }

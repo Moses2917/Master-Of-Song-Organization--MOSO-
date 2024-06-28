@@ -143,7 +143,13 @@
         "17": {
             "Title": "Այս կյանքս պատերազմ է, և մենք՝ զինվորներ",
             "latestVersion": "Երգարան Word Files/17 Այս կյանքս պատերազմ է, և մենք՝ զինվորներ.docx",
-            "v1": "Երգարան Word Files/17 Այս կյանքս պատերազմ է, և մենք՝ զինվորներ.docx"
+            "v1": "Երգարան Word Files/17 Այս կյանքս պատերազմ է, և մենք՝ զինվորներ.docx",
+            "key": "Em",
+            "speed": "104",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "18": {
             "Title": "Հայր մեր, այժմ կնվիրենք",
@@ -195,7 +201,13 @@
         "23": {
             "Title": "Կվախնա՞ս, թե թշնամին պիտի հաղթե,",
             "latestVersion": "RED Words/23.docx",
-            "v1": "RED Words/23.docx"
+            "v1": "RED Words/23.docx",
+            "key": "Em",
+            "speed": "105",
+            "style": "Disco ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "24": {
             "Title": "Կուզե՞ս ազատ ըլլալ մեղքի բեռեն,",
@@ -337,7 +349,13 @@
         "41": {
             "Title": "Հա՛յր, ճամփադ ինձ սորվեցուր",
             "latestVersion": "Երգարան Word Files/41 Հա՛յր, ճամփադ ինձ սորվեցուր.docx",
-            "v1": "Երգարան Word Files/41 Հա՛յր, ճամփադ ինձ սորվեցուր.docx"
+            "v1": "Երգարան Word Files/41 Հա՛յր, ճամփադ ինձ սորվեցուր.docx",
+            "key": "C",
+            "speed": "110",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "42": {
             "Title": "Գեղեցիկ զգեստներ,",
@@ -867,7 +885,13 @@
             "Title": "Թանկագին րոպեներ է Աստված պարգևել.",
             "latestVersion": "Երգարան Word Files/116 Թանկագին րոպեներ է Աստված պարգևել. v2.docx",
             "v1": "RED Words/116.docx",
-            "v2": "Երգարան Word Files/116 Թանկագին րոպեներ է Աստված պարգևել. v2.docx"
+            "v2": "Երգարան Word Files/116 Թանկագին րոպեներ է Աստված պարգևել. v2.docx",
+            "key": "C",
+            "speed": "83",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "117": {
             "Title": "Ալելուիա՜, ալելուիա՜, ալելուիա՜, (3)",
@@ -926,7 +950,13 @@
         "125": {
             "Title": "Փրկի՛չ, գիտեիր հոգուս հույզերը",
             "latestVersion": "Երգարան Word Files/125 Փրկի՛չ, գիտեիր հոգուս հույզերը.docx",
-            "v1": "Երգարան Word Files/125 Փրկի՛չ, գիտեիր հոգուս հույզերը.docx"
+            "v1": "Երգարան Word Files/125 Փրկի՛չ, գիտեիր հոգուս հույզերը.docx",
+            "key": "Dm",
+            "speed": "168",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Jazz-P3-8"
         },
         "126": {
             "Title": "Հո՜ւյս տուր, Հիսո՛ւս, լո՜ւյս տուր, Հիսո՛ւս, տկարիս,",
@@ -1245,7 +1275,13 @@
         "169": {
             "Title": "Ըսե՛ք, որո՞ւ երթամ, երբ հոգիս տրտում է,",
             "latestVersion": "RED Words/169.docx",
-            "v1": "RED Words/169.docx"
+            "v1": "RED Words/169.docx",
+            "key": "Em",
+            "speed": "89",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "170": {
             "Title": "Որքան որ կուզես լարված ուժերով",
@@ -1297,7 +1333,13 @@
         "178": {
             "Title": "Հուսա՛, կգան ուրախ օրեր,",
             "latestVersion": "RED Words/178.docx",
-            "v1": "RED Words/178.docx"
+            "v1": "RED Words/178.docx",
+            "key": "Dm",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "179": {
             "Title": "Երբ Տիրոջը մոտ ենք մենք",
@@ -1308,7 +1350,13 @@
         "180": {
             "Title": "Քրիստո՜ս, ո՞վ չգիտե անունը Քո",
             "latestVersion": "RED Words/180.docx",
-            "v1": "RED Words/180.docx"
+            "v1": "RED Words/180.docx",
+            "key": "Gm",
+            "speed": "94",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "181": {
             "Title": "Պատգամ ունենք վերից եկած՝ ներենք իրար,",
@@ -6477,15 +6525,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Նայի՛ր, ինչ խավար է շուրջբոլորդ,",
-            "latestVersion": "RED Words/298.docx",
-            "v1": "RED Words/298.docx",
-            "key": "",
-            "speed": "",
-            "style": "",
-            "song_type": "None",
-            "timeSig": "",
-            "Comments": ""
+            "Title": "Կվախնա՞ս, թե թշնամին պիտի հաղթե,",
+            "latestVersion": "RED Words/23.docx",
+            "v1": "RED Words/23.docx",
+            "key": "Em",
+            "speed": "105",
+            "style": "Disco ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         }
     }
 }
