@@ -1343,9 +1343,16 @@
         },
         "179": {
             "Title": "Երբ Տիրոջը մոտ ենք մենք",
-            "latestVersion": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք v2.docx",
+            "latestVersion": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք v3.docx",
             "v1": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք.docx",
-            "v2": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք v2.docx"
+            "v2": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք v2.docx",
+            "key": "E",
+            "speed": "97",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3",
+            "v3": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք v3.docx"
         },
         "180": {
             "Title": "Քրիստո՜ս, ո՞վ չգիտե անունը Քո",
@@ -1380,8 +1387,15 @@
         },
         "185": {
             "Title": "Որդի՛ս, քեզ երկար եմ սպասել,",
-            "latestVersion": "RED Words/185.docx",
-            "v1": "RED Words/185.docx"
+            "latestVersion": "Երգարան Word Files/185 Որդի՛ս, քեզ երկար եմ սպասել, v2.docx",
+            "v1": "RED Words/185.docx",
+            "key": "Cm",
+            "speed": "65",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3",
+            "v2": "Երգարան Word Files/185 Որդի՛ս, քեզ երկար եմ սպասել, v2.docx"
         },
         "186": {
             "Title": "Քրիստոսը մեզ կանչում է փրկության",
@@ -1999,7 +2013,7 @@
         },
         "269": {
             "Title": "Շուտով իմ Տերը՝ Հիսուս արքան",
-            "latestVersion": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v4.docx",
+            "latestVersion": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v5.docx",
             "v1": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան.docx",
             "v2": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v2.docx",
             "v3": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v3.docx",
@@ -2007,9 +2021,10 @@
             "key": "Fm",
             "speed": "114",
             "style": "Samba",
-            "song_type": "Worship Song",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v5": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v5.docx"
         },
         "270": {
             "Title": "Մեր ճամփան է միշտ փշոտ ու քարքարոտ,",
@@ -2978,7 +2993,7 @@
         },
         "408": {
             "Title": "Տե՜ր, ի՜նչ գեղեցիկ ես, Տե՜ր, ի՜նչ հիանալի ես",
-            "latestVersion": "Երգարան Word Files/408 Տե՜ր, ի՜նչ գեղեցիկ ես, Տե՜ր, ի՜նչ հիանալի ես v2.docx",
+            "latestVersion": "Երգարան Word Files/408 Տե՜ր, ի՜նչ գեղեցիկ ես, Տե՜ր, ի՜նչ հիանալի ես v3.docx",
             "v1": "Երգարան Word Files/408 Տե՜ր, ի՜նչ գեղեցիկ ես, Տե՜ր, ի՜նչ հիանալի ես.docx",
             "v2": "Երգարան Word Files/408 Տե՜ր, ի՜նչ գեղեցիկ ես, Տե՜ր, ի՜նչ հիանալի ես v2.docx",
             "key": "D (+2)",
@@ -2986,7 +3001,8 @@
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v3": "Երգարան Word Files/408 Տե՜ր, ի՜նչ գեղեցիկ ես, Տե՜ր, ի՜նչ հիանալի ես v3.docx"
         },
         "409": {
             "Title": "Արդարացա Տեր Հիսուսով,",
@@ -3244,15 +3260,16 @@
         },
         "443": {
             "Title": "Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր",
-            "latestVersion": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx",
+            "latestVersion": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v3.docx",
             "v1": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր.docx",
             "v2": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v2.docx",
-            "key": "E",
+            "key": "F",
             "speed": "70",
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-4"
+            "Comments": "Pop-P1-4",
+            "v3": "Երգարան Word Files/443 Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր v3.docx"
         },
         "444": {
             "Title": "Տեր Հիսուսին սիրեցի,",
@@ -4116,8 +4133,15 @@
         },
         "558": {
             "Title": "Դու արժանի ես գոհության",
-            "latestVersion": "Երգարան Word Files/558 Դու արժանի ես գոհության.docx",
-            "v1": "Երգարան Word Files/558 Դու արժանի ես գոհության.docx"
+            "latestVersion": "Երգարան Word Files/558 Դու արժանի ես գոհության v2.docx",
+            "v1": "Երգարան Word Files/558 Դու արժանի ես գոհության.docx",
+            "key": "F",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3",
+            "v2": "Երգարան Word Files/558 Դու արժանի ես գոհության v2.docx"
         },
         "559": {
             "Title": "Ո՛վ մեղավոր, վերև նայիր,",
@@ -4552,9 +4576,16 @@
         },
         "629": {
             "Title": "",
-            "latestVersion": "Երգարան Word Files/629  v2.docx",
+            "latestVersion": "Երգարան Word Files/629  v3.docx",
             "v1": "RED Words/629.docx",
-            "v2": "Երգարան Word Files/629  v2.docx"
+            "v2": "Երգարան Word Files/629  v2.docx",
+            "key": "C",
+            "speed": "95",
+            "style": "Waltz ",
+            "song_type": "Worship Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P1-1",
+            "v3": "Երգարան Word Files/629  v3.docx"
         },
         "630": {
             "Title": "Օ՜, ի՜նչ մեծ ես, մեր Արքա",
@@ -6525,15 +6556,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Կվախնա՞ս, թե թշնամին պիտի հաղթե,",
-            "latestVersion": "RED Words/23.docx",
-            "v1": "RED Words/23.docx",
-            "key": "Em",
-            "speed": "105",
-            "style": "Disco ",
+            "Title": "Որդի՛ս, քեզ երկար եմ սպասել,",
+            "latestVersion": "RED Words/185.docx",
+            "v1": "RED Words/185.docx",
+            "key": "Cm",
+            "speed": "65",
+            "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Pop-P1-3"
         }
     }
 }

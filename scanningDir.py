@@ -371,12 +371,15 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                     # 02.2024
                     # 03.2024
                     # 04.2024
-                    basePth = 'Երգեր\\' + ergfolder.name
-                    print(basePth)
-                    filePths.append([
-                        ergfolder.path,
-                        basePth
-                    ])  # add to a stack(array) for processing later via filePths.pop
+                    file_path = ergfolder.name
+                    file_path.split('.')[1] #gets the extension
+                    if 'lnk' not in file_path: # filters out any .lnk extentsion 
+                        basePth = 'Երգեր\\' + ergfolder.name
+                        print(basePth)
+                        filePths.append([
+                            ergfolder.path,
+                            basePth
+                        ])  # add to a stack(array) for processing later via filePths.pop
 
                 else:
                     with os.scandir(ergfolder.path) as fullYrFolder:
@@ -463,4 +466,4 @@ def findNewFiles():  # is for finding new files so as to only go through and add
 
 
 # Uncomment this to manually update the index
-# print(findNewFiles())
+print(findNewFiles())

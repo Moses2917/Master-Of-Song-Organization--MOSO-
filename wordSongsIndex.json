@@ -3418,11 +3418,18 @@
         },
         "682": {
             "Title": "Ես ու իմ տունը Եհովան պիտ պաշտենք",
-            "latestVersion": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v4.docx",
+            "latestVersion": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v5.docx",
             "v1": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք.docx",
             "v2": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v2.docx",
             "v3": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v3.docx",
-            "v4": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v4.docx"
+            "v4": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v4.docx",
+            "key": "Em",
+            "speed": "118",
+            "style": "Beat ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4",
+            "v5": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v5.docx"
         },
         "683": {
             "Title": "Տառապանքով լի մեղքերովս լի",
@@ -4234,6 +4241,20 @@
             "Title": "",
             "latestVersion": "Word songs/903 .docx",
             "v1": "Word songs/903 .docx"
+        },
+        "SongNum": {
+            "Title": "Ես ու իմ տունը Եհովան պիտ պաշտենք",
+            "latestVersion": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v4.docx",
+            "v1": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք.docx",
+            "v2": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v2.docx",
+            "v3": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v3.docx",
+            "v4": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v4.docx",
+            "key": "Em",
+            "speed": "118",
+            "style": "Beat ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         }
     }
 }
