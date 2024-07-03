@@ -622,8 +622,15 @@
         },
         "75": {
             "Title": "Վիշտ ու ցավով պատած հոգի,",
-            "latestVersion": "RED Words/75.docx",
-            "v1": "RED Words/75.docx"
+            "latestVersion": "Երգարան Word Files/75 Վիշտ ու ցավով պատած հոգի, v2.docx",
+            "v1": "RED Words/75.docx",
+            "v2": "Երգարան Word Files/75 Վիշտ ու ցավով պատած հոգի, v2.docx",
+            "key": "D",
+            "speed": "105",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Poo-P4-1"
         },
         "76": {
             "Title": "Ես հոգնած և բեռնավորված,",
@@ -1163,14 +1170,16 @@
         },
         "154": {
             "Title": "Դու ինձ մոտ ես, քան ծովին իր ափը,",
-            "latestVersion": "RED Words/154.docx",
+            "latestVersion": "Երգարան Word Files/154 Դու ինձ մոտ ես, քան ծովին իր ափը, v3.docx",
             "v1": "RED Words/154.docx",
             "key": "Fm",
             "speed": "100",
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P1-1"
+            "Comments": "Ballad-P4-1",
+            "v2": "Երգարան Word Files/154 Դու ինձ մոտ ես, քան ծովին իր ափը, v2.docx",
+            "v3": "Երգարան Word Files/154 Դու ինձ մոտ ես, քան ծովին իր ափը, v3.docx"
         },
         "155": {
             "Title": "Ո՜վ Տեր Հիսուս, ես Քեզ տեսա",
@@ -1715,8 +1724,16 @@
         },
         "225": {
             "Title": "Դու այնպես սիրեցիր աշխարհը,",
-            "latestVersion": "RED Words/225.docx",
-            "v1": "RED Words/225.docx"
+            "latestVersion": "Երգարան Word Files/225 Դու այնպես սիրեցիր աշխարհը, v3.docx",
+            "v1": "RED Words/225.docx",
+            "v2": "Երգարան Word Files/225 Դու այնպես սիրեցիր աշխարհը, v2.docx",
+            "v3": "Երգարան Word Files/225 Դու այնպես սիրեցիր աշխարհը, v3.docx",
+            "key": "Em",
+            "speed": "64",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "226": {
             "Title": "Տե՜ր իմ Ամենակալ",
@@ -1822,11 +1839,19 @@
         },
         "239": {
             "Title": "Կյանքս Քեզ եմ ընծայում,",
-            "latestVersion": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v4.docx",
+            "latestVersion": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v6.docx",
             "v1": "RED Words/239.docx",
             "v2": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v2.docx",
             "v3": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v3.docx",
-            "v4": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v4.docx"
+            "v4": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v4.docx",
+            "v5": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v5.docx",
+            "v6": "Երգարան Word Files/239 Կյանքս Քեզ եմ ընծայում, v6.docx",
+            "key": "Cm",
+            "speed": "85",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "240": {
             "Title": "",
@@ -2331,7 +2356,7 @@
         },
         "314": {
             "Title": "Երբ ճանապարհ եմ դուրս գալիս",
-            "latestVersion": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v3.docx",
+            "latestVersion": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v5.docx",
             "v1": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս.docx",
             "v2": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v2.docx",
             "v3": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v3.docx",
@@ -2340,7 +2365,9 @@
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P1-6"
+            "Comments": "Ballad-P1-6",
+            "v4": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v4.docx",
+            "v5": "Երգարան Word Files/314 Երբ ճանապարհ եմ դուրս գալիս v5.docx"
         },
         "315": {
             "Title": "Ահա ցուրտ ձմեռն է անցել,",
@@ -4869,8 +4896,16 @@
         },
         "680": {
             "Title": "Արթնացա մի օր Քո իսկ պարգևած արևի շողից",
-            "latestVersion": "Երգարան Word Files/680 Արթնացա մի օր Քո իսկ պարգևած արևի շողից.docx",
-            "v1": "Երգարան Word Files/680 Արթնացա մի օր Քո իսկ պարգևած արևի շողից.docx"
+            "latestVersion": "Երգարան Word Files/680 Արթնացա մի օր Քո իսկ պարգևած արևի շողից v3.docx",
+            "v1": "Երգարան Word Files/680 Արթնացա մի օր Քո իսկ պարգևած արևի շողից.docx",
+            "v2": "Երգարան Word Files/680 Արթնացա մի օր Քո իսկ պարգևած արևի շողից v2.docx",
+            "v3": "Երգարան Word Files/680 Արթնացա մի օր Քո իսկ պարգևած արևի շողից v3.docx",
+            "key": "680",
+            "speed": "65",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "681": {
             "Title": "Դու գիտակցաբար մահվան գնացիր`",
@@ -6556,15 +6591,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Որդի՛ս, քեզ երկար եմ սպասել,",
-            "latestVersion": "RED Words/185.docx",
-            "v1": "RED Words/185.docx",
-            "key": "Cm",
-            "speed": "65",
+            "Title": "Վիշտ ու ցավով պատած հոգի,",
+            "latestVersion": "Երգարան Word Files/75 Վիշտ ու ցավով պատած հոգի, v2.docx",
+            "v1": "RED Words/75.docx",
+            "v2": "Երգարան Word Files/75 Վիշտ ու ցավով պատած հոգի, v2.docx",
+            "key": "D",
+            "speed": "105",
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Poo-P4-1"
         }
     }
 }
