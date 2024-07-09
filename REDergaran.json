@@ -736,7 +736,13 @@
         "92": {
             "Title": "Ո՜հ, պայծառ ու գեղեցիկ օրն Տերունի",
             "latestVersion": "Երգարան Word Files/92 Ո՜հ, պայծառ ու գեղեցիկ օրն Տերունի.docx",
-            "v1": "Երգարան Word Files/92 Ո՜հ, պայծառ ու գեղեցիկ օրն Տերունի.docx"
+            "v1": "Երգարան Word Files/92 Ո՜հ, պայծառ ու գեղեցիկ օրն Տերունի.docx",
+            "key": "G",
+            "speed": "65",
+            "style": "",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "93": {
             "Title": "Մենք ցնծումով, ցնծումով միշտ վազենք,",
@@ -2009,7 +2015,13 @@
         "263": {
             "Title": "Մտել եմ Սրբություն Սրբոցդ",
             "latestVersion": "Երգարան Word Files/263 Մտել եմ Սրբություն Սրբոցդ.docx",
-            "v1": "Երգարան Word Files/263 Մտել եմ Սրբություն Սրբոցդ.docx"
+            "v1": "Երգարան Word Files/263 Մտել եմ Սրբություն Սրբոցդ.docx",
+            "key": "Em",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat or ballad"
         },
         "264": {
             "Title": "Հեռավոր մի երկրում,",
@@ -2339,7 +2351,7 @@
             "latestVersion": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v3.docx",
             "v1": "Երգարան Word Files/312 Մեղքի համար մեռած եմ.docx",
             "key": "F",
-            "speed": "95",
+            "speed": "103",
             "style": "Samba",
             "opening_Song": "",
             "Worship_Song": "",
@@ -2347,7 +2359,7 @@
             "Comments": "Latin Dance-P2-3",
             "v2": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v2.docx",
             "v3": "Երգարան Word Files/312 Մեղքի համար մեռած եմ v3.docx",
-            "song_type": "None"
+            "song_type": "Opening Song"
         },
         "313": {
             "Title": "Հոգիս կենաց ջուրդ է ուզում",
@@ -4503,7 +4515,13 @@
         "613": {
             "Title": "Կա մի աշխարհ լուսե",
             "latestVersion": "Երգարան Word Files/613 Կա մի աշխարհ լուսե.docx",
-            "v1": "Երգարան Word Files/613 Կա մի աշխարհ լուսե.docx"
+            "v1": "Երգարան Word Files/613 Կա մի աշխարհ լուսե.docx",
+            "key": "Gm (-2)",
+            "speed": "68",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any ballad"
         },
         "614": {
             "Title": "Հորիզոնն է անհաս ինձ փայլում,",
@@ -5260,7 +5278,13 @@
         "744": {
             "Title": "Երբ Տերն է ելնում զորքերով,",
             "latestVersion": "RED Words/744.docx",
-            "v1": "RED Words/744.docx"
+            "v1": "RED Words/744.docx",
+            "key": "Am",
+            "speed": "115",
+            "style": "Disco",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4"
         },
         "745": {
             "Title": "Երբ ես ուժասպառ շշնջում եմ,",
@@ -6591,16 +6615,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Վիշտ ու ցավով պատած հոգի,",
-            "latestVersion": "Երգարան Word Files/75 Վիշտ ու ցավով պատած հոգի, v2.docx",
-            "v1": "RED Words/75.docx",
-            "v2": "Երգարան Word Files/75 Վիշտ ու ցավով պատած հոգի, v2.docx",
-            "key": "D",
-            "speed": "105",
-            "style": "Beat",
+            "Title": "Երբ Տերն է ելնում զորքերով,",
+            "latestVersion": "RED Words/744.docx",
+            "v1": "RED Words/744.docx",
+            "key": "Am",
+            "speed": "115",
+            "style": "Disco",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Poo-P4-1"
+            "Comments": "Dance-P5-4"
         }
     }
 }

@@ -1,41 +1,52 @@
 {% extends 'base.html' %}
 {%block content%}
 
-<div class="container my-5">
+<!-- <div class="container my-5"> -->
 
-    <div class="row justify-content-end">
-        <div class="col-auto">
+    <div id="scrollspydiv">
+        <!-- <div class="col-auto position-relative"> -->
             <!-- <div class="list-group position-fixed top-0 bg-light" style="right: 20px;" data-bs-toggle="#scrollspy" id="scrollspy"> -->
-                <nav id="scrollspy" class="nav flex-column bg-secondary position-fixed p-2 rounded" style="right: 20px;" data-bs-toggle="#scrollspy">
-                
-                    <a class="nav-link btn btn-light text-dark rounded" href="#1">1</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#100">100</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#200">200</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#300">300</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#400">400</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#500">500</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#600">600</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#700">700</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#800">800</a>
-                    <a class="nav-link btn btn-light text-dark rounded" href="#900">900</a>
-        
-                    
-                    <!-- <a class="list-group-item list-group-item-action " href="#200">200</a>
-                    <a class="list-group-item list-group-item-action " href="#300">300</a>
-                    <a class="list-group-item list-group-item-action " href="#400">400</a>
-                    <a class="list-group-item list-group-item-action " href="#500">500</a>
-                    <a class="list-group-item list-group-item-action " href="#600">600</a>
-                    <a class="list-group-item list-group-item-action " href="#700">700</a>
-                    <a class="list-group-item list-group-item-action " href="#800">800</a>
-                    <a class="list-group-item list-group-item-action " href="#900">900</a> -->
-
-                </nav>
+                <!-- <nav id="scrollspy" class="z-3 navbar flex-column bg-secondary position-absolute top-0 end-100 translate-middle-x p-2 rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical"> -->
+                <!-- <nav id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical"> -->
+                    <!-- <ul class="nav nav-pills nav-fill"> -->
+                    <ul id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 translate-middle-x rounded-4" aria-orientation="vertical" style="position: fixed; left: 20px">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#1">1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#100">100</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#200">200</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#300">300</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#400">400</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#500">500</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#600">600</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#700">700</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#800">800</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-dark rounded" href="#900">900</a>
+                        </li>
+                    </ul>
+                <!-- </nav> -->
             <!-- </div> -->
-        </div>
+        <!-- </div> -->
     </div>
-
-
-        <div class="container-md fw-bold shadow p-3 mb-5 bg-secondary rounded sticky-container">
+    <div class="container my-5">
+        <div class="container-md fw-old shadow p-3 mb-5 bg-secondary rounded sticky-container" tabindex="0">
             <header class="header mb-4">
                 <h1 class="text-center">Tsank</h1>
                 
@@ -73,7 +84,7 @@
             </header>
         </div>
         {% if not table_date %}
-        <div class="table-responsive-md fw-bold rounded" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-smooth-scroll="true" tabindex="0">
+        <div id="songstable" class="table-responsive fw-bold" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0" > <!-- style="overflow: auto; position: relative;"> -->
             <table class="table table-striped table table-hover">
                 <thead>
                     <tr>
@@ -117,5 +128,35 @@
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
             const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
         </script>
+        <script type="text/javascript">
+        // Adjusts the navbar based on the given media query.
+        // 
+        // Parameters:
+        // - x: A MediaQueryList object representing the media query.
+        //
+        // Returns: None
+        function yes() {
+            console.log(checkVisibility(document.getElementById("scrollspy")));
+        
+        }
+            function adjust_navbar(x){
+                var scrollspy = document.getElementById("scrollspydiv");
+                if (x.matches) {
+                    console.log("Making the navbar smaller...");
+                    scrollspy.innerHTML = '<ul id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 translate-middle-x rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical" style="position: fixed; left: 20px"> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#1">1</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#100">100</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#200">200</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#300">300</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#400">400</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#500">500</a> </li> </ul> <ul id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical" style="position: fixed; left: 60px"> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#600">600</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#700">700</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#800">800</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#900">900</a> </li> </ul>';
+                } else {
+                    console.log("The current navbar size is fine.");
+                    scrollspy.innerHTML = '<ul id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 translate-middle-x rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical" style="position: fixed; left: 20px"> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#1">1</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#100">100</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#200">200</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#300">300</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#400">400</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#500">500</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#600">600</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#700">700</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#800">800</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#900">900</a> </li> </ul>';
+                }
+            }
+
+            var x = window.matchMedia("(max-height: 480px)");
+            adjust_navbar(x);
+
+            x.addEventListener("change", function() {
+                adjust_navbar(x);
+            });
+        </script>
     </div>
+    <!-- </div> -->
 {%endblock%}

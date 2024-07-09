@@ -3681,7 +3681,13 @@
             "Title": "Մտել եմ Սրբություն Սրբոցդ",
             "latestVersion": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ v2.docx",
             "v1": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ.docx",
-            "v2": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ v2.docx"
+            "v2": "Word songs/715 Մտել եմ Սրբություն Սրբոցդ v2.docx",
+            "key": "Em",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "716": {
             "Title": "Տերն է իմ արքաների Արքան",
@@ -3701,7 +3707,13 @@
             "Title": "Գաղգոթայի ճամփան հեռու է ու փշոտ",
             "latestVersion": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ v2.docx",
             "v1": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ.docx",
-            "v2": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ v2.docx"
+            "v2": "Word songs/718 Գաղգոթայի ճամփան հեռու է ու փշոտ v2.docx",
+            "key": "Bm (+2)",
+            "speed": "84",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4-4",
+            "Comments": "Ballad-P5-7"
         },
         "719": {
             "Title": "Կա արդյոք աշխարհի մեջ մի անուն",
@@ -3804,7 +3816,13 @@
             "Title": "Կա մի աշխարհ լուսե",
             "latestVersion": "Word songs/733 Կա մի աշխարհ լուսե v2.docx",
             "v1": "Word songs/733 Կա մի աշխարհ լուսե.docx",
-            "v2": "Word songs/733 Կա մի աշխարհ լուսե v2.docx"
+            "v2": "Word songs/733 Կա մի աշխարհ լուսե v2.docx",
+            "key": "Gm (-2)",
+            "speed": "68",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any ballad"
         },
         "734": {
             "Title": "Դու ապավենն ես իմ սրտի",
@@ -3975,7 +3993,13 @@
         "754": {
             "Title": "Արժան ես փառքերի",
             "latestVersion": "Word songs/754 Արժան ես փառքերի.docx",
-            "v1": "Word songs/754 Արժան ես փառքերի.docx"
+            "v1": "Word songs/754 Արժան ես փառքերի.docx",
+            "key": "Gm (-2)",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "755": {
             "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
@@ -4243,18 +4267,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Ես ու իմ տունը Եհովան պիտ պաշտենք",
-            "latestVersion": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v4.docx",
-            "v1": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք.docx",
-            "v2": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v2.docx",
-            "v3": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v3.docx",
-            "v4": "Word songs/682 Ես ու իմ տունը Եհովան պիտ պաշտենք v4.docx",
-            "key": "Em",
-            "speed": "118",
-            "style": "Beat ",
-            "song_type": "Single Song",
+            "Title": "Երբ Տերն է ելնում շքերթի",
+            "latestVersion": "Word songs/383 Երբ Տերն է ելնում շքերթի v3.docx",
+            "v1": "Word songs/383 Երբ Տերն է ելնում շքերթի.docx",
+            "key": "Am",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Dance-P5-4",
+            "v2": "Word songs/383 Երբ Տերն է ելնում շքերթի v2.docx",
+            "v3": "Word songs/383 Երբ Տերն է ելնում շքերթի v3.docx"
         }
     }
 }
