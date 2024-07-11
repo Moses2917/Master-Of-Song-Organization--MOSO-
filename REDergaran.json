@@ -549,7 +549,13 @@
             "Title": "Ո՜վ Հիսուս, ինձ մոտ արի",
             "latestVersion": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի v2.docx",
             "v1": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի.docx",
-            "v2": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի v2.docx"
+            "v2": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի v2.docx",
+            "key": "Em",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "68": {
             "Title": "Իջի՛ր, Արքա հզոր,",
@@ -3525,7 +3531,7 @@
             "v2": "Երգարան Word Files/473 Արթնացրո՜ւ ինձ, Տե՛ր, v2.docx",
             "v3": "Երգարան Word Files/473 Արթնացրո՜ւ ինձ, Տե՛ր, v3.docx",
             "key": "E (flat) m (-6)",
-            "speed": "70",
+            "speed": "68",
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
@@ -3924,7 +3930,13 @@
         "524": {
             "Title": "Թող աղոթքս բարձրանա երկինք,",
             "latestVersion": "RED Words/524.docx",
-            "v1": "RED Words/524.docx"
+            "v1": "RED Words/524.docx",
+            "key": "Dm",
+            "speed": "93",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "525": {
             "Title": "Երկինքը Աստծո փառքը կպատմե",
@@ -4222,7 +4234,7 @@
             "v1": "RED Words/563.docx",
             "v2": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v2.docx",
             "v3": "Երգարան Word Files/563 Տեր Հիսուսին ծառայող Գեդեոնի զինվորներ, v3.docx",
-            "key": "Dm(-1)",
+            "key": "Cm# (-8)",
             "speed": "65",
             "style": "Beat",
             "song_type": "Single Song",
@@ -6615,15 +6627,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Երբ Տերն է ելնում զորքերով,",
-            "latestVersion": "RED Words/744.docx",
-            "v1": "RED Words/744.docx",
-            "key": "Am",
-            "speed": "115",
-            "style": "Disco",
+            "Title": "Թող աղոթքս բարձրանա երկինք,",
+            "latestVersion": "RED Words/524.docx",
+            "v1": "RED Words/524.docx",
+            "key": "Dm",
+            "speed": "93",
+            "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-4"
+            "Comments": "Ballad-P5-5"
         }
     }
 }

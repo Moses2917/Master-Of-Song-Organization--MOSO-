@@ -3,42 +3,43 @@
 
 <!-- <div class="container my-5"> -->
 
-    <div id="scrollspydiv">
+    <div id="scrollspydiv" class="dropdown" style="position: fixed; left: 20px">
         <!-- <div class="col-auto position-relative"> -->
             <!-- <div class="list-group position-fixed top-0 bg-light" style="right: 20px;" data-bs-toggle="#scrollspy" id="scrollspy"> -->
                 <!-- <nav id="scrollspy" class="z-3 navbar flex-column bg-secondary position-absolute top-0 end-100 translate-middle-x p-2 rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical"> -->
                 <!-- <nav id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical"> -->
                     <!-- <ul class="nav nav-pills nav-fill"> -->
-                    <ul id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 translate-middle-x rounded-4" aria-orientation="vertical" style="position: fixed; left: 20px">
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#1">1</a>
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Song Numbers</button>
+                    <ul id="scrollspy" class="dropdown-menu text-center">
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#1">1</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#100">100</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#100">100</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#200">200</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#200">200</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#300">300</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#300">300</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#400">400</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#400">400</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#500">500</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#500">500</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#600">600</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#600">600</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#700">700</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#700">700</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#800">800</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#800">800</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-light text-dark rounded" href="#900">900</a>
+                        <li>
+                            <a class="dropdown-item btn btn-light rounded" href="#900">900</a>
                         </li>
                     </ul>
                 <!-- </nav> -->
@@ -46,117 +47,292 @@
         <!-- </div> -->
     </div>
     <div class="container my-5">
+        <div id="toastdiv" class="toast-container position-fixed p-3 bg-warning-subtle border border-warning-subtle rounded-4" style="right: 20px;" onchange="hide_toast()">
+            <div id="toastInfo1" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header"> <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <rect width="100%" height="100%" fill="#007aff"></rect>
+                    </svg>
+                    <strong class="me-auto">System</strong> <small>Just Now</small> <button type="button"
+                        class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> </div>
+                <div class="toast-body"> <strong>For full lyric search</strong> <p>Step 1: Make sure the current attribute is "Lyrics" <br> Step 2: Please enter your query</p></div>
+            </div>
+            <div id="toastInfo2" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header"> <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <rect width="100%" height="100%" fill="#007aff"></rect>
+                    </svg>
+                    <strong class="me-auto">System</strong> <small>Just Now</small> <button type="button"
+                        class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> </div>
+                <div class="toast-body"><strong>For more detailed search</strong><p>Step 1: Select "All Attributes" <br> Step 2: Please select a book <br> Step 3: Enter a search query</p></div>
+            </div>
+        </div>
         <div class="container-md fw-old shadow p-3 mb-5 bg-secondary rounded sticky-container" tabindex="0">
             <header class="header mb-4">
-                <h1 class="text-center">Tsank</h1>
+                <h1 class="text-center">Ցանկ</h1>
                 
-                <form method="post" class="form-group">
-                    <div class="form-group">
+                <!-- <form method="post" class="form-group"> -->
+                    <div id="book_select_div" style="display: none;">
                         <label for="book">Please Choose the Book:</label>
-                        <select name="book" class="form-control" id="book">
-                            <option value="">--Please choose an option--</option>
-                            <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }} > REDErgaran</option>
-                            <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>Old Book</option>
-                        </select>
+                        <div class="input-group">
+                            <select name="book" class="form-control" id="book" onchange="tsank_search()">
+                                <option value="">--Please choose an option--</option>
+                                <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }} > REDErgaran</option>
+                                <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>Old Book</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="query" class="form-label">Search Query:</label>
-                        <input type="text" id="query" name="query" value="{{ query }}" class="form-control">
+                    <label for="query" class="form-label">Search Query:</label>
+                    <div class="input-group">
+                        <input type="text" id="query" name="query" value="{{ query }}" class="form-control" oninput="tsank_search()">
 
                     </div>
-                    <div class="form-group">
-                        <label for="attribute" class="form-label">Search Attribute:</label>
-                        <select id="attribute" name="attribute" class="form-control">
-                            <option value="all" {{ 'selected' if attribute=='all' }}>All Attributes</option>
-                            <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
+                    <label for="attribute" class="form-label">Search Attribute:</label>
+                    <div class="input-group">
+                        <select id="attribute" name="attribute" class="form-control" onchange="book_select()">
+                            <option value="Full_Text">Lyrics</option>
+                            <option value="all">All Attributes</option>
+                            <!-- <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
                             <option value="latestVersion" {{ 'selected' if attribute=='latestVersion' }}>Latest Version</option>
                             <option value="key" {{ 'selected' if attribute=='key' }}>Key</option>
                             <option value="speed" {{ 'selected' if attribute=='speed' }}>Speed</option>
                             <option value="timeSig" {{ 'selected' if attribute=='timeSig' }}>Time Signature</option>
                             <option value="style" {{ 'selected' if attribute=='style' }}>Style</option>
                             <option value="song_type" {{ 'selected' if attribute=='song_type' }}>Song Type</option>
-                            <option value="Comments" {{ 'selected' if attribute=='Comments' }}>Comments</option>
+                            <option value="Comments" {{ 'selected' if attribute=='Comments' }}>Comments</option> -->
                         </select>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3">Submit</button>
-                </form>
+                    <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit" style="display: none;">Submit</button>
+                <!-- </form> -->
             </header>
         </div>
-        {% if not table_date %}
-        <div id="songstable" class="table-responsive fw-bold" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0" > <!-- style="overflow: auto; position: relative;"> -->
-            <table class="table table-striped table table-hover">
-                <thead>
-                    <tr>
-                        <th>SongNum</th>
-                        <th>Title</th>
-                        <th>Latest Version</th>
-                        <th>Key</th>
-                        <th>Speed</th>
-                        <th>Time Signature</th>
-                        <th>Style</th>
-                        <th>Song Type</th>
-                        <th>Comments</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <form method="post">
-                        <input type="hidden" name="book" value="{{book}}">
-                        {%if table_data%}
-                        {% for row, attr in table_data.items() %}
-                            <tr id="{{row}}">
-                                
-                                <td><a class="btn btn-primary" href="{{url_for('display_song',book=book,songnum=row)}}">{{row}}</a></td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">{{attr['Title']}}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Latest Version">{{attr['latestVersion']}}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Key">{{attr['key']}}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Speed">{{attr['speed']}}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">{{attr['timeSig']}}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">{{attr['style']}}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">{{attr['song_type']}}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">{{attr['Comments']}}</td>
-                            </tr>
-                        {% endfor %}
-                        {%endif%}
-                    </form>
-                </tbody>
-            </table>
-        </div>
-        {%endif%}
-        <script>
-            // Initialize all tooltips
-            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-        </script>
-        <script type="text/javascript">
-        // Adjusts the navbar based on the given media query.
-        // 
-        // Parameters:
-        // - x: A MediaQueryList object representing the media query.
-        //
-        // Returns: None
-        function yes() {
-            console.log(checkVisibility(document.getElementById("scrollspy")));
         
-        }
-            function adjust_navbar(x){
-                var scrollspy = document.getElementById("scrollspydiv");
-                if (x.matches) {
-                    console.log("Making the navbar smaller...");
-                    scrollspy.innerHTML = '<ul id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 translate-middle-x rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical" style="position: fixed; left: 20px"> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#1">1</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#100">100</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#200">200</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#300">300</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#400">400</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#500">500</a> </li> </ul> <ul id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical" style="position: fixed; left: 60px"> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#600">600</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#700">700</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#800">800</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#900">900</a> </li> </ul>';
+        <div id="songstable" class="table-responsive fw-bold" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0" > <!-- style="overflow: auto; position: relative;"> -->
+        </div>
+        <!-- <table class="table table-striped table table-hover" style="display: none;"> USESLESS, keeping it here just in case
+            <thead>
+                <tr>
+                    <th>SongNum</th>
+                    <th>Title</th>
+                    <th>Latest Version</th>
+                    <th>Key</th>
+                    <th>Speed</th>
+                    <th>Time Signature</th>
+                    <th>Style</th>
+                    <th>Song Type</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody id="tablebody">
+                <form method="post">
+                    
+                    {%if table_data%}
+                    {% for row, attr in table_data.items() %}
+                        <tr id="{{row}}">
+                            
+                            <td><a class="btn btn-primary" href="{{url_for('display_song',book=book,songnum=row)}}">{{row}}</a></td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Title">{{attr['Title']}}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Latest Version">{{attr['latestVersion']}}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Key">{{attr['key']}}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Speed">{{attr['speed']}}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Time Signature">{{attr['timeSig']}}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">{{attr['style']}}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Type">{{attr['song_type']}}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Comments">{{attr['Comments']}}</td>
+                        </tr>
+                    {% endfor %}
+                    {%endif%}
+                </form>
+            </tbody>
+        </table> -->
+        <script>
+            function book_select(){
+                if (attribute.value == 'Full_Text') {
+                    book_select_div.style.display = 'none'
+                    
                 } else {
-                    console.log("The current navbar size is fine.");
-                    scrollspy.innerHTML = '<ul id="scrollspy" class="z-3 nav flex-column bg-secondary p-2 translate-middle-x rounded-4" data-bs-toggle="#scrollspy" aria-orientation="vertical" style="position: fixed; left: 20px"> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#1">1</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#100">100</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#200">200</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#300">300</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#400">400</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#500">500</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#600">600</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#700">700</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#800">800</a> </li> <li class="nav-item"> <a class="nav-link btn btn-light text-dark rounded" href="#900">900</a> </li> </ul>';
+                    book_select_div.style.display = 'block'
                 }
             }
+            // book_select()
+            async function tsank_search(){
+                // TODO:
+                // Need to find a way to return the table data when searching
+                // Need to transfer processes to fetch api, half fetch, half submitting a form
+                if (attribute.value == 'Full_Text' && query.value != '') { //and there is a search query in it
+                    
+                    searchLyrics = document.getElementById('query').value;
+                    let search_url = '/search/' //To get the base url for search
+                    if (searchLyrics){
+                        search_url = search_url + searchLyrics;
+                    }
+                    //const foundLyrics = await fetch(search_url);
+                    const resultsUl = document.getElementById("songstable");
+                    resultsUl.innerHTML = '<ul class="list-group" id="tablesearchresults"></ul>';
+                    const tablesearchresults = document.getElementById("tablesearchresults");
+                    fetch(search_url)
+                        .then(response => response.json())
+                        //.then(text => resultsUl.innerHTML = `<li class="list-group-item"> ${text} </li>`)
+                        .then(text => {
+                            //text = Array.from(text);
+                            //text.forEach(manifestResults);
+                            tablesearchresults.innerHTML = '';
+                            for (const element of text){
+                                if (tablesearchresults.childNodes.length <= 10){
+                                    tablesearchresults.innerHTML += element;
+                                }
+                            }
+                        });
+            
+                }
+                function search(){
+                    fetch('/',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            // 'session': {{session}},
+                            'attribute': attribute.value,
+                            'book': book.value,
+                            'query': query.value
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(text => {
+                        const table = document.createElement('table'); // table
+                        table.classList.add('table', 'table-striped', 'table-hover'); // table class
+                        const thead = document.createElement('thead');
+                        const tr = document.createElement('tr');
+                        const ths = ['SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
+                        for (const th of ths) {
+                            const thEl = document.createElement('th');
+                            thEl.textContent = th;
+                            tr.appendChild(thEl);
+                        }
+                        thead.appendChild(tr);
+                        table.appendChild(thead);
+                        const tbody = document.createElement('tbody');
+                        tbody.id = "tablebody";
+                        table.appendChild(tbody);
+                        document.getElementById('songstable').innerHTML = '';
+                        document.getElementById('songstable').appendChild(table);
 
-            var x = window.matchMedia("(max-height: 480px)");
-            adjust_navbar(x);
+                        // tablebody.textContent='' //clear the table
+                        for (const [key, value] of Object.entries(text)) {
+                            const row = document.createElement('tr');
+                            row.setAttribute('id', key);
+                            
+                            row.innerHTML = `
+                                <td><a class="btn btn-primary" href="/song/${book.value}/${key}">${key}</a></td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
+                            `;
+                            table.appendChild(row);
+                        }
+                        
+                    });
+                }
 
-            x.addEventListener("change", function() {
-                adjust_navbar(x);
+                if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
+                    if (attribute.value == 'all' && query.value == '') { //case: attr.val == 'all'
+                        songstable.innerHTML='<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
+                        search()
+                        init_tooltip();
+                        return true; //exit the function
+                    }
+                    // console.log(query)
+                    // console.log(query.value)
+                    // fetch('/',{
+                    //     method: 'POST',
+                    //     headers: {
+                    //         'Content-Type': 'application/json'
+                    //     },
+                    //     body: JSON.stringify({
+                    //         // 'session': {{session}},
+                    //         'attribute': attribute.value,
+                    //         'book': book.value,
+                    //         'query': query.value
+                    //     })
+                    // })
+                    // .then(response => response.json())
+                    // .then(text => {
+                    //     const table = document.createElement('table'); // table
+                    //     table.classList.add('table', 'table-striped', 'table-hover'); // table class
+                    //     const thead = document.createElement('thead');
+                    //     const tr = document.createElement('tr');
+                    //     const ths = ['SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
+                    //     for (const th of ths) {
+                    //         const thEl = document.createElement('th');
+                    //         thEl.textContent = th;
+                    //         tr.appendChild(thEl);
+                    //     }
+                    //     thead.appendChild(tr);
+                    //     table.appendChild(thead);
+                    //     const tbody = document.createElement('tbody');
+                    //     tbody.id = "tablebody";
+                    //     table.appendChild(tbody);
+                    //     document.getElementById('songstable').innerHTML = '';
+                    //     document.getElementById('songstable').appendChild(table);
+
+                    //     // tablebody.textContent='' //clear the table
+                    //     for (const [key, value] of Object.entries(text)) {
+                    //         const row = document.createElement('tr');
+                    //         row.setAttribute('id', key);
+                    //         row.innerHTML = `
+                    //             <td><a class="btn btn-primary" href="/song/${book.value}/${key}">${key}</a></td>
+                    //             <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title']}</td>
+                    //             <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion']}</td>
+                    //             <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key']}</td>
+                    //             <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed']}</td>
+                    //             <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig']}</td>
+                    //             <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style']}</td>
+                    //             <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type']}</td>
+                    //             <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments']}</td>
+                    //         `;
+                    //         table.appendChild(row);
+                    //     }
+                    //     table.insertBefore(bookInput, table.firstChild);
+                    //     init_tooltip();
+                    // });
+                    search()
+                    init_tooltip();
+                }
+                if (book.value == '' && attribute.value != 'Full_Text') { //if a book is not selected
+                    songstable.innerHTML = '<div class="alert alert-warning fade show" role="alert">No book selected</div>'
+                }
+            }
+        </script>
+        <script>
+            function hide_toast() {
+                if (toastInfo1.classList.contains('hide') && toastInfo2.classList.contains('hide')) {
+                    console.log("Toast Hidden");
+                    toastdiv.style.display = "none";
+                }
+            }
+            toastInfo1.addEventListener('hidden.bs.toast', function() {
+                hide_toast();
+            });
+            toastInfo2.addEventListener('hidden.bs.toast', function() {
+                hide_toast();
             });
         </script>
+        <script>
+            // Initialize all tooltips
+            function init_tooltip() {
+                const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+                const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+            }
+            init_tooltip()
+        </script>
     </div>
-    <!-- </div> -->
 {%endblock%}

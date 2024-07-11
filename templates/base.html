@@ -50,7 +50,7 @@
                 <a class="nav-link active" href="{{url_for('tsank_A_Z')}}">Այբուբենական Ցանկ (Ա-Ֆ)</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{{url_for('check_past_songs')}}">Look Up Past Songs</a>
+                <a class="nav-link active" href="{{url_for('check_past_songs')}}">Look Up Past Service Songs</a>
             </li>
             </ul>
 
@@ -80,18 +80,25 @@
                 <div class="modal-body">
 
                     <div class="input-group">
-                        <input type="text" name="searchLyrics" id="searchLyrics" class="form-control me-2" placeholder="Search" aria-label="Search" onkeyup="getResults()">
+                        <input type="text" name="searchLyrics" id="searchLyrics" class="form-control me-2" placeholder="Search" aria-label="Search" oninput='getResults()'>
                     </div>
                     <br>
                     <form method="post">
                         <ul class="list-group" id="searchResults"></ul>
                     </form>
                     <!-- search results -->
-
+            </div>
+                <div class="modal-footer">
+                    <p class="text-start fs-5" id="hint">Խորհուրդ. Սեղմեք այն երգը,<br> Որը ցանկանում եք բացել։</p>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+        </div>
 <script>
-async function getResults() {
+  async function getResults() {
     searchLyrics = document.getElementById('searchLyrics').value;
-    let search_url = {{ url_for('songSearch', searchLyrics =searchLyrics)|tojson }}
+    let search_url = {{ url_for('songSearch', searchLyrics =searchLyrics)|tojson }} //To get the base url for search
     if (searchLyrics){
         search_url = search_url + searchLyrics;
     }
@@ -104,31 +111,24 @@ async function getResults() {
         .then(text => {
             //text = Array.from(text);
             //text.forEach(manifestResults);
+            
             for (const element of text){
                 //resultsUl.innerHTML += `<li class="list-group-item"> Song Number: ${element.songNum} Book: ${element.book} </li>`
                 //resultsUl.innerHTML += `<input value = "Song Number: ${element.songNum}, Book: ${element.book}, Title: ${element.title}" type="submit" name="SearchResultSong" class="list-group-item list-group-item-action">`
-                resultsUl.innerHTML += element;
+                if (resultsUl.childNodes.length <= 10){
+                  resultsUl.innerHTML += element;
+                }
             }
         });
 
-    console.log(search_url)
-/*    if (!lyrics){
+/*    console.log(search_url)
+    if (!lyrics){
         resultsUl.innerHTML = `<li class="list-group-item"> No results found. </li>`;
     }
-    fix to make it work later    */
-    console.log(resultsUl.innerHTML.text)
-}
+    fix to make it work later    
+    console.log(resultsUl.innerHTML.text)*/
+  }
 </script>
-
-            </div>
-                <div class="modal-footer">
-                    <p class="text-start fs-5" id="hint">Խորհուրդ. Սեղմեք այն երգը,<br> Որը ցանկանում եք բացել։</p>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-        </div>
-
 <div class="container" id="top">
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}

@@ -196,11 +196,11 @@ def song_info():
     
     return render_template('song_info.html', session=session.get('user'))
 
-def saveHtml():
+def saveHtml(filePth, WordDoc):
     from docx import Document
 
-    songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
-    filePth = songPth  # find pth from index, and attach the location for onedrive
+    # songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
+    # filePth = songPth  # find pth from index, and attach the location for onedrive
     doc = Document(filePth)  # load doc file
     docParagraphs = doc.paragraphs  # returns a list of doc paragrpahs from which text will be extracted
     text = ''
@@ -221,7 +221,8 @@ def saveHtml():
 
     # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
     html_text = '<br>'.join(html_chunks)
-    with open(r"C:\Users\Armne\OneDrive\Documents\Code\Python\templates\songLyr.txt", 'w', encoding='utf-8') as f:
+    onedrive = env.get("OneDrive")
+    with open(rf"{onedrive}\Documents\Code\Python\htmlsongs\{WordDoc}.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
 
 # @app.route('/pentecost', methods=['GET'])
@@ -243,18 +244,69 @@ def songSearch(searchLyrics):
 
     if searchLyrics:
 
+        # query = {
+        #     "$search": {
+        #         "index": "search_index",
+        #         "text": {
+        #             "query": searchLyrics,
+        #             "path": "lyrics"
+        #         }
+        #         # "fuzzy": {
+        #         #     "lyrics": {
+        #         #         "fuzziness": "auto"
+        #         #     }
+        #         # }
+        #         # "text": {
+        #         #     "query": searchLyrics,
+        #         #     "path": {
+        #         #         "wildcard": "*"
+        #         #         # "lyrics"
+        #         #     }
+        #         # }
+        #     }
+        # }
+        # results = songDB.aggregate([query,{"$limit": 10}])
+        # query = {
+        #     "$search": {
+        #         "index": "search_index",
+        #         "text": {
+        #             "query": searchLyrics,
+        #             "path": "lyrics",
+        #             "fuzzy": {
+        #                 "maxEdits": 2,
+        #                 "prefixLength": 3
+        #             }
+        #         }
+        #     }
+        # }
+        # results = songDB.aggregate([query, {"$limit": 10}])
         query = {
             "$search": {
                 "index": "search_index",
-                "text": {
-                    "query": searchLyrics,
-                    "path": {
-                        "wildcard": "*"
-                    }
+                "compound": {
+                    "should": [
+                        {
+                            "text": {
+                                "query": searchLyrics,
+                                "path": "lyrics",
+                                "fuzzy": {
+                                    "maxEdits": 2,
+                                    "prefixLength": 3
+                                }
+                            }
+                        },
+                        {
+                            "phrase": {
+                                "query": searchLyrics,
+                                "path": "lyrics",
+                                "slop": 0
+                            }
+                        }
+                    ]
                 }
             }
         }
-        results = songDB.aggregate([query])
+        results = songDB.aggregate([query, {"$limit": 10}])
         searchResults = []
  
         n = 1
@@ -443,22 +495,67 @@ def display_song(book, songnum):
         # print(similar_songs)
     return render_template('song_temp.html', lyrics=openWord(songnum,book), past_songs=past_songs, similar_songs=similar_songs)
 
-# @app.route('/song/docx/')
+@app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
+def ServiceSongOpen(WordDoc): #Todo: come up with a better name
+    if '.docx' in WordDoc:
+        from glob import glob
+        foundFiles = glob("htmlsongs\\"+WordDoc+"*")
+        if foundFiles:
+            # print(foundFiles)
+            with open(foundFiles[0], 'r', encoding='utf-8') as f:
+                lyrics = f.read()
+            return render_template("song_temp.html", lyrics = lyrics)
+        else:
+            with open("songs.json" , 'r', encoding='utf-8') as f:
+                songs = json.load(f)
+            songPth = songs[WordDoc]['path']
+            songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
+            onedrive = env.get("OneDrive")
+            songPth = onedrive+songPth
+            print(songPth)
+            # songPth = fr"{onedrive}\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
+            import threading as th
+            # MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
+            wordDocThread = th.Thread(target=saveHtml,args=[songPth,WordDoc])#, args=[MS_WORD, songPth])
+            wordDocThread.start()
+            from time import sleep
+            sleep(0.75)
+            # saveHtml()
+            with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
+                html_text = f.read()
+            return render_template("song_temp.html", lyrics=html_text)
+    else:
+        flash("That song does not exist",'error')
+
+def get_my_ip():
+    from requests import get
+
+    ip = get('https://api.ipify.org').content.decode('utf8')
+    print('My public IP address is: {}'.format(ip))
+    return ip
 
 @app.route('/', methods=['GET', 'POST'])
 def temp_home():
-    
+    # print(request.remote_addr,get_my_ip())
     if session.get('user', None):
-        if isUserAllowed(session['user']['userinfo']['email']):
+        if session['user'] == 'local'or isUserAllowed(session['user']['userinfo']['email']):
+            # data = request.get_json()
             table_data = None # doing this so that it does not get referenced before assginment
-            book = request.form.get('book', None)
+            book = request.args.get('book', None)
             if request.method == 'POST':
-                if book:
-                    table_data = load_table_data(book=book)
+                # if book:
+                #     table_data = load_table_data(book=book)
                 
-                query = request.form.get('query', None)
-                attribute = request.form.get('attribute', 'all')
-                if query and book:
+                data = request.get_json(silent=True)
+                if data:
+                    query = data['query']
+                    attribute = data['attribute']
+                    book = data['book']
+                    table_data = load_table_data(book=book)
+                    # print(book)
+                if book and attribute and not query:
+                    return json.dumps(load_table_data(book=book))
+                if query and book and attribute:
                     query = query.lower()
                     filtered_data = {}
                     for song_num, attr in table_data.items():
@@ -471,12 +568,17 @@ def temp_home():
                             if query in str(attr[attribute]).lower():
                                 filtered_data[song_num] = attr
                     table_data = filtered_data
+                    return json.dumps(table_data)
                 elif not book:
-                    flash('No book selected','warning')
+                    flash('No book selected','warning') #practically not needed anymore
             
+            # return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
             return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
         else:
             return redirect('logout')
+    elif request.remote_addr == get_my_ip():
+        session['user'] = 'local'
+        return redirect('/')
     return render_template('index.html')
 
 @app.route('/editsongs', methods=['GET', 'POST'])
@@ -611,12 +713,12 @@ def past_songs(songnum):
     SongNum = songnum
     data = request.get_json()
     book = data['book']
-    # print(data)
+    # load the song database
     with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
         wordSongsIndex = json.load(f)
-
     with open('REDergaran.json', 'r', encoding='utf-8') as f:
         REDergaran = json.load(f)
+    
     from scanningDir import songSearch
     past_songs = songSearch(SongNum, book)
     if past_songs != None:
