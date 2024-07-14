@@ -2262,12 +2262,12 @@
             "Title": "Նայի՛ր, ինչ խավար է շուրջբոլորդ,",
             "latestVersion": "RED Words/298.docx",
             "v1": "RED Words/298.docx",
-            "key": "",
-            "speed": "",
-            "style": "",
-            "song_type": "None",
-            "timeSig": "",
-            "Comments": ""
+            "key": "Am",
+            "speed": "74",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "299": {
             "Title": "Կյանքի հաճույքներ շատ տեսա,",
@@ -2617,7 +2617,13 @@
         "345": {
             "Title": "Փառք ու պատիվ Քեզ, ո՛վ Հայր իմ Աստված",
             "latestVersion": "Երգարան Word Files/345 Փառք ու պատիվ Քեզ, ո՛վ Հայր իմ Աստված.docx",
-            "v1": "Երգարան Word Files/345 Փառք ու պատիվ Քեզ, ո՛վ Հայր իմ Աստված.docx"
+            "v1": "Երգարան Word Files/345 Փառք ու պատիվ Քեզ, ո՛վ Հայր իմ Աստված.docx",
+            "key": "Em",
+            "speed": "95",
+            "style": "Pop",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Poo-P3-4"
         },
         "346": {
             "Title": "Ե՛կ Տիրոջը գովենք",
@@ -3944,11 +3950,11 @@
             "v1": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե.docx",
             "v2": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v2.docx",
             "key": "Em",
-            "speed": "185",
-            "style": "6/8 country ballad",
+            "speed": "94",
+            "style": "ballad",
             "song_type": "Single Song",
             "timeSig": "3/4",
-            "Comments": "Country-P1-6",
+            "Comments": "Ballad-P4-1",
             "v3": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v3.docx"
         },
         "526": {
@@ -3960,7 +3966,13 @@
             "Title": "Շնորհակալ ենք, Տե՛ր Հիսուս",
             "latestVersion": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս v2.docx",
             "v1": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս.docx",
-            "v2": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս v2.docx"
+            "v2": "Երգարան Word Files/527 Շնորհակալ ենք, Տե՛ր Հիսուս v2.docx",
+            "key": "Fm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "528": {
             "Title": "Քրիստոսն է ժայռը Քորեբի, որ կբխե",
@@ -6627,15 +6639,17 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Թող աղոթքս բարձրանա երկինք,",
-            "latestVersion": "RED Words/524.docx",
-            "v1": "RED Words/524.docx",
-            "key": "Dm",
-            "speed": "93",
-            "style": "Ballad",
+            "Title": "Երկինքը Աստծո փառքը կպատմե",
+            "latestVersion": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v3.docx",
+            "v1": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե.docx",
+            "v2": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v2.docx",
+            "key": "Em",
+            "speed": "94",
+            "style": "ballad",
             "song_type": "Single Song",
-            "timeSig": "4/4",
-            "Comments": "Ballad-P5-5"
+            "timeSig": "3/4",
+            "Comments": "Ballad-P4-1",
+            "v3": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v3.docx"
         }
     }
 }
