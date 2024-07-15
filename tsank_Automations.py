@@ -113,6 +113,7 @@ def sort_oldbook_titles():
     # with open('sorted_wordSongIndex_titles.txt', 'w', encoding='utf-8') as f: # I could adjust the code or, be lazy and save as txt
     #     for x in sorted_titles:
     #         f.write(x + '\n')
+
 def wrdindex_firstletter():
         
     with open('sorted_wordSongIndex_titles.txt', 'r', encoding='utf-8') as f:

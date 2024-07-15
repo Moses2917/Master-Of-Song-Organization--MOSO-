@@ -551,7 +551,7 @@ def tsank():
     if temma:#checks to make sure it is not none
         from re import findall
         temmaNumber = findall(r"\d+", temma)
-        with open("templates/temmas.json", 'r', encoding='utf-8') as f:
+        with open("templates/temmas_new.json", 'r', encoding='utf-8') as f:
             temmalist = json.load(f)
         temmalist = temmalist[int(temmaNumber[0])-1]
         return render_template('temas.html', temmalist=temmalist)

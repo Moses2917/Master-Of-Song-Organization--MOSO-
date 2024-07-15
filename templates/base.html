@@ -27,10 +27,8 @@
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-secondary bg-gradient fs-5 sticky-top"> <!-- used to have 'sticky-top' got rid of it for clarity-->
+  <nav class="navbar navbar-expand-lg bg-secondary bg-gradient fs-5 sticky-top">
     <div class="container-fluid">
-<!--      <a href="{{url_for('temp_home')}}" class="navbar-brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="80" height="80"></a>-->
-      <!-- <a href="{{url_for('temp_home')}}" class="navbar-brand"><img src="https://i.imgur.com/OHnHkT5.png" width="50" height="50"></a> -->
        <a href="{{url_for('temp_home')}}" class="navbar-brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50"></a>
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -113,8 +111,6 @@
             //text.forEach(manifestResults);
             
             for (const element of text){
-                //resultsUl.innerHTML += `<li class="list-group-item"> Song Number: ${element.songNum} Book: ${element.book} </li>`
-                //resultsUl.innerHTML += `<input value = "Song Number: ${element.songNum}, Book: ${element.book}, Title: ${element.title}" type="submit" name="SearchResultSong" class="list-group-item list-group-item-action">`
                 if (resultsUl.childNodes.length <= 10){
                   resultsUl.innerHTML += element;
                 }
