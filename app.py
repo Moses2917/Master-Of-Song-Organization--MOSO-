@@ -243,43 +243,6 @@ def songSearch(searchLyrics):
     #Looks for a song, given any lyric and return x(default of 10) search results
 
     if searchLyrics:
-
-        # query = {
-        #     "$search": {
-        #         "index": "search_index",
-        #         "text": {
-        #             "query": searchLyrics,
-        #             "path": "lyrics"
-        #         }
-        #         # "fuzzy": {
-        #         #     "lyrics": {
-        #         #         "fuzziness": "auto"
-        #         #     }
-        #         # }
-        #         # "text": {
-        #         #     "query": searchLyrics,
-        #         #     "path": {
-        #         #         "wildcard": "*"
-        #         #         # "lyrics"
-        #         #     }
-        #         # }
-        #     }
-        # }
-        # results = songDB.aggregate([query,{"$limit": 10}])
-        # query = {
-        #     "$search": {
-        #         "index": "search_index",
-        #         "text": {
-        #             "query": searchLyrics,
-        #             "path": "lyrics",
-        #             "fuzzy": {
-        #                 "maxEdits": 2,
-        #                 "prefixLength": 3
-        #             }
-        #         }
-        #     }
-        # }
-        # results = songDB.aggregate([query, {"$limit": 10}])
         query = {
             "$search": {
                 "index": "search_index",
@@ -436,6 +399,22 @@ def ServiceSongOpen(WordDoc): #Todo: come up with a better name
     else:
         flash("That song does not exist",'error')
 
+
+# @app.route('/getTableData', methods=['GET', 'POST'])
+def getSong(book:str, songnum:str, batch = 0) -> dict:
+    if batch == 0:
+        from json import load
+        if book.lower == "old" or book == "wordsongsindex":
+            with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+                wordSongs = load(f)["SongNum"]
+                return wordSongs[songnum]
+        else:
+            with open("REDergaran.json", 'r', encoding='utf-8') as f:
+                REDergaran = load(f)["SongNum"]
+                return REDergaran[songnum]
+    else:
+        pass
+            
 def get_my_ip():
     from requests import get
 
@@ -452,19 +431,35 @@ def temp_home():
             table_data = None # doing this so that it does not get referenced before assginment
             book = request.args.get('book', None)
             if request.method == 'POST':
-                # if book:
-                #     table_data = load_table_data(book=book)
-                
+
                 data = request.get_json(silent=True)
                 if data:
                     query = data['query']
                     attribute = data['attribute']
                     book = data['book']
-                    table_data = load_table_data(book=book)
-                    # print(book)
+                    print(query)
+                
+                if attribute == 'Full_Text':
+                    table_data = {}
+                    links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
+                    from re import findall
+                    for link in links:
+                        book = findall('/song/(.*?)/', link)[0]
+                        song_num = findall(r'\d+', link)[0]
+                        table_data[song_num] = getSong(book, song_num)
+                        table_data[song_num]["book"] = book
+                    # print(table_data)
+                        
+                    # print(links)
+                    # return json.dumps(links)
+                    return json.dumps(table_data)
+                
                 if book and attribute and not query:
+                    # print(load_table_data(book=book))
                     return json.dumps(load_table_data(book=book))
-                if query and book and attribute:
+                
+                if query and book and attribute: # if attr is full_text
+                    table_data = load_table_data(book=book)
                     query = query.lower()
                     filtered_data = {}
                     for song_num, attr in table_data.items():
@@ -478,6 +473,7 @@ def temp_home():
                                 filtered_data[song_num] = attr
                     table_data = filtered_data
                     return json.dumps(table_data)
+                
                 elif not book:
                     flash('No book selected','warning') #practically not needed anymore
             

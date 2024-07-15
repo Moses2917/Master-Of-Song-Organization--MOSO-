@@ -1599,7 +1599,13 @@
             "Title": "Ինչքան բարի է Տերը",
             "latestVersion": "Word songs/362 Ինչքան բարի է Տերը v2.docx",
             "v1": "Word songs/362 Ինչքան բարի է Տերը.docx",
-            "v2": "Word songs/362 Ինչքան բարի է Տերը v2.docx"
+            "v2": "Word songs/362 Ինչքան բարի է Տերը v2.docx",
+            "key": "C# (+1)",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "364": {
             "Title": "Թագավորաց թագավոր",
@@ -2360,7 +2366,13 @@
             "Title": "",
             "latestVersion": "Word songs/503  v2.docx",
             "v1": "Word songs/503 .docx",
-            "v2": "Word songs/503  v2.docx"
+            "v2": "Word songs/503  v2.docx",
+            "key": "D (+2)",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "504": {
             "Title": "Շփոթված ու մոլորված",
@@ -2708,7 +2720,7 @@
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "3/4",
-            "Comments": "Ballad-P4-4"
+            "Comments": "Ballad-P4-4, ballad-P4-2"
         },
         "553": {
             "Title": "Մենք երեք մոգերով",
@@ -3908,10 +3920,10 @@
             "v1": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ.docx",
             "v2": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx",
             "v3": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
-            "key": "C#m",
+            "key": "Cm",
             "speed": "106",
             "style": "Samba",
-            "song_type": "Single Song",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3"
         },
@@ -4147,13 +4159,25 @@
             "Title": "Միայն մեկը կա որ արժանի է",
             "latestVersion": "Word songs/787 Միայն մեկը կա որ արժանի է v2.docx",
             "v1": "Word songs/787 Միայն մեկը կա որ արժանի է.docx",
-            "v2": "Word songs/787 Միայն մեկը կա որ արժանի է v2.docx"
+            "v2": "Word songs/787 Միայն մեկը կա որ արժանի է v2.docx",
+            "key": "C",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "788": {
             "Title": "Կուզենք ներկայությունդ ապրել",
             "latestVersion": "Word songs/788 Կուզենք ներկայությունդ ապրել v2.docx",
             "v1": "Word songs/788 Կուզենք ներկայությունդ ապրել.docx",
-            "v2": "Word songs/788 Կուզենք ներկայությունդ ապրել v2.docx"
+            "v2": "Word songs/788 Կուզենք ներկայությունդ ապրել v2.docx",
+            "key": "C# (+1)",
+            "speed": "66",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "789": {
             "Title": "Օ՜ Տեր, այստեղ, քեզ եմ ես սպասում,",
@@ -4267,17 +4291,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Երբ Տերն է ելնում շքերթի",
-            "latestVersion": "Word songs/383 Երբ Տերն է ելնում շքերթի v3.docx",
-            "v1": "Word songs/383 Երբ Տերն է ելնում շքերթի.docx",
-            "key": "Am",
-            "speed": "110",
-            "style": "Disco",
+            "Title": "Օրհնեցեք Տիրոջը ով նրա հրեշտակներ",
+            "latestVersion": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
+            "v1": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ.docx",
+            "v2": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx",
+            "v3": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
+            "key": "Cm",
+            "speed": "106",
+            "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-4",
-            "v2": "Word songs/383 Երբ Տերն է ելնում շքերթի v2.docx",
-            "v3": "Word songs/383 Երբ Տերն է ելնում շքերթի v3.docx"
+            "Comments": "Latin Dance-P2-3"
         }
     }
 }

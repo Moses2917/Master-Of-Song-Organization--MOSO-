@@ -152,33 +152,34 @@
         <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
       </svg>
     </button>
+    
     {% block content %}{% endblock %}
 
-        <script type="text/javascript">{//Get the button
-            let mybutton = document.getElementById("btn-back-to-top");
-            
-            // When the user scrolls down 20px from the top of the document, show the button
-            window.onscroll = function () {
-              scrollFunction();
-            };
-            
-            function scrollFunction() {
-              if (
-                document.body.scrollTop > 20 ||
-                document.documentElement.scrollTop > 20
-              ) {
-                mybutton.style.display = "block";
-              } else {
-                mybutton.style.display = "none";
-              }
-            }
-            // When the user clicks on the button, scroll to the top of the document
-            mybutton.addEventListener("click", backToTop);
-            
-            function backToTop() {
-              document.body.scrollTop = 0;
-              document.documentElement.scrollTop = 0;
-            }}</script>
+    <script type="text/javascript">{//Get the button
+        let mybutton = document.getElementById("btn-back-to-top");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction();
+        };
+        
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+        
+        function backToTop() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }}</script>
     {% else %}
     {%include 'guest.html'%}
     {%endif%}
