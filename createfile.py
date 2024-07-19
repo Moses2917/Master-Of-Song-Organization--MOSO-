@@ -51,6 +51,14 @@ def getDocTextAndIndentation(filePath:str, my_doc):
         
     return my_doc
 
+def getRandomDoc():
+    from random import randint
+    from glob import glob
+    rDoc = randint(0, 3) #Choose a random number from 4 numbers
+    DrivePath = os.environ.get("OneDrive")
+    posible_rand_docs = glob(DrivePath+"\\*.docx")
+    return docx.Document(posible_rand_docs[rDoc])
+
 #parses the data inputed and sends back a python-docx file object
 def getPcSongs(songs, imp, user):
     """parses the data inputed and sends back a python-docx file object
@@ -66,8 +74,10 @@ def getPcSongs(songs, imp, user):
     Returns:
         docx: a word file containing the requested songs
     """
-    DrivePath = os.environ.get("OneDrive")
-    my_doc = docx.Document("{}\\Choir Songs Template - Alt - Copy.docx".format(DrivePath))
+    my_doc = getRandomDoc()
+    # DrivePath = os.environ.get("OneDrive")
+    # my_doc = docx.Document(F"{DrivePath}\\Choir Songs Template - Alt - Copy.docx")
+    
     for x in songs:
         x = str(x)
         y = songs.index(x)

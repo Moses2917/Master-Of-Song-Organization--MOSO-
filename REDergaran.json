@@ -224,7 +224,7 @@
             "key": "F#m",
             "speed": "105",
             "style": "Pop",
-            "song_type": "None",
+            "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P3-4",
             "v5": "Երգարան Word Files/25 Տեր Հիսուս կհրավիրե v5.docx"
@@ -247,7 +247,7 @@
             "key": "Bm",
             "speed": "103",
             "style": "Beat",
-            "song_type": "None",
+            "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P4-1",
             "v3": "Երգարան Word Files/28 Հիսուսն է հույսը սրտերի v3.docx",
@@ -671,7 +671,13 @@
         "82": {
             "Title": "Օրհնյալ երաշխիք՝ իմս է Հիսուս",
             "latestVersion": "Երգարան Word Files/82 Օրհնյալ երաշխիք՝ իմս է Հիսուս.docx",
-            "v1": "Երգարան Word Files/82 Օրհնյալ երաշխիք՝ իմս է Հիսուս.docx"
+            "v1": "Երգարան Word Files/82 Օրհնյալ երաշխիք՝ իմս է Հիսուս.docx",
+            "key": "C",
+            "speed": "",
+            "style": "Piano",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Play piano"
         },
         "83": {
             "Title": "Ես կլսեմ ձայնդ, Հիսո՛ւս,",
@@ -812,10 +818,10 @@
             "latestVersion": "Երգարան Word Files/104 Երանելի այն օրն է, Տե՛ր, v2.docx",
             "v1": "RED Words/104.docx",
             "v2": "Երգարան Word Files/104 Երանելի այն օրն է, Տե՛ր, v2.docx",
-            "key": "E",
+            "key": "F",
             "speed": "70",
             "style": "Beat",
-            "song_type": "Worship Song",
+            "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3"
         },
@@ -1349,7 +1355,13 @@
         "177": {
             "Title": "Եղբա՛յր, Հիսուսը սիրում է մեզ",
             "latestVersion": "Երգարան Word Files/177 Եղբա՛յր, Հիսուսը սիրում է մեզ.docx",
-            "v1": "Երգարան Word Files/177 Եղբա՛յր, Հիսուսը սիրում է մեզ.docx"
+            "v1": "Երգարան Word Files/177 Եղբա՛յր, Հիսուսը սիրում է մեզ.docx",
+            "key": "Em",
+            "speed": "105",
+            "style": "Beguine ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-7"
         },
         "178": {
             "Title": "Հուսա՛, կգան ուրախ օրեր,",
@@ -2871,7 +2883,13 @@
         "380": {
             "Title": "Հոգնած հոգիս հանգիստ գտավ",
             "latestVersion": "RED Words/380.docx",
-            "v1": "RED Words/380.docx"
+            "v1": "RED Words/380.docx",
+            "key": "C",
+            "speed": "85",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "381": {
             "Title": "Ամէն Հայր Սուրբ։",
@@ -3408,7 +3426,13 @@
         "453": {
             "Title": "Հիսո՜ւս, սիրո Աստված,",
             "latestVersion": "RED Words/453.docx",
-            "v1": "RED Words/453.docx"
+            "v1": "RED Words/453.docx",
+            "key": "Em",
+            "speed": "123",
+            "style": "Bossa Nova",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any Bossa "
         },
         "454": {
             "Title": "Ո՜վ Տեր Հիսուս, խաչվեցիր",
@@ -4034,7 +4058,13 @@
         "535": {
             "Title": "Հիսուսը ինձ վերափոխեց,",
             "latestVersion": "RED Words/535.docx",
-            "v1": "RED Words/535.docx"
+            "v1": "RED Words/535.docx",
+            "key": "Em",
+            "speed": "100",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "536": {
             "Title": "Տիրում ես Դու, Դու ես հզոր Աստված",
@@ -6639,17 +6669,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Երկինքը Աստծո փառքը կպատմե",
-            "latestVersion": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v3.docx",
-            "v1": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե.docx",
-            "v2": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v2.docx",
+            "Title": "Եղբա՛յր, Հիսուսը սիրում է մեզ",
+            "latestVersion": "Երգարան Word Files/177 Եղբա՛յր, Հիսուսը սիրում է մեզ.docx",
+            "v1": "Երգարան Word Files/177 Եղբա՛յր, Հիսուսը սիրում է մեզ.docx",
             "key": "Em",
-            "speed": "94",
-            "style": "ballad",
+            "speed": "105",
+            "style": "Beguine ",
             "song_type": "Single Song",
-            "timeSig": "3/4",
-            "Comments": "Ballad-P4-1",
-            "v3": "Երգարան Word Files/525 Երկինքը Աստծո փառքը կպատմե v3.docx"
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-7"
         }
     }
 }
