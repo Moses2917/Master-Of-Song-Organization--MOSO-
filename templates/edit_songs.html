@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 {% block content %}
     <!-- <h1>Welcome to our Song Information Page</h1> maybe add something to explain the purpose of this page-->
-    <div class="container-md fw-bold shadow p-3 mb-5 bg-secondary rounded">
+    <div class="container-md fw-bold shadow-lg p-3 mb-5 bg-dark bg-gradient rounded">
         <div class="legend" style="text-align: center;">
             <h2 style="font-weight: bold;">Song Editor</h2>
             <h4>Here you can change certain attributes of any song</h4>
@@ -30,6 +30,9 @@
         </form>
     </div>
     {%if song_info%}
+    <div class="container-md">
+
+    
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="current-values">
@@ -37,7 +40,7 @@
                     <input type="hidden" name="book" value="{{book}}">
                     <input type="hidden" name="songNum" value="{{request.form.songNum}}">
                     <input type="hidden" name="lyrics" value="True">
-                    <h2>Current Values  <a class="btn btn-primary bg-gradient" href="{{ url_for('display_song', book = request.form.book , songnum = request.form.songNum) }}">Lyrics</a></h2>
+                    <h2>Current Values  <a class="btn btn-outline-primary bg-gradient" href="{{ url_for('display_song', book = request.form.book , songnum = request.form.songNum) }}">Lyrics</a></h2>
                 
                 <p>Song Number: {{request.form.songNum}}</p>
                 <p>From book: {{request.form.book}}</p>
@@ -91,10 +94,11 @@
                         <input type="text" name="Comments" id="comments" value="{{song_info.Comments}}"
                             class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-outline-primary">Save Changes</button>
                 </form>
             </div>
         </div>
+    </div>
     </div>
     {%endif%}
 {% endblock%}

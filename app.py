@@ -304,9 +304,6 @@ def songSearch(searchLyrics):
 
 @app.route('/song/<book>/<songnum>', methods=['GET','POST'])
 def display_song(book, songnum):
-    docx_file = request.form.get('docx', None)
-    if docx_file:
-        return render_template('display_docx.html', lyrics = openWord(docx_file))
     from scanningDir import songSearch
     with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
         wordSongsIndex = json.load(f)
