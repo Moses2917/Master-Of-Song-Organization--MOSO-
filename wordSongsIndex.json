@@ -115,14 +115,15 @@
         },
         "22": {
             "Title": "Կյանքդ կանցնի արագ արագ",
-            "latestVersion": "Word songs/22  v1.docx",
+            "latestVersion": "Word songs/22 Կյանքդ կանցնի արագ արագ v2.docx",
             "v1": "Word songs/22  v1.docx",
             "key": "Em",
             "speed": "114",
             "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v2": "Word songs/22 Կյանքդ կանցնի արագ արագ v2.docx"
         },
         "23": {
             "Title": "Այս կյանքս պատերազմ է, և մենք՝ զինվորներ,",
@@ -1155,10 +1156,11 @@
         },
         "266": {
             "Title": "Այսպես է ասում Տերը քո ստեղծողը",
-            "latestVersion": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v3.docx",
+            "latestVersion": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v4.docx",
             "v1": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը.docx",
             "v2": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v2.docx",
-            "v3": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v3.docx"
+            "v3": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v3.docx",
+            "v4": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v4.docx"
         },
         "267": {
             "Title": "Շտապիր անառակ որդի, \nՔո հայրենի տունն արի, \nԱյնտեղ քեզ է ըսպասում \nՍերը քո Հոր սրտի:",
@@ -1346,10 +1348,11 @@
         },
         "312": {
             "Title": "Թագավորների Թագավոր",
-            "latestVersion": "Word songs/312 Թագավորների Թագավոր v3.docx",
+            "latestVersion": "Word songs/312 Թագավորների Թագավոր v4.docx",
             "v1": "Word songs/312 Թագավորների Թագավոր.docx",
             "v2": "Word songs/312 Թագավորների Թագավոր v2.docx",
-            "v3": "Word songs/312 Թագավորների Թագավոր v3.docx"
+            "v3": "Word songs/312 Թագավորների Թագավոր v3.docx",
+            "v4": "Word songs/312 Թագավորների Թագավոր v4.docx"
         },
         "313": {
             "Title": "Աստված մարդ չէ որ սուտ խոսի",
@@ -3821,8 +3824,9 @@
         },
         "732": {
             "Title": "Զարմանալի գաղտնիք կա Քո սիրո մեջ",
-            "latestVersion": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ.docx",
-            "v1": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ.docx"
+            "latestVersion": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ v2.docx",
+            "v1": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ.docx",
+            "v2": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ v2.docx"
         },
         "733": {
             "Title": "Կա մի աշխարհ լուսե",
@@ -4302,6 +4306,11 @@
             "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3"
+        },
+        "760": {
+            "Title": "",
+            "latestVersion": "Word songs/760  v1.docx",
+            "v1": "Word songs/760  v1.docx"
         }
     }
 }

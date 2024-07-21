@@ -1365,14 +1365,15 @@
         },
         "178": {
             "Title": "Հուսա՛, կգան ուրախ օրեր,",
-            "latestVersion": "RED Words/178.docx",
+            "latestVersion": "Երգարան Word Files/178 Հուսա՛, կգան ուրախ օրեր, v2.docx",
             "v1": "RED Words/178.docx",
             "key": "Dm",
             "speed": "70",
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v2": "Երգարան Word Files/178 Հուսա՛, կգան ուրախ օրեր, v2.docx"
         },
         "179": {
             "Title": "Երբ Տիրոջը մոտ ենք մենք",
@@ -5061,14 +5062,15 @@
         },
         "697": {
             "Title": "Մեծ ու զարմանալի են",
-            "latestVersion": "RED Words/697.docx",
+            "latestVersion": "Երգարան Word Files/697 Մեծ ու զարմանալի են v2.docx",
             "v1": "RED Words/697.docx",
             "key": "C#m",
             "speed": "72",
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v2": "Երգարան Word Files/697 Մեծ ու զարմանալի են v2.docx"
         },
         "698": {
             "Title": "",
@@ -5412,7 +5414,7 @@
         },
         "760": {
             "Title": "Տե՜ր, Դու ստեղծել ես ինձ",
-            "latestVersion": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v3.docx",
+            "latestVersion": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v4.docx",
             "v1": "RED Words/760.docx",
             "v2": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v2.docx",
             "key": "Em (or Fm)",
@@ -5421,7 +5423,8 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3",
-            "v3": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v3.docx"
+            "v3": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v3.docx",
+            "v4": "Երգարան Word Files/760 Տե՜ր, Դու ստեղծել ես ինձ v4.docx"
         },
         "761": {
             "Title": "Գիշեր էր, բայց լուսավոր էր,",

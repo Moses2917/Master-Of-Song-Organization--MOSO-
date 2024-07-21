@@ -118,7 +118,7 @@ def openWord(songNum, book):
         
         # Split the text into chunks based on line breaks
         chunks = text.split('\n\n')
-
+        
         # Convert chunks to HTML
         html_chunks = []
         for chunk in chunks:
@@ -129,7 +129,6 @@ def openWord(songNum, book):
 
         # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
         html_text = '<br>'.join(html_chunks)
-        
         return html_text
 
 @app.route('/old', methods=['GET', 'POST'])
@@ -362,7 +361,13 @@ def display_song(book, songnum):
                 song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
         similar_songs = song_titles
         # print(similar_songs)
-    return render_template('song_temp.html', lyrics=openWord(songnum,book), past_songs=past_songs, similar_songs=similar_songs)
+    
+    import concurrent.futures
+    with concurrent.futures.ThreadPoolExecutor() as exec:
+        future = exec.submit(openWord,songnum,book)
+        lyrics = future.result()
+        
+    return render_template('song_temp.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs)
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc): #Todo: come up with a better name
