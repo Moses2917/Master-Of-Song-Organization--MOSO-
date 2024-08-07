@@ -36,8 +36,11 @@
                     </ul>
     </div>
     <div class="container my-5">
-        <div id="toastdiv" class="toast-container position-fixed p-3 bg-warning-subtle border border-warning-subtle rounded-4" style="right: 20px;" onchange="hide_toast()">
-            <div id="toastInfo1" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <button type="button" style="position: absolute; right: 10px;" class="btn btn-outline-light shadow rounded p-2" id="help" onclick="hide_toast()">
+            Help!
+        </button>
+        <div id="toastdiv" class="toast-container position-fixed p-3 bg-warning-subtle border border-warning-subtle rounded-4" style="right: 20px; display: none;" onchange="hide_toast()">
+            <div id="toastInfo1" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
                 <div class="toast-header"> <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
                         focusable="false">
@@ -47,7 +50,7 @@
                         class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> </div>
                 <div class="toast-body"> <strong>For full lyric search</strong> <p>Step 1: Make sure the current attribute is "Lyrics" <br> Step 2: Please enter your query</p></div>
             </div>
-            <div id="toastInfo2" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="toastInfo2" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
                 <div class="toast-header"> <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
                         focusable="false">
@@ -296,11 +299,18 @@
         </script>
         <script>
             function hide_toast() {
-                if (toastInfo1.classList.contains('hide') && toastInfo2.classList.contains('hide')) {
+                if (toastdiv.style.display == "none") {
+                    toastdiv.style.display = "block";
+                    console.log("Toast Displayed");
+                }
+                else if (toastInfo1.classList.contains('hide') && toastInfo2.classList.contains('hide')) {
                     console.log("Toast Hidden");
                     toastdiv.style.display = "none";
+                    new bootstrap.Toast(toastInfo1).show()
+                    new bootstrap.Toast(toastInfo2).show()
                 }
             }
+
             toastInfo1.addEventListener('hidden.bs.toast', function() {
                 hide_toast();
             });

@@ -3,7 +3,13 @@
         "1": {
             "Title": "Եղբայրներ, ցնծացե՛ք, \nՄեր կյանքն է անմար, \nԴուք, քույրեր, երգեցե՛ք \nՓրկչի սերն անճառ:",
             "latestVersion": "Word songs\\pptSong\\1 Եղբայրներ ցնծացեք.docx",
-            "v1": "Word songs\\pptSong\\1 Եղբայրներ ցնծացեք.docx"
+            "v1": "Word songs\\pptSong\\1 Եղբայրներ ցնծացեք.docx",
+            "key": "Fm",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "2": {
             "Title": "Ո՛չ պատվի ու փառքի համար եմ,",
@@ -1160,7 +1166,13 @@
             "v1": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը.docx",
             "v2": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v2.docx",
             "v3": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v3.docx",
-            "v4": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v4.docx"
+            "v4": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v4.docx",
+            "key": "Dm",
+            "speed": "113",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "267": {
             "Title": "Շտապիր անառակ որդի, \nՔո հայրենի տունն արի, \nԱյնտեղ քեզ է ըսպասում \nՍերը քո Հոր սրտի:",
@@ -1352,12 +1364,24 @@
             "v1": "Word songs/312 Թագավորների Թագավոր.docx",
             "v2": "Word songs/312 Թագավորների Թագավոր v2.docx",
             "v3": "Word songs/312 Թագավորների Թագավոր v3.docx",
-            "v4": "Word songs/312 Թագավորների Թագավոր v4.docx"
+            "v4": "Word songs/312 Թագավորների Թագավոր v4.docx",
+            "key": "Dm",
+            "speed": "113",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "313": {
             "Title": "Աստված մարդ չէ որ սուտ խոսի",
             "latestVersion": "Word songs/313 Աստված մարդ չէ որ սուտ խոսի.docx",
-            "v1": "Word songs/313 Աստված մարդ չէ որ սուտ խոսի.docx"
+            "v1": "Word songs/313 Աստված մարդ չէ որ սուտ խոսի.docx",
+            "key": "Em",
+            "speed": "113",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "314": {
             "Title": "Սիրեցեք դուք իրար",
@@ -1870,9 +1894,9 @@
             "v1": "Word songs/417 Մեծարում եմ անունդ ով Տեր.docx",
             "v2": "Word songs/417 Մեծարում եմ անունդ ով Տեր v2.docx",
             "key": "G",
-            "speed": "86",
+            "speed": "80",
             "style": "Beat",
-            "song_type": "Single Song",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Pop-P6-1",
             "v3": "Word songs/417 Մեծարում եմ անունդ ով Տեր v3.docx",
@@ -2346,7 +2370,13 @@
         "499": {
             "Title": "Երկնքի զորությունները անվերջ",
             "latestVersion": "Word songs/499 Երկնքի զորությունները անվերջ.docx",
-            "v1": "Word songs/499 Երկնքի զորությունները անվերջ.docx"
+            "v1": "Word songs/499 Երկնքի զորությունները անվերջ.docx",
+            "key": "E flat m (-6)",
+            "speed": "113",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "500": {
             "Title": "Ես տուն ունեմ երկնքում",
@@ -2450,7 +2480,13 @@
         "512": {
             "Title": "Սուրբ Հոգի արի (3) Սուրբ Հոգի",
             "latestVersion": "Word songs/512 Սուրբ Հոգի արի (3) Սուրբ Հոգի.docx",
-            "v1": "Word songs/512 Սուրբ Հոգի արի (3) Սուրբ Հոգի.docx"
+            "v1": "Word songs/512 Սուրբ Հոգի արի (3) Սուրբ Հոգի.docx",
+            "key": "Em",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "513": {
             "Title": "Թագավոր ես մեր հոգու մեջ Տեր Հիսուս",
@@ -2671,7 +2707,13 @@
         "543": {
             "Title": "Արժանի ես Տեր գոհության և պատվի",
             "latestVersion": "Word songs/543 Արժանի ես Տեր գոհության և պատվի.docx",
-            "v1": "Word songs/543 Արժանի ես Տեր գոհության և պատվի.docx"
+            "v1": "Word songs/543 Արժանի ես Տեր գոհության և պատվի.docx",
+            "key": "G",
+            "speed": "80",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "544": {
             "Title": "Աստված այնպես մեզ սիրեց",
@@ -3109,7 +3151,7 @@
             "v3": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v3.docx",
             "v4": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v4.docx",
             "v5": "Word songs/634 Երբ օրհնյալ Տերն հպավ շուրթիս v5.docx",
-            "key": "F#m",
+            "key": "Em",
             "speed": "110",
             "style": "Disco",
             "song_type": "Opening Song",
@@ -3260,9 +3302,9 @@
             "latestVersion": "Word songs/656 Ամեն օր տեսնում եմ քեզ իմ Տեր v2.docx",
             "v1": "Word songs/656 Ամեն օր տեսնում եմ քեզ իմ Տեր.docx",
             "key": "G",
-            "speed": "92",
+            "speed": "88",
             "style": "Beat",
-            "song_type": "Opening Song",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Pop-P4-1",
             "v2": "Word songs/656 Ամեն օր տեսնում եմ քեզ իմ Տեր v2.docx"
@@ -3292,7 +3334,13 @@
         "660": {
             "Title": "Երբ ով Տեր հպվում ես Դու ինձ",
             "latestVersion": "Word songs/660 Երբ ով Տեր հպվում ես Դու ինձ.docx",
-            "v1": "Word songs/660 Երբ ով Տեր հպվում ես Դու ինձ.docx"
+            "v1": "Word songs/660 Երբ ով Տեր հպվում ես Դու ինձ.docx",
+            "key": "G",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "661": {
             "Title": "Աստծո ժողովուրդ ով բոլոր սուրբեր",
@@ -3385,7 +3433,13 @@
             "latestVersion": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ v3.docx",
             "v1": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ.docx",
             "v2": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ v2.docx",
-            "v3": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ v3.docx"
+            "v3": "Word songs/674 Քո Հոգով զորությամբ լցրու կյանքս ամբողջ v3.docx",
+            "key": "Em",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "675": {
             "Title": "Օրհնե Տերը, ով իմ անձս",
@@ -3577,7 +3631,13 @@
         "697": {
             "Title": "Քո խոսքը ճշմարիտ կյանքի խոսք",
             "latestVersion": "Word songs/697 Քո խոսքը ճշմարիտ կյանքի խոսք.docx",
-            "v1": "Word songs/697 Քո խոսքը ճշմարիտ կյանքի խոսք.docx"
+            "v1": "Word songs/697 Քո խոսքը ճշմարիտ կյանքի խոսք.docx",
+            "key": "Fm",
+            "speed": "130",
+            "style": "Bossa Nova",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-4"
         },
         "698": {
             "Title": "Լույս աշխարհի երկնքից եկար աշխարհ",
@@ -3587,7 +3647,13 @@
         "699": {
             "Title": "Տեր անչափ հեռու ես Դու",
             "latestVersion": "Word songs/699 Տեր անչափ հեռու ես Դու.docx",
-            "v1": "Word songs/699 Տեր անչափ հեռու ես Դու.docx"
+            "v1": "Word songs/699 Տեր անչափ հեռու ես Դու.docx",
+            "key": "G#m (-1)",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "700": {
             "Title": "Փառաբանենք Տիրոջը ով նրա սուրբերը",
@@ -3629,7 +3695,13 @@
             "latestVersion": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել v3.docx",
             "v1": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել.docx",
             "v2": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել v2.docx",
-            "v3": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել v3.docx"
+            "v3": "Word songs/705 Քո սիրով ինձ այցելել ես, փրկություն ես պարգևել v3.docx",
+            "key": "Em",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "706": {
             "Title": "Քո Սուրբ Հոգու աղբյուրները",
@@ -3826,7 +3898,13 @@
             "Title": "Զարմանալի գաղտնիք կա Քո սիրո մեջ",
             "latestVersion": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ v2.docx",
             "v1": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ.docx",
-            "v2": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ v2.docx"
+            "v2": "Word songs/732 Զարմանալի գաղտնիք կա Քո սիրո մեջ v2.docx",
+            "key": "Em",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "733": {
             "Title": "Կա մի աշխարհ լուսե",
@@ -4295,22 +4373,26 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Օրհնեցեք Տիրոջը ով նրա հրեշտակներ",
-            "latestVersion": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
-            "v1": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ.docx",
-            "v2": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx",
-            "v3": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
-            "key": "Cm",
-            "speed": "106",
-            "style": "Samba",
-            "song_type": "Opening Song",
+            "Title": "Երկնքի զորությունները անվերջ",
+            "latestVersion": "Word songs/499 Երկնքի զորությունները անվերջ.docx",
+            "v1": "Word songs/499 Երկնքի զորությունները անվերջ.docx",
+            "key": "E flat m (-6)",
+            "speed": "113",
+            "style": "Ballad",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Ballad-P5-5"
         },
         "760": {
             "Title": "",
             "latestVersion": "Word songs/760  v1.docx",
-            "v1": "Word songs/760  v1.docx"
+            "v1": "Word songs/760  v1.docx",
+            "key": "Am",
+            "speed": "68",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         }
     }
 }
