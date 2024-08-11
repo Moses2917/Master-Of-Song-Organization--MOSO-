@@ -375,7 +375,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                     file_path.split('.')[1] #gets the extension
                     if 'lnk' not in file_path: # filters out any .lnk extentsion 
                         basePth = 'Երգեր\\' + ergfolder.name
-                        print(basePth)
+                        # print(basePth)
                         filePths.append([
                             ergfolder.path,
                             basePth
@@ -442,7 +442,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                     # lookup file in index, and if none do not run code go to else statement
                     dateModOnFile = datetime.fromtimestamp(allsongs[songs.name]['dateMod'])
                     currDateMod = datetime.fromtimestamp(stat(songs.path).st_mtime)
-
+                    # if os.path.isfile(allsongs[songs.name]['path']):
                     # if it exists in the index then do this after setting vars for comparison of dates
                     if not (currDateMod <= dateModOnFile):
                         # if the date modified of a file is greater than the one on file repalce it
@@ -453,6 +453,9 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                             'songList': getNums(songs.path)
                         }
                         print("Updated this file", songs.name)
+                    # else:
+                    #     print('Deleted:', songs.name)
+                    #     allsongs[songs.name] = {}
                 else:
                     allsongs[songs.name] = {
                         'dateMod': stat(songs.path).st_mtime,
@@ -463,7 +466,9 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                     
     with open("songs_cleaned.json", mode='w', encoding='utf-8') as saveFile:
         dump(allsongs, saveFile, indent=4, ensure_ascii=False)
+    
+    # print(allsongs)
 
 
 # Uncomment this to manually update the index
-# print(findNewFiles())
+print(findNewFiles())
