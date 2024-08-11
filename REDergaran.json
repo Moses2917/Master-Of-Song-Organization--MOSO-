@@ -329,7 +329,13 @@
         "37": {
             "Title": "Իմ կյանքը տվեցի, արյունս հեղեցի,",
             "latestVersion": "RED Words/37.docx",
-            "v1": "RED Words/37.docx"
+            "v1": "RED Words/37.docx",
+            "key": "A",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "38": {
             "Title": "Ո՜հ, այն գիշեր Գեթսեմանում,",
@@ -812,12 +818,12 @@
             "Title": "Երբ որ Նա ամպերով վերադառնա,",
             "latestVersion": "RED Words/101.docx",
             "v1": "RED Words/101.docx",
-            "key": "",
-            "speed": "",
-            "style": "",
+            "key": "Em",
+            "speed": "103",
+            "style": "Disco",
             "song_type": "Opening Song",
-            "timeSig": "",
-            "Comments": ""
+            "timeSig": "4/4",
+            "Comments": "Disco-P5-5"
         },
         "102": {
             "Title": "Ո՜հ, չկա մեկը տիեզերքում,",
@@ -2795,7 +2801,13 @@
         "353": {
             "Title": "Իջի՛ր, Սուրբ Հոգի, մեր տաճարում,",
             "latestVersion": "RED Words/353.docx",
-            "v1": "RED Words/353.docx"
+            "v1": "RED Words/353.docx",
+            "key": "Cm",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "354": {
             "Title": "Լայնածավալ այս աշխարհում",
@@ -3696,7 +3708,7 @@
             "latestVersion": "Երգարան Word Files/477 Հիսուս. այս անվան մեջ փրկություն կա, v2.docx",
             "v1": "RED Words/477.docx",
             "v2": "Երգարան Word Files/477 Հիսուս. այս անվան մեջ փրկություն կա, v2.docx",
-            "key": "Bm",
+            "key": "Am",
             "speed": "100",
             "style": "Pop",
             "song_type": "Single Song",
@@ -4717,7 +4729,13 @@
         "618": {
             "Title": "Մեծ գիտության ակն ու աղբյուր,",
             "latestVersion": "RED Words/618.docx",
-            "v1": "RED Words/618.docx"
+            "v1": "RED Words/618.docx",
+            "key": "Gm",
+            "speed": "77",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "75",
+            "Comments": "Pop-P1-3"
         },
         "619": {
             "Title": "Թե մեղավոր ես զգում քեզ, ուրեմն կապրես",
@@ -6800,15 +6818,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Թանկագին խոստում է տվել",
-            "latestVersion": "RED Words/245.docx",
-            "v1": "RED Words/245.docx",
-            "key": "C",
-            "speed": "95",
-            "style": "Waltz ",
+            "Title": "Հիսուս. այս անվան մեջ փրկություն կա,",
+            "latestVersion": "Երգարան Word Files/477 Հիսուս. այս անվան մեջ փրկություն կա, v2.docx",
+            "v1": "RED Words/477.docx",
+            "v2": "Երգարան Word Files/477 Հիսուս. այս անվան մեջ փրկություն կա, v2.docx",
+            "key": "Am",
+            "speed": "100",
+            "style": "Pop",
             "song_type": "Single Song",
-            "timeSig": "3/4",
-            "Comments": "Ballroom-P2-2"
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         }
     }
 }

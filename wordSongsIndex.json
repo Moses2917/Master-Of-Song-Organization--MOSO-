@@ -1687,7 +1687,13 @@
         "377": {
             "Title": "Ով է, որ մեզ միշտ հսկում է",
             "latestVersion": "Word songs/377 Ով է, որ մեզ միշտ հսկում է.docx",
-            "v1": "Word songs/377 Ով է, որ մեզ միշտ հսկում է.docx"
+            "v1": "Word songs/377 Ով է, որ մեզ միշտ հսկում է.docx",
+            "key": "Em",
+            "speed": "66",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "379": {
             "Title": "Հայր Աստված օրհնում ենք Քեզ \nՔո Որդու անունից, \nԽնդրում ենք, հայրական սեր և օրհնություն:",
@@ -3594,7 +3600,13 @@
         "693": {
             "Title": "Տիրոջ Հիսուսին Հուսացողները",
             "latestVersion": "Word songs/693 Տիրոջ Հիսուսին Հուսացողները.docx",
-            "v1": "Word songs/693 Տիրոջ Հիսուսին Հուսացողները.docx"
+            "v1": "Word songs/693 Տիրոջ Հիսուսին Հուսացողները.docx",
+            "key": "Gn",
+            "speed": "63",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-3"
         },
         "694": {
             "Title": "Տեր ծարավ եմ Քեզ",
@@ -3783,7 +3795,13 @@
             "v2": "Word songs/716 Տերն է իմ արքաների Արքան v2.docx",
             "v3": "Word songs/716 Տերն է իմ արքաների Արքան v3.docx",
             "v4": "Word songs/716 Տերն է իմ արքաների Արքան v4.docx",
-            "v5": "Word songs/716 Տերն է իմ արքաների Արքան v5.docx"
+            "v5": "Word songs/716 Տերն է իմ արքաների Արքան v5.docx",
+            "key": "G",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "717": {
             "Title": "Կանչող մի ձայն կանչող մի երգ սրտումս",
@@ -3984,7 +4002,13 @@
         "742": {
             "Title": "Մի ձայն է կանչում ինձ մի ձայն հարազատ",
             "latestVersion": "Word songs/742 Մի ձայն է կանչում ինձ մի ձայն հարազատ.docx",
-            "v1": "Word songs/742 Մի ձայն է կանչում ինձ մի ձայն հարազատ.docx"
+            "v1": "Word songs/742 Մի ձայն է կանչում ինձ մի ձայն հարազատ.docx",
+            "key": "Em",
+            "speed": "95",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "743": {
             "Title": "Առջևդ ահա ծունկի եկած",
@@ -4373,15 +4397,15 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Երկնքի զորությունները անվերջ",
-            "latestVersion": "Word songs/499 Երկնքի զորությունները անվերջ.docx",
-            "v1": "Word songs/499 Երկնքի զորությունները անվերջ.docx",
-            "key": "E flat m (-6)",
-            "speed": "113",
-            "style": "Ballad",
+            "Title": "Մի ձայն է կանչում ինձ մի ձայն հարազատ",
+            "latestVersion": "Word songs/742 Մի ձայն է կանչում ինձ մի ձայն հարազատ.docx",
+            "v1": "Word songs/742 Մի ձայն է կանչում ինձ մի ձայն հարազատ.docx",
+            "key": "Em",
+            "speed": "95",
+            "style": "Waltz ",
             "song_type": "Single Song",
-            "timeSig": "4/4",
-            "Comments": "Ballad-P5-5"
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "760": {
             "Title": "",

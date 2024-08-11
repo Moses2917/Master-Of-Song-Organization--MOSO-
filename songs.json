@@ -1415,23 +1415,11 @@
         "basePth": "Երգեր\\07.2024",
         "songList": "[('New', '191'), ('New', '218'), ('New', '76'), ('New', '346'), ('New', '343'), ('New', '54')]"
     },
-    "08.01.24TESTSAVE.docx": {
-        "dateMod": 1722560062.1770623,
-        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\08.2024\\08.01.24TESTSAVE.docx",
-        "basePth": "Երգեր\\08.2024",
-        "songList": "[('New', '156'), ('New', '282'), ('New', '235'), ('New', '141'), ('New', '145'), ('New', '239')]"
-    },
     "08.01.24.docx": {
         "dateMod": 1722562313.0,
         "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.01.24.docx",
         "basePth": "Երգեր\\08.2024",
         "songList": "[('New', '156'), ('New', '282'), ('New', '235'), ('New', '141'), ('New', '145'), ('New', '239')]"
-    },
-    "08.03.24TESTSAVE.docx": {
-        "dateMod": 1722741776.8895717,
-        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.03.24TESTSAVE.docx",
-        "basePth": "Երգեր\\08.2024",
-        "songList": "[('New', '146'), ('Old', '399'), ('Old', ''), ('Old', '688'), ('Old', '674'), ('Old', '705'), ('Old', '697'), ('Old', '499')]"
     },
     "08.04.24.docx": {
         "dateMod": 1722790151.0,
@@ -1440,9 +1428,39 @@
         "songList": "[('New', ''), ('New', '399'), ('Old', '699'), ('Old', '688'), ('Old', '674'), ('Old', '705'), ('Old', '697'), ('Old', '499')]"
     },
     "08.06.24.docx": {
-        "dateMod": 1722994506.6611295,
+        "dateMod": 1722997674.0,
         "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\08.2024\\08.06.24.docx",
         "basePth": "Երգեր\\08.2024",
-        "songList": "[('New', '157'), ('New', '554'), ('New', '186'), ('New', '553'), ('New', '280'), ('New', '245')]"
+        "songList": "[('New', '157'), ('New', '554'), ('New', '186'), ('New', '553'), ('New', '245'), ('New', '280')]"
+    },
+    "08.08.24.docx": {
+        "dateMod": 1723173884.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.08.24.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('New', '37'), ('New', '90'), ('New', '353'), ('New', '101'), ('New', '618'), ('New', '477')]"
+    },
+    "08.08.24PORC_PORC.docx": {
+        "dateMod": 1723175578.0668495,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.08.24PORC_PORC.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('New', '73'), ('Old', '664'), ('Old', '377'), ('Old', '716'), ('Old', '470'), ('Old', '421'), ('Old', '693'), ('Old', '')]"
+    },
+    "08.11.24.docx": {
+        "dateMod": 1723354719.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.11.24.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('New', '73'), ('Old', '664'), ('Old', '377'), ('Old', '716'), ('Old', '470'), ('Old', '421'), ('Old', '693'), ('Old', None)]"
+    },
+    "08.11.24 - Copy.docx": {
+        "dateMod": 1723354719.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.11.24 - Copy.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('New', '73'), ('Old', '664'), ('Old', '377'), ('Old', '716'), ('Old', '470'), ('Old', '421'), ('Old', '693'), ('Old', None)]"
+    },
+    "08.11.24TESTSAVE.docx": {
+        "dateMod": 1723399360.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.11.24TESTSAVE.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('Old', '312')]"
     }
 }
