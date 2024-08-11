@@ -201,6 +201,14 @@ def ChooseFile():
             print("Closing window")
 
 def Compatibility():
+    """
+    A function that handles compatibility checks for songs. 
+    Retrieves the song number and book type, then performs checks. 
+    Opens Microsoft Word if a file is clicked, showing an error message if necessary. 
+    Updates the book type if needed and searches for past songs. 
+    Displays a window with past songs list and their details. 
+    Shows an error message if the song is not found.
+    """
     song_num = entry.get()
     bookType = radio_var.get()
     myFont = TkFont.Font(family="Arial", size=18)
