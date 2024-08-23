@@ -1462,5 +1462,41 @@
         "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.11.24TESTSAVE.docx",
         "basePth": "Երգեր\\08.2024",
         "songList": "[('Old', '312')]"
+    },
+    "08.13.24.docx": {
+        "dateMod": 1723602265.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.13.24.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('New', '426'), ('New', '10'), ('New', '257'), ('New', '239'), ('New', '620'), ('New', '63')]"
+    },
+    "08.15.24.docx": {
+        "dateMod": 1723770925.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.15.24.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('New', '173'), ('New', '318'), ('New', '222'), ('New', '805'), ('New', '134'), ('New', '195')]"
+    },
+    "08.15.24TESTSAVE.docx": {
+        "dateMod": 1723779183.193666,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.15.24TESTSAVE.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('Old', '599'), ('New', '269'), ('New', '557'), ('Old', '424'), ('New', '433'), ('Old', '772'), ('Old', '747'), ('Old', '304')]"
+    },
+    "08.18.24.docx": {
+        "dateMod": 1723999584.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.18.24.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('Old', '599'), ('New', '269'), ('New', '557'), ('Old', '424'), ('New', '433'), ('Old', '772'), ('Old', '747'), ('Old', '304')]"
+    },
+    "08.20.24.docx": {
+        "dateMod": 1724203875.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.20.24.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('New', '398'), ('New', '216'), ('New', '249'), ('New', '465'), ('New', '223'), ('New', '315')]"
+    },
+    "08.22.24.docx": {
+        "dateMod": 1724376361.0,
+        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2024\\08.22.24.docx",
+        "basePth": "Երգեր\\08.2024",
+        "songList": "[('New', '563'), ('New', '293'), ('New', '251'), ('New', '287'), ('New', '530'), ('New', '12')]"
     }
 }

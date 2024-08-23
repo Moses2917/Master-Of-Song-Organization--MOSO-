@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <style>
+        body {
+            background-color: #f8f8f8;
+        }
+    </style> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('song_info') }}">Home</a>
+            <form method="post">
+                {%if book%}
+                <input type="hidden" name="book" value="{{book}}">
+                {%endif%}
+                <button type="submit" class="btn btn-primary">Back To Search</button>
+            </form>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPastSongs" aria-controls="offcanvasPastSongs">
+                Check Past Songs
+            </button>
+        </div>
+    </nav>
+    {% if session %}
+    <div class="container py-5">
+        <h3 class="text-center mb-4"> {{ lyrics|safe }} </h3>
+       
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasPastSongs" aria-labelledby="offcanvasPastSongsLabel">
+            <div class="offcanvas-header">
+                <div class="list-group list-group-flush">
+                    <li  class="list-group-item"><h5 class="offcanvas-title" id="offcanvasPastSongsLabel">Check Past Songs</h5></li>
+                    <p class="list-group-item text-secondary" id="hint">Խորհուրդ. Սեղմեք այն երգը, որը ցանկանում եք բացել։</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                {%if past_songs %}
+                {%for songs in past_songs%}
+                <form method="post">
+                    <div class="list-group d-flex">
+                        <input type="submit" class="list-group-item list-group-item-action active" aria-current="true" value="{{songs['Filename/Date']}}">
+                        
+
+                        {% for song in songs['songs'] %}
+
+                            {%if song[1] %}
+                            <input type="submit" class="list-group-item list-group-item-action" value="SongNum: {{song[1]}}, Book: {{song[0]}}, Title: {{song[2]}}" name="SongNumTuple">
+                            {% endif %}
+
+                        {%endfor%}
+                    
+                    </div>
+                    <br>
+                </form>
+                {%endfor%}
+                <p class="text-start text-secondary" id="hint">
+                    Hint: Just click the song you want to open.
+                </p>
+                <p class="text-start text-secondary" id="hint">
+                    Խորհուրդ. Ուղակի սեղմեք այն երգը, որը ցանկանում եք բացել։
+                </p>
+                {%else%}
+                <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">
+                    No Past Songs Found
+                </p>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+    {% else %}
+    {% include 'guest.html' %}
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>

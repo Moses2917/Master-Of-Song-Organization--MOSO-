@@ -2,10 +2,11 @@ from os import environ as env
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
 import json
 #Setup mongodb
 from pymongo import MongoClient
+from sympy import N
 
 with open('{}\\Documents\\Code\\mongoPass.txt'.format(env.get("OneDrive")), 'r') as mongoPass:
     uri = "mongodb+srv://{}@cluster0.kgkoljn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0".format(mongoPass.read()) #env.get('mongo_user')
@@ -133,6 +134,14 @@ def openWord(songNum, book):
 
 @app.route('/old', methods=['GET', 'POST'])
 def song_info():
+    """
+    This is deprecated.
+
+    This function is used to display the song information in the form of a webpage. It returns a Flask response object that contains the HTML for the webpage. The webpage displays the song number, title, and author of the song, as well as various other information such as the date the song was published, the number of pages in the song, and the number of verses in the song. The webpage also includes a form that allows the user to enter a new song number and retrieve information about that song. If the user is logged in as an admin, the webpage also includes a form that allows the user to enter a new song number and retrieve information about that song, as well as a form that allows the user to enter a new song number and retrieve information about a specific version of that song. The webpage also includes links to various other pages on the website, such as the song index and the search page.
+
+    Returns:
+        Response: A Flask response object that contains the HTML for the webpage.
+    """
     song_info = None
     current_values = None
     is_found = False
@@ -235,6 +244,32 @@ def saveHtml(filePth, WordDoc):
 #     with open(r"C:\Users\Armne\OneDrive\Documents\Code\Python\templates\songLyr.txt", 'r', encoding='utf-8') as f:
 #         html_text = f.read()
 #     return render_template("songNew.html", lyrics=html_text)
+
+# @app.route('/getTableData', methods=['GET', 'POST'])
+def getSong(book:str, songnum:str, batch = 0) -> dict:
+    """
+    Retrieves a song from a JSON file based on the provided book and song number. The options are 'old', 'new', 'redergaran', and 'wordsongsindex'.
+
+    Args:
+        book (str): The book from which to retrieve the song.
+        songnum (str): The number of the song to retrieve.
+        batch (int, optional): The batch number. Defaults to 0.
+
+    Returns:
+        dict: A dictionary containing the song data.
+    """
+    if batch == 0:
+        from json import load
+        if book.lower() == "old" or book.lower() == "wordsongsindex":
+            with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+                wordSongs = load(f)["SongNum"]
+                return wordSongs[songnum]
+        else:
+            with open("REDergaran.json", 'r', encoding='utf-8') as f:
+                REDergaran = load(f)["SongNum"]
+                return REDergaran[songnum]
+    else:
+        pass
 
 @app.route('/search/<searchLyrics>', methods=['GET'])
 def songSearch(searchLyrics):
@@ -367,7 +402,7 @@ def display_song(book, songnum):
         future = exec.submit(openWord,songnum,book)
         lyrics = future.result()
         
-    return render_template('song_temp.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs)
+    return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs)
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc): #Todo: come up with a better name
@@ -378,7 +413,7 @@ def ServiceSongOpen(WordDoc): #Todo: come up with a better name
             # print(foundFiles)
             with open(foundFiles[0], 'r', encoding='utf-8') as f:
                 lyrics = f.read()
-            return render_template("song_temp.html", lyrics = lyrics)
+            return render_template("song.html", lyrics = lyrics)
         else:
             with open("songs.json" , 'r', encoding='utf-8') as f:
                 songs = json.load(f)
@@ -397,25 +432,76 @@ def ServiceSongOpen(WordDoc): #Todo: come up with a better name
             # saveHtml()
             with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
                 html_text = f.read()
-            return render_template("song_temp.html", lyrics=html_text)
+            return render_template("song.html", lyrics=html_text)
     else:
         flash("That song does not exist",'error')
 
+@app.route('/song/<book>/<songnum>/attributes', methods=['GET','POST'])
+def getSongAttributes(book,songnum):
+    return jsonify(getSong(book, songnum))
 
-# @app.route('/getTableData', methods=['GET', 'POST'])
-def getSong(book:str, songnum:str, batch = 0) -> dict:
-    if batch == 0:
-        from json import load
-        if book.lower == "old" or book == "wordsongsindex":
-            with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
-                wordSongs = load(f)["SongNum"]
-                return wordSongs[songnum]
-        else:
-            with open("REDergaran.json", 'r', encoding='utf-8') as f:
-                REDergaran = load(f)["SongNum"]
-                return REDergaran[songnum]
-    else:
-        pass
+@app.route('/attributeSearch', methods=['GET','POST'])
+def attributeSearch() -> dict:
+    """This inputs a list of attributes and the finds songs whose attributes match the input attributes.
+    
+    Input:
+        dict: A list of attributes
+        ex:
+        songattrs = {
+            "Comments": "Dance-P5-5",
+            "Title": "Եղբայրնե՛ր, ցնծացե՛ք",
+            "Worship_Song": "",
+            "key": "Em",
+            "latestVersion": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx",
+            "opening_Song": "",
+            "song_type": "Opening Song",
+            "speed": "105",
+            "style": "Disco",
+            "timeSig": "4/4",
+            "v1": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx"
+        }
+        dict: A list of song attributes
+        ex:
+            attributes = {key: true, speed: true, style: false, song_type: false, timeSig: true}
+    
+    Returns:
+        dict: A dictionary where the keys are the song numbers and the values are the dictionaries of the respective songs
+
+    """
+    data = request.get_json()
+    attributes = data["attributes"]
+    songattrs = data["songattrs"]
+    from json import load
+    with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+        wordSongs = load(f)["SongNum"]
+    returnSongs = {}
+    returnSongs["WordSongsIndex"] = {}
+    returnSongs["REDergaran"] = {}
+    for songNum in wordSongs:
+        song = wordSongs[songNum]
+        for attribute in attributes: #TODO: Figure out how to make it filter for attr 1 U attr 2 U etc.
+            if attributes[attribute]:
+                if attribute in song and song[attribute].lower() == songattrs[attribute].lower():
+                    print(f'{song[attribute]} == {songattrs[attribute]}', songNum)
+                    # returnSongs["WordSongsIndex"] = songNum
+                    returnSongs["WordSongsIndex"][songNum] = song
+                    # returnSongs["WordSongsIndex"][songNum]["book"] = "WordSongsIndex"
+                    break
+    with open("REDergaran.json", 'r', encoding='utf-8') as f:
+        REDergaran = load(f)["SongNum"]
+    for songNum in REDergaran:
+        song = REDergaran[songNum]
+        for attribute in attributes:
+            if attributes[attribute]:
+                if attribute in song and song[attribute].lower() == songattrs[attribute].lower():
+                    print(f'{song[attribute]} == {songattrs[attribute]}', songNum)
+                    # returnSongs["REDergaran"] = songNum
+                    returnSongs["REDergaran"][songNum] = song
+                    # returnSongs["REDergaran"][songNum]["book"] = "REDergaran"
+                    break
+    print(returnSongs)
+    return jsonify(returnSongs)
+
             
 def get_my_ip():
     from requests import get
@@ -609,7 +695,7 @@ def check_past_songs():
                                 title = title.split('\n')[0]
                         song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
                 songs['songs'] = song_titles
-        # return render_template('song_temp.html', lyrics = openWord(SongNum, book), past_songs = past_songs)
+        # return render_template('song.html', lyrics = openWord(SongNum, book), past_songs = past_songs)
         return redirect(url_for('display_song'), book=book,songnum=SongNum)#, title=title) #sending the book var inorder for the back button to function properly
     return render_template('check_past_songs.html')
 

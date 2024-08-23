@@ -471,4 +471,4 @@ def findNewFiles():  # is for finding new files so as to only go through and add
 
 
 # Uncomment this to manually update the index
-print(findNewFiles())
+# print(findNewFiles())

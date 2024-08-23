@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {%block content%}
-    <div id="scrollspydiv" class="dropdown z-3" style="position: fixed; left: 20px">
+    <div id="scrollspydiv" class="dropdown z-3" style="position: fixed; left: 20px; display:none">
                     <button type="button" class="dropdown-toggle btn btn-dark bg-gradient rounded-4" data-bs-toggle="dropdown" aria-expanded="false">Song Numbers</button>
                     <ul id="scrollspy" class="dropdown-menu text-center">
                         <li>
@@ -201,6 +201,7 @@
                 
                 if (attribute.value == 'Full_Text' && query.value != '') { //and there is a search query in it
                     // spinner()
+                    scrollspydiv.style = "position: fixed; left: 20px; display: none"
                     searchLyrics = document.getElementById('query').value;
                     let search_url = '/search/' //To get the base url for search
                     if (searchLyrics){
@@ -281,7 +282,9 @@
                         }
                     });
                 }
+
                 if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
+                    scrollspydiv.style = "position: fixed; left: 20px;"
                     if (attribute.value == 'all' && query.value == '') { //case: attr.val == 'all'
                         search()
                         init_tooltip();

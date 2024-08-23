@@ -13,3 +13,4 @@ opencv-python~=4.7.0.72
 ultralytics~=8.0.55
 sentence_transformers
 pymongo[srv]
+ttkbootstrap

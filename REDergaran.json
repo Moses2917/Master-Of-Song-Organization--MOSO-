@@ -89,14 +89,14 @@
             "Title": "Քա՛ջ եղեք, ո՛վ եղբայրներս,",
             "latestVersion": "RED Words/12.docx",
             "v1": "RED Words/12.docx",
-            "key": "",
+            "key": "Gm",
             "speed": "",
-            "style": "",
+            "style": "Disco",
             "opening_Song": "",
             "Worship_Song": "",
-            "song_type": "Worship Song",
-            "timeSig": "",
-            "Comments": ""
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4"
         },
         "13": {
             "Title": "Տե՜ր, ողորմեա՛, (2)",
@@ -1381,7 +1381,13 @@
         "173": {
             "Title": "Ո՜վ Հայր երկնային, Աստվա՛ծ ճշմարիտ,",
             "latestVersion": "RED Words/173.docx",
-            "v1": "RED Words/173.docx"
+            "v1": "RED Words/173.docx",
+            "key": "Cn",
+            "speed": "88",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "174": {
             "Title": "Կա՞ արդյոք աշխարհի մեջ մի անուն,",
@@ -1736,7 +1742,13 @@
         "216": {
             "Title": "Ինչպե՜ս եմ ես ուզում թռչել երկինք,",
             "latestVersion": "RED Words/216.docx",
-            "v1": "RED Words/216.docx"
+            "v1": "RED Words/216.docx",
+            "key": "Cm",
+            "speed": "94",
+            "style": "Ballad ",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "217": {
             "Title": "Եթե դժվարության հանդիպես",
@@ -1794,7 +1806,13 @@
         "222": {
             "Title": "Պատահում է՝ հոգիդ խիստ տխրում է",
             "latestVersion": "RED Words/222.docx",
-            "v1": "RED Words/222.docx"
+            "v1": "RED Words/222.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-1"
         },
         "223": {
             "Title": "Եթե հոգնել ես ճանապարհին,",
@@ -2011,7 +2029,13 @@
         "249": {
             "Title": "Ես կամենում եմ Քեզ հետ քայլել",
             "latestVersion": "Երգարան Word Files/249 Ես կամենում եմ Քեզ հետ քայլել.docx",
-            "v1": "Երգարան Word Files/249 Ես կամենում եմ Քեզ հետ քայլել.docx"
+            "v1": "Երգարան Word Files/249 Ես կամենում եմ Քեզ հետ քայլել.docx",
+            "key": "F#m",
+            "speed": "82",
+            "style": "Bwat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "250": {
             "Title": "Անպտուղ և այրող անապատով",
@@ -2153,7 +2177,7 @@
         },
         "269": {
             "Title": "Շուտով իմ Տերը՝ Հիսուս արքան",
-            "latestVersion": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v5.docx",
+            "latestVersion": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v6.docx",
             "v1": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան.docx",
             "v2": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v2.docx",
             "v3": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v3.docx",
@@ -2164,7 +2188,8 @@
             "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3",
-            "v5": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v5.docx"
+            "v5": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v5.docx",
+            "v6": "Երգարան Word Files/269 Շուտով իմ Տերը՝ Հիսուս արքան v6.docx"
         },
         "270": {
             "Title": "Մեր ճամփան է միշտ փշոտ ու քարքարոտ,",
@@ -2346,7 +2371,13 @@
         "293": {
             "Title": "Մեղքերովս, Տե՜ր, ահա Քեզի կուգամ,",
             "latestVersion": "RED Words/293.docx",
-            "v1": "RED Words/293.docx"
+            "v1": "RED Words/293.docx",
+            "key": "D#m",
+            "speed": "75",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "294": {
             "Title": "Մի ահավոր փոթորիկ է իմ շուրջը,",
@@ -2529,7 +2560,13 @@
         "318": {
             "Title": "Օրհնե՛ Տերը, ո՛վ իմ անձս,",
             "latestVersion": "RED Words/318.docx",
-            "v1": "RED Words/318.docx"
+            "v1": "RED Words/318.docx",
+            "key": "Am",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "319": {
             "Title": "Ինչքա՜ն բարի է Տերը",
@@ -3379,15 +3416,16 @@
         },
         "433": {
             "Title": "Գալիս եմ Քեզ մոտ փառաբանության",
-            "latestVersion": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության v2.docx",
+            "latestVersion": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության v3.docx",
             "v1": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության.docx",
             "key": "C",
-            "speed": "63",
+            "speed": "68",
             "style": "Ballad",
-            "song_type": "Worship Song",
+            "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Ballad-P1-8",
-            "v2": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության v2.docx"
+            "v2": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության v2.docx",
+            "v3": "Երգարան Word Files/433 Գալիս եմ Քեզ մոտ փառաբանության v3.docx"
         },
         "434": {
             "Title": "Անսահման սեր է Քո սերը, Հիսո՛ւս,",
@@ -3622,7 +3660,13 @@
         "465": {
             "Title": "Օրհնյալ Հիսուսի Սուրբ Հոգով լցված՝",
             "latestVersion": "RED Words/465.docx",
-            "v1": "RED Words/465.docx"
+            "v1": "RED Words/465.docx",
+            "key": "D",
+            "speed": "105",
+            "style": "Disco",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "466": {
             "Title": "Սուրբ Խոսքդ, Տե՛ր, զիս կսփոփե",
@@ -4139,7 +4183,13 @@
         "530": {
             "Title": "Եվ Աստված այնպես աշխարհը",
             "latestVersion": "Երգարան Word Files/530 Եվ Աստված այնպես աշխարհը.docx",
-            "v1": "Երգարան Word Files/530 Եվ Աստված այնպես աշխարհը.docx"
+            "v1": "Երգարան Word Files/530 Եվ Աստված այնպես աշխարհը.docx",
+            "key": "F",
+            "speed": "68",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any ballad"
         },
         "531": {
             "Title": "Եկել եմ, հոգսերս վերցրո՜ւ,",
@@ -4343,7 +4393,7 @@
         },
         "557": {
             "Title": "Օրհնյալ ես Դու, Թագավոր",
-            "latestVersion": "Երգարան Word Files/557 Օրհնյալ ես Դու, Թագավոր v2.docx",
+            "latestVersion": "Երգարան Word Files/557 Օրհնյալ ես Դու, Թագավոր v3.docx",
             "v1": "Երգարան Word Files/557 Օրհնյալ ես Դու, Թագավոր.docx",
             "v2": "Երգարան Word Files/557 Օրհնյալ ես Դու, Թագավոր v2.docx",
             "key": "F",
@@ -4351,7 +4401,8 @@
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v3": "Երգարան Word Files/557 Օրհնյալ ես Դու, Թագավոր v3.docx"
         },
         "558": {
             "Title": "Դու արժանի ես գոհության",
@@ -6818,16 +6869,17 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Հիսուս. այս անվան մեջ փրկություն կա,",
-            "latestVersion": "Երգարան Word Files/477 Հիսուս. այս անվան մեջ փրկություն կա, v2.docx",
-            "v1": "RED Words/477.docx",
-            "v2": "Երգարան Word Files/477 Հիսուս. այս անվան մեջ փրկություն կա, v2.docx",
-            "key": "Am",
-            "speed": "100",
-            "style": "Pop",
+            "Title": "Քա՛ջ եղեք, ո՛վ եղբայրներս,",
+            "latestVersion": "RED Words/12.docx",
+            "v1": "RED Words/12.docx",
+            "key": "Gm",
+            "speed": "",
+            "style": "Disco",
+            "opening_Song": "",
+            "Worship_Song": "",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Dance-P5-4"
         }
     }
 }

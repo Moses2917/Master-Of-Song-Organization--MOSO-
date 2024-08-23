@@ -1312,7 +1312,7 @@
         },
         "304": {
             "Title": "Դու բնակվում ես իմ մեջ",
-            "latestVersion": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
+            "latestVersion": "Word songs/304 Դու բնակվում ես իմ մեջ v4.docx",
             "v1": "Word songs/304 Դու բնակվում ես իմ մեջ.docx",
             "v2": "Word songs/304 Դու բնակվում ես իմ մեջ v2.docx",
             "v3": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
@@ -1321,7 +1321,8 @@
             "style": "Pop",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Pop-P3-4",
+            "v4": "Word songs/304 Դու բնակվում ես իմ մեջ v4.docx"
         },
         "305": {
             "Title": "Հիսուսի սիրուց ես չեմ բաժանվի, \nԹեև հալածանք ու սուր սպառնի, \nՆեղություն տառապանք սիրով կկրեմ, \nՈր սուրբ հավատքս կենդանի պահեմ:",
@@ -1947,9 +1948,16 @@
         },
         "424": {
             "Title": "Երբ կենանք աղոթքի",
-            "latestVersion": "Word songs/424 Երբ կենանք աղոթքի v2.docx",
+            "latestVersion": "Word songs/424 Երբ կենանք աղոթքի v3.docx",
             "v1": "Word songs/424 Երբ կենանք աղոթքի.docx",
-            "v2": "Word songs/424 Երբ կենանք աղոթքի v2.docx"
+            "v2": "Word songs/424 Երբ կենանք աղոթքի v2.docx",
+            "v3": "Word songs/424 Երբ կենանք աղոթքի v3.docx",
+            "key": "C",
+            "speed": "71",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "425": {
             "Title": "Առաջնորդող մի ձեռք ունեմ",
@@ -2937,10 +2945,17 @@
         },
         "599": {
             "Title": "Շալոմ բարեկամնէր Տիրոջմով շալոմ",
-            "latestVersion": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v3.docx",
+            "latestVersion": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v4.docx",
             "v1": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ.docx",
             "v2": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v2.docx",
-            "v3": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v3.docx"
+            "v3": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v3.docx",
+            "v4": "Word songs/599 Շալոմ բարեկամնէր Տիրոջմով շալոմ v4.docx",
+            "key": "Em",
+            "speed": "112",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-4"
         },
         "600": {
             "Title": "Ծնվեցիր գոմում, մանուկ, Հիսուս իմ, \nՄոգերը եկան երկրպագության:",
@@ -4040,7 +4055,7 @@
         },
         "747": {
             "Title": "Տերն է իմ հովիվը կարիք չեմ ունենա",
-            "latestVersion": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx",
+            "latestVersion": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v3.docx",
             "v1": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա.docx",
             "v2": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx",
             "key": "Em",
@@ -4048,7 +4063,8 @@
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Ballad-P6-1",
+            "v3": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v3.docx"
         },
         "748": {
             "Title": "Արթնացա մի օր, քո իսկ պարգևած",
@@ -4165,10 +4181,17 @@
         },
         "772": {
             "Title": "Բարձրյալի ծածկոցի տակ բնակվողը",
-            "latestVersion": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v3.docx",
+            "latestVersion": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v4.docx",
             "v1": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը.docx",
             "v2": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v2.docx",
-            "v3": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v3.docx"
+            "v3": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v3.docx",
+            "v4": "Word songs/772 Բարձրյալի ծածկոցի տակ բնակվողը v4.docx",
+            "key": "Dm",
+            "speed": "68",
+            "style": "Ballad ",
+            "song_type": "Worship Song",
+            "timeSig": "68",
+            "Comments": "Ballad-P1-8"
         },
         "773": {
             "Title": "Տեր չկա մեկը քեզ պես",
@@ -4397,15 +4420,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Մի ձայն է կանչում ինձ մի ձայն հարազատ",
-            "latestVersion": "Word songs/742 Մի ձայն է կանչում ինձ մի ձայն հարազատ.docx",
-            "v1": "Word songs/742 Մի ձայն է կանչում ինձ մի ձայն հարազատ.docx",
+            "Title": "Տերն է իմ հովիվը կարիք չեմ ունենա",
+            "latestVersion": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v3.docx",
+            "v1": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա.docx",
+            "v2": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx",
             "key": "Em",
-            "speed": "95",
-            "style": "Waltz ",
-            "song_type": "Single Song",
-            "timeSig": "3/4",
-            "Comments": "Ballad-P1-6"
+            "speed": "64",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-1",
+            "v3": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v3.docx"
         },
         "760": {
             "Title": "",
