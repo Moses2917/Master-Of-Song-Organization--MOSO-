@@ -1,7 +1,7 @@
 #This file/module serves as a helper for my newGui.pyw app, otherwise known as MOSO
 import os, docx, time, re
 import json
-from docx.shared import Pt
+from docx.shared import Pt,RGBColor
 
 
 
@@ -32,11 +32,29 @@ def getDocTextAndIndentation(filePath:str, my_doc):
     """Reads a DOCX file and returns a docx file with the text"""
     user = os.environ.get("USERNAME")
     doc = docx.Document("C:/Users/" + user + "/OneDrive/" + filePath)
+    first = True # to only run on the first line caught, on a song by song basis
     for p in doc.paragraphs:
         first_line_indent = p.paragraph_format.first_line_indent
         left_indent = p.paragraph_format.left_indent
         right_indent = p.paragraph_format.right_indent
-        Placeholder = my_doc.add_paragraph(p.text)
+        Placeholder = my_doc.add_paragraph()
+        lines = p.text.split("\n")
+        print("lines: ",len(lines))
+        print("Header Line: ", lines[0])
+        if re.match(r"\d+", lines[0]):
+            if first:
+                Header_Line = lines[0] # the first line of the paragraph, usually song number
+                first = False
+                run = Placeholder.add_run(lines[0])
+                run.font.color.rgb = RGBColor(255, 0, 0) # Color for red
+            if len(lines) > 1:
+                for line in lines[0:]:
+                    if line != Header_Line:
+                        run = Placeholder.add_run("\n" + line)
+                        run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
+        else:
+            run = Placeholder.add_run(p.text)
+            run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
         Placeholder.paragraph_format.space_after = 0
         if first_line_indent is not None:
             Placeholder.paragraph_format.first_line_indent = first_line_indent
@@ -89,15 +107,27 @@ def getPcSongs(songs, imp, user):
             filePath = ""
             if x in ergaran["SongNum"]:
                 filePath = ergaran["SongNum"][x]["latestVersion"]
-                my_doc.add_paragraph("[start:song]")
+                
+                Placeholder = my_doc.add_paragraph()
+                run = Placeholder.add_run("[start:song]")
+                run.font.color.rgb = RGBColor(127, 165, 249)
+                
                 getDocTextAndIndentation(filePath=filePath, my_doc=my_doc)
-                my_doc.add_paragraph("[end:song]")
+                
+                Placeholder = my_doc.add_paragraph()
+                run = Placeholder.add_run("[end:song]")
+                run.font.color.rgb = RGBColor(127, 165, 249)
             else:
-                my_doc.add_paragraph("[start:song]")
+                Placeholder = my_doc.add_paragraph()
+                run = Placeholder.add_run("[start:song]")
+                run.font.color.rgb = RGBColor(127, 165, 249)
                 getDocTextAndIndentation(filePath="RED Words/" + x + ".docx", my_doc=my_doc)
-                my_doc.add_paragraph("[end:song]\n")
+                Placeholder = my_doc.add_paragraph()
+                run = Placeholder.add_run("[end:song]")
+                run.font.color.rgb = RGBColor(127, 165, 249)
                 
         else:
+            #Get file path from 'old' database
             with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
                 OldErgaran = json.load(f)
             filePath = ""
@@ -105,9 +135,14 @@ def getPcSongs(songs, imp, user):
                 filePath = OldErgaran["SongNum"][x]["latestVersion"]
             else:
                 my_doc.add_paragraph("Error: FileNotFoundError \nSong: " + x + " Old, Could not be located ")
-            my_doc.add_paragraph("[start:song:old]")
+            
+            Placeholder = my_doc.add_paragraph()
+            run = Placeholder.add_run("[start:song:old]")
+            run.font.color.rgb = RGBColor(127, 165, 249)
             getDocTextAndIndentation(filePath=filePath, my_doc=my_doc)
-            my_doc.add_paragraph("[end:song:old]")
+            Placeholder = my_doc.add_paragraph()
+            run = Placeholder.add_run("[end:song:old]")
+            run.font.color.rgb = RGBColor(127, 165, 249)
 
 
     

@@ -909,7 +909,13 @@
         "113": {
             "Title": "Հիսուսի ե՛կ, Հիսուսի ե՛կ,",
             "latestVersion": "RED Words/113.docx",
-            "v1": "RED Words/113.docx"
+            "v1": "RED Words/113.docx",
+            "key": "F",
+            "speed": "97",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P2-2"
         },
         "114": {
             "Title": "Ո՜վ Եհովա Աստված, մեր Հայր,",
@@ -956,7 +962,7 @@
             "latestVersion": "Երգարան Word Files/118 Երբ սերս պաղել էր, ու բեռս ծանր էր, v2.docx",
             "v1": "RED Words/118.docx",
             "v2": "Երգարան Word Files/118 Երբ սերս պաղել էր, ու բեռս ծանր էր, v2.docx",
-            "key": "Em",
+            "key": "Fm",
             "speed": "70",
             "style": "Beat",
             "song_type": "Single Song",
@@ -1913,7 +1919,13 @@
             "Title": "Փակ դռների ետևից ուշ ժամին",
             "latestVersion": "Երգարան Word Files/233 Փակ դռների ետևից ուշ ժամին v2.docx",
             "v1": "RED Words/233.docx",
-            "v2": "Երգարան Word Files/233 Փակ դռների ետևից ուշ ժամին v2.docx"
+            "v2": "Երգարան Word Files/233 Փակ դռների ետևից ուշ ժամին v2.docx",
+            "key": "Dm",
+            "speed": "92",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "234": {
             "Title": "Ինչո՞ւ ես տանջում քեզ այդպես,",
@@ -2031,7 +2043,13 @@
             "Title": "Մեկն ընթրիք սարքեց, կանչեց բոլորին.",
             "latestVersion": "Երգարան Word Files/247 Մեկն ընթրիք սարքեց, կանչեց բոլորին. v2.docx",
             "v1": "RED Words/247.docx",
-            "v2": "Երգարան Word Files/247 Մեկն ընթրիք սարքեց, կանչեց բոլորին. v2.docx"
+            "v2": "Երգարան Word Files/247 Մեկն ընթրիք սարքեց, կանչեց բոլորին. v2.docx",
+            "key": "Em",
+            "speed": "101",
+            "style": "Disco ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "248": {
             "Title": "Ձեզ հետ լինել կուզենք",
@@ -6881,17 +6899,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով",
-            "latestVersion": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v3.docx",
-            "v1": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով.docx",
-            "v2": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v2.docx",
-            "v3": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v3.docx",
+            "Title": "Փակ դռների ետևից ուշ ժամին",
+            "latestVersion": "Երգարան Word Files/233 Փակ դռների ետևից ուշ ժամին v2.docx",
+            "v1": "RED Words/233.docx",
+            "v2": "Երգարան Word Files/233 Փակ դռների ետևից ուշ ժամին v2.docx",
             "key": "Dm",
-            "speed": "100",
-            "style": "Samba",
-            "song_type": "Opening Song",
-            "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "speed": "92",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         }
     }
 }
