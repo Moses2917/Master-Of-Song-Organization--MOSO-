@@ -471,35 +471,42 @@ def attributeSearch() -> dict:
     data = request.get_json()
     attributes = data["attributes"]
     songattrs = data["songattrs"]
+    print(songattrs)
+    del songattrs["Comments"]
+    del songattrs["Title"]
+    
+    temp = {}
+    for attribute in songattrs:
+        if attributes.get(attribute):#Check if the attribute is in the dictionary
+            if attributes[attribute]:
+                temp[attribute] = songattrs[attribute]
+    songattrs = temp
+    print(songattrs)
     from json import load
     with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
         wordSongs = load(f)["SongNum"]
+    
+    with open("REDergaran.json", 'r', encoding='utf-8') as f:
+        REDergaran = load(f)["SongNum"]
     returnSongs = {}
     returnSongs["WordSongsIndex"] = {}
     returnSongs["REDergaran"] = {}
-    for songNum in wordSongs:
-        song = wordSongs[songNum]
-        for attribute in attributes: #TODO: Figure out how to make it filter for attr 1 U attr 2 U etc.
-            if attributes[attribute]:
-                if attribute in song and song[attribute].lower() == songattrs[attribute].lower():
-                    print(f'{song[attribute]} == {songattrs[attribute]}', songNum)
-                    # returnSongs["WordSongsIndex"] = songNum
-                    returnSongs["WordSongsIndex"][songNum] = song
-                    # returnSongs["WordSongsIndex"][songNum]["book"] = "WordSongsIndex"
-                    break
-    with open("REDergaran.json", 'r', encoding='utf-8') as f:
-        REDergaran = load(f)["SongNum"]
-    for songNum in REDergaran:
-        song = REDergaran[songNum]
-        for attribute in attributes:
-            if attributes[attribute]:
-                if attribute in song and song[attribute].lower() == songattrs[attribute].lower():
-                    print(f'{song[attribute]} == {songattrs[attribute]}', songNum)
-                    # returnSongs["REDergaran"] = songNum
-                    returnSongs["REDergaran"][songNum] = song
-                    # returnSongs["REDergaran"][songNum]["book"] = "REDergaran"
-                    break
-    print(returnSongs)
+    def filter_songs(songs):
+        found_songs = {}
+        for songNum, song in songs.items():
+            matched =True
+            for attr in songattrs:
+                foundSongAttr = song.get(attr)
+                if foundSongAttr != songattrs[attr]: matched = False
+            
+            if matched:
+                found_songs[songNum] = song
+
+        return found_songs
+                
+    # Filter songs from both sources
+    returnSongs["WordSongsIndex"] =filter_songs(wordSongs)
+    returnSongs["REDergaran"]=filter_songs(REDergaran)
     return jsonify(returnSongs)
 
             

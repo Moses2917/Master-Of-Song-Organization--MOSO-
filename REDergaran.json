@@ -278,7 +278,13 @@
         "32": {
             "Title": "Մարել են հույսդ ու սերդ,",
             "latestVersion": "RED Words/32.docx",
-            "v1": "RED Words/32.docx"
+            "v1": "RED Words/32.docx",
+            "key": "Dm",
+            "speed": "71",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "33": {
             "Title": "Ուրախացի՛ր, օրհներգ հյուսի՛ր",
@@ -1376,7 +1382,13 @@
         "172": {
             "Title": "Աղոթքն է խոսք շատ զորավոր,",
             "latestVersion": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx",
-            "v1": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx"
+            "v1": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx",
+            "key": "Dm",
+            "speed": "56",
+            "style": "Ballad ",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-1"
         },
         "173": {
             "Title": "Ո՜վ Հայր երկնային, Աստվա՛ծ ճշմարիտ,",
@@ -2242,7 +2254,7 @@
             "Title": "Ուրա՞խ ես, որ Հիսուսը մեղքերդ ներեց",
             "latestVersion": "RED Words/279.docx",
             "v1": "RED Words/279.docx",
-            "key": "C",
+            "key": "Cm#",
             "speed": "113",
             "style": "Beguine",
             "song_type": "Single Song",
@@ -2309,7 +2321,7 @@
             "v1": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ.docx",
             "v2": "Երգարան Word Files/286 Ժամերը հաշված, քայլերը պատրաստ v2.docx",
             "key": "Em",
-            "speed": "90",
+            "speed": "85",
             "style": "Pop",
             "song_type": "Single Song",
             "timeSig": "6/8",
@@ -3523,7 +3535,7 @@
             "v3": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v3.docx",
             "v4": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v4.docx",
             "v5": "Երգարան Word Files/446 Ի՜նչ մեծ ու հրաշալի են Քո գործերը, Տե՛ր v5.docx",
-            "key": "Am",
+            "key": "Em",
             "speed": "100",
             "style": "Beat",
             "song_type": "Single Song",
@@ -3973,7 +3985,7 @@
             "v1": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով.docx",
             "v2": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v2.docx",
             "v3": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v3.docx",
-            "key": "C#m",
+            "key": "Dm",
             "speed": "100",
             "style": "Samba",
             "song_type": "Opening Song",
@@ -6869,17 +6881,17 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Քա՛ջ եղեք, ո՛վ եղբայրներս,",
-            "latestVersion": "RED Words/12.docx",
-            "v1": "RED Words/12.docx",
-            "key": "Gm",
-            "speed": "",
-            "style": "Disco",
-            "opening_Song": "",
-            "Worship_Song": "",
-            "song_type": "Single Song",
+            "Title": "Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով",
+            "latestVersion": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v3.docx",
+            "v1": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով.docx",
+            "v2": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v2.docx",
+            "v3": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v3.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Samba",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-4"
+            "Comments": "Latin Dance-P2-3"
         }
     }
 }

@@ -24,7 +24,7 @@
             "key": "G#m (-1)",
             "speed": "72",
             "style": "Beat",
-            "song_type": "None",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-4"
         },
@@ -2353,7 +2353,7 @@
             "key": "C",
             "speed": "116",
             "style": "Samba",
-            "song_type": "None",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Hisusn (C), Ekeq ergenq (C), Alelu aleluya (+1) , Ov Asvac (+2)"
         },
@@ -2440,7 +2440,7 @@
             "v1": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով.docx",
             "v2": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v2.docx",
             "v3": "Word songs/505 Գերել ես սիրտը իմ Քո սիրով v3.docx",
-            "key": "F#",
+            "key": "G",
             "speed": "65",
             "style": "Ballad",
             "song_type": "Worship Song",
@@ -2489,7 +2489,13 @@
         "511": {
             "Title": "Աղաղակեցեք դեաի Տեր",
             "latestVersion": "Word songs/511 Աղաղակեցեք դեաի Տեր.docx",
-            "v1": "Word songs/511 Աղաղակեցեք դեաի Տեր.docx"
+            "v1": "Word songs/511 Աղաղակեցեք դեաի Տեր.docx",
+            "key": "Gm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "512": {
             "Title": "Սուրբ Հոգի արի (3) Սուրբ Հոգի",
@@ -2581,7 +2587,13 @@
         "521": {
             "Title": "Ուրախ ենք մենք Տիրոջմով",
             "latestVersion": "Word songs/521 Ուրախ ենք մենք Տիրոջմով.docx",
-            "v1": "Word songs/521 Ուրախ ենք մենք Տիրոջմով.docx"
+            "v1": "Word songs/521 Ուրախ ենք մենք Տիրոջմով.docx",
+            "key": "Am",
+            "speed": "115",
+            "style": "Bossa Nova",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-4"
         },
         "522": {
             "Title": "Այս է այն գետը որ բխում է գահից",
@@ -4140,7 +4152,7 @@
             "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v3.docx",
             "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
             "v2": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
-            "key": "Em (?)",
+            "key": "Cm",
             "speed": "100",
             "style": "Beguine ",
             "song_type": "Single Song",
@@ -4151,7 +4163,13 @@
         "756": {
             "Title": "Օրհնյալ է Տերը օրհնյալ ամեն օր",
             "latestVersion": "Word songs/756 Օրհնյալ է Տերը օրհնյալ ամեն օր.docx",
-            "v1": "Word songs/756 Օրհնյալ է Տերը օրհնյալ ամեն օր.docx"
+            "v1": "Word songs/756 Օրհնյալ է Տերը օրհնյալ ամեն օր.docx",
+            "key": "G",
+            "speed": "72",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "757": {
             "Title": "Ուրախացիր ողջ երկիր",
@@ -4177,7 +4195,13 @@
         "771": {
             "Title": "Ես եմ Աստվածը քեզ բժշկող",
             "latestVersion": "Word songs/771 Ես եմ Աստվածը քեզ բժշկող.docx",
-            "v1": "Word songs/771 Ես եմ Աստվածը քեզ բժշկող.docx"
+            "v1": "Word songs/771 Ես եմ Աստվածը քեզ բժշկող.docx",
+            "key": "D",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "772": {
             "Title": "Բարձրյալի ծածկոցի տակ բնակվողը",
@@ -4420,17 +4444,16 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Տերն է իմ հովիվը կարիք չեմ ունենա",
-            "latestVersion": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v3.docx",
-            "v1": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա.docx",
-            "v2": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v2.docx",
-            "key": "Em",
-            "speed": "64",
+            "Title": "Հաճախ ինձ համար պահեր կան դժվար",
+            "latestVersion": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար v2.docx",
+            "v1": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար.docx",
+            "v2": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար v2.docx",
+            "key": "G#m (-1)",
+            "speed": "72",
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P6-1",
-            "v3": "Word songs/747 Տերն է իմ հովիվը կարիք չեմ ունենա v3.docx"
+            "Comments": "Pop-P1-4"
         },
         "760": {
             "Title": "",
