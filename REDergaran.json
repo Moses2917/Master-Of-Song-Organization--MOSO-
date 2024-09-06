@@ -5955,7 +5955,7 @@
             "latestVersion": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
             "v1": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից.docx",
             "v2": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
-            "key": "Dm (-1)",
+            "key": "C#m",
             "speed": "108",
             "style": "Disco",
             "song_type": "Opening Song",
@@ -6899,16 +6899,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Փակ դռների ետևից ուշ ժամին",
-            "latestVersion": "Երգարան Word Files/233 Փակ դռների ետևից ուշ ժամին v2.docx",
-            "v1": "RED Words/233.docx",
-            "v2": "Երգարան Word Files/233 Փակ դռների ետևից ուշ ժամին v2.docx",
-            "key": "Dm",
-            "speed": "92",
-            "style": "Ballad",
-            "song_type": "Single Song",
-            "timeSig": "12/8",
-            "Comments": "Ballad-P4-1"
+            "Title": "Մերկ ենք եկել, մերկ կգնանք աշխարհից",
+            "latestVersion": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
+            "v1": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից.docx",
+            "v2": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
+            "key": "C#m",
+            "speed": "108",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         }
     }
 }
