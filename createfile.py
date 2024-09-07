@@ -37,24 +37,27 @@ def getDocTextAndIndentation(filePath:str, my_doc):
         first_line_indent = p.paragraph_format.first_line_indent
         left_indent = p.paragraph_format.left_indent
         right_indent = p.paragraph_format.right_indent
-        Placeholder = my_doc.add_paragraph()
+        Placeholder = my_doc.add_paragraph().clear()
         lines = p.text.split("\n")
         print("lines: ",len(lines))
         print("Header Line: ", lines[0])
         if re.match(r"\d+", lines[0]):
             if first:
-                Header_Line = lines[0] # the first line of the paragraph, usually song number
+                songNum = lines[0] # the first line of the paragraph, usually song number
                 first = False
                 run = Placeholder.add_run(lines[0])
                 run.font.color.rgb = RGBColor(255, 0, 0) # Color for red
-            if len(lines) > 1:
-                for line in lines[0:]:
-                    if line != Header_Line:
-                        run = Placeholder.add_run("\n" + line)
+                
+            if not (songNum in lines):
+                for line in lines:
+                    if line != '':
+                        run = Placeholder.add_run(line+'\n')
                         run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
         else:
-            run = Placeholder.add_run(p.text)
-            run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
+            if p.text != '':
+                run = Placeholder.add_run(p.text)
+                run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
+        
         Placeholder.paragraph_format.space_after = 0
         if first_line_indent is not None:
             Placeholder.paragraph_format.first_line_indent = first_line_indent
