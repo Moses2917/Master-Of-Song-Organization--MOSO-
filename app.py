@@ -36,13 +36,21 @@ oauth.register(
     server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
 )
 
-# @app.route("/")
-# def home():
-#     return render_template("song_info.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
-
 #This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
 @app.route("/callback", methods=["GET", "POST"])
 def callback():
+    """
+    Handles the callback from the authorization server.
+
+    This function is responsible for exchanging the authorization code for an access token,
+    storing the user's session, and redirecting the user to the temporary home page.
+
+    Parameters:
+    None
+
+    Returns:
+    redirect: A redirect response to the temporary home page.
+    """
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
     # print(session["user"])
@@ -53,6 +61,10 @@ def callback():
 #the /login route, users will be redirected to Auth0 to begin the authentication flow.
 @app.route("/login")
 def login():
+    """
+    This function defines the /login route, which redirects users to Auth0 to begin the authentication flow.
+    It does not take any parameters and returns the authorization redirect response from Auth0.
+    """
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True)
     )
@@ -61,6 +73,12 @@ def login():
 #this route handles signing a user out from your application.
 @app.route("/logout")
 def logout():
+    """
+    Handles user logout by clearing the session and redirecting to Auth0's logout endpoint.
+
+    Returns:
+        redirect: A redirect response to Auth0's logout endpoint.
+    """
     session.clear()
     return redirect(
         "https://" + env.get("AUTH0_DOMAIN")
@@ -76,6 +94,15 @@ def logout():
 
 #Function to check the eligability of user to access the webpage, BOOL
 def isUserAllowed(email):
+    """
+    Checks if the provided email is allowed to access the webpage.
+    
+    Args:
+        email (str): The email to be checked.
+    
+    Returns:
+        bool: True if the email is allowed, False otherwise.
+    """
     with open("{}\\Documents\\Code\\allowedEmails.csv".format(env.get("OneDrive")), 'r') as f:
         return email in f.read()
 
@@ -97,6 +124,17 @@ def load_table_data(book:str):
         return None
 
 def openWord(songNum, book):
+    """
+    Opens a word document based on the provided song number and book, 
+    and returns the contents of the document as a HTML formatted string.
+
+    Args:
+        songNum (int): The number of the song to be opened.
+        book (str): The name of the book containing the song.
+
+    Returns:
+        str: A HTML formatted string containing the contents of the word document.
+    """
     from docx import Document
     #Used to find and open word doc, sends back a html formated str of it
     
@@ -205,6 +243,16 @@ def song_info():
     return render_template('song_info.html', session=session.get('user'))
 
 def saveHtml(filePth, WordDoc):
+    """
+    Saves the contents of a Word document to an HTML file to later be displayed.
+
+    Parameters:
+        filePth (str): The path to the Word document file.
+        WordDoc (str): The name of the Word document.
+
+    Returns:
+        None
+    """
     from docx import Document
 
     # songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
@@ -272,9 +320,16 @@ def getSong(book:str, songnum:str, batch = 0) -> dict:
         pass
 
 @app.route('/search/<searchLyrics>', methods=['GET'])
-def songSearch(searchLyrics):
-    # lyrics = request.args.get('lyrics', None)
-    #Looks for a song, given any lyric and return x(default of 10) search results
+def songSearch(searchLyrics) -> list:
+    """
+    Searches for songs based on provided lyrics and returns a list of search results.
+
+    Args:
+        searchLyrics (str): The lyrics to search for in the songs.
+
+    Returns:
+        list: A list of search results, where each result is a dictionary containing the book, song number, and title of the song.
+    """
 
     if searchLyrics:
         query = {
@@ -337,7 +392,22 @@ def songSearch(searchLyrics):
         return json.dumps(searchResults)
 
 @app.route('/song/<book>/<songnum>', methods=['GET','POST'])
-def display_song(book, songnum):
+def display_song(book, songnum) -> str:
+    """
+    This function handles HTTP requests to the '/song/<book>/<songnum>' route.
+    
+    It takes two parameters: 'book' and 'songnum', which are used to identify a specific song.
+    
+    The function returns a rendered HTML template ('song.html') with the song's lyrics, 
+    past songs, and similar songs.
+    
+    Parameters:
+    book (str): The book identifier for the song (e.g., 'Old' or 'New').
+    songnum (str): The song number identifier.
+    
+    Returns:
+    A rendered HTML template with the song's lyrics, past songs, and similar songs.
+    """
     from scanningDir import songSearch
     with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
         wordSongsIndex = json.load(f)
@@ -405,7 +475,21 @@ def display_song(book, songnum):
     return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs)
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
-def ServiceSongOpen(WordDoc): #Todo: come up with a better name
+def ServiceSongOpen(WordDoc) -> str: #Todo: come up with a better name
+    """
+    Renders the song.html template with lyrics from a .docx file.
+
+    Parameters:
+    WordDoc (str): The name of the .docx file.
+
+    Returns:
+    str: The rendered song.html template with lyrics.
+
+    Notes:
+    - If the .docx file exists in the htmlsongs directory, it reads the lyrics from the file.
+    - If the .docx file does not exist, it attempts to open the file from the OneDrive path and save the lyrics as an html file.
+    - If the file does not exist and cannot be opened, it flashes an error message.
+    """
     if '.docx' in WordDoc:
         from glob import glob
         foundFiles = glob("htmlsongs\\"+WordDoc+"*")
@@ -437,7 +521,17 @@ def ServiceSongOpen(WordDoc): #Todo: come up with a better name
         flash("That song does not exist",'error')
 
 @app.route('/song/<book>/<songnum>/attributes', methods=['GET','POST'])
-def getSongAttributes(book,songnum):
+def getSongAttributes(book,songnum) -> dict:
+    """
+    Handles HTTP requests to retrieve song attributes.
+
+    Parameters:
+        book (str): The book from which the song is retrieved.
+        songnum (str): The song number within the book.
+
+    Returns:
+        A JSON response containing the song attributes.
+    """
     return jsonify(getSong(book, songnum))
 
 @app.route('/attributeSearch', methods=['GET','POST'])
@@ -460,9 +554,9 @@ def attributeSearch() -> dict:
             "timeSig": "4/4",
             "v1": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx"
         }
+        attributes = {key: true, speed: true, style: false, song_type: false, timeSig: true}
+        
         dict: A list of song attributes
-        ex:
-            attributes = {key: true, speed: true, style: false, song_type: false, timeSig: true}
     
     Returns:
         dict: A dictionary where the keys are the song numbers and the values are the dictionaries of the respective songs
@@ -510,7 +604,13 @@ def attributeSearch() -> dict:
     return jsonify(returnSongs)
 
             
-def get_my_ip():
+def get_my_ip() -> str:
+    """
+    Retrieves the public IP address of the device making the request.
+    
+    Returns:
+        str: The public IP address as a string.
+    """
     from requests import get
 
     ip = get('https://api.ipify.org').content.decode('utf8')
@@ -519,6 +619,18 @@ def get_my_ip():
 
 @app.route('/', methods=['GET', 'POST'])
 def temp_home():
+    """
+    Handles HTTP requests to the root URL ('/').
+
+    This function is responsible for handling both GET and POST requests. It checks for user sessions, 
+    handles search queries, and returns relevant table data in JSON format or renders a blank HTML template if no user is logged in.
+
+    Parameters:
+    None
+
+    Returns:
+    A JSON response containing search results or a rendered HTML template.
+    """
     # print(request.remote_addr,get_my_ip())
     if session.get('user', None):
         if session['user'] == 'local'or isUserAllowed(session['user']['userinfo']['email']):
@@ -583,6 +695,20 @@ def temp_home():
 
 @app.route('/editsongs', methods=['GET', 'POST'])
 def edit_songs():
+    """
+    Handles HTTP requests to the '/editsongs' route, allowing users to edit song information.
+    
+    If the request method is 'POST', it retrieves the song number and book from the request form,
+    updates the song information based on the user's input, and saves the changes to a JSON file.
+    
+    The function returns a rendered template of the 'edit_songs.html' page, passing the updated song information and current values as parameters.
+    
+    Parameters:
+    None
+    
+    Returns:
+    A rendered template of the 'edit_songs.html' page
+    """
     song_info = None
     current_values = None
     is_found = False
@@ -641,6 +767,18 @@ def edit_songs():
 
 @app.route('/tsank', methods=['GET','POST'])
 def tsank():
+    """
+    Handles HTTP requests to the '/tsank' route, supporting both GET and POST methods.
+    
+    Retrieves the 'temmas' value from the request form data and uses it to load a JSON file.
+    
+    If 'temmas' is not None, it extracts a number from the value, uses it to index into the loaded JSON data,
+    and renders the 'temas.html' template with the selected data.
+    
+    If 'temmas' is None, it renders the 'tema.html' template with the original 'temmas' value and an empty list.
+    
+    Returns a rendered HTML template.
+    """
     temma = request.form.get("temmas", None)
     temmalist = None
     if temma:#checks to make sure it is not none
@@ -655,6 +793,10 @@ def tsank():
 
 @app.route('/tsank_a_z', methods=['GET','POST'])
 def tsank_A_Z():
+    """
+    Handles HTTP requests to the '/tsank_a_z' endpoint, accepting both GET and POST methods.
+    Returns the rendered 'tsank_A_Z.html' template.
+    """
     return render_template('tsank_A_Z.html')
 
 @app.route('/tsank_a_z/<book>/<letter>', methods=['GET','POST'])
@@ -671,6 +813,21 @@ def tsank_letter(book, letter):
 
 @app.route('/past_songs', methods=['GET','POST'])
 def check_past_songs():
+    """
+    Handles the '/past_songs' route, accepting both GET and POST requests.
+    
+    When a POST request is made, it retrieves the 'SongNumTuple' from the request form,
+    parses it to extract the song number and book, and then uses these values to search
+    for past songs. If past songs are found, it formats the song titles and redirects the
+    user to the 'display_song' route. If no past songs are found, it renders the 
+    'check_past_songs.html' template.
+    
+    Parameters:
+    None
+    
+    Returns:
+    A redirect response to the 'display_song' route or a rendered 'check_past_songs.html' template.
+    """
     from scanningDir import songSearch
     SongNumTuple = request.form.get('SongNumTuple')
     if SongNumTuple:
@@ -709,6 +866,18 @@ def check_past_songs():
 #helper function for check_past_songs(), used with fetch api
 @app.route('/past_songs/<songnum>', methods=['GET','POST'])
 def past_songs(songnum):
+    """
+    Handles HTTP requests to the '/past_songs/<songnum>' route. 
+    This function takes a song number and book as input, 
+    searches for past songs matching the given song number and book, 
+    and returns a rendered template with the past songs data.
+
+    Parameters:
+        songnum (str): The song number to search for past songs.
+
+    Returns:
+        A rendered HTML template with the past songs data.
+    """
     past_songs = None
     SongNum = songnum
     data = request.get_json()

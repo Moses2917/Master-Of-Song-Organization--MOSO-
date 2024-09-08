@@ -2853,7 +2853,13 @@
         "350": {
             "Title": "Այսօր ուրախության օր է",
             "latestVersion": "Երգարան Word Files/350 Այսօր ուրախության օր է.docx",
-            "v1": "Երգարան Word Files/350 Այսօր ուրախության օր է.docx"
+            "v1": "Երգարան Word Files/350 Այսօր ուրախության օր է.docx",
+            "key": "Em",
+            "speed": "110",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "351": {
             "Title": "Երկնային լույս է ծագել",
@@ -4249,10 +4255,10 @@
             "latestVersion": "Երգարան Word Files/534 Այս կարճ կյանքի մեջ ինձ համոզեցիր v2.docx",
             "v1": "Երգարան Word Files/534 Այս կարճ կյանքի մեջ ինձ համոզեցիր.docx",
             "v2": "Երգարան Word Files/534 Այս կարճ կյանքի մեջ ինձ համոզեցիր v2.docx",
-            "key": "Dm",
+            "key": "Em",
             "speed": "",
             "style": "",
-            "song_type": "None",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Pop-P3-4"
         },
@@ -6899,12 +6905,11 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Մերկ ենք եկել, մերկ կգնանք աշխարհից",
-            "latestVersion": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
-            "v1": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից.docx",
-            "v2": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
-            "key": "C#m",
-            "speed": "108",
+            "Title": "Այսօր ուրախության օր է",
+            "latestVersion": "Երգարան Word Files/350 Այսօր ուրախության օր է.docx",
+            "v1": "Երգարան Word Files/350 Այսօր ուրախության օր է.docx",
+            "key": "Em",
+            "speed": "110",
             "style": "Disco",
             "song_type": "Opening Song",
             "timeSig": "4/4",

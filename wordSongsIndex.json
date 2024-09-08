@@ -89,13 +89,13 @@
             "Title": "Վստահ եմ` Տերս պիտ պատրաստե ճամփաս",
             "latestVersion": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս v2.docx",
             "v1": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս.docx",
-            "key": "Am",
-            "speed": "Slow",
-            "timeSig": "4/4",
-            "style": "Ballad",
+            "key": "C",
+            "speed": "64",
+            "timeSig": "4/4 ",
+            "style": "Beat",
             "opening_Song": "True",
             "Worship_Song": "False",
-            "Comments": "Piano",
+            "Comments": "pop-p1-3",
             "song_type": "Worship Song",
             "v2": "Word songs/14 Վստահ եմ` Տերս պիտ պատրաստե ճամփաս v2.docx"
         },
@@ -117,7 +117,13 @@
         "21": {
             "Title": "Ես համոզված եմ եվ հաստատ ուխտած",
             "latestVersion": "Word songs/21  v1.docx",
-            "v1": "Word songs/21  v1.docx"
+            "v1": "Word songs/21  v1.docx",
+            "key": "C",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "22": {
             "Title": "Կյանքդ կանցնի արագ արագ",
@@ -2512,7 +2518,13 @@
             "Title": "Թագավոր ես մեր հոգու մեջ Տեր Հիսուս",
             "latestVersion": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx",
             "v1": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս.docx",
-            "v2": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx"
+            "v2": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx",
+            "key": "F",
+            "speed": "94",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "514": {
             "Title": "Հայր մեր ահա ժողովուրդըդ",
@@ -4053,7 +4065,7 @@
             "v1": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ.docx",
             "v2": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v2.docx",
             "v3": "Word songs/745 Օրհնեցեք Տիրոջը ով նրա հրեշտակներ v3.docx",
-            "key": "Cm",
+            "key": "Dm",
             "speed": "106",
             "style": "Samba",
             "song_type": "Opening Song",
@@ -4444,16 +4456,16 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Հաճախ ինձ համար պահեր կան դժվար",
-            "latestVersion": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար v2.docx",
-            "v1": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար.docx",
-            "v2": "Word songs/3 Հաճախ ինձ համար պահեր կան դժվար v2.docx",
-            "key": "G#m (-1)",
-            "speed": "72",
-            "style": "Beat",
+            "Title": "Թագավոր ես մեր հոգու մեջ Տեր Հիսուս",
+            "latestVersion": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx",
+            "v1": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս.docx",
+            "v2": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx",
+            "key": "F",
+            "speed": "94",
+            "style": "Ballad",
             "song_type": "Worship Song",
-            "timeSig": "4/4",
-            "Comments": "Pop-P1-4"
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "760": {
             "Title": "",
