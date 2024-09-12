@@ -2667,7 +2667,13 @@
         "328": {
             "Title": "Ների՜ր, Տե՛ր իմ, հանցանքներս,",
             "latestVersion": "RED Words/328.docx",
-            "v1": "RED Words/328.docx"
+            "v1": "RED Words/328.docx",
+            "key": "Fm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "329": {
             "Title": "Քեզ եմ սպասում, արի՜ Դու, ի՛մ Տեր, ալելուիա՜,",
@@ -6905,15 +6911,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Այսօր ուրախության օր է",
-            "latestVersion": "Երգարան Word Files/350 Այսօր ուրախության օր է.docx",
-            "v1": "Երգարան Word Files/350 Այսօր ուրախության օր է.docx",
-            "key": "Em",
-            "speed": "110",
-            "style": "Disco",
-            "song_type": "Opening Song",
+            "Title": "Ների՜ր, Տե՛ր իմ, հանցանքներս,",
+            "latestVersion": "RED Words/328.docx",
+            "v1": "RED Words/328.docx",
+            "key": "Fm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Any beat"
         }
     }
 }
