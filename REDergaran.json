@@ -2391,7 +2391,13 @@
         "291": {
             "Title": "Սիրում եմ (3) Քեզ, ի՛մ Տեր, (2)",
             "latestVersion": "RED Words/291.docx",
-            "v1": "RED Words/291.docx"
+            "v1": "RED Words/291.docx",
+            "key": "Em flat (-6)",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "292": {
             "Title": "Երեկ ի՞նչ էի, ի՞նչ եղա այսօր",
@@ -6911,13 +6917,13 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Ների՜ր, Տե՛ր իմ, հանցանքներս,",
-            "latestVersion": "RED Words/328.docx",
-            "v1": "RED Words/328.docx",
-            "key": "Fm",
-            "speed": "68",
+            "Title": "Սիրում եմ (3) Քեզ, ի՛մ Տեր, (2)",
+            "latestVersion": "RED Words/291.docx",
+            "v1": "RED Words/291.docx",
+            "key": "Em flat (-6)",
+            "speed": "67",
             "style": "Beat",
-            "song_type": "Single Song",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Any beat"
         }

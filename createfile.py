@@ -37,26 +37,27 @@ def getDocTextAndIndentation(filePath:str, my_doc):
         first_line_indent = p.paragraph_format.first_line_indent
         left_indent = p.paragraph_format.left_indent
         right_indent = p.paragraph_format.right_indent
-        Placeholder = my_doc.add_paragraph().clear()
-        lines = p.text.split("\n")
-        print("lines: ",len(lines))
-        print("Header Line: ", lines[0])
-        if re.match(r"\d+", lines[0]):
-            if first:
-                songNum = lines[0] # the first line of the paragraph, usually song number
-                first = False
-                run = Placeholder.add_run(lines[0])
-                run.font.color.rgb = RGBColor(255, 0, 0) # Color for red
+        Placeholder = my_doc.add_paragraph(p.text)
+        # Placeholder = my_doc.add_paragraph().clear()
+        # lines = p.text.split("\n")
+        # print("lines: ",len(lines))
+        # print("Header Line: ", lines[0])
+        # if re.match(r"\d+", lines[0]):
+        #     if first:
+        #         songNum = lines[0] # the first line of the paragraph, usually song number
+        #         first = False
+        #         run = Placeholder.add_run(lines[0])
+        #         run.font.color.rgb = RGBColor(255, 0, 0) # Color for red
                 
-            if not (songNum in lines):
-                for line in lines:
-                    if line != '':
-                        run = Placeholder.add_run(line+'\n')
-                        run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
-        else:
-            if p.text != '':
-                run = Placeholder.add_run(p.text)
-                run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
+        #     if not (songNum in lines):
+        #         for line in lines:
+        #             if line != '':
+        #                 run = Placeholder.add_run(line+'\n')
+        #                 run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
+        # else:
+        #     if p.text != '':
+        #         run = Placeholder.add_run(p.text)
+        #         run.font.color.rgb = RGBColor(0, 0, 0) # Color for white
         
         Placeholder.paragraph_format.space_after = 0
         if first_line_indent is not None:
