@@ -1,6 +1,6 @@
 import json
-import os, datetime, docx, re
-
+import os, datetime, re
+import requests
 
 def getRecentSongs():
     # Todo: posibily change function to always append to it the latest files instead of just rewriting it always
@@ -129,20 +129,24 @@ def getAllNums():
 # getAllNums() #If left uncommented can cause errors during use of MOSO
 
 # gets songs fron recentsongs and sorts by last three months
-def songCollector():
-    """Generates a list of all the sunday songs sang in the last three months
-
+def songCollector(sunday_only=False, three_month_window=True, search_range=90):
+    """Generates a list of all the songs sang in the last three months
+    Args:
+        sunday_only (bool, optional): If you wish to search only Sunday songs. Defaults to False.
+        three_month_window (bool, optional): If you want a 3 month search window. Defaults to True.
+        search_range (int, optional): If you want to search within a specific range of dates. Must have three_month_window set to False. Search_range defaults to the three month window.
     Returns:
         blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
     """
     from json import load
-    blocked_list = []
+    # blocked_list = []
     current_date = datetime.date.today()  # should really be
 
     # Format the date and time
-    formatted_date = current_date.strftime('%m.%d.%y')
+    # formatted_date = current_date.strftime('%m.%d.%y')
     # print("The current date is:", formatted_date)
-    three_months_from_now = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y')
+    if three_month_window: search_window = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y')
+    else : search_window = (current_date + datetime.timedelta(days=-search_range)).strftime('%m.%d.%y')
     # print("Three months ago it was:", three_months_from_now)
 
     with open('songs.json', 'r', encoding='utf-8') as f:
@@ -160,19 +164,24 @@ def songCollector():
         # Define the date format
         date_format = "%m.%d.%y"
         # Parse the dates into datetime objects
-        date1 = datetime.datetime.strptime(three_months_from_now, date_format)
+        date1 = datetime.datetime.strptime(search_window, date_format)
         date2 = datetime.datetime.strptime(date, date_format)
         if date1 < date2:
             # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
-            if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
-                blocked_list.append([
-                    eval(allSongs[key]['songList']),  # [('book','songnum'), ('book','songnum'), ('book','songnum')]
-                    fileDate
-                ])
+            if sunday_only:
+                if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
+                    # blocked_list.append([
+                    #     eval(allSongs[key]['songList']),  # [('book','songnum'), ('book','songnum'), ('book','songnum')]
+                    #     fileDate
+                    # ])
+                    blocked_dict[fileDate] = {
+                        'songList': allSongs[key]['songList'],
+                        'basePth': allSongs[key]['basePth'],
+                    }
+            else:
                 blocked_dict[fileDate] = {
                     'songList': allSongs[key]['songList'],
                     'basePth': allSongs[key]['basePth'],
-
                 }
                 # print(lis)
     return blocked_dict
@@ -257,7 +266,7 @@ def songChecker(book: str, songNum: str):
         Str: Returns the date it was sang if true
     """
 
-    blocked_list = songCollector()
+    blocked_list = songCollector(sunday_only=True)
     date_format = "%m.%d.%y"
     # print(blocked_list)
     song_search_results = search_song(blocked_list, songNum, book)
