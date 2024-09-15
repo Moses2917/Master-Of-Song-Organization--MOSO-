@@ -14,7 +14,7 @@ from random import choices
 from scanningDir import songCollector
 # attr_finder.attrFinder.attributeSearch()
 print("Bugging A.N.I. Quyr...")
-print("Awakening A.N.I. Quyr...\nAnalyzing, Narrowing, and Identifying the perfect worship setlist...")
+print("Awakening A.N.I. Quyr...\nBegin Analyzing, Narrowing, and Identifying the perfect worship list...")
 sang_in_last_3months = songCollector(ignore_sundays=True)
 sang_in_last_year = songCollector(three_month_window=False, search_range=360, ignore_sundays=True)
 
@@ -47,21 +47,48 @@ print(f"This is today's song order:\n{opening_songs}{latter_half_songs}")
 
 
 def find_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
+    """
+    Finds a song or a list of songs based on the given parameters.
+
+    Args:
+        only_first_two_songs (bool): If True, returns only the first two songs. Defaults to False.
+        only_worship_songs (bool): If True, returns only the worship songs (3rd to 5th songs). Defaults to False.
+        only_last_two_songs (bool): If True, returns only the last two songs. Defaults to False.
+
+    Returns:
+        list: A list of reccommended songs based on the given parameters.
+    """
     # Only for sunday songs
-    if only_first_two_songs:
-        return opening_songs
-    elif only_worship_songs:
-        return latter_half_songs[0]
-    elif only_last_two_songs:
-        return latter_half_songs[1]
-    else:
-        possible_sunday_redos = []
-        sang_in_last_3months = songCollector(sunday_only=True)
-        sang_in_last_year = songCollector(sunday_only=True,three_month_window=False, search_range=360)
-        for key in sang_in_last_year:
-            if not sang_in_last_3months.get(key, None):
-                possible_sunday_redos.append(literal_eval(sang_in_last_year[key]["songList"]))
+    sang_in_last_3months = songCollector(sunday_only=True)
+    sang_in_last_year = songCollector(sunday_only=True,three_month_window=False, search_range=360)
+    possible_sunday_songs = []
+    for key in sang_in_last_year: # only doing this so I don't have to make another list
+        if not sang_in_last_3months.get(key, None):
+            possible_songs: list = literal_eval(sang_in_last_year[key]["songList"])
+            if only_first_two_songs:
+                possible_sunday_songs.append(possible_songs[0:2])
+                # return opening_songs
+            elif only_worship_songs:
+                # return latter_half_songs[0]
+                possible_sunday_songs.append(possible_songs[2:6])
+            elif only_last_two_songs:
+                possible_sunday_songs.append(possible_songs[7:8])
+            else:
+                # In this option, all we do is choose an exact order from a past sunday
+                possible_sunday_songs.append(possible_songs)
+                
+                #DO NOTHING JUST SEND possible_songs
+                
+                # for key in sang_in_last_year:
+                #     if not sang_in_last_3months.get(key, None):
+                # possible_sunday_full_redos.append(literal_eval(sang_in_last_year[key]["songList"]))
+                
+    choice = choose(possible_sunday_songs)
+    # Keep picking until we get a list of 8 songs
+    # while len(choice) < 8:
+    #     choice = choose(possible_sunday_songs)
+    # Return the final list of songs
+    return choice
+    # return choose(possible_sunday_songs)
 
-        return choose(possible_sunday_redos)
-
-print(f"Haven't sang this in a while!\n{find_song()}")
+print(f"Haven't sang this in a while!\n{find_song(only_worship_songs=True)}")
