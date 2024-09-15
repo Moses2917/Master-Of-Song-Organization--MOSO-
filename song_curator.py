@@ -13,8 +13,8 @@ from random import choice as choose
 from random import choices
 from scanningDir import songCollector
 # attr_finder.attrFinder.attributeSearch()
-print("Bugging A.N.I. Quyr...")
-print("Awakening A.N.I. Quyr...\nBegin Analyzing, Narrowing, and Identifying the perfect worship list...")
+print("Annoying A.N.I. Quyr...")
+print("Begin Analyzing, Narrowing, and Identifying the perfect worship list...")
 sang_in_last_3months = songCollector(ignore_sundays=True)
 sang_in_last_year = songCollector(three_month_window=False, search_range=360, ignore_sundays=True)
 
@@ -72,7 +72,7 @@ def find_song(only_first_two_songs=False, only_worship_songs=False, only_last_tw
                 # return latter_half_songs[0]
                 possible_sunday_songs.append(possible_songs[2:6])
             elif only_last_two_songs:
-                possible_sunday_songs.append(possible_songs[7:8])
+                possible_sunday_songs.append(possible_songs[6:8])
             else:
                 # In this option, all we do is choose an exact order from a past sunday
                 possible_sunday_songs.append(possible_songs)
@@ -91,4 +91,4 @@ def find_song(only_first_two_songs=False, only_worship_songs=False, only_last_tw
     return choice
     # return choose(possible_sunday_songs)
 
-print(f"Haven't sang this in a while!\n{find_song(only_worship_songs=True)}")
+print(f"Haven't sang this in a while!\nOpening:{find_song(only_first_two_songs=True)}\nWorship:{find_song(only_worship_songs=True)}\nLast:{find_song(only_last_two_songs=True)}")
