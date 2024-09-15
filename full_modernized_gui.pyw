@@ -76,11 +76,11 @@ class ModernSongManager:
         self.listbox_frame = ttk.Frame(main_frame)
         self.listbox_frame.pack(fill=BOTH, expand=YES)
         
-        # Using the  originalself.listbox
-        self.listbox = tk.Listbox(self.listbox_frame, width=25, height=18, font=("Roboto", 14))
+        # Setting adequate listbox size
+        self.listbox = tk.Listbox(self.listbox_frame, width=25, height=10, font=("Roboto", 14))
         self.listbox.pack(side=LEFT, fill=BOTH, expand=YES)
         
-        # Scrollbar  forself.listbox
+        # Scrollbar forself.listbox
         scrollbar = ttk.Scrollbar(self.listbox_frame, orient="vertical", command=self.listbox.yview)
         scrollbar.pack(side=RIGHT, fill=Y)
         self.listbox.configure(yscrollcommand=scrollbar.set)
@@ -280,7 +280,8 @@ class ModernSongManager:
             message= messagebox.askyesno("MOSO is asking:","Do you wish to update this file: " + input_filename + "\n\nYes to cont., No to stop")
             print(message)
             if message == "yes" or message == True:
-                SongUpdater.getDocTextAndIndentation(input_filename)
+                try: SongUpdater.getDocTextAndIndentation(input_filename)
+                except Exception as err: messagebox.showerror("Could not update", f"Could not update this file. Becuase of error: {err}")
             # elif message == False:
             #     ChooseFile()
             else:
