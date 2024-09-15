@@ -129,32 +129,26 @@ def getAllNums():
 # getAllNums() #If left uncommented can cause errors during use of MOSO
 
 # gets songs fron recentsongs and sorts by last three months
-def songCollector(sunday_only=False, three_month_window=True, search_range=90):
-    """Generates a list of all the songs sang in the last three months
+def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=True, search_range=90):
+    """Generates a list of all the songs sang. Defaults to the last three months both with var and search range.
     Args:
         sunday_only (bool, optional): If you wish to search only Sunday songs. Defaults to False.
+        ignore_sundays (bool, optional): If you wish to ignore Sunday songs. Defaults to False.
         three_month_window (bool, optional): If you want a 3 month search window. Defaults to True.
         search_range (int, optional): If you want to search within a specific range of dates. Must have three_month_window set to False. Search_range defaults to the three month window.
     Returns:
         blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
     """
     from json import load
-    # blocked_list = []
     current_date = datetime.date.today()  # should really be
 
     # Format the date and time
-    # formatted_date = current_date.strftime('%m.%d.%y')
-    # print("The current date is:", formatted_date)
     if three_month_window: search_window = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y')
     else : search_window = (current_date + datetime.timedelta(days=-search_range)).strftime('%m.%d.%y')
-    # print("Three months ago it was:", three_months_from_now)
 
     with open('songs.json', 'r', encoding='utf-8') as f:
         allSongs = load(f)
 
-    # for key in allSongs:
-    #     date = key
-    #     date = re.findall(r"(.*\d)", date)[0]
 
     blocked_dict = {}
     for key in allSongs:
@@ -167,13 +161,14 @@ def songCollector(sunday_only=False, three_month_window=True, search_range=90):
         date1 = datetime.datetime.strptime(search_window, date_format)
         date2 = datetime.datetime.strptime(date, date_format)
         if date1 < date2:
-            # print("bad dates", date2)#add to blacklist of songs once you have the songs sang
             if sunday_only:
                 if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
-                    # blocked_list.append([
-                    #     eval(allSongs[key]['songList']),  # [('book','songnum'), ('book','songnum'), ('book','songnum')]
-                    #     fileDate
-                    # ])
+                    blocked_dict[fileDate] = {
+                        'songList': allSongs[key]['songList'],
+                        'basePth': allSongs[key]['basePth'],
+                    }
+            elif ignore_sundays:
+                if date2.strftime('%A') != "Sunday":  # if date is within search window and also not from sunday
                     blocked_dict[fileDate] = {
                         'songList': allSongs[key]['songList'],
                         'basePth': allSongs[key]['basePth'],
@@ -183,7 +178,7 @@ def songCollector(sunday_only=False, three_month_window=True, search_range=90):
                     'songList': allSongs[key]['songList'],
                     'basePth': allSongs[key]['basePth'],
                 }
-                # print(lis)
+                
     return blocked_dict
     # return blocked_list
 
@@ -335,7 +330,7 @@ def toJson():
 
 
 # TODO Handle case where a file is deleted and no longer exists think file deletions and file renaming
-# could do a sort of git difference, where if it doesn't find the file, but it exists in the index, it will be deleted
+# could do a sort of git difference, where if it doesn't find the file, but if it is present in the index, it will be deleted
 def findNewFiles():  # is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
     """This will make a dict. stored and accessed as a json file. It will store the name of the doc, as well as all
     songs it found in the doc, a basepath where the os path for onedrive can be appended, and it will store the last
@@ -422,7 +417,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                         # if the date modified of a file is greater than the one on file repalce it
                         allsongs[songs.name] = {
                             'dateMod': stat(songs.path).st_mtime,
-                            'path': songs.path,
+                            'path': songs.path, # Possibly don't need this as I am already saving the base path, therefore this is a derived value.
                             'basePth': basePth,
                             'songList': getNums(songs.path)
                         }
