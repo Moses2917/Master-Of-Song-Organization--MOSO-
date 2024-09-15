@@ -115,7 +115,19 @@ def latestVerErg(jsonIndex, songNum:str):
             return latestV, jsonIndex["SongNum"][songNum]['Title']
 
 def getDocTextAndIndentation(filename:str):
-    """Reads the file and returns a dict with the text along with a bool if it is from the old book"""
+    """
+    Reads a Word document file and extracts the text and indentation information 
+    from each paragraph. It identifies song sections based on specific start and 
+    end indicators in the text and processes the paragraphs accordingly. Then it saves the file.
+
+    Parameters:
+        filename (str): The path to the Word document file to be read.
+
+    Returns:
+        A list of dictionaries containing the text and indentation information 
+        for each paragraph in the song sections.
+    """
+    
     doc = docx.Document(filename)
 
     text_and_indentation = [] #turn into a list of dicts
