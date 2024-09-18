@@ -1,6 +1,8 @@
+from genericpath import isfile
 import json
 import os, datetime, re
 import requests
+from sympy import N
 
 def getRecentSongs():
     # Todo: posibily change function to always append to it the latest files instead of just rewriting it always
@@ -250,15 +252,17 @@ def songSearch(song_num:str, book:str):
 # print(songSearch("817","Old"))
 
 def songChecker(book: str, songNum: str):
-    """Finds songNum, then go to that index in books and see if it matches with the given book var and also check and see if there is an "invalid" string to skip the next book
+    """
+    Checks if a song with the given song number in the specified book, has been sang in the last 3 months.
 
     Args:
-        songNum str: song number being checked
-        book str: from olds or new book
+        book (str): The book to search for the song in.
+        songNum (str): The number of the song to search for.
 
     Returns:
-        Bool: True if used False if not
-        Str: Returns the date it was sang if true
+        Tuple:
+            Bool: True if the song exists, False otherwise.
+            Str: The date the song was last sang if it exists.
     """
 
     blocked_list = songCollector(sunday_only=True)
@@ -269,12 +273,12 @@ def songChecker(book: str, songNum: str):
     if song_search_results:
         # print(song_search_results)
         for key in song_search_results:
-            print(key['Filename/Date'])
+            # print(key['Filename/Date'])
             date_compare = datetime.datetime.strptime(key['Filename/Date'], date_format)
             if date_newest < date_compare:
                 date_newest = date_compare
         return True, date_newest.strftime(date_format)
-        return True, date_newest
+        # return True, date_newest
     return False
 
 def toJson():
@@ -347,7 +351,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
 
     def fileCrawler(filePth: str):  # is_file or is_folder
 
-        os.scandir(filePth)
+        return isfile(filePth)
 
     # toJson() #run this to update the json index -_-
     OneDrivePth = os.environ.get("OneDrive")  # gets the base path to onedrive from enviornment variables!
@@ -473,6 +477,41 @@ def findNewFiles():  # is for finding new files so as to only go through and add
     
     # print(allsongs)
 
+def clean_up_index():
+    """
+    Cleans up the index by removing songs that no longer exist in the file system.
+
+    This function reads the 'songs_cleaned.json' file, which contains a dictionary of song metadata. It iterates over each song in the dictionary and checks if the corresponding file exists in the file system. If a song file is not found, it is marked for deletion. After identifying all the songs to be deleted, the function removes them from the dictionary and writes the updated dictionary back to the 'songs_cleaned.json' file.
+
+    Parameters:
+    None
+
+    Returns:
+    None
+    """
+    #TODO: Make this in rust 🦀
+    OneDrive_pth = os.environ.get("OneDrive")
+    with open("songs_cleaned.json", 'r', encoding='utf-8') as allSongs:
+        allSongs: dict = json.load(allSongs)
+        # find all songs that no longer exist
+        items_to_delete = []
+        for SongDates in allSongs:
+            file_pth = OneDrive_pth + "\\" + allSongs[SongDates]["basePth"] + "\\" + SongDates
+            try:
+                os.stat(file_pth)
+            except FileNotFoundError:
+                print("Deleting " + file_pth + " from index, because it no longer exists")
+                items_to_delete.append(SongDates)
+        # delete items
+        for item in items_to_delete:
+            del allSongs[item]
+        
+        with open("songs_cleaned.json", 'w', encoding='utf-8') as f:
+            json.dump(allSongs, f, indent=4, ensure_ascii=False)
+        
+        
+                
+# clean_up_index()
 
 # Uncomment this to manually update the index
 # print(findNewFiles())
