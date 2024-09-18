@@ -1758,7 +1758,13 @@
         "389": {
             "Title": "Տոն է այսոր սուրբ հաղթական\nՀիսուս կուգա Երուսաղեմ",
             "latestVersion": "Word songs\\pptSong\\389.docx",
-            "v1": "Word songs\\pptSong\\389.docx"
+            "v1": "Word songs\\pptSong\\389.docx",
+            "key": "Am +1",
+            "speed": "112",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "390": {
             "Title": "Հիսուս, այս անվան մեջ փրկություն կա",
@@ -2238,7 +2244,7 @@
             "latestVersion": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
             "v1": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց.docx",
             "v2": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
-            "key": "C#m",
+            "key": "C#m / Dm",
             "speed": "68",
             "style": "Ballad",
             "song_type": "Single Song",
@@ -3793,7 +3799,13 @@
             "Title": "Սքանչելի, խորհրդական և խաղաղության իշխան",
             "latestVersion": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան v2.docx",
             "v1": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան.docx",
-            "v2": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան v2.docx"
+            "v2": "Word songs/710 Սքանչելի, խորհրդական և խաղաղության իշխան v2.docx",
+            "key": "F",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-4"
         },
         "711": {
             "Title": "Մեղավոր մարդ կանգ առ մի պահ",
@@ -3981,9 +3993,9 @@
             "v1": "Word songs/734 Դու ապավենն ես իմ սրտի.docx",
             "v2": "Word songs/734 Դու ապավենն ես իմ սրտի v2.docx",
             "key": "F",
-            "speed": "65",
+            "speed": "67",
             "style": "Ballad",
-            "song_type": "None",
+            "song_type": "Worship Song",
             "Worship_Song": "",
             "timeSig": "4/4",
             "Comments": "Any type of ballad",
@@ -4456,16 +4468,15 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Թագավոր ես մեր հոգու մեջ Տեր Հիսուս",
-            "latestVersion": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx",
-            "v1": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս.docx",
-            "v2": "Word songs/513 Թագավոր ես մեր հոգու մեջ Տեր Հիսուս v2.docx",
-            "key": "F",
-            "speed": "94",
-            "style": "Ballad",
-            "song_type": "Worship Song",
-            "timeSig": "12/8",
-            "Comments": "Ballad-P4-1"
+            "Title": "Տոն է այսոր սուրբ հաղթական\nՀիսուս կուգա Երուսաղեմ",
+            "latestVersion": "Word songs\\pptSong\\389.docx",
+            "v1": "Word songs\\pptSong\\389.docx",
+            "key": "Am +1",
+            "speed": "112",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "760": {
             "Title": "",

@@ -390,7 +390,13 @@
         "44": {
             "Title": "Վշտաց աշխարհեն Քեզ կաղաղակեմ,",
             "latestVersion": "RED Words/44.docx",
-            "v1": "RED Words/44.docx"
+            "v1": "RED Words/44.docx",
+            "key": "Bm",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "45": {
             "Title": "Տե՜ր, պահե՛ զիս Սուրբ խաչիդ",
@@ -955,7 +961,13 @@
         "117": {
             "Title": "Ալելուիա՜, ալելուիա՜, ալելուիա՜, (3)",
             "latestVersion": "RED Words/117.docx",
-            "v1": "RED Words/117.docx"
+            "v1": "RED Words/117.docx",
+            "key": "F",
+            "speed": "107",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "118": {
             "Title": "Երբ սերս պաղել էր, ու բեռս ծանր էր,",
@@ -2229,7 +2241,13 @@
         "271": {
             "Title": "Զղջացել եմ, Տե՜ր Աստված,",
             "latestVersion": "RED Words/271.docx",
-            "v1": "RED Words/271.docx"
+            "v1": "RED Words/271.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Beguine ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-7"
         },
         "272": {
             "Title": "Միայն Դու ես արժանի",
@@ -3199,10 +3217,10 @@
             "latestVersion": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են v2.docx",
             "v1": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են.docx",
             "v2": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են v2.docx",
-            "key": "Am",
+            "key": "Am (+1)",
             "speed": "107",
             "style": "Samba",
-            "song_type": "Opening Song",
+            "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3"
         },
@@ -5363,11 +5381,10 @@
             "Comments": "Pop-P1-3"
         },
         "708": {
-            "Title": "Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5):",
-            "latestVersion": "Երգարան Word Files/708 Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5): v4.docx",
+            "Title": "Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5)",
+            "latestVersion": "Երգարան Word Files/708 Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա v2.docx",
             "v1": "RED Words/708.docx",
-            "v2": "Երգարան Word Files/708 Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5): v2.docx",
-            "v3": "Երգարան Word Files/708 Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա (5): v3.docx",
+            "v2": "Երգարան Word Files/708 Մենք սպասում ենք մեր Փրկչին, ե՞րբ կգա v2.docx",
             "key": "F# (-6)",
             "speed": "78",
             "style": "Ballad",
@@ -5528,7 +5545,13 @@
         "735": {
             "Title": "Մենք սպասում ենք խոստացված վերջին անձրևներին",
             "latestVersion": "Երգարան Word Files/735 Մենք սպասում ենք խոստացված վերջին անձրևներին.docx",
-            "v1": "Երգարան Word Files/735 Մենք սպասում ենք խոստացված վերջին անձրևներին.docx"
+            "v1": "Երգարան Word Files/735 Մենք սպասում ենք խոստացված վերջին անձրևներին.docx",
+            "key": "G# (-4)",
+            "speed": "75",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "736": {
             "Title": "Երբ մեկնես ձեռքդ հզոր`",
@@ -6917,15 +6940,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Սիրում եմ (3) Քեզ, ի՛մ Տեր, (2)",
-            "latestVersion": "RED Words/291.docx",
-            "v1": "RED Words/291.docx",
-            "key": "Em flat (-6)",
-            "speed": "67",
-            "style": "Beat",
-            "song_type": "Worship Song",
+            "Title": "Փառքն ու պատիվը Աստծուն վայել են",
+            "latestVersion": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են v2.docx",
+            "v1": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են.docx",
+            "v2": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են v2.docx",
+            "key": "Am (+1)",
+            "speed": "107",
+            "style": "Samba",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Any beat"
+            "Comments": "Latin Dance-P2-3"
         }
     }
 }
