@@ -8,17 +8,38 @@
 # O – Organization: Organize the songs based on lyrical strength and cohesion, making sure they fit the purpose (such as mood, message, or theme).
 
 from ast import literal_eval
+import datetime
+from json import load
 from operator import index
 from random import choice as choose
 from random import choices
-from scanningDir import songCollector
-# attr_finder.attrFinder.attributeSearch()
+from scanningDir import songCollector, songChecker
+from re import findall
+
+def collect_all_songs() -> dict:
+    with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
+        data = load(f)
+    
+    found_songs = {}
+    for key in data:
+        file_date = key
+        file_date = findall(r"(.*\d)", file_date)[0]
+        date_format = "%m.%d.%y"
+        file_date = datetime.datetime.strptime(file_date, date_format) # file_date is now a datetime object
+        if file_date.strftime('%A') != "Sunday":
+            found_songs[key] = {
+                'songList': data[key]['songList'],
+                'basePth': data[key]['basePth'],
+            }
+    # if date2.strftime('%A') != "Sunday"
+
+
 print("Annoying A.N.I. Quyr...")
 print("Begin Analyzing, Narrowing, and Identifying the perfect worship list...")
 sang_in_last_3months = songCollector(ignore_sundays=True)
 sang_in_last_year = songCollector(three_month_window=False, search_range=360, ignore_sundays=True)
-
-# Just read the first two songs as the opening songsinstead of looking for them
+all_songs_sang = collect_all_songs()
+# Just read the first two songs as the opening songs instead of looking for them
 # maybe, just maybe, filter out sundays
 # also add a date checking so no 
 possible_opening_songs = []
@@ -28,23 +49,37 @@ for key in sang_in_last_year:
         possible_songs: list = literal_eval(sang_in_last_year[key]["songList"]) # gets a list of songs sang on that day
         if not ("Old" in possible_songs[0] or "Old" in possible_songs[1]):
             possible_opening_songs.append(possible_songs[0:2])
-        # possible_residual_songs.append(possible_songs[2:])
-        for residual_song in possible_songs[2:]:
-            if residual_song[0] != "Old":
-                possible_latter_half_songs.append(residual_song)
-        # From here I could do two things:
-        # 1. Randomly select 2 songs from the list
-        # 2. Randomly select 1 song pair from the list
-        
-        # Going to implement 2 for now
-        # Randomly select 1 song pair from the list
-opening_songs: list = choose(possible_opening_songs)
-# print(possible_residual_songs, possible_opening_songs[-1])
-latter_half_songs: list = choices(possible_latter_half_songs, k=2)
-possible_latter_half_songs.remove(latter_half_songs[0])#.remove(latter_half_songs[1])
-latter_half_songs.append(choices(possible_latter_half_songs, k=2))
-print(f"This is today's song order:\n{opening_songs}{latter_half_songs}")
+            possible_opening_songs.append(possible_songs[2:4]) # only wor
+            possible_opening_songs.append(possible_songs[4:6])
+temp = []
 
+
+for song_pairs in possible_opening_songs:
+    # must do songs, bc as of now its a pair of two
+    last_3_months = True
+    # for song in song_pairs:
+    # if not(song_pairs[0] in sang_in_last_3months and song_pairs[1] in sang_in_last_3months):
+    song_pair1 = song_pairs[0]
+    song_pair2 = song_pairs[1]
+    # Could also add a reroller for a specific pair
+    if not (songChecker(book=song_pair1[0], songNum=song_pair1[1]) and songChecker(book=song_pair2[0], songNum=song_pair2[1])):
+        temp.append(song_pairs)
+            
+# print(sang_in_last_3months)
+# opening_songs: list = choose(possible_opening_songs)
+# latter_half_songs: list = choices(possible_latter_half_songs, k=2)
+# possible_latter_half_songs.remove(latter_half_songs[0])#.remove(latter_half_songs[1])
+# latter_half_songs.append(choices(possible_latter_half_songs, k=2))
+# print(f"This is today's song order:\n{opening_songs}{latter_half_songs}")
+latter_half_songs: list = choices(temp, k=3)
+# print(f"This is today's song order:\n{latter_half_songs}")
+print("This is today's song order:")
+with open("REDergaran.json", 'r', encoding="utf-8") as f:
+    REDergaran = load(f)
+for song_pairs in latter_half_songs:
+    # must do songs, bc as of now its a pair of two
+    for song in song_pairs:
+        print(f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang in the last 3 months {songChecker(book=song[0], songNum=song[1])}")
 
 def find_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
     """
@@ -91,4 +126,4 @@ def find_song(only_first_two_songs=False, only_worship_songs=False, only_last_tw
     return choice
     # return choose(possible_sunday_songs)
 
-print(f"Haven't sang this in a while!\nOpening:{find_song(only_first_two_songs=True)}\nWorship:{find_song(only_worship_songs=True)}\nLast:{find_song(only_last_two_songs=True)}")
+# print(f"Haven't sang this in a while!\nOpening:{find_song(only_first_two_songs=True)}\nWorship:{find_song(only_worship_songs=True)}\nLast:{find_song(only_last_two_songs=True)}")

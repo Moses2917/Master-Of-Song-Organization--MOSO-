@@ -142,7 +142,7 @@ def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=Tru
         blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
     """
     from json import load
-    current_date = datetime.date.today()  # should really be
+    current_date = datetime.date.today()
 
     # Format the date and time
     if three_month_window: search_window = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y')
@@ -182,7 +182,6 @@ def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=Tru
                 }
                 
     return blocked_dict
-    # return blocked_list
 
 def search_song(data: json, song_num, book):
     """
@@ -333,8 +332,6 @@ def toJson():
         json.dump(result, f, indent=4, ensure_ascii=False)
 
 
-# TODO Handle case where a file is deleted and no longer exists think file deletions and file renaming
-# could do a sort of git difference, where if it doesn't find the file, but if it is present in the index, it will be deleted
 def findNewFiles():  # is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
     """This will make a dict. stored and accessed as a json file. It will store the name of the doc, as well as all
     songs it found in the doc, a basepath where the os path for onedrive can be appended, and it will store the last
