@@ -154,8 +154,7 @@
         // attribute = can
         
         function spinner() {
-            songstable.innerHTML='<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
-               
+            songstable.innerHTML='<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'   
         }
         function search(){
             spinner() // show spinner while searching
@@ -197,27 +196,26 @@
                 // tablebody.textContent='' //clear the table
                 for (const [book, indivBook] of Object.entries(text)) {
                     
-                
-                // for (const [key, value] of Object.entries(text)) {
-                for (const [key, value] of Object.entries(indivBook)) {
-                    const row = document.createElement('tr');
-                    row.setAttribute('id', key);
-                    // if (attribute.value == 'Full_Text' && query.value != ''){
-                    row.innerHTML = `
-                        <td data-bs-toggle="tooltip" data-bs-title="Book">${ book || ''}</td>
-                        <td><a class="btn btn-outline-primary" href="/song/${value['book']}/${key}">${key}</a></td>
-                        <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                        <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion'] || ''}</td>
-                        <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
-                        <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
-                        <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
-                        <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
-                        <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
-                        <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
-                    `;
-                    tablebody.appendChild(row);
-                }
-            };
+                    // for (const [key, value] of Object.entries(text)) {
+                    for (const [key, value] of Object.entries(indivBook)) {
+                        const row = document.createElement('tr');
+                        row.setAttribute('id', key);
+                        // if (attribute.value == 'Full_Text' && query.value != ''){
+                        row.innerHTML = `
+                            <td data-bs-toggle="tooltip" data-bs-title="Book">${ book || ''}</td>
+                            <td><a class="btn btn-outline-primary" href="/song/${value['book']}/${key}">${key}</a></td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
+                        `;
+                        tablebody.appendChild(row);
+                    }
+                };
                 
             });
             

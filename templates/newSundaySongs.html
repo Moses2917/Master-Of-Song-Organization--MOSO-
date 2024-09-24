@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
+  <div class="row align-items-start justify-content-center ">
+    <h2 class="text-center">Please Choose a Given Parameter:</h2>
+    <!-- <div class="col-9">
+      <div class="input-group mb-3 ">
+        <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum" >
+      </div>
+    </div> -->
+    <div class="row justify-content-center" id="SongSection">
+      <!-- <div class="btn-group" role="group"> -->
+      <div class="col-auto">
+        <div class="">
+          <!-- <div class="form-check"> -->
+            <input class="btn-check" type="checkbox" id="only_first_two_songs" value="only_first_two_songs" onchange="document.getElementById('only_worship_songs').checked = false; document.getElementById('only_last_two_songs').checked = false;">
+            <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="only_first_two_songs">
+              First Two Songs
+            </label>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="">
+          <!-- <div class="form-check"> -->
+          <input class="btn-check" type="checkbox" id="only_worship_songs" value="only_worship_songs" onchange="document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_last_two_songs').checked = false;">
+          <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="only_worship_songs">
+            Worship Songs</label>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="">
+          <!-- <div class="form-check"> -->
+          <input class="btn-check" type="checkbox" id="only_last_two_songs" value="only_last_two_songs" onchange="document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_worship_songs').checked = false;">
+          <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="only_last_two_songs">
+            Last Two Songs</label>
+          <!-- </div> -->
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+  <p class="text-end" id="hint-am">
+    Խորհուրդ. Սեղմեք այն երգը որը ցանկանում եք բացել։
+  </p>
+  <p class="text-end" id="hint-en">
+    Hint: Just click the song you want to open.
+  </p>
+</div>
+
+<div class="container-md col-auto vstack gap-2" id="Results">
+</div>
+
+<script>
+  document.getElementById('SongSection').onchange = function() {
+    // var first_two_songs = document.getElementById('only_first_two_songs').checked;
+    // var worship_songs = document.getElementById('only_worship_songs').checked;
+    // var last_two_songs = document.getElementById('only_last_two_songs').checked;
+    // if (first_two_songs){document.getElementById('only_worship_songs').checked = false; document.getElementById('only_last_two_songs').checked = false; }
+    // if (worship_songs){document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_last_two_songs').checked = false; }
+    // if (last_two_songs){document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_worship_songs').checked = false; }
+    getSundayRecs();
+  }
+  async function getSundayRecs() {
+    // Gets a bool representing if its been checked
+    var first_two_songs = document.getElementById('only_first_two_songs').checked;
+    var worship_songs = document.getElementById('only_worship_songs').checked;
+    var last_two_songs = document.getElementById('only_last_two_songs').checked;
+    
+    const Results = document.getElementById('Results');
+    
+      //const Results = document.getElementById('Results')
+      Results.innerHTML = ""
+      // Get the song number, and make the url
+      
+      // var url = {{ url_for('newSundaySong')| tojson }}
+      const url = window.location.href;
+      fetch(url,{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+      },
+        body: JSON.stringify({
+          'only_first_two_songs': first_two_songs,
+          'only_worship_songs': worship_songs,
+          'only_last_two_songs': last_two_songs
+        })
+      })
+      .then(response =>response.text())
+      .then(text =>{
+        text = JSON.parse(text);
+        // text = Array.from(text)
+        text.forEach(element => {
+          Results.innerHTML += `<div class="d-flex justify-content-center"><a class="btn btn-outline-primary fs-5" href="/song/${element[0]}/${element[1]}">${element[1]}: ${element[2]}</a></div>`
+        });
+        // Results.innerHTML += text
+        console.log(text)
+      })
+        
+    
+  }
+
+</script>
+<!-- <div class="d-flex justify-content-center"></div> -->
+{%endblock%}

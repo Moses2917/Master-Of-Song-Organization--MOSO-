@@ -3,10 +3,10 @@ from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
+from song_curator import find_sunday_song
 import json
 #Setup mongodb
 from pymongo import MongoClient
-from sympy import N
 
 with open('{}\\Documents\\Code\\mongoPass.txt'.format(env.get("OneDrive")), 'r') as mongoPass:
     uri = "mongodb+srv://{}@cluster0.kgkoljn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0".format(mongoPass.read()) #env.get('mongo_user')
@@ -565,9 +565,12 @@ def attributeSearch() -> dict:
     data = request.get_json()
     attributes = data["attributes"]
     songattrs = data["songattrs"]
-    print(songattrs)
-    del songattrs["Comments"]
-    del songattrs["Title"]
+    print("Songattrs:",songattrs)
+    print("attributes:",attributes)
+    if songattrs.get("Comments", None):
+        del songattrs["Comments"]
+    if songattrs.get("Title", None):
+        del songattrs["Title"]
     
     temp = {}
     for attribute in songattrs:
@@ -908,6 +911,23 @@ def past_songs(songnum):
             songs['songs'] = song_titles
             
     return render_template('pastsongtemplate.html', past_songs=past_songs)
+
+@app.route('/newSundaySong', methods=['GET', 'POST'])
+def newSundaySong():
+    if request.method == 'POST':
+        data = request.get_json()
+        only_first_two_songs = data['only_first_two_songs']
+        only_worship_songs = data['only_worship_songs']
+        only_last_two_songs = data['only_last_two_songs']
+        from song_curator import find_sunday_song
+        reccomened_songs = find_sunday_song(only_first_two_songs, only_worship_songs, only_last_two_songs)
+        # temp = []
+        # for song_pair in reccomened_songs:
+        #     ## Turn into song buttons
+        #     temp.append(f'''<a class="list-group-item list-group-item-action button button-primary" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {song_pair[0]}</a>''')
+        # reccomened_songs = temp
+        return jsonify(reccomened_songs)
+    return render_template('newSundaySongs.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))

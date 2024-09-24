@@ -1,6 +1,7 @@
 from genericpath import isfile
 import json
 import os, datetime, re
+from regex import F
 import requests
 from sympy import N
 
@@ -145,7 +146,7 @@ def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=Tru
     current_date = datetime.date.today()
 
     # Format the date and time
-    if three_month_window: search_window = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y')
+    if three_month_window: search_window = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y') #should really be if range == 90, or just not exist
     else : search_window = (current_date + datetime.timedelta(days=-search_range)).strftime('%m.%d.%y')
 
     with open('songs.json', 'r', encoding='utf-8') as f:
@@ -193,7 +194,7 @@ def search_song(data: json, song_num, book):
         book (str): The book to search for the song in.
 
     Returns:
-        list or None: A list of dictionaries containing the filename/date, basePath, and songList if the song is found, or None if the song is not found.
+        found_list (list): A list of dictionaries containing the filename/date, basePath, and songList if the song is found, or None if the song is not found.
     """
     found_list = []
     found = False
@@ -212,7 +213,6 @@ def search_song(data: json, song_num, book):
     if found:
         return found_list
     return None
-
 
 def songSearch(song_num:str, book:str):
     """
@@ -250,7 +250,7 @@ def songSearch(song_num:str, book:str):
 
 # print(songSearch("817","Old"))
 
-def songChecker(book: str, songNum: str):
+def songChecker(book: str, songNum: str, three_month_window = True, ignore_sundays = False):
     """
     Checks if a song with the given song number in the specified book, has been sang in the last 3 months.
 
@@ -264,7 +264,15 @@ def songChecker(book: str, songNum: str):
             Str: The date the song was last sang if it exists.
     """
 
-    blocked_list = songCollector(sunday_only=True)
+    if three_month_window:
+        blocked_list = songCollector(sunday_only=True)
+    elif not three_month_window:
+        blocked_list = songCollector(sunday_only=False, ignore_sundays=True, three_month_window=False, search_range=960) # This is for an overall search for latest date on a song
+    if ignore_sundays:
+        blocked_list = songCollector(sunday_only=False, ignore_sundays=True)
+    
+    # else:
+    #     blocked_list = songCollector(sunday_only=False, ignore_sundays=True, three_month_window=False, search_range=960)
     date_format = "%m.%d.%y"
     # print(blocked_list)
     song_search_results = search_song(blocked_list, songNum, book)
@@ -279,6 +287,8 @@ def songChecker(book: str, songNum: str):
         return True, date_newest.strftime(date_format)
         # return True, date_newest
     return False
+
+# print(songChecker('Old', '729',ignore_sundays=True))
 
 def toJson():
     """Generates a json version of AllSongs.txt and save it to the disk
@@ -505,10 +515,28 @@ def clean_up_index():
         
         with open("songs_cleaned.json", 'w', encoding='utf-8') as f:
             json.dump(allSongs, f, indent=4, ensure_ascii=False)
+
+    with open("songs.json", 'r', encoding='utf-8') as allSongs:
+        allSongs: dict = json.load(allSongs)
+        # find all songs that no longer exist
+        items_to_delete = []
+        for SongDates in allSongs:
+            file_pth = OneDrive_pth + "\\" + allSongs[SongDates]["basePth"] + "\\" + SongDates
+            try:
+                os.stat(file_pth)
+            except FileNotFoundError:
+                print("Deleting " + file_pth + " from index, because it no longer exists")
+                items_to_delete.append(SongDates)
+        # delete items
+        for item in items_to_delete:
+            del allSongs[item]
+        
+        with open("songs.json", 'w', encoding='utf-8') as f:
+            json.dump(allSongs, f, indent=4, ensure_ascii=False)
         
         
                 
-# clean_up_index()
 
 # Uncomment this to manually update the index
 # print(findNewFiles())
+# clean_up_index()

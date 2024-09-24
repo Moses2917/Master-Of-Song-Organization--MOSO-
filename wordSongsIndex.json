@@ -2434,11 +2434,9 @@
             "Comments": "Ballad-P1-8"
         },
         "504": {
-            "Title": "Շփոթված ու մոլորված",
-            "latestVersion": "Word songs/504 Շփոթված ու մոլորված v3.docx",
-            "v1": "Word songs/504 Շփոթված ու մոլորված.docx",
-            "v2": "Word songs/504 Շփոթված ու մոլորված v2.docx",
-            "v3": "Word songs/504 Շփոթված ու մոլորված v3.docx",
+            "Title": "Զորությունդ պիտ փառաբանեմ",
+            "latestVersion": "Word songs/504 Զորությունդ պիտ փառաբանեմ.docx",
+            "v1": "Word songs/504 Զորությունդ պիտ փառաբանեմ.docx",
             "key": "F (or -6)",
             "speed": "122",
             "style": "Disco ",
@@ -3919,7 +3917,13 @@
         "725": {
             "Title": "Քեզ եմ նվիրում սիրտը իմ",
             "latestVersion": "Word songs/725 Քեզ եմ նվիրում սիրտը իմ.docx",
-            "v1": "Word songs/725 Քեզ եմ նվիրում սիրտը իմ.docx"
+            "v1": "Word songs/725 Քեզ եմ նվիրում սիրտը իմ.docx",
+            "key": "Dm",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "726": {
             "Title": "Փառք կուտամ քեզ, ով Տեր Հիսուս",
@@ -3946,7 +3950,7 @@
             "Title": "Հպվիր ինձ Սուրբ Հոգի  հպվիր",
             "latestVersion": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր.docx",
             "v1": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր.docx",
-            "key": "C#m",
+            "key": "Dm",
             "speed": "72",
             "style": "Ballad",
             "song_type": "Worship Song",
@@ -4468,15 +4472,15 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Տոն է այսոր սուրբ հաղթական\nՀիսուս կուգա Երուսաղեմ",
-            "latestVersion": "Word songs\\pptSong\\389.docx",
-            "v1": "Word songs\\pptSong\\389.docx",
-            "key": "Am +1",
-            "speed": "112",
-            "style": "Disco",
-            "song_type": "Opening Song",
+            "Title": "Քեզ եմ նվիրում սիրտը իմ",
+            "latestVersion": "Word songs/725 Քեզ եմ նվիրում սիրտը իմ.docx",
+            "v1": "Word songs/725 Քեզ եմ նվիրում սիրտը իմ.docx",
+            "key": "Dm",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Pop-P1-3"
         },
         "760": {
             "Title": "",

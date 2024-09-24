@@ -77,5 +77,5 @@ class attrFinder:
         
         return returnSongs
     
-    def attributeSearch(attrs, songattrs):
-        print("Hi")
+
+

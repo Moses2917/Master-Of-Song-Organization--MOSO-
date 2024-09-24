@@ -1,90 +1,110 @@
 {% extends 'base.html' %}
 {%block content%}
-    <div id="scrollspydiv" class="dropdown z-3" style="position: fixed; left: 20px; display:none">
-                    <button type="button" class="dropdown-toggle btn btn-dark bg-gradient rounded-4" data-bs-toggle="dropdown" aria-expanded="false">Song Numbers</button>
-                    <ul id="scrollspy" class="dropdown-menu text-center">
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#1">1</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#100">100</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#200">200</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#300">300</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#400">400</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#500">500</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#600">600</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#700">700</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#800">800</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item btn btn-light rounded" href="#900">900</a>
-                        </li>
-                    </ul>
-    </div>
-    <div class="container my-5">
-        <button type="button" style="position: absolute; right: 10px;" class="btn btn-outline-light shadow rounded p-2" id="help" onclick="hide_toast()">
-            Help!
-        </button>
-        <div id="toastdiv" class="toast-container position-fixed p-3 bg-warning-subtle border border-warning-subtle rounded-4" style="right: 20px; display: none;" onchange="hide_toast()">
-            <div id="toastInfo1" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-                <div class="toast-header"> <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
-                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
-                        focusable="false">
-                        <rect width="100%" height="100%" fill="#007aff"></rect>
-                    </svg>
-                    <strong class="me-auto">System</strong> <small>Just Now</small> <button type="button"
-                        class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> </div>
-                <div class="toast-body"> <strong>For full lyric search</strong> <p>Step 1: Make sure the current attribute is "Lyrics" <br> Step 2: Please enter your query</p></div>
+<div id="scrollspydiv" class="dropdown z-3" style="position: fixed; left: 20px; display:none">
+    <button type="button" class="dropdown-toggle btn btn-dark bg-gradient rounded-4" data-bs-toggle="dropdown"
+        aria-expanded="false">Song Numbers</button>
+    <ul id="scrollspy" class="dropdown-menu text-center">
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#1">1</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#100">100</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#200">200</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#300">300</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#400">400</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#500">500</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#600">600</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#700">700</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#800">800</a>
+        </li>
+        <li>
+            <a class="dropdown-item btn btn-light rounded" href="#900">900</a>
+        </li>
+    </ul>
+</div>
+<div class="container my-5">
+    <button type="button" style="position: absolute; right: 10px;" class="btn btn-outline-light shadow rounded p-2"
+        id="help" onclick="hide_toast()">
+        Help!
+    </button>
+    <div id="toastdiv"
+        class="toast-container position-fixed p-3 bg-warning-subtle border border-warning-subtle rounded-4"
+        style="right: 20px; display: none;" onchange="hide_toast()">
+        <div id="toastInfo1" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="false">
+            <div class="toast-header"> <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
+                    focusable="false">
+                    <rect width="100%" height="100%" fill="#007aff"></rect>
+                </svg>
+                <strong class="me-auto">System</strong> <small>Just Now</small> <button type="button" class="btn-close"
+                    data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
-            <div id="toastInfo2" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-                <div class="toast-header"> <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
-                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
-                        focusable="false">
-                        <rect width="100%" height="100%" fill="#007aff"></rect>
-                    </svg>
-                    <strong class="me-auto">System</strong> <small>Just Now</small> <button type="button"
-                        class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> </div>
-                <div class="toast-body"><strong>For more detailed search</strong><p>Step 1: Select "All Attributes" <br> Step 2: Please select a book <br> Step 3: Enter a search query</p></div>
+            <div class="toast-body"> <strong>For full lyric search</strong>
+                <p>Step 1: Make sure the current attribute is "Lyrics" <br> Step 2: Please enter your query</p>
             </div>
         </div>
-        <div class="container-md fw-old shadow-lg p-3 mb-5 bg-dark bg-gradient rounded sticky-container" tabindex="0">
-            <header class="header mb-4">
-                <h1 class="text-center">Ցանկ</h1>
-                    <div id="book_select_div" style="display: none;">
-                        <label for="book">Please Choose the Book:</label>
-                        <div class="input-group">
-                            <select name="book" class="form-control" id="book" onchange="tsank_search()">
-                                <option value="">--Please choose an option--</option>
-                                <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }} > REDErgaran</option>
-                                <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>Old Book</option>
-                            </select>
-                        </div>
+        <div id="toastInfo2" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="false">
+            <div class="toast-header"> <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
+                    focusable="false">
+                    <rect width="100%" height="100%" fill="#007aff"></rect>
+                </svg>
+                <strong class="me-auto">System</strong> <small>Just Now</small> <button type="button" class="btn-close"
+                    data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body"><strong>For more detailed search</strong>
+                <p>Step 1: Select "All Attributes" <br> Step 2: Please select a book <br> Step 3: Enter a search query
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container-md fw-old shadow-lg p-3 mb-5 bg-dark bg-gradient rounded sticky-container" tabindex="0">
+        <header class="header mb-4">
+            <h1 class="text-center">Ցանկ</h1>
+            <div id="searchbar">
+                <div id="book_select_div" style="display: none;">
+                    <label for="book">Please Choose the Book:</label>
+                    <div class="input-group">
+                        <select name="book" class="form-control" id="book" onchange="tsank_search()">
+                            <option value="">--Please choose an option--</option>
+                            <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }}>
+                                REDErgaran</option>
+                            <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex'
+                                }}>Old Book</option>
+                        </select>
                     </div>
+                </div>
+                <div id="tsank_search_div">
                     <label for="query" class="form-label">Search Query:</label>
                     <div class="input-group">
-                        <input type="text" id="query" name="query" value="{{ query }}" class="form-control" oninput="tsank_search()">
+                        <input type="text" id="query" name="query" value="{{ query }}" class="form-control"
+                            oninput="tsank_search()">
+                </div>
 
-                    </div>
-                    <label for="attribute" class="form-label">Search Attribute:</label>
-                    <div class="input-group">
-                        <select id="attribute" name="attribute" class="form-control" onchange="book_select()">
-                            <option value="Full_Text">Lyrics</option>
-                            <option value="all">All Attributes</option>
-                            <!-- <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
+                </div>
+                <label for="attribute" class="form-label">Search Mode:</label>
+                <div class="input-group">
+                    <select id="attribute" name="attribute" class="form-control" onchange="book_select()">
+                        <option value="Full_Text">Lyrics</option>
+                        <option value="all">Tsank Search</option>
+                        <option value="attr_search">Attribute Search</option>
+                        <!-- <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
                             <option value="latestVersion" {{ 'selected' if attribute=='latestVersion' }}>Latest Version</option>
                             <option value="key" {{ 'selected' if attribute=='key' }}>Key</option>
                             <option value="speed" {{ 'selected' if attribute=='speed' }}>Speed</option>
@@ -92,138 +112,189 @@
                             <option value="style" {{ 'selected' if attribute=='style' }}>Style</option>
                             <option value="song_type" {{ 'selected' if attribute=='song_type' }}>Song Type</option>
                             <option value="Comments" {{ 'selected' if attribute=='Comments' }}>Comments</option> -->
-                        </select>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit" style="display: none;">Submit</button>
-            </header>
-            <div class="container mt-5">
-                <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-light" id="keyboard_btn" onclick="toggleKeyboard()">Show Keyboard</button>
+                    </select>
                 </div>
                 <br>
-                <div class="keyboard" id="keyboard" style="display: none;">
-                    <div class="d-flex justify-content-center mb-2">
-                        <button class="btn btn-outline-light key">՝</button>
-                        <button class="btn btn-outline-light key">է</button>
-                        <button class="btn btn-outline-light key">թ</button>
-                        <button class="btn btn-outline-light key">փ</button>
-                        <button class="btn btn-outline-light key">ձ</button>
-                        <button class="btn btn-outline-light key">ջ</button>
-                        <button class="btn btn-outline-light key">և</button>
-                        <button class="btn btn-outline-light key">ր</button>
-                        <button class="btn btn-outline-light key">չ</button>
-                        <button class="btn btn-outline-light key">ճ</button>
-                        <button class="btn btn-outline-light key">ժ</button>
-                        <button class="btn btn-outline-light key">-</button>
-                        <button class="btn btn-outline-light key">ծ</button>
-                        <button class="btn btn-outline-light key-wide" id="backspace">Backsp.</button>
-                    </div>
-                    <div class="d-flex justify-content-center mb-2">
-                        <button class="btn btn-outline-light key-wide" id="tab">Tab</button>
-                        <button class="btn btn-outline-light key">ք</button>
-                        <button class="btn btn-outline-light key">ո</button>
-                        <button class="btn btn-outline-light key">ե</button>
-                        <button class="btn btn-outline-light key">ռ</button>
-                        <button class="btn btn-outline-light key">տ</button>
-                        <button class="btn btn-outline-light key">ը</button>
-                        <button class="btn btn-outline-light key">ւ</button>
-                        <button class="btn btn-outline-light key">ի</button>
-                        <button class="btn btn-outline-light key">օ</button>
-                        <button class="btn btn-outline-light key">պ</button>
-                        <button class="btn btn-outline-light key">խ</button>
-                        <button class="btn btn-outline-light key">ծ</button>
-                        <button class="btn btn-outline-light key-wide" id="enter">Enter</button>
-                    </div>
-                    <div class="d-flex justify-content-center mb-2">
-                        <button class="btn btn-outline-light key-wide" id="caps">Caps</button>
-                        <button class="btn btn-outline-light key">ա</button>
-                        <button class="btn btn-outline-light key">ս</button>
-                        <button class="btn btn-outline-light key">դ</button>
-                        <button class="btn btn-outline-light key">ֆ</button>
-                        <button class="btn btn-outline-light key">գ</button>
-                        <button class="btn btn-outline-light key">հ</button>
-                        <button class="btn btn-outline-light key">յ</button>
-                        <button class="btn btn-outline-light key">կ</button>
-                        <button class="btn btn-outline-light key">լ</button>
-                        <button class="btn btn-outline-light key">;</button>
-                        <button class="btn btn-outline-light key">'</button>
-                        <button class="btn btn-outline-light key">շ</button>
-                    </div>
-                    <div class="d-flex justify-content-center mb-2">
-                        <button class="btn btn-outline-light key-wide" id="shift">Shift</button>
-                        <button class="btn btn-outline-light key">զ</button>
-                        <button class="btn btn-outline-light key">ղ</button>
-                        <button class="btn btn-outline-light key">ց</button>
-                        <button class="btn btn-outline-light key">վ</button>
-                        <button class="btn btn-outline-light key">բ</button>
-                        <button class="btn btn-outline-light key">ն</button>
-                        <button class="btn btn-outline-light key">մ</button>
-                        <button class="btn btn-outline-light key">,</button>
-                        <button class="btn btn-outline-light key">.</button>
-                        <button class="btn btn-outline-light key">/</button>
-                        <button class="btn btn-outline-light key-wide" id="shift-right">Shift</button>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-outline-light key-wide" id="ctrl">Ctrl</button>
-                        <button class="btn btn-outline-light key-wide" id="alt">Alt</button>
-                        <button class="btn btn-outline-light key key-space" id="space">Space</button>
-                        <button class="btn btn-outline-light key-wide" id="altgr">AltGr</button>
-                        <button class="btn btn-outline-light key-wide" id="ctrl-right">Ctrl</button>
-                    </div>
+                <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit"
+                    style="display: none;">Submit</button>
+            </div>
+        </header>
+        <div class="container mt-5" id="keyboard_container">
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-light" id="keyboard_btn" onclick="toggleKeyboard()">Show
+                    Keyboard</button>
+            </div>
+            <br>
+            <div class="keyboard" id="keyboard" style="display: none;">
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn btn-outline-light key">՝</button>
+                    <button class="btn btn-outline-light key">է</button>
+                    <button class="btn btn-outline-light key">թ</button>
+                    <button class="btn btn-outline-light key">փ</button>
+                    <button class="btn btn-outline-light key">ձ</button>
+                    <button class="btn btn-outline-light key">ջ</button>
+                    <button class="btn btn-outline-light key">և</button>
+                    <button class="btn btn-outline-light key">ր</button>
+                    <button class="btn btn-outline-light key">չ</button>
+                    <button class="btn btn-outline-light key">ճ</button>
+                    <button class="btn btn-outline-light key">ժ</button>
+                    <button class="btn btn-outline-light key">-</button>
+                    <button class="btn btn-outline-light key">ծ</button>
+                    <button class="btn btn-outline-light key-wide" id="backspace">Backsp.</button>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn btn-outline-light key-wide" id="tab">Tab</button>
+                    <button class="btn btn-outline-light key">ք</button>
+                    <button class="btn btn-outline-light key">ո</button>
+                    <button class="btn btn-outline-light key">ե</button>
+                    <button class="btn btn-outline-light key">ռ</button>
+                    <button class="btn btn-outline-light key">տ</button>
+                    <button class="btn btn-outline-light key">ը</button>
+                    <button class="btn btn-outline-light key">ւ</button>
+                    <button class="btn btn-outline-light key">ի</button>
+                    <button class="btn btn-outline-light key">օ</button>
+                    <button class="btn btn-outline-light key">պ</button>
+                    <button class="btn btn-outline-light key">խ</button>
+                    <button class="btn btn-outline-light key">ծ</button>
+                    <button class="btn btn-outline-light key-wide" id="enter">Enter</button>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn btn-outline-light key-wide" id="caps">Caps</button>
+                    <button class="btn btn-outline-light key">ա</button>
+                    <button class="btn btn-outline-light key">ս</button>
+                    <button class="btn btn-outline-light key">դ</button>
+                    <button class="btn btn-outline-light key">ֆ</button>
+                    <button class="btn btn-outline-light key">գ</button>
+                    <button class="btn btn-outline-light key">հ</button>
+                    <button class="btn btn-outline-light key">յ</button>
+                    <button class="btn btn-outline-light key">կ</button>
+                    <button class="btn btn-outline-light key">լ</button>
+                    <button class="btn btn-outline-light key">;</button>
+                    <button class="btn btn-outline-light key">'</button>
+                    <button class="btn btn-outline-light key">շ</button>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn btn-outline-light key-wide" id="shift">Shift</button>
+                    <button class="btn btn-outline-light key">զ</button>
+                    <button class="btn btn-outline-light key">ղ</button>
+                    <button class="btn btn-outline-light key">ց</button>
+                    <button class="btn btn-outline-light key">վ</button>
+                    <button class="btn btn-outline-light key">բ</button>
+                    <button class="btn btn-outline-light key">ն</button>
+                    <button class="btn btn-outline-light key">մ</button>
+                    <button class="btn btn-outline-light key">,</button>
+                    <button class="btn btn-outline-light key">.</button>
+                    <button class="btn btn-outline-light key">/</button>
+                    <button class="btn btn-outline-light key-wide" id="shift-right">Shift</button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-outline-light key-wide" id="ctrl">Ctrl</button>
+                    <button class="btn btn-outline-light key-wide" id="alt">Alt</button>
+                    <button class="btn btn-outline-light key key-space" id="space">Space</button>
+                    <button class="btn btn-outline-light key-wide" id="altgr">AltGr</button>
+                    <button class="btn btn-outline-light key-wide" id="ctrl-right">Ctrl</button>
                 </div>
             </div>
-        
         </div>
-        
-        <div id="songstable" class="table-responsive fw-bold" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0" > <!-- style="overflow: auto; position: relative;"> -->
+
+    </div>
+    <div id="attributetable" style="display: none;">
+    
+        <div class="input-group mb-3">
+            <input type="text" name="key" id="key" class="form-control">
+            <input type="checkbox" name="key_checkbox" id="key_checkbox" class="btn-check" onchange="tsank_attribute_search()">
+            <label for="key_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Key</label>
         </div>
-        <script>
-            function book_select(){
-                if (attribute.value == 'Full_Text') {
-                    book_select_div.style.display = 'none'
-                    
-                } else {
-                    book_select_div.style.display = 'block'
-                }
+    
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" name="tempo" id="tempo">
+            <!-- The value of these checkboxes is only used to determine which attrs to search -->
+            <input type="checkbox" name="tempo" id="tempo_checkbox" class="btn-check" onchange="tsank_attribute_search()">
+            <label for="tempo_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Tempo</label>
+        </div>
+    
+        <div class="input-group mb-3">
+            <input type="text" name="style" id="style" class="form-control">
+            <input type="checkbox" name="style_checkbox" id="style_checkbox" class="btn-check" onchange="tsank_attribute_search()">
+            <label for="style_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Style</label>
+        </div>
+    
+        <div class="input-group mb-3">
+            <input type="text" name="song_type" id="song_type" class="form-control">
+            <input type="checkbox" name="song_type_checkbox" id="song_type_checkbox" class="btn-check" onchange="tsank_attribute_search()">
+            <label for="song_type_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Song Type</label>
+        </div>
+    
+        <div class="input-group mb-3">
+            <input type="text" name="timeSig" id="timeSig" class="form-control">
+            <input type="checkbox" name="timeSig_checkbox" id="timeSig_checkbox" class="btn-check" onchange="tsank_attribute_search()">
+            <label for="timeSig_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Time Sig.</label>
+        </div>
+    
+    </div>
+    <div id="songstable" class="table-responsive fw-bold" data-bs-spy="scroll" data-bs-target="#scrollspy"
+        data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0">
+        <!-- style="overflow: auto; position: relative;"> -->
+    </div>
+    <script>
+        function book_select() {
+            if (attribute.value == 'Full_Text') {
+                tsank_search_div.style.display = 'block'
+                book_select_div.style.display = 'none'
+                attributetable.style.display = 'none'
+
             }
-            // book_select()
-            async function tsank_search(){
-                // TODO:
-                // Need to find a way to return the table data when searching
-                // Need to transfer processes to fetch api, half fetch, half submitting a form
-                
-                function spinner() {
-                    songstable.innerHTML='<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
-                       
+            else if (attribute.value != 'Full_Text') {
+                tsank_search_div.style.display = 'block'
+                book_select_div.style.display = 'block'
+                attributetable.style.display = 'none'
+            }
+            if (attribute.value == 'attr_search') {
+                book_select_div.style.display = 'none'
+                keyboard_container.style.display = 'none'
+                tsank_search_div.style.display = 'none'
+                attributetable.style.display = 'block'
+
+            }
+
+        }
+        // book_select()
+        async function tsank_search() {
+            // TODO:
+            // Need to find a way to return the table data when searching
+            // Need to transfer processes to fetch api, half fetch, half submitting a form
+
+            function spinner() {
+                songstable.innerHTML = '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
+
+            }
+
+
+            if (attribute.value == 'Full_Text' && query.value != '') { //and there is a search query in it
+                // spinner()
+                scrollspydiv.style = "position: fixed; left: 20px; display: none"
+                searchLyrics = document.getElementById('query').value;
+                let search_url = '/search/' //To get the base url for search
+                if (searchLyrics) {
+                    search_url = search_url + searchLyrics;
                 }
-                
-                
-                if (attribute.value == 'Full_Text' && query.value != '') { //and there is a search query in it
-                    // spinner()
-                    scrollspydiv.style = "position: fixed; left: 20px; display: none"
-                    searchLyrics = document.getElementById('query').value;
-                    let search_url = '/search/' //To get the base url for search
-                    if (searchLyrics){
-                        search_url = search_url + searchLyrics;
-                    }
-                    search()
-            
-                }
-                function search(){
-                    spinner() // show spinner while searching
-                    fetch('/',{
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            // 'session': {{session}},
-                            'attribute': attribute.value,
-                            'book': book.value,
-                            'query': query.value
-                        })
+                search()
+
+            }
+            function search() {
+                spinner() // show spinner while searching
+                fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        // 'session': {{session}},
+                        'attribute': attribute.value,
+                        'book': book.value,
+                        'query': query.value
                     })
+                })
                     .then(response => response.json())
                     .then(text => {
                         const table = document.createElement('table'); // table
@@ -231,7 +302,7 @@
                         const thead = document.createElement('thead');
                         const tr = document.createElement('tr');
                         let ths = ['SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
-                        if (attribute.value == 'Full_Text' && query.value != ''){
+                        if (attribute.value == 'Full_Text' && query.value != '') {
                             ths = ['Book', 'SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
                         }
                         for (const th of ths) {
@@ -251,7 +322,7 @@
                         for (const [key, value] of Object.entries(text)) {
                             const row = document.createElement('tr');
                             row.setAttribute('id', key);
-                            if (attribute.value == 'Full_Text' && query.value != ''){
+                            if (attribute.value == 'Full_Text' && query.value != '') {
                                 row.innerHTML = `
                                     <td data-bs-toggle="tooltip" data-bs-title="Book">${value['book'] || ''}</td>
                                     <td><a class="btn btn-outline-primary" href="/song/${value['book']}/${key}">${key}</a></td>
@@ -265,7 +336,7 @@
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
                                 `;
                             }
-                            else{
+                            else {
                                 row.innerHTML = `
                                     <td><a class="btn btn-outline-primary" href="/song/${book.value}/${key}">${key}</a></td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
@@ -281,128 +352,245 @@
                             tablebody.appendChild(row);
                         }
                     });
-                }
+            }
 
-                if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
-                    scrollspydiv.style = "position: fixed; left: 20px;"
-                    if (attribute.value == 'all' && query.value == '') { //case: attr.val == 'all'
-                        search()
-                        init_tooltip();
-                        return true; //exit the function
-                    }
+            if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
+                scrollspydiv.style = "position: fixed; left: 20px;"
+                if (attribute.value == 'all' && query.value == '') { //case: attr.val == 'all'
                     search()
                     init_tooltip();
+                    return true; //exit the function
                 }
-                if (book.value == '' && attribute.value != 'Full_Text') { //if a book is not selected
-                    songstable.innerHTML = '<div class="alert alert-warning fade show" role="alert">No book selected</div>'
-                }
+                search()
+                init_tooltip();
             }
-            
-            tsank_search() // called when the page loads bc sometimes a user is coming back from a result and this should be called
-        </script>
-        <script>
-            function hide_toast() {
-                if (toastdiv.style.display == "none") {
-                    toastdiv.style.display = "block";
-                    console.log("Toast Displayed");
-                }
-                else if (toastInfo1.classList.contains('hide') && toastInfo2.classList.contains('hide')) {
-                    console.log("Toast Hidden");
-                    toastdiv.style.display = "none";
-                    new bootstrap.Toast(toastInfo1).show()
-                    new bootstrap.Toast(toastInfo2).show()
-                }
+            if (book.value == '' && attribute.value != 'Full_Text') { //if a book is not selected
+                songstable.innerHTML = '<div class="alert alert-warning fade show" role="alert">No book selected</div>'
+            }
+        }
+
+        tsank_search() // called when the page loads bc sometimes a user is coming back from a result and this should be called
+    </script>
+    <script>
+        function spinner() {
+              '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
+        }
+        
+        function getChecked() {
+            var key_checked = document.getElementById("key_checkbox").checked
+            var tempo_checked = document.getElementById("tempo_checkbox").checked
+            var style_checked = document.getElementById("style_checkbox").checked
+            var song_type_checked = document.getElementById("song_type_checkbox").checked
+            var timeSig_checked = document.getElementById("timeSig_checkbox").checked
+
+            return {
+                "key" : key_checked,
+                "speed" : tempo_checked,
+                "style" : style_checked,
+                "song_type" : song_type_checked,
+                "timeSig" : timeSig_checked
+            }
+        }
+        
+        function getSongAttrs(checked_attrs) {
+            // checked_attrs = getChecked()
+            songattrs = {}
+            if (checked_attrs["key"]) {
+                songattrs["key"] = document.getElementById("key").value
+                // console.log("KEY:", document.getElementById("key").value) //PC is off test later lol
+            }
+            if (checked_attrs["speed"]) {
+                songattrs["speed"] = document.getElementById("tempo").value
+                // console.log("speed:", document.getElementById("tempo").value)
+            }
+            if (checked_attrs["style"]) {
+                songattrs["style"] = document.getElementById("style").value
+                // console.log("style:", document.getElementById("style").value)
+            }
+            if (checked_attrs["song_type"]) {
+                songattrs["song_type"] = document.getElementById("song_type").value
+                // console.log("song_type:", document.getElementById("song_type").value)
+            }
+            if (checked_attrs["timeSig"]) {
+                songattrs["timeSig"] = document.getElementById("timeSig").value
+                // console.log("timeSig:", document.getElementById("timeSig").value)
+            }
+            return songattrs
+        }
+
+        // Code for attr search
+        async function tsank_attribute_search() {
+            spinner()
+            checked_attrs = getChecked()
+            // console.log("checkedAttrs", checked_attrs)
+            songattrs = getSongAttrs(checked_attrs)
+            if (Object.keys(songattrs).length > 0) {
+                
+
+                const url = "/attributeSearch"
+                fetch(url,{
+                        method : "POST",
+                        headers : { 'Content-Type': 'application/json' },
+                        body : JSON.stringify({
+                            'attributes': checked_attrs,
+                            'songattrs' : songattrs,
+                        })
+                    })
+                    // .then(response => response.text())
+                    .then(response => response.json())
+                    .then(text =>{
+                        const table = document.createElement('table'); // table
+                        table.classList.add('table')//, 'table-striped', 'table-hover'); // table class
+                        const thead = document.createElement('thead');
+                        const tr = document.createElement('tr');
+                        let ths = ['Book', 'SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
+                        for (const th of ths) {
+                            const thEl = document.createElement('th');
+                            thEl.textContent = th;
+                            tr.appendChild(thEl);
+                        }
+                        thead.appendChild(tr);
+                        table.appendChild(thead);
+                        const tbody = document.createElement('tbody');
+                        tbody.id = "tablebody";
+                        table.appendChild(tbody);
+                        document.getElementById('songstable').innerHTML = '';
+                        document.getElementById('songstable').appendChild(table);
+
+                        // tablebody.textContent='' //clear the table
+                        for (const [book, indivBook] of Object.entries(text)) {
+
+                            // for (const [key, value] of Object.entries(text)) {
+                            for (const [key, value] of Object.entries(indivBook)) {
+                                const row = document.createElement('tr');
+                                row.setAttribute('id', key);
+                                // if (attribute.value == 'Full_Text' && query.value != ''){
+                                row.innerHTML = `
+                                <td data-bs-toggle="tooltip" data-bs-title="Book">${book || ''}</td>
+                                <td><a class="btn btn-outline-primary" href="/song/${value['book']}/${key}">${key}</a></td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
+                            `;
+                                tablebody.appendChild(row);
+                            }
+                        };
+                    })
+            } else {
+                console.log("All attr fields are empty")
+                songstable.innerHTML = 'All attribute search fields are empty'
             }
 
-            toastInfo1.addEventListener('hidden.bs.toast', function() {
-                hide_toast();
-            });
-            toastInfo2.addEventListener('hidden.bs.toast', function() {
-                hide_toast();
-            });
-        </script>
-        <script>
-            // Initialize all tooltips
-            function init_tooltip() {
-                const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-                const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        }
+    </script>
+    <script>
+        function hide_toast() {
+            if (toastdiv.style.display == "none") {
+                toastdiv.style.display = "block";
+                console.log("Toast Displayed");
             }
-            init_tooltip()
-        </script>
-        <script>
+            else if (toastInfo1.classList.contains('hide') && toastInfo2.classList.contains('hide')) {
+                console.log("Toast Hidden");
+                toastdiv.style.display = "none";
+                new bootstrap.Toast(toastInfo1).show()
+                new bootstrap.Toast(toastInfo2).show()
+            }
+        }
 
-            function toggleKeyboard(){
-                if (keyboard.style.display == 'none') {
-                    keyboard.style.display = 'block';
-                    keyboard_btn.innerHTML = 'Hide Keyboard';
-                } else {
-                    keyboard.style.display = 'none'
-                    keyboard_btn.innerHTML = 'Show Keyboard';
+        toastInfo1.addEventListener('hidden.bs.toast', function () {
+            hide_toast();
+        });
+        toastInfo2.addEventListener('hidden.bs.toast', function () {
+            hide_toast();
+        });
+    </script>
+    <script>
+        // Initialize all tooltips
+        function init_tooltip() {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        }
+        init_tooltip()
+    </script>
+    <script>
+
+        function toggleKeyboard() {
+            if (keyboard.style.display == 'none') {
+                keyboard.style.display = 'block';
+                keyboard_btn.innerHTML = 'Hide Keyboard';
+            } else {
+                keyboard.style.display = 'none'
+                keyboard_btn.innerHTML = 'Show Keyboard';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const output = document.getElementById('query');
+            const keys = document.querySelectorAll('.key, .key-wide');
+            let capsLock = false;
+            let shift = false;
+
+            function updateOutput(char) {
+                if (capsLock ^ shift) {
+                    char = char.toUpperCase();
                 }
+                output.value += char;
+                tsank_search()
             }
 
-            document.addEventListener('DOMContentLoaded', function() {
-                const output = document.getElementById('query');
-                const keys = document.querySelectorAll('.key, .key-wide');
-                let capsLock = false;
-                let shift = false;
-
-                function updateOutput(char) {
-                    if (capsLock ^ shift) {
-                        char = char.toUpperCase();
+            keys.forEach(key => {
+                key.addEventListener('click', function () {
+                    const keyText = this.textContent;
+                    switch (keyText) {
+                        case 'Backsp.':
+                            output.value = output.value.slice(0, -1);
+                            tsank_search()
+                            break;
+                        case 'Tab':
+                            output.value += '\t';
+                            break;
+                        case 'Caps':
+                            capsLock = !capsLock;
+                            this.classList.toggle('active');
+                            break;
+                        case 'Enter':
+                            output.value += '\n';
+                            tsank_search()
+                            break;
+                        case 'Shift':
+                            shift = !shift;
+                            document.getElementById('shift').classList.toggle('active');
+                            document.getElementById('shift-right').classList.toggle('active');
+                            break;
+                        case 'Ctrl':
+                        case 'Alt':
+                        case 'AltGr':
+                            // Toggle active class for visual feedback
+                            this.classList.toggle('active');
+                            break;
+                        case 'Space':
+                            output.value += ' ';
+                            tsank_search()
+                            break;
+                        default:
+                            if (keyText.length === 1) {
+                                updateOutput(keyText);
+                            }
                     }
-                    output.value += char;
-                    tsank_search()
-                }
-
-                keys.forEach(key => {
-                    key.addEventListener('click', function() {
-                        const keyText = this.textContent;
-                        switch(keyText) {
-                            case 'Backsp.':
-                                output.value = output.value.slice(0, -1);
-                                tsank_search()
-                                break;
-                            case 'Tab':
-                                output.value += '\t';
-                                break;
-                            case 'Caps':
-                                capsLock = !capsLock;
-                                this.classList.toggle('active');
-                                break;
-                            case 'Enter':
-                                output.value += '\n';
-                                tsank_search()
-                                break;
-                            case 'Shift':
-                                shift = !shift;
-                                document.getElementById('shift').classList.toggle('active');
-                                document.getElementById('shift-right').classList.toggle('active');
-                                break;
-                            case 'Ctrl':
-                            case 'Alt':
-                            case 'AltGr':
-                                // Toggle active class for visual feedback
-                                this.classList.toggle('active');
-                                break;
-                            case 'Space':
-                                output.value += ' ';
-                                tsank_search()
-                                break;
-                            default:
-                                if (keyText.length === 1) {
-                                    updateOutput(keyText);
-                                }
-                        }
-                        if (keyText !== 'Shift' && keyText !== 'Caps') {
-                            shift = false;
-                            document.getElementById('shift').classList.remove('active');
-                            document.getElementById('shift-right').classList.remove('active');
-                        }
-                    });
+                    if (keyText !== 'Shift' && keyText !== 'Caps') {
+                        shift = false;
+                        document.getElementById('shift').classList.remove('active');
+                        document.getElementById('shift-right').classList.remove('active');
+                    }
                 });
-
             });
-        </script>
-    </div>
+
+        });
+    </script>
+</div>
 {%endblock%}

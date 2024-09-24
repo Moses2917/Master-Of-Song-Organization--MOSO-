@@ -129,7 +129,7 @@
         },
         "16": {
             "Title": "Մեր լավագույն օրերն անգին",
-            "latestVersion": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v3.docx",
+            "latestVersion": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v4.docx",
             "v1": "RED Words/16.docx",
             "v2": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v2.docx",
             "key": "F",
@@ -138,7 +138,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Ballad-P5-7",
-            "v3": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v3.docx"
+            "v3": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v3.docx",
+            "v4": "Երգարան Word Files/16 Մեր լավագույն օրերն անգին v4.docx"
         },
         "17": {
             "Title": "Այս կյանքս պատերազմ է, և մենք՝ զինվորներ",
@@ -1286,14 +1287,15 @@
         },
         "158": {
             "Title": "Մանկության վաղ տարիներին",
-            "latestVersion": "Երգարան Word Files/158 Մանկության վաղ տարիներին.docx",
+            "latestVersion": "Երգարան Word Files/158 Մանկության վաղ տարիներին v2.docx",
             "v1": "Երգարան Word Files/158 Մանկության վաղ տարիներին.docx",
             "key": "F",
             "speed": "110",
             "style": "Disco",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v2": "Երգարան Word Files/158 Մանկության վաղ տարիներին v2.docx"
         },
         "159": {
             "Title": "Մի՛ տխրիր, մի՛ դժգոհիր դու նրա համար,",
@@ -2104,7 +2106,13 @@
         "253": {
             "Title": "Ո՜վ Հիսուս, Դու՝ մեծ սիրո աղբյուր",
             "latestVersion": "Երգարան Word Files/253 Ո՜վ Հիսուս, Դու՝ մեծ սիրո աղբյուր.docx",
-            "v1": "Երգարան Word Files/253 Ո՜վ Հիսուս, Դու՝ մեծ սիրո աղբյուր.docx"
+            "v1": "Երգարան Word Files/253 Ո՜վ Հիսուս, Դու՝ մեծ սիրո աղբյուր.docx",
+            "key": "Em",
+            "speed": "121",
+            "style": "Bossa Nova",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-4"
         },
         "254": {
             "Title": "Ժամ աղոթքի, ժամ աղոթքի,",
@@ -2531,7 +2539,7 @@
         },
         "309": {
             "Title": "Ելնեմ ճամփա՝ ցուպը ձեռքիս,",
-            "latestVersion": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v5.docx",
+            "latestVersion": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v6.docx",
             "v1": "RED Words/309.docx",
             "v2": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v2.docx",
             "v3": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v3.docx",
@@ -2542,7 +2550,8 @@
             "timeSig": "4/4",
             "Comments": "Pop-P4-1",
             "v4": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v4.docx",
-            "v5": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v5.docx"
+            "v5": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v5.docx",
+            "v6": "Երգարան Word Files/309 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v6.docx"
         },
         "310": {
             "Title": "Հիսուսը, սրտիդ դռան",
@@ -2674,9 +2683,16 @@
         },
         "325": {
             "Title": "Երկինքը Աստծո փառքը կպատմե,",
-            "latestVersion": "Երգարան Word Files/325 Երկինքը Աստծո փառքը կպատմե, v2.docx",
+            "latestVersion": "Երգարան Word Files/325 Երկինքը Աստծո փառքը կպատմե, v3.docx",
             "v1": "RED Words/325.docx",
-            "v2": "Երգարան Word Files/325 Երկինքը Աստծո փառքը կպատմե, v2.docx"
+            "v2": "Երգարան Word Files/325 Երկինքը Աստծո փառքը կպատմե, v2.docx",
+            "key": "Fm",
+            "speed": "73",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3",
+            "v3": "Երգարան Word Files/325 Երկինքը Աստծո փառքը կպատմե, v3.docx"
         },
         "326": {
             "Title": "Ո՛վ Տեր, Քու խոսքով մեզի ստեղծեցիր,",
@@ -3995,9 +4011,16 @@
         },
         "503": {
             "Title": "Մարդիկ ծնվում են մեղավոր երկրում",
-            "latestVersion": "Երգարան Word Files/503 Մարդիկ ծնվում են մեղավոր երկրում v2.docx",
+            "latestVersion": "Երգարան Word Files/503 Մարդիկ ծնվում են մեղավոր երկրում v3.docx",
             "v1": "RED Words/503.docx",
-            "v2": "Երգարան Word Files/503 Մարդիկ ծնվում են մեղավոր երկրում v2.docx"
+            "v2": "Երգարան Word Files/503 Մարդիկ ծնվում են մեղավոր երկրում v2.docx",
+            "key": "Am",
+            "speed": "105",
+            "style": "Disco ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5",
+            "v3": "Երգարան Word Files/503 Մարդիկ ծնվում են մեղավոր երկրում v3.docx"
         },
         "504": {
             "Title": "Տոն է ցնծության",
@@ -4065,7 +4088,7 @@
         },
         "511": {
             "Title": "Դժվարության պահին միշտ",
-            "latestVersion": "Երգարան Word Files/511 Դժվարության պահին միշտ v3.docx",
+            "latestVersion": "Երգարան Word Files/511 Դժվարության պահին միշտ v4.docx",
             "v1": "RED Words/511.docx",
             "v2": "Երգարան Word Files/511 Դժվարության պահին միշտ v2.docx",
             "key": "Em",
@@ -4074,7 +4097,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3",
-            "v3": "Երգարան Word Files/511 Դժվարության պահին միշտ v3.docx"
+            "v3": "Երգարան Word Files/511 Դժվարության պահին միշտ v3.docx",
+            "v4": "Երգարան Word Files/511 Դժվարության պահին միշտ v4.docx"
         },
         "512": {
             "Title": "Ո՜վ դուք ծարավներ, եկե՛ք ջրի մոտ",
@@ -5996,7 +6020,7 @@
             "latestVersion": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
             "v1": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից.docx",
             "v2": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
-            "key": "C#m",
+            "key": "Dm",
             "speed": "108",
             "style": "Disco",
             "song_type": "Opening Song",
@@ -6940,16 +6964,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Փառքն ու պատիվը Աստծուն վայել են",
-            "latestVersion": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են v2.docx",
-            "v1": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են.docx",
-            "v2": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են v2.docx",
-            "key": "Am (+1)",
-            "speed": "107",
-            "style": "Samba",
-            "song_type": "Single Song",
+            "Title": "Մերկ ենք եկել, մերկ կգնանք աշխարհից",
+            "latestVersion": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
+            "v1": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից.docx",
+            "v2": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
+            "key": "Dm",
+            "speed": "108",
+            "style": "Disco",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Dance-P5-5"
         }
     }
 }
