@@ -565,8 +565,8 @@ def attributeSearch() -> dict:
     data = request.get_json()
     attributes = data["attributes"]
     songattrs = data["songattrs"]
-    print("Songattrs:",songattrs)
-    print("attributes:",attributes)
+    # print("Songattrs:",songattrs)
+    # print("attributes:",attributes)
     if songattrs.get("Comments", None):
         del songattrs["Comments"]
     if songattrs.get("Title", None):
@@ -578,7 +578,7 @@ def attributeSearch() -> dict:
             if attributes[attribute]:
                 temp[attribute] = songattrs[attribute]
     songattrs = temp
-    print(songattrs)
+    # print(songattrs)
     from json import load
     with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
         wordSongs = load(f)["SongNum"]
@@ -641,7 +641,7 @@ def temp_home():
             table_data = None # doing this so that it does not get referenced before assginment
             book = request.args.get('book', None)
             if request.method == 'POST':
-
+                from scanningDir import songChecker
                 data = request.get_json(silent=True)
                 if data:
                     query = data['query']
@@ -681,6 +681,10 @@ def temp_home():
                             # Search only in the specified attribute
                             if query in str(attr[attribute]).lower():
                                 filtered_data[song_num] = attr
+                    # TODO: Find a more efficient/less computationally expensivse route than this for the latest date sang on
+                    # for song_num in filtered_data:
+                    #     last_sang_on = songChecker(book=filtered_data[song_num]['book'], songNum=song_num, three_month_window=False)
+                    #     filtered_data[song_num]["last_sang_on"] = 
                     table_data = filtered_data
                     return json.dumps(table_data)
                 
