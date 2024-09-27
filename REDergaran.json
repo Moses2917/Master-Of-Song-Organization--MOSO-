@@ -1193,7 +1193,13 @@
         "147": {
             "Title": "Եթե Տերոջը շնորհքը չըլլար",
             "latestVersion": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
-            "v1": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx"
+            "v1": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
+            "key": "Dm",
+            "speed": "92",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "148": {
             "Title": "Հիսուսի սիրուց ես չեմ բաժանվի,",
@@ -1231,7 +1237,13 @@
             "Title": "Հիսուսի սերը մեծ է, անսահման,",
             "latestVersion": "Երգարան Word Files/151 Հիսուսի սերը մեծ է, անսահման, v2.docx",
             "v1": "RED Words/151.docx",
-            "v2": "Երգարան Word Files/151 Հիսուսի սերը մեծ է, անսահման, v2.docx"
+            "v2": "Երգարան Word Files/151 Հիսուսի սերը մեծ է, անսահման, v2.docx",
+            "key": "Fm",
+            "speed": "102",
+            "style": "Pop",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P3-4"
         },
         "152": {
             "Title": "",
@@ -1927,7 +1939,13 @@
         "232": {
             "Title": "Ճերմակաթույր հագած մեկին",
             "latestVersion": "Երգարան Word Files/232 Ճերմակաթույր հագած մեկին.docx",
-            "v1": "Երգարան Word Files/232 Ճերմակաթույր հագած մեկին.docx"
+            "v1": "Երգարան Word Files/232 Ճերմակաթույր հագած մեկին.docx",
+            "key": "Am",
+            "speed": "82",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P1-1"
         },
         "233": {
             "Title": "Փակ դռների ետևից ուշ ժամին",
@@ -6964,12 +6982,11 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Մերկ ենք եկել, մերկ կգնանք աշխարհից",
-            "latestVersion": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
-            "v1": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից.docx",
-            "v2": "Երգարան Word Files/817 Մերկ ենք եկել, մերկ կգնանք աշխարհից v2.docx",
+            "Title": "Եթե Տերոջը շնորհքը չըլլար",
+            "latestVersion": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
+            "v1": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
             "key": "Dm",
-            "speed": "108",
+            "speed": "92",
             "style": "Disco",
             "song_type": "Opening Song",
             "timeSig": "4/4",

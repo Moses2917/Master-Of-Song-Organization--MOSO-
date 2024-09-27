@@ -64,7 +64,7 @@ def collect_all_songs() -> dict:
 
 def find_middle_day_songs():
     # TODO: The algo is not properly filtering out the latest date that the song has been sung
-    print("Annoying A.N.I. Quyr...")
+    print("M.O.S.O. is annoying A.N.I. Quyr...")
     print("Begin Analyzing, Narrowing, and Identifying the perfect worship list...")
     # sang_in_last_3months = songCollector(ignore_sundays=True)
     sang_in_last_3months = songCollector(ignore_sundays=True, three_month_window=False, search_range=180) # increasing search range to get songs sang longer ago
@@ -121,7 +121,8 @@ def find_middle_day_songs():
                 print(f"This song was last sang on a {(datetime.datetime.strptime(song_check[1], '%m.%d.%y')).strftime('%A')}")
             except:
                 pass
-
+## TODO: Add a check to make sure that the song has been sang at least once
+# find_middle_day_songs()
 def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
     """
     Finds a song or a list of songs based on the given parameters.

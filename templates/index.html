@@ -301,7 +301,7 @@
                         table.classList.add('table')//, 'table-striped', 'table-hover'); // table class
                         const thead = document.createElement('thead');
                         const tr = document.createElement('tr');
-                        let ths = ['SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
+                        let ths = ['SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments','Last Sang On'];
                         if (attribute.value == 'Full_Text' && query.value != '') {
                             ths = ['Book', 'SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
                         }
@@ -334,6 +334,7 @@
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${value['last_sang_on'] || ''}</td>
                                 `;
                             }
                             else {
@@ -347,6 +348,7 @@
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${value['last_sang_on'] || ''}</td>
                                 `;
                             }
                             tablebody.appendChild(row);

@@ -134,6 +134,7 @@ def getAllNums():
 # gets songs fron recentsongs and sorts by last three months
 def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=True, search_range=90):
     """Generates a list of all the songs sang. Defaults to the last three months both with var and search range.
+        When there is two files both with the same name, the date reader misreads 
     Args:
         sunday_only (bool, optional): If you wish to search only Sunday songs. Defaults to False.
         ignore_sundays (bool, optional): If you wish to ignore Sunday songs. Defaults to False.
@@ -155,33 +156,35 @@ def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=Tru
 
     blocked_dict = {}
     for key in allSongs:
-        date = key
-        date = re.findall(r"(.*\d)", date)[0]
-        fileDate = date  # saving this for later to be used in list
-        # Define the date format
-        date_format = "%m.%d.%y"
-        # Parse the dates into datetime objects
-        date1 = datetime.datetime.strptime(search_window, date_format)
-        date2 = datetime.datetime.strptime(date, date_format)
-        if date1 < date2:
-            if sunday_only:
-                if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
+        if 'TESTSAVE' not in key: # if doc file has this name, an actual valid file will probably be overwriten
+                                  # and therefore causing it to not be seen by my algo
+            date = key
+            date = re.findall(r"(.*\d)", date)[0]
+            fileDate = date  # saving this for later to be used in list
+            # Define the date format
+            date_format = "%m.%d.%y"
+            # Parse the dates into datetime objects
+            date1 = datetime.datetime.strptime(search_window, date_format)
+            date2 = datetime.datetime.strptime(date, date_format)
+            if date1 < date2:
+                if sunday_only:
+                    if date2.strftime('%A') == "Sunday":  # if date is 3 month fresh and also sunday
+                        blocked_dict[fileDate] = {
+                            'songList': allSongs[key]['songList'],
+                            'basePth': allSongs[key]['basePth'],
+                        }
+                elif ignore_sundays:
+                    if date2.strftime('%A') != "Sunday":  # if date is within search window and also not from sunday
+                        blocked_dict[fileDate] = {
+                            'songList': allSongs[key]['songList'],
+                            'basePth': allSongs[key]['basePth'],
+                        }
+                else:
                     blocked_dict[fileDate] = {
                         'songList': allSongs[key]['songList'],
                         'basePth': allSongs[key]['basePth'],
                     }
-            elif ignore_sundays:
-                if date2.strftime('%A') != "Sunday":  # if date is within search window and also not from sunday
-                    blocked_dict[fileDate] = {
-                        'songList': allSongs[key]['songList'],
-                        'basePth': allSongs[key]['basePth'],
-                    }
-            else:
-                blocked_dict[fileDate] = {
-                    'songList': allSongs[key]['songList'],
-                    'basePth': allSongs[key]['basePth'],
-                }
-                
+    # print(blocked_dict)
     return blocked_dict
 
 def search_song(data: json, song_num, book):
@@ -206,7 +209,6 @@ def search_song(data: json, song_num, book):
                     'Filename/Date': item,
                     'basePath': data[item]['basePth'],
                     'songs': songList
-
                 })
                 found = True
                 # return item
@@ -264,7 +266,7 @@ def songChecker(book: str, songNum: str, three_month_window = True, ignore_sunda
             Str: The date the song was last sang if it exists.
     """
 
-    if three_month_window:
+    if three_month_window and not ignore_sundays:
         blocked_list = songCollector(sunday_only=True)
     elif not three_month_window:
         blocked_list = songCollector(sunday_only=False, ignore_sundays=True, three_month_window=False, search_range=960) # This is for an overall search for latest date on a song
@@ -288,7 +290,8 @@ def songChecker(book: str, songNum: str, three_month_window = True, ignore_sunda
         # return True, date_newest
     return False
 
-# print(songChecker('Old', '729',ignore_sundays=True))
+## TODO: Figure out why this is false
+# print(songChecker('New', '511',ignore_sundays=True))
 
 def toJson():
     """Generates a json version of AllSongs.txt and save it to the disk
