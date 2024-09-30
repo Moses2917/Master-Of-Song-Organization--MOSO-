@@ -925,13 +925,16 @@ def newSundaySong():
         only_last_two_songs = data['only_last_two_songs']
         from song_curator import find_sunday_song
         reccomened_songs = find_sunday_song(only_first_two_songs, only_worship_songs, only_last_two_songs)
-        # temp = []
-        # for song_pair in reccomened_songs:
-        #     ## Turn into song buttons
-        #     temp.append(f'''<a class="list-group-item list-group-item-action button button-primary" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {song_pair[0]}</a>''')
-        # reccomened_songs = temp
         return jsonify(reccomened_songs)
     return render_template('newSundaySongs.html')
+
+@app.route('/weekdaySong', methods=['GET', 'POST'])
+def weekdaySong():
+    if request.method == 'POST':
+        from song_curator import find_weekday_songs
+        reccomened_songs = find_weekday_songs()
+        return jsonify(reccomened_songs)
+    return render_template('newWeekdaySongs.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))

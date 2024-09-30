@@ -81,7 +81,7 @@
                 <div id="book_select_div" style="display: none;">
                     <label for="book">Please Choose the Book:</label>
                     <div class="input-group">
-                        <select name="book" class="form-control" id="book" onchange="tsank_search()">
+                        <select name="book" class="form-select" id="book" onchange="tsank_search()">
                             <option value="">--Please choose an option--</option>
                             <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }}>
                                 REDErgaran</option>
@@ -100,7 +100,7 @@
                 </div>
                 <label for="attribute" class="form-label">Search Mode:</label>
                 <div class="input-group">
-                    <select id="attribute" name="attribute" class="form-control" onchange="book_select()">
+                    <select id="attribute" name="attribute" class="form-select" onchange="book_select()">
                         <option value="Full_Text">Lyrics</option>
                         <option value="all">Tsank Search</option>
                         <option value="attr_search">Attribute Search</option>
@@ -113,6 +113,8 @@
                             <option value="song_type" {{ 'selected' if attribute=='song_type' }}>Song Type</option>
                             <option value="Comments" {{ 'selected' if attribute=='Comments' }}>Comments</option> -->
                     </select>
+                    <!-- <i class="bi bi-chevron-down float-end"></i> -->
+                     
                 </div>
                 <br>
                 <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit"

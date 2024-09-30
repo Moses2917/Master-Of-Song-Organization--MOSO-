@@ -62,10 +62,18 @@ def collect_all_songs() -> dict:
             }
     return found_songs
 
-def find_middle_day_songs():
-    # TODO: The algo is not properly filtering out the latest date that the song has been sung
-    print("M.O.S.O. is annoying A.N.I. Quyr...")
-    print("Begin Analyzing, Narrowing, and Identifying the perfect worship list...")
+def find_weekday_songs() -> dict:
+    """
+    Finds middle day songs by analyzing and narrowing down the list of songs 
+    that have not been sung in the last 3 months, and then identifies the top 
+    songs based on certain criteria.
+
+    Returns:
+        dict: A dictionary of the top songs that have not been sung in the last 3 months.
+    """
+    # TODO: Check to see if a song has been sung more than once, in a not so computationally expensive way
+    # print("M.O.S.O. is annoying A.N.I. Quyr...")
+    # print("Begin Analyzing, Narrowing, and Identifying the perfect worship list...")
     # sang_in_last_3months = songCollector(ignore_sundays=True)
     sang_in_last_3months = songCollector(ignore_sundays=True, three_month_window=False, search_range=180) # increasing search range to get songs sang longer ago
     sang_in_last_year = songCollector(three_month_window=False, search_range=360, ignore_sundays=True)
@@ -109,20 +117,32 @@ def find_middle_day_songs():
 
     latter_half_songs: list = choices(temp, k=3)
     # print(f"This is today's song order:\n{latter_half_songs}")
-    print("This is today's song order:")
+    # print("This is today's song order:")
     with open("REDergaran.json", 'r', encoding="utf-8") as f:
         REDergaran = load(f)
+    songlist = {}
+    ct = 1
     for song_pairs in latter_half_songs:
         # must do songs, bc as of now its a pair of two
-        for song in song_pairs:
+        for song in song_pairs: # song = (book,songNum), song_pairs = [(book,songNum),(book,songNum)]
             song_check = songChecker(book=song[0], songNum=song[1],three_month_window=False)
-            print(f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}")
+            songlist[ct] = {
+                'songnum': song[1],
+                'title': REDergaran['SongNum'][song[1]]['Title'],
+                'date': song_check[1] if isinstance(song_check, tuple) else "N/A"
+            }
+            # print(f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}")
+            # songlist.append([f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}",(datetime.datetime.strptime(song_check[1], '%m.%d.%y')).strftime('%A')])
             try:
-                print(f"This song was last sang on a {(datetime.datetime.strptime(song_check[1], '%m.%d.%y')).strftime('%A')}")
+                songlist[ct]['weekday'] = (datetime.datetime.strptime(song_check[1], '%m.%d.%y')).strftime('%A')
+                # print(f"This song was last sang on a {songlist[ct]['weekday']}")
             except:
                 pass
+            ct += 1
+    
+    return songlist
 ## TODO: Add a check to make sure that the song has been sang at least once
-# find_middle_day_songs()
+# find_weekday_songs()
 def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
     """
     Finds a song or a list of songs based on the given parameters.

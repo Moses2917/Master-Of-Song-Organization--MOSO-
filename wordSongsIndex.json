@@ -61,14 +61,15 @@
         },
         "10": {
             "Title": "Օրհնենք հարեալ և զորավոր Տիրոջը",
-            "latestVersion": "Word songs/10  v1.docx",
+            "latestVersion": "Word songs/10 Օրհնենք հարեալ և զորավոր Տիրոջը v2.docx",
             "v1": "Word songs/10  v1.docx",
-            "key": "Dm",
+            "key": "Em",
             "speed": "118",
             "style": "Disco",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Disco-P5-4"
+            "Comments": "Disco-P5-4",
+            "v2": "Word songs/10 Օրհնենք հարեալ և զորավոր Տիրոջը v2.docx"
         },
         "11": {
             "Title": "Խորհրդավոր է այս հանդես,",
@@ -1280,6 +1281,11 @@
             "latestVersion": "Word songs\\pptSong\\296.docx",
             "v1": "Word songs\\pptSong\\296.docx"
         },
+        "297": {
+            "Title": "Տիրոջ հաղթության դրոշ",
+            "latestVersion": "Word songs\\297 Տիրոջ հաղթության դրոշ.docx",
+            "v1": "Word songs\\297 Տիրոջ հաղթության դրոշ.docx"
+        },
         "298": {
             "Title": "Ահա մենք մեր ուրախ երգերով",
             "latestVersion": "Word songs/298 Ահա մենք մեր ուրախ երգերով.docx",
@@ -2435,14 +2441,15 @@
         },
         "504": {
             "Title": "Զորությունդ պիտ փառաբանեմ",
-            "latestVersion": "Word songs/504 Զորությունդ պիտ փառաբանեմ.docx",
+            "latestVersion": "Word songs/504 Զորությունդ պիտ փառաբանեմ v2.docx",
             "v1": "Word songs/504 Զորությունդ պիտ փառաբանեմ.docx",
             "key": "F (or -6)",
             "speed": "122",
             "style": "Disco ",
             "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-4"
+            "Comments": "Dance-P5-4",
+            "v2": "Word songs/504 Զորությունդ պիտ փառաբանեմ v2.docx"
         },
         "505": {
             "Title": "Գերել ես սիրտը իմ Քո սիրով",
@@ -3043,8 +3050,15 @@
         },
         "607": {
             "Title": "Ներկա է Տերը",
-            "latestVersion": "Word songs/607 Ներկա է Տերը.docx",
-            "v1": "Word songs/607 Ներկա է Տերը.docx"
+            "latestVersion": "Word songs/607 Ներկա է Տերը v2.docx",
+            "v1": "Word songs/607 Ներկա է Տերը.docx",
+            "key": "F",
+            "speed": "64",
+            "style": "Ballad ",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3",
+            "v2": "Word songs/607 Ներկա է Տերը v2.docx"
         },
         "608": {
             "Title": "Տեր, ի՜նչ գեղեցիկ ես",
@@ -3492,8 +3506,15 @@
         },
         "675": {
             "Title": "Օրհնե Տերը, ով իմ անձս",
-            "latestVersion": "Word songs/675 Օրհնե Տերը, ով իմ անձս.docx",
-            "v1": "Word songs/675 Օրհնե Տերը, ով իմ անձս.docx"
+            "latestVersion": "Word songs/675 Օրհնե Տերը, ով իմ անձս v2.docx",
+            "v1": "Word songs/675 Օրհնե Տերը, ով իմ անձս.docx",
+            "key": "Em",
+            "speed": "103",
+            "style": "Beguine ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-7",
+            "v2": "Word songs/675 Օրհնե Տերը, ով իմ անձս v2.docx"
         },
         "676": {
             "Title": "Փչեց մեղմ զեփյուռն \nՊարտեզում Եդեմի, \nԾառերը մեղմիկ երգ երգեցին, \nՀնչեց թախծաձայն կանչը Տեր Աստըծո \nԱդամ Ուր ես ...",
@@ -4472,15 +4493,15 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Քեզ եմ նվիրում սիրտը իմ",
-            "latestVersion": "Word songs/725 Քեզ եմ նվիրում սիրտը իմ.docx",
-            "v1": "Word songs/725 Քեզ եմ նվիրում սիրտը իմ.docx",
-            "key": "Dm",
-            "speed": "67",
-            "style": "Beat",
-            "song_type": "Worship Song",
+            "Title": "Օրհնե Տերը, ով իմ անձս",
+            "latestVersion": "Word songs/675 Օրհնե Տերը, ով իմ անձս.docx",
+            "v1": "Word songs/675 Օրհնե Տերը, ով իմ անձս.docx",
+            "key": "Em",
+            "speed": "103",
+            "style": "Beguine ",
+            "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Latin Dance-P2-7"
         },
         "760": {
             "Title": "",

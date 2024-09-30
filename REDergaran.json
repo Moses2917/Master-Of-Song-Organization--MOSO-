@@ -705,14 +705,15 @@
         },
         "82": {
             "Title": "Օրհնյալ երաշխիք՝ իմս է Հիսուս",
-            "latestVersion": "Երգարան Word Files/82 Օրհնյալ երաշխիք՝ իմս է Հիսուս.docx",
+            "latestVersion": "Երգարան Word Files/82 Օրհնյալ երաշխիք՝ իմս է Հիսուս v2.docx",
             "v1": "Երգարան Word Files/82 Օրհնյալ երաշխիք՝ իմս է Հիսուս.docx",
             "key": "C",
             "speed": "",
             "style": "Piano",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Play piano"
+            "Comments": "Play piano",
+            "v2": "Երգարան Word Files/82 Օրհնյալ երաշխիք՝ իմս է Հիսուս v2.docx"
         },
         "83": {
             "Title": "Ես կլսեմ ձայնդ, Հիսո՛ւս,",
@@ -3310,7 +3311,13 @@
         "407": {
             "Title": "Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել",
             "latestVersion": "Երգարան Word Files/407 Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել.docx",
-            "v1": "Երգարան Word Files/407 Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել.docx"
+            "v1": "Երգարան Word Files/407 Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել.docx",
+            "key": "Em",
+            "speed": "178",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Country-P1-6"
         },
         "408": {
             "Title": "Տե՜ր, ի՜նչ գեղեցիկ ես, Տե՜ր, ի՜նչ հիանալի ես",
@@ -3645,7 +3652,7 @@
         },
         "448": {
             "Title": "Հիսո՛ւս, Քեզ բարձրացնում եմ",
-            "latestVersion": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v2.docx",
+            "latestVersion": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v3.docx",
             "v1": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ.docx",
             "v2": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v2.docx",
             "key": "F",
@@ -3653,7 +3660,8 @@
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v3": "Երգարան Word Files/448 Հիսո՛ւս, Քեզ բարձրացնում եմ v3.docx"
         },
         "449": {
             "Title": "Մի՛ հիշիր մեր առաջվա ",
@@ -4290,14 +4298,15 @@
         },
         "530": {
             "Title": "Եվ Աստված այնպես աշխարհը",
-            "latestVersion": "Երգարան Word Files/530 Եվ Աստված այնպես աշխարհը.docx",
+            "latestVersion": "Երգարան Word Files/530 Եվ Աստված այնպես աշխարհը v2.docx",
             "v1": "Երգարան Word Files/530 Եվ Աստված այնպես աշխարհը.docx",
             "key": "F",
             "speed": "68",
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Any ballad"
+            "Comments": "Any ballad",
+            "v2": "Երգարան Word Files/530 Եվ Աստված այնպես աշխարհը v2.docx"
         },
         "531": {
             "Title": "Եկել եմ, հոգսերս վերցրո՜ւ,",
@@ -4531,7 +4540,7 @@
         },
         "560": {
             "Title": "Դու այստեղ ես, Հիսո՛ւս",
-            "latestVersion": "Երգարան Word Files/560 Դու այստեղ ես, Հիսո՛ւս v2.docx",
+            "latestVersion": "Երգարան Word Files/560 Դու այստեղ ես, Հիսո՛ւս v3.docx",
             "v1": "Երգարան Word Files/560 Դու այստեղ ես, Հիսո՛ւս.docx",
             "v2": "Երգարան Word Files/560 Դու այստեղ ես, Հիսո՛ւս v2.docx",
             "key": "F# (-6)",
@@ -4539,7 +4548,8 @@
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v3": "Երգարան Word Files/560 Դու այստեղ ես, Հիսո՛ւս v3.docx"
         },
         "561": {
             "Title": "Թագավորների Թագավոր",
@@ -6982,15 +6992,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Եթե Տերոջը շնորհքը չըլլար",
-            "latestVersion": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
-            "v1": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
-            "key": "Dm",
-            "speed": "92",
-            "style": "Disco",
-            "song_type": "Opening Song",
-            "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Title": "Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել",
+            "latestVersion": "Երգարան Word Files/407 Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել.docx",
+            "v1": "Երգարան Word Files/407 Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել.docx",
+            "key": "Em",
+            "speed": "178",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Country-P1-6"
         }
     }
 }
