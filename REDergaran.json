@@ -201,14 +201,15 @@
         },
         "23": {
             "Title": "Կվախնա՞ս, թե թշնամին պիտի հաղթե,",
-            "latestVersion": "RED Words/23.docx",
+            "latestVersion": "Երգարան Word Files/23 Կվախնա՞ս, թե թշնամին պիտի հաղթե, v2.docx",
             "v1": "RED Words/23.docx",
             "key": "Em",
             "speed": "105",
             "style": "Disco ",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v2": "Երգարան Word Files/23 Կվախնա՞ս, թե թշնամին պիտի հաղթե, v2.docx"
         },
         "24": {
             "Title": "Կուզե՞ս ազատ ըլլալ մեղքի բեռեն,",
@@ -1109,8 +1110,9 @@
         },
         "138": {
             "Title": "Շտապի՛ր, անառակ որդի,",
-            "latestVersion": "RED Words/138.docx",
-            "v1": "RED Words/138.docx"
+            "latestVersion": "Երգարան Word Files/138 Շտապի՛ր, անառակ որդի, v2.docx",
+            "v1": "RED Words/138.docx",
+            "v2": "Երգարան Word Files/138 Շտապի՛ր, անառակ որդի, v2.docx"
         },
         "139": {
             "Title": "Քրիստոս թագավոր է սիրո, զորության,",
@@ -1441,8 +1443,9 @@
         },
         "175": {
             "Title": "Հաճախակի արի դու Գողգոթա՝",
-            "latestVersion": "RED Words/175.docx",
-            "v1": "RED Words/175.docx"
+            "latestVersion": "Երգարան Word Files/175 Հաճախակի արի դու Գողգոթա՝ v2.docx",
+            "v1": "RED Words/175.docx",
+            "v2": "Երգարան Word Files/175 Հաճախակի արի դու Գողգոթա՝ v2.docx"
         },
         "176": {
             "Title": "Խռովել ու մոլորվել է գառնուկդ,",
@@ -3123,7 +3126,7 @@
         },
         "379": {
             "Title": "Ես երբեք չեմ եղել իմ տան մեջ",
-            "latestVersion": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ v2.docx",
+            "latestVersion": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ v3.docx",
             "v1": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ.docx",
             "key": "Fm",
             "speed": "115",
@@ -3131,7 +3134,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P3-4",
-            "v2": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ v2.docx"
+            "v2": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ v2.docx",
+            "v3": "Երգարան Word Files/379 Ես երբեք չեմ եղել իմ տան մեջ v3.docx"
         },
         "380": {
             "Title": "Հոգնած հոգիս հանգիստ գտավ",
@@ -3506,7 +3510,7 @@
         },
         "431": {
             "Title": "Օրհնության անձրևներ պիտ տամ",
-            "latestVersion": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ v2.docx",
+            "latestVersion": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ v3.docx",
             "v1": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ.docx",
             "v2": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ v2.docx",
             "key": "G",
@@ -3514,7 +3518,8 @@
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P1-6"
+            "Comments": "Ballad-P1-6",
+            "v3": "Երգարան Word Files/431 Օրհնության անձրևներ պիտ տամ v3.docx"
         },
         "432": {
             "Title": "Գարուն կբացվի, ձյունը կհալվի,",
@@ -4084,7 +4089,7 @@
         },
         "508": {
             "Title": "Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով",
-            "latestVersion": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v3.docx",
+            "latestVersion": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v4.docx",
             "v1": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով.docx",
             "v2": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v2.docx",
             "v3": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v3.docx",
@@ -4093,7 +4098,8 @@
             "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v4": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v4.docx"
         },
         "509": {
             "Title": "Տե՛ր, ինչպես Պենտեկոստեին",

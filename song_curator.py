@@ -18,6 +18,8 @@ from regex import F
 from scanningDir import songCollector, songChecker
 from re import findall
 
+def sang_once(song_num, book = 'New'):
+    return book
 
 def getSong(book:str, songnum:str, batch = 0) -> dict:
     """
@@ -72,8 +74,8 @@ def find_weekday_songs() -> dict:
         dict: A dictionary of the top songs that have not been sung in the last 3 months.
     """
     # TODO: Check to see if a song has been sung more than once, in a not so computationally expensive way
-    # print("M.O.S.O. is annoying A.N.I. Quyr...")
-    # print("Begin Analyzing, Narrowing, and Identifying the perfect worship list...")
+    print("M.O.S.O. is annoying A.N.I. Quyr...")
+    print("Begin Analyzing, Narrowing, and Identifying the perfect worship list...")
     # sang_in_last_3months = songCollector(ignore_sundays=True)
     sang_in_last_3months = songCollector(ignore_sundays=True, three_month_window=False, search_range=180) # increasing search range to get songs sang longer ago
     sang_in_last_year = songCollector(three_month_window=False, search_range=360, ignore_sundays=True)
@@ -117,7 +119,7 @@ def find_weekday_songs() -> dict:
 
     latter_half_songs: list = choices(temp, k=3)
     # print(f"This is today's song order:\n{latter_half_songs}")
-    # print("This is today's song order:")
+    print("This is today's song order:")
     with open("REDergaran.json", 'r', encoding="utf-8") as f:
         REDergaran = load(f)
     songlist = {}
@@ -131,11 +133,11 @@ def find_weekday_songs() -> dict:
                 'title': REDergaran['SongNum'][song[1]]['Title'],
                 'date': song_check[1] if isinstance(song_check, tuple) else "N/A"
             }
-            # print(f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}")
+            print(f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}")
             # songlist.append([f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}",(datetime.datetime.strptime(song_check[1], '%m.%d.%y')).strftime('%A')])
             try:
                 songlist[ct]['weekday'] = (datetime.datetime.strptime(song_check[1], '%m.%d.%y')).strftime('%A')
-                # print(f"This song was last sang on a {songlist[ct]['weekday']}")
+                print(f"This song was last sang on a {songlist[ct]['weekday']}")
             except:
                 pass
             ct += 1

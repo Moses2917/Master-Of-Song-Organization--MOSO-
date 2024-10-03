@@ -3,7 +3,6 @@ from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
-from song_curator import find_sunday_song
 import json
 #Setup mongodb
 from pymongo import MongoClient
