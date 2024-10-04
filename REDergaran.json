@@ -515,15 +515,16 @@
         },
         "60": {
             "Title": "Փորձանքներու մեջ անհամար",
-            "latestVersion": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար v2.docx",
+            "latestVersion": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար v3.docx",
             "v1": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար.docx",
             "v2": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար v2.docx",
-            "key": "F",
+            "key": "E",
             "speed": "105",
             "style": "Disco",
-            "song_type": "Opening Song",
+            "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-4",
+            "v3": "Երգարան Word Files/60 Փորձանքներու մեջ անհամար v3.docx"
         },
         "61": {
             "Title": "Երբ այն խաչին ես կը նայիմ,",
@@ -1112,7 +1113,13 @@
             "Title": "Շտապի՛ր, անառակ որդի,",
             "latestVersion": "Երգարան Word Files/138 Շտապի՛ր, անառակ որդի, v2.docx",
             "v1": "RED Words/138.docx",
-            "v2": "Երգարան Word Files/138 Շտապի՛ր, անառակ որդի, v2.docx"
+            "v2": "Երգարան Word Files/138 Շտապի՛ր, անառակ որդի, v2.docx",
+            "key": "Cm",
+            "speed": "92",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "139": {
             "Title": "Քրիստոս թագավոր է սիրո, զորության,",
@@ -1445,7 +1452,13 @@
             "Title": "Հաճախակի արի դու Գողգոթա՝",
             "latestVersion": "Երգարան Word Files/175 Հաճախակի արի դու Գողգոթա՝ v2.docx",
             "v1": "RED Words/175.docx",
-            "v2": "Երգարան Word Files/175 Հաճախակի արի դու Գողգոթա՝ v2.docx"
+            "v2": "Երգարան Word Files/175 Հաճախակի արի դու Գողգոթա՝ v2.docx",
+            "key": "Cm",
+            "speed": "112",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "176": {
             "Title": "Խռովել ու մոլորվել է գառնուկդ,",
@@ -1658,7 +1671,7 @@
         },
         "198": {
             "Title": "Գողգոթայի սարը ելա երազով,",
-            "latestVersion": "Երգարան Word Files/198 Գողգոթայի սարը ելա երազով, v2.docx",
+            "latestVersion": "Երգարան Word Files/198 Գողգոթայի սարը ելա երազով, v3.docx",
             "v1": "RED Words/198.docx",
             "v2": "Երգարան Word Files/198 Գողգոթայի սարը ելա երազով, v2.docx",
             "key": "Dm or D#m",
@@ -1666,7 +1679,8 @@
             "style": "Waltz ",
             "song_type": "Single Song",
             "timeSig": "3/4",
-            "Comments": "Trad-P4-4"
+            "Comments": "Trad-P4-4",
+            "v3": "Երգարան Word Files/198 Գողգոթայի սարը ելա երազով, v3.docx"
         },
         "199": {
             "Title": "Քո տանդ մեջ",
@@ -2281,8 +2295,15 @@
         },
         "272": {
             "Title": "Միայն Դու ես արժանի",
-            "latestVersion": "RED Words/272.docx",
-            "v1": "RED Words/272.docx"
+            "latestVersion": "Երգարան Word Files/272 Միայն Դու ես արժանի v2.docx",
+            "v1": "RED Words/272.docx",
+            "v2": "Երգարան Word Files/272 Միայն Դու ես արժանի v2.docx",
+            "key": "Dm",
+            "speed": "90",
+            "style": "Ballad ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "273": {
             "Title": "Տկարացած, հոգնած եմ,",
@@ -2301,8 +2322,9 @@
         },
         "276": {
             "Title": "Խաչի վրա վերջին անգամ",
-            "latestVersion": "RED Words/276.docx",
-            "v1": "RED Words/276.docx"
+            "latestVersion": "Երգարան Word Files/276 Խաչի վրա վերջին անգամ v2.docx",
+            "v1": "RED Words/276.docx",
+            "v2": "Երգարան Word Files/276 Խաչի վրա վերջին անգամ v2.docx"
         },
         "277": {
             "Title": "Կթողնեմ աշխարհը, կգնամ Հորս մոտ,",
@@ -2360,8 +2382,15 @@
         },
         "283": {
             "Title": "Իմ Փրկիչ սիրելի, խոսի՛ր, աղաչում եմ,",
-            "latestVersion": "RED Words/283.docx",
-            "v1": "RED Words/283.docx"
+            "latestVersion": "Երգարան Word Files/283 Իմ Փրկիչ սիրելի, խոսի՛ր, աղաչում եմ, v2.docx",
+            "v1": "RED Words/283.docx",
+            "v2": "Երգարան Word Files/283 Իմ Փրկիչ սիրելի, խոսի՛ր, աղաչում եմ, v2.docx",
+            "key": "Gm",
+            "speed": "86",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "284": {
             "Title": "Տխրել էր հոգիս ամայության մեջ,",
@@ -4055,7 +4084,7 @@
         },
         "504": {
             "Title": "Տոն է ցնծության",
-            "latestVersion": "Երգարան Word Files/504 Տոն է ցնծության v2.docx",
+            "latestVersion": "Երգարան Word Files/504 Տոն է ցնծության v3.docx",
             "v1": "Երգարան Word Files/504 Տոն է ցնծության.docx",
             "v2": "Երգարան Word Files/504 Տոն է ցնծության v2.docx",
             "key": "Em",
@@ -4063,7 +4092,8 @@
             "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v3": "Երգարան Word Files/504 Տոն է ցնծության v3.docx"
         },
         "505": {
             "Title": "Աստծո բանակն է գնում՝",
@@ -6998,15 +7028,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել",
-            "latestVersion": "Երգարան Word Files/407 Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել.docx",
-            "v1": "Երգարան Word Files/407 Վաղուց էիր, Հիսո՛ւս, ինձ ընտրել.docx",
-            "key": "Em",
-            "speed": "178",
-            "style": "Waltz ",
+            "Title": "Շտապի՛ր, անառակ որդի,",
+            "latestVersion": "Երգարան Word Files/138 Շտապի՛ր, անառակ որդի, v2.docx",
+            "v1": "RED Words/138.docx",
+            "v2": "Երգարան Word Files/138 Շտապի՛ր, անառակ որդի, v2.docx",
+            "key": "Cm",
+            "speed": "92",
+            "style": "Ballad",
             "song_type": "Single Song",
-            "timeSig": "3/4",
-            "Comments": "Country-P1-6"
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         }
     }
 }
