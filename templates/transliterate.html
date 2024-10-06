@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
+  <div class="row align-items-start justify-content-center ">
+    <h2 class="text-center fw-bold">Enter The Sentence To Transliterate:</h2>
+    <!-- <div class="col-9">
+      <div class="input-group mb-3 ">
+        <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum" >
+      </div>
+    </div> -->
+    <div class="row justify-content-center" id="SongSection">
+      <!-- <div class="btn-group" role="group"> -->
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="Armenian" class="h4 fw-bold">Armenian</label>
+          <textarea name="Armenian" id="Armenian" class="form-control" oninput="document.getElementById('English').value = transliterate(document.getElementById('Armenian').value)"></textarea>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="English" class="h4 fw-bold">English</label>
+          <textarea name="English" id="English" class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-md">
+  <ol class="list-group list-group-numbered shadow p-3 mb-5 bg-body-tertiary rounded" id="song_order"
+    style="display: none;">
+  </ol>
+</div>
+</div>
+
+<script>
+  function armenianToEnglish() {
+    // Armenian to English transliteration mapping
+    const armenianToLatin = {
+        'ա': 'a', 'բ': 'b', 'գ': 'g', 'դ': 'd', 'ե': 'e', 'զ': 'z', 'է': 'e',
+        'ը': '@', 'թ': 't', 'ժ': 'zh', 'ի': 'i', 'լ': 'l', 'խ': 'kh', 'ծ': 'ts',
+        'կ': 'k', 'հ': 'h', 'ձ': 'dz', 'ղ': 'gh', 'ճ': 'ch', 'մ': 'm', 'յ': 'y',
+        'ն': 'n', 'շ': 'sh', 'ո': 'o', 'չ': 'ch', 'պ': 'p', 'ջ': 'j', 'ռ': 'r',
+        'ս': 's', 'վ': 'v', 'տ': 't', 'ր': 'r', 'ց': 'ts', 'ւ': 'v', 'փ': 'p',
+        'ք': 'k', 'օ': 'o', 'ֆ': 'f', 'և': 'ev', 'ու': 'u',
+        // Uppercase mappings
+        'Ա': 'A', 'Բ': 'B', 'Գ': 'G', 'Դ': 'D', 'Ե': 'E', 'Զ': 'Z', 'Է': 'E',
+        'Ը': '@', 'Թ': 'T', 'Ժ': 'Zh', 'Ի': 'I', 'Լ': 'L', 'Խ': 'Kh', 'Ծ': 'Ts',
+        'Կ': 'K', 'Հ': 'H', 'Ձ': 'Dz', 'Ղ': 'Gh', 'Ճ': 'Ch', 'Մ': 'M', 'Յ': 'Y',
+        'Ն': 'N', 'Շ': 'Sh', 'Ո': 'O', 'Չ': 'Ch', 'Պ': 'P', 'Ջ': 'J', 'Ռ': 'R',
+        'Ս': 'S', 'Վ': 'V', 'Տ': 'T', 'Ր': 'R', 'Ց': 'Ts', 'Փ': 'P', 'Ք': 'K',
+        'Օ': 'O', 'Ֆ': 'F'
+    };
+    return armenianToLatin;
+}
+
+function transliterate(text) {
+  const mapping = armenianToEnglish();
+  let result = '';
+  let i = 0;
+
+  while (i < text.length) {
+      // Check for two-character combinations first
+      if (i < text.length - 1 && mapping[text[i] + text[i + 1]]) {
+          result += mapping[text[i] + text[i + 1]];
+          i += 2;
+      }
+      // Then check for single characters
+      else if (mapping[text[i]]) {
+          result += mapping[text[i]];
+          i += 1;
+      }
+      // If character is not in mapping, keep it as is
+      else {
+          result += text[i];
+          i += 1;
+      }
+  }
+
+  return result;
+}
+
+</script>
+{%endblock%}

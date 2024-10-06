@@ -935,5 +935,9 @@ def weekdaySong():
         return jsonify(reccomened_songs)
     return render_template('newWeekdaySongs.html')
 
+@app.route('/transliterate', methods=['GET'])
+def transliterate():
+    return render_template('transliterate.html')
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))

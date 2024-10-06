@@ -264,8 +264,11 @@ class ModernSongManager:
         import scanningDir
         try:
             scanningDir.findNewFiles()
+            #Add the end once all is added clean up the indexes
+            scanningDir.clean_up_index()
         except:
             messagebox.showerror("File Open","A word doc is probably open, please close it and then try to create the file.")
+
 
     def ChooseFile(self):
         from tkinter import filedialog as fd

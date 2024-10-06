@@ -56,6 +56,9 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('weekdaySong')}}">New Weekday Song</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('transliterate')}}">Transliterate</a>
+          </li>
         </ul>
 
             <div class="d-flex">
@@ -157,6 +160,33 @@
     </button>
     
     {% block content %}{% endblock %}
+
+    <script>
+      
+      document.querySelectorAll("textarea").forEach(function(textarea) {
+        textarea.style.height = textarea.scrollHeight + "px";
+        textarea.style.overflowY = "hidden";
+        
+        textarea.addEventListener("input", function() {
+          this.style.height = "auto";
+          this.style.height = this.scrollHeight + "px";
+          autoTextareaHeight()
+        });
+      });
+    
+      // credit to https://stackoverflow.com/questions/454202/
+      function autoTextareaHeight() {
+        document.querySelectorAll("textarea").forEach(function(textarea) {
+          textarea.style.height = textarea.scrollHeight + "px";
+          textarea.style.overflowY = "hidden";
+          
+          textarea.addEventListener("input", function() {
+            this.style.height = "auto";
+            this.style.height = this.scrollHeight + "px";
+          });
+        });
+      }
+    </script>
 
     <script type="text/javascript">{//Get the button
         let mybutton = document.getElementById("btn-back-to-top");

@@ -13,6 +13,7 @@
       <div class="col-auto">
         <div class="">
           <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="Weekday_Songs" value="Get Weekday Songs" onclick="getWeekdayRecs()">
+          <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="cp_block" value="Copy Order" onclick="copy_order()">
         </div>
       </div>
     </div>
@@ -25,9 +26,10 @@
   </p>
 </div>
 <div class="container-md">
-    <ol class="list-group list-group-numbered shadow p-3 mb-5 bg-body-tertiary rounded" id="song_order" style="display: none;">
-    </ol>
-  </div>
+  <ol class="list-group list-group-numbered shadow p-3 mb-5 bg-body-tertiary rounded" id="song_order"
+    style="display: none;">
+  </ol>
+</div>
 </div>
 
 <script>
@@ -75,6 +77,9 @@
         // })
       })
       .then(response => response.text())
+      .catch((error) => {
+        console.error('Error:', error);
+      })
       .then(text =>{
         const songs = Object.values(JSON.parse(text));
         songOrder.innerHTML = ''
@@ -97,10 +102,20 @@
         });
         // Results.innerHTML += text
       })
+
         
     
   }
 
+</script>
+<script>
+  function copy_order() {
+    const songOrder = document.getElementById('song_order');
+    if (songOrder.style.display != 'none') {
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+    }      
+  }
 </script>
 <!-- <div class="d-flex justify-content-center"></div> -->
 {%endblock%}
