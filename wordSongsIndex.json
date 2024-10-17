@@ -1284,7 +1284,13 @@
         "297": {
             "Title": "Տիրոջ հաղթության դրոշ",
             "latestVersion": "Word songs\\297 Տիրոջ հաղթության դրոշ.docx",
-            "v1": "Word songs\\297 Տիրոջ հաղթության դրոշ.docx"
+            "v1": "Word songs\\297 Տիրոջ հաղթության դրոշ.docx",
+            "key": "F#m",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-1"
         },
         "298": {
             "Title": "Ահա մենք մեր ուրախ երգերով",
@@ -1628,7 +1634,13 @@
             "Title": "Երբ կյանքի վիճակներ կբեռնավորեն քեզ",
             "latestVersion": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ v2.docx",
             "v1": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ.docx",
-            "v2": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ v2.docx"
+            "v2": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ v2.docx",
+            "key": "Dm",
+            "speed": "105",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3"
         },
         "361": {
             "Title": "Հիսուսը սրտիդ դռան \nԿանգնած կթակե Ան, \nԿթակե որ դուն բանաս, \nՍրտումդ Իրեն տեղ տաս:",
@@ -2501,7 +2513,13 @@
             "latestVersion": "Word songs/510 Օրհնեցեք Աստծուն Նրա սրբարանում v3.docx",
             "v1": "Word songs/510.docx",
             "v2": "Word songs/510  v2.docx",
-            "v3": "Word songs/510 Օրհնեցեք Աստծուն Նրա սրբարանում v3.docx"
+            "v3": "Word songs/510 Օրհնեցեք Աստծուն Նրա սրբարանում v3.docx",
+            "key": "Dm",
+            "speed": "71",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "511": {
             "Title": "Աղաղակեցեք դեաի Տեր",
@@ -4493,15 +4511,16 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Օրհնե Տերը, ով իմ անձս",
-            "latestVersion": "Word songs/675 Օրհնե Տերը, ով իմ անձս.docx",
-            "v1": "Word songs/675 Օրհնե Տերը, ով իմ անձս.docx",
-            "key": "Em",
-            "speed": "103",
-            "style": "Beguine ",
-            "song_type": "Single Song",
+            "Title": "Երբ կյանքի վիճակներ կբեռնավորեն քեզ",
+            "latestVersion": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ v2.docx",
+            "v1": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ.docx",
+            "v2": "Word songs/360 Երբ կյանքի վիճակներ կբեռնավորեն քեզ v2.docx",
+            "key": "Dm",
+            "speed": "105",
+            "style": "Samba",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-7"
+            "Comments": "Latin Dance-P2-3"
         },
         "760": {
             "Title": "",

@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
+  <div class="row align-items-start justify-content-center ">
+    <h2 class="text-center">Click the button to generate songs:</h2>
+    <!-- <div class="col-9">
+      <div class="input-group mb-3 ">
+        <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum" >
+      </div>
+    </div> -->
+    <div class="row justify-content-center" id="SongSection">
+      <!-- <div class="btn-group" role="group"> -->
+      <div class="col-auto">
+        <div class="">
+          <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="Get New Song"
+            value="Get New Song" onclick="getNewSong()">
+          <!-- <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="cp_block" value="Copy Order" onclick="copy_order()"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="text-end" id="hint-am">
+    Խորհուրդ. Սեղմեք այն երգը որը ցանկանում եք բացել։
+  </p>
+  <p class="text-end" id="hint-en">
+    Hint: Just click the song you want to open.
+  </p>
+</div>
+<div class="container-sm text-center">
+  <div id="sundaySong">
+    <!-- <p>Is this a Sunday song?</p> -->
+    <input type="checkbox" name="sunday" id="sunday" class="btn-check" autocomplete="off">
+    <label for="sunday" class="btn btn-outline-primary">Is this a Sunday song?</label>
+  </div>
+  <br>
+  <div id="AnswerButtons" class="d-grid gap-2 col-6 mx-auto">
+    <p class="fs-4 fw-bold shadow-lg py-3 rounded-3 bg-dark-outline text-light">Do we know this song?</p>
+    <button type="button" class="btn btn-outline-success shadow rounded-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+      </svg>
+       Yes 
+    </button>
+
+    <button type="button" class="btn btn-outline-danger shadow rounded-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+      </svg>
+       No 
+    </button>
+  </div>
+  <br>
+  <div class="col-auto shadow-lg border border-light rounded-4 ">
+    <!-- <ol class="list-group list-group-numbered shadow p-3 mb-5 bg-body-tertiary rounded" id="song_order"
+    style="display: none;">
+  </ol> -->
+    <div class="fs-5 text-center text-md-center" id="lyrics">
+    </div>
+  </div>
+  <br>
+  
+</div>
+
+</div>
+
+<script>
+  function spinner() {
+    '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
+  }
+  function blinking_placeholder(){
+    const song_order = document.getElementById('song_order');
+    song_order.innerHTML = ''
+    const elem = `      <li class="list-group-item">
+         <div class="placeholder-glow ">
+            <p aria-hidden="true">
+              <span class="placeholder col-9"></span>
+            </p>
+            <p aria-hidden="true">
+              <span class="placeholder col-6"></span>
+            </p>
+        </div>`
+    array = [1,2,3,4,5,6];
+    array.forEach(element =>{
+      song_order.innerHTML += elem
+    })
+    song_order.style.display='block'
+  }
+  
+  async function getNewSong() {
+    url = "/song/REDergaran/1/lyrics" //Will need to make a function to get a new song that has not been changed
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(
+      Response => Response.text()
+    )
+    .then(
+      text =>{
+        lyrics = document.getElementById("lyrics");
+        lyrics.innerHTML = JSON.parse(text)
+      }
+    )
+  }
+
+</script>
+<!-- <div class="d-flex justify-content-center"></div> -->
+{%endblock%}

@@ -59,6 +59,9 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('transliterate')}}">Transliterate</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('known_songs')}}">Is This a Known Song</a>
+          </li>
         </ul>
 
             <div class="d-flex">
@@ -78,30 +81,31 @@
   </nav>
 
   <div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-4" id="searchModalLabel">Enter Song Lyrics</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="input-group">
-                        <input type="text" name="searchLyrics" id="searchLyrics" class="form-control me-2" placeholder="Search" aria-label="Search" oninput='getResults()'>
-                    </div>
-                    <br>
-                    <form method="post">
-                        <ul class="list-group" id="searchResults"></ul>
-                    </form>
-                    <!-- search results -->
-            </div>
-                <div class="modal-footer">
-                    <p class="text-start fs-5" id="hint">Խորհուրդ. Սեղմեք այն երգը,<br> Որը ցանկանում եք բացել։</p>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4" id="searchModalLabel">Enter Song Lyrics</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+  
+          <div class="input-group">
+            <input type="text" name="searchLyrics" id="searchLyrics" class="form-control me-2" placeholder="Search"
+              aria-label="Search" oninput='getResults()'>
+          </div>
+          <br>
+          <form method="post">
+            <ul class="list-group" id="searchResults"></ul>
+          </form>
+          <!-- search results -->
         </div>
+        <div class="modal-footer">
+          <p class="text-start fs-5" id="hint">Խորհուրդ. Սեղմեք այն երգը,<br> Որը ցանկանում եք բացել։</p>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script>
   async function getResults() {
@@ -214,6 +218,7 @@
           document.documentElement.scrollTop = 0;
         }}</script>
     {% else %}
+    
     {%include 'guest.html'%}
     {%endif%}
 </div>

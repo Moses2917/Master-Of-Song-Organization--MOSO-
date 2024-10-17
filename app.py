@@ -1,4 +1,5 @@
 from os import environ as env
+import re
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
@@ -937,7 +938,25 @@ def weekdaySong():
 
 @app.route('/transliterate', methods=['GET'])
 def transliterate():
+    session['transliterate'] = True
     return render_template('transliterate.html')
+
+@app.route('/song/<book>/<songnum>/lyrics', methods=['GET','POST'])
+def get_song_lyrics(book,songnum):
+    if request.method == 'POST':
+        import concurrent.futures
+        with concurrent.futures.ThreadPoolExecutor() as exec:
+            future = exec.submit(openWord,songnum,book)
+            lyrics = future.result()
+        return jsonify(lyrics)
+    return jsonify(None)
+
+@app.route('/known_songs', methods=['GET','POST'])
+def known_songs():
+    # if request.method == "POST":
+    #     #Begin writing to the dict
+    #     pass
+    return render_template('known_songs.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
