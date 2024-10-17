@@ -57,3 +57,5 @@ def checkAllIfSang() -> dict:
         if not(isSongInAllSongs(songnum,full_songList)):
             notSang.append(songnum)
     return notSang
+
+checkAllIfSang()
