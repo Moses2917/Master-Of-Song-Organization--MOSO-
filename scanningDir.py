@@ -291,7 +291,7 @@ def songChecker(book: str, songNum: str, three_month_window = True, ignore_sunda
     return False
 
 ## TODO: Figure out why this is false
-# print(songChecker('New', '511',ignore_sundays=True))
+# print(songChecker('Old', '652'))
 
 def toJson():
     """Generates a json version of AllSongs.txt and save it to the disk

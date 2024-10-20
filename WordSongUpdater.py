@@ -129,12 +129,14 @@ def getDocTextAndIndentation(filename:str):
     """
     
     doc = docx.Document(filename)
+    
 
     text_and_indentation = [] #turn into a list of dicts
     song = []
     bookOld = False
     first = True
     for p in doc.paragraphs:
+        
         if "[start:song" in p.text:
             my_doc = docx.Document()
             song = []

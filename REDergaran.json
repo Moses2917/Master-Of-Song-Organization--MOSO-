@@ -165,9 +165,9 @@
             "Comments": "Ballad-P5-5"
         },
         "19": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/19 .docx",
-            "v1": "Երգարան Word Files/19 .docx"
+            "Title": "Հարուցյալ է Տերն այսօր, ալելուիա",
+            "latestVersion": "Երգարան Word Files/19 Հարուցյալ է Տերն այսօր, ալելուիա.docx",
+            "v1": "Երգարան Word Files/19 Հարուցյալ է Տերն այսօր, ալելուիա.docx"
         },
         "20": {
             "Title": "Գեթսեման պարտեզն մտեք,",
@@ -847,9 +847,10 @@
             "v1": "RED Words/102.docx"
         },
         "103": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/103 .docx",
-            "v1": "Երգարան Word Files/103 .docx"
+            "Title": "Դեպի ուղին տառապանքի",
+            "latestVersion": "Երգարան Word Files/103 Դեպի ուղին տառապանքի v2.docx",
+            "v1": "Երգարան Word Files/103.Դեպի ուղին տառապանքի.docx",
+            "v2": "Երգարան Word Files/103 Դեպի ուղին տառապանքի v2.docx"
         },
         "104": {
             "Title": "Երանելի այն օրն է, Տե՛ր,",
@@ -1650,9 +1651,9 @@
             "Comments": "Dance-P5-5"
         },
         "196": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/196 .docx",
-            "v1": "Երգարան Word Files/196 .docx"
+            "Title": "Եթե կուզես Տերը տեսնել",
+            "latestVersion": "Երգարան Word Files/196 Եթե կուզես Տերը տեսնել.docx",
+            "v1": "Երգարան Word Files/196 Եթե կուզես Տերը տեսնել.docx"
         },
         "197": {
             "Title": "Դու եկար այս աշխարհ",
@@ -2850,7 +2851,7 @@
             "v1": "RED Words/332.docx",
             "v2": "Երգարան Word Files/332 Ղովտի նման այսօր ես էլ նեղվում եմ, հուզվում, v2.docx",
             "key": "E (-8)",
-            "speed": "100",
+            "speed": "95",
             "style": "Pop",
             "song_type": "Single Song",
             "timeSig": "4/4",
@@ -4513,7 +4514,7 @@
         },
         "542": {
             "Title": "Եկե՛ք միացեք մեր երգին",
-            "latestVersion": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v3.docx",
+            "latestVersion": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v4.docx",
             "v1": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին.docx",
             "v2": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v2.docx",
             "v3": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v3.docx",
@@ -4522,7 +4523,8 @@
             "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v4": "Երգարան Word Files/542 Եկե՛ք միացեք մեր երգին v4.docx"
         },
         "543": {
             "Title": "Երբ կենանք աղոթքի, մեր սրտերն",
@@ -4624,9 +4626,9 @@
             "v1": "RED Words/555.docx"
         },
         "556": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/556 .docx",
-            "v1": "Երգարան Word Files/556 .docx"
+            "Title": "Մեկը կար, որ հոժար էր",
+            "latestVersion": "Երգարան Word Files/556 Մեկը կար, որ հոժար էր v2.docx",
+            "v1": "Երգարան Word Files/556 Մեկը կար, որ հոժար էր v2.docx"
         },
         "557": {
             "Title": "Օրհնյալ ես Դու, Թագավոր",
@@ -4780,9 +4782,9 @@
             "v1": "Երգարան Word Files/575 Խաչը ուսին գնում էր Նա Գողգոթա.docx"
         },
         "576": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/576 .docx",
-            "v1": "Երգարան Word Files/576 .docx"
+            "Title": "Մարդկանց մենք տեսանք Գողգոթայում",
+            "latestVersion": "Երգարան Word Files/576 Մարդկանց մենք տեսանք Գողգոթայում v2.docx",
+            "v1": "Երգարան Word Files/576 Մարդկանց մենք տեսանք Գողգոթայում v2.docx"
         },
         "577": {
             "Title": "Գարուն է հիմա իմ հոգում.",
@@ -4895,8 +4897,9 @@
         },
         "594": {
             "Title": "Տրտմության մեջ իմ հոգու` հույսն է միակ",
-            "latestVersion": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ.docx",
-            "v1": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ.docx"
+            "latestVersion": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx",
+            "v1": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ.docx",
+            "v2": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx"
         },
         "595": {
             "Title": "Հեռվից է Տերն երևացել,",
@@ -5085,14 +5088,14 @@
             "Comments": "Pop-P1-3"
         },
         "624": {
-            "Title": "",
-            "latestVersion": "RED Words/624.docx",
-            "v1": "RED Words/624.docx"
+            "Title": "Տե՜ր, Դու սուրբ ես, սուրբ ես",
+            "latestVersion": "RED Words/624 Տե՜ր, Դու սուրբ ես, սուրբ ես.docx",
+            "v1": "RED Words/624 Տե՜ր, Դու սուրբ ես, սուրբ ես.docx"
         },
         "625": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/625 .docx",
-            "v1": "Երգարան Word Files/625 .docx"
+            "Title": "Ալելուիա",
+            "latestVersion": "Երգարան Word Files/625 Ալելուիա.docx",
+            "v1": "Երգարան Word Files/625 625 Ալելուիա.docx"
         },
         "626": {
             "Title": "Հա՛յր, սիրում ենք Քեզ,",
@@ -5394,9 +5397,9 @@
             "v1": "RED Words/676.docx"
         },
         "677": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/677 .docx",
-            "v1": "Երգարան Word Files/677 .docx"
+            "Title": "Ծնկի եկած Գեթսեմանի պարտեզում",
+            "latestVersion": "Երգարան Word Files/677 Ծնկի եկած Գեթսեմանի պարտեզում v2.docx",
+            "v1": "Երգարան Word Files/677 Ծնկի եկած Գեթսեմանի պարտեզում v2.docx"
         },
         "678": {
             "Title": "Որդին Աստծո իջավ, մարդացավ,",
@@ -5514,9 +5517,9 @@
             "v2": "Երգարան Word Files/697 Մեծ ու զարմանալի են v2.docx"
         },
         "698": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/698 .docx",
-            "v1": "Երգարան Word Files/698 .docx"
+            "Title": "Երգենք Տիրոջն՝ ալելուիա՜",
+            "latestVersion": "Երգարան Word Files/698 Երգենք Տիրոջն՝ ալելուիա՜.docx",
+            "v1": "Երգարան Word Files/698 Երգենք Տիրոջն՝ ալելուիա՜.docx"
         },
         "699": {
             "Title": "Տե՛ս, որքա՜ն բարի է, որքան ցանկալի,",
@@ -7124,16 +7127,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Մի՛ հիշիր մեր առաջվա ",
-            "latestVersion": "Երգարան Word Files/449 Մի՛ հիշիր մեր առաջվա  v2.docx",
-            "v1": "Երգարան Word Files/449 Մի՛ հիշիր մեր առաջվա .docx",
-            "v2": "Երգարան Word Files/449 Մի՛ հիշիր մեր առաջվա  v2.docx",
-            "key": "Gm",
-            "speed": "70",
-            "style": "Beat",
+            "Title": "Ղովտի նման այսօր ես էլ նեղվում եմ, հուզվում,",
+            "latestVersion": "Երգարան Word Files/332 Ղովտի նման այսօր ես էլ նեղվում եմ, հուզվում, v2.docx",
+            "v1": "RED Words/332.docx",
+            "v2": "Երգարան Word Files/332 Ղովտի նման այսօր ես էլ նեղվում եմ, հուզվում, v2.docx",
+            "key": "E (-8)",
+            "speed": "95",
+            "style": "Pop",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-4"
+            "Comments": "Pop-P5-4"
         }
     }
 }

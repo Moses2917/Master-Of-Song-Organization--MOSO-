@@ -128,7 +128,7 @@
         },
         "22": {
             "Title": "Կյանքդ կանցնի արագ արագ",
-            "latestVersion": "Word songs/22 Կյանքդ կանցնի արագ արագ v2.docx",
+            "latestVersion": "Word songs/22 Կյանքդ կանցնի արագ արագ v3.docx",
             "v1": "Word songs/22  v1.docx",
             "key": "Em",
             "speed": "114",
@@ -136,14 +136,13 @@
             "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3",
-            "v2": "Word songs/22 Կյանքդ կանցնի արագ արագ v2.docx"
+            "v2": "Word songs/22 Կյանքդ կանցնի արագ արագ v2.docx",
+            "v3": "Word songs/22 Կյանքդ կանցնի արագ արագ v3.docx"
         },
         "23": {
             "Title": "Այս կյանքս պատերազմ է, և մենք՝ զինվորներ,",
-            "latestVersion": "Word songs/23 ․Այս կյանքս պատերազմ է, և մենք՝ զինվորներ, v3.docx",
-            "v1": "Word songs\\pptSong\\23.Այս կյանքս պատերազմ է.docx",
-            "v2": "Word songs/23 ․Այս կյանքս պատերազմ է, և մենք՝ զինվորներ, v2.docx",
-            "v3": "Word songs/23 ․Այս կյանքս պատերազմ է, և մենք՝ զինվորներ, v3.docx"
+            "latestVersion": "Word songs\\pptSong\\23.Այս կյանքս պատերազմ է.docx",
+            "v1": "Word songs\\pptSong\\23.Այս կյանքս պատերազմ է.docx"
         },
         "24": {
             "Title": "Լուռ գիշեր, սուրբ գիշեր",
@@ -1858,7 +1857,7 @@
         },
         "404": {
             "Title": "Հույսի ճառագայթ ճախրեց երկնքում",
-            "latestVersion": "Word songs/404  v4.docx",
+            "latestVersion": "Word songs/404 Հույսի ճառագայթ ճախրեց երկնքում v4.docx",
             "v1": "Word songs/404  v1.docx",
             "v2": "Word songs/404  v2.docx",
             "v3": "Word songs/404  v3.docx",
@@ -2011,8 +2010,8 @@
         },
         "429": {
             "Title": "",
-            "latestVersion": "Word songs/429  v1.docx",
-            "v1": "Word songs/429  v1.docx"
+            "latestVersion": "Word songs\\pptSong\\429 Տիրոջը նոր երգ երգենք.docx",
+            "v1": "Word songs\\pptSong\\429 Տիրոջը նոր երգ երգենք.docx"
         },
         "430": {
             "Title": "Պիտի փարվեմ քո սուրբ լանջին",
@@ -2162,8 +2161,8 @@
         },
         "457": {
             "Title": "Պենտեկոստեի օրը Սուրբ Հոգին.docx",
-            "latestVersion": "Word songs/457 Պենտեկոստեի օրը Սուրբ Հոգին.docx.docx",
-            "v1": "Word songs/457 Պենտեկոստեի օրը Սուրբ Հոգին.docx.docx"
+            "latestVersion": "Word songs/457 Պենտեկոստեի օրը Սուրբ Հոգին.docx",
+            "v1": "Word songs/457 Պենտեկոստեի օրը Սուրբ Հոգին.docx"
         },
         "458": {
             "Title": "Սիրտս երբ քեզ ես տվեցի",
@@ -2337,14 +2336,15 @@
         },
         "490": {
             "Title": "Տերն իմ, Սերն իմ, Կյանքն իմ",
-            "latestVersion": "Word songs/490 Տերն իմ, Սերն իմ, Կյանքն իմ.docx",
+            "latestVersion": "Word songs/490 Տերն իմ, Սերն իմ, Կյանքն իմ v2.docx",
             "v1": "Word songs/490 Տերն իմ, Սերն իմ, Կյանքն իմ.docx",
             "key": "Em",
             "speed": "72",
             "style": " Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Any beat"
+            "Comments": "Any beat",
+            "v2": "Word songs/490 Տերն իմ, Սերն իմ, Կյանքն իմ v2.docx"
         },
         "491": {
             "Title": "Երկնային տաճարը մտնենք",
@@ -2401,7 +2401,7 @@
         },
         "498": {
             "Title": "Հիսուս ես սիրում եմ Քեզ",
-            "latestVersion": "Word songs/498 Հիսուս ես սիրում եմ Քեզ v2.docx",
+            "latestVersion": "Word songs/498 Հիսուս ես սիրում եմ Քեզ v3.docx",
             "v1": "Word songs/498 Հիսուս ես սիրում եմ Քեզ.docx",
             "key": "Em",
             "speed": "74",
@@ -2409,7 +2409,8 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3",
-            "v2": "Word songs/498 Հիսուս ես սիրում եմ Քեզ v2.docx"
+            "v2": "Word songs/498 Հիսուս ես սիրում եմ Քեզ v2.docx",
+            "v3": "Word songs/498 Հիսուս ես սիրում եմ Քեզ v3.docx"
         },
         "499": {
             "Title": "Երկնքի զորությունները անվերջ",
@@ -3221,8 +3222,8 @@
         },
         "633": {
             "Title": "",
-            "latestVersion": "Word songs/633 .docx",
-            "v1": "Word songs/633 .docx"
+            "latestVersion": "Word songs/633 Երբ գամ ու դուռդ թակեմ.docx",
+            "v1": "Word songs/633 Երբ գամ ու դուռդ թակեմ.docx"
         },
         "634": {
             "Title": "Երբ օրհնյալ Տերն հպավ շուրթիս",
@@ -3425,7 +3426,7 @@
         },
         "661": {
             "Title": "Աստծո ժողովուրդ ով բոլոր սուրբեր",
-            "latestVersion": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v3.docx",
+            "latestVersion": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v4.docx",
             "v1": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր.docx",
             "v2": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v2.docx",
             "v3": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v3.docx",
@@ -3434,7 +3435,8 @@
             "style": "Disco",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v4": "Word songs/661 Աստծո ժողովուրդ ով բոլոր սուրբեր v4.docx"
         },
         "662": {
             "Title": "Գոհութուն Աստծո բոլոր սրտով",
@@ -3915,7 +3917,7 @@
         },
         "720": {
             "Title": "Թույլ տուր մնամ",
-            "latestVersion": "Word songs/720 Թույլ տուր մնամ v2.docx",
+            "latestVersion": "Word songs/720 Թույլ տուր մնամ v3.docx",
             "v1": "Word songs/720 Թույլ տուր մնամ.docx",
             "v2": "Word songs/720 Թույլ տուր մնամ v2.docx",
             "key": "G#m",
@@ -3923,7 +3925,8 @@
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v3": "Word songs/720 Թույլ տուր մնամ v3.docx"
         },
         "721": {
             "Title": "Մեծ է Արարիչ մեր Աստված",
@@ -4020,7 +4023,7 @@
         },
         "733": {
             "Title": "Կա մի աշխարհ լուսե",
-            "latestVersion": "Word songs/733 Կա մի աշխարհ լուսե v2.docx",
+            "latestVersion": "Word songs/733 Կա մի աշխարհ լուսե v3.docx",
             "v1": "Word songs/733 Կա մի աշխարհ լուսե.docx",
             "v2": "Word songs/733 Կա մի աշխարհ լուսե v2.docx",
             "key": "Gm (-2)",
@@ -4028,7 +4031,8 @@
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Any ballad"
+            "Comments": "Any ballad",
+            "v3": "Word songs/733 Կա մի աշխարհ լուսե v3.docx"
         },
         "734": {
             "Title": "Դու ապավենն ես իմ սրտի",
