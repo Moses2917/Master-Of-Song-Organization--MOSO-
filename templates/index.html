@@ -299,13 +299,13 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        // 'session': {{session}},
+                        // 'session': session,
                         'attribute': attribute.value,
                         'book': book.value,
                         'query': query.value
                     })
                 })
-                    .then(response => response.json())
+                    .then(response => response.text())
                     .then(text => {
                         const table = document.createElement('table'); // table
                         table.classList.add('table')//, 'table-striped', 'table-hover'); // table class
@@ -329,44 +329,51 @@
                         document.getElementById('songstable').appendChild(table);
 
                         // tablebody.textContent='' //clear the table, Could also do class="fw-normal" if too much eye-sore
-                        for (const [key, value] of Object.entries(text)) {
+                        const result = JSON.parse(text)//Object.entries(text);
+                        const entries = result[0]
+                        console.log(entries)
+                        const song_order = result[1]
+                        song_order.forEach(song_num => {
+                            
+                            // for (const [key, value] of entries) {
                             const row = document.createElement('tr');
                             row.setAttribute('id', key);
                             if (attribute.value == 'Full_Text' && query.value != '') {
                                 row.innerHTML = `
-                                    <td data-bs-toggle="tooltip" data-bs-title="Book">${value['book'] || ''}</td>
-                                    <td><a class="btn btn-outline-primary" href="/song/${value['book']}/${key}">${key}</a></td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="lyrics">${value['lyrics'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${value['last_sang_on'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Book">${entries[song_num]['book'] || ''}</td>
+                                <td><a class="btn btn-outline-primary" href="/song/${entries[song_num]['book']}/${song_num}">${song_num}</a></td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${entries[song_num]['Title'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="lyrics">${entries[song_num]['lyrics'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Key">${entries[song_num]['key'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${entries[song_num]['speed'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${entries[song_num]['timeSig'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${entries[song_num]['style'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${entries[song_num]['song_type'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${entries[song_num]['Comments'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${entries[song_num]['last_sang_on'] || ''}</td>
                                 `;
                             }
                             else {
                                 row.innerHTML = `
-                                    <td><a class="btn btn-outline-primary" href="/song/${book.value}/${key}">${key}</a></td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="lyrics">${value['lyrics'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${value['last_sang_on'] || ''}</td>
+                                <td><a class="btn btn-outline-primary" href="/song/${book.value}/${song_num}">${song_num}</a></td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${entries[song_num]['Title'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="lyrics">${entries[song_num]['lyrics'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Key">${entries[song_num]['key'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${entries[song_num]['speed'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${entries[song_num]['timeSig'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${entries[song_num]['style'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${entries[song_num]['song_type'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${entries[song_num]['Comments'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${entries[song_num]['last_sang_on'] || ''}</td>
                                 `;
                             }
                             tablebody.appendChild(row);
-                        }
+                        });
                     });
-            }
+                    
+                }
 
-            if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
+                if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
                 scrollspydiv.style = "position: fixed; left: 20px;"
                 if (attribute.value == 'all' && query.value == '') { //case: attr.val == 'all'
                     search()
