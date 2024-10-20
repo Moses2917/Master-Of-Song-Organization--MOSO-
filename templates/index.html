@@ -118,7 +118,14 @@
                 </div>
                 <br>
                 <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit"
-                    style="display: none;">Submit</button>
+                    onclick="tsank_search()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
+                        </path>
+                    </svg>
+                    Search</button>
             </div>
         </header>
         <div class="container mt-5" id="keyboard_container">
@@ -304,9 +311,9 @@
                         table.classList.add('table')//, 'table-striped', 'table-hover'); // table class
                         const thead = document.createElement('thead');
                         const tr = document.createElement('tr');
-                        let ths = ['SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments','Last Sang On'];
+                        let ths = ['SongNum', 'Title', 'Lyrics', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments','Last Sang On'];
                         if (attribute.value == 'Full_Text' && query.value != '') {
-                            ths = ['Book', 'SongNum', 'Title', 'Latest Version', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
+                            ths = ['Book', 'SongNum', 'Title', 'Lyrics', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
                         }
                         for (const th of ths) {
                             const thEl = document.createElement('th');
@@ -321,7 +328,7 @@
                         document.getElementById('songstable').innerHTML = '';
                         document.getElementById('songstable').appendChild(table);
 
-                        // tablebody.textContent='' //clear the table
+                        // tablebody.textContent='' //clear the table, Could also do class="fw-normal" if too much eye-sore
                         for (const [key, value] of Object.entries(text)) {
                             const row = document.createElement('tr');
                             row.setAttribute('id', key);
@@ -330,7 +337,7 @@
                                     <td data-bs-toggle="tooltip" data-bs-title="Book">${value['book'] || ''}</td>
                                     <td><a class="btn btn-outline-primary" href="/song/${value['book']}/${key}">${key}</a></td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="lyrics">${value['lyrics'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
@@ -344,7 +351,7 @@
                                 row.innerHTML = `
                                     <td><a class="btn btn-outline-primary" href="/song/${book.value}/${key}">${key}</a></td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="lyrics">${value['lyrics'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
@@ -376,6 +383,7 @@
 
         tsank_search() // called when the page loads bc sometimes a user is coming back from a result and this should be called
     </script>
+    <!-- Attr. search -->
     <script>
         function spinner() {
               '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
@@ -493,6 +501,8 @@
 
         }
     </script>
+
+    <!-- Notif. Controls -->
     <script>
         function hide_toast() {
             if (toastdiv.style.display == "none") {
@@ -522,6 +532,8 @@
         }
         init_tooltip()
     </script>
+
+    <!-- Armenian Keyboard script -->
     <script>
 
         function toggleKeyboard() {

@@ -36,27 +36,33 @@ def search_lyrics(query, vectorizer, tfidf_matrix, song_ids, top_k=10):
     
     return results
 
-def main():
-    file_path = 'AllLyrics.json'  # Ensure this matches your JSON file name
+# def load_into_mem():
+#     file_path = 'AllLyrics.json'
+#     song_lyrics = load_json_data(file_path)
+    
+#     all_lyrics, song_ids = extract_lyrics(song_lyrics)
+#     vectorizer, tfidf_matrix = create_tfidf_matrix(all_lyrics)
+
+def main(query):
+    file_path = 'AllLyrics.json'
     song_lyrics = load_json_data(file_path)
     
     all_lyrics, song_ids = extract_lyrics(song_lyrics)
     vectorizer, tfidf_matrix = create_tfidf_matrix(all_lyrics)
+    # while True:
+        # query = input("Enter your search query (or 'quit' to exit): ")
+        # if query.lower() == 'quit':
+        #     break
     
-    while True:
-        query = input("Enter your search query (or 'quit' to exit): ")
-        if query.lower() == 'quit':
-            break
-        
-        results = search_lyrics(query, vectorizer, tfidf_matrix, song_ids)
-        
-        for section, song_id, similarity in results:
-            print(f"Section: {section}")
-            print(f"Song ID: {song_id}")
-            print(f"Similarity: {similarity:.4f}")
-            lyrics = song_lyrics[section][song_id]
-            print(f"Lyrics excerpt: {lyrics[:100]}...")
-            print("---")
+    results = search_lyrics(query, vectorizer, tfidf_matrix, song_ids)
+    return results    
+    # for section, song_id, similarity in results:
+    #     print(f"Section: {section}")
+    #     print(f"Song ID: {song_id}")
+    #     print(f"Similarity: {similarity:.4f}")
+    #     lyrics = song_lyrics[section][song_id]
+    #     print(f"Lyrics excerpt: {lyrics[:100]}...")
+    #     print("---")
 
 if __name__ == "__main__":
-    main()
+    main("միակ փափագն ես իմ հոգու")

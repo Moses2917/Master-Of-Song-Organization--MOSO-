@@ -7,14 +7,15 @@ from flask import Flask, jsonify, render_template, request, redirect, url_for, s
 import json
 #Setup mongodb
 from pymongo import MongoClient
+import lyric_search_engine
 
-with open('{}\\Documents\\Code\\mongoPass.txt'.format(env.get("OneDrive")), 'r') as mongoPass:
-    uri = "mongodb+srv://{}@cluster0.kgkoljn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0".format(mongoPass.read()) #env.get('mongo_user')
+# with open('{}\\Documents\\Code\\mongoPass.txt'.format(env.get("OneDrive")), 'r') as mongoPass:
+#     uri = "mongodb+srv://{}@cluster0.kgkoljn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0".format(mongoPass.read()) #env.get('mongo_user')
 
 # Create a new client and connect to the server
-client = MongoClient(uri)
-songDB = client.get_database("songs")
-songDB = songDB.get_collection("allSongs")
+# client = MongoClient(uri)
+# songDB = client.get_database("songs")
+# songDB = songDB.get_collection("allSongs")
 
 ENV_FILE = find_dotenv("{}\Documents\Code\.env".format(env.get("OneDrive")))
 if ENV_FILE:
@@ -331,7 +332,7 @@ def songSearch(searchLyrics) -> list:
         list: A list of search results, where each result is a dictionary containing the book, song number, and title of the song.
     """
 
-    if searchLyrics:
+    if searchLyrics:        
         query = {
             "$search": {
                 "index": "search_index",
@@ -358,36 +359,29 @@ def songSearch(searchLyrics) -> list:
                 }
             }
         }
-        results = songDB.aggregate([query, {"$limit": 10}])
+        # results = songDB.aggregate([query, {"$limit": 10}])
+        results = lyric_search_engine.main(searchLyrics)
         searchResults = []
  
-        n = 1
+    
         for result in results:
-            if n <= 10:
-                if result['book'] == 'Old':
-                    with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
-                        index = json.load(f)
-                else:
-                    with open('REDergaran.json', 'r', encoding='utf-8') as f:
-                        index = json.load(f) 
-                
-                title = index['SongNum'][result['songNum']]['Title']
-                
-                title = title.split('\n')[0]
-                    
-                # searchResults.append({
-                #     # 'lyrics': result['lyrics'],
-                #     'book': result['book'],
-                #     'songNum': result['songNum'], # add a title var
-                #     'title': title
-                # })
-                searchResults.append(
-                    f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=result['book'],songnum=result['songNum'])}">{result['songNum']}: {title}</a>'''
-                )
+        
+            if result[0] == 'Old':
+                with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
+                    index = json.load(f)
             else:
-                break
+                with open('REDergaran.json', 'r', encoding='utf-8') as f:
+                    index = json.load(f) 
             
-            n = n + 1
+            title = index['SongNum'][result[1]]['Title']
+            
+            title = title.split('\n')[0]
+            
+            
+            
+            searchResults.append(
+                f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=result[0],songnum=result[1])}">{result[1]}: {title}</a>'''
+            )
 
         return json.dumps(searchResults)
 
@@ -650,6 +644,7 @@ def temp_home():
                     print(query)
                 
                 if attribute == 'Full_Text':
+                    song_lyrics = lyric_search_engine.load_json_data('AllLyrics.json')
                     table_data = {}
                     links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
                     from re import findall
@@ -658,6 +653,8 @@ def temp_home():
                         song_num = findall(r'\d+', link)[0]
                         table_data[song_num] = getSong(book, song_num)
                         table_data[song_num]["book"] = book
+                        lyrics = song_lyrics[book][song_num]
+                        table_data[song_num]['lyrics'] = lyrics[:100]
                     # print(table_data)
                         
                     # print(links)
