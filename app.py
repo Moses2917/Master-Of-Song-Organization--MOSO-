@@ -366,7 +366,7 @@ def songSearch(searchLyrics) -> list:
     
         for result in results:
         
-            if result[0] == 'Old':
+            if result[0].lower() == 'old':
                 with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
                     index = json.load(f)
             else:
@@ -644,6 +644,7 @@ def temp_home():
                     print(query)
                 
                 if attribute == 'Full_Text':
+                    song_order = []
                     song_lyrics = lyric_search_engine.load_json_data('AllLyrics.json')
                     table_data = {}
                     links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
@@ -655,11 +656,12 @@ def temp_home():
                         table_data[song_num]["book"] = book
                         lyrics = song_lyrics[book][song_num]
                         table_data[song_num]['lyrics'] = lyrics[:100]
+                        song_order.append(song_num)
                     # print(table_data)
                         
                     # print(links)
                     # return json.dumps(links)
-                    return json.dumps(table_data)
+                    return json.dumps([table_data,song_order])
                 
                 if book and attribute and not query:
                     # print(load_table_data(book=book))
