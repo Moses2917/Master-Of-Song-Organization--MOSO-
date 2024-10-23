@@ -665,7 +665,7 @@ def temp_home():
                 
                 if book and attribute and not query:
                     # print(load_table_data(book=book))
-                    return json.dumps(load_table_data(book=book))
+                    return json.dumps([load_table_data(book=book)])
                 
                 if query and book and attribute: # if attr is full_text
                     table_data = load_table_data(book=book)
