@@ -412,12 +412,12 @@ def display_song(book, songnum) -> str:
     with open('song_occurrences.json', 'r', encoding='utf-8') as f:
         occr = json.load(f)
     
-    past_songs = songSearch(songnum, book)
-    
-    if book == 'wordSongsIndex' or book == 'Old':
+    book = book.lower()
+    if book == 'wordsongsindex' or book == 'old':
         book = 'Old'
     else:
         book = 'New'
+    past_songs = songSearch(songnum, book)
     similar_songs = None
     if songnum in occr[book]:
         similar_songs = occr[book][songnum]
@@ -924,7 +924,8 @@ def newSundaySong():
         only_last_two_songs = data['only_last_two_songs']
         from song_curator import find_sunday_song
         reccomened_songs = find_sunday_song(only_first_two_songs, only_worship_songs, only_last_two_songs)
-        return jsonify(reccomened_songs)
+        
+        return jsonify(reccomened_songs) if reccomened_songs else jsonify(None)
     return render_template('newSundaySongs.html')
 
 @app.route('/weekdaySong', methods=['GET', 'POST'])
