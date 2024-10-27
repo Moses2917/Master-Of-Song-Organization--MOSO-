@@ -1541,16 +1541,22 @@
         "basePth": "Երգեր\\10.2024",
         "songList": "[('New', '187'), ('New', '473'), ('New', '348'), ('New', '580'), ('New', '332'), ('New', '319')]"
     },
-    "10.17.24PORC_PORC.docx": {
-        "dateMod": 1729227342.0,
-        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\10.2024\\10.17.24PORC_PORC.docx",
+    "10.20.24.docx": {
+        "dateMod": 1729442748.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\10.2024\\10.20.24.docx",
         "basePth": "Երգեր\\10.2024",
         "songList": "[('New', '542'), ('Old', '22'), ('Old', '498'), ('Old', '490'), ('Old', '720'), ('Old', '733'), ('New', '594'), ('Old', '661')]"
     },
-    "10.19.24.docx": {
-        "dateMod": 1729405427.550194,
-        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\10.2024\\10.19.24.docx",
+    "10.22.24.docx": {
+        "dateMod": 1729646363.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\10.2024\\10.22.24.docx",
         "basePth": "Երգեր\\10.2024",
-        "songList": "[('New', '131')]"
+        "songList": "[('New', '173'), ('New', '69'), ('New', '380'), ('New', '170'), ('New', '89'), ('New', '35')]"
+    },
+    "10.24.24.docx": {
+        "dateMod": 1729817912.271842,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\10.2024\\10.24.24.docx",
+        "basePth": "Երգեր\\10.2024",
+        "songList": "[('New', '770'), ('New', '549'), ('New', '517'), ('New', '330'), ('New', '142'), ('New', '363')]"
     }
 }

@@ -311,7 +311,7 @@
             "latestVersion": "Երգարան Word Files/35  v3.docx",
             "v1": "Երգարան Word Files/35 .docx",
             "v2": "Երգարան Word Files/35  v2.docx",
-            "key": "E",
+            "key": "F",
             "speed": "100",
             "style": "Swing ",
             "opening_Song": "",
@@ -320,7 +320,7 @@
             "Comment": null,
             "v3": "Երգարան Word Files/35  v3.docx",
             "song_type": "None",
-            "Comments": ""
+            "Comments": "Jazz-P3-7"
         },
         "36": {
             "Title": "Մի՛ վախենար երբեք,",
@@ -596,7 +596,7 @@
             "latestVersion": "Երգարան Word Files/69 Ի՜նչ մեծ ու քաղցր է պատգամն այն, երբ հավատանք, v2.docx",
             "v1": "RED Words/69.docx",
             "v2": "Երգարան Word Files/69 Ի՜նչ մեծ ու քաղցր է պատգամն այն, երբ հավատանք, v2.docx",
-            "key": "G",
+            "key": "F # (-6)",
             "speed": "94",
             "style": "Ballad",
             "song_type": "Single Song",
@@ -1437,7 +1437,7 @@
             "Title": "Ո՜վ Հայր երկնային, Աստվա՛ծ ճշմարիտ,",
             "latestVersion": "RED Words/173.docx",
             "v1": "RED Words/173.docx",
-            "key": "Cn",
+            "key": "Cm",
             "speed": "88",
             "style": "Ballad",
             "song_type": "Single Song",
@@ -4899,7 +4899,13 @@
             "Title": "Տրտմության մեջ իմ հոգու` հույսն է միակ",
             "latestVersion": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx",
             "v1": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ.docx",
-            "v2": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx"
+            "v2": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx",
+            "key": "Cm",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P1-8"
         },
         "595": {
             "Title": "Հեռվից է Տերն երևացել,",
@@ -7127,16 +7133,16 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Ղովտի նման այսօր ես էլ նեղվում եմ, հուզվում,",
-            "latestVersion": "Երգարան Word Files/332 Ղովտի նման այսօր ես էլ նեղվում եմ, հուզվում, v2.docx",
-            "v1": "RED Words/332.docx",
-            "v2": "Երգարան Word Files/332 Ղովտի նման այսօր ես էլ նեղվում եմ, հուզվում, v2.docx",
-            "key": "E (-8)",
-            "speed": "95",
-            "style": "Pop",
-            "song_type": "Single Song",
+            "Title": "Տրտմության մեջ իմ հոգու` հույսն է միակ",
+            "latestVersion": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx",
+            "v1": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ.docx",
+            "v2": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx",
+            "key": "Cm",
+            "speed": "67",
+            "style": "Ballad",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P5-4"
+            "Comments": "Ballad-P1-8"
         }
     }
 }

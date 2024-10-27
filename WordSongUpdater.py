@@ -2,6 +2,8 @@ import re, time, docx, json
 from os import path as pth, remove, environ
 from docx.shared import Pt
 
+from getAllLyrics import updateLyrics
+
 month = time.strftime('%m')
 year = time.strftime('%y')
 fullYear = time.strftime('%Y')
@@ -248,6 +250,8 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
             #Book_Index["SongNum"] = dict(sorted(Book_Index["SongNum"].items(), key=lambda x: int(x[0]))) # should sort the songs before saving
             json.dump(Book_Index, f, indent=4, ensure_ascii=False)
         print(base_file_path)
+    #TODO: make a function to update lyrics
+    updateLyrics(book="old", songNum='123')
 
 
 def getNums(filename: str):
