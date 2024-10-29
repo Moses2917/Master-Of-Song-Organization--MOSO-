@@ -3,6 +3,8 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import re
+
+#TODO: Migrat this to sqlite3
 def load_json_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -46,7 +48,8 @@ def search_lyrics(query, vectorizer, tfidf_matrix, song_ids, all_lyrics, top_k=1
         if ct == top_k - 1:
             break
         section, song_id = song_ids[idx]
-        results.append((section, song_id, cosine_similarities[idx]))
+        if not ((section, song_id) in results): ##TODO: if exact match, the same number may still pop up in the results
+            results.append((section, song_id, cosine_similarities[idx]))
         ct += 1
     if len(results) > top_k:
         return results[:top_k]

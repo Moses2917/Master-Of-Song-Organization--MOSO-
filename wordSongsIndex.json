@@ -3055,8 +3055,8 @@
             "latestVersion": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է v2.docx",
             "v1": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է.docx",
             "v2": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է v2.docx",
-            "key": "B flat (-2)",
-            "speed": "",
+            "key": "C",
+            "speed": "67",
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
@@ -3223,7 +3223,13 @@
         "633": {
             "Title": "",
             "latestVersion": "Word songs/633 Երբ գամ ու դուռդ թակեմ.docx",
-            "v1": "Word songs/633 Երբ գամ ու դուռդ թակեմ.docx"
+            "v1": "Word songs/633 Երբ գամ ու դուռդ թակեմ.docx",
+            "key": "F#m",
+            "speed": "72",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat or ballad"
         },
         "634": {
             "Title": "Երբ օրհնյալ Տերն հպավ շուրթիս",
@@ -4515,17 +4521,16 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Կա մի աշխարհ լուսե",
-            "latestVersion": "Word songs/733 Կա մի աշխարհ լուսե v3.docx",
-            "v1": "Word songs/733 Կա մի աշխարհ լուսե.docx",
-            "v2": "Word songs/733 Կա մի աշխարհ լուսե v2.docx",
-            "key": "Gm (-2)",
-            "speed": "68",
-            "style": "Ballad",
+            "Title": "Երբ տկար եմ, իմ անձը ընկճված է",
+            "latestVersion": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է v2.docx",
+            "v1": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է.docx",
+            "v2": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է v2.docx",
+            "key": "C",
+            "speed": "67",
+            "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Any ballad",
-            "v3": "Word songs/733 Կա մի աշխարհ լուսե v3.docx"
+            "Comments": "Any beat-ballad"
         },
         "760": {
             "Title": "",

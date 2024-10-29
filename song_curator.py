@@ -46,7 +46,7 @@ def getSong(book:str, songnum:str, batch = 0) -> dict:
     else:
         pass
     
-def collect_all_songs() -> dict:
+def collect_all_songs(only_sunday=False) -> dict:
     with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
         data = load(f)
     
@@ -56,12 +56,18 @@ def collect_all_songs() -> dict:
         file_date = findall(r"(.*\d)", file_date)[0]
         date_format = "%m.%d.%y"
         file_date = datetime.datetime.strptime(file_date, date_format) # file_date is now a datetime object
-        
-        if file_date.strftime('%A') != "Sunday":
-            found_songs[key] = {
-                'songList': data[key]['songList'],
-                'basePth': data[key]['basePth'],
-            }
+        if not only_sunday:
+            if file_date.strftime('%A') != "Sunday":
+                found_songs[key] = {
+                    'songList': data[key]['songList'],
+                    'basePth': data[key]['basePth'],
+                }
+        else:
+            if file_date.strftime('%A') == "Sunday":
+                found_songs[key] = {
+                    'songList': data[key]['songList'],
+                    'basePth': data[key]['basePth'],
+                }
     return found_songs
 
 def find_weekday_songs() -> dict:
@@ -97,10 +103,6 @@ def find_weekday_songs() -> dict:
                 print(possible_songs)
     temp = []
     for song_pairs in possible_opening_songs:
-        # must do songs, bc as of now its a pair of two
-        last_3_months = True
-        # for song in song_pairs:
-        # if not(song_pairs[0] in sang_in_last_3months and song_pairs[1] in sang_in_last_3months):
         try:
             song_pair1 = song_pairs[0]
             song_pair2 = song_pairs[1]
@@ -119,7 +121,8 @@ def find_weekday_songs() -> dict:
 
     latter_half_songs: list = choices(temp, k=3)
     # print(f"This is today's song order:\n{latter_half_songs}")
-    print("This is today's song order:")
+    # print("This is today's song order:")
+    print("The A.N.I. algorithm thinks this should be today's song order:")
     with open("REDergaran.json", 'r', encoding="utf-8") as f:
         REDergaran = load(f)
     songlist = {}
@@ -144,7 +147,7 @@ def find_weekday_songs() -> dict:
     
     return songlist
 ## TODO: Add a check to make sure that the song has been sang at least once
-find_weekday_songs()
+# find_weekday_songs()
 def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
     """
     Finds a song or a list of songs based on the given parameters.
@@ -159,11 +162,12 @@ def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_
     """
     # Only for sunday songs
     sang_in_last_3months = songCollector(sunday_only=True)
-    sang_in_last_year = songCollector(sunday_only=True,three_month_window=False, search_range=360)
+    # sang_in_last_year = songCollector(sunday_only=True,three_month_window=False, search_range=360)
+    all_songs_sang = collect_all_songs(only_sunday=True)
     possible_sunday_songs = []
-    for key in sang_in_last_year: # only doing this so I don't have to make another list
+    for key in all_songs_sang: # only doing this so I don't have to make another list
         if not sang_in_last_3months.get(key, None):
-            possible_songs: list = literal_eval(sang_in_last_year[key]["songList"])
+            possible_songs: list = literal_eval(all_songs_sang[key]["songList"])
             if only_first_two_songs:
                 possible_sunday_songs.append(possible_songs[0:2])
             elif only_worship_songs:

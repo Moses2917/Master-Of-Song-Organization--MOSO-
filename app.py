@@ -952,7 +952,14 @@ def get_song_lyrics(book,songnum):
     return jsonify(None)
 
 @app.route('/known_songs', methods=['GET','POST'])
-def known_songs():
+def known_songs():# add some func to be able to go backwards
+    # if request.method == "POST":
+    #     #Begin writing to the dict
+    #     pass
+    return render_template('known_songs.html')
+
+@app.route('/known_songs/newSong', methods=['GET'])
+def get_unknown_songs():# add some func to be able to go backwards
     # if request.method == "POST":
     #     #Begin writing to the dict
     #     pass

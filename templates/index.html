@@ -132,6 +132,7 @@
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-outline-light" id="keyboard_btn" onclick="toggleKeyboard()">Show
                     Keyboard</button>
+                    <!-- <a href="http://www.unicode.org/charts/PDF/U0370.pdf" target="_blank" rel="prefetch"></a> -->
             </div>
             <br>
             <div class="keyboard" id="keyboard" style="display: none;">
@@ -245,7 +246,88 @@
         data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0">
         <!-- style="overflow: auto; position: relative;"> -->
     </div>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scrollspy Visibility
+            const scrollspy = document.getElementById('scrollspydiv');
+            if (scrollspy) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100) {
+                        scrollspy.style.display = 'block';
+                        setTimeout(() => scrollspy.classList.add('visible'), 50);
+                    } else {
+                        scrollspy.classList.remove('visible');
+                        setTimeout(() => scrollspy.style.display = 'none', 300);
+                    }
+                });
+            }
+
+            // Keyboard Toggle Animation
+            const keyboardToggle = document.querySelector('.keyboard-toggle');
+            const keyboard = document.getElementById('keyboard');
+            if (keyboardToggle && keyboard) {
+                keyboardToggle.addEventListener('click', () => {
+                    keyboard.style.display = keyboard.style.display === 'none' ? 'block' : 'none';
+                });
+            }
+
+            // Smooth Scroll for Song Numbers
+            document.querySelectorAll('#scrollspydiv a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+
+                        // Add highlight effect
+                        target.style.transition = 'background-color 0.3s ease';
+                        target.style.backgroundColor = 'rgba(65, 105, 225, 0.1)';
+                        setTimeout(() => {
+                            target.style.backgroundColor = '';
+                        }, 1000);
+                    }
+                });
+            });
+
+            // Toast Animation
+            const toasts = document.querySelectorAll('.toast');
+            toasts.forEach(toast => {
+                toast.addEventListener('hide.bs.toast', function () {
+                    this.style.animation = 'slideOutRight 0.3s ease-out';
+                });
+            });
+
+            // Input Group Focus Effects
+            document.querySelectorAll('.input-group input, .input-group select').forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.closest('.input-group').style.transform = 'scale(1.01)';
+                });
+
+                input.addEventListener('blur', () => {
+                    input.closest('.input-group').style.transform = 'scale(1)';
+                });
+            });
+
+            // Keyboard Key Press Animation
+            document.querySelectorAll('#keyboard button').forEach(button => {
+                button.addEventListener('mousedown', function () {
+                    this.style.transform = 'scale(0.95)';
+                });
+
+                button.addEventListener('mouseup', function () {
+                    this.style.transform = '';
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    this.style.transform = '';
+                });
+            });
+        });
+    </script>
     <script>
         function book_select() {
             if (attribute.value == 'Full_Text') {
@@ -340,7 +422,7 @@
                                     row.setAttribute('id', key);
                                     row.innerHTML = `
                                     <td data-bs-toggle="tooltip" data-bs-title="Book">${entries[song_num]['book'] || ''}</td>
-                                    <td><a class="btn btn-outline-primary" href="/song/${entries[song_num]['book']}/${song_num}">${song_num}</a></td>
+                                    <td><a class="btn btn-outline-primary" href="/song/${entries[song_num]['book']}/${song_num}" rel="prefetch">${song_num}</a></td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Title">${entries[song_num]['Title'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="lyrics">${entries[song_num]['lyrics'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Key">${entries[song_num]['key'] || ''}</td>
@@ -370,7 +452,7 @@
                                     row.innerHTML = `
                                     <td><a class="btn btn-outline-primary" href="/song/${book.value}/${key}">${key}</a></td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="lyrics">${value['lyrics'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="latestVersion">${value['latestVersion'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
                                     <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
@@ -657,4 +739,326 @@
         });
     </script>
 </div>
+
+<style>
+    /* Scrollspy Animations */
+    #scrollspydiv {
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    #scrollspydiv.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    #scrollspydiv .dropdown-item {
+        transition: all 0.2s ease;
+    }
+
+    #scrollspydiv .dropdown-item:hover {
+        transform: translateX(5px);
+    }
+
+    #scrollspydiv .dropdown-item:active {
+        transform: scale(0.95) translateX(5px);
+    }
+
+    /* Toast Animations */
+    .toast-container {
+        transition: all 0.3s ease;
+    }
+
+    .toast.fade.show {
+        animation: slideInRight 0.3s ease-out;
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Search Container Animations */
+    .sticky-container {
+        transition: box-shadow 0.3s ease;
+    }
+
+    .sticky-container:focus-within {
+        box-shadow: 0 0 15px rgba(65, 105, 225, 0.3) !important;
+    }
+
+    /* Input Animations */
+    .input-group {
+        transition: transform 0.2s ease;
+    }
+
+    .input-group:focus-within {
+        transform: scale(1.01);
+    }
+
+    /* Keyboard Animations */
+    #keyboard {
+        animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    #keyboard button {
+        transition: all 0.2s ease;
+    }
+
+    #keyboard button:hover {
+        transform: translateY(-2px);
+        background-color: rgba(65, 105, 225, 0.1);
+    }
+
+    #keyboard button:active {
+        transform: scale(0.95) translateY(-2px);
+    }
+
+    /* Table Animations */
+    #songstable tr {
+        transition: all 0.2s ease;
+    }
+
+    #songstable tr:hover {
+        background-color: rgba(65, 105, 225, 0.1);
+    }
+
+    /* Search Button Animation */
+    .bi-search {
+        transition: transform 0.2s ease;
+    }
+
+    button:hover .bi-search {
+        transform: scale(1.1);
+    }
+
+    /* Attribute Table Animations */
+    #attributetable .input-group {
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Show/Hide Transitions */
+    #keyboard_container,
+    #book_select_div,
+    #attributetable {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    [style*="display: none"] {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    [style*="display: block"] {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+<style>
+    /* Table Row Animations */
+    #songstable tr {
+        animation: fadeInRow 0.4s ease forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    /* Stagger the animations for each row */
+    #songstable tr:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    #songstable tr:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    #songstable tr:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    #songstable tr:nth-child(4) {
+        animation-delay: 0.25s;
+    }
+
+    #songstable tr:nth-child(5) {
+        animation-delay: 0.3s;
+    }
+
+    /* ... and so on for however many rows you typically display */
+
+    @keyframes fadeInRow {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Add a subtle highlight for updated rows */
+    .row-updated {
+        animation: highlightRow 1s ease;
+    }
+
+    @keyframes highlightRow {
+        0% {
+            background-color: rgba(65, 105, 225, 0.2);
+        }
+
+        100% {
+            background-color: transparent;
+        }
+    }
+
+    /* Table loading state */
+    .table-loading {
+        position: relative;
+    }
+
+    .table-loading::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg,
+                transparent 25%,
+                rgba(65, 105, 225, 0.1) 50%,
+                transparent 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite linear;
+    }
+
+    @keyframes loading {
+        0% {
+            background-position: 200% 0;
+        }
+
+        100% {
+            background-position: -200% 0;
+        }
+    }
+</style>
+
+<script>
+    // Function to handle table updates with animations
+    function updateTableWithAnimation(tableElement, newData) {
+        // Add loading state
+        tableElement.classList.add('table-loading');
+
+        // Create temporary container for new content
+        const tempContainer = document.createElement('div');
+        tempContainer.innerHTML = newData;
+        const newTable = tempContainer.firstElementChild;
+
+        // Prepare current rows for exit animation
+        const currentRows = tableElement.querySelectorAll('tr');
+        currentRows.forEach(row => {
+            row.style.animation = 'fadeOutRow 0.3s ease forwards';
+        });
+
+        // After exit animation, update content and add entrance animation
+        setTimeout(() => {
+            // Remove loading state
+            tableElement.classList.remove('table-loading');
+
+            // Update table content
+            tableElement.innerHTML = newTable.innerHTML;
+
+            // Add entrance animation to new rows
+            const newRows = tableElement.querySelectorAll('tr');
+            newRows.forEach((row, index) => {
+                row.style.animationDelay = `${index * 0.05}s`;
+            });
+        }, 300);
+    }
+
+    // Helper function to highlight updated rows
+    function highlightUpdatedRow(row) {
+        row.classList.add('row-updated');
+        row.addEventListener('animationend', () => {
+            row.classList.remove('row-updated');
+        }, { once: true });
+    }
+
+    // Observe table changes
+    const tableObserver = new MutationObserver((mutations) => {
+        mutations.forEach(mutation => {
+            if (mutation.type === 'childList') {
+                const addedNodes = Array.from(mutation.addedNodes);
+                addedNodes.forEach(node => {
+                    if (node.nodeName === 'TR') {
+                        // Add animation to new rows
+                        node.style.animation = 'fadeInRow 0.4s ease forwards';
+                    }
+                });
+            }
+        });
+    });
+
+    // Start observing the table for changes
+    document.addEventListener('DOMContentLoaded', function () {
+        const songsTable = document.getElementById('songstable');
+        if (songsTable) {
+            tableObserver.observe(songsTable, {
+                childList: true,
+                subtree: true
+            });
+        }
+    });
+
+    // Function to handle search/filter updates
+    function handleTableUpdate(newData) {
+        const songsTable = document.getElementById('songstable');
+        if (songsTable) {
+            updateTableWithAnimation(songsTable, newData);
+        }
+    }
+
+    // Add this to your existing AJAX success handler or table update function
+    // Example usage in your existing code:
+    /*
+    $.ajax({
+        // ... your existing AJAX setup
+        success: function(response) {
+            handleTableUpdate(response.tableHtml);
+        }
+    });
+    */
+</script>
 {%endblock%}
