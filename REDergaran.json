@@ -458,7 +458,13 @@
         "53": {
             "Title": "Տկար զավակդ եմ, ո՜վ Տեր,",
             "latestVersion": "RED Words/53.docx",
-            "v1": "RED Words/53.docx"
+            "v1": "RED Words/53.docx",
+            "key": "C#m",
+            "speed": "86",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "54": {
             "Title": "Կօրհնենք Քեզ, Աստված",
@@ -1793,7 +1799,13 @@
         "212": {
             "Title": "Ամեն տեղ կերթամ ես Տեր Հիսուսի հետ,",
             "latestVersion": "RED Words/212.docx",
-            "v1": "RED Words/212.docx"
+            "v1": "RED Words/212.docx",
+            "key": "C",
+            "speed": "85",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "213": {
             "Title": "Դու՝ իմ ամուր ժայռ ու ապավեն,",
@@ -3107,7 +3119,13 @@
             "Title": "Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք",
             "latestVersion": "Երգարան Word Files/364 Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք v2.docx",
             "v1": "Երգարան Word Files/364 Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք.docx",
-            "v2": "Երգարան Word Files/364 Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք v2.docx"
+            "v2": "Երգարան Word Files/364 Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք v2.docx",
+            "key": "Bm",
+            "speed": "85",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         },
         "365": {
             "Title": "Տե՛ր, կուզեմ Քեզ վայելել,",
@@ -7133,16 +7151,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Տրտմության մեջ իմ հոգու` հույսն է միակ",
-            "latestVersion": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx",
-            "v1": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ.docx",
-            "v2": "Երգարան Word Files/594 Տրտմության մեջ իմ հոգու` հույսն է միակ v2.docx",
-            "key": "Cm",
-            "speed": "67",
-            "style": "Ballad",
-            "song_type": "Worship Song",
-            "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Title": "Տկար զավակդ եմ, ո՜վ Տեր,",
+            "latestVersion": "RED Words/53.docx",
+            "v1": "RED Words/53.docx",
+            "key": "C#m",
+            "speed": "86",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballad-P1-6"
         }
     }
 }

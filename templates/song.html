@@ -9,9 +9,12 @@
                     aria-controls="offcanvasPastSongs">
                     Check Past Songs
                 </button>
-                <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSimilarSongs"
+                <!-- <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSimilarSongs"
                     aria-controls="offcanvasSimilarSongs">
                     Similar Songs
+                </button> -->
+                <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" onclick="transliterate()">
+                    Transliterate Song
                 </button>
             <!-- </nav> -->
         </div>
@@ -27,8 +30,8 @@
     </script>
     <br>
     
-    <h3 class="text-center mb-4"> {{ lyrics|safe }} </h3>
-    
+    <h3 class="text-center mb-4" id="lyrics" lang="hy"> {{ lyrics|safe }} </h3>
+    <!-- Past Songs -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasPastSongs" aria-labelledby="offcanvasPastSongsLabel">
         <div class="offcanvas-header">
             <div class="list-group list-group-flush">
@@ -70,13 +73,13 @@
             {%endif%}
         </div>
     </div>
-
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasSimilarSongs" aria-labelledby="offcanvasSimilarSongsLabel">
+    <!-- Similar Songs -->
+    <!-- <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasSimilarSongs" aria-labelledby="offcanvasSimilarSongsLabel">
         <div class="offcanvas-header">
             <div class="list-group list-group-flush">
                 <li  class="list-group-item"><h5 class="offcanvas-title" id="offcanvasSimilarSongsLabel">Check Similar Songs</h5></li>
                 <li class="list-group-item"> <p> Սա օգնում է ձեզ տեսնել, թե որ երգերն ունեն նույն հատկանիշները, ինչ այս երգը: </p> </li>
-                <!-- <p class="list-group-item text-light" id="hint">Խորհուրդ. Սեղմեք այն երգը, որը ցանկանում եք բացել։</p> -->
+                
                 <div class="btn-group" role="group" onchange="tsank_attribute_search()">
                     <input type="checkbox" class="btn-check" id="Key">
                     <label for="Key" class="btn btn-outline-primary">Key</label>
@@ -95,10 +98,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div id="songstable" class="table-responsive fw-bold" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0" > <!-- style="overflow: auto; position: relative;"> -->
+            <div id="songstable" class="table-responsive fw-bold" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0" >
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <script>
     async function getAttributes() {
@@ -245,6 +248,79 @@
 
     // Add event listener for when the window is resized
     window.addEventListener('resize', checkViewportWidth);
+
+</script>
+
+<script>
+    function armenianToEnglish() {
+        // Armenian to English transliteration mapping
+        const armenianToLatin = {
+            'ա': 'a', 'բ': 'b', 'գ': 'g', 'դ': 'd', 'ե': 'e', 'զ': 'z', 'է': 'e',
+            'ը': '@', 'թ': 't', 'ժ': 'zh', 'ի': 'i', 'լ': 'l', 'խ': 'kh', 'ծ': 'ts',
+            'կ': 'k', 'հ': 'h', 'ձ': 'dz', 'ղ': 'gh', 'ճ': 'ch', 'մ': 'm', 'յ': 'y',
+            'ն': 'n', 'շ': 'sh', 'ո': 'o', 'չ': 'ch', 'պ': 'p', 'ջ': 'j', 'ռ': 'r',
+            'ս': 's', 'վ': 'v', 'տ': 't', 'ր': 'r', 'ց': 'ts', 'ւ': 'v', 'փ': 'p',
+            'ք': 'k', 'օ': 'o', 'ֆ': 'f', 'և': 'ev', 'ու': 'u',
+            // Uppercase mappings
+            'Ա': 'A', 'Բ': 'B', 'Գ': 'G', 'Դ': 'D', 'Ե': 'E', 'Զ': 'Z', 'Է': 'E',
+            'Ը': '@', 'Թ': 'T', 'Ժ': 'Zh', 'Ի': 'I', 'Լ': 'L', 'Խ': 'Kh', 'Ծ': 'Ts',
+            'Կ': 'K', 'Հ': 'H', 'Ձ': 'Dz', 'Ղ': 'Gh', 'Ճ': 'Ch', 'Մ': 'M', 'Յ': 'Y',
+            'Ն': 'N', 'Շ': 'Sh', 'Ո': 'O', 'Չ': 'Ch', 'Պ': 'P', 'Ջ': 'J', 'Ռ': 'R',
+            'Ս': 'S', 'Վ': 'V', 'Տ': 'T', 'Ր': 'R', 'Ց': 'Ts', 'Փ': 'P', 'Ք': 'K',
+            'Օ': 'O', 'Ֆ': 'F'
+        };
+        return armenianToLatin;
+    }
+
+    function transliterate() {
+        lang = document.getElementById('lyrics').lang;
+        if (lang == 'hy') {
+            text = document.getElementById('lyrics').innerText.trim();
+            const mapping = armenianToEnglish();
+            let result = '';
+            let i = 0;
+            // let lastWasBreak = false;  // Track if we just added a break
+            let brCt = 0;
+            
+            while (i < text.length) {
+                // Handle newline characters
+                if (text[i] === '\n') {
+                    if (brCt < 2) {  // Only add <br> if we haven't just added one
+                        result += '<br>';
+                        // lastWasBreak = true;
+                    } else {
+                        brCt = 0
+                    }
+                    brCt ++
+                    i += 1;
+                    continue;
+                }
+
+                // Reset the break tracker when we encounter non-newline characters
+                // lastWasBreak = false;
+
+                // Check for two-character combinations first
+                if (i < text.length - 1 && mapping[text[i] + text[i + 1]]) {
+                    result += mapping[text[i] + text[i + 1]];
+                    i += 2;
+                }
+                // Then check for single characters
+                else if (mapping[text[i]]) {
+                    result += mapping[text[i]];
+                    i += 1;
+                }
+                // If character is not in mapping, keep it as is
+                else {
+                    result += text[i];
+                    i += 1;
+                }
+            }
+
+            document.getElementById('lyrics').innerHTML = result;
+            document.getElementById('lyrics').lang = 'en';
+            // console.log(result);
+        }
+    }
 
 </script>
 
