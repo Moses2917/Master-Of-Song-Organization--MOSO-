@@ -1053,7 +1053,13 @@
         "128": {
             "Title": "Սիրտս կտապկի ծարավով մ’անհուն,",
             "latestVersion": "RED Words/128.docx",
-            "v1": "RED Words/128.docx"
+            "v1": "RED Words/128.docx",
+            "key": "Dm",
+            "speed": "74",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "129": {
             "Title": "Զի անցավոր պանդուխտ եմ ես,",
@@ -1659,7 +1665,13 @@
         "196": {
             "Title": "Եթե կուզես Տերը տեսնել",
             "latestVersion": "Երգարան Word Files/196 Եթե կուզես Տերը տեսնել.docx",
-            "v1": "Երգարան Word Files/196 Եթե կուզես Տերը տեսնել.docx"
+            "v1": "Երգարան Word Files/196 Եթե կուզես Տերը տեսնել.docx",
+            "key": "Fm",
+            "speed": "120",
+            "style": "Bossa ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P6-4"
         },
         "197": {
             "Title": "Դու եկար այս աշխարհ",
@@ -2443,7 +2455,13 @@
             "Title": "Գնում եմ ես Հիսուսիս տես",
             "latestVersion": "Երգարան Word Files/285 Գնում եմ ես Հիսուսիս տես v2.docx",
             "v1": "Երգարան Word Files/285 Գնում եմ ես Հիսուսիս տես.docx",
-            "v2": "Երգարան Word Files/285 Գնում եմ ես Հիսուսիս տես v2.docx"
+            "v2": "Երգարան Word Files/285 Գնում եմ ես Հիսուսիս տես v2.docx",
+            "key": "Bm",
+            "speed": "122",
+            "style": "Bossa Nova",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any Bossa"
         },
         "286": {
             "Title": "Ժամերը հաշված, քայլերը պատրաստ",
@@ -2606,13 +2624,25 @@
         "304": {
             "Title": "Խոստացյալ Սուրբ Հոգի`",
             "latestVersion": "RED Words/304.docx",
-            "v1": "RED Words/304.docx"
+            "v1": "RED Words/304.docx",
+            "key": "Cm",
+            "speed": "103",
+            "style": "Beguine ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-7"
         },
         "305": {
             "Title": "Թե մեղավոր կզգաս քեզի,",
             "latestVersion": "Երգարան Word Files/305 Թե մեղավոր կզգաս քեզի, v2.docx",
             "v1": "RED Words/305.docx",
-            "v2": "Երգարան Word Files/305 Թե մեղավոր կզգաս քեզի, v2.docx"
+            "v2": "Երգարան Word Files/305 Թե մեղավոր կզգաս քեզի, v2.docx",
+            "key": "C#m",
+            "speed": "100",
+            "style": "Beguine ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-7"
         },
         "306": {
             "Title": "Կա մի կյանք՝ պատրաստված",
@@ -2763,7 +2793,13 @@
         "320": {
             "Title": "Միակ Աստվածն է Եհովան, (2)",
             "latestVersion": "RED Words/320.docx",
-            "v1": "RED Words/320.docx"
+            "v1": "RED Words/320.docx",
+            "key": "E flat (-9)",
+            "speed": "",
+            "style": "Swing",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Jazz"
         },
         "321": {
             "Title": "Քաջ լինենք միշտ, եղբայրնե՛ր,",
@@ -3603,7 +3639,13 @@
         "427": {
             "Title": "Աղավնին է, ալելուիա",
             "latestVersion": "Երգարան Word Files/427 Աղավնին է, ալելուիա.docx",
-            "v1": "Երգարան Word Files/427 Աղավնին է, ալելուիա.docx"
+            "v1": "Երգարան Word Files/427 Աղավնին է, ալելուիա.docx",
+            "key": "Cm",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "428": {
             "Title": "Օ՜հ, խաչ Գողգոթայի,",
@@ -4511,7 +4553,13 @@
         "539": {
             "Title": "Սիրո կյանքի մեջ տերունական",
             "latestVersion": "RED Words/539.docx",
-            "v1": "RED Words/539.docx"
+            "v1": "RED Words/539.docx",
+            "key": "Dm",
+            "speed": "70",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "540": {
             "Title": "Եկե՛ք փառաբանենք,",
@@ -7151,15 +7199,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Տկար զավակդ եմ, ո՜վ Տեր,",
-            "latestVersion": "RED Words/53.docx",
-            "v1": "RED Words/53.docx",
-            "key": "C#m",
-            "speed": "86",
-            "style": "Waltz ",
+            "Title": "Միակ Աստվածն է Եհովան, (2)",
+            "latestVersion": "RED Words/320.docx",
+            "v1": "RED Words/320.docx",
+            "key": "E flat (-9)",
+            "speed": "",
+            "style": "Swing",
             "song_type": "Single Song",
-            "timeSig": "3/4",
-            "Comments": "Ballad-P1-6"
+            "timeSig": "4/4",
+            "Comments": "Jazz"
         }
     }
 }

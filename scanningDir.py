@@ -1,9 +1,7 @@
 from genericpath import isfile
 import json
 import os, datetime, re
-from regex import F
-import requests
-from sympy import N
+
 
 def getRecentSongs():
     # Todo: posibily change function to always append to it the latest files instead of just rewriting it always
@@ -187,7 +185,7 @@ def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=Tru
     # print(blocked_dict)
     return blocked_dict
 
-def search_song(data: json, song_num, book):
+def search_song(data: json, song_num, book, fast_method=False):
     """
     Searches for a song in the given data based on the song number and book.
 
@@ -211,9 +209,12 @@ def search_song(data: json, song_num, book):
                     'songs': songList
                 })
                 found = True
+                if fast_method: return True
                 # return item
-    if found:
+    if found: # will never be ran if fast_method = True
         return found_list
+    if fast_method:
+        return False
     return None
 
 def songSearch(song_num:str, book:str):
