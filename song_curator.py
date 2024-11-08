@@ -147,7 +147,7 @@ def find_weekday_songs() -> dict:
     
     return songlist
 ## TODO: Add a check to make sure that the song has been sang at least once
-# find_weekday_songs()
+find_weekday_songs()
 def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
     """
     Finds a song or a list of songs based on the given parameters.

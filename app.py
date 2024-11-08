@@ -953,17 +953,30 @@ def get_song_lyrics(book,songnum):
 
 @app.route('/known_songs', methods=['GET','POST'])
 def known_songs():# add some func to be able to go backwards
-    # if request.method == "POST":
-    #     #Begin writing to the dict
-    #     pass
+    from known_songs import update_known_songs
+    if request.method == "POST":
+        request_data = request.get_json()
+        songnum = request_data['songId']
+        book = request_data['book']
+        update_known_songs(book, songnum)
+        
     return render_template('known_songs.html')
 
+#TODO: Add a skip song feature
 @app.route('/known_songs/newSong', methods=['GET'])
 def get_unknown_songs():# add some func to be able to go backwards
-    # if request.method == "POST":
-    #     #Begin writing to the dict
-    #     pass
-    return render_template('known_songs.html')
+    from known_songs import get_a_song
+    song, book = get_a_song()
+    import concurrent.futures
+    with concurrent.futures.ThreadPoolExecutor() as exec:
+        future = exec.submit(openWord,song,book)
+        lyrics = future.result()
+    return jsonify([lyrics, book])
+    # return jsonify({
+    #     'song': lyrics,
+    #     'book': book
+    # })
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))

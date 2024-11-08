@@ -18,6 +18,8 @@
                 <div class="col-12 col-md-10 col-lg-8">
                     <div class="card bg-dark bg-opacity-50 border-0 rounded-3 transition-fade">
                         <div class="card-body position-relative">
+                            <div id="book" class="fs-4 text-center text-light opacity-transition">
+                            </div>
                             <div id="loadingSpinner" class="position-absolute top-50 start-50 translate-middle d-none">
                                 <div class="spinner-border text-light" role="status">
                                     <span class="visually-hidden">Loading...</span>
@@ -137,7 +139,7 @@
     }
 
     function submitChoirKnowledge() {
-        const songId = /* Get current song ID from your application state */;
+        // const songId = /* Get current song ID from your application state */;
 
         fetch('/api/choir-knowledge', {
             method: 'POST',
@@ -152,22 +154,23 @@
                 choirKnows: true
             })
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const btn = document.getElementById('choirKnowledgeBtn');
-                    btn.classList.remove('btn-primary');
-                    btn.classList.add('btn-success');
-                    btn.textContent = 'Song Marked as Known';
-                    btn.disabled = true;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Failed to update choir knowledge status');
-            });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const btn = document.getElementById('choirKnowledgeBtn');
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-success');
+                btn.textContent = 'Song Marked as Known';
+                btn.disabled = true;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to update choir knowledge status');
+        });
     }
-
+</script>
+<script>
     function generateNewSong() {
         // Reset all states
         currentSongData = {
@@ -188,6 +191,21 @@
         choirBtn.classList.add('btn-primary');
         choirBtn.textContent = 'Mark as Known by Choir';
         choirBtn.disabled = false;
+
+        fetch('/known_songs/newSong',{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.text())
+        .then(data => JSON.parse(data))
+        .then(data => {
+            // console.log(data)
+            lyrics = document.getElementById('lyrics');
+            lyrics.innerHTML = data[0];
+        })
+        
 
         // Your existing generate new song logic here
     }
