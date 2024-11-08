@@ -18,14 +18,15 @@
                 <div class="col-12 col-md-10 col-lg-8">
                     <div class="card bg-dark bg-opacity-50 border-0 rounded-3 transition-fade">
                         <div class="card-body position-relative">
-                            <div id="book" class="fs-4 text-center text-light opacity-transition">
-                            </div>
                             <div id="loadingSpinner" class="position-absolute top-50 start-50 translate-middle d-none">
                                 <div class="spinner-border text-light" role="status">
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
                             </div>
-                            <div id="lyrics" class="fs-5 text-center py-3 text-light opacity-transition"></div>
+                            <input type="hidden" id="songId" value="">
+                            <input type="hidden" id="book" value="">
+                            <div id="lyrics" class="fs-5 text-center py-3 text-light opacity-transition">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,7 +44,6 @@
                     </div>
                 </div>
 
-                <!-- Holiday/Event Song Check -->
                 <div class="attribute-group mb-3">
                     <h5 class="text-light text-center">Is this an Event/Holiday song?</h5>
                     <div class="d-flex justify-content-center gap-3">
@@ -55,7 +55,6 @@
                     </div>
                 </div>
 
-                <!-- Weekday Song Check -->
                 <div class="attribute-group mb-3">
                     <h5 class="text-light text-center">Is this a Weekday song?</h5>
                     <div class="d-flex justify-content-center gap-3">
@@ -67,12 +66,14 @@
                     </div>
                 </div>
 
-                <!-- Choir Knowledge Check -->
                 <div class="attribute-group mb-3">
                     <h5 class="text-light text-center">Does the choir know this song?</h5>
-                    <div class="d-flex justify-content-center">
-                        <button id="choirKnowledgeBtn" class="btn btn-primary" onclick="submitChoirKnowledge()">
-                            Mark as Known by Choir
+                    <div class="d-flex justify-content-center gap-3">
+                        <button id="choirKnowsBtn" class="btn btn-success" onclick="submitChoirKnowledge(true)">
+                            Yes, Choir Knows This Song
+                        </button>
+                        <button id="choirDoesntKnowBtn" class="btn btn-danger" onclick="submitChoirKnowledge(false)">
+                            No, Choir Doesn't Know This Song
                         </button>
                     </div>
                 </div>
@@ -80,134 +81,166 @@
         </div>
     </div>
 </div>
-<script>
-    // Add mutual exclusivity within each group
-    function setupMutualExclusion(yesId, noId) {
-        const yesCheckbox = document.getElementById(yesId);
-        const noCheckbox = document.getElementById(noId);
 
-        yesCheckbox.addEventListener('change', () => {
-            if (yesCheckbox.checked) noCheckbox.checked = false;
-        });
-
-        noCheckbox.addEventListener('change', () => {
-            if (noCheckbox.checked) yesCheckbox.checked = false;
-        });
-    }
-
-    // Setup all groups
-    setupMutualExclusion('sunday-yes', 'sunday-no');
-    setupMutualExclusion('holiday-yes', 'holiday-no');
-    setupMutualExclusion('weekday-yes', 'weekday-no');
-</script>
 <script>
     let currentSongData = {
+        songId: '',
+        book: '',
         isSunday: null,
         isHoliday: null,
         isWeekday: null,
-        choirKnows: false
+        choirKnows: null
     };
 
-    function setSundayStatus(status) {
-        currentSongData.isSunday = status;
-        updateButtonStates('sunday', status);
-    }
-
-    function setHolidayStatus(status) {
-        currentSongData.isHoliday = status;
-        updateButtonStates('holiday', status);
-    }
-
-    function setWeekdayStatus(status) {
-        currentSongData.isWeekday = status;
-        updateButtonStates('weekday', status);
-    }
-
-    function updateButtonStates(type, status) {
-        const group = document.querySelector(`.attribute-group:nth-child(${type === 'sunday' ? 1 : type === 'holiday' ? 2 : 3
-            })`);
-        const buttons = group.querySelectorAll('button');
-
-        buttons.forEach((btn, index) => {
-            btn.classList.remove('btn-outline-light', 'btn-light');
-            if ((index === 0 && status) || (index === 1 && !status)) {
-                btn.classList.add('btn-light');
-            } else {
-                btn.classList.add('btn-outline-light');
-            }
-        });
-    }
-
-    function submitChoirKnowledge() {
-        // const songId = /* Get current song ID from your application state */;
-
-        fetch('/api/choir-knowledge', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                songId: songId,
-                isSunday: currentSongData.isSunday,
-                isHoliday: currentSongData.isHoliday,
-                isWeekday: currentSongData.isWeekday,
-                choirKnows: true
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const btn = document.getElementById('choirKnowledgeBtn');
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-success');
-                btn.textContent = 'Song Marked as Known';
-                btn.disabled = true;
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to update choir knowledge status');
-        });
-    }
-</script>
-<script>
     function generateNewSong() {
-        // Reset all states
         currentSongData = {
+            songId: '',
+            book: '',
             isSunday: null,
             isHoliday: null,
             isWeekday: null,
-            choirKnows: false
+            choirKnows: null
         };
 
-        // Reset button states
-        document.querySelectorAll('.attribute-group button').forEach(btn => {
-            btn.classList.remove('btn-light');
-            btn.classList.add('btn-outline-light');
+        document.querySelectorAll('.btn-check').forEach(checkbox => {
+            checkbox.checked = false;
         });
 
-        const choirBtn = document.getElementById('choirKnowledgeBtn');
-        choirBtn.classList.remove('btn-success');
-        choirBtn.classList.add('btn-primary');
-        choirBtn.textContent = 'Mark as Known by Choir';
-        choirBtn.disabled = false;
+        // Reset both buttons
+        const knowsBtn = document.getElementById('choirKnowsBtn');
+        const doesntKnowBtn = document.getElementById('choirDoesntKnowBtn');
 
-        fetch('/known_songs/newSong',{
+        knowsBtn.classList.remove('btn-success', 'btn-secondary');
+        doesntKnowBtn.classList.remove('btn-danger', 'btn-secondary');
+
+        knowsBtn.classList.add('btn-success');
+        doesntKnowBtn.classList.add('btn-danger');
+
+        knowsBtn.disabled = false;
+        doesntKnowBtn.disabled = false;
+
+        fetch('/known_songs/newSong', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             }
         })
-        .then(response => response.text())
-        .then(data => JSON.parse(data))
-        .then(data => {
-            // console.log(data)
-            lyrics = document.getElementById('lyrics');
-            lyrics.innerHTML = data[0];
-        })
-        
+            .then(response => response.text())
+            .then(data => JSON.parse(data))
+            .then(data => {
+                const lyrics = document.getElementById('lyrics');
+                lyrics.innerHTML = data[0];
 
-        // Your existing generate new song logic here
+                currentSongData.songId = data[2];
+                currentSongData.book = data[1];
+
+                document.getElementById('songId').value = data[1];
+                document.getElementById('book').value = data[2];
+            });
+    }
+
+    function validateSelections() {
+        if (currentSongData.isSunday === null) {
+            alert('Please select whether this is a Sunday song');
+            return false;
+        }
+        if (currentSongData.isHoliday === null) {
+            alert('Please select whether this is a Holiday/Event song');
+            return false;
+        }
+        if (currentSongData.isWeekday === null) {
+            alert('Please select whether this is a Weekday song');
+            return false;
+        }
+        if (!currentSongData.songId || !currentSongData.book) {
+            alert('Error: Song data is missing. Please generate a new song.');
+            return false;
+        }
+        return true;
+    }
+
+    function submitChoirKnowledge(knows) {
+        if (!validateSelections()) {
+            return;
+        }
+
+        fetch('/known_songs', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                ...currentSongData,
+                choirKnows: knows
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const knowsBtn = document.getElementById('choirKnowsBtn');
+                    const doesntKnowBtn = document.getElementById('choirDoesntKnowBtn');
+
+                    // Disable both buttons
+                    knowsBtn.disabled = true;
+                    doesntKnowBtn.disabled = true;
+
+                    // Style the selected button and dim the other
+                    if (knows) {
+                        knowsBtn.classList.remove('btn-success');
+                        knowsBtn.classList.add('btn-success');
+                        doesntKnowBtn.classList.remove('btn-danger');
+                        doesntKnowBtn.classList.add('btn-secondary');
+                    } else {
+                        knowsBtn.classList.remove('btn-success');
+                        knowsBtn.classList.add('btn-secondary');
+                        doesntKnowBtn.classList.remove('btn-danger');
+                        doesntKnowBtn.classList.add('btn-danger');
+                    }
+
+                    currentSongData.choirKnows = knows;
+                }
+            })
+            // .catch(error => {
+            //     console.error('Error:', error);
+            //     alert('Failed to update choir knowledge status');
+            // });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Your existing event listeners for checkboxes here...
+        document.getElementById('sunday-yes').addEventListener('change', function () {
+            currentSongData.isSunday = this.checked;
+            if (this.checked) document.getElementById('sunday-no').checked = false;
+        });
+
+        document.getElementById('sunday-no').addEventListener('change', function () {
+            currentSongData.isSunday = !this.checked;
+            if (this.checked) document.getElementById('sunday-yes').checked = false;
+        });
+
+        document.getElementById('holiday-yes').addEventListener('change', function () {
+            currentSongData.isHoliday = this.checked;
+            if (this.checked) document.getElementById('holiday-no').checked = false;
+        });
+
+        document.getElementById('holiday-no').addEventListener('change', function () {
+            currentSongData.isHoliday = !this.checked;
+            if (this.checked) document.getElementById('holiday-yes').checked = false;
+        });
+
+        document.getElementById('weekday-yes').addEventListener('change', function () {
+            currentSongData.isWeekday = this.checked;
+            if (this.checked) document.getElementById('weekday-no').checked = false;
+        });
+
+        document.getElementById('weekday-no').addEventListener('change', function () {
+            currentSongData.isWeekday = !this.checked;
+            if (this.checked) document.getElementById('weekday-yes').checked = false;
+        });
+    });
+
+    function checkCurrentData() {
+        console.log(currentSongData);
     }
 </script>
 

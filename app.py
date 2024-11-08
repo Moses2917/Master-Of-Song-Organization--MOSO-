@@ -958,7 +958,17 @@ def known_songs():# add some func to be able to go backwards
         request_data = request.get_json()
         songnum = request_data['songId']
         book = request_data['book']
-        update_known_songs(book, songnum)
+        isHoliday = request_data['isHoliday']
+        isSunday = request_data['isSunday']
+        isWeekday = request_data['isWeekday']
+        known = request_data['choirKnows']
+        print(songnum)
+        print(book)
+        print(isHoliday)
+        print(isSunday)
+        print(isWeekday)
+        print(known)
+        update_known_songs(book, songnum, isHoliday, isSunday, isWeekday, known)
         
     return render_template('known_songs.html')
 
@@ -971,7 +981,7 @@ def get_unknown_songs():# add some func to be able to go backwards
     with concurrent.futures.ThreadPoolExecutor() as exec:
         future = exec.submit(openWord,song,book)
         lyrics = future.result()
-    return jsonify([lyrics, book])
+    return jsonify([lyrics, book, song])
     # return jsonify({
     #     'song': lyrics,
     #     'book': book

@@ -28,11 +28,12 @@ def collect_all_songs(only_sunday=False) -> dict:
     return found_songs
 # The logic here is that if we have sang that song before, then we know it.
 def get_all_unknown_songs():
+    from json import load, dump
     with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
         all_sang_songs = load(f)
     songs = {
-        'old': {}, #add a bool val. To tell the algo to not pick it?
-        'new': {}
+        'New': {}, #add a bool val. To tell the algo to not pick it?
+        'Old': {}
     }
     not_sang = []
     from scanningDir import search_song
@@ -47,14 +48,22 @@ def get_all_unknown_songs():
                 found = search_song(all_sang_songs,song,"New",fast_method=True)
                 if not found:
                     if "REDergaran" in book:
-                        songs['new'][song] = {
+                        songs['New'][song] = {
                             'Known'  : False,
-                            'Sang'   : False # Kinda redundant, but I would rather have it than not, just in case future me decides to go in another direction
+                            'Sang'   : False, # Kinda redundant, but I would rather have it than not, just in case future me decides to go in another direction
+                            'isSunday': False,
+                            'isHoliday': False,
+                            'isWeekday': False,
+                            'checked'    : False,
                             }
                     else:
-                        songs['old'][song] = {
-                            'Known'  : False,
-                            'Sang'   : False # Kinda redundant, but I would rather have it than not, just in case future me decides to go in another direction
+                        songs['Old'][song] = {
+                            'Known'    : False,
+                            'Sang'     : False, # Kinda redundant, but I would rather have it than not, just in case future me decides to go in another direction
+                            'isSunday' : False,
+                            'isHoliday': False,
+                            'isWeekday': False,
+                            'checked'  : False,
                             }
                     # not_sang.append(song)
                 
@@ -62,13 +71,13 @@ def get_all_unknown_songs():
     print(songs)
     with open('known_songs.json', 'w', encoding='utf-8') as f:
         dump(songs, f, ensure_ascii=False, indent=4)
-
+# get_all_unknown_songs()
 def get_a_song():
     with open('known_songs.json', 'r', encoding='utf-8') as f:
         songs = load(f)
     for book in songs:
         for song in songs[book]:
-            if not songs[book][song]['Known']:
+            if not songs[book][song]['checked']:
                 return (song, book)
 
 # def get_a_song(skip):
@@ -80,9 +89,16 @@ def get_a_song():
 #             if not songs[book][song]['Known'] and songs[book][song] != skip:
 #                 return song
 
-def update_known_songs(book, song):
+def update_known_songs(book:str, song:str, isHoliday:bool, isSunday:bool, isWeekday:bool, known:bool):
     with open('known_songs.json', 'r', encoding='utf-8') as f:
         songs = load(f)
-    songs[book][song]['Known'] = True
+    songs[book][song] = {
+        'Known'    : known,
+        'Sang'     : False,
+        'isSunday' : isSunday,
+        'isHoliday': isHoliday,
+        'isWeekday': isWeekday,
+        'checked'  : True,
+    }
     with open('known_songs.json', 'w', encoding='utf-8') as f:
         dump(songs, f, ensure_ascii=False, indent=4)
