@@ -113,7 +113,11 @@ class ModernSongManager:
         else:
             if 'n' in bookType: bookType = 'New'
             else: bookType = 'Old'
-            dupSong = SD.songChecker(songNum=song_num,book=bookType)
+            if self.day_var != "Sun/Porc":
+                dupSong = SD.songChecker(songNum=song_num,book=bookType,ignore_sundays=True)
+            else:
+                dupSong = SD.songChecker(songNum=song_num,book=bookType)
+            
             print(dupSong)
             if dupSong: # get value and if used then ask if they wish to continue
                 errMes = messagebox.askyesno("Error: That song was used before in the last 3 months",
