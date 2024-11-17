@@ -352,10 +352,6 @@
         }
         // book_select()
         async function tsank_search() {
-            // TODO:
-            // Need to find a way to return the table data when searching
-            // Need to transfer processes to fetch api, half fetch, half submitting a form
-
             function spinner() {
                 songstable.innerHTML = '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
 
@@ -373,6 +369,21 @@
                 search()
 
             }
+            function getAttribute() {
+                let query = document.getElementById('query').value;
+                let attr = document.getElementById('attribute').value;
+                if (attr == 'all'){
+                    // Check if the attribute is numeric
+                    if (!isNaN(query) && query.trim() !== '') {
+                        return 'SongNum';
+                    } else {
+                        return 'Title';
+                    }
+                }
+                else{
+                    return attr
+                }
+            }
             function search() {
                 spinner() // show spinner while searching
                 fetch('/', {
@@ -382,7 +393,7 @@
                     },
                     body: JSON.stringify({
                         // 'session': session,
-                        'attribute': attribute.value,
+                        'attribute': getAttribute(),
                         'book': book.value,
                         'query': query.value
                     })

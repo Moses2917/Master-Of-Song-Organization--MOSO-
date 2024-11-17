@@ -669,22 +669,25 @@ def temp_home():
                 
                 if query and book and attribute: # if attr is full_text
                     table_data = load_table_data(book=book)
-                    query = query.lower()
                     filtered_data = {}
-                    for song_num, attr in table_data.items():
-                        if attribute == 'all':
-                            # Search in all attributes
-                            if any(query in str(val).lower() for val in attr.values()):
-                                filtered_data[song_num] = attr
-                        elif attribute in attr:
-                            # Search only in the specified attribute
-                            if query in str(attr[attribute]).lower():
-                                filtered_data[song_num] = attr
+                    if attribute == 'SongNum':
+                        filtered_data[query] = table_data[query]
+                    else:
+                        query = query.lower()
+                        for song_num, attr in table_data.items():
+                            if attribute == 'all':
+                                # Search in all attributes
+                                if any(query in str(val).lower() for val in attr.values()):
+                                    filtered_data[song_num] = attr
+                            elif attribute in attr:
+                                # Search only in the specified attribute
+                                if query in str(attr[attribute]).lower():
+                                    filtered_data[song_num] = attr
                     # TODO: Find a more efficient/less computationally expensivse route than this for the latest date sang on
                     # for song_num in filtered_data:
                     #     last_sang_on = songChecker(book=filtered_data[song_num]['book'], songNum=song_num, three_month_window=False)
                     #     filtered_data[song_num]["last_sang_on"] = 
-                    table_data = filtered_data
+                    table_data = [filtered_data]
                     return json.dumps(table_data)
                 
                 elif not book:

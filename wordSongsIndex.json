@@ -1329,7 +1329,7 @@
         },
         "304": {
             "Title": "Դու բնակվում ես իմ մեջ",
-            "latestVersion": "Word songs/304 Դու բնակվում ես իմ մեջ v4.docx",
+            "latestVersion": "Word songs/304 Դու բնակվում ես իմ մեջ v5.docx",
             "v1": "Word songs/304 Դու բնակվում ես իմ մեջ.docx",
             "v2": "Word songs/304 Դու բնակվում ես իմ մեջ v2.docx",
             "v3": "Word songs/304 Դու բնակվում ես իմ մեջ v3.docx",
@@ -1339,7 +1339,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P3-4",
-            "v4": "Word songs/304 Դու բնակվում ես իմ մեջ v4.docx"
+            "v4": "Word songs/304 Դու բնակվում ես իմ մեջ v4.docx",
+            "v5": "Word songs/304 Դու բնակվում ես իմ մեջ v5.docx"
         },
         "305": {
             "Title": "Հիսուսի սիրուց ես չեմ բաժանվի, \nԹեև հալածանք ու սուր սպառնի, \nՆեղություն տառապանք սիրով կկրեմ, \nՈր սուրբ հավատքս կենդանի պահեմ:",
@@ -1774,14 +1775,15 @@
         },
         "389": {
             "Title": "Տոն է այսոր սուրբ հաղթական\nՀիսուս կուգա Երուսաղեմ",
-            "latestVersion": "Word songs\\pptSong\\389.docx",
+            "latestVersion": "Word songs/389 Տոն է այսոր սուրբ հաղթական",
             "v1": "Word songs\\pptSong\\389.docx",
             "key": "Am +1",
             "speed": "112",
             "style": "Disco",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v2": "Word songs/389 Տոն է այսոր սուրբ հաղթական"
         },
         "390": {
             "Title": "Հիսուս, այս անվան մեջ փրկություն կա",
@@ -1870,9 +1872,10 @@
         },
         "406": {
             "Title": "Ես չգիտեի թե ինչ էր սերը",
-            "latestVersion": "Word songs/406 Ես չգիտեի թե ինչ էր սերը v2.docx",
+            "latestVersion": "Word songs/406 Ես չգիտեի թե ինչ էր սերը v3.docx",
             "v1": "Word songs/406 Ես չգիտեի թե ինչ էր սերը.docx",
-            "v2": "Word songs/406 Ես չգիտեի թե ինչ էր սերը v2.docx"
+            "v2": "Word songs/406 Ես չգիտեի թե ինչ էր սերը v2.docx",
+            "v3": "Word songs/406 Ես չգիտեի թե ինչ էր սերը v3.docx"
         },
         "407": {
             "Title": "Եգիպտոսից դեպ Եպկնային Քանան",
@@ -2492,7 +2495,7 @@
         },
         "508": {
             "Title": "Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ",
-            "latestVersion": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v3.docx",
+            "latestVersion": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v4.docx",
             "v1": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ.docx",
             "key": "E (-8)",
             "speed": "65",
@@ -2502,7 +2505,8 @@
             "timeSig": "4/4",
             "Comments": "Ballad-P1-8",
             "v2": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v2.docx",
-            "v3": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v3.docx"
+            "v3": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v3.docx",
+            "v4": "Word songs/508 Մտիր Նրա սրահները, երկրպագիր քո Տիրոջ v4.docx"
         },
         "509": {
             "Title": "Ամեն օր Հիսուս",
@@ -2825,7 +2829,7 @@
         },
         "552": {
             "Title": "Մենք ակնթարթ ենք, դու հավերժություն ես",
-            "latestVersion": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես v2.docx",
+            "latestVersion": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես v3.docx",
             "v1": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես.docx",
             "v2": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես v2.docx",
             "key": "C",
@@ -2833,7 +2837,8 @@
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "3/4",
-            "Comments": "Ballad-P4-4, ballad-P4-2"
+            "Comments": "Ballad-P4-4, ballad-P4-2",
+            "v3": "Word songs/552 Մենք ակնթարթ ենք, դու հավերժություն ես v3.docx"
         },
         "553": {
             "Title": "Մենք երեք մոգերով",
@@ -2852,9 +2857,16 @@
         },
         "556": {
             "Title": "Սուրբ ես (2) Օրհնյալ Աստված",
-            "latestVersion": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v2.docx",
+            "latestVersion": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v3.docx",
             "v1": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված.docx",
-            "v2": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v2.docx"
+            "v2": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v2.docx",
+            "v3": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v3.docx",
+            "key": "Am",
+            "speed": "106",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5"
         },
         "557": {
             "Title": "Ողջույն ձեզ հավատացյալներ",
@@ -2892,7 +2904,7 @@
         },
         "568": {
             "Title": "Այս անլույս կյանքում",
-            "latestVersion": "Word songs/568 Այս անլույս կյանքում v2.docx",
+            "latestVersion": "Word songs/568 Այս անլույս կյանքում v3.docx",
             "v1": "Word songs/568 Այս անլույս կյանքում.docx",
             "v2": "Word songs/568 Այս անլույս կյանքում v2.docx",
             "key": "Em",
@@ -2900,7 +2912,8 @@
             "style": "Beat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v3": "Word songs/568 Այս անլույս կյանքում v3.docx"
         },
         "570": {
             "Title": "Բոլոր ծարավներ եկեք խմեք\nԱղբյուրից կենդանի ջրից\n      Ով կհավատա կսիրի որդուն\n     Կօրհնվի նա բոլոր կյանքում",
@@ -3951,16 +3964,17 @@
         },
         "724": {
             "Title": "Եկ գնանք բնակավայրը մեր Տիրոջ",
-            "latestVersion": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v3.docx",
+            "latestVersion": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v4.docx",
             "v1": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ.docx",
             "v2": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v2.docx",
             "v3": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v3.docx",
             "key": "Am",
-            "speed": "80",
+            "speed": "85",
             "style": "Beguine ",
-            "song_type": "Single Song",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-8"
+            "Comments": "Latin Dance-P2-8",
+            "v4": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v4.docx"
         },
         "725": {
             "Title": "Քեզ եմ նվիրում սիրտը իմ",
@@ -4387,7 +4401,7 @@
         },
         "787": {
             "Title": "Միայն մեկը կա որ արժանի է",
-            "latestVersion": "Word songs/787 Միայն մեկը կա որ արժանի է v2.docx",
+            "latestVersion": "Word songs/787 Միայն մեկը կա որ արժանի է v3.docx",
             "v1": "Word songs/787 Միայն մեկը կա որ արժանի է.docx",
             "v2": "Word songs/787 Միայն մեկը կա որ արժանի է v2.docx",
             "key": "C",
@@ -4395,19 +4409,21 @@
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v3": "Word songs/787 Միայն մեկը կա որ արժանի է v3.docx"
         },
         "788": {
             "Title": "Կուզենք ներկայությունդ ապրել",
-            "latestVersion": "Word songs/788 Կուզենք ներկայությունդ ապրել v2.docx",
+            "latestVersion": "Word songs/788 Կուզենք ներկայությունդ ապրել v3.docx",
             "v1": "Word songs/788 Կուզենք ներկայությունդ ապրել.docx",
             "v2": "Word songs/788 Կուզենք ներկայությունդ ապրել v2.docx",
-            "key": "C# (+1)",
+            "key": "D",
             "speed": "66",
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8"
+            "Comments": "Ballad-P1-8",
+            "v3": "Word songs/788 Կուզենք ներկայությունդ ապրել v3.docx"
         },
         "789": {
             "Title": "Օ՜ Տեր, այստեղ, քեզ եմ ես սպասում,",
@@ -4521,16 +4537,17 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Երբ տկար եմ, իմ անձը ընկճված է",
-            "latestVersion": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է v2.docx",
-            "v1": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է.docx",
-            "v2": "Word songs/605 Երբ տկար եմ, իմ անձը ընկճված է v2.docx",
-            "key": "C",
-            "speed": "67",
-            "style": "Beat",
-            "song_type": "Worship Song",
+            "Title": "Սուրբ ես (2) Օրհնյալ Աստված",
+            "latestVersion": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v3.docx",
+            "v1": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված.docx",
+            "v2": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v2.docx",
+            "v3": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v3.docx",
+            "key": "Am",
+            "speed": "106",
+            "style": "Disco",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Any beat-ballad"
+            "Comments": "Dance-P5-5"
         },
         "760": {
             "Title": "",

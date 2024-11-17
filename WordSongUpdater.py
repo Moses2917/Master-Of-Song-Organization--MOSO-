@@ -2,7 +2,7 @@ import re, time, docx, json
 from os import path as pth, remove, environ
 from docx.shared import Pt
 
-from getAllLyrics import updateLyrics
+from getAllLyrics import updateSongLyrics
 
 month = time.strftime('%m')
 year = time.strftime('%y')
@@ -187,7 +187,7 @@ def getDocTextAndIndentation(filename:str):
             song = []
 
 
-def saveDocFromDoc(song_Doc, oldBook, songNum):
+def saveDocFromDoc(song_Doc: docx, oldBook:str, songNum:str):
     # method logic:
     # 1. check if song exists in relevant book/index
     # 2. if so, append to index, "version", and "latestVersion"
@@ -214,6 +214,7 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
         # print("Debug String..")
 
         base_file_path = "Word songs/{} {} v{}.docx".format(str(songNum), title, str(cv))
+        base_file_path = base_file_path.split("\n")[0] #Get issues when saving multiple lines ex: 'Word songs/389 Տոն է այսոր սուրբ հաղթական\nՀիսուս կուգա Երուսաղեմ v2.docx'
         oldBook_Index["SongNum"][songNum]["v"+ str(cv)] = base_file_path
         oldBook_Index["SongNum"][songNum]["latestVersion"] = base_file_path
         style = song_Doc.styles['Normal']
@@ -251,7 +252,8 @@ def saveDocFromDoc(song_Doc, oldBook, songNum):
             json.dump(Book_Index, f, indent=4, ensure_ascii=False)
         print(base_file_path)
     #TODO: make a function to update lyrics
-    updateLyrics(book="old", songNum='123')
+    # if not oldBook:
+    #     updateSongLyrics(book="new", songNum=songNum,lyrics = song_Doc)
 
 
 def getNums(filename: str):

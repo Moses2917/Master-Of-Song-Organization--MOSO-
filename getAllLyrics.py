@@ -2,6 +2,7 @@ from time import time as today
 from json import load
 from os import environ as ENV
 from docx import Document
+from regex import D
 basePth = ENV.get("OneDrive")
 #open all files, get latest version and store lyrics in dict
 # if songLyrics.get('latestChange',None) or do < today()
@@ -18,7 +19,10 @@ def template(songs_to_open_bool=True) -> dict:
         'new': {}
     }
     return songs_to_open if songs_to_open_bool else songLyrics
-
+def getAllLyricsDict() -> dict:
+    with open('AllLyrics.json', 'r', encoding='utf-8') as f:
+        return load(f)
+        
 def GetAllSongPths(songs_to_open,index:str, book = 'old'or'new',) -> dict:
     try:
         for songNum in index["SongNum"]:
@@ -38,8 +42,39 @@ def readLyrics(filePth:str) -> str:
         return lyrics
     return None
 
-def updateLyrics(book:str, songNum:str):
+def readLyrics(doc:Document) -> str:
+    lyrics = ''
+    # doc = Document(filePth)
+    for p in doc.paragraphs:
+        lyrics += p.text
+    
+    if lyrics != '':
+        return lyrics
     return None
+
+def updateSongLyrics(book:str, songNum:str, lyrics:Document):
+    allLyrics = getAllLyricsDict()
+    if book.lower() == 'old':
+        allLyrics['old'][songNum] = readLyrics(lyrics)
+    elif book.lower() == 'new':
+        pass
+    return None
+
+def updateAllLyrics():
+    #Gather all current songs.
+    with open('AllLyrics.json', 'r', encoding='utf-8') as f:
+        allLyrics = load(f)
+    
+    from os import environ as ENV
+
+    onedrive = ENV.get('onedrive')
+
+    from os import path
+
+    
+
+    return True
+
 def getAllLyrics():
     songs_to_open = template()
     songLyrics = template(songs_to_open_bool=False)
@@ -62,3 +97,7 @@ def getAllLyrics():
     with open('AllLyrics.json', 'w', encoding='utf-8') as f:
         from json import dump
         dump(songLyrics,f,ensure_ascii=False,indent=4)
+
+
+if __name__ == "__main__":
+    getAllLyrics()

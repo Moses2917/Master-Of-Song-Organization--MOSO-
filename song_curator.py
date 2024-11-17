@@ -46,7 +46,7 @@ def getSong(book:str, songnum:str, batch = 0) -> dict:
     else:
         pass
     
-def collect_all_songs(only_sunday=False) -> dict:
+def collect_all_songs(only_sunday=False, include_sunday=False) -> dict:
     with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
         data = load(f)
     
@@ -55,8 +55,17 @@ def collect_all_songs(only_sunday=False) -> dict:
         file_date = key
         file_date = findall(r"(.*\d)", file_date)[0]
         date_format = "%m.%d.%y"
+        current_date = datetime.date.today()
         file_date = datetime.datetime.strptime(file_date, date_format) # file_date is now a datetime object
-        if not only_sunday:
+        # search_window = (current_date + datetime.timedelta(days=-90))#.strftime('%m.%d.%y')
+        search_window = datetime.datetime.combine(current_date + datetime.timedelta(days=-90), datetime.time.min)
+        if include_sunday:
+            if file_date < search_window:
+                found_songs[key] = {
+                        'songList': data[key]['songList'],
+                        'basePth': data[key]['basePth'],
+                    }
+        elif not only_sunday:
             if file_date.strftime('%A') != "Sunday":
                 found_songs[key] = {
                     'songList': data[key]['songList'],
@@ -85,7 +94,7 @@ def find_weekday_songs() -> dict:
     # sang_in_last_3months = songCollector(ignore_sundays=True)
     sang_in_last_3months = songCollector(ignore_sundays=True, three_month_window=False, search_range=180) # increasing search range to get songs sang longer ago
     sang_in_last_year = songCollector(three_month_window=False, search_range=360, ignore_sundays=True)
-    all_songs_sang = collect_all_songs()
+    all_songs_sang = collect_all_songs(include_sunday=True)
     # Just read the first two songs as the opening songs instead of looking for them
     # maybe, just maybe, filter out sundays
     # also add a date checking so no 
@@ -147,7 +156,7 @@ def find_weekday_songs() -> dict:
     
     return songlist
 ## TODO: Add a check to make sure that the song has been sang at least once
-find_weekday_songs()
+# find_weekday_songs()
 def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
     """
     Finds a song or a list of songs based on the given parameters.

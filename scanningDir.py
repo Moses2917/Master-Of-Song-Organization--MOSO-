@@ -544,3 +544,16 @@ def clean_up_index():
 # Uncomment this to manually update the index
 # print(findNewFiles())
 # clean_up_index()
+
+def findEmptySongNum() -> str:
+   #doesn't need a book, because all holes in songs should be in olds
+   with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
+    songs:dict = json.load(f)
+    
+    for x in range(1,1000):
+       if not songs["SongNum"].get(str(x), None): return str(x)
+   return '1000'
+
+
+if __name__ == '__main__':
+    print(findEmptySongNum())

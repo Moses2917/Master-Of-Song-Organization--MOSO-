@@ -26,6 +26,50 @@
     }
   </style>
   <style>
+  .navbar {
+    background: linear-gradient(145deg, #222a31 0%, #2c3e50 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+/* Enhanced Navbar Link Animations */
+.navbar .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #4169e1;
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Navbar Brand Enhancement */
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+/* Mobile Toggle Button Enhancement */
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
     /* Smooth Page Transitions */
     .content-wrapper {
       animation: fadeIn 0.3s ease-in-out;

@@ -140,6 +140,10 @@
     }
 
     function validateSelections() {
+        const doesntKnowBtn = document.getElementById('choirDoesntKnowBtn');
+        if(doesntKnowBtn.checked){
+            return true;
+        }
         if (currentSongData.isSunday === null) {
             alert('Please select whether this is a Sunday song');
             return false;
