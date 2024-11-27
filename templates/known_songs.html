@@ -11,6 +11,12 @@
             <div class="text-center mb-4">
                 <div class="d-flex justify-content-center">
                     <button class="btn btn-primary me-2" onclick="generateNewSong()">Get Song</button>
+                    <select name="Skipped Songs" id="skipped"> <!--  onclick="getSkippedSong('{{book}}','{{songnum}}')" -->
+                        <option value="false">Please Select a Skipped Song</option>
+                        {% for (songnum, book) in skipped_songs %}
+                        <option value="{{songnum}},{{book}}">{{songnum}}:{{book}}</option>
+                        {%endfor%}
+                    </select>
                 </div>
             </div>
 
@@ -75,6 +81,9 @@
                         <button id="choirDoesntKnowBtn" class="btn btn-danger" onclick="submitChoirKnowledge(false)">
                             No, Choir Doesn't Know This Song
                         </button>
+                        <button class="btn btn-primary" onclick="skipSong()">
+                            Skip
+                        </button>
                     </div>
                 </div>
             </div>
@@ -89,7 +98,8 @@
         isSunday: null,
         isHoliday: null,
         isWeekday: null,
-        choirKnows: null
+        choirKnows: null,
+        skipped: null,
     };
 
     function generateNewSong() {
@@ -99,7 +109,8 @@
             isSunday: null,
             isHoliday: null,
             isWeekday: null,
-            choirKnows: null
+            choirKnows: null,
+            skipped: null
         };
 
         document.querySelectorAll('.btn-check').forEach(checkbox => {
@@ -211,7 +222,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        // Your existing event listeners for checkboxes here...
+        // Existing event listeners for checkboxes here...
         document.getElementById('sunday-yes').addEventListener('change', function () {
             currentSongData.isSunday = this.checked;
             if (this.checked) document.getElementById('sunday-no').checked = false;
@@ -241,11 +252,104 @@
             currentSongData.isWeekday = !this.checked;
             if (this.checked) document.getElementById('weekday-yes').checked = false;
         });
+        // Listening if skipped
+        document.getElementById('skipped').addEventListener('click', function(event) {
+            var selectedValue = this.options[this.selectedIndex].value;
+            var [songnum, book] = selectedValue.split(',');
+            getSkippedSong(book.trim(), songnum.trim());
+        });
+
+
     });
 
     function checkCurrentData() {
         console.log(currentSongData);
     }
+
+    function skipSong() {
+        fetch('/known_songs',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                ...currentSongData,
+                "skipped": true
+            })
+        })
+        // .then(response => response.json())
+        // .then(data => {
+        //     if (data.success) {
+        //         const knowsBtn = document.getElementById('choirKnowsBtn');
+        //         const doesntKnowBtn = document.getElementById('choirDoesntKnowBtn');
+
+        //         // Disable both buttons
+        //         knowsBtn.disabled = true;
+        //         doesntKnowBtn.disabled = true;
+
+        //         // Style the selected button and dim the other
+        //         if (knows) {
+        //             knowsBtn.classList.remove('btn-success');
+        //             knowsBtn.classList.add('btn-success');
+        //             doesntKnowBtn.classList.remove('btn-danger');
+        //             doesntKnowBtn.classList.add('btn-secondary');
+        //         } else {
+        //             knowsBtn.classList.remove('btn-success');
+        //             knowsBtn.classList.add('btn-secondary');
+        //             doesntKnowBtn.classList.remove('btn-danger');
+        //             doesntKnowBtn.classList.add('btn-danger');
+        //         }
+
+        //         currentSongData.choirKnows = knows;
+        //     }
+        // })
+    }
+    
+    function getSkippedSong(book, songnum) {
+        currentSongData = {
+            songId: '',
+            book: '',
+            isSunday: null,
+            isHoliday: null,
+            isWeekday: null,
+            choirKnows: null,
+            skipped: false
+        };
+
+        document.querySelectorAll('.btn-check').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+
+        // Reset both buttons
+        const knowsBtn = document.getElementById('choirKnowsBtn');
+        const doesntKnowBtn = document.getElementById('choirDoesntKnowBtn');
+
+        knowsBtn.classList.remove('btn-success', 'btn-secondary');
+        doesntKnowBtn.classList.remove('btn-danger', 'btn-secondary');
+
+        knowsBtn.classList.add('btn-success');
+        doesntKnowBtn.classList.add('btn-danger');
+
+        knowsBtn.disabled = false;
+        doesntKnowBtn.disabled = false;
+        
+        fetch(`/known_songs/getSong?book=${encodeURIComponent(book)}&songnum=${encodeURIComponent(songnum)}`, {
+            method: 'GET'
+        })
+        .then(response => response.text())
+        .then(data => JSON.parse(data))
+        .then(data => {
+            const lyrics = document.getElementById('lyrics');
+            lyrics.innerHTML = data[0];
+
+            currentSongData.songId = data[2];
+            currentSongData.book = data[1];
+
+            document.getElementById('songId').value = data[1];
+            document.getElementById('book').value = data[2];
+        });
+    }
+
 </script>
 
 {% endblock %}

@@ -609,8 +609,20 @@ def get_my_ip() -> str:
         str: The public IP address as a string.
     """
     from requests import get
-
-    ip = get('https://api.ipify.org').content.decode('utf8')
+    def get_local_ip():
+        import socket
+        try:
+            # Create a socket object
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            # Doesn't need to be reachable
+            s.connect(('8.8.8.8', 80))
+            local_ip = s.getsockname()[0]
+            s.close()
+            return local_ip
+        except Exception:
+            return '127.0.0.1'
+    try: ip = get('https://api.ipify.org').content.decode('utf8')
+    except: ip = get_local_ip()
     print('My public IP address is: {}'.format(ip))
     return ip
 
@@ -956,40 +968,60 @@ def get_song_lyrics(book,songnum):
 
 @app.route('/known_songs', methods=['GET','POST'])
 def known_songs():# add some func to be able to go backwards
-    from known_songs import update_known_songs
+    from known_songs import update_known_songs, get_skipped_songs
     if request.method == "POST":
         request_data = request.get_json()
+        # these are neccesary either way, just don't want to set unneccesary vars
+        skipped = request_data['skipped']
         songnum = request_data['songId']
         book = request_data['book']
-        isHoliday = request_data['isHoliday']
-        isSunday = request_data['isSunday']
-        isWeekday = request_data['isWeekday']
-        known = request_data['choirKnows']
-        print(songnum)
-        print(book)
-        print(isHoliday)
-        print(isSunday)
-        print(isWeekday)
-        print(known)
-        update_known_songs(book, songnum, isHoliday, isSunday, isWeekday, known)
+        if not skipped:
+            isHoliday = request_data['isHoliday']
+            isSunday = request_data['isSunday']
+            isWeekday = request_data['isWeekday']
+            known = request_data['choirKnows']
+            
+            print(songnum)
+            print(book)
+            print(isHoliday)
+            print(isSunday)
+            print(isWeekday)
+            print(known)
+            update_known_songs(book, songnum, isHoliday=isHoliday, isSunday=isSunday, isWeekday=isWeekday, known=known)
+        else:
+            print(songnum)
+            print(book)
+            print("Skipped")
+            update_known_songs(book, songnum, skipped=skipped)
         
-    return render_template('known_songs.html')
+    return render_template('known_songs.html', skipped_songs = get_skipped_songs())
 
 #TODO: Add a skip song feature
 @app.route('/known_songs/newSong', methods=['GET'])
 def get_unknown_songs():# add some func to be able to go backwards
     from known_songs import get_a_song
     song, book = get_a_song()
-    import concurrent.futures
-    with concurrent.futures.ThreadPoolExecutor() as exec:
-        future = exec.submit(openWord,song,book)
-        lyrics = future.result()
+    # import concurrent.futures
+    # with concurrent.futures.ThreadPoolExecutor() as exec:
+    #     future = exec.submit(openWord,song,book)
+    #     lyrics = future.result()
+    # print(lyrics)
+    lyrics = "LA LA LA"
     return jsonify([lyrics, book, song])
-    # return jsonify({
-    #     'song': lyrics,
-    #     'book': book
-    # })
 
+@app.route('/known_songs/getSong', methods=['GET'])
+def get_skipped_songs():# add some func to be able to go backwards
+    book = request.args.get("book")
+    song = request.args.get("songnum")
+    # import concurrent.futures
+    # with concurrent.futures.ThreadPoolExecutor() as exec:
+    #     future = exec.submit(openWord,song,book)
+    #     lyrics = future.result()
+    # book = -1
+    # song = -1
+    lyrics = "LA LA LA"
+    return jsonify([lyrics, book, song])
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
+    try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
+    except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))

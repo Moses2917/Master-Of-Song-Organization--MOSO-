@@ -6,7 +6,7 @@
             "isSunday": true,
             "isHoliday": true,
             "isWeekday": false,
-            "checked": true, 
+            "checked": true,
             "skipped": false
         },
         "3": {
@@ -303,8 +303,8 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": true
         },
         "80": {
             "Known": false,
@@ -5731,7 +5731,7 @@
             "isHoliday": false,
             "isWeekday": false,
             "checked": false,
-            "skipped": true
+            "skipped": false
         },
         "976": {
             "Known": false,
