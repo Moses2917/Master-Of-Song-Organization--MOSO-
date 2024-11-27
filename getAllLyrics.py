@@ -56,8 +56,14 @@ def updateSongLyrics(book:str, songNum:str, lyrics:Document):
     allLyrics = getAllLyricsDict()
     if book.lower() == 'old':
         allLyrics['old'][songNum] = readLyrics(lyrics)
+        with open('AllLyrics.json', 'w', encoding='utf-8') as f:
+            from json import dump
+            dump(allLyrics,f,ensure_ascii=False,indent=4)
     elif book.lower() == 'new':
-        pass
+        allLyrics['new'][songNum] = readLyrics(lyrics)
+        with open('AllLyrics.json', 'w', encoding='utf-8') as f:
+            from json import dump
+            dump(allLyrics,f,ensure_ascii=False,indent=4)
     return None
 
 def updateAllLyrics():
@@ -100,4 +106,5 @@ def getAllLyrics():
 
 
 if __name__ == "__main__":
-    getAllLyrics()
+    onedrive = ENV.get('onedrive')
+    updateSongLyrics('old','389',Document(onedrive+'\\Word songs/389 Տոն է այսոր սուրբ հաղթական.docx'))
