@@ -77,28 +77,62 @@ def get_a_song():
         songs = load(f)
     for book in songs:
         for song in songs[book]:
-            if not songs[book][song]['checked']:
+            if (not songs[book][song]['checked']) and (not songs[book][song]["skipped"]):
                 return (song, book)
 
-# def get_a_song(skip):
-#     #skip is a song number to skip
-#     with open('known_songs.json', 'r', encoding='utf-8') as f:
-#         songs = load(f)
-#     for book in songs:
-#         for song in songs[book]:
-#             if not songs[book][song]['Known'] and songs[book][song] != skip:
-#                 return song
-
-def update_known_songs(book:str, song:str, isHoliday:bool, isSunday:bool, isWeekday:bool, known:bool):
+def get_skipped_songs() -> list:
     with open('known_songs.json', 'r', encoding='utf-8') as f:
         songs = load(f)
-    songs[book][song] = {
-        'Known'    : known,
-        'Sang'     : False,
-        'isSunday' : isSunday,
-        'isHoliday': isHoliday,
-        'isWeekday': isWeekday,
-        'checked'  : True,
+    skipped_songs = []
+    for book in songs:
+        for song in songs[book]:
+            if songs[book][song]["skipped"]:
+                skipped_songs.append((song,book)) ## for dropdown 
+    return skipped_songs
+
+#TODO: Add a skiping feature, then in a dropdown menu show only the skipped values.
+
+def update_known_songs(book:str, song:str, **kwargs):
+    """
+    Updates the known_songs.json file with information about a song.
+
+    Args:
+        book (str): The name of the book containing the song
+        song (str): The name of the song to update
+        **kwargs: Arbitrary keyword arguments that can include:
+            Known (bool): Whether the song is known (default: False)
+            Sang (bool): Whether the song has been sung (default: False)
+            isSunday (bool): Whether it's a Sunday song (default: False)
+            isHoliday (bool): Whether it's a holiday song (default: False)
+            isWeekday (bool): Whether it's a weekday song (default: False)
+            checked (bool): Whether the song has been checked (default: True)
+            skipped (bool): Whether the song was skipped (default: False)
+
+    Returns:
+        None: The function writes directly to the JSON file
+
+    Example:update_known_songs(book, songnum, isHoliday, isSunday, isWeekday, known)
+        >>> update_known_songs("old", "1", Known=True, isSunday=True)
+        >>> update_known_songs("new", "312", Known=True, isSunday)
+    """
+    defaults = {
+        'Known': False,
+        'Sang': False,
+        'isSunday': False,
+        'isHoliday': False,
+        'isWeekday': False,
+        'checked': True,
+        'skipped': False
     }
+    with open('known_songs.json', 'r', encoding='utf-8') as f:
+        songs = load(f)
+
+    # Update defaults with any provided kwargs
+    song_data = defaults.copy()
+    song_data.update(kwargs)
+    songs[book][song] = song_data
     with open('known_songs.json', 'w', encoding='utf-8') as f:
         dump(songs, f, ensure_ascii=False, indent=4)
+
+if "__main__" == __name__:
+    print(get_skipped_songs())

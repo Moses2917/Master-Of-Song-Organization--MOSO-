@@ -145,7 +145,10 @@ def find_weekday_songs() -> dict:
                 'title': REDergaran['SongNum'][song[1]]['Title'],
                 'date': song_check[1] if isinstance(song_check, tuple) else "N/A"
             }
-            print(f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}")
+            try:
+                print(f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}")
+            except:
+                pass
             # songlist.append([f"{song[1]} {REDergaran['SongNum'][song[1]]['Title']}\n\tThis song was last sang on {song_check[1]}",(datetime.datetime.strptime(song_check[1], '%m.%d.%y')).strftime('%A')])
             try:
                 songlist[ct]['weekday'] = (datetime.datetime.strptime(song_check[1], '%m.%d.%y')).strftime('%A')
@@ -156,7 +159,6 @@ def find_weekday_songs() -> dict:
     
     return songlist
 ## TODO: Add a check to make sure that the song has been sang at least once
-# find_weekday_songs()
 def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
     """
     Finds a song or a list of songs based on the given parameters.
@@ -201,3 +203,6 @@ def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_
     # return choose(possible_sunday_songs)
 
 # print(f"Haven't sang this in a while!\nOpening:{find_sunday_song(only_first_two_songs=True)}\nWorship:{find_sunday_song(only_worship_songs=True)}\nLast:{find_sunday_song(only_last_two_songs=True)}")
+
+if "__main__" == __name__:
+    find_weekday_songs()

@@ -253,7 +253,7 @@
             if (this.checked) document.getElementById('weekday-yes').checked = false;
         });
         // Listening if skipped
-        document.getElementById('skipped').addEventListener('click', function(event) {
+        document.getElementById('skipped').addEventListener('change', function(event) {
             var selectedValue = this.options[this.selectedIndex].value;
             var [songnum, book] = selectedValue.split(',');
             getSkippedSong(book.trim(), songnum.trim());

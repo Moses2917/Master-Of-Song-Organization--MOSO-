@@ -1010,11 +1010,10 @@ def get_unknown_songs():# add some func to be able to go backwards
 def get_skipped_songs():# add some func to be able to go backwards
     book = request.args.get("book")
     song = request.args.get("songnum")
-    # import concurrent.futures
-    # with concurrent.futures.ThreadPoolExecutor() as exec:
-    #     future = exec.submit(openWord,song,book)
-    #     lyrics = future.result()
-    lyrics = "LA LA LA"
+    import concurrent.futures
+    with concurrent.futures.ThreadPoolExecutor() as exec:
+        future = exec.submit(openWord,song,book)
+        lyrics = future.result()
     return jsonify([lyrics, book, song])
 
 if __name__ == '__main__':

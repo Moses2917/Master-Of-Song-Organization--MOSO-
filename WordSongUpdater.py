@@ -213,8 +213,8 @@ def saveDocFromDoc(song_Doc: docx, oldBook:str, songNum:str):
         print(oldBook_Index["SongNum"][songNum])
         # print("Debug String..")
 
-        base_file_path = "Word songs/{} {} v{}.docx".format(str(songNum), title, str(cv))
-        base_file_path = base_file_path.split("\n")[0] #Get issues when saving multiple lines ex: 'Word songs/389 Տոն է այսոր սուրբ հաղթական\nՀիսուս կուգա Երուսաղեմ v2.docx'
+        base_file_path = "Word songs/{} {} v{}.docx".format(str(songNum), title.split("\n")[0], str(cv))
+        # base_file_path = base_file_path.split("\n")[0] #Get issues when saving multiple lines ex: 'Word songs/389 Տոն է այսոր սուրբ հաղթական\nՀիսուս կուգա Երուսաղեմ v2.docx'
         oldBook_Index["SongNum"][songNum]["v"+ str(cv)] = base_file_path
         oldBook_Index["SongNum"][songNum]["latestVersion"] = base_file_path
         style = song_Doc.styles['Normal']
@@ -239,7 +239,7 @@ def saveDocFromDoc(song_Doc: docx, oldBook:str, songNum:str):
         # print("Debug String..")  # Note: Funny enough the test num I used does not have a corresponding title, which does not really matter that much, however I could add some functionality to fill it later on
         # However I'm not so sure about just saving files in ergaran as songnum.docx like I already do in red ergaran
 
-        base_file_path = "Երգարան Word Files/{} {} v{}.docx".format(str(songNum), title, str(cv))
+        base_file_path = "Երգարան Word Files/{} {} v{}.docx".format(str(songNum), title.split("\n")[0], str(cv))
         Book_Index["SongNum"][songNum]["v"+ str(cv)] = base_file_path
         Book_Index["SongNum"][songNum]["latestVersion"] = base_file_path
         style = song_Doc.styles['Normal']
@@ -252,9 +252,18 @@ def saveDocFromDoc(song_Doc: docx, oldBook:str, songNum:str):
             json.dump(Book_Index, f, indent=4, ensure_ascii=False)
         print(base_file_path)
     #TODO: make a function to update lyrics
-    # if not oldBook:
-    #     updateSongLyrics(book="new", songNum=songNum,lyrics = song_Doc)
-
+    if not oldBook:
+        if updateSongLyrics(book="new", songNum=songNum, lyrics = song_Doc) == None:
+            print("Lyrics not Updated")
+            print(f"Song Num: {songNum} Book: New")
+        else:
+            print("Lyrics Updated")
+    else:
+        if updateSongLyrics(book="old", songNum=songNum, lyrics = song_Doc) == None:
+            print("Lyrics not Updated")
+            print(f"Song Num: {songNum} Book: New")
+        else:
+            print("Lyrics Updated")
 
 def getNums(filename: str):
     """Reads the file and returns a dict with the text along with a bool if it is from the old book"""
