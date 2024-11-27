@@ -996,17 +996,14 @@ def known_songs():# add some func to be able to go backwards
         
     return render_template('known_songs.html', skipped_songs = get_skipped_songs())
 
-#TODO: Add a skip song feature
 @app.route('/known_songs/newSong', methods=['GET'])
 def get_unknown_songs():# add some func to be able to go backwards
     from known_songs import get_a_song
     song, book = get_a_song()
-    # import concurrent.futures
-    # with concurrent.futures.ThreadPoolExecutor() as exec:
-    #     future = exec.submit(openWord,song,book)
-    #     lyrics = future.result()
-    # print(lyrics)
-    lyrics = "LA LA LA"
+    import concurrent.futures
+    with concurrent.futures.ThreadPoolExecutor() as exec:
+        future = exec.submit(openWord,song,book)
+        lyrics = future.result()
     return jsonify([lyrics, book, song])
 
 @app.route('/known_songs/getSong', methods=['GET'])
@@ -1017,8 +1014,6 @@ def get_skipped_songs():# add some func to be able to go backwards
     # with concurrent.futures.ThreadPoolExecutor() as exec:
     #     future = exec.submit(openWord,song,book)
     #     lyrics = future.result()
-    # book = -1
-    # song = -1
     lyrics = "LA LA LA"
     return jsonify([lyrics, book, song])
 

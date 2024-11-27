@@ -278,31 +278,31 @@
             })
         })
         // .then(response => response.json())
-        // .then(data => {
-        //     if (data.success) {
-        //         const knowsBtn = document.getElementById('choirKnowsBtn');
-        //         const doesntKnowBtn = document.getElementById('choirDoesntKnowBtn');
+        .then(data => {
+            if (data.success) {
+                const knowsBtn = document.getElementById('choirKnowsBtn');
+                const doesntKnowBtn = document.getElementById('choirDoesntKnowBtn');
 
-        //         // Disable both buttons
-        //         knowsBtn.disabled = true;
-        //         doesntKnowBtn.disabled = true;
+                // Disable both buttons
+                knowsBtn.disabled = true;
+                doesntKnowBtn.disabled = true;
 
-        //         // Style the selected button and dim the other
-        //         if (knows) {
-        //             knowsBtn.classList.remove('btn-success');
-        //             knowsBtn.classList.add('btn-success');
-        //             doesntKnowBtn.classList.remove('btn-danger');
-        //             doesntKnowBtn.classList.add('btn-secondary');
-        //         } else {
-        //             knowsBtn.classList.remove('btn-success');
-        //             knowsBtn.classList.add('btn-secondary');
-        //             doesntKnowBtn.classList.remove('btn-danger');
-        //             doesntKnowBtn.classList.add('btn-danger');
-        //         }
+                // Style the selected button and dim the other
+                if (knows) {
+                    knowsBtn.classList.remove('btn-success');
+                    knowsBtn.classList.add('btn-success');
+                    doesntKnowBtn.classList.remove('btn-danger');
+                    doesntKnowBtn.classList.add('btn-secondary');
+                } else {
+                    knowsBtn.classList.remove('btn-success');
+                    knowsBtn.classList.add('btn-secondary');
+                    doesntKnowBtn.classList.remove('btn-danger');
+                    doesntKnowBtn.classList.add('btn-danger');
+                }
 
-        //         currentSongData.choirKnows = knows;
-        //     }
-        // })
+                // currentSongData.choirKnows = false;
+            }
+        })
     }
     
     function getSkippedSong(book, songnum) {

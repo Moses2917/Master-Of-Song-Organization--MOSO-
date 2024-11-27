@@ -312,8 +312,8 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": true
         },
         "81": {
             "Known": false,
