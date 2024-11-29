@@ -1,117 +1,169 @@
 {% extends 'base.html' %}
-{%block content%}
-<div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput" oninput="getPastSongs()">
-  <div class="row align-items-start justify-content-center ">
-    <h2 class="text-center">Please Enter The Song Number:</h2>
-    <div class="col-9">
-      <div class="input-group mb-3 ">
-        <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum" >
-      </div>
-    </div>
-    <div class="row justify-content-center" id="book">
-      <!-- <div class="btn-group" role="group"> -->
-        <div class="col-auto">
-          <div class="">
-            <div class="form-check">
-              <input class="btn-check" type="checkbox" id="old" value="Old" onclick="checkboxCheck('old')">
-              <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="old">
-                Old Book
-              </label>
+{% block content %}
+<div class="container-fluid py-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <!-- Main Card Container -->
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4">
+          <!-- Header Section -->
+          <div class="text-center mb-4">
+            <div class="d-inline-flex align-items-center">
+              <i class="bi bi-music-note fs-4 text-primary me-2"></i>
+              <h2 class="mb-0 fw-bold">Song Finder</h2>
             </div>
           </div>
+
+          <!-- Song Input Form -->
+          <form id="songForm" onsubmit="return false;">
+            <div class="mb-4">
+              <label for="songNumber" class="form-label fw-semibold">
+                Song Number (1-1000)
+              </label>
+              <input type="number" 
+                     class="form-control form-control-lg" 
+                     id="songNumber" 
+                     pattern="[0-9]*"
+                     inputmode="numeric"            
+                     min="1" 
+                     max="1000" 
+                     placeholder="Enter song number..."
+                     oninput="validateAndSearch()">
+            </div>
+
+            <!-- Book Selection -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Select Book</label>
+              <div class="d-flex justify-content-center gap-3">
+                <button type="button" 
+                        id="oldBook" 
+                        class="btn btn-lg btn-outline-primary w-50 d-flex align-items-center justify-content-center gap-2"
+                        onclick="selectBook('old')">
+                  <i class="bi bi-book"></i>
+                  Old Book
+                </button>
+                <button type="button" 
+                        id="newBook" 
+                        class="btn btn-lg btn-outline-primary w-50 d-flex align-items-center justify-content-center gap-2"
+                        onclick="selectBook('new')">
+                  <i class="bi bi-book"></i>
+                  Red Book
+                </button>
+              </div>
+            </div>
+
+            <!-- Error Alert -->
+            <div id="errorAlert" class="alert alert-danger d-none" role="alert">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-exclamation-circle-fill me-2"></i>
+                <span id="errorMessage"></span>
+              </div>
+            </div>
+
+            <!-- Hints -->
+            <div class="text-end text-muted fst-italic small mt-4">
+              <p class="mb-1">Hint: Click the song you want to open</p>
+              <p class="mb-0">Խորհուրդ։ Սեղմեք այն երգը որը ցանկանում եք բացել</p>
+            </div>
+          </form>
         </div>
-        <div class="col-auto">
-          <div class="">
-            <!-- <div class="form-check"> -->
-              <input class="btn-check" type="checkbox" name="Book" id="new" value="New" onclick="checkboxCheck('new')">
-              <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="new">Red Book</label>
-            <!-- </div> -->
-          </div>
+      </div>
+
+      <!-- Results Section -->
+      <div id="resultsContainer" class="card shadow-lg border-0 rounded-4 mt-4 d-none">
+        <div class="card-body p-4">
+          <div id="results"></div>
         </div>
-      <!-- </div> -->
+      </div>
     </div>
   </div>
-  <p class="text-end" id="hint-am">
-    Խորհուրդ. Սեղմեք այն երգը որը ցանկանում եք բացել։
-  </p>
-  <p class="text-end" id="hint-en">
-    Hint: Just click the song you want to open.
-  </p>
 </div>
 
-<div class="container-md" id="Results">
-</div>
+<!-- Add Bootstrap Icons CDN in base template -->
+{% block extra_head %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+{% endblock %}
 
+<!-- JavaScript -->
+{% block scripts %}
 <script>
-  function checkboxCheck(clickedId) {
-    // Get the checkboxes by their IDs
-    var oldCheckbox = document.getElementById('old');
-    var newCheckbox = document.getElementById('new');
+let selectedBook = '';
 
-    // If the 'old' checkbox is clicked and it's checked, uncheck the 'new' checkbox
-    if (clickedId === 'old' && oldCheckbox.checked) {
-      newCheckbox.checked = false;
-    }
+function selectBook(book) {
+  // Reset previous selection
+  document.getElementById('oldBook').classList.remove('btn-primary', 'text-white');
+  document.getElementById('newBook').classList.remove('btn-primary', 'text-white');
+  document.getElementById('oldBook').classList.add('btn-outline-primary');
+  document.getElementById('newBook').classList.add('btn-outline-primary');
 
-    // If the 'new' checkbox is clicked and it's checked, uncheck the 'old' checkbox
-    if (clickedId === 'new' && newCheckbox.checked) {
-      oldCheckbox.checked = false;
-    }
+  // Set new selection
+  const buttonId = book === 'old' ? 'oldBook' : 'newBook';
+  document.getElementById(buttonId).classList.remove('btn-outline-primary');
+  document.getElementById(buttonId).classList.add('btn-primary', 'text-white');
+  
+  selectedBook = book === 'old' ? 'Old' : 'New';
+  validateAndSearch();
+}
+
+function showError(message) {
+  const errorAlert = document.getElementById('errorAlert');
+  const errorMessage = document.getElementById('errorMessage');
+  errorMessage.textContent = message;
+  errorAlert.classList.remove('d-none');
+}
+
+function hideError() {
+  document.getElementById('errorAlert').classList.add('d-none');
+}
+
+async function validateAndSearch() {
+  hideError();
+  const songNumber = document.getElementById('songNumber').value;
+  
+  if (!selectedBook) {
+    showError('Please select a book first');
+    return;
   }
   
-  async function getPastSongs() {
-    // Get the checkboxes by their IDs
-    var oldCheckbox = document.getElementById('old');
-    var newCheckbox = document.getElementById('new');
-    var book = "";
-
-    // If the 'old' checkbox is clicked and it's checked, uncheck the 'new' checkbox
-    if (oldCheckbox.checked) {
-      book = "Old";
-    }
-
-    // If the 'new' checkbox is clicked and it's checked, uncheck the 'old' checkbox
-    if (newCheckbox.checked) {
-      book = "New";
-    }
-    
-    const Results = document.getElementById('Results');
-    var songnum = document.getElementById('SongNum').value;
-    if (book == ""){
-      if(songnum){
-        Results.innerHTML = '<p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">No Book Selected</p>'
-      }
-    }
-    else
-    {
-      //const Results = document.getElementById('Results')
-      Results.innerHTML = ""
-      // Get the song number, and make the url
-      
-      var url = {{ url_for('past_songs',songnum="")| tojson }}
-      if (songnum){
-        if(songnum<=1000 && songnum>0){
-          url = url + String(songnum);
-          fetch(url,{
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-          },
-            body: JSON.stringify({'book':book})
-          })
-          .then(response =>response.text())
-          .then(text =>{
-            Results.innerHTML += text
-          })
-        }
-        else{
-          Results.innerHTML = '<p class="p-3 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">Song Number is Too Large</p>'
-        }
-        console.log(url);
-        
-      }
-    }
+  if (!songNumber) {
+    showError('Please enter a song number');
+    return;
   }
+  
+  if (songNumber < 1 || songNumber > 1000) {
+    showError('Please enter a song number between 1 and 1000');
+    return;
+  }
+  
+  await searchSong(songNumber);
+}
 
+async function searchSong(songNumber) {
+  try {
+    const response = await fetch("{{ url_for('past_songs', songnum='') }}" + songNumber, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ book: selectedBook })
+    });
+    
+    const resultsContainer = document.getElementById('resultsContainer');
+    const results = document.getElementById('results');
+    
+    if (response.ok) {
+      const text = await response.text();
+      results.innerHTML = text;
+      resultsContainer.classList.remove('d-none');
+    } else {
+      showError('An error occurred while fetching the song');
+      resultsContainer.classList.add('d-none');
+    }
+  } catch (error) {
+    showError('An error occurred while fetching the song');
+    document.getElementById('resultsContainer').classList.add('d-none');
+  }
+}
 </script>
-{%endblock%}
+{% endblock %}
+{% endblock %}
