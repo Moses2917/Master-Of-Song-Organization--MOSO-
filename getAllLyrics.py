@@ -59,11 +59,13 @@ def updateSongLyrics(book:str, songNum:str, lyrics:Document):
         with open('AllLyrics.json', 'w', encoding='utf-8') as f:
             from json import dump
             dump(allLyrics,f,ensure_ascii=False,indent=4)
+        return True
     elif book.lower() == 'new':
         allLyrics['new'][songNum] = readLyrics(lyrics)
         with open('AllLyrics.json', 'w', encoding='utf-8') as f:
             from json import dump
             dump(allLyrics,f,ensure_ascii=False,indent=4)
+        return True
     return None
 
 def updateAllLyrics():

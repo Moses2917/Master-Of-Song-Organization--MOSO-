@@ -1168,7 +1168,7 @@
         },
         "266": {
             "Title": "Այսպես է ասում Տերը քո ստեղծողը",
-            "latestVersion": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v4.docx",
+            "latestVersion": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v5.docx",
             "v1": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը.docx",
             "v2": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v2.docx",
             "v3": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v3.docx",
@@ -1178,7 +1178,8 @@
             "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v5": "Word songs/266 Այսպես է ասում Տերը քո ստեղծողը v5.docx"
         },
         "267": {
             "Title": "Շտապիր անառակ որդի, \nՔո հայրենի տունն արի, \nԱյնտեղ քեզ է ըսպասում \nՍերը քո Հոր սրտի:",
@@ -1379,7 +1380,7 @@
         },
         "312": {
             "Title": "Թագավորների Թագավոր",
-            "latestVersion": "Word songs/312 Թագավորների Թագավոր v4.docx",
+            "latestVersion": "Word songs/312 Թագավորների Թագավոր v5.docx",
             "v1": "Word songs/312 Թագավորների Թագավոր.docx",
             "v2": "Word songs/312 Թագավորների Թագավոր v2.docx",
             "v3": "Word songs/312 Թագավորների Թագավոր v3.docx",
@@ -1389,7 +1390,8 @@
             "style": "Samba",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3"
+            "Comments": "Latin Dance-P2-3",
+            "v5": "Word songs/312 Թագավորների Թագավոր v5.docx"
         },
         "313": {
             "Title": "Աստված մարդ չէ որ սուտ խոսի",
@@ -3775,7 +3777,7 @@
         },
         "700": {
             "Title": "Փառաբանենք Տիրոջը ով նրա սուրբերը",
-            "latestVersion": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v3.docx",
+            "latestVersion": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v4.docx",
             "v1": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը.docx",
             "v2": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v2.docx",
             "key": "E sharp (-9)",
@@ -3784,7 +3786,8 @@
             "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Dance-P5-4",
-            "v3": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v3.docx"
+            "v3": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v3.docx",
+            "v4": "Word songs/700 Փառաբանենք Տիրոջը ով նրա սուրբերը v4.docx"
         },
         "701": {
             "Title": "Միայն քեզ է կարոտում հոգիս...Ամեն",
@@ -4095,7 +4098,7 @@
         },
         "738": {
             "Title": "Հիսուս Հիսուս",
-            "latestVersion": "Word songs/738 Հիսուս Հիսուս v2.docx",
+            "latestVersion": "Word songs/738 Հիսուս Հիսուս v3.docx",
             "v1": "Word songs/738 Հիսուս Հիսուս.docx",
             "v2": "Word songs/738 Հիսուս Հիսուս v2.docx",
             "key": "C",
@@ -4103,7 +4106,8 @@
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v3": "Word songs/738 Հիսուս Հիսուս v3.docx"
         },
         "739": {
             "Title": "Քոնն եմ ես քոնն եմ ես հավետ Սիրո Արքա",
@@ -4562,6 +4566,11 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Ballad-P1-8"
+        },
+        "15": {
+            "Title": "Ինձ տար Քո ետևից, և ես պիտի վազեմ",
+            "latestVersion": "Word songs/15 Ինձ տար Քո ետևից, և ես պիտի վազեմ v3.docx",
+            "v3": "Word songs/15 Ինձ տար Քո ետևից, և ես պիտի վազեմ v3.docx"
         }
     }
 }

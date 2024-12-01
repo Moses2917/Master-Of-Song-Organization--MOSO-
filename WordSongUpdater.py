@@ -300,4 +300,5 @@ def getNums(filename: str):
     return str(SongList)
     # return  SongList
 
-# print(getDocTextAndIndentation(r"C:\Users\Armne\OneDrive\Երգեր\03.2024\03.17.24.docx")) #am getting weird error
+if "__main__" == __name__:
+    print(getDocTextAndIndentation(r"C:\Users\moses\OneDrive\Երգեր\10.2024\10.31.24TESTSAVE.docx")) #am getting weird error
