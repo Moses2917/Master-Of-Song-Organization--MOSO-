@@ -321,8 +321,9 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": false
         },
         "83": {
             "Known": false,
@@ -330,8 +331,9 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": false
         },
         "84": {
             "Known": false,
@@ -339,17 +341,19 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": false
         },
         "85": {
             "Known": false,
             "Sang": false,
             "isSunday": false,
-            "isHoliday": false,
+            "isHoliday": true,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": true
         },
         "86": {
             "Known": false,
@@ -357,8 +361,8 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": true
         },
         "87": {
             "Known": false,
@@ -366,17 +370,19 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": false
         },
         "91": {
             "Known": false,
             "Sang": false,
             "isSunday": false,
             "isHoliday": false,
-            "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "isWeekday": true,
+            "checked": true,
+            "skipped": false,
+            "known": true
         },
         "93": {
             "Known": false,
@@ -384,8 +390,9 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": false
         },
         "97": {
             "Known": false,
@@ -393,8 +400,8 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": true
         },
         "99": {
             "Known": false,
@@ -402,17 +409,19 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": false
         },
         "100": {
             "Known": false,
             "Sang": false,
-            "isSunday": false,
+            "isSunday": true,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": true
         },
         "102": {
             "Known": false,
@@ -420,17 +429,19 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": false
         },
         "103": {
             "Known": false,
             "Sang": false,
-            "isSunday": false,
-            "isHoliday": false,
+            "isSunday": true,
+            "isHoliday": true,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": true
         },
         "105": {
             "Known": false,
@@ -438,8 +449,9 @@
             "isSunday": false,
             "isHoliday": false,
             "isWeekday": false,
-            "checked": false,
-            "skipped": false
+            "checked": true,
+            "skipped": false,
+            "known": false
         },
         "107": {
             "Known": false,

@@ -15,8 +15,12 @@ from random import choice as choose
 from random import choices
 
 from regex import F
-from scanningDir import songCollector, songChecker
+from scanningDir import songCollector, songChecker,songSearch
 from re import findall
+from musical_compatibility import MusicalCompatibility
+
+# def getAttrs(book:str, songnum:str):
+#     with open("")
 
 def sang_once(song_num, book = 'New'):
     return book
@@ -79,6 +83,25 @@ def collect_all_songs(only_sunday=False, include_sunday=False) -> dict:
                 }
     return found_songs
 
+def get_a_unknown_song():
+    filtered_songs = {}
+    with open("known_songs.json", 'r') as f:
+        known_songs:dict = load(f)
+        wanted_keys = ["isWeekday"]
+        for songnum in known_songs['New']:
+            for key in wanted_keys:
+                if known_songs['New'][songnum][key]:
+                    if filtered_songs.get(songnum,None) == None: ## To make an empty dir, and not to if it exists
+                        filtered_songs[songnum] = {}
+                    if not songSearch(songnum, 'New'):
+                        filtered_songs[songnum][key] = known_songs['New'][songnum][key]
+    
+    # choices()
+    print("Here are some unknowns that we could potentially sing today: ",choices(list(filtered_songs), k=2))
+    
+
+        
+
 def find_weekday_songs() -> dict:
     """
     Finds middle day songs by analyzing and narrowing down the list of songs 
@@ -123,8 +146,8 @@ def find_weekday_songs() -> dict:
         # The issue here is that I am checking tuesday & thursdayfiles
         # ofc its not going to apear in the last 3 months
         # because I am checking only for sundays
-        song_1_sang_in_last_3months = songChecker(book=song_pair1[0], songNum=song_pair1[1], ignore_sundays=True)
-        song_2_sang_in_last_3months = songChecker(book=song_pair2[0], songNum=song_pair2[1], ignore_sundays=True)
+        song_1_sang_in_last_3months = songChecker(book=song_pair1[0], songNum=song_pair1[1], ignore_sundays=True) #and songChecker(book=song_pair1[0], songNum=song_pair1[1], ignore_sundays=False)
+        song_2_sang_in_last_3months = songChecker(book=song_pair2[0], songNum=song_pair2[1], ignore_sundays=True) #and songChecker(book=song_pair2[0], songNum=song_pair2[1], ignore_sundays=False)
         if not ( song_1_sang_in_last_3months or song_2_sang_in_last_3months ):
             temp.append(song_pairs)
 
@@ -136,6 +159,7 @@ def find_weekday_songs() -> dict:
         REDergaran = load(f)
     songlist = {}
     ct = 1
+    compatibility = MusicalCompatibility()
     for song_pairs in latter_half_songs:
         # must do songs, bc as of now its a pair of two
         for song in song_pairs: # song = (book,songNum), song_pairs = [(book,songNum),(book,songNum)]
@@ -156,6 +180,9 @@ def find_weekday_songs() -> dict:
             except:
                 pass
             ct += 1
+        # compatibility.get_transition_recommendation(song_pairs)
+        # print(f"This has an approx. musical compatability of ...")
+
     
     return songlist
 ## TODO: Add a check to make sure that the song has been sang at least once
@@ -206,3 +233,4 @@ def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_
 
 if "__main__" == __name__:
     find_weekday_songs()
+    get_a_unknown_song()

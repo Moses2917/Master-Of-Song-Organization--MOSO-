@@ -1278,10 +1278,10 @@
         "songList": "[('New', '128'), ('New', '539'), ('New', '111'), ('New', '21'), ('New', '196'), ('New', '238'), ('New', '24')]"
     },
     "10.31.24TESTSAVE.docx": {
-        "dateMod": 1731871330.0,
+        "dateMod": 1733025729.0,
         "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\10.2024\\10.31.24TESTSAVE.docx",
         "basePth": "Երգեր\\10.2024",
-        "songList": "[('Old', '406'), ('Old', '304'), ('Old', '508'), ('New', '644'), ('New', '367'), ('New', '391'), ('New', '15'), ('New', '75')]"
+        "songList": "[('Old', '406'), ('Old', '304'), ('Old', '508'), ('New', '644'), ('New', '367'), ('New', '391'), ('Old', '15'), ('New', '75')]"
     },
     "11.05.24.docx": {
         "dateMod": 1730860105.0,
@@ -1331,22 +1331,34 @@
         "basePth": "Երգեր\\11.2024",
         "songList": "[('New', '137'), ('New', '697'), ('New', '415'), ('New', '512'), ('New', '472'), ('New', '477')]"
     },
-    "11.21.24PORC_PORC.docx": {
-        "dateMod": 1732252929.0,
-        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\11.2024\\11.21.24PORC_PORC.docx",
-        "basePth": "Երգեր\\11.2024",
-        "songList": "[('Old', '312'), ('Old', '266'), ('Old', '738'), ('New', '408'), ('New', '412'), ('New', '620'), ('Old', '700')]"
-    },
     "11.26.24.docx": {
         "dateMod": 1732674804.0,
         "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\11.2024\\11.26.24.docx",
         "basePth": "Երգեր\\11.2024",
         "songList": "[('New', '278'), ('New', '281'), ('New', '290'), ('New', '287'), ('New', '117'), ('New', '503')]"
     },
-    "11.30.24TESTSAVE.docx": {
-        "dateMod": 1733023078.2899394,
-        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\11.2024\\11.30.24TESTSAVE.docx",
+    "11.24.24.docx": {
+        "dateMod": 1732252929.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\11.2024\\11.24.24.docx",
         "basePth": "Երգեր\\11.2024",
-        "songList": "[]"
+        "songList": "[('Old', '312'), ('Old', '266'), ('Old', '738'), ('New', '408'), ('New', '412'), ('New', '620'), ('Old', '700')]"
+    },
+    "12.01.24.docx": {
+        "dateMod": 1733075924.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\12.2024\\12.01.24.docx",
+        "basePth": "Երգեր\\12.2024",
+        "songList": "[('Old', '495'), ('Old', '579'), ('Old', '747'), ('New', '541'), ('Old', '772'), ('New', '172'), ('Old', '745')]"
+    },
+    "12.03.24.docx": {
+        "dateMod": 1733280080.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\12.2024\\12.03.24.docx",
+        "basePth": "Երգեր\\12.2024",
+        "songList": "[('New', '662'), ('New', '223'), ('New', '47'), ('New', '465'), ('New', '189'), ('New', '249')]"
+    },
+    "12.05.24.docx": {
+        "dateMod": 1733452592.7824216,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\12.2024\\12.05.24.docx",
+        "basePth": "Երգեր\\12.2024",
+        "songList": "[('New', '261'), ('New', '648'), ('New', '7'), ('New', '22'), ('New', '280'), ('New', '295')]"
     }
 }

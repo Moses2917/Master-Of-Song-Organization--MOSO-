@@ -3,17 +3,14 @@
 <div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
   <div class="row align-items-start justify-content-center ">
     <h2 class="text-center">Click the button to generate songs:</h2>
-    <!-- <div class="col-9">
-      <div class="input-group mb-3 ">
-        <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum" >
-      </div>
-    </div> -->
     <div class="row justify-content-center" id="SongSection">
-      <!-- <div class="btn-group" role="group"> -->
       <div class="col-auto">
         <div class="">
           <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="Weekday_Songs" value="Get Weekday Songs" onclick="getWeekdayRecs()">
-          <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="cp_block" value="Copy Order" onclick="copy_order()">
+          <button class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="cp_block" onclick="copy_order()">
+            <i class="bi bi-clipboard"></i>
+            Copy Order
+          </button>
         </div>
       </div>
     </div>
@@ -33,89 +30,82 @@
 </div>
 
 <script>
+  let currentSongText = '';
+
   function spinner() {
     '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
   }
-  function blinking_placeholder(){
+
+  function blinking_placeholder() {
     const song_order = document.getElementById('song_order');
     song_order.innerHTML = ''
     const elem = `      <li class="list-group-item">
-         <div class="placeholder-glow ">
-            <p aria-hidden="true">
-              <span class="placeholder col-9"></span>
-            </p>
-            <p aria-hidden="true">
-              <span class="placeholder col-6"></span>
-            </p>
-        </div>`
-    array = [1,2,3,4,5,6];
-    array.forEach(element =>{
+      <div class="placeholder-glow ">
+        <p aria-hidden="true">
+          <span class="placeholder col-9"></span>
+        </p>
+        <p aria-hidden="true">
+          <span class="placeholder col-6"></span>
+        </p>
+    </div>`
+    array = [1, 2, 3, 4, 5, 6];
+    array.forEach(element => {
       song_order.innerHTML += elem
     })
-    song_order.style.display='block'
+    song_order.style.display = 'block'
   }
+
   async function getWeekdayRecs() {
     blinking_placeholder();
-    // const Results = document.getElementById('Results');
     const songOrder = document.getElementById('song_order');
-    
-      //const Results = document.getElementById('Results')
-      // Results.innerHTML = ""
-      // Get the song number, and make the url
-      
-      // var url = {{ url_for('newSundaySong')| tojson }}
-      const url = window.location.href;
-      fetch(url,{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
+
+    const url = window.location.href;
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
       },
-        // body: JSON.stringify({
-        //   'only_first_two_songs': first_two_songs,
-        //   'only_worship_songs': worship_songs,
-        //   'only_last_two_songs': last_two_songs
-        // })
-      })
+    })
       .then(response => response.text())
       .catch((error) => {
         console.error('Error:', error);
       })
-      .then(text =>{
+      .then(text => {
         const songs = Object.values(JSON.parse(text));
         songOrder.innerHTML = ''
-        // array = JSON.parse(text);
         console.log(songs)
+        // Store the song text as we generate it
+        currentSongText = songs.map(element => `${element['songnum']}: ${element['title']}`).join('\n');
+
         songs.forEach(element => {
           songOrder.innerHTML += `
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">${element['songnum']}: ${element['title']}
-              </div>
-                This song was last sang on ${element['date']} which was a ${element['weekday']}
-                <br>
-                <a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/new/${element['songnum']}">
-                  Open Song
-                </a>
-            </div>
-          </li>`
-          
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">${element['songnum']}: ${element['title']}
+        </div>
+          This song was last sang on ${element['date']} which was a ${element['weekday']}
+          <br>
+          <a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/new/${element['songnum']}">
+            Open Song
+          </a>
+      </div>
+    </li>`
         });
-        // Results.innerHTML += text
       })
-
-        
-    
   }
 
-</script>
-<script>
   function copy_order() {
-    const songOrder = document.getElementById('song_order');
-    if (songOrder.style.display != 'none') {
-      // Copy the text inside the text field
-      navigator.clipboard.writeText(copyText.value);
-    }      
+    if (currentSongText) {
+      const textarea = document.createElement('textarea');
+      textarea.value = currentSongText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('Songs copied!');
+    } else {
+      alert('Please generate songs first.');
+    }
   }
 </script>
-<!-- <div class="d-flex justify-content-center"></div> -->
 {%endblock%}

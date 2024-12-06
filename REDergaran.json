@@ -419,7 +419,7 @@
         },
         "47": {
             "Title": "Ինչպես բարեկամ է Տերը,",
-            "latestVersion": "Երգարան Word Files/47 Ինչպես բարեկամ է Տերը, v2.docx",
+            "latestVersion": "Երգարան Word Files/47 Ինչպես բարեկամ է Տերը, v3.docx",
             "v1": "RED Words/47.docx",
             "key": "E (-8)",
             "speed": "93",
@@ -427,7 +427,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Ballad-P5-5",
-            "v2": "Երգարան Word Files/47 Ինչպես բարեկամ է Տերը, v2.docx"
+            "v2": "Երգարան Word Files/47 Ինչպես բարեկամ է Տերը, v2.docx",
+            "v3": "Երգարան Word Files/47 Ինչպես բարեկամ է Տերը, v3.docx"
         },
         "48": {
             "Title": "Մի՛ թողուր զիս, ո՛վ Աստվածս,",
@@ -1450,7 +1451,7 @@
             "Title": "Աղոթքն է խոսք շատ զորավոր,",
             "latestVersion": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx",
             "v1": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx",
-            "key": "Dm",
+            "key": "Dm /Cm",
             "speed": "56",
             "style": "Ballad ",
             "song_type": "Worship Song",
@@ -1611,8 +1612,15 @@
         },
         "189": {
             "Title": "Սերը քննում են, սերը ճանաչում,",
-            "latestVersion": "RED Words/189.docx",
-            "v1": "RED Words/189.docx"
+            "latestVersion": "Երգարան Word Files/189 Սերը քննում են, սերը ճանաչում, v2.docx",
+            "v1": "RED Words/189.docx",
+            "v2": "Երգարան Word Files/189 Սերը քննում են, սերը ճանաչում, v2.docx",
+            "key": "Gm /G#m",
+            "speed": "73",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Any Ballad"
         },
         "190": {
             "Title": "Ինչպես երկնքում սուրբ հրեշտակները",
@@ -1924,7 +1932,7 @@
         },
         "223": {
             "Title": "Եթե հոգնել ես ճանապարհին,",
-            "latestVersion": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v5.docx",
+            "latestVersion": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v6.docx",
             "v1": "RED Words/223.docx",
             "v2": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v2.docx",
             "v3": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v3.docx",
@@ -1935,7 +1943,8 @@
             "song_type": "None",
             "timeSig": "4/4",
             "Comments": "Ballad-P6-4",
-            "v5": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v5.docx"
+            "v5": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v5.docx",
+            "v6": "Երգարան Word Files/223 Եթե հոգնել ես ճանապարհին, v6.docx"
         },
         "224": {
             "Title": "Աչքերս եմ բացել Քրիստոսի խաչի տակ",
@@ -2154,14 +2163,15 @@
         },
         "249": {
             "Title": "Ես կամենում եմ Քեզ հետ քայլել",
-            "latestVersion": "Երգարան Word Files/249 Ես կամենում եմ Քեզ հետ քայլել.docx",
+            "latestVersion": "Երգարան Word Files/249 Ես կամենում եմ Քեզ հետ քայլել v2.docx",
             "v1": "Երգարան Word Files/249 Ես կամենում եմ Քեզ հետ քայլել.docx",
             "key": "F#m",
             "speed": "82",
             "style": "Bwat",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Any beat"
+            "Comments": "Any beat",
+            "v2": "Երգարան Word Files/249 Ես կամենում եմ Քեզ հետ քայլել v2.docx"
         },
         "250": {
             "Title": "Անպտուղ և այրող անապատով",
@@ -3972,14 +3982,15 @@
         },
         "465": {
             "Title": "Օրհնյալ Հիսուսի Սուրբ Հոգով լցված՝",
-            "latestVersion": "RED Words/465.docx",
+            "latestVersion": "Երգարան Word Files/465 Օրհնյալ Հիսուսի Սուրբ Հոգով լցված՝ v2.docx",
             "v1": "RED Words/465.docx",
             "key": "D",
             "speed": "105",
             "style": "Disco",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v2": "Երգարան Word Files/465 Օրհնյալ Հիսուսի Սուրբ Հոգով լցված՝ v2.docx"
         },
         "466": {
             "Title": "Սուրբ Խոսքդ, Տե՛ր, զիս կսփոփե",
@@ -4619,10 +4630,10 @@
             "latestVersion": "Երգարան Word Files/541 Երկիր իջավ Աստծո Որդին v2.docx",
             "v1": "Երգարան Word Files/541 Երկիր իջավ Աստծո Որդին.docx",
             "v2": "Երգարան Word Files/541 Երկիր իջավ Աստծո Որդին v2.docx",
-            "key": "Em(-1)",
+            "key": "Em",
             "speed": "64",
             "style": "Beat",
-            "song_type": "Single Song",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3"
         },
@@ -5443,7 +5454,7 @@
         },
         "662": {
             "Title": "Երբ մտնում եմ սրբարանը Քո",
-            "latestVersion": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո v2.docx",
+            "latestVersion": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո v3.docx",
             "v1": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո.docx",
             "v2": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո v2.docx",
             "key": "Am",
@@ -5451,7 +5462,8 @@
             "style": "Beat",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Any beat or ballad"
+            "Comments": "Any beat or ballad",
+            "v3": "Երգարան Word Files/662 Երբ մտնում եմ սրբարանը Քո v3.docx"
         },
         "663": {
             "Title": "Աստված սեր է, երկայնամիտ,",
@@ -5611,7 +5623,13 @@
         "691": {
             "Title": "Բարձրյալի ծածկոցի տակ բնակվողը",
             "latestVersion": "Երգարան Word Files/691 Բարձրյալի ծածկոցի տակ բնակվողը.docx",
-            "v1": "Երգարան Word Files/691 Բարձրյալի ծածկոցի տակ բնակվողը.docx"
+            "v1": "Երգարան Word Files/691 Բարձրյալի ծածկոցի տակ բնակվողը.docx",
+            "key": "Dm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Any beat"
         },
         "692": {
             "Title": "Դեպի Քեզ եմ բարձրացնում իմ աչքերը,",
@@ -7263,17 +7281,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Թող օրհնվի մեր հավաքը,",
-            "latestVersion": "Երգարան Word Files/278 Թող օրհնվի մեր հավաքը, v3.docx",
-            "v1": "RED Words/278.docx",
-            "v2": "Երգարան Word Files/278 Թող օրհնվի մեր հավաքը, v2.docx",
-            "v3": "Երգարան Word Files/278 Թող օրհնվի մեր հավաքը, v3.docx",
-            "key": "Dm",
-            "speed": "64",
-            "style": "Beat",
-            "song_type": "None",
+            "Title": "Աղոթքն է խոսք շատ զորավոր,",
+            "latestVersion": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx",
+            "v1": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx",
+            "key": "Dm /Cm",
+            "speed": "56",
+            "style": "Ballad ",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Any beat"
+            "Comments": "Ballad-P6-1"
         },
         "1.Ինձ տար Քո ետևից, և ես պիտի վազեմ, ": {
             "Title": "",

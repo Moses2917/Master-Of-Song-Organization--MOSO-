@@ -141,10 +141,10 @@ def openWord(songNum, book):
     
     if ("word" in book.lower() or "old" in book.lower()):
         with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
-            index = json.load(f)
+            index:dict = json.load(f)
     else:
         with open("REDergaran.json", 'r', encoding='utf-8') as f:
-            index = json.load(f)
+            index:dict = json.load(f)
     
     if index["SongNum"].get(songNum,None):
         songPth = index["SongNum"][songNum]["latestVersion"]
