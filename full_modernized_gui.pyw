@@ -118,8 +118,9 @@ class ModernSongManager:
             else:
                 dupSong = SD.songChecker(songNum=song_num,book=bookType)
             
-            print(dupSong)
+            
             if dupSong: # get value and if used then ask if they wish to continue
+                print("That song was used before in the last 3 months")
                 errMes = messagebox.askyesno("Error: That song was used before in the last 3 months",
                                             "Do you wish to proceed with this song {}\nFilename/Date: {}".format(song_num + " " + bookType, dupSong[1])#SD.getSongDate(songNum=song_num,book=bookType))
                                             )
@@ -240,7 +241,7 @@ class ModernSongManager:
         font = my_doc.styles['Normal'].font
         font.name = 'Arial'
         font.size = Pt(22)
-        print("it is done")
+        print("The file has been created!")
         
         #gets date and time
         month = time.strftime('%m')
@@ -275,20 +276,25 @@ class ModernSongManager:
 
 
     def ChooseFile(self):
+        """
+        Allows user to choose a file to update, checks if it should be updated, and if so calls the appropriate function to update it.
+        If user chooses not to update it, it simply stops the function from running.
+        """
         from tkinter import filedialog as fd
         filetypes = ( ('word doc', '*.docx'), ('All files', '*.*') )
         input_filename = None
-        input_filename = fd.askopenfilename(
+        input_filename = fd.askopenfilenames(
                             title='Open a file',
                             initialdir='C:/Users/{}/OneDrive/Երգեր'.format(os.environ.get("USERNAME")),
                             filetypes=filetypes)
         # Possibly throw a window to double check if it really is the file you want
         if input_filename != None:
-            message= messagebox.askyesno("MOSO is asking:","Do you wish to update this file: " + input_filename + "\n\nYes to cont., No to stop")
+            message= messagebox.askyesno("MOSO is asking:","Do you wish to update this file(s): " + str(input_filename) + "\n\nYes to cont., No to stop")
             print(message)
             if message == "yes" or message == True:
-                try: SongUpdater.getDocTextAndIndentation(input_filename)
-                except Exception as err: messagebox.showerror("Could not update", f"Could not update this file. Becuase of error: {err}")
+                for filename in input_filename:
+                    try: SongUpdater.getDocTextAndIndentation(filename)
+                    except Exception as err: messagebox.showerror("Could not update", f"Could not update this file. Becuase of error: {err}")
             # elif message == False:
             #     ChooseFile()
             else:

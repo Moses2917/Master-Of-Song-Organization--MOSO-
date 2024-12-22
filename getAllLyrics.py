@@ -19,10 +19,11 @@ def template(songs_to_open_bool=True) -> dict:
         'new': {}
     }
     return songs_to_open if songs_to_open_bool else songLyrics
+
 def getAllLyricsDict() -> dict:
     with open('AllLyrics.json', 'r', encoding='utf-8') as f:
-        return load(f)
-        
+        return load(f)       
+
 def GetAllSongPths(songs_to_open,index:str, book = 'old'or'new',) -> dict:
     try:
         for songNum in index["SongNum"]:
@@ -32,6 +33,7 @@ def GetAllSongPths(songs_to_open,index:str, book = 'old'or'new',) -> dict:
     except:
         print(f'This song threw an error: {index["SongNum"][songNum]}')
     return songs_to_open
+
 def readLyrics(filePth:str) -> str:
     lyrics = ''
     doc = Document(filePth)
@@ -106,6 +108,53 @@ def getAllLyrics():
         from json import dump
         dump(songLyrics,f,ensure_ascii=False,indent=4)
 
+def WordToHtml(songNum, book):
+    """
+    PORTED FROM APP.PY
+    Opens a word document based on the provided song number and book, 
+    and returns the contents of the document as a HTML formatted string.
+
+    Args:
+        songNum (int): The number of the song to be opened.
+        book (str): The name of the book containing the song.
+
+    Returns:
+        str: A HTML formatted string containing the contents of the word document.
+    """
+    from docx import Document
+    #Used to find and open word doc, sends back a html formated str of it
+    
+    if ("word" in book.lower() or "old" in book.lower()):
+        with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+            index:dict = load(f)
+    else:
+        with open("REDergaran.json", 'r', encoding='utf-8') as f:
+            index:dict = load(f)
+    
+    if index["SongNum"].get(songNum,None):
+        songPth = index["SongNum"][songNum]["latestVersion"]
+        filePth = ENV.get("OneDrive")+"\\"+songPth #find pth from index, and attach the location for onedrive
+        doc = Document(filePth) #load doc file
+        docParagraphs = doc.paragraphs # returns a list of doc paragrpahs from which text will be extracted
+        text = ''
+        
+        for para in docParagraphs:
+            text += para.text + '\n'
+        
+        # Split the text into chunks based on line breaks
+        chunks = text.split('\n\n')
+        
+        # Convert chunks to HTML
+        html_chunks = []
+        for chunk in chunks:
+            lines = chunk.split('\n')
+            html_lines = ['<p>' + line + '</p>' for line in lines]
+            html_chunk = ''.join(html_lines)
+            html_chunks.append(html_chunk)
+
+        # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
+        html_text = '<br>'.join(html_chunks)
+        return html_text
 
 if __name__ == "__main__":
     onedrive = ENV.get('onedrive')

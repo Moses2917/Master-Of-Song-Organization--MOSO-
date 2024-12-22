@@ -362,14 +362,15 @@
         },
         "41": {
             "Title": "Հա՛յր, ճամփադ ինձ սորվեցուր",
-            "latestVersion": "Երգարան Word Files/41 Հա՛յր, ճամփադ ինձ սորվեցուր.docx",
+            "latestVersion": "Երգարան Word Files/41 Հա՛յր, ճամփադ ինձ սորվեցուր v2.docx",
             "v1": "Երգարան Word Files/41 Հա՛յր, ճամփադ ինձ սորվեցուր.docx",
             "key": "C",
             "speed": "110",
             "style": "Pop",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Pop-P3-4",
+            "v2": "Երգարան Word Files/41 Հա՛յր, ճամփադ ինձ սորվեցուր v2.docx"
         },
         "42": {
             "Title": "Գեղեցիկ զգեստներ,",
@@ -583,7 +584,7 @@
         },
         "67": {
             "Title": "Ո՜վ Հիսուս, ինձ մոտ արի",
-            "latestVersion": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի v2.docx",
+            "latestVersion": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի v3.docx",
             "v1": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի.docx",
             "v2": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի v2.docx",
             "key": "Em",
@@ -591,7 +592,8 @@
             "style": "Disco",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Dance-P5-5"
+            "Comments": "Dance-P5-5",
+            "v3": "Երգարան Word Files/67 Ո՜վ Հիսուս, ինձ մոտ արի v3.docx"
         },
         "68": {
             "Title": "Իջի՛ր, Արքա հզոր,",
@@ -1165,7 +1167,7 @@
         },
         "141": {
             "Title": "Տեր Հիսուս գնաց երկինքը,",
-            "latestVersion": "Երգարան Word Files/141 Տեր Հիսուս գնաց երկինքը, v2.docx",
+            "latestVersion": "Երգարան Word Files/141 Տեր Հիսուս գնաց երկինքը, v3.docx",
             "v1": "RED Words/141.docx",
             "key": "C",
             "speed": "100",
@@ -1173,7 +1175,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Pop-P4-1",
-            "v2": "Երգարան Word Files/141 Տեր Հիսուս գնաց երկինքը, v2.docx"
+            "v2": "Երգարան Word Files/141 Տեր Հիսուս գնաց երկինքը, v2.docx",
+            "v3": "Երգարան Word Files/141 Տեր Հիսուս գնաց երկինքը, v3.docx"
         },
         "142": {
             "Title": "Տե՜ր գթության, աղբյուր ողորմության",
@@ -1271,7 +1274,7 @@
         },
         "151": {
             "Title": "Հիսուսի սերը մեծ է, անսահման,",
-            "latestVersion": "Երգարան Word Files/151 Հիսուսի սերը մեծ է, անսահման, v2.docx",
+            "latestVersion": "Երգարան Word Files/151 Հիսուսի սերը մեծ է, անսահման, v3.docx",
             "v1": "RED Words/151.docx",
             "v2": "Երգարան Word Files/151 Հիսուսի սերը մեծ է, անսահման, v2.docx",
             "key": "Fm",
@@ -1279,7 +1282,8 @@
             "style": "Pop",
             "song_type": "Opening Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P3-4"
+            "Comments": "Pop-P3-4",
+            "v3": "Երգարան Word Files/151 Հիսուսի սերը մեծ է, անսահման, v3.docx"
         },
         "152": {
             "Title": "",
@@ -1519,7 +1523,7 @@
             "latestVersion": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք v3.docx",
             "v1": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք.docx",
             "v2": "Երգարան Word Files/179 Երբ Տիրոջը մոտ ենք մենք v2.docx",
-            "key": "E",
+            "key": "F",
             "speed": "97",
             "style": "Samba",
             "song_type": "Opening Song",
@@ -1572,7 +1576,7 @@
         },
         "186": {
             "Title": "Քրիստոսը մեզ կանչում է փրկության",
-            "latestVersion": "Երգարան Word Files/186 Քրիստոսը մեզ կանչում է փրկության v5.docx",
+            "latestVersion": "Երգարան Word Files/186 Քրիստոսը մեզ կանչում է փրկության v6.docx",
             "v1": "RED Words/186.docx",
             "v2": "Երգարան Word Files/186 Քրիստոսը մեզ կանչում է փրկության v2.docx",
             "v3": "Երգարան Word Files/186 Քրիստոսը մեզ կանչում է փրկության v3.docx",
@@ -1583,7 +1587,8 @@
             "timeSig": "4/4",
             "Comments": "Ballad-P3-5",
             "v4": "Երգարան Word Files/186 Քրիստոսը մեզ կանչում է փրկության v4.docx",
-            "v5": "Երգարան Word Files/186 Քրիստոսը մեզ կանչում է փրկության v5.docx"
+            "v5": "Երգարան Word Files/186 Քրիստոսը մեզ կանչում է փրկության v5.docx",
+            "v6": "Երգարան Word Files/186 Քրիստոսը մեզ կանչում է փրկության v6.docx"
         },
         "187": {
             "Title": "Աստվա՛ծ իմ, Քեզ եմ սիրում, Դու գիտես՝",
@@ -2301,8 +2306,9 @@
         },
         "264": {
             "Title": "Հեռավոր մի երկրում,",
-            "latestVersion": "RED Words/264.docx",
-            "v1": "RED Words/264.docx"
+            "latestVersion": "Երգարան Word Files/264 Հեռավոր մի երկրում, v2.docx",
+            "v1": "RED Words/264.docx",
+            "v2": "Երգարան Word Files/264 Հեռավոր մի երկրում, v2.docx"
         },
         "265": {
             "Title": "Գնում էր Պետրոսը ճամփով քարքարոտ,",
@@ -3806,7 +3812,13 @@
         "442": {
             "Title": "Ուրախացե՛ք, մարդիկ աշխարհի,",
             "latestVersion": "Երգարան Word Files/442 Ուրախացե՛ք, մարդիկ աշխարհի,.docx",
-            "v1": "Երգարան Word Files/442 Ուրախացե՛ք, մարդիկ աշխարհի,.docx"
+            "v1": "Երգարան Word Files/442 Ուրախացե՛ք, մարդիկ աշխարհի,.docx",
+            "key": "Dm- then- Gm",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "443": {
             "Title": "Փառք Քեզ, ո՛վ Տեր Հիսուս, Աստված մեր",
@@ -4315,7 +4327,7 @@
         },
         "508": {
             "Title": "Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով",
-            "latestVersion": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v4.docx",
+            "latestVersion": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v5.docx",
             "v1": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով.docx",
             "v2": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v2.docx",
             "v3": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v3.docx",
@@ -4325,7 +4337,8 @@
             "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3",
-            "v4": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v4.docx"
+            "v4": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v4.docx",
+            "v5": "Երգարան Word Files/508 Եկե՛ք միանանք, մեկ ձայնով, մեկ հոգով v5.docx"
         },
         "509": {
             "Title": "Տե՛ր, ինչպես Պենտեկոստեին",
@@ -5070,7 +5083,13 @@
             "Title": "Մի սեր ունեմ սքանչելի,",
             "latestVersion": "Երգարան Word Files/599 Մի սեր ունեմ սքանչելի, v2.docx",
             "v1": "RED Words/599.docx",
-            "v2": "Երգարան Word Files/599 Մի սեր ունեմ սքանչելի, v2.docx"
+            "v2": "Երգարան Word Files/599 Մի սեր ունեմ սքանչելի, v2.docx",
+            "key": "Em",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "600": {
             "Title": "Քո գահի առջև ահա կանգնել եմ,",
@@ -6265,7 +6284,7 @@
             "v1": "RED Words/804.docx"
         },
         "805": {
-            "Title": "",
+            "Title": "Օրերը այս կարճ թռչում են արագ",
             "latestVersion": "Երգարան Word Files/805  v2.docx",
             "v1": "Երգարան Word Files/805.docx",
             "v2": "Երգարան Word Files/805  v2.docx",
@@ -7281,15 +7300,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Աղոթքն է խոսք շատ զորավոր,",
-            "latestVersion": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx",
-            "v1": "Երգարան Word Files/172 Աղոթքն է խոսք շատ զորավոր,.docx",
-            "key": "Dm /Cm",
-            "speed": "56",
-            "style": "Ballad ",
-            "song_type": "Worship Song",
-            "timeSig": "4/4",
-            "Comments": "Ballad-P6-1"
+            "Title": "Ուրախացե՛ք, մարդիկ աշխարհի,",
+            "latestVersion": "Երգարան Word Files/442 Ուրախացե՛ք, մարդիկ աշխարհի,.docx",
+            "v1": "Երգարան Word Files/442 Ուրախացե՛ք, մարդիկ աշխարհի,.docx",
+            "key": "Dm- then- Gm",
+            "speed": "90",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "1.Ինձ տար Քո ետևից, և ես պիտի վազեմ, ": {
             "Title": "",

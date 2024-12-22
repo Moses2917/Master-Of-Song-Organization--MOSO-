@@ -137,6 +137,7 @@ def getDocTextAndIndentation(filename:str):
     song = []
     bookOld = False
     first = True
+    have_we_started = False
     for p in doc.paragraphs:
         
         if "[start:song" in p.text:
@@ -144,6 +145,7 @@ def getDocTextAndIndentation(filename:str):
             song = []
             songNum = None
             first = True
+            have_we_started = True
             if "old" in p.text: #Possible starting loc, or just make the doc file in it's entirety and and send off a list of docs to be saved somewhere else
                 bookOld = True
                 
@@ -152,7 +154,7 @@ def getDocTextAndIndentation(filename:str):
                 songNum = re.sub(r"\D", "", p.text)
                 first = False
                 
-        if not("end" in p.text or "start" in p.text):
+        if not("end" in p.text or "start" in p.text) and have_we_started == True:
             if first: 
                 songNum = p.text.split("\n")[0]
                 first=False
@@ -251,7 +253,7 @@ def saveDocFromDoc(song_Doc: docx, oldBook:str, songNum:str):
             #Book_Index["SongNum"] = dict(sorted(Book_Index["SongNum"].items(), key=lambda x: int(x[0]))) # should sort the songs before saving
             json.dump(Book_Index, f, indent=4, ensure_ascii=False)
         print(base_file_path)
-    #TODO: make a function to update lyrics
+
     if not oldBook:
         if updateSongLyrics(book="new", songNum=songNum, lyrics = song_Doc) == None:
             print("Lyrics not Updated")
