@@ -557,3 +557,4 @@ def findEmptySongNum() -> str:
 
 if __name__ == '__main__':
     print(findEmptySongNum())
+    # print(findNewFiles())

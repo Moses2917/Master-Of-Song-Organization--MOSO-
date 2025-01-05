@@ -7288,6 +7288,11 @@
             "latestVersion": "RED Words/999.docx",
             "v1": "RED Words/999.docx"
         },
+        "1000":{
+            "Title": "Եկել եմ այսօր, Տե՛ր, որ Քեզ հանդիպեմ",
+            "latestVersion":"RED Words/1000.docx",
+            "v1":"RED Words/1000.docx"
+        },
         "94": {
             "Title": "Մէկը տեսա խաչին գամված",
             "latestVersion": "Երգարան Word Files/94  v1.docx",
@@ -7309,11 +7314,6 @@
             "song_type": "Single Song",
             "timeSig": "12/8",
             "Comments": "Ballad-P4-1"
-        },
-        "1.Ինձ տար Քո ետևից, և ես պիտի վազեմ, ": {
-            "Title": "",
-            "latestVersion": "Երգարան Word Files/1.Ինձ տար Քո ետևից, և ես պիտի վազեմ,   v1.docx",
-            "v1": "Երգարան Word Files/1.Ինձ տար Քո ետևից, և ես պիտի վազեմ,   v1.docx"
         }
     }
 }
