@@ -152,7 +152,28 @@ def WordToJson(songNum, book):
         html_text = '<br>'.join(html_chunks)
         return html_text
 
-def wordsToJson(songNum:str):
+def wordsToJson():
+    with open("REDergaran.json", 'r', encoding="utf-8") as f:
+        Songs = load(f)
+    songLyrics = {}
+    for song in Songs["SongNum"]:
+        if song != "SongNum":
+            fp = ENV.get("OneDrive") + "/" + Songs["SongNum"][song]["latestVersion"]
+            # print(fp)
+            doc = Document(fp) #load doc file
+            docParagraphs = doc.paragraphs # returns a list of doc paragrpahs from which text will be extracted
+            text = ''
+            
+            for para in docParagraphs:
+                text += para.text + '\n'
+            
+            songLyrics[song] = text
+    
+    with open('AppLyrics.json', 'w', encoding='utf-8') as f:
+        from json import dump
+        dump(songLyrics,f,ensure_ascii=False,indent=4)
+
+def singleWordToJson(songNum:str):
     with open("REDergaran.json", 'r', encoding="utf-8") as f:
         Songs = load(f)
     
@@ -174,29 +195,8 @@ def wordsToJson(songNum:str):
         from json import dump
         dump(songLyrics,f,ensure_ascii=False,indent=4)
 
-def singleWordToJson(kwargs):
-    with open("REDergaran.json", 'r', encoding="utf-8") as f:
-        Songs = load(f)
-    songLyrics = {}
-    for song in Songs["SongNum"]:
-        if song != "SongNum":
-            fp = ENV.get("OneDrive") + "/" + Songs["SongNum"][song]["latestVersion"]
-            # print(fp)
-            doc = Document(fp) #load doc file
-            docParagraphs = doc.paragraphs # returns a list of doc paragrpahs from which text will be extracted
-            text = ''
-            
-            for para in docParagraphs:
-                text += para.text + '\n'
-            
-            songLyrics[song] = text
-    
-    with open('AppLyrics.json', 'w', encoding='utf-8') as f:
-        from json import dump
-        dump(songLyrics,f,ensure_ascii=False,indent=4)
-
 if __name__ == "__main__":
     pass
-    wordsToJson()
+    singleWordToJson('228')
     # onedrive = ENV.get('onedrive')
     # updateSongLyrics('old','389',Document(onedrive+'\\Word songs/389 Տոն է այսոր սուրբ հաղթական.docx'))
