@@ -108,28 +108,24 @@ def getAllLyrics():
         from json import dump
         dump(songLyrics,f,ensure_ascii=False,indent=4)
 
-def WordToHtml(songNum, book):
+def WordToJson(songNum, book):
     """
     PORTED FROM APP.PY
     Opens a word document based on the provided song number and book, 
-    and returns the contents of the document as a HTML formatted string.
+    and returns the contents of the document as a JSON object.
 
     Args:
         songNum (int): The number of the song to be opened.
         book (str): The name of the book containing the song.
 
     Returns:
-        str: A HTML formatted string containing the contents of the word document.
+        dict: A JSON formatted string containing the contents of the word document.
     """
     from docx import Document
     #Used to find and open word doc, sends back a html formated str of it
-    
-    if ("word" in book.lower() or "old" in book.lower()):
-        with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
-            index:dict = load(f)
-    else:
-        with open("REDergaran.json", 'r', encoding='utf-8') as f:
-            index:dict = load(f)
+
+    with open("REDergaran.json", 'r', encoding='utf-8') as f:
+        index:dict = load(f)
     
     if index["SongNum"].get(songNum,None):
         songPth = index["SongNum"][songNum]["latestVersion"]
@@ -156,6 +152,51 @@ def WordToHtml(songNum, book):
         html_text = '<br>'.join(html_chunks)
         return html_text
 
+def wordsToJson(songNum:str):
+    with open("REDergaran.json", 'r', encoding="utf-8") as f:
+        Songs = load(f)
+    
+    #load the dir to update
+    with open('AppLyrics.json', 'r', encoding='utf-8') as f:
+        songLyrics = load(f)
+        fp = ENV.get("OneDrive") + "/" + Songs["SongNum"][songNum]["latestVersion"]
+        # print(fp)
+        doc = Document(fp) #load doc file
+        docParagraphs = doc.paragraphs # returns a list of doc paragrpahs from which text will be extracted
+        text = ''
+        
+        for para in docParagraphs:
+            text += para.text + '\n'
+        
+        songLyrics[songNum] = text
+    
+    with open('AppLyrics.json', 'w', encoding='utf-8') as f:
+        from json import dump
+        dump(songLyrics,f,ensure_ascii=False,indent=4)
+
+def singleWordToJson(kwargs):
+    with open("REDergaran.json", 'r', encoding="utf-8") as f:
+        Songs = load(f)
+    songLyrics = {}
+    for song in Songs["SongNum"]:
+        if song != "SongNum":
+            fp = ENV.get("OneDrive") + "/" + Songs["SongNum"][song]["latestVersion"]
+            # print(fp)
+            doc = Document(fp) #load doc file
+            docParagraphs = doc.paragraphs # returns a list of doc paragrpahs from which text will be extracted
+            text = ''
+            
+            for para in docParagraphs:
+                text += para.text + '\n'
+            
+            songLyrics[song] = text
+    
+    with open('AppLyrics.json', 'w', encoding='utf-8') as f:
+        from json import dump
+        dump(songLyrics,f,ensure_ascii=False,indent=4)
+
 if __name__ == "__main__":
-    onedrive = ENV.get('onedrive')
-    updateSongLyrics('old','389',Document(onedrive+'\\Word songs/389 Տոն է այսոր սուրբ հաղթական.docx'))
+    pass
+    wordsToJson()
+    # onedrive = ENV.get('onedrive')
+    # updateSongLyrics('old','389',Document(onedrive+'\\Word songs/389 Տոն է այսոր սուրբ հաղթական.docx'))

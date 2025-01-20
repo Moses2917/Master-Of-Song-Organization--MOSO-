@@ -10,13 +10,13 @@ def load_json_data(file_path):
         data = json.load(f)
     return data
 
-def extract_lyrics(song_lyrics):
+def extract_lyrics(song_lyrics:dict):
     all_lyrics = []
     song_ids = []
 
     for section in ['old', 'new']:
         for song_id, lyrics in song_lyrics[section].items():
-            lyrics = re.sub(r'[՛:։,.(0-9)]+','',lyrics)
+            lyrics = re.sub(r'[՛:։,.(0-9)\\n]+','',lyrics)
             all_lyrics.append(lyrics)
             song_ids.append((section, song_id))
 
