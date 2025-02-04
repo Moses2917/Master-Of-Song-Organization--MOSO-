@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="text-center">Song Analysis Dashboard</h2>
+            <p class="text-center text-muted">Analysis of {{ analysis.total_songs }} songs in our collection</p>
+        </div>
+    </div>
+
+    <!-- Quick Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Songs</h5>
+                    <p class="card-text display-6">{{ analysis.total_songs }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Unique Keys</h5>
+                    <p class="card-text display-6">{{ analysis.key_distribution|length }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Unique Styles</h5>
+                    <p class="card-text display-6">{{ analysis.style_distribution|length }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Song Types</h5>
+                    <p class="card-text display-6">{{ analysis.type_distribution|length }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row">
+        <!-- Key Distribution -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Key Distribution</h5>
+                </div>
+                <div class="card-body" style="height: 400px;">
+                    <canvas id="keyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Style Distribution -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Style Distribution</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="styleChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Tempo Distribution -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tempo Distribution</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="tempoChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Song Type Distribution -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Song Type Distribution</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="typeChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tempo Ranges -->
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tempo Distribution by Range</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="tempoRangeChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Major/Minor Distribution -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Major vs Minor Keys</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="keyTypeChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Combinations -->
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Most Common Key-Style Combinations</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="combinationsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function createChart(elementId, labels, data, type = 'pie', title = '') {
+            const ctx = document.getElementById(elementId).getContext('2d');
+            const colors = [
+                '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
+                '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF9F40'
+            ];
+
+            return new Chart(ctx, {
+                type: type,
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors.slice(0, data.length),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        },
+                        title: {
+                            display: true,
+                            text: title,
+                            position: 'top',  // Add this line to force title to top
+                            align: 'center',   // Add this line to center the title
+                            font: {
+                                size: 16      // Optional: make the title more prominent
+                            },
+                            padding: {
+                                top: 10,      // Add some padding
+                                bottom: 10
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        const keyData = {{ analysis.key_distribution | tojson
+    }};
+    createChart('keyChart',
+        Object.keys(keyData),
+        Object.values(keyData),
+        'pie',
+        'Song Keys'
+    );
+
+    const styleData = {{ analysis.style_distribution | tojson }};
+    createChart('styleChart',
+        Object.keys(styleData),
+        Object.values(styleData),
+        'pie',
+        'Song Styles'
+    );
+
+    const tempoData = {{ analysis.tempo_distribution | tojson }};
+    createChart('tempoChart',
+        Object.keys(tempoData),
+        Object.values(tempoData),
+        'bar',
+        'Tempo Distribution'
+    );
+
+    const typeData = {{ analysis.type_distribution | tojson }};
+    createChart('typeChart',
+        Object.keys(typeData),
+        Object.values(typeData),
+        'doughnut',
+        'Song Types'
+    );
+
+    const tempoRangeData = {{ analysis.tempo_ranges | tojson }};
+    createChart('tempoRangeChart',
+        Object.keys(tempoRangeData),
+        Object.values(tempoRangeData),
+        'bar',
+        'Songs by Tempo Range'
+    );
+
+    const keyTypeData = {{ analysis.key_relationships | tojson }};
+    createChart('keyTypeChart',
+        ['Major Keys', 'Minor Keys'],
+        [keyTypeData.major_total, keyTypeData.minor_total],
+        'pie',
+        'Major vs Minor Keys'
+    );
+
+    const combinationsData = {{ analysis.combinations | tojson }};
+    createChart('combinationsChart',
+        Object.keys(combinationsData),
+        Object.values(combinationsData),
+        'bar',
+        'Top Key-Style Combinations',
+    );
+
+    // Modify the createChart function to handle horizontal bars
+    function createChart(elementId, labels, data, type = 'pie', title = '') {
+        const ctx = document.getElementById(elementId).getContext('2d');
+        const colors = [
+            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
+            '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF9F40'
+        ];
+
+        const options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'right',
+                },
+                title: {
+                    display: true,
+                    text: title
+                }
+            }
+        };
+
+        // Add special options for bar charts
+        if (type === 'bar') {
+            options.indexAxis = elementId === 'combinationsChart' ? 'y' : 'x'; // Make combinations chart horizontal
+            options.scales = {
+                x: {
+                    beginAtZero: true
+                }
+            };
+        }
+
+        return new Chart(ctx, {
+            type: type,
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: colors.slice(0, data.length),
+                    borderWidth: 1
+                }]
+            },
+            options: options
+        });
+    }
+});
+</script>
+{% endblock %}

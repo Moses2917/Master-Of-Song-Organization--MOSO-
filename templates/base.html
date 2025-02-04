@@ -173,6 +173,7 @@
       transform: scale(0.9);
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   
@@ -189,6 +190,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{{ url_for('edit_songs') }}">Edit Songs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('song_analysis')}}">Song Analysis</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('tsank')}}">Ցանկ Ըստ Թեմա</a>

@@ -1016,6 +1016,133 @@ def get_skipped_songs():# add some func to be able to go backwards
         lyrics = future.result()
     return jsonify([lyrics, book, song])
 
+
+@app.route('/song_analysis', methods=['GET', 'POST'])
+def song_analysis():
+    """
+    Analyzes song data to provide insights on service patterns and song usage.
+    Returns analysis through the song_analysis.html template.
+    """
+    # Load your song data
+    with open('REDergaran.json', 'r', encoding='utf-8') as f:
+        red_songs = json.load(f)
+    with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
+        word_songs = json.load(f)
+    
+    # Initialize counters
+    key_distribution = {}
+    tempo_distribution = {}
+    style_distribution = {}
+    type_distribution = {}
+    total_songs = 0
+    
+    def analyze_tempo_ranges(tempo_distribution):
+        ranges = {
+            'Slow (<=72)': 0,
+            'Medium (73-108)': 0,
+            'Fast (109-144)': 0,
+            'Very Fast (>144)': 0
+        }
+        
+        for tempo, count in tempo_distribution.items():
+            try:
+                tempo_val = float(tempo)
+                if tempo_val <= 72:
+                    ranges['Slow (<=72)'] += count
+                elif tempo_val <= 108:
+                    ranges['Medium (73-108)'] += count
+                elif tempo_val <= 144:
+                    ranges['Fast (109-144)'] += count
+                else:
+                    ranges['Very Fast (>144)'] += count
+            except ValueError:
+                continue
+        return ranges
+
+    def analyze_key_relationships(key_distribution):
+        major_keys = {}
+        minor_keys = {}
+        
+        for key, count in key_distribution.items():
+            if 'm' in key.lower():
+                minor_keys[key] = count
+            else:
+                major_keys[key] = count
+                
+        return {
+            'major': major_keys,
+            'minor': minor_keys,
+            'major_total': sum(major_keys.values()),
+            'minor_total': sum(minor_keys.values())
+        }
+
+    def analyze_combinations(songs_data):
+        combinations = {}
+        for song_data in songs_data['SongNum'].values():
+            key = song_data.get('key', '').strip()
+            style = song_data.get('style', '').strip()
+            if key and style:
+                combo = f"{key} - {style}"
+                combinations[combo] = combinations.get(combo, 0) + 1
+        
+        # Get top 10 most common combinations
+        return dict(sorted(combinations.items(), key=lambda x: x[1], reverse=True)[:10])
+
+    def process_songs(songs_data):
+        nonlocal total_songs
+        for song_num, song_data in songs_data['SongNum'].items():
+            total_songs += 1
+            key = song_data.get('key', '').strip()
+            speed = song_data.get('speed', '').strip()
+            style = song_data.get('style', '').strip()
+            song_type = song_data.get('song_type', '').strip()
+            
+            # Only count non-empty values
+            if key and key.lower() != 'unknown':
+                key_distribution[key] = key_distribution.get(key, 0) + 1
+            if speed and speed.lower() != 'unknown':
+                tempo_distribution[speed] = tempo_distribution.get(speed, 0) + 1
+            if style and style.lower() != 'unknown':
+                style_distribution[style] = style_distribution.get(style, 0) + 1
+            if song_type and song_type.lower() != 'unknown':
+                type_distribution[song_type] = type_distribution.get(song_type, 0) + 1
+    
+    # Process both song collections
+    process_songs(red_songs)
+    process_songs(word_songs)
+
+    # Sort tempo distribution by speed if possible
+    try:
+        tempo_distribution = dict(sorted(tempo_distribution.items(), 
+                                       key=lambda x: float(x[0])))
+    except ValueError:
+        # If conversion fails, keep original order
+        pass
+
+    # Get additional analyses
+    tempo_ranges = analyze_tempo_ranges(tempo_distribution)
+    key_relationships = analyze_key_relationships(key_distribution)
+    combinations = analyze_combinations(red_songs) # You might want to merge both song collections here
+    
+    analysis_data = {
+        'key_distribution': key_distribution,
+        'tempo_distribution': tempo_distribution,
+        'style_distribution': style_distribution,
+        'type_distribution': type_distribution,
+        'total_songs': total_songs,
+        'songs_with_attributes': {
+            'keys': len(key_distribution),
+            'styles': len(style_distribution),
+            'types': len(type_distribution),
+            'tempos': len(tempo_distribution)
+        },
+        'tempo_ranges': tempo_ranges,
+        'key_relationships': key_relationships,
+        'combinations': combinations
+    }
+    
+    return render_template('song_analysis.html', analysis=analysis_data)
+
 if __name__ == '__main__':
     try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))

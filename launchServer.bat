@@ -2,4 +2,4 @@
 @echo launching Server...
 @echo off
 cd C:\Users\Armne\OneDrive\Documents\Code\Python
-c:\Users\Armne\AppData\Local\Programs\Python\Python39\python.exe app.py
+start c:\Users\Armne\AppData\Local\Programs\Python\Python39\python.exe app.py

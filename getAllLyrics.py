@@ -197,6 +197,7 @@ def singleWordToJson(songNum:str):
 
 if __name__ == "__main__":
     pass
-    singleWordToJson('228')
+    singleWordToJson('95')
+    singleWordToJson('96')
     # onedrive = ENV.get('onedrive')
     # updateSongLyrics('old','389',Document(onedrive+'\\Word songs/389 Տոն է այսոր սուրբ հաղթական.docx'))

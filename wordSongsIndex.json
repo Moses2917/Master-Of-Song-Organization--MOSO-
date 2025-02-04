@@ -1431,17 +1431,18 @@
         },
         "319": {
             "Title": "Բարձրացնենք մեր ձեռքերը դոպի վերը ",
-            "latestVersion": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v4.docx",
+            "latestVersion": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v5.docx",
             "v1": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը.docx",
             "v2": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx",
             "v3": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v3.docx",
             "v4": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v4.docx",
-            "key": "Gm",
+            "key": "F#m",
             "speed": "110",
             "style": "Disco",
-            "song_type": "Opening Song",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Dance -P5-5"
+            "Comments": "Dance -P5-5",
+            "v5": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v5.docx"
         },
         "320": {
             "Title": "Հիսուս դու ես իմ Տերը",
@@ -1731,8 +1732,9 @@
         },
         "380": {
             "Title": "Ելնեմ ճամփա՝ ցուպը ձեռքիս,",
-            "latestVersion": "Word songs/380 Ելնեմ ճամփա՝ ցուպը ձեռքիս,.docx",
-            "v1": "Word songs/380 Ելնեմ ճամփա՝ ցուպը ձեռքիս,.docx"
+            "latestVersion": "Word songs/380 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v2.docx",
+            "v1": "Word songs/380 Ելնեմ ճամփա՝ ցուպը ձեռքիս,.docx",
+            "v2": "Word songs/380 Ելնեմ ճամփա՝ ցուպը ձեռքիս, v2.docx"
         },
         "381": {
             "Title": "Լույսիդ առջև հանցագործ եմ, \nԻմ կյանք, իմ Տեր, իմ հույս, իմ սեր, \nՀավատքիս մեջ դեռ անփորձ եմ, \nԽաչյալ Հիսուս օրհնիր, իմ Տեր:",
@@ -2131,7 +2133,7 @@
         },
         "448": {
             "Title": "Հիսուս Քեզ բարձրացնում եմ",
-            "latestVersion": "Word songs/448  v2.docx",
+            "latestVersion": "Word songs/448 Հիսուս Քեզ բարձրացնում եմ v3.docx",
             "v1": "Word songs/448   v1.docx",
             "v2": "Word songs/448  v2.docx",
             "key": "F# (-6)",
@@ -2139,7 +2141,8 @@
             "style": "Beat",
             "song_type": "None",
             "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            "Comments": "Pop-P1-3",
+            "v3": "Word songs/448 Հիսուս Քեզ բարձրացնում եմ v3.docx"
         },
         "450": {
             "Title": "Քեզ սիրեմ բարձրացնեմ",
@@ -3065,7 +3068,7 @@
         },
         "603": {
             "Title": "Օրհնենք(3) Գառնուկին(2)",
-            "latestVersion": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v2.docx",
+            "latestVersion": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v3.docx",
             "v1": "Word songs/603 Օրհնենք(3) Գառնուկին(2).docx",
             "v2": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v2.docx",
             "key": "C",
@@ -3073,7 +3076,8 @@
             "style": "Beat ",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Any beat-ballad"
+            "Comments": "Any beat-ballad",
+            "v3": "Word songs/603 Օրհնենք(3) Գառնուկին(2) v3.docx"
         },
         "604": {
             "Title": "Քայլում էի ես ճանապարհով կորած մոլորված",
@@ -3327,10 +3331,11 @@
         },
         "643": {
             "Title": "Ով Տեր իմ Աստված",
-            "latestVersion": "Word songs/643 Ով Տեր իմ Աստված v3.docx",
+            "latestVersion": "Word songs/643 Ով Տեր իմ Աստված v4.docx",
             "v1": "Word songs/643 Ով Տեր իմ Աստված.docx",
             "v2": "Word songs/643 Ով Տեր իմ Աստված v2.docx",
-            "v3": "Word songs/643 Ով Տեր իմ Աստված v3.docx"
+            "v3": "Word songs/643 Ով Տեր իմ Աստված v3.docx",
+            "v4": "Word songs/643 Ով Տեր իմ Աստված v4.docx"
         },
         "644": {
             "Title": "Գալիս եմ ներկայությանդ մեջ",
@@ -3564,7 +3569,7 @@
         },
         "675": {
             "Title": "Օրհնե Տերը, ով իմ անձս",
-            "latestVersion": "Word songs/675 Օրհնե Տերը, ով իմ անձս v2.docx",
+            "latestVersion": "Word songs/675 Օրհնե Տերը, ով իմ անձս v3.docx",
             "v1": "Word songs/675 Օրհնե Տերը, ով իմ անձս.docx",
             "key": "Em",
             "speed": "103",
@@ -3572,7 +3577,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-7",
-            "v2": "Word songs/675 Օրհնե Տերը, ով իմ անձս v2.docx"
+            "v2": "Word songs/675 Օրհնե Տերը, ով իմ անձս v2.docx",
+            "v3": "Word songs/675 Օրհնե Տերը, ով իմ անձս v3.docx"
         },
         "676": {
             "Title": "Փչեց մեղմ զեփյուռն \nՊարտեզում Եդեմի, \nԾառերը մեղմիկ երգ երգեցին, \nՀնչեց թախծաձայն կանչը Տեր Աստըծո \nԱդամ Ուր ես ...",
@@ -4558,17 +4564,18 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Տեր ծարավ եմ Քեզ",
-            "latestVersion": "Word songs/694 Տեր ծարավ եմ Քեզ v3.docx",
-            "v1": "Word songs/694 Տեր ծարավ եմ Քեզ.docx",
-            "key": "Am",
-            "speed": "65",
-            "style": "Ballad",
+            "Title": "Բարձրացնենք մեր ձեռքերը դոպի վերը ",
+            "latestVersion": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v4.docx",
+            "v1": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը.docx",
+            "v2": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx",
+            "v3": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v3.docx",
+            "v4": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v4.docx",
+            "key": "F#m",
+            "speed": "110",
+            "style": "Disco",
             "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Ballad-P1-8",
-            "v2": "Word songs/694 Տեր ծարավ եմ Քեզ v2.docx",
-            "v3": "Word songs/694 Տեր ծարավ եմ Քեզ v3.docx"
+            "Comments": "Dance -P5-5"
         },
         "760": {
             "Title": "",
