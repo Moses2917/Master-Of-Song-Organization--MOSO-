@@ -3731,10 +3731,10 @@
             "Title": "Տիրոջ Հիսուսին Հուսացողները",
             "latestVersion": "Word songs/693 Տիրոջ Հիսուսին Հուսացողները.docx",
             "v1": "Word songs/693 Տիրոջ Հիսուսին Հուսացողները.docx",
-            "key": "Gn",
-            "speed": "63",
+            "key": "Gm",
+            "speed": "65",
             "style": "Ballad",
-            "song_type": "Single Song",
+            "song_type": "Worship Song",
             "timeSig": "6/8",
             "Comments": "Ballad-P4-3"
         },
@@ -4566,18 +4566,15 @@
             "v1": "Word songs/903 .docx"
         },
         "SongNum": {
-            "Title": "Բարձրացնենք մեր ձեռքերը դոպի վերը ",
-            "latestVersion": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v4.docx",
-            "v1": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը.docx",
-            "v2": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v2.docx",
-            "v3": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v3.docx",
-            "v4": "Word songs/319 Բարձրացնենք մեր ձեռքերը դոպի վերը  v4.docx",
-            "key": "F#m",
-            "speed": "110",
-            "style": "Disco",
+            "Title": "Տիրոջ Հիսուսին Հուսացողները",
+            "latestVersion": "Word songs/693 Տիրոջ Հիսուսին Հուսացողները.docx",
+            "v1": "Word songs/693 Տիրոջ Հիսուսին Հուսացողները.docx",
+            "key": "Gm",
+            "speed": "65",
+            "style": "Ballad",
             "song_type": "Worship Song",
-            "timeSig": "4/4",
-            "Comments": "Dance -P5-5"
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-3"
         },
         "760": {
             "Title": "",

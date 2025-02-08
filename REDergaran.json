@@ -4072,7 +4072,13 @@
         "470": {
             "Title": "Տերն իմ Հովիվն է.",
             "latestVersion": "RED Words/470.docx",
-            "v1": "RED Words/470.docx"
+            "v1": "RED Words/470.docx",
+            "key": "Dm",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P4-3"
         },
         "471": {
             "Title": "Ո՜վ Տեր ողորմության,",
@@ -5747,7 +5753,13 @@
         "699": {
             "Title": "Տե՛ս, որքա՜ն բարի է, որքան ցանկալի,",
             "latestVersion": "RED Words/699.docx",
-            "v1": "RED Words/699.docx"
+            "v1": "RED Words/699.docx",
+            "key": "Cm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "700": {
             "Title": "Թագավորը անխիղճ ու դաժան,",
@@ -7358,16 +7370,15 @@
             "Comments": " Ballroom-P1-1"
         },
         "SongNum": {
-            "Title": "Տե՜ր Հիսուս, Աստծո Գառ",
-            "latestVersion": "Երգարան Word Files/203 Տե՜ր Հիսուս, Աստծո Գառ v2.docx",
-            "v1": "Երգարան Word Files/203 Տե՜ր Հիսուս, Աստծո Գառ.docx",
-            "v2": "Երգարան Word Files/203 Տե՜ր Հիսուս, Աստծո Գառ v2.docx",
-            "key": "A",
-            "speed": "90",
-            "style": "Pop-P3-4",
-            "song_type": "Single Song",
+            "Title": "Տե՛ս, որքա՜ն բարի է, որքան ցանկալի,",
+            "latestVersion": "RED Words/699.docx",
+            "v1": "RED Words/699.docx",
+            "key": "Cm",
+            "speed": "68",
+            "style": "Beat",
+            "song_type": "Worship Song",
             "timeSig": "4/4",
-            "Comments": "Pop-P4-1"
+            "Comments": "Pop-P1-3"
         }
     }
 }

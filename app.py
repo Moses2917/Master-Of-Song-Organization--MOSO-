@@ -6,6 +6,7 @@ from dotenv import find_dotenv, load_dotenv
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
 import json
 #Setup mongodb
+from markupsafe import Markup, escape
 from pymongo import MongoClient
 import lyric_search_engine
 
@@ -282,18 +283,6 @@ def saveHtml(filePth, WordDoc):
     with open(rf"{onedrive}\Documents\Code\Python\htmlsongs\{WordDoc}.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
 
-# @app.route('/pentecost', methods=['GET'])
-# def DayofPentecost():
-#     import threading as th
-#     songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
-#     MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
-#     wordDocThread = th.Thread(target=saveHtml)#, args=[MS_WORD, songPth])
-#     wordDocThread.start()
-#     # saveHtml()
-#     with open(r"C:\Users\Armne\OneDrive\Documents\Code\Python\templates\songLyr.txt", 'r', encoding='utf-8') as f:
-#         html_text = f.read()
-#     return render_template("songNew.html", lyrics=html_text)
-
 # @app.route('/getTableData', methods=['GET', 'POST'])
 def getSong(book:str, songnum:str, batch = 0) -> dict:
     """
@@ -332,34 +321,7 @@ def songSearch(searchLyrics) -> list:
         list: A list of search results, where each result is a dictionary containing the book, song number, and title of the song.
     """
 
-    if searchLyrics:        
-        query = {
-            "$search": {
-                "index": "search_index",
-                "compound": {
-                    "should": [
-                        {
-                            "text": {
-                                "query": searchLyrics,
-                                "path": "lyrics",
-                                "fuzzy": {
-                                    "maxEdits": 2,
-                                    "prefixLength": 3
-                                }
-                            }
-                        },
-                        {
-                            "phrase": {
-                                "query": searchLyrics,
-                                "path": "lyrics",
-                                "slop": 0
-                            }
-                        }
-                    ]
-                }
-            }
-        }
-        # results = songDB.aggregate([query, {"$limit": 10}])
+    if searchLyrics:
         results = lyric_search_engine.main(searchLyrics)
         searchResults = []
  
@@ -663,12 +625,17 @@ def temp_home():
                     from re import findall
                     for link in links:
                         book = findall('/song/(.*?)/', link)[0]
-                        song_num = findall(r'\d+', link)[0]
-                        table_data[song_num] = getSong(book, song_num)
-                        table_data[song_num]["book"] = book
-                        lyrics = song_lyrics[book][song_num]
-                        table_data[song_num]['lyrics'] = lyrics[:100]
-                        song_order.append(song_num)
+                        try:
+                            song_num = findall(r'\d+', link)[0]
+                        except IndexError:
+                            song_num = None
+                            
+                        if song_num: # edge case where I pick up songNum from index
+                            table_data[song_num] = getSong(book, song_num)
+                            table_data[song_num]["book"] = book # not rly needed anymore
+                            lyrics = song_lyrics[book][song_num]
+                            table_data[song_num]['lyrics'] = lyrics[:100]
+                            song_order.append(song_num)
                     # print(table_data)
                         
                     # print(links)
@@ -695,10 +662,6 @@ def temp_home():
                                 # Search only in the specified attribute
                                 if query in str(attr[attribute]).lower():
                                     filtered_data[song_num] = attr
-                    # TODO: Find a more efficient/less computationally expensivse route than this for the latest date sang on
-                    # for song_num in filtered_data:
-                    #     last_sang_on = songChecker(book=filtered_data[song_num]['book'], songNum=song_num, three_month_window=False)
-                    #     filtered_data[song_num]["last_sang_on"] = 
                     table_data = [filtered_data]
                     return json.dumps(table_data)
                 
@@ -1144,5 +1107,6 @@ def song_analysis():
     return render_template('song_analysis.html', analysis=analysis_data)
 
 if __name__ == '__main__':
-    try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
-    except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # This is cool
+    # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
+    # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))

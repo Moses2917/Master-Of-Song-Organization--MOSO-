@@ -178,8 +178,8 @@
 <body>
   
   <nav class="navbar navbar-expand-lg bg-dark bg-gradient fs-5 sticky-top">
-    <div class="container-fluid">
-       <a href="{{url_for('temp_home')}}" class="navbar-brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50"></a>
+    <div class="container-fluid" name="brand">
+       <a href="{{url_for('temp_home')}}" class="navbar-brand" name="brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50" name="brand" alt="GOTO Home" aria-label="brand"></a>
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -201,7 +201,7 @@
             <a class="nav-link active" href="{{url_for('tsank_A_Z')}}">Այբուբենական Ցանկ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url_for('check_past_songs')}}">Song Finder</a>
+            <a class="nav-link active" href="{{url_for('check_past_songs')}}">Past Song Finder</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('newSundaySong')}}">New Sunday Song</a>

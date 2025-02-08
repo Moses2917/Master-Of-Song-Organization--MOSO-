@@ -420,13 +420,13 @@
                         table.appendChild(tbody);
                         document.getElementById('songstable').innerHTML = '';
                         document.getElementById('songstable').appendChild(table);
-                        console.log(text)
+                        // console.log(text)
                         // tablebody.textContent='' //clear the table, Could also do class="fw-normal" if too much eye-sore
                         // for (const [key, value] of entries) {
                             if (attribute.value == 'Full_Text' && query.value != '') {
                                 const result = JSON.parse(text)//Object.entries(text);
                                 const entries = result[0]
-                                console.log(entries)
+                                // console.log(entries)
                                 const song_order = result[1]
                                 song_order.forEach(song_num => {
                                     const row = document.createElement('tr');
