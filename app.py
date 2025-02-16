@@ -8,7 +8,7 @@ import json
 #Setup mongodb
 from markupsafe import Markup, escape
 from pymongo import MongoClient
-import lyric_search_engine
+from lyric_search_engine import SearchEngine
 
 # with open('{}\\Documents\\Code\\mongoPass.txt'.format(env.get("OneDrive")), 'r') as mongoPass:
 #     uri = "mongodb+srv://{}@cluster0.kgkoljn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0".format(mongoPass.read()) #env.get('mongo_user')
@@ -37,6 +37,8 @@ oauth.register(
     },
     server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
 )
+
+search_engine = SearchEngine()
 
 #This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
 @app.route("/callback", methods=["GET", "POST"])
@@ -322,7 +324,7 @@ def songSearch(searchLyrics) -> list:
     """
 
     if searchLyrics:
-        results = lyric_search_engine.main(searchLyrics)
+        results = search_engine.search(searchLyrics)
         searchResults = []
  
     
@@ -619,7 +621,7 @@ def temp_home():
                 
                 if attribute == 'Full_Text':
                     song_order = []
-                    song_lyrics = lyric_search_engine.load_json_data('AllLyrics.json')
+                    song_lyrics = search_engine.load_json_data('AllLyrics.json')
                     table_data = {}
                     links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
                     from re import findall
@@ -1110,3 +1112,4 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # This is cool
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
+    
