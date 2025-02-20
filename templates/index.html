@@ -94,7 +94,7 @@
                     <label for="query" class="form-label">Search Query:</label>
                     <div class="input-group">
                         <input type="text" id="query" name="query" value="{{ query }}" class="form-control"
-                            oninput="tsank_search()">
+                            >
                 </div>
 
                 </div>
@@ -352,6 +352,7 @@
         }
         // book_select()
         async function tsank_search() {
+            
             function spinner() {
                 songstable.innerHTML = '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
             }
@@ -1062,5 +1063,125 @@
         }
     }
 
+</script>
+
+<script>
+    // Advanced debouncing with network request blocking
+    (function () {
+        // Configuration
+        const DEBOUNCE_DELAY = 600; // Longer initial delay (ms)
+        const MIN_QUERY_LENGTH = 1; // Don't search until at least this many characters
+        let activeSearch = false;
+        let pendingSearch = null;
+        let lastQuery = '';
+
+        // Intercept XMLHttpRequest to track search requests
+        const originalXHROpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function (method, url) {
+            // Check if this is a search request
+            if (url.includes('songinfo.us.to') || url.includes('/search')) {
+                this._isSearchRequest = true;
+
+                // Add event listeners to track request lifecycle
+                this.addEventListener('loadstart', () => { activeSearch = true; });
+                this.addEventListener('loadend', () => {
+                    activeSearch = false;
+                    // Process any pending search after completion
+                    if (pendingSearch && pendingSearch !== lastQuery) {
+                        const queryToSearch = pendingSearch;
+                        pendingSearch = null;
+                        setTimeout(() => performSearch(queryToSearch), 100);
+                    }
+                });
+            }
+            return originalXHROpen.apply(this, arguments);
+        };
+        function isValidNumberString(str) {
+            return !isNaN(Number(str)) && str.trim() !== '';
+        }
+        // Initialize and attach to search input
+        function initBlockingDebounce() {
+            const searchInput = document.getElementById('query');
+            if (!searchInput) return;
+
+            // Save reference to original search function
+            const originalSearch = window.tsank_search;
+
+            // Replace with our controlled version
+            let debounceTimer = null;
+
+            // Replace the original input handler
+            searchInput.oninput = null;
+            searchInput.addEventListener('input', function (e) {
+                const query = this.value.trim();
+
+                // Skip if nothing changed
+                if (query === lastQuery) return;
+                lastQuery = query;
+
+                // Clear any pending timer
+                clearTimeout(debounceTimer);
+                
+                // If query is too short, don't search
+                if (!query || query.length < MIN_QUERY_LENGTH) return;
+
+                // If a search is active, store this query for later
+                if (activeSearch) {
+                    pendingSearch = query;
+                    return;
+                }
+
+                // Otherwise set timer for new search
+                debounceTimer = setTimeout(() => {
+                    performSearch(query);
+                }, DEBOUNCE_DELAY);
+            });
+
+            // Actual search function
+            function performSearch(query) {
+                if (!query || query.length < MIN_QUERY_LENGTH) return;
+                if (activeSearch) {
+                    pendingSearch = query;
+                    return;
+                }
+
+                // Execute search
+                try {
+                    originalSearch();
+                } catch (e) {
+                    console.error('Search error:', e);
+                }
+            }
+        }
+
+        // Handle fetch API too if it's being used
+        const originalFetch = window.fetch;
+        window.fetch = function (resource, options) {
+            // Check if this is likely a search request
+            const url = resource.url || resource;
+            if (typeof url === 'string' &&
+                (url.includes('songinfo.us.to') || url.includes('/search'))) {
+                activeSearch = true;
+                return originalFetch.apply(this, arguments)
+                    .finally(() => {
+                        activeSearch = false;
+                        // Process pending search after completion
+                        if (pendingSearch && pendingSearch !== lastQuery) {
+                            const queryToSearch = pendingSearch;
+                            pendingSearch = null;
+                            setTimeout(() => performSearch(queryToSearch), 100);
+                        }
+                    });
+            }
+            return originalFetch.apply(this, arguments);
+        };
+
+        // Run on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBlockingDebounce);
+        } else {
+            initBlockingDebounce();
+        }
+    })();
 </script>
 {%endblock%}

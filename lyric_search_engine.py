@@ -68,9 +68,10 @@ class SearchEngine:
         clean_query = re.sub("   ",'',(re.sub(r'[:,.(0-9)\n]+','',query)))
         # First, check for exact phrase match
         for idx, lyric in enumerate(all_lyrics):
-            if re.search(clean_query, lyric):
-                section, song_id = song_ids[idx]
-                results.append((section, song_id, 1.0))  # Assign highest similarity score for exact match
+            if len(results) < top_k:
+                if re.search(clean_query, lyric):
+                    section, song_id = song_ids[idx]
+                    results.append((section, song_id, 1.0))  # Assign highest similarity score for exact match
         
         # If we haven't reached top_k results, proceed with cosine similarity (TF-IDF)
         if len(results) < top_k:
@@ -96,4 +97,4 @@ class SearchEngine:
 
 if __name__ == "__main__":
     search_engine = SearchEngine()
-    print(search_engine.search("Ո՛չ պատվի ու փառքի համար եմ"))
+    print(search_engine.search("Հիսուս"))
