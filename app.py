@@ -8,14 +8,6 @@ import json
 #Import Custom Lyrics Search Engine
 from lyric_search_engine import SearchEngine
 
-# with open('{}\\Documents\\Code\\mongoPass.txt'.format(env.get("OneDrive")), 'r') as mongoPass:
-#     uri = "mongodb+srv://{}@cluster0.kgkoljn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0".format(mongoPass.read()) #env.get('mongo_user')
-
-# Create a new client and connect to the server
-# client = MongoClient(uri)
-# songDB = client.get_database("songs")
-# songDB = songDB.get_collection("allSongs")
-
 ENV_FILE = find_dotenv("{}\Documents\Code\.env".format(env.get("OneDrive")))
 if ENV_FILE:
     load_dotenv(ENV_FILE)
