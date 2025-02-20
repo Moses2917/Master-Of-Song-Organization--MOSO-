@@ -208,7 +208,7 @@
         </div>
 
     </div>
-    <div id="attributetable" style="display: none;">
+    <div id="attributetable" style="display: none;" onchange="tsank_attribute_search()">
     
         <div class="input-group mb-3">
             <input type="text" name="key" id="key" class="form-control">
@@ -424,27 +424,29 @@
                         // for (const [key, value] of entries) {
                             if (attribute.value == 'Full_Text' && query.value != '') {
                                 const result = JSON.parse(text)//Object.entries(text);
-                                const entries = result[0]
+                                // const result = text.json()
+                                // const entries = result[0]
                                 // console.log(entries)
-                                const song_order = result[1]
-                                song_order.forEach(song_num => {
+                                // const song_order = result[1]
+                                const list = (fs) => {Object.entries(fs).forEach(([song_num, values]) => {
                                     const row = document.createElement('tr');
                                     row.setAttribute('id', key);
                                     row.innerHTML = `
-                                    <td data-bs-toggle="tooltip" data-bs-title="Book">${entries[song_num]['book'] || ''}</td>
-                                    <td><a class="btn btn-outline-primary" href="/song/${entries[song_num]['book']}/${song_num}" rel="prefetch">${song_num}</a></td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Title">${entries[song_num]['Title'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="lyrics">${entries[song_num]['lyrics'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Key">${entries[song_num]['key'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Speed">${entries[song_num]['speed'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${entries[song_num]['timeSig'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${entries[song_num]['style'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Type">${entries[song_num]['song_type'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${entries[song_num]['Comments'] || ''}</td>
-                                    <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${entries[song_num]['last_sang_on'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Book">${values['book'] || ''}</td>
+                                    <td><a class="btn btn-outline-primary" href="/song/${values['book']}/${song_num}" rel="prefetch">${song_num}</a></td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Title">${values['Title'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="lyrics">${values['lyrics'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Key">${values['key'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Speed">${values['speed'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${values['timeSig'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${values['style'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Type">${values['song_type'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${values['Comments'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${values['last_sang_on'] || ''}</td>
                                     `;
                                     tablebody.appendChild(row);
-                                });
+                                });}
+                                result.forEach(e => list(e))
                             }
                             else {
                                 const result = JSON.parse(text)//Object.entries(text);

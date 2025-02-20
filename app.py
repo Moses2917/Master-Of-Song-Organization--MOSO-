@@ -540,11 +540,11 @@ def attributeSearch() -> dict:
     songattrs = temp
     # print(songattrs)
     from json import load
-    with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
-        wordSongs = load(f)["SongNum"]
+    # with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+    #     wordSongs = load(f)["SongNum"]
     
-    with open("REDergaran.json", 'r', encoding='utf-8') as f:
-        REDergaran = load(f)["SongNum"]
+    # with open("REDergaran.json", 'r', encoding='utf-8') as f:
+    #     REDergaran = load(f)["SongNum"]
     returnSongs = {}
     returnSongs["WordSongsIndex"] = {}
     returnSongs["REDergaran"] = {}
@@ -562,8 +562,8 @@ def attributeSearch() -> dict:
         return found_songs
                 
     # Filter songs from both sources
-    returnSongs["WordSongsIndex"] =filter_songs(wordSongs)
-    returnSongs["REDergaran"]=filter_songs(REDergaran)
+    returnSongs["WordSongsIndex"] =filter_songs(wordSongsIndex["SongNum"])
+    returnSongs["REDergaran"]=filter_songs(REDergaran["SongNum"])
     return jsonify(returnSongs)
             
 def get_my_ip() -> str:
@@ -622,29 +622,27 @@ def temp_home():
                 
                 if attribute == 'Full_Text':
                     song_order = []
-                    table_data = {}
+                    table_data = []
                     links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
                     from re import findall
                     for link in links:
+                        song = {}
                         book = findall('/song/(.*?)/', link)[0]
                         try:
                             song_num = findall(r'\d+', link)[0]
                         except IndexError:
                             song_num = None
-                            
+                        # table_data[book] = {new:[1,3],old:[2]} # correct order is 3,1,2
                         if song_num: # edge case where I pick up songNum from index
-                            table_data[song_num] = getSong(book, song_num)
-                            table_data[song_num]["book"] = book
-                            # table_data[song_num]["book"] = [False, False]#book # not rly needed anymore
-                            # if book == 'old':
-                            #     table_data[song_num]["book"][0] = True
-                            # elif book == 'new':
-                            #     table_data[song_num]["book"][1] = True
-                            lyrics = song_lyrics[book][song_num]
-                            table_data[song_num]['lyrics'] = lyrics[:100]
+                            song[song_num] = getSong(book, song_num)
+                            song[song_num]["book"] = book
+                            lyrics = song_lyrics[book][song_num][:100]
+                            clean_lyrics = re.sub("   ",'',(re.sub(r'[:,.(0-9)\n]+','',lyrics)))
+                            song[song_num]['lyrics'] = clean_lyrics#[:100]
                             song_order.append(song_num)
+                            table_data.append(song)
                             
-                    return json.dumps([table_data,song_order])
+                    return json.dumps(table_data, ensure_ascii=False)
                 
                 if book and attribute and not query:
                     # print(load_table_data(book=book))
