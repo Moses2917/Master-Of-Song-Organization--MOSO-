@@ -1,8 +1,8 @@
 {%extends 'base.html'%}
 {%block content%}
 <div class="container-md">
-    <div class="row algin-items-start">
-        <div class="fw-bold shadow p-2 bg-body-tertiary rounded">
+    <!-- <div class="row algin-items-start"> -->
+        <div class="fw-bold shadow p-2 bg-body-tertiary rounded" id="toolbar">
             <label class="">Song Toolbar:</label>
             <!-- <nav class="navbar navbar-expand-lg rounded-3 fs-5" id="toolbar"> -->
                 <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPastSongs"
@@ -16,9 +16,13 @@
                 <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" onclick="transliterate()">
                     Transliterate Song
                 </button>
+                <!-- <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" onclick="getProbSong()">
+                    getProbSong
+                </button> -->
+                <a href="" id="probSong" style="visibility: hidden;" class="btn btn-primary shadow border border-primary-subtle rounded-3"> Alt. Version</a>
             <!-- </nav> -->
         </div>
-    </div>
+    <!-- </div> -->
     <br>
     <script>
         //To hide the yellow bg for the tost notif
@@ -30,7 +34,7 @@
     </script>
     <br>
     
-    <h3 class="text-center mb-4" id="lyrics" lang="hy"> {{ lyrics|safe }} </h3>
+    <h3 class="text-center mb-4" id="lyrics" data-id={{ songnum|safe }} lang="hy" > {{ lyrics|safe }}</h3>
     <!-- Past Songs -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasPastSongs" aria-labelledby="offcanvasPastSongsLabel">
         <div class="offcanvas-header">
@@ -322,6 +326,38 @@
         }
     }
 
-</script>
+    
 
+</script>
+<script>
+    addEventListener('onload', probSong())
+    function probSong() {
+        let link = document.getElementById("probSong");
+        link.href = ''
+        // link.add
+        let songnum = lyrics.getAttribute("data-id")
+        fetch(`./${songnum}/altsong`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'lyrics': lyrics.textContent
+            })
+        })
+            .then(data => data.json())
+            .then(text => {
+                if (text != null) {
+                    let rBook = text[0];
+                    let rNum = text[1];
+                    let prob = text[2];
+                    //Could do prob, but prob don't need it
+                    let probUrl = `/song/${rBook}/${rNum}`;
+                    // console.log(probUrl)
+                    link.href=probUrl
+                    link.style.visibility = 'visible'
+                }
+            })
+    }
+</script>
 {%endblock%}

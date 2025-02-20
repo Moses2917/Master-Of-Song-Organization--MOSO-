@@ -5,9 +5,7 @@ from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
 import json
-#Setup mongodb
-from markupsafe import Markup, escape
-from pymongo import MongoClient
+#Import Custom Lyrics Search Engine
 from lyric_search_engine import SearchEngine
 
 # with open('{}\\Documents\\Code\\mongoPass.txt'.format(env.get("OneDrive")), 'r') as mongoPass:
@@ -39,6 +37,12 @@ oauth.register(
 )
 
 search_engine = SearchEngine()
+song_lyrics = search_engine.load_json_data('AllLyrics.json')
+
+@app.route("/robots.txt", methods=["GET"])
+def robots():
+    with open('./templates/robots.txt', 'r') as f:
+        return f.read()
 
 #This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
 @app.route("/callback", methods=["GET", "POST"])
@@ -111,19 +115,25 @@ def isUserAllowed(email):
         return email in f.read()
 
 # Table data loading logic
+
+# Should only load this once instead of every time
+with open('REDergaran.json', mode='r', encoding='utf-8') as json_file:
+    REDergaran = json.load(json_file)
+with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
+    wordSongsIndex = json.load(json_file)
+    
+
 def load_table_data(book:str):
     """Reads the respective index file for the book given, and will return a dict
 
     Args:
-        book (str): name of book, can be REDergaran or wordSongIndex
+        book (str): name of book, can be REDergaran or wordSongsIndex
 
     Returns:
         dict: a dict containing all of the songs in that index
     """
     try:
-        with open(f'{book}.json', mode='r', encoding='utf-8') as json_file:
-            data = json.load(json_file)
-        return data.get('SongNum')
+        return wordSongsIndex.get('SongNum') if book == "wordSongsIndex" else REDergaran.get('SongNum')
     except FileNotFoundError:
         return None
 
@@ -327,25 +337,25 @@ def songSearch(searchLyrics) -> list:
         results = search_engine.search(searchLyrics)
         searchResults = []
  
-    
-        for result in results:
-        
-            if result[0].lower() == 'old':
-                with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
-                    index = json.load(f)
-            else:
-                with open('REDergaran.json', 'r', encoding='utf-8') as f:
-                    index = json.load(f) 
-            
-            title = index['SongNum'][result[1]]['Title']
-            
-            title = title.split('\n')[0]
-            
-            
-            
-            searchResults.append(
-                f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=result[0],songnum=result[1])}">{result[1]}: {title}</a>'''
-            )
+        # print(results)
+        if results[0][2] > 0:
+            for result in results:
+                if result[0].lower() == 'old':
+                    with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
+                        index = json.load(f)
+                else:
+                    with open('REDergaran.json', 'r', encoding='utf-8') as f:
+                        index = json.load(f) 
+                
+                title = index['SongNum'][result[1]]['Title']
+                
+                title = title.split('\n')[0]
+                
+                
+                
+                searchResults.append(
+                    f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=result[0],songnum=result[1])}">{result[1]}: {title}</a>'''
+                )
 
         return json.dumps(searchResults)
 
@@ -430,7 +440,7 @@ def display_song(book, songnum) -> str:
         future = exec.submit(openWord,songnum,book)
         lyrics = future.result()
         
-    return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs)
+    return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum)
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc) -> str: #Todo: come up with a better name
@@ -563,7 +573,6 @@ def attributeSearch() -> dict:
     returnSongs["WordSongsIndex"] =filter_songs(wordSongs)
     returnSongs["REDergaran"]=filter_songs(REDergaran)
     return jsonify(returnSongs)
-
             
 def get_my_ip() -> str:
     """
@@ -621,7 +630,6 @@ def temp_home():
                 
                 if attribute == 'Full_Text':
                     song_order = []
-                    song_lyrics = search_engine.load_json_data('AllLyrics.json')
                     table_data = {}
                     links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
                     from re import findall
@@ -634,14 +642,16 @@ def temp_home():
                             
                         if song_num: # edge case where I pick up songNum from index
                             table_data[song_num] = getSong(book, song_num)
-                            table_data[song_num]["book"] = book # not rly needed anymore
+                            table_data[song_num]["book"] = book
+                            # table_data[song_num]["book"] = [False, False]#book # not rly needed anymore
+                            # if book == 'old':
+                            #     table_data[song_num]["book"][0] = True
+                            # elif book == 'new':
+                            #     table_data[song_num]["book"][1] = True
                             lyrics = song_lyrics[book][song_num]
                             table_data[song_num]['lyrics'] = lyrics[:100]
                             song_order.append(song_num)
-                    # print(table_data)
-                        
-                    # print(links)
-                    # return json.dumps(links)
+                            
                     return json.dumps([table_data,song_order])
                 
                 if book and attribute and not query:
@@ -931,6 +941,23 @@ def get_song_lyrics(book,songnum):
         return jsonify(lyrics)
     return jsonify(None)
 
+@app.route('/song/<book>/<songnum>/altsong', methods=['GET','POST'])
+def posiible_alt_song(songnum,book): # COuld also do only num,book,lyrics
+    book = 'old' if book == 'wordsongsindex' or book == 'old' else 'new' #book == 'old' might seem redundanct, but considering songs can also be under both old and wordsongindex, it's better to be safe
+    request_data = request.get_json()
+    lyrics = request_data['lyrics']
+    results = search_engine.search(lyrics)[:2] # get first two
+    print(results)
+    if results[1][2] > 0.45: # check probability
+        if results[1][0] != book: #and results[1][1] != songnum: # If they are of the same book and num, NO return
+            print(results[1])
+            return jsonify(results[1])
+        else:
+            print(results[0])
+            return jsonify(results[0])
+    else:
+        return jsonify(None)
+
 @app.route('/known_songs', methods=['GET','POST'])
 def known_songs():# add some func to be able to go backwards
     from known_songs import update_known_songs, get_skipped_songs
@@ -1107,6 +1134,8 @@ def song_analysis():
     }
     
     return render_template('song_analysis.html', analysis=analysis_data)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # This is cool

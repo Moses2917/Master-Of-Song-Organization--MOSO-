@@ -10,7 +10,6 @@ class SearchEngine:
         self.vectorizer, self.tfidf_matrix = self.create_tfidf_matrix(self.all_lyrics)
 
     #TODO: Migrat this to sqlite3 or just save the matrix
-    #TODO: Make this load in another thread
     def load_json_data(self, file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -59,14 +58,14 @@ class SearchEngine:
 
     def search_lyrics(self, query, vectorizer, tfidf_matrix, song_ids, all_lyrics, top_k=10):
         results = []
-        clean_query = re.sub(r'[՛:։,.\\n]+','',query)
+        clean_query = re.sub("   ",'',re.sub(r'[՛:։,.\\n]+','',query))
         if clean_query.isdigit():
             if self.is_valid('old', clean_query):
                 results.append(('old', clean_query, 1.0))
             if self.is_valid('new', clean_query):
                 results.append(('new', clean_query, 1.0))
             return results
-        clean_query = re.sub(r'[՛:։,.(0-9)\\n]+','',query)
+        clean_query = re.sub("   ",'',(re.sub(r'[:,.(0-9)\n]+','',query)))
         # First, check for exact phrase match
         for idx, lyric in enumerate(all_lyrics):
             if re.search(clean_query, lyric):
@@ -95,15 +94,6 @@ class SearchEngine:
     def search(self, query):
         return self.search_lyrics(query, self.vectorizer, self.tfidf_matrix, self.song_ids, self.all_lyrics)
 
-# def load_into_mem():
-#     file_path = 'AllLyrics.json'
-#     song_lyrics = load_json_data(file_path)
-    
-#     all_lyrics, song_ids = extract_lyrics(song_lyrics)
-#     vectorizer, tfidf_matrix = create_tfidf_matrix(all_lyrics)
-
-
-
 if __name__ == "__main__":
     search_engine = SearchEngine()
-    print(search_engine.search('սուրբ հաղթական'))
+    print(search_engine.search("Ո՛չ պատվի ու փառքի համար եմ"))
