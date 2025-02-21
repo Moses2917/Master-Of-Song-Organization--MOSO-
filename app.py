@@ -599,8 +599,9 @@ def home():
             elif not book:
                 flash('No book selected','warning') #practically not needed anymore
         return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
-    else:
+    elif request.remote_addr == get_my_ip():
         session['user'] = 'local'
+        return redirect('/')
     return render_template('index.html')
 
 @app.route('/editsongs', methods=['GET', 'POST'])
@@ -1060,7 +1061,7 @@ def song_analysis():
 
 if __name__ == '__main__':
     # serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001)) # Uncomment for development
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
