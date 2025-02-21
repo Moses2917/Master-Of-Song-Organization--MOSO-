@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {%block content%}
+{% if session['user']['userinfo']['admin'] %}
 <div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
   <div class="row align-items-start justify-content-center ">
     <h2 class="text-center">Please Choose a Given Parameter:</h2>
@@ -129,5 +130,7 @@
   }
 
 </script>
-<!-- <div class="d-flex justify-content-center"></div> -->
+{% else %}
+{% include 'noAccess.html' %}
+{% endif %}
 {%endblock%}

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% if session['user']['userinfo']['admin'] %}
 <div class="container py-4">
     <div class="card shadow-lg border-0 rounded-4 mb-4 bg-dark bg-opacity-75">
         <div class="card-header border-0 text-white py-3 rounded-top-4">
@@ -351,5 +351,7 @@
     }
 
 </script>
-
+{% else %}
+{% include 'noAccess.html' %}
+{% endif %}
 {% endblock %}

@@ -55,6 +55,7 @@ def callback():
     """
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
+    session['user']['userinfo']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
     # print(session["user"])
     #remember to flash('Բարի Գալուստ, {{session.user.userinfo.name}}!')
     # return redirect("/")
@@ -86,7 +87,7 @@ def logout():
         + "/v2/logout?"
         + urlencode(
             {
-                "returnTo": url_for("song_info", _external=True),
+                "returnTo": url_for("home", _external=True),
                 "client_id": env.get("AUTH0_CLIENT_ID"),
             },
             quote_via=quote_plus,
@@ -536,8 +537,13 @@ def home():
     """
     # print(request.remote_addr,get_my_ip())
     if session.get('user', None):
-        # session['user']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
-        
+        # session['user']['userinfo']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
+        # if session['user'] == 'local':
+        #     session['user']['userinfo']['admin'] = True
+        if isUserAllowed(session['user']['userinfo']['email']):
+            session['user']['userinfo']['admin'] = True
+        # else:
+        #     session['user']['userinfo']['admin'] = False
         table_data = None # doing this so that it does not get referenced before assginment
         book = request.args.get('book', None)
         if request.method == 'POST':
@@ -599,9 +605,9 @@ def home():
             elif not book:
                 flash('No book selected','warning') #practically not needed anymore
         return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
-    elif request.remote_addr == get_my_ip():
-        session['user'] = 'local'
-        return redirect('/')
+    # elif request.remote_addr == get_my_ip():
+    #     session['user'] = 'local'
+    #     return redirect('/')
     return render_template('index.html')
 
 @app.route('/editsongs', methods=['GET', 'POST'])
@@ -1060,8 +1066,8 @@ def song_analysis():
 
 
 if __name__ == '__main__':
-    # serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
+    serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
+    # app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     

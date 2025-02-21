@@ -1,5 +1,8 @@
 {%extends 'base.html'%}
 {% block content %}
+
+{% if session['user']%}
+{% if session['user']['userinfo']['admin'] %}
     <!-- <h1>Welcome to our Song Information Page</h1> maybe add something to explain the purpose of this page-->
     <div class="container-md fw-bold shadow-lg p-3 mb-5 bg-dark bg-gradient rounded">
         <div class="legend" style="text-align: center;">
@@ -101,4 +104,10 @@
     </div>
     </div>
     {%endif%}
+
+    {% else %}
+
+    {% include 'noAccess.html' %}
+    {% endif %}    
+    {% endif %}
 {% endblock%}
