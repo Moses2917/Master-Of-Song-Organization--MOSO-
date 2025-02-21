@@ -886,7 +886,13 @@
             "Title": "Երբ մերժես շարունակ Տերոջ հրավերն անուշ,",
             "latestVersion": "RED Words/91.docx",
             "v1": "RED Words/91.docx",
-            "match": "None"
+            "match": "None",
+            "key": "E",
+            "speed": "82",
+            "style": "Waltz ",
+            "song_type": "Single Song",
+            "timeSig": "3/4",
+            "Comments": "Ballroom-P1-1"
         },
         "92": {
             "Title": "Ո՜հ, պայծառ ու գեղեցիկ օրն Տերունի",
@@ -4772,12 +4778,12 @@
             "latestVersion": "Երգարան Word Files/494 Քո Սուրբ Հոգու աղբյուրներն են v2.docx",
             "v1": "RED Words/494.docx",
             "v2": "Երգարան Word Files/494 Քո Սուրբ Հոգու աղբյուրներն են v2.docx",
-            "key": "Fm",
-            "speed": "68",
+            "key": "Fm#",
+            "speed": "82",
             "style": "Ballad ",
             "song_type": "Single Song",
             "timeSig": "4/4",
-            "Comments": "Any Ballad",
+            "Comments": "Ballad-P5-5",
             "match": "None"
         },
         "495": {
@@ -8405,6 +8411,19 @@
             "song_type": "Single Song",
             "timeSig": "3/4",
             "Comments": " Ballroom-P1-1",
+            "match": "None"
+        },
+        "SongNum": {
+            "Title": "Քո Սուրբ Հոգու աղբյուրներն են",
+            "latestVersion": "Երգարան Word Files/494 Քո Սուրբ Հոգու աղբյուրներն են v2.docx",
+            "v1": "RED Words/494.docx",
+            "v2": "Երգարան Word Files/494 Քո Սուրբ Հոգու աղբյուրներն են v2.docx",
+            "key": "Fm#",
+            "speed": "82",
+            "style": "Ballad ",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5",
             "match": "None"
         }
     }

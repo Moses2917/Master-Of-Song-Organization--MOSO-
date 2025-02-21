@@ -632,7 +632,7 @@ def temp_home():
                             song_num = findall(r'\d+', link)[0]
                         except IndexError:
                             song_num = None
-                        # table_data[book] = {new:[1,3],old:[2]} # correct order is 3,1,2
+                        
                         if song_num: # edge case where I pick up songNum from index
                             song[song_num] = getSong(book, song_num)
                             song[song_num]["book"] = book
@@ -940,6 +940,9 @@ def posiible_alt_song(songnum,book): # COuld also do only num,book,lyrics
     print(results)
     if results[1][2] > 0.45: # check probability
         if results[1][0] != book: #and results[1][1] != songnum: # If they are of the same book and num, NO return
+            print(results[1])
+            return jsonify(results[1])
+        elif results[1][1] != songnum:
             print(results[1])
             return jsonify(results[1])
         else:

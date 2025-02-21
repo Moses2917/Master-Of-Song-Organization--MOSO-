@@ -4625,8 +4625,8 @@
             "v1": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ.docx",
             "v2": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v2.docx",
             "v3": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v3.docx",
-            "key": "Am",
-            "speed": "85",
+            "key": "Bm",
+            "speed": "80",
             "style": "Beguine ",
             "song_type": "Opening Song",
             "timeSig": "4/4",
@@ -5283,6 +5283,21 @@
             "Title": "Ինձ տար Քո ետևից, և ես պիտի վազեմ",
             "latestVersion": "Word songs/15 Ինձ տար Քո ետևից, և ես պիտի վազեմ v3.docx",
             "v3": "Word songs/15 Ինձ տար Քո ետևից, և ես պիտի վազեմ v3.docx"
+        },
+        "SongNum": {
+            "Title": "Եկ գնանք բնակավայրը մեր Տիրոջ",
+            "latestVersion": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v4.docx",
+            "v1": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ.docx",
+            "v2": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v2.docx",
+            "v3": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v3.docx",
+            "key": "Bm",
+            "speed": "80",
+            "style": "Beguine ",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-8",
+            "v4": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v4.docx",
+            "match": "None"
         }
     }
 }
