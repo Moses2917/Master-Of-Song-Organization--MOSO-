@@ -14,3 +14,4 @@ ultralytics~=8.0.55
 sentence_transformers
 pymongo[srv]
 ttkbootstrap
+gunicorn==23.0.0
