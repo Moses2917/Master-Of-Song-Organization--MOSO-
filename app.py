@@ -9,7 +9,11 @@ from flask import Flask, jsonify, render_template, request, redirect, url_for, s
 import json
 #Import Custom Lyrics Search Engine
 from lyric_search_engine import SearchEngine
-
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 ENV_FILE = find_dotenv("{}\Documents\Code\.env".format(env.get("OneDrive")))
 if ENV_FILE:
     load_dotenv(ENV_FILE)
@@ -1066,6 +1070,7 @@ def song_analysis():
 
 
 if __name__ == '__main__':
+    print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
     serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
     # app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
