@@ -179,14 +179,14 @@
   
   <nav class="navbar navbar-expand-lg bg-dark bg-gradient fs-5 sticky-top">
     <div class="container-fluid" name="brand">
-       <a href="{{url_for('temp_home')}}" class="navbar-brand" name="brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50" name="brand" alt="GOTO Home" aria-label="brand"></a>
+       <a href="{{url_for('home')}}" class="navbar-brand" name="brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50" name="brand" alt="GOTO Home" aria-label="brand"></a>
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{url_for('temp_home')}}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{{ url_for('edit_songs') }}">Edit Songs</a>
@@ -315,6 +315,8 @@
         <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
       </svg>
     </button>
+
+    {{print(session['user'])}}
     
     {% block content %}{% endblock %}
 

@@ -58,7 +58,7 @@ def callback():
     # print(session["user"])
     #remember to flash('Բարի Գալուստ, {{session.user.userinfo.name}}!')
     # return redirect("/")
-    return redirect(url_for('temp_home'))
+    return redirect("/")
 
 #the /login route, users will be redirected to Auth0 to begin the authentication flow.
 @app.route("/login")
@@ -70,7 +70,6 @@ def login():
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True)
     )
-
 
 #this route handles signing a user out from your application.
 @app.route("/logout")
@@ -177,78 +176,6 @@ def openWord(songNum, book):
         # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
         html_text = '<br>'.join(html_chunks)
         return html_text
-
-@app.route('/old', methods=['GET', 'POST'])
-def song_info():
-    """
-    This is deprecated.
-
-    This function is used to display the song information in the form of a webpage. It returns a Flask response object that contains the HTML for the webpage. The webpage displays the song number, title, and author of the song, as well as various other information such as the date the song was published, the number of pages in the song, and the number of verses in the song. The webpage also includes a form that allows the user to enter a new song number and retrieve information about that song. If the user is logged in as an admin, the webpage also includes a form that allows the user to enter a new song number and retrieve information about that song, as well as a form that allows the user to enter a new song number and retrieve information about a specific version of that song. The webpage also includes links to various other pages on the website, such as the song index and the search page.
-
-    Returns:
-        Response: A Flask response object that contains the HTML for the webpage.
-    """
-    song_info = None
-    current_values = None
-    is_found = False
-    if session.get('user', None):
-        if isUserAllowed(session['user']['userinfo']['email']):
-            
-            if request.method == 'POST':
-                
-                song_num = request.form.get('songNum')
-                book = request.form.get('book')
-                Bool_Lyrics = request.form.get('lyrics', False)
-                
-                if Bool_Lyrics:
-                    return render_template('song.html', lyrics = openWord(song_num, book), book=book) #sending the book var inorder for the back button to function properly
-                
-                with open(f'{book}.json',encoding='utf-8') as f:
-                    data = json.load(f)
-                
-                songs = data.get('SongNum')  # Get the songs under the "SongNum" key
-                song_info = songs.get(song_num)
-                
-                if song_info:
-                    # Save the current values before they are edited
-                    current_values = song_info.copy()
-                    if not current_values:
-                        flash("That song does not exist",'error')
-                # else:
-                #     flash("That song does not exist")
-                    
-                if request.form.get('edit'):
-                    song_info['key'] = request.form.get('key')
-                    song_info['speed'] = request.form.get('speed')
-                    song_info['style'] = request.form.get('style')
-                    song_info['song_type'] = request.form.get('Song Type')
-                    # song_info['Worship_Song'] = request.form.get('Worship_Song')
-                    song_info['timeSig'] = request.form.get('Time Signature')
-                    song_info['Comments'] = request.form.get('Comments')
-                    songs["SongNum"] = song_info
-                    # with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
-                    #     json.dump(songs, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
-                
-                if request.form.get('submit'):
-                    song_info['key'] = request.form.get('key')
-                    song_info['speed'] = request.form.get('speed')
-                    song_info['style'] = request.form.get('style')
-                    song_info['song_type'] = request.form.get('Song Type')
-                    # song_info['Worship_Song'] = request.form.get('Worship_Song')
-                    song_info['timeSig'] = request.form.get('Time Signature')
-                    song_info['Comments'] = request.form.get('Comments')
-                    songs[song_num] = song_info
-                    # if song_info:
-                    #     return flash("That song does not exist",'error')
-                with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
-                    json.dump(data, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
-                
-            return render_template('song_info.html', session=session.get('user'), song_info=song_info, current_values=current_values) #add pretty=json.dumps(session.get('user'), indent=4) for debuging auth
-        
-        else:
-            return redirect('logout')
-    
-    return render_template('song_info.html', session=session.get('user'))
 
 def saveHtml(filePth, WordDoc):
     """
@@ -594,7 +521,7 @@ def get_my_ip() -> str:
     return ip
 
 @app.route('/', methods=['GET', 'POST'])
-def temp_home():
+def home():
     """
     Handles HTTP requests to the root URL ('/').
 
@@ -609,76 +536,71 @@ def temp_home():
     """
     # print(request.remote_addr,get_my_ip())
     if session.get('user', None):
-        if session['user'] == 'local'or isUserAllowed(session['user']['userinfo']['email']):
-            # data = request.get_json()
-            table_data = None # doing this so that it does not get referenced before assginment
-            book = request.args.get('book', None)
-            if request.method == 'POST':
-                from scanningDir import songChecker
-                data = request.get_json(silent=True)
-                if data:
-                    query = data['query']
-                    attribute = data['attribute']
-                    book = data['book']
-                    print(query)
-                
-                if attribute == 'Full_Text':
-                    song_order = []
-                    table_data = []
-                    links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
-                    from re import findall
-                    for link in links:
-                        song = {}
-                        book = findall('/song/(.*?)/', link)[0]
-                        try:
-                            song_num = findall(r'\d+', link)[0]
-                        except IndexError:
-                            song_num = None
-                        
-                        if song_num: # edge case where I pick up songNum from index
-                            song[song_num] = getSong(book, song_num)
-                            song[song_num]["book"] = book
-                            lyrics = song_lyrics[book][song_num][:100]
-                            clean_lyrics = re.sub("   ",'',(re.sub(r'[:,.(0-9)\n]+','',lyrics)))
-                            song[song_num]['lyrics'] = clean_lyrics#[:100]
-                            song_order.append(song_num)
-                            table_data.append(song)
-                            
-                    return json.dumps(table_data, ensure_ascii=False)
-                
-                if book and attribute and not query:
-                    # print(load_table_data(book=book))
-                    return json.dumps([load_table_data(book=book)])
-                
-                if query and book and attribute: # if attr is full_text
-                    table_data = load_table_data(book=book)
-                    filtered_data = {}
-                    if attribute == 'SongNum':
-                        filtered_data[query] = table_data[query]
-                    else:
-                        query = query.lower()
-                        for song_num, attr in table_data.items():
-                            if attribute == 'all':
-                                # Search in all attributes
-                                if any(query in str(val).lower() for val in attr.values()):
-                                    filtered_data[song_num] = attr
-                            elif attribute in attr:
-                                # Search only in the specified attribute
-                                if query in str(attr[attribute]).lower():
-                                    filtered_data[song_num] = attr
-                    table_data = [filtered_data]
-                    return json.dumps(table_data)
-                
-                elif not book:
-                    flash('No book selected','warning') #practically not needed anymore
+        # session['user']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
+        
+        table_data = None # doing this so that it does not get referenced before assginment
+        book = request.args.get('book', None)
+        if request.method == 'POST':
+            from scanningDir import songChecker
+            data = request.get_json(silent=True)
+            if data:
+                query = data['query']
+                attribute = data['attribute']
+                book = data['book']
+                print(query)
             
-            # return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
-            return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
-        else:
-            return redirect('logout')
-    elif request.remote_addr == get_my_ip():
+            if attribute == 'Full_Text':
+                song_order = []
+                table_data = []
+                links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
+                from re import findall
+                for link in links:
+                    song = {}
+                    book = findall('/song/(.*?)/', link)[0]
+                    try:
+                        song_num = findall(r'\d+', link)[0]
+                    except IndexError:
+                        song_num = None
+                    # table_data[book] = {new:[1,3],old:[2]} # correct order is 3,1,2
+                    if song_num: # edge case where I pick up songNum from index
+                        song[song_num] = getSong(book, song_num)
+                        song[song_num]["book"] = book
+                        lyrics = song_lyrics[book][song_num][:100]
+                        clean_lyrics = re.sub("   ",'',(re.sub(r'[:,.(0-9)\n]+','',lyrics)))
+                        song[song_num]['lyrics'] = clean_lyrics#[:100]
+                        song_order.append(song_num)
+                        table_data.append(song)
+                        
+                return json.dumps(table_data, ensure_ascii=False)
+            
+            if book and attribute and not query:
+                # print(load_table_data(book=book))
+                return json.dumps([load_table_data(book=book)])
+            
+            if query and book and attribute: # if attr is full_text
+                table_data = load_table_data(book=book)
+                filtered_data = {}
+                if attribute == 'SongNum':
+                    filtered_data[query] = table_data[query]
+                else:
+                    query = query.lower()
+                    for song_num, attr in table_data.items():
+                        if attribute == 'all':
+                            # Search in all attributes
+                            if any(query in str(val).lower() for val in attr.values()):
+                                filtered_data[song_num] = attr
+                        elif attribute in attr:
+                            # Search only in the specified attribute
+                            if query in str(attr[attribute]).lower():
+                                filtered_data[song_num] = attr
+                table_data = [filtered_data]
+                return json.dumps(table_data)
+            
+            elif not book:
+                flash('No book selected','warning') #practically not needed anymore
+        return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
+    else:
         session['user'] = 'local'
-        return redirect('/')
     return render_template('index.html')
 
 @app.route('/editsongs', methods=['GET', 'POST'])
@@ -1137,8 +1059,8 @@ def song_analysis():
 
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
-    # app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
+    # serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
