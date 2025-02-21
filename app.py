@@ -1,4 +1,6 @@
+from concurrent.futures import thread
 from os import environ as env
+from waitress import serve
 import re
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
@@ -936,20 +938,24 @@ def posiible_alt_song(songnum,book): # COuld also do only num,book,lyrics
     book = 'old' if book == 'wordsongsindex' or book == 'old' else 'new' #book == 'old' might seem redundanct, but considering songs can also be under both old and wordsongindex, it's better to be safe
     request_data = request.get_json()
     lyrics = request_data['lyrics']
-    results = search_engine.search(lyrics)[:2] # get first two
-    print(results)
-    if results[1][2] > 0.45: # check probability
-        if results[1][0] != book: #and results[1][1] != songnum: # If they are of the same book and num, NO return
-            print(results[1])
-            return jsonify(results[1])
-        elif results[1][1] != songnum:
-            print(results[1])
-            return jsonify(results[1])
+    try:
+        results = search_engine.search(lyrics)[:2] # get first two
+        # print(results)
+        if results[1][2] > 0.45: # check probability
+            if results[1][0] != book: #and results[1][1] != songnum: # If they are of the same book and num, NO return
+                # print(results[1])
+                return jsonify(results[1])
+            elif results[1][1] != songnum:
+                # print(results[1])
+                return jsonify(results[1])
+            else:
+                # print(results[0])
+                return jsonify(results[0])
         else:
-            print(results[0])
-            return jsonify(results[0])
-    else:
+            return jsonify(None)
+    except:
         return jsonify(None)
+    
 
 @app.route('/known_songs', methods=['GET','POST'])
 def known_songs():# add some func to be able to go backwards
@@ -1131,7 +1137,8 @@ def song_analysis():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # This is cool
+    serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
+    # app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
