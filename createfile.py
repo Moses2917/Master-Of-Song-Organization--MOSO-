@@ -39,7 +39,7 @@ def getDocTextAndIndentation(filePath:str, my_doc):
         right_indent = p.paragraph_format.right_indent
         Placeholder = my_doc.add_paragraph().clear()
         for aWord in p.text:
-            if re.match(r"\d+", aWord):
+            if re.match(r"\d+", aWord) or aWord == "(" or aWord == ")":
                 run = Placeholder.add_run(aWord)
                 run.font.color.rgb = RGBColor(255, 0, 0) # Color for red
             else:
