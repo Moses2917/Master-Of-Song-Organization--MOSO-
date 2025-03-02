@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOSO: Song Manager - Maintenance</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0f1117;
+      --card-bg: #141824;
+      --primary: #4169e1;
+      --accent: #ff3366;
+      --text-color: #ffffff;
+      --secondary-text: #a0a0a0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background grid pattern matching the screenshot */
+    .grid-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: 50px 50px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      z-index: -1;
+    }
+
+    /* Header */
+    .header {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      background-color: #7922e9;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+    }
+
+    .site-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* Main content container */
+    .main-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      padding: 1rem;
+    }
+
+    /* Maintenance card */
+    .maintenance-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 550px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .card-title-icon {
+      margin-right: 1rem;
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+
+    .card-content {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .upgrade-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .color-accent {
+      color: var(--primary);
+    }
+
+    .color-standard {
+      color: var(--text-color);
+    }
+
+    .message-text {
+      color: var(--secondary-text);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Progress bar */
+    .progress-bar-container {
+      height: 4px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      animation: progress-animation 2s infinite ease-in-out;
+      transform-origin: left center;
+    }
+
+    @keyframes progress-animation {
+      0% {
+        transform: scaleX(0);
+      }
+
+      50% {
+        transform: scaleX(0.5);
+      }
+
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    /* Time estimation section */
+    .time-container {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 1.5rem;
+    }
+
+    .time-icon {
+      margin-right: 0.75rem;
+      color: var(--secondary-text);
+      margin-top: 0.25rem;
+    }
+
+    .time-details .label {
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+    }
+
+    .time-details .value {
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    .card-footer {
+      padding: 1.25rem 1.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-message {
+      display: flex;
+      align-items: center;
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+    }
+
+    .footer-message i {
+      margin-right: 0.5rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .btn i {
+      margin-right: 0.5rem;
+    }
+
+    .btn-refresh {
+      background-color: var(--primary);
+      color: var(--text-color);
+      border: none;
+    }
+
+    .btn-refresh:hover {
+      background-color: #3a5dca;
+    }
+
+    .btn-contact {
+      background-color: transparent;
+      color: var(--text-color);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-contact:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Code decorations - these don't blur the interface and can be hidden on small screens */
+    .code-decoration {
+      position: fixed;
+      background-color: rgba(20, 24, 36, 0.7);
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--secondary-text);
+      max-width: 250px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: -1;
+    }
+
+    .code-decoration pre {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    .code-left {
+      top: 20%;
+      left: 5%;
+    }
+
+    .code-right {
+      bottom: 15%;
+      right: 5%;
+    }
+
+    .code-keyword {
+      color: #569cd6;
+    }
+
+    .code-string {
+      color: #ce9178;
+    }
+
+    .code-comment {
+      color: #6a9955;
+    }
+
+    /* Ensure proper scaling on smaller screens */
+    @media (max-width: 768px) {
+      .code-decoration {
+        display: none;
+      }
+
+      .card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .action-buttons {
+        margin-top: 1rem;
+        width: 100%;
+      }
+
+      .btn {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Grid background -->
+  <div class="grid-background"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <div class="logo">
+        <i class="bi bi-music-note-beamed text-white"></i>
+      </div>
+      <h1 class="site-title">MOSO: Song Manager</h1>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-container">
+    <div class="maintenance-card">
+      <div class="card-title">
+        <i class="bi bi-tools card-title-icon"></i>
+        <h2>Site Maintenance</h2>
+      </div>
+
+      <div class="card-content">
+        <div class="upgrade-title">
+          <span class="color-accent">Upgrading</span>
+          <span class="color-standard">Your Experience</span>
+        </div>
+
+        <p class="message-text">
+          We're working on some awesome new features to make your song management experience even better.
+        </p>
+        <p class="message-text">
+          Don't worry - all your data is safe and will be available when we're back online.
+        </p>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill"></div>
+        </div>
+
+        <div class="time-container">
+          <div class="time-icon">
+            <i class="bi bi-clock"></i>
+          </div>
+          <div class="time-details">
+            <div class="label">Estimated time</div>
+            <div class="value">About 42 minutes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-message">
+          <i class="bi bi-info-circle"></i>
+          Thanks for your patience
+        </div>
+
+        <div class="action-buttons">
+          <button onclick="window.location.reload()" class="btn btn-refresh">
+            <i class="bi bi-arrow-repeat"></i>Refresh
+          </button>
+          <a href="mailto:moses2917+MOSO@gmail.com" class="btn btn-contact">
+            <i class="bi bi-envelope"></i>Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Code decorations - won't cause blurriness -->
+  <div class="code-decoration code-left">
+    <pre><span class="code-keyword">function</span> updateSystem() {
+  <span class="code-comment">// Improving experience</span>
+  <span class="code-keyword">const</span> progress = <span class="code-string">"75%"</span>;
+  <span class="code-keyword">return</span> newFeatures;
+}</pre>
+  </div>
+
+  <div class="code-decoration code-right">
+    <pre><span class="code-keyword">class</span> SongManager {
+  <span class="code-comment">// Loading new UI</span>
+  render() {
+    <span class="code-keyword">return</span> <span class="code-string">"Coming soon"</span>;
+  }
+}</pre>
+  </div>
+</body>
+
+</html>
