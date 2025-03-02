@@ -1,7 +1,9 @@
+from ast import List
 import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import re
+from concurrent.futures import ThreadPoolExecutor
 
 class SearchEngine:
     def __init__(self):
@@ -9,8 +11,7 @@ class SearchEngine:
         self.all_lyrics, self.song_ids = self.extract_lyrics(self.song_lyrics)
         self.vectorizer, self.tfidf_matrix = self.create_tfidf_matrix(self.all_lyrics)
 
-    #TODO: Migrat this to sqlite3 or just save the matrix
-    def load_json_data(self, file_path):
+    def load_json_data(self, file_path) -> dict:
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         return data
@@ -38,7 +39,6 @@ class SearchEngine:
                 REDergaran:dict = load(f)["SongNum"]
                 return True if REDergaran.get(songnum, False) else False
 
-
     def extract_lyrics(self, song_lyrics:dict):
         all_lyrics = []
         song_ids = []
@@ -65,7 +65,7 @@ class SearchEngine:
             if self.is_valid('new', clean_query):
                 results.append(('new', clean_query, 1.0))
             return results
-        clean_query = re.sub("   ",'',(re.sub(r'[:,.(0-9)\n]+','',query)))
+        clean_query = re.sub("   ",'',(re.sub(r'[՛:։,.(0-9)\\n]+','',query)))
         # First, check for exact phrase match
         for idx, lyric in enumerate(all_lyrics):
             if len(results) < top_k:
@@ -95,6 +95,68 @@ class SearchEngine:
     def search(self, query):
         return self.search_lyrics(query, self.vectorizer, self.tfidf_matrix, self.song_ids, self.all_lyrics)
 
+class SimilerSongMatcher(SearchEngine):
+    def __init__(self):
+        super().__init__()
+        self.open_indexes()
+
+    def find_match(self, lyrics, song_num, book, match_count=1) -> List:
+        try:
+            results = self.search(lyrics)[:2] # gets two first matches
+            if results[1][2] > 0.45: # check probability
+                if results[1][0] != book: #and results[1][1] != songnum: # If they are of the same book and num, NO return
+                    # print(results[1])
+                    return [results[1]]
+                elif results[1][1] != song_num:
+                    # print(results[1])
+                    return [results[1]]
+                else:
+                    # print(results[0])
+                    return [results[0]]
+        except:
+            return [None]
+
+    def open_indexes(self):
+        try:
+            with open('REDergaran.json', mode='r', encoding='utf-8') as json_file:
+                self.REDergaran:dict = json.load(json_file)
+            with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
+                self.wordSongsIndex:dict = json.load(json_file)
+        except Exception as e:
+            raise e
+
+    def comapre(self, song_num:str, book:str):
+        match = self.find_match(self.song_lyrics[book][song_num], song_num, book)
+        if book.lower() == 'old' or book.lower() == 'wordsongsindex':
+            self.wordSongsIndex["SongNum"][song_num]["match"] = match
+        else:
+            self.REDergaran["SongNum"][song_num]["match"] = match
+    
+    def load_data_and_run(self, book:str, index:dict):
+        for song_num in index["SongNum"]:
+            self.comapre(song_num, book)
+
+    def save_files(self, book:str):
+        try:
+            if book == 'new':
+                with open('REDergaran.json', mode='w', encoding='utf-8') as json_file:
+                    json.dump(self.REDergaran, json_file, ensure_ascii=False, indent=4)
+            elif book == 'old':
+                with open('wordSongsIndex.json', mode='w', encoding='utf-8') as json_file:
+                    json.dump(self.wordSongsIndex, json_file, ensure_ascii=False, indent=4)
+                
+        except Exception as e:
+            raise e
+
+    def start(self):
+        with ThreadPoolExecutor() as futures:
+            futures.submit(self.load_data_and_run,'old', self.wordSongsIndex)
+            futures.submit(self.load_data_and_run,'new', self.REDergaran)
+        self.save_files('old')
+        self.save_files('new')
+
 if __name__ == "__main__":
-    search_engine = SearchEngine()
-    print(search_engine.search("Հիսուս"))
+    # search_engine = SearchEngine()
+    # print(search_engine.search("Հիսուսի սերը"))
+    Similer_Song_Matcher = SimilerSongMatcher()
+    Similer_Song_Matcher.start()

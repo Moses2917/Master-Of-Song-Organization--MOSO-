@@ -1,6 +1,5 @@
 from concurrent.futures import thread
 from os import environ as env
-from waitress import serve
 import re
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
@@ -64,6 +63,7 @@ def callback():
     #remember to flash('Բարի Գալուստ, {{session.user.userinfo.name}}!')
     # return redirect("/")
     return redirect("/")
+  
 
 #the /login route, users will be redirected to Auth0 to begin the authentication flow.
 @app.route("/login")
@@ -116,13 +116,14 @@ def isUserAllowed(email):
 
 # Should only load this once instead of every time
 with open('REDergaran.json', mode='r', encoding='utf-8') as json_file:
-    REDergaran = json.load(json_file)
+    REDergaran:dict = json.load(json_file)
 with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
-    wordSongsIndex = json.load(json_file)
+    wordSongsIndex:dict = json.load(json_file)
     
 
 def load_table_data(book:str):
-    """Reads the respective index file for the book given, and will return a dict
+    """Returns a whole json dict of either old or new, based upon input\n
+    Reads the respective index file for the book given, and will return a dict
 
     Args:
         book (str): name of book, can be REDergaran or wordSongsIndex
@@ -134,6 +135,35 @@ def load_table_data(book:str):
         return wordSongsIndex.get('SongNum') if book == "wordSongsIndex" else REDergaran.get('SongNum')
     except FileNotFoundError:
         return None
+
+# @app.route('/getTableData', methods=['GET', 'POST'])
+def getSong(book:str, songnum:str, batch = 0) -> dict:
+    """
+    Retrieves a song from a JSON file based on the provided book and song number. The options are 'old', 'new', 'redergaran', and 'wordsongsindex'.
+
+    Args:
+        book (str): The book from which to retrieve the song.
+        songnum (str): The number of the song to retrieve.
+        batch (int, optional): The batch number. Defaults to 0.
+
+    Returns:
+        dict: A dictionary containing the song data.
+    """
+    if batch == 0:
+        from json import load
+        if book.lower() == "old" or book.lower() == "wordsongsindex":
+            # with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+            #     wordSongs = load(f)["SongNum"]
+            #     return wordSongs[songnum]
+            return wordSongsIndex["SongNum"][songnum]
+        else:
+            # with open("REDergaran.json", 'r', encoding='utf-8') as f:
+            #     REDergaran = load(f)["SongNum"]
+            #     return REDergaran[songnum]
+            return REDergaran["SongNum"][songnum]
+    else:
+        pass
+
 
 def openWord(songNum, book):
     """
@@ -151,11 +181,9 @@ def openWord(songNum, book):
     #Used to find and open word doc, sends back a html formated str of it
     
     if ("word" in book.lower() or "old" in book.lower()):
-        with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
-            index:dict = json.load(f)
+        index = wordSongsIndex
     else:
-        with open("REDergaran.json", 'r', encoding='utf-8') as f:
-            index:dict = json.load(f)
+        index = REDergaran
     
     if index["SongNum"].get(songNum,None):
         songPth = index["SongNum"][songNum]["latestVersion"]
@@ -221,31 +249,6 @@ def saveHtml(filePth, WordDoc):
     with open(rf"{onedrive}\Documents\Code\Python\htmlsongs\{WordDoc}.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
 
-# @app.route('/getTableData', methods=['GET', 'POST'])
-def getSong(book:str, songnum:str, batch = 0) -> dict:
-    """
-    Retrieves a song from a JSON file based on the provided book and song number. The options are 'old', 'new', 'redergaran', and 'wordsongsindex'.
-
-    Args:
-        book (str): The book from which to retrieve the song.
-        songnum (str): The number of the song to retrieve.
-        batch (int, optional): The batch number. Defaults to 0.
-
-    Returns:
-        dict: A dictionary containing the song data.
-    """
-    if batch == 0:
-        from json import load
-        if book.lower() == "old" or book.lower() == "wordsongsindex":
-            with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
-                wordSongs = load(f)["SongNum"]
-                return wordSongs[songnum]
-        else:
-            with open("REDergaran.json", 'r', encoding='utf-8') as f:
-                REDergaran = load(f)["SongNum"]
-                return REDergaran[songnum]
-    else:
-        pass
 
 @app.route('/search/<searchLyrics>', methods=['GET'])
 def songSearch(searchLyrics) -> list:
@@ -540,12 +543,14 @@ def home():
     A JSON response containing search results or a rendered HTML template.
     """
     # print(request.remote_addr,get_my_ip())
-    if session.get('user', None):
-        # session['user']['userinfo']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
-        # if session['user'] == 'local':
-        #     session['user']['userinfo']['admin'] = True
-        if isUserAllowed(session['user']['userinfo']['email']):
-            session['user']['userinfo']['admin'] = True
+    # if session.get('user', None):
+    #     # session['user']['userinfo']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
+    #     # if session['user'] == 'local':
+    #     #     session['user']['userinfo']['admin'] = True
+    #     if isUserAllowed(session['user']['userinfo']['email']):
+    #         session['user']['userinfo']['admin'] = True
+    if session.get('user') and isinstance(session['user'], dict) and 'userinfo' in session['user']:
+        session['user']['userinfo']['admin'] = True
         # else:
         #     session['user']['userinfo']['admin'] = False
         table_data = None # doing this so that it does not get referenced before assginment
@@ -867,7 +872,7 @@ def get_song_lyrics(book,songnum):
     return jsonify(None)
 
 @app.route('/song/<book>/<songnum>/altsong', methods=['GET','POST'])
-def posiible_alt_song(songnum,book): # COuld also do only num,book,lyrics
+def posible_alt_song(songnum,book): # COuld also do only num,book,lyrics
     book = 'old' if book == 'wordsongsindex' or book == 'old' else 'new' #book == 'old' might seem redundanct, but considering songs can also be under both old and wordsongindex, it's better to be safe
     request_data = request.get_json()
     lyrics = request_data['lyrics']
@@ -1071,8 +1076,8 @@ def song_analysis():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
-    # app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
+    # serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
