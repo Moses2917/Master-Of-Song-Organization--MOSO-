@@ -1528,7 +1528,7 @@
         },
         "297": {
             "Title": "Տիրոջ հաղթության դրոշ",
-            "latestVersion": "Word songs\\297 Տիրոջ հաղթության դրոշ.docx",
+            "latestVersion": "Word songs/297 Տիրոջ հաղթության դրոշ v3.docx",
             "v1": "Word songs\\297 Տիրոջ հաղթության դրոշ.docx",
             "key": "F#m",
             "speed": "67",
@@ -1536,7 +1536,9 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Ballad-P6-1",
-            "match": "None"
+            "match": "None",
+            "v2": "Word songs/297 Տիրոջ հաղթության դրոշ v2.docx",
+            "v3": "Word songs/297 Տիրոջ հաղթության դրոշ v3.docx"
         },
         "298": {
             "Title": "Ահա մենք մեր ուրախ երգերով",
@@ -2865,7 +2867,7 @@
         },
         "499": {
             "Title": "Երկնքի զորությունները անվերջ",
-            "latestVersion": "Word songs/499 Երկնքի զորությունները անվերջ.docx",
+            "latestVersion": "Word songs/499 Երկնքի զորությունները անվերջ v3.docx",
             "v1": "Word songs/499 Երկնքի զորությունները անվերջ.docx",
             "key": "E flat m (-6)",
             "speed": "113",
@@ -2873,7 +2875,9 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Ballad-P5-5",
-            "match": "None"
+            "match": "None",
+            "v2": "Word songs/499 Երկնքի զորությունները անվերջ v2.docx",
+            "v3": "Word songs/499 Երկնքի զորությունները անվերջ v3.docx"
         },
         "500": {
             "Title": "Ես տուն ունեմ երկնքում",
@@ -3954,7 +3958,7 @@
         },
         "652": {
             "Title": "Սերը մեզ կանչում է",
-            "latestVersion": "Word songs/652 Սերը մեզ կանչում է v3.docx",
+            "latestVersion": "Word songs/652 Սերը մեզ կանչում է v5.docx",
             "v1": "Word songs/652 Սերը մեզ կանչում է.docx",
             "v2": "Word songs/652 Սերը մեզ կանչում է v2.docx",
             "v3": "Word songs/652 Սերը մեզ կանչում է v3.docx",
@@ -3964,7 +3968,9 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3",
-            "match": "None"
+            "match": "None",
+            "v4": "Word songs/652 Սերը մեզ կանչում է v4.docx",
+            "v5": "Word songs/652 Սերը մեզ կանչում է v5.docx"
         },
         "653": {
             "Title": "Հիսուս, սիրո Աստված",
@@ -4186,7 +4192,7 @@
         },
         "679": {
             "Title": "Արժան ես, իրավ ես, Սուրբ ես",
-            "latestVersion": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես v2.docx",
+            "latestVersion": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես v4.docx",
             "v1": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես.docx",
             "key": "F#m",
             "speed": "66",
@@ -4195,7 +4201,9 @@
             "timeSig": "4/4",
             "Comments": "Ballad-P1-8",
             "v2": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես v2.docx",
-            "match": "None"
+            "match": "None",
+            "v3": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես v3.docx",
+            "v4": "Word songs/679 Արժան ես, իրավ ես, Սուրբ ես v4.docx"
         },
         "680": {
             "Title": "Արթնացա մի օր Քո իսկ պարգևած արևի շողից",
@@ -4621,7 +4629,7 @@
         },
         "724": {
             "Title": "Եկ գնանք բնակավայրը մեր Տիրոջ",
-            "latestVersion": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v4.docx",
+            "latestVersion": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v5.docx",
             "v1": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ.docx",
             "v2": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v2.docx",
             "v3": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v3.docx",
@@ -4632,7 +4640,8 @@
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-8",
             "v4": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v4.docx",
-            "match": "None"
+            "match": "None",
+            "v5": "Word songs/724 Եկ գնանք բնակավայրը մեր Տիրոջ v5.docx"
         },
         "725": {
             "Title": "Քեզ եմ նվիրում սիրտը իմ",
@@ -5013,7 +5022,7 @@
         },
         "774": {
             "Title": "Գթա՜, ով Բարձրյալ  Աստված",
-            "latestVersion": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված v2.docx",
+            "latestVersion": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված v4.docx",
             "v1": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված.docx",
             "v2": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված v2.docx",
             "key": "Em",
@@ -5022,7 +5031,9 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Any beat or ballad",
-            "match": "None"
+            "match": "None",
+            "v3": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված v3.docx",
+            "v4": "Word songs/774 Գթա՜, ով Բարձրյալ  Աստված v4.docx"
         },
         "775": {
             "Title": "Երկիր իջավ Աստծո որդին",
