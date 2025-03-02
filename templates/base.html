@@ -195,7 +195,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
           </li>
-          {% if session['user']%}
+          {% if session.get('user') and 'userinfo' in session['user'] %}
             {% if session['user']['userinfo']['admin'] %}
             <li class="nav-item">
               <a class="nav-link active" href="{{ url_for('edit_songs') }}">Edit Songs</a>
