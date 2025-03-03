@@ -1,4 +1,3 @@
-from ast import List
 import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -45,7 +44,9 @@ class SearchEngine:
 
         for section in ['old', 'new']:
             for song_id, lyrics in song_lyrics[section].items():
-                lyrics = re.sub(r'[՛:։,.(0-9)\\n]+','',lyrics)
+                lyrics = lyrics.lower()
+                lyrics = re.sub(r'[՝՜]+', ' ', lyrics, re.MULTILINE)
+                lyrics = re.sub(r'[:։,.(0-9)\\n\s]+', ' ', lyrics, re.MULTILINE)
                 all_lyrics.append(lyrics+song_id)
                 song_ids.append((section, song_id))
 
@@ -58,14 +59,16 @@ class SearchEngine:
 
     def search_lyrics(self, query, vectorizer, tfidf_matrix, song_ids, all_lyrics, top_k=10):
         results = []
-        clean_query = re.sub("   ",'',re.sub(r'[՛:։,.\\n]+','',query))
+        clean_query = re.sub(r'[՛:։,.\\n\s]+',' ',query,re.MULTILINE)
         if clean_query.isdigit():
             if self.is_valid('old', clean_query):
                 results.append(('old', clean_query, 1.0))
             if self.is_valid('new', clean_query):
                 results.append(('new', clean_query, 1.0))
             return results
-        clean_query = re.sub("   ",'',(re.sub(r'[՛:։,.(0-9)\\n]+','',query)))
+        clean_query=clean_query.lower()
+        clean_query = re.sub(r'[՝՜]+',' ',query,re.MULTILINE)
+        clean_query = re.sub(r'[՛:։,.(0-9)\\n\s]+',' ',query,re.MULTILINE)
         # First, check for exact phrase match
         for idx, lyric in enumerate(all_lyrics):
             if len(results) < top_k:
@@ -100,8 +103,10 @@ class SimilerSongMatcher(SearchEngine):
         super().__init__()
         self.open_indexes()
 
-    def find_match(self, lyrics, song_num, book, match_count=1) -> List:
+    def find_match(self, lyrics, song_num, book, match_count=1) -> list:
         try:
+            if song_num == "114" and book == "new":
+                print()
             results = self.search(lyrics)[:2] # gets two first matches
             if results[1][2] > 0.45: # check probability
                 if results[1][0] != book: #and results[1][1] != songnum: # If they are of the same book and num, NO return
@@ -126,11 +131,14 @@ class SimilerSongMatcher(SearchEngine):
             raise e
 
     def comapre(self, song_num:str, book:str):
-        match = self.find_match(self.song_lyrics[book][song_num], song_num, book)
-        if book.lower() == 'old' or book.lower() == 'wordsongsindex':
-            self.wordSongsIndex["SongNum"][song_num]["match"] = match
-        else:
-            self.REDergaran["SongNum"][song_num]["match"] = match
+        try:
+            match = self.find_match(self.song_lyrics[book][song_num], song_num, book)
+            if book.lower() == 'old' or book.lower() == 'wordsongsindex':
+                self.wordSongsIndex["SongNum"][song_num]["match"] = match
+            else:
+                self.REDergaran["SongNum"][song_num]["match"] = match
+        except Exception as e:
+            pass
     
     def load_data_and_run(self, book:str, index:dict):
         for song_num in index["SongNum"]:
@@ -152,11 +160,39 @@ class SimilerSongMatcher(SearchEngine):
         with ThreadPoolExecutor() as futures:
             futures.submit(self.load_data_and_run,'old', self.wordSongsIndex)
             futures.submit(self.load_data_and_run,'new', self.REDergaran)
-        self.save_files('old')
+        # self.load_data_and_run('new', self.REDergaran)
         self.save_files('new')
+        self.save_files('old')
+
+def combine():
+    with open('REDergaran.json', mode='r', encoding='utf-8') as json_file:
+        REDergaran:dict = json.load(json_file)
+    with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
+        wordSongsIndex:dict = json.load(json_file)
+    matched_songs = {}
+    for song_num in wordSongsIndex["SongNum"]:
+        try:
+            match = list(wordSongsIndex["SongNum"][song_num]["match"])
+            matched_book = match[0][0]
+            matched_num = match[0][1]
+            if matched_book == 'old':
+                matched_songs
+                ...
+            elif matched_book == 'new':
+                ...
+            # print(match)
+        except:
+            pass
+        # REDergaran["SongNum"][song_num]["match"] = wordSongsIndex["SongNum"][song_num]["match"]
+    
+    # with open('matched_songs.json', mode='w', encoding='utf-8') as json_file:
+        # json.dump(REDergaran, json_file, ensure_ascii=False, indent=4)
+
 
 if __name__ == "__main__":
-    # search_engine = SearchEngine()
-    # print(search_engine.search("Հիսուսի սերը"))
-    Similer_Song_Matcher = SimilerSongMatcher()
-    Similer_Song_Matcher.start()
+    lyr = "429 Տիրոջը նոր երգ երգենք Երգենք և օրհնենք Սաղմոսներով ցնծումով շեփորի ձայնով: Թող որ գոռան ծովերը լիությամբ անբավ: Գետերը թող ծափ տան ձեռքով Քանզի Տերն եկավ: (2)\nԻնչ անուն աշխարհ եկավ, Մեծ խաղաղության իշխան, Կարեկից ողջ մարդկության, Հիսուս: (2)"
+    search_engine = SearchEngine()
+    print(search_engine.search(lyr))
+    # Similer_Song_Matcher = SimilerSongMatcher()
+    # Similer_Song_Matcher.start()
+    # combine()
