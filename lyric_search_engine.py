@@ -17,17 +17,8 @@ class SearchEngine:
 
     def is_valid(self, book:str, songnum:str) -> bool:
         """
-        Retrieves a song from a JSON file based on the provided book and song number. The options are 'old', 'new', 'redergaran', and 'wordsongsindex'.
-
-        Args:
-            book (str): The book from which to retrieve the song.
-            songnum (str): The number of the song to retrieve.
-            batch (int, optional): The batch number. Defaults to 0.
-
-        Returns:
-            bool: True if exists or False if not.
+        Retrieves a song from a JSON file based on the provided book and song number.
         """
-        
         from json import load
         if book.lower() == "old" or book.lower() == "wordsongsindex":
             with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
@@ -44,59 +35,103 @@ class SearchEngine:
 
         for section in ['old', 'new']:
             for song_id, lyrics in song_lyrics[section].items():
-                lyrics = lyrics.lower()
-                lyrics = re.sub(r'[՝՜]+', ' ', lyrics, re.MULTILINE)
-                lyrics = re.sub(r'[:։,.(0-9)\\n\s]+', ' ', lyrics, re.MULTILINE)
-                all_lyrics.append(lyrics+song_id)
+                # Store case-folded version for better matching
+                processed_lyrics = self.preprocess_text(lyrics)
+                all_lyrics.append(processed_lyrics)
                 song_ids.append((section, song_id))
 
         return all_lyrics, song_ids
+    
+    def preprocess_text(self, text):
+        """Standardize text for better matching"""
+        # Convert to lowercase
+        text = text.lower()
+        # Remove specific Armenian punctuation
+        text = re.sub(r'[՝՜]+', ' ', text, re.MULTILINE)
+        # Remove other punctuation, digits, and normalize whitespace
+        text = re.sub(r'[:։,.(0-9)\\n\s]+', ' ', text, re.MULTILINE)
+        return text.strip()
 
     def create_tfidf_matrix(self, lyrics):
-        vectorizer = TfidfVectorizer(lowercase=True)#, stop_words='english')
+        # Use advanced TF-IDF vectorization with character n-grams for Armenian
+        vectorizer = TfidfVectorizer(
+            lowercase=True,
+            ngram_range=(1, 3),  # Use word n-grams
+            analyzer='word',
+            min_df=2,            # Ignore very rare terms
+            max_df=0.9           # Ignore very common terms
+        )
         tfidf_matrix = vectorizer.fit_transform(lyrics)
         return vectorizer, tfidf_matrix
+    
+    def clean_query(self, query):
+        """Clean and standardize query text"""
+        # Handle numeric queries separately
+        clean_query = re.sub(r'[՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
+        if clean_query.strip().isdigit():
+            return clean_query.strip()
+        
+        # Apply same preprocessing as for stored lyrics
+        return self.preprocess_text(query)
 
-    def search_lyrics(self, query, vectorizer, tfidf_matrix, song_ids, all_lyrics, top_k=10):
+    def search_lyrics(self, query, top_k=10):
         results = []
-        clean_query = re.sub(r'[՛:։,.\\n\s]+',' ',query,re.MULTILINE)
+        clean_query = self.clean_query(query)
+        
+        # If query is just a number, treat as song ID lookup
         if clean_query.isdigit():
             if self.is_valid('old', clean_query):
                 results.append(('old', clean_query, 1.0))
             if self.is_valid('new', clean_query):
                 results.append(('new', clean_query, 1.0))
             return results
-        clean_query=clean_query.lower()
-        clean_query = re.sub(r'[՝՜]+',' ',query,re.MULTILINE)
-        clean_query = re.sub(r'[՛:։,.(0-9)\\n\s]+',' ',query,re.MULTILINE)
-        # First, check for exact phrase match
-        for idx, lyric in enumerate(all_lyrics):
-            if len(results) < top_k:
-                if re.search(clean_query, lyric):
-                    section, song_id = song_ids[idx]
-                    results.append((section, song_id, 1.0))  # Assign highest similarity score for exact match
         
-        # If we haven't reached top_k results, proceed with cosine similarity (TF-IDF)
-        if len(results) < top_k:
-            query_vec = vectorizer.transform([clean_query])
-            cosine_similarities = cosine_similarity(query_vec, tfidf_matrix).flatten()
-            top_indices = cosine_similarities.argsort()[::-1]  # Get all indices sorted by similarity
+        # For text search, use TF-IDF to get all possible matches
+        query_vec = self.vectorizer.transform([clean_query])
+        cosine_similarities = cosine_similarity(query_vec, self.tfidf_matrix).flatten()
+        
+        # Create a list of (section, song_id, similarity) tuples for all songs
+        all_matches = []
+        for idx, similarity in enumerate(cosine_similarities):
+            section, song_id = self.song_ids[idx]
+            all_matches.append((section, song_id, float(similarity)))
+        
+        # Sort by similarity score in descending order
+        all_matches.sort(key=lambda x: x[2], reverse=True)
+        
+        # Return top k results
+        return all_matches[:top_k]
+    
+    def search(self, query, top_k=10):
+        """Search for songs matching the query and return top k results"""
+        return self.search_lyrics(query, top_k=top_k)
+    
+    def get_lyrics_by_id(self, section, song_id):
+        """Retrieve original lyrics for a given song ID"""
+        if section in self.song_lyrics and song_id in self.song_lyrics[section]:
+            return self.song_lyrics[section][song_id]
+        return None
+    
+    def search_and_display(self, query, top_k=10):
+        """Search and display results with similarity scores"""
+        results = self.search(query, top_k=top_k)
+        
+        print(f"Top {len(results)} results for: {query}")
+        print("-" * 40)
+        
+        for i, (section, song_id, similarity) in enumerate(results):
+            print(f"{i+1}. Section: {section}, Song ID: {song_id}")
+            print(f"   Similarity: {similarity:.4f}")
             
-            for idx in top_indices:
-                section, song_id = song_ids[idx]
-                # Skip if this song_id is already in results (from exact match)
-                if any(song_id == r[1] for r in results):
-                    continue
-                    
-                # Add new match if not already present
-                results.append((section, song_id, cosine_similarities[idx]))
-                if len(results) == top_k:
-                    break
+            # Get a snippet of the lyrics
+            lyrics = self.get_lyrics_by_id(section, song_id)
+            if lyrics:
+                snippet = lyrics[:100] + "..." if len(lyrics) > 100 else lyrics
+                print(f"   Snippet: {snippet}")
+            
+            print()
         
         return results
-    
-    def search(self, query):
-        return self.search_lyrics(query, self.vectorizer, self.tfidf_matrix, self.song_ids, self.all_lyrics)
 
 class SimilerSongMatcher(SearchEngine):
     def __init__(self):
@@ -190,9 +225,9 @@ def combine():
 
 
 if __name__ == "__main__":
-    lyr = "429 Տիրոջը նոր երգ երգենք Երգենք և օրհնենք Սաղմոսներով ցնծումով շեփորի ձայնով: Թող որ գոռան ծովերը լիությամբ անբավ: Գետերը թող ծափ տան ձեռքով Քանզի Տերն եկավ: (2)\nԻնչ անուն աշխարհ եկավ, Մեծ խաղաղության իշխան, Կարեկից ողջ մարդկության, Հիսուս: (2)"
-    search_engine = SearchEngine()
-    print(search_engine.search(lyr))
-    # Similer_Song_Matcher = SimilerSongMatcher()
-    # Similer_Song_Matcher.start()
+    # lyr = "429 Տիրոջը նոր երգ երգենք Երգենք և օրհնենք Սաղմոսներով ցնծումով շեփորի ձայնով: Թող որ գոռան ծովերը լիությամբ անբավ: Գետերը թող ծափ տան ձեռքով Քանզի Տերն եկավ: (2)\nԻնչ անուն աշխարհ եկավ, Մեծ խաղաղության իշխան, Կարեկից ողջ մարդկության, Հիսուս: (2)"
+    # search_engine = SearchEngine()
+    # print(search_engine.search(lyr))
+    Similer_Song_Matcher = SimilerSongMatcher()
+    Similer_Song_Matcher.start()
     # combine()
