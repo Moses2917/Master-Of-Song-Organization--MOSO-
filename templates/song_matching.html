@@ -1,0 +1,81 @@
+{%extends 'base.html'%}
+{% block content %}
+
+{% if session['user']%}
+{% if session['user']['userinfo']['admin'] %}
+<div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
+    <div class="row align-items-start justify-content-center ">
+        <h2 class="text-center">Please Choose a Either Song:</h2>
+        <!-- <div class="row justify-content-center" id="SongSection">
+
+            <div class="col-auto">
+                <div class="">
+
+                    <input class="btn-check" type="checkbox" id="only_first_two_songs" value="only_first_two_songs"
+                        onchange="document.getElementById('only_worship_songs').checked = false; document.getElementById('only_last_two_songs').checked = false;">
+                    <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5"
+                        for="only_first_two_songs">
+                        First Two Songs
+                    </label>
+
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="">
+
+                    <input class="btn-check" type="checkbox" id="only_worship_songs" value="only_worship_songs"
+                        onchange="document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_last_two_songs').checked = false;">
+                    <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5"
+                        for="only_worship_songs">
+                        Worship Songs</label>
+
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="">
+
+                    <input class="btn-check" type="checkbox" id="only_last_two_songs" value="only_last_two_songs"
+                        onchange="document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_worship_songs').checked = false;">
+                    <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5"
+                        for="only_last_two_songs">
+                        Last Two Songs</label>
+
+                </div>
+            </div>
+
+        </div> -->
+    </div>
+</div>
+<div class="container-md shadow p-3 mb-5 bg-body-tertiary rounded">
+    <!-- <div class="row justify-content-center" id="SongSection"> -->
+    <h5>Song 1</h5>
+    <div class="col-auto">{{ song1|safe }}</div>
+    <!-- <div class="col-auto">Song 2</div> -->
+    <!-- </div> -->
+</div>
+<div class="container-md shadow p-3 mb-5 bg-body-tertiary rounded">
+    <!-- <div class="row justify-content-center" id="SongSection"> -->
+    <!-- <div class="col-auto">Song 1</div> -->
+    <h5>Song 2</h5>
+    <div class="col-auto">{{ song2|safe }}</div>
+    <!-- </div> -->
+</div>
+<div>
+    <h4>Do these match?</h4>
+    <div>
+        <select name="Yes" id="Yes">Yes</select>
+        <select name="No" id="No">No</select>
+    </div>
+    <h4>If Yes, which song is correct?</h4>
+    <div>
+        <select name="song1" id="song1">Song 1</select>
+        <select name="song2" id="song2">Song 2</select>
+    </div>
+</div>
+{% else %}
+{% include 'noAccess.html' %}
+
+{% endif %}
+{% endif %}
+
+{% endblock%}

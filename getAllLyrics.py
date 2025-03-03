@@ -178,7 +178,7 @@ def singleWordToJson(songNum:str):
         Songs = load(f)
     
     #load the dir to update
-    with open('AppLyrics.json', 'r', encoding='utf-8') as f:
+    with open('AllLyrics.json', 'r', encoding='utf-8') as f:
         songLyrics = load(f)
         fp = ENV.get("OneDrive") + "/" + Songs["SongNum"][songNum]["latestVersion"]
         # print(fp)
@@ -191,13 +191,14 @@ def singleWordToJson(songNum:str):
         
         songLyrics[songNum] = text
     
-    with open('AppLyrics.json', 'w', encoding='utf-8') as f:
+    with open('AllLyrics.json', 'w', encoding='utf-8') as f:
         from json import dump
         dump(songLyrics,f,ensure_ascii=False,indent=4)
 
 if __name__ == "__main__":
     pass
-    singleWordToJson('95')
-    singleWordToJson('96')
+    # singleWordToJson('664')
+    # singleWordToJson('95')
+    # singleWordToJson('96')
     # onedrive = ENV.get('onedrive')
     # updateSongLyrics('old','389',Document(onedrive+'\\Word songs/389 Տոն է այսոր սուրբ հաղթական.docx'))

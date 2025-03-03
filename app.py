@@ -945,8 +945,12 @@ def get_skipped_songs():# add some func to be able to go backwards
         lyrics = future.result()
     return jsonify([lyrics, book, song])
 
+@app.route('/song_matcher')
+def song_matcher():
+    
+    return render_template('song_matching.html',song1='',song2='')
 
-@app.route('/song_analysis', methods=['GET', 'POST'])
+# @app.route('/song_analysis', methods=['GET', 'POST'])
 def song_analysis():
     """
     Analyzes song data to provide insights on service patterns and song usage.

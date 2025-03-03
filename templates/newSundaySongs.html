@@ -4,42 +4,40 @@
 <div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
   <div class="row align-items-start justify-content-center ">
     <h2 class="text-center">Please Choose a Given Parameter:</h2>
-    <!-- <div class="col-9">
-      <div class="input-group mb-3 ">
-        <input type="number" class="form-control" max="1000" name="SongNum" id="SongNum" >
-      </div>
-    </div> -->
     <div class="row justify-content-center" id="SongSection">
-      <!-- <div class="btn-group" role="group"> -->
+
       <div class="col-auto">
         <div class="">
-          <!-- <div class="form-check"> -->
-            <input class="btn-check" type="checkbox" id="only_first_two_songs" value="only_first_two_songs" onchange="document.getElementById('only_worship_songs').checked = false; document.getElementById('only_last_two_songs').checked = false;">
-            <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="only_first_two_songs">
-              First Two Songs
-            </label>
-          <!-- </div> -->
+
+          <input class="btn-check" type="checkbox" id="only_first_two_songs" value="only_first_two_songs"
+            onchange="document.getElementById('only_worship_songs').checked = false; document.getElementById('only_last_two_songs').checked = false;">
+          <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="only_first_two_songs">
+            First Two Songs
+          </label>
+
         </div>
       </div>
       <div class="col-auto">
         <div class="">
-          <!-- <div class="form-check"> -->
-          <input class="btn-check" type="checkbox" id="only_worship_songs" value="only_worship_songs" onchange="document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_last_two_songs').checked = false;">
+
+          <input class="btn-check" type="checkbox" id="only_worship_songs" value="only_worship_songs"
+            onchange="document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_last_two_songs').checked = false;">
           <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="only_worship_songs">
             Worship Songs</label>
-          <!-- </div> -->
+
         </div>
       </div>
       <div class="col-auto">
         <div class="">
-          <!-- <div class="form-check"> -->
-          <input class="btn-check" type="checkbox" id="only_last_two_songs" value="only_last_two_songs" onchange="document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_worship_songs').checked = false;">
+
+          <input class="btn-check" type="checkbox" id="only_last_two_songs" value="only_last_two_songs"
+            onchange="document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_worship_songs').checked = false;">
           <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="only_last_two_songs">
             Last Two Songs</label>
-          <!-- </div> -->
+
         </div>
       </div>
-      <!-- </div> -->
+
     </div>
   </div>
   <p class="text-end" id="hint-am">
