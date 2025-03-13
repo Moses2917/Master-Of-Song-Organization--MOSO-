@@ -49,7 +49,7 @@ class SearchEngine:
         # Remove specific Armenian punctuation
         text = re.sub(r'[՝՜]+', ' ', text, re.MULTILINE)
         # Remove other punctuation, digits, and normalize whitespace
-        text = re.sub(r'[:։,.(0-9)\\n\s]+', ' ', text, re.MULTILINE)
+        text = re.sub(r'[-:։,.(0-9)\\n\s]+', ' ', text, re.MULTILINE)
         return text.strip()
 
     def create_tfidf_matrix(self, lyrics):
@@ -67,7 +67,7 @@ class SearchEngine:
     def clean_query(self, query):
         """Clean and standardize query text"""
         # Handle numeric queries separately
-        clean_query = re.sub(r'[՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
+        clean_query = re.sub(r'[-՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
         if clean_query.strip().isdigit():
             return clean_query.strip()
         
@@ -223,11 +223,12 @@ def combine():
     # with open('matched_songs.json', mode='w', encoding='utf-8') as json_file:
         # json.dump(REDergaran, json_file, ensure_ascii=False, indent=4)
 
+# Todo; 446 and 778 old, keep on matching above 47% for whatever reason.
 
 if __name__ == "__main__":
-    # lyr = "429 Տիրոջը նոր երգ երգենք Երգենք և օրհնենք Սաղմոսներով ցնծումով շեփորի ձայնով: Թող որ գոռան ծովերը լիությամբ անբավ: Գետերը թող ծափ տան ձեռքով Քանզի Տերն եկավ: (2)\nԻնչ անուն աշխարհ եկավ, Մեծ խաղաղության իշխան, Կարեկից ողջ մարդկության, Հիսուս: (2)"
-    # search_engine = SearchEngine()
-    # print(search_engine.search(lyr))
-    Similer_Song_Matcher = SimilerSongMatcher()
-    Similer_Song_Matcher.start()
+    lyr = "-778-Երգեք Տիրոջը  նրա սուրբերԵրգեցեք նրա սուրբ անվանԵրգեցեք Տիրոջըը նրա սուրբերՓառք նրա սուրբ անվանՆրա բարկությունը մի պահ էՓառք նրա սուրբ անվանՆրա Բարությունը հավիտյանՓառք նրա սուրբ անվանԼացը մինջև երեկո էՓառք նրա սուրբ անվանՁայն առավոտը ցնծությանՓառք նրա սուրբ անվան"
+    search_engine = SearchEngine()
+    print(search_engine.search_and_display(lyr))
+    # Similer_Song_Matcher = SimilerSongMatcher()
+    # Similer_Song_Matcher.start()
     # combine()
