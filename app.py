@@ -275,7 +275,7 @@ def songSearch(searchLyrics) -> list:
         results = search_engine.search(searchLyrics)
         searchResults = []
  
-        print(results)
+        # print(results)
         if results[0][2] > 0:
             for result in results:
                 if result[0].lower() == 'old':
@@ -389,14 +389,13 @@ def save_json(json:dict, path:str):
 def today_songs():
     all_past_songs = open_past_songs() # Need to always get a fresh version of this
     latest_song = list(all_past_songs.items())[-1]
-    
     song_dict:dict = latest_song[1] # the info stored inside the dictionary. ie: "03.16.25.docx": { "dateMod": 1741926049.0, "path": ... , "basePth": "Երգեր\\03.2025", "songList": str(list(tuple())) }
     last_modified_date: float = song_dict["dateMod"]
     WordDoc = latest_song[0]
     cached_txt_files = glob("htmlsongs\\"+WordDoc+"*") # Cached txt files
     songPth:str = all_past_songs[WordDoc]['path']
     songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
-    onedrive = env.get("OneDrive")
+    onedrive: str | None = env.get("OneDrive")
     songPth = onedrive+songPth
     dateModOnFile: datetime = datetime.fromtimestamp(last_modified_date)
     currDateMod: datetime = datetime.fromtimestamp(stat(songPth).st_mtime)
@@ -456,7 +455,7 @@ def ServiceSongOpen(WordDoc) -> str:
             songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
             onedrive = env.get("OneDrive")
             songPth = onedrive+songPth
-            print(songPth)
+            # print(songPth)
             # songPth = fr"{onedrive}\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
             import threading as th
             wordDocThread = th.Thread(target=saveHtml,args=[songPth,WordDoc])#, args=[MS_WORD, songPth])
@@ -614,7 +613,7 @@ def home():
                 query = data['query']
                 attribute = data['attribute']
                 book = data['book']
-                print(query)
+                # print(query)
             
             if attribute == 'Full_Text':
                 song_order = []
@@ -653,6 +652,7 @@ def home():
                     filtered_data[query] = table_data[query]
                 else:
                     query = query.lower()
+                    query = re.sub(r'[-:։՝՝՜՛,.(0-9)]+','',query)
                     for song_num, attr in table_data.items():
                         if attribute == 'all':
                             # Search in all attributes
@@ -661,11 +661,15 @@ def home():
                         elif attribute in attr:
                             # Search only in the specified attribute
                             found_song_title = str(attr[attribute]).lower()
-                            found_song_title = re.sub(r'[-:։,.(0-9)\\n\s]+',' ',found_song_title)
-                            found_song_title = re.sub(r'՛', '', found_song_title)
+                            print(f"Found in dict: {found_song_title}")
+                            found_song_title = re.sub(r'[-:։՝՝՜՛,.(0-9)]+','',found_song_title)
+                            # found_song_title = re.sub(r'[\\n\s]', ' ', found_song_title)
+                            print(f"Found in dict(modified): {found_song_title}")
+                            print(f"Usr Input: {query}")
                             if found_song_title in query:
                                 filtered_data[song_num] = attr
-                table_data = [filtered_data]
+                            break
+                table_data: list[dict] = [filtered_data]
                 return json.dumps(table_data)
             
             elif not book:
@@ -976,17 +980,17 @@ def known_songs():# add some func to be able to go backwards
             isWeekday = request_data['isWeekday']
             known = request_data['choirKnows']
             
-            print(songnum)
-            print(book)
-            print(isHoliday)
-            print(isSunday)
-            print(isWeekday)
-            print(known)
+            # print(songnum)
+            # print(book)
+            # print(isHoliday)
+            # print(isSunday)
+            # print(isWeekday)
+            # print(known)
             update_known_songs(book, songnum, isHoliday=isHoliday, isSunday=isSunday, isWeekday=isWeekday, known=known)
         else:
-            print(songnum)
-            print(book)
-            print("Skipped")
+            # print(songnum)
+            # print(book)
+            # print("Skipped")
             update_known_songs(book, songnum, skipped=skipped)
         
     return render_template('known_songs.html', skipped_songs = get_skipped_songs())

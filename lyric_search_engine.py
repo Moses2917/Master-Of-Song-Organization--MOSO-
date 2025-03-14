@@ -47,9 +47,9 @@ class SearchEngine:
         # Convert to lowercase
         text = text.lower()
         # Remove specific Armenian punctuation
-        text = re.sub(r'[՝՜]+', ' ', text, re.MULTILINE)
+        text = re.sub(r'[՝՝՜՛,-:։,.(0-9)]+', '', text, re.MULTILINE)
         # Remove other punctuation, digits, and normalize whitespace
-        text = re.sub(r'[-:։,.(0-9)\\n\s]+', ' ', text, re.MULTILINE)
+        text = re.sub(r'[\\n\s]+', ' ', text, re.MULTILINE)
         return text.strip()
 
     def create_tfidf_matrix(self, lyrics):
@@ -85,7 +85,8 @@ class SearchEngine:
             if self.is_valid('new', clean_query):
                 results.append(('new', clean_query, 1.0))
             return results
-        
+        clean_query = self.preprocess_text(clean_query)
+        # print("Clean Q:",clean_query)
         # For text search, use TF-IDF to get all possible matches
         query_vec = self.vectorizer.transform([clean_query])
         cosine_similarities = cosine_similarity(query_vec, self.tfidf_matrix).flatten()
