@@ -3,6 +3,7 @@ from glob import glob
 from concurrent.futures import thread
 from os import environ as env
 from os import stat
+from os.path import join
 from random import random
 import re
 import secrets
@@ -233,9 +234,29 @@ def saveHtml(filePth, WordDoc):
     """
     from docx import Document
 
-    # songPth = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
-    # filePth = songPth  # find pth from index, and attach the location for onedrive
-    doc = Document(filePth)  # load doc file
+    def tmp_file_copy(doc_dir):
+        """Returns a opened docx Document\n
+        This copys the specified file into a temp dir,\n
+        Without needing to close the file if it is open\n
+        Then just reads it and sends back the object.\n
+
+        Args:
+            doc_dir (str): path to the docx file
+
+        Returns:
+            Document: A docx file opened
+        """
+        import shutil
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            filename = doc_dir.split('/')[-1] # gets the filename
+            tmp_file = join(filename, tempfile.tempdir)
+            temp_file_path: str = shutil.copy(doc_dir, tmp_file)
+            # Perform rest of ops in the 'with' statement
+            return Document(temp_file_path)
+
+
+    doc = tmp_file_copy(filePth) #Document(filePth)  # load doc file
     docParagraphs = doc.paragraphs  # returns a list of doc paragrpahs from which text will be extracted
     text = ''
 
