@@ -3,7 +3,9 @@ from glob import glob
 from concurrent.futures import thread
 from os import environ as env
 from os import stat
+from random import random
 import re
+import secrets
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
@@ -22,7 +24,9 @@ if ENV_FILE:
 
 app = Flask(__name__)
 
-app.secret_key = env.get("APP_SECRET_KEY")
+secret_key = env.get("APP_SECRET_KEY")
+
+app.secret_key = secret_key if secret_key else secrets.token_urlsafe(16)
 
 oauth = OAuth(app)
 
@@ -171,7 +175,6 @@ def getSong(book:str, songnum:str, batch = 0) -> dict:
     else:
         pass
 
-
 def openWord(songNum, book):
     """
     Opens a word document based on the provided song number and book, 
@@ -256,7 +259,6 @@ def saveHtml(filePth, WordDoc):
     with open(rf"{onedrive}\Documents\Code\Python\htmlsongs\{WordDoc}.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
 
-
 @app.route('/search/<searchLyrics>', methods=['GET'])
 def songSearch(searchLyrics) -> list:
     """
@@ -273,7 +275,7 @@ def songSearch(searchLyrics) -> list:
         results = search_engine.search(searchLyrics)
         searchResults = []
  
-        # print(results)
+        print(results)
         if results[0][2] > 0:
             for result in results:
                 if result[0].lower() == 'old':
@@ -423,9 +425,8 @@ def today_songs():
             html_text = f.read()
         return render_template("display_docx.html", lyrics=html_text)
 
-
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
-def ServiceSongOpen(WordDoc) -> str: #Todo: come up with a better name
+def ServiceSongOpen(WordDoc) -> str:
     """
     Renders the song.html template with lyrics from a .docx file.
 
@@ -602,13 +603,12 @@ def home():
     #     if isUserAllowed(session['user']['userinfo']['email']):
     #         session['user']['userinfo']['admin'] = True
     if session.get('user') and isinstance(session['user'], dict) and 'userinfo' in session['user']:
-        session['user']['userinfo']['admin'] = True
+        # session['user']['userinfo']['admin'] = True
         # else:
         #     session['user']['userinfo']['admin'] = False
         table_data = None # doing this so that it does not get referenced before assginment
         book = request.args.get('book', None)
         if request.method == 'POST':
-            from scanningDir import songChecker
             data = request.get_json(silent=True)
             if data:
                 query = data['query']
@@ -647,7 +647,9 @@ def home():
             if query and book and attribute: # if attr is full_text
                 table_data = load_table_data(book=book)
                 filtered_data = {}
-                if attribute == 'SongNum':
+                query:str
+                # Old code for when I had multiple search options, now just does title, as its the most often used
+                if attribute == 'SongNum': 
                     filtered_data[query] = table_data[query]
                 else:
                     query = query.lower()
@@ -658,7 +660,10 @@ def home():
                                 filtered_data[song_num] = attr
                         elif attribute in attr:
                             # Search only in the specified attribute
-                            if query in str(attr[attribute]).lower():
+                            found_song_title = str(attr[attribute]).lower()
+                            found_song_title = re.sub(r'[-:։,.(0-9)\\n\s]+',' ',found_song_title)
+                            found_song_title = re.sub(r'՛', '', found_song_title)
+                            if found_song_title in query:
                                 filtered_data[song_num] = attr
                 table_data = [filtered_data]
                 return json.dumps(table_data)
@@ -666,6 +671,15 @@ def home():
             elif not book:
                 flash('No book selected','warning') #practically not needed anymore
         return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
+    else:
+        # session["user"] = random() * 10 ** 17
+        session["user"] = {
+            "userinfo":{
+                "name": "Guest",
+                "email": "guest@example.com",
+                "admin": False,
+            },
+        }
     # elif request.remote_addr == get_my_ip():
     #     session['user'] = 'local'
     #     return redirect('/')

@@ -74,32 +74,21 @@
             </div>
         </div>
     </div>
+
     <div class="container-md fw-old shadow-lg p-3 mb-5 bg-dark bg-gradient rounded sticky-container" tabindex="0">
         <header class="header mb-4">
             <h1 class="text-center">Ցանկ</h1>
             <div id="searchbar">
-                <div id="book_select_div" style="display: none;">
-                    <label for="book">Please Choose the Book:</label>
-                    <div class="input-group">
-                        <select name="book" class="form-select" id="book" onchange="tsank_search()">
-                            <option value="">--Please choose an option--</option>
-                            <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }}>
-                                REDErgaran</option>
-                            <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex'
-                                }}>Old Book</option>
-                        </select>
-                    </div>
-                </div>
+                
                 <div id="tsank_search_div">
                     <label for="query" class="form-label">Search Query:</label>
                     <div class="input-group">
-                        <input type="text" id="query" name="query" value="{{ query }}" class="form-control"
-                            >
+                        <input type="text" id="query" name="query" value="{{ query }}" class="form-control">
                 </div>
-
-                </div>
+            </div>
+                
                 <label for="attribute" class="form-label">Search Mode:</label>
-                <div class="input-group">
+                <div class="input-group" id="search_mode">
                     <select id="attribute" name="attribute" class="form-select" onchange="book_select()">
                         <option value="Full_Text">Lyrics</option>
                         <option value="all">Tsank Search</option>
@@ -115,6 +104,21 @@
                     </select>
                     <!-- <i class="bi bi-chevron-down float-end"></i> -->
                      
+                </div>
+                
+                <div id="book_select_div" style="display: none;">
+                    <label for="book" class="form-label">Please Choose the Book:</label>
+                    <div class="input-group">
+                        <select name="book" class="form-select" id="book" onchange="tsank_search()">
+                            <option value="">--Please choose an option--</option>
+                            <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }}>
+                                REDErgaran</option>
+                            <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex'
+                                }}>Old Book</option>
+                        </select>
+                    </div>
+                </div>
+
                 </div>
                 <br>
                 <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit"
@@ -208,7 +212,7 @@
         </div>
 
     </div>
-    <div id="attributetable" style="display: none;" onchange="tsank_attribute_search()">
+    <div id="attributetable" style="display: none;" class="container-md" onchange="tsank_attribute_search()">
     
         <div class="input-group mb-3">
             <input type="text" name="key" id="key" class="form-control">
@@ -230,7 +234,13 @@
         </div>
     
         <div class="input-group mb-3">
-            <input type="text" name="song_type" id="song_type" class="form-control">
+            <!-- <input type="" name="song_type" id="song_type" class="form-control"> -->
+            <select name="song_type" id="song_type" class="form-control">
+                <option value="">All</option>
+                <option value="Single Song">Single Song</option>
+                <option value="Opening Song">Opening Song</option>
+                <option value="Worship Song">Worship Song</option>
+            </select>
             <input type="checkbox" name="song_type_checkbox" id="song_type_checkbox" class="btn-check" onchange="tsank_attribute_search()">
             <label for="song_type_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Song Type</label>
         </div>
@@ -242,7 +252,7 @@
         </div>
     
     </div>
-    <div id="songstable" class="table-responsive fw-bold" data-bs-spy="scroll" data-bs-target="#scrollspy"
+    <div id="songstable" class="table-responsive fw-bold container-md" data-bs-spy="scroll" data-bs-target="#scrollspy"
         data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0">
         <!-- style="overflow: auto; position: relative;"> -->
     </div>
@@ -333,19 +343,24 @@
             if (attribute.value == 'Full_Text') {
                 tsank_search_div.style.display = 'block'
                 book_select_div.style.display = 'none'
+                keyboard_container.style.display = 'block'
                 attributetable.style.display = 'none'
+                submit.style.display = 'block'
 
             }
             else if (attribute.value != 'Full_Text') {
                 tsank_search_div.style.display = 'block'
+                keyboard_container.style.display = 'block'
                 book_select_div.style.display = 'block'
                 attributetable.style.display = 'none'
+                submit.style.display = 'block'
             }
             if (attribute.value == 'attr_search') {
                 book_select_div.style.display = 'none'
                 keyboard_container.style.display = 'none'
                 tsank_search_div.style.display = 'none'
                 attributetable.style.display = 'block'
+                submit.style.display = 'none'
 
             }
 
@@ -563,7 +578,11 @@
                 // console.log("style:", document.getElementById("style").value)
             }
             if (checked_attrs["song_type"]) {
-                songattrs["song_type"] = document.getElementById("song_type").value
+                let song_type = document.getElementById("song_type").value
+                if (song_type != "") {
+                    songattrs["song_type"] = song_type
+                }
+                
                 // console.log("song_type:", document.getElementById("song_type").value)
             }
             if (checked_attrs["timeSig"]) {
