@@ -64,7 +64,7 @@ def callback():
 
     Returns:
     redirect: A redirect response to the temporary home page.
-    """
+    """ 
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
     session['user']['userinfo']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
