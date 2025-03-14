@@ -371,8 +371,13 @@ def display_song(book, songnum) -> str:
         
     return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum)
 
+@app.route('/today', methods=['GET','POST'])
+def today_songs():
+    return render_template("display_docx.html")
+
+
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
-def ServiceSongOpen(WordDoc) -> str: #Todo: come up with a better name
+def ServiceSongOpen(WordDoc="03.11.25.docx") -> str: #Todo: come up with a better name
     """
     Renders the song.html template with lyrics from a .docx file.
 
@@ -398,6 +403,7 @@ def ServiceSongOpen(WordDoc) -> str: #Todo: come up with a better name
         else:
             with open("songs.json" , 'r', encoding='utf-8') as f:
                 songs = json.load(f)
+            
             songPth = songs[WordDoc]['path']
             songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
             onedrive = env.get("OneDrive")
@@ -413,7 +419,7 @@ def ServiceSongOpen(WordDoc) -> str: #Todo: come up with a better name
             # saveHtml()
             with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
                 html_text = f.read()
-            return render_template("song.html", lyrics=html_text)
+            return render_template("display_docx.html", lyrics=html_text)
     else:
         flash("That song does not exist",'error')
 
