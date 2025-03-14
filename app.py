@@ -437,7 +437,7 @@ def today_songs():
         # print("We're live!")
         from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor() as futures:
-            future = futures.submit(saveHtml,songPth,WordDoc)
+            future = futures.submit(saveHtml, songPth, WordDoc)
             save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
             result = future.result()
             result2 = save.result()
