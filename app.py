@@ -416,8 +416,9 @@ def today_songs():
         from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor() as futures:
             future = futures.submit(saveHtml,songPth,WordDoc)
-            # save = futures.submit()
+            save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
             result = future.result()
+            result2 = save.result()
         with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
             html_text = f.read()
         return render_template("display_docx.html", lyrics=html_text)
