@@ -238,7 +238,7 @@ def saveHtml(filePth, WordDoc):
 
     for para in docParagraphs:
         text += para.text + '\n'
-    # text = re.sub()
+    text = re.sub(r"\[[(start)(end)]*:song:?(old)?\]", "", text)
     # Split the text into chunks based on line breaks
     chunks = text.split('\n\n')
 
@@ -1132,8 +1132,7 @@ def song_analysis():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    # serve(app, host='0.0.0.0', port=env.get("PORT", 5000), threads=8)
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
