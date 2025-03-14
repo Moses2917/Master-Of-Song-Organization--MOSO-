@@ -1,6 +1,8 @@
+from datetime import datetime
 from glob import glob
 from concurrent.futures import thread
 from os import environ as env
+from os import stat
 import re
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
@@ -37,8 +39,12 @@ oauth.register(
 search_engine = SearchEngine()
 song_lyrics = search_engine.load_json_data('AllLyrics.json')
 
-with open("songs_cleaned.json" , 'r', encoding='utf-8') as f:
-    all_past_songs:dict = json.load(f)
+def open_past_songs():
+    with open("songs_cleaned.json" , 'r', encoding='utf-8') as f:
+        all_past_songs:dict = json.load(f)
+    return all_past_songs
+
+all_past_songs = open_past_songs()
 # Should only load this once instead of every time
 with open('REDergaran.json', mode='r', encoding='utf-8') as json_file:
     REDergaran:dict = json.load(json_file)
@@ -372,30 +378,46 @@ def display_song(book, songnum) -> str:
         
     return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum)
 
+def save_json(json:dict, path:str):
+    from json import dump
+    with open(path, 'w', encoding='utf-8') as f:
+        dump(json, f, ensure_ascii=False, indent=4)
+
 @app.route('/today', methods=['GET'])
 def today_songs():
+    all_past_songs = open_past_songs() # Need to always get a fresh version of this
     latest_song = list(all_past_songs.items())[-1]
-    # print(latest_song)
-    song_dict:dict = latest_song[1]
-    # song_path = song_dict['path'] # can't use, noted why below
+    
+    song_dict:dict = latest_song[1] # the info stored inside the dictionary. ie: "03.16.25.docx": { "dateMod": 1741926049.0, "path": ... , "basePth": "Երգեր\\03.2025", "songList": str(list(tuple())) }
+    last_modified_date: float = song_dict["dateMod"]
     WordDoc = latest_song[0]
-    foundFiles = glob("htmlsongs\\"+WordDoc+"*")
-    if foundFiles:
-        # print(foundFiles)
-        with open(foundFiles[0], 'r', encoding='utf-8') as f:
-            lyrics = f.read()
-        return render_template("display_docx.html", lyrics = lyrics)
+    cached_txt_files = glob("htmlsongs\\"+WordDoc+"*") # Cached txt files
+    songPth:str = all_past_songs[WordDoc]['path']
+    songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
+    onedrive = env.get("OneDrive")
+    songPth = onedrive+songPth
+    dateModOnFile: datetime = datetime.fromtimestamp(last_modified_date)
+    currDateMod: datetime = datetime.fromtimestamp(stat(songPth).st_mtime)
+    if currDateMod <= dateModOnFile:
+        # Bigger number means further in time
+        # Run this if the date on file, is the latest date
+        if cached_txt_files:
+            with open(cached_txt_files[0], 'r', encoding='utf-8') as f:
+                lyrics = f.read()
+            return render_template("display_docx.html", lyrics = lyrics)
     else:
-        songPth:str = all_past_songs[WordDoc]['path']
-        songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
-        onedrive = env.get("OneDrive")
-        songPth = onedrive+songPth
-        # print(songPth)
-        from time import sleep
-        sleep(0.75)
-        import threading as th
-        wordDocThread = th.Thread(target=saveHtml,args=[songPth,WordDoc])#, args=[MS_WORD, songPth])
-        wordDocThread.start()
+        # print("OnF1le",all_past_songs[WordDoc]["dateMod"])
+        all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
+        
+        # print("OnFile", datetime.fromtimestamp(last_modified_date))
+        # currDateMod: datetime = datetime.fromtimestamp(stat(songPth).st_mtime)
+        # print("Curr:", currDateMod)
+        # print("We're live!")
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor() as futures:
+            future = futures.submit(saveHtml,songPth,WordDoc)
+            # save = futures.submit()
+            result = future.result()
         with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
             html_text = f.read()
         return render_template("display_docx.html", lyrics=html_text)

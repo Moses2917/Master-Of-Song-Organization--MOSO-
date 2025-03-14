@@ -12,6 +12,4 @@ testsongs.json
 *.pyc
 /__pycache__
 *.pyc
-/htmlsongs
 song_sorter.py
-/rust

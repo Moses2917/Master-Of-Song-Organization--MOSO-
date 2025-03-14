@@ -480,7 +480,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                         'dateMod': stat(songs.path).st_mtime,
                         'path': songs.path,
                         'basePth': basePth,
-                        'songList': getNums(songs.path)
+                        'songList': getNums(songs.path) # TODO: Make this a list again, and ensure there are no conflicts with anything using all Songs
                     }
                     
     with open("songs_cleaned.json", mode='w', encoding='utf-8') as saveFile:
@@ -500,7 +500,6 @@ def clean_up_index():
     Returns:
     None
     """
-    #TODO: Make this in rust 🦀
     OneDrive_pth = os.environ.get("OneDrive")
     with open("songs_cleaned.json", 'r', encoding='utf-8') as allSongs:
         allSongs: dict = json.load(allSongs)

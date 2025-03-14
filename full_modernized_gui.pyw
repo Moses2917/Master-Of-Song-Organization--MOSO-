@@ -54,7 +54,7 @@ class ModernSongManager:
         ttk.Radiobutton(top_frame, text="Tues/Thurs", variable=self.day_var, value="Tuesday", style="TRadiobutton").pack(side=LEFT, padx=(0, 10))
         ttk.Radiobutton(top_frame, text="None", variable=self.day_var, value=None, style="TRadiobutton").pack(side=LEFT, padx=(0, 10))
         ttk.Radiobutton(top_frame, text="Sun/Porc", variable=self.day_var, value="Sunday", style="TRadiobutton").pack(side=LEFT)
-        
+        ttk.Button(top_frame, text="Create File", command=self.create_File, style="primary.TButton").pack(side=LEFT, padx=(10, 0))
         # Buttons frame
         buttons_frame = ttk.Frame(main_frame)
         buttons_frame.pack(fill=X, pady=(0, 20))
@@ -68,7 +68,7 @@ class ModernSongManager:
         ttk.Button(buttons_frame, text="Clear Songs", command=self.clr_listbox, style="secondary.TButton").pack(side=LEFT, padx=(0, 10))
         
         # Additional action buttons
-        ttk.Button(buttons_frame, text="Create File", command=self.create_File, style="primary.TButton").pack(side=LEFT, padx=(0, 10))
+        
         ttk.Button(buttons_frame, text="Compatibility", command=self.Compatibility, style="primary.TButton").pack(side=LEFT, padx=(0, 10))
         ttk.Button(buttons_frame, text="Possible Songs", command=self.viewPosSongs, style="primary.TButton").pack(side=LEFT, padx=(0, 10))
         

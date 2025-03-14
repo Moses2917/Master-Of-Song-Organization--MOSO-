@@ -189,16 +189,24 @@ def getDocTextAndIndentation(filename:str):
             song = []
 
 
-def saveDocFromDoc(song_Doc: docx, oldBook:str, songNum:str):
-    # method logic:
-    # 1. check if song exists in relevant book/index
-    # 2. if so, append to index, "version", and "latestVersion"
-    # 2.1 Based on this info the program needs to generate a suitable filepath to be logged and saved.
-    # 2.5 if not, append to index, "SongNum", "Title", "version", and "latestVersion"
-    # 3. once the lv(LatestVersion) is acquired, then add one and get new var cv(Current Version)
-    # 4. Given the cv now create file path and amend to json index
-    # 4.5 Save at the newly created file path
-    # 4.7 If tues/thurs no need to save
+def saveDocFromDoc(song_Doc: docx, oldBook:bool, songNum:str):
+    """Saves an individual song, sent from getDocTextAndIndentation
+
+    method logic:
+        1. check if song exists in relevant book/index
+        2. if so, append to index, "version", and "latestVersion"
+        2.1 Based on this info the program needs to generate a suitable filepath to be logged and saved.
+        2.5 if not, append to index, "SongNum", "Title", "version", and "latestVersion"
+        3. once the lv(LatestVersion) is acquired, then add one and get new var cv(Current Version)
+        4. Given the cv now create file path and amend to json index
+        4.5 Save at the newly created file path
+        4.7 If tues/thurs no need to save
+    Args:
+        song_Doc (docx): A docx object. That contains an individual song.
+        oldBook (bool): Boolean value for if its from the old book
+        songNum (str): A song number stored in a string, how funny ;)
+    """
+
 
     #Possibly add a check where it checks to see if any songs have the same title and updates with the latest ie: song '3' and '3 ' should be combined so as to not cause later confusion
 
