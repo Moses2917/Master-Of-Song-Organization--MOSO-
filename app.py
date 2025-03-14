@@ -232,7 +232,7 @@ def saveHtml(filePth, WordDoc):
 
     for para in docParagraphs:
         text += para.text + '\n'
-
+    # text = re.sub()
     # Split the text into chunks based on line breaks
     chunks = text.split('\n\n')
 
@@ -372,9 +372,10 @@ def display_song(book, songnum) -> str:
         
     return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum)
 
-@app.route('/today', methods=['GET','POST'])
+@app.route('/today', methods=['GET'])
 def today_songs():
     latest_song = list(all_past_songs.items())[-1]
+    # print(latest_song)
     song_dict:dict = latest_song[1]
     # song_path = song_dict['path'] # can't use, noted why below
     WordDoc = latest_song[0]
@@ -383,13 +384,15 @@ def today_songs():
         # print(foundFiles)
         with open(foundFiles[0], 'r', encoding='utf-8') as f:
             lyrics = f.read()
-        return render_template("song.html", lyrics = lyrics)
+        return render_template("display_docx.html", lyrics = lyrics)
     else:
         songPth:str = all_past_songs[WordDoc]['path']
         songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
         onedrive = env.get("OneDrive")
         songPth = onedrive+songPth
-        print(songPth)
+        # print(songPth)
+        from time import sleep
+        sleep(0.75)
         import threading as th
         wordDocThread = th.Thread(target=saveHtml,args=[songPth,WordDoc])#, args=[MS_WORD, songPth])
         wordDocThread.start()
