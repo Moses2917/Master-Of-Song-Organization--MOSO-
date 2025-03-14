@@ -48,7 +48,7 @@ with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
 @app.route("/robots.txt", methods=["GET"])
 def robots():
     with open('./templates/robots.txt', 'r') as f:
-        return f.read()
+        return f.read() 
 
 #This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
 @app.route("/callback", methods=["GET", "POST"])
