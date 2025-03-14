@@ -1,3 +1,4 @@
+from glob import glob
 from concurrent.futures import thread
 from os import environ as env
 import re
@@ -35,6 +36,14 @@ oauth.register(
 
 search_engine = SearchEngine()
 song_lyrics = search_engine.load_json_data('AllLyrics.json')
+
+with open("songs_cleaned.json" , 'r', encoding='utf-8') as f:
+    all_past_songs:dict = json.load(f)
+# Should only load this once instead of every time
+with open('REDergaran.json', mode='r', encoding='utf-8') as json_file:
+    REDergaran:dict = json.load(json_file)
+with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
+    wordSongsIndex:dict = json.load(json_file)
 
 @app.route("/robots.txt", methods=["GET"])
 def robots():
@@ -113,14 +122,6 @@ def isUserAllowed(email):
         return email in f.read()
 
 # Table data loading logic
-
-# Should only load this once instead of every time
-with open('REDergaran.json', mode='r', encoding='utf-8') as json_file:
-    REDergaran:dict = json.load(json_file)
-with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
-    wordSongsIndex:dict = json.load(json_file)
-    
-
 def load_table_data(book:str):
     """Returns a whole json dict of either old or new, based upon input\n
     Reads the respective index file for the book given, and will return a dict
@@ -373,11 +374,32 @@ def display_song(book, songnum) -> str:
 
 @app.route('/today', methods=['GET','POST'])
 def today_songs():
-    return render_template("display_docx.html")
+    latest_song = list(all_past_songs.items())[-1]
+    song_dict:dict = latest_song[1]
+    # song_path = song_dict['path'] # can't use, noted why below
+    WordDoc = latest_song[0]
+    foundFiles = glob("htmlsongs\\"+WordDoc+"*")
+    if foundFiles:
+        # print(foundFiles)
+        with open(foundFiles[0], 'r', encoding='utf-8') as f:
+            lyrics = f.read()
+        return render_template("song.html", lyrics = lyrics)
+    else:
+        songPth:str = all_past_songs[WordDoc]['path']
+        songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
+        onedrive = env.get("OneDrive")
+        songPth = onedrive+songPth
+        print(songPth)
+        import threading as th
+        wordDocThread = th.Thread(target=saveHtml,args=[songPth,WordDoc])#, args=[MS_WORD, songPth])
+        wordDocThread.start()
+        with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
+            html_text = f.read()
+        return render_template("display_docx.html", lyrics=html_text)
 
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
-def ServiceSongOpen(WordDoc="03.11.25.docx") -> str: #Todo: come up with a better name
+def ServiceSongOpen(WordDoc) -> str: #Todo: come up with a better name
     """
     Renders the song.html template with lyrics from a .docx file.
 
@@ -393,7 +415,6 @@ def ServiceSongOpen(WordDoc="03.11.25.docx") -> str: #Todo: come up with a bette
     - If the file does not exist and cannot be opened, it flashes an error message.
     """
     if '.docx' in WordDoc:
-        from glob import glob
         foundFiles = glob("htmlsongs\\"+WordDoc+"*")
         if foundFiles:
             # print(foundFiles)
@@ -401,17 +422,16 @@ def ServiceSongOpen(WordDoc="03.11.25.docx") -> str: #Todo: come up with a bette
                 lyrics = f.read()
             return render_template("song.html", lyrics = lyrics)
         else:
-            with open("songs.json" , 'r', encoding='utf-8') as f:
-                songs = json.load(f)
+            # with open("songs.json" , 'r', encoding='utf-8') as f:
+            #     songs = json.load(f)
             
-            songPth = songs[WordDoc]['path']
+            songPth = all_past_songs[WordDoc]['path']
             songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
             onedrive = env.get("OneDrive")
             songPth = onedrive+songPth
             print(songPth)
             # songPth = fr"{onedrive}\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
             import threading as th
-            # MS_WORD = r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
             wordDocThread = th.Thread(target=saveHtml,args=[songPth,WordDoc])#, args=[MS_WORD, songPth])
             wordDocThread.start()
             from time import sleep

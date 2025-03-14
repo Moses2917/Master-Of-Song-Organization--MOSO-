@@ -56,7 +56,7 @@ class SearchEngine:
         # Use advanced TF-IDF vectorization with character n-grams for Armenian
         vectorizer = TfidfVectorizer(
             lowercase=True,
-            ngram_range=(1, 3),  # Use word n-grams
+            ngram_range=(1, 3),  # Use word n-grams, 3,6 very useful for 1:1 matching of songs
             analyzer='word',
             min_df=2,            # Ignore very rare terms
             max_df=0.9           # Ignore very common terms
