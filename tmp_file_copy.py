@@ -1,7 +1,8 @@
 import os
 from os.path import join
 
-doc_dir:str = "/Users/movsesmovsesyan/Documents/test_doc.docx"
+# doc_dir:str = "/Users/movsesmovsesyan/Documents/test_doc.docx"
+doc_dir:str = r"C:\Users\moses\OneDrive\Երգեր\03.2025\03.16.25.docx"
 
 def tmp_file_copy(doc_dir):
     import shutil
@@ -18,14 +19,14 @@ import concurrent
 from docx import Document
 
 def tmp_file_copy(doc_dir):
-    import shutil
     import tempfile
+    import subprocess
     with tempfile.TemporaryDirectory() as tmp_dir:
-        filename = doc_dir.split('/')[-1] # gets the filename
-        tmp_file = join(filename, tempfile.tempdir)
-        temp_file_path: str = shutil.copy(doc_dir, tmp_file)
+        filename = os.path.basename(doc_dir) # gets the filename
+        tmp_file = join(tmp_dir, filename)
+        temp_file_path: str = subprocess.run(['copy', f"{doc_dir}", f"{tmp_dir}"], shell=True,)
         # Perform rest of ops in the 'with' statement
-        return Document(temp_file_path)
+        return Document(tmp_file)
 
 def async_call():
     import docx

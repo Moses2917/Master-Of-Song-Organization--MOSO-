@@ -246,12 +246,12 @@ def saveHtml(filePth, WordDoc):
         Returns:
             Document: A docx file opened
         """
-        import shutil
         import tempfile
+        import subprocess
         with tempfile.TemporaryDirectory() as tmp_dir:
             filename = doc_dir.split('/')[-1] # gets the filename
             tmp_file = join(filename, tempfile.tempdir)
-            temp_file_path: str = shutil.copy(doc_dir, tmp_file)
+            temp_file_path: str = subprocess.run(['copy', doc_dir, tmp_file])
             # Perform rest of ops in the 'with' statement
             return Document(temp_file_path)
 
@@ -428,13 +428,7 @@ def today_songs():
                 lyrics = f.read()
             return render_template("display_docx.html", lyrics = lyrics)
     else:
-        # print("OnF1le",all_past_songs[WordDoc]["dateMod"])
         all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
-        
-        # print("OnFile", datetime.fromtimestamp(last_modified_date))
-        # currDateMod: datetime = datetime.fromtimestamp(stat(songPth).st_mtime)
-        # print("Curr:", currDateMod)
-        # print("We're live!")
         from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor() as futures:
             future = futures.submit(saveHtml, songPth, WordDoc)
@@ -1171,7 +1165,7 @@ def song_analysis():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001)) # Uncomment for development
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
