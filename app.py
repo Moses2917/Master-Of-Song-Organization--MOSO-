@@ -3,6 +3,7 @@ from glob import glob
 from concurrent.futures import thread
 from os import environ as env
 from os import stat
+import os
 from os.path import join
 from random import random
 import re
@@ -233,62 +234,19 @@ def saveHtml(filePth, WordDoc):
         None
     """
     from docx import Document
+    def tmp_file_copy(doc_dir):
+        import tempfile
+        import shutil
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            filename = os.path.basename(doc_dir) # gets the filename
+            tmp_file = join(tmp_dir, filename)
+            # if os.name == 'nt':
+            #     temp_file_path = shutil.copyfile(doc_dir, tmp_dir)
+            temp_file_path = shutil.copy(doc_dir, tmp_dir)
+            # Perform rest of ops in the 'with' statement
+            return Document(tmp_file)
 
-    # def tmp_file_copy(doc_dir):
-    #     """Returns a opened docx Document\n
-    #     This copys the specified file into a temp dir,\n
-    #     Without needing to close the file if it is open\n
-    #     Then just reads it and sends back the object.\n
-
-    #     Args:
-    #         doc_dir (str): path to the docx file
-
-    #     Returns:
-    #         Document: A docx file opened
-    #     """
-    #     import tempfile
-    #     import subprocess
-    #     with tempfile.TemporaryDirectory() as tmp_dir:
-    #         filename = doc_dir.split('/')[-1] # gets the filename
-    #         tmp_file = join(filename, tempfile.tempdir)
-    #         temp_file_path: str = subprocess.run(['copy', doc_dir, tmp_file])
-    #         # Perform rest of ops in the 'with' statement
-    #         return Document(temp_file_path)
-    def copy_file_in_use(source_path, destination_path=None):
-        import os, tempfile
-        """
-        Copy a file that might be in use by another process using a simple workaround.
-        
-        Args:
-            source_path (str): Path to the source file
-            destination_path (str, optional): Path where the file should be copied.
-                                            If None, a temporary file will be created.
-        
-        Returns:
-            str: Path to the copied file
-        """
-        # If no destination is provided, create one in the temp directory
-        if destination_path is None:
-            temp_dir = tempfile.gettempdir()
-            file_name = os.path.basename(source_path)
-            destination_path = os.path.join(temp_dir, f"copy_{file_name}")
-        
-        # Simple workaround: read in binary mode and write to new location
-        try:
-            with open(source_path, 'rb') as source_file:
-                content = source_file.read()
-                
-            with open(destination_path, 'wb') as dest_file:
-                dest_file.write(content)
-                
-            print(f"Successfully copied {source_path} to {destination_path}")
-            return destination_path
-            
-        except Exception as e:
-            print(f"Error while copying: {e}")
-            return None
-
-    doc = copy_file_in_use(filePth) #Document(filePth)  # load doc file
+    doc = tmp_file_copy(filePth) #Document(filePth)  # load doc file
     docParagraphs = doc.paragraphs  # returns a list of doc paragrpahs from which text will be extracted
     text = ''
 
@@ -440,6 +398,7 @@ def save_json(json:dict, path:str):
 
 @app.route('/today', methods=['GET'])
 def today_songs():
+    from concurrent.futures import ThreadPoolExecutor
     all_past_songs = open_past_songs() # Need to always get a fresh version of this
     latest_song = list(all_past_songs.items())[-1]
     song_dict:dict = latest_song[1] # the info stored inside the dictionary. ie: "03.16.25.docx": { "dateMod": 1741926049.0, "path": ... , "basePth": "Երգեր\\03.2025", "songList": str(list(tuple())) }
@@ -459,9 +418,14 @@ def today_songs():
             with open(cached_txt_files[0], 'r', encoding='utf-8') as f:
                 lyrics = f.read()
             return render_template("display_docx.html", lyrics = lyrics)
+        else:
+            with ThreadPoolExecutor() as futures:
+                future = futures.submit(saveHtml, songPth, WordDoc)
+            with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
+                html_text = f.read()
+            return render_template("display_docx.html", lyrics=html_text)
     else:
         all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
-        from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor() as futures:
             future = futures.submit(saveHtml, songPth, WordDoc)
             save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")

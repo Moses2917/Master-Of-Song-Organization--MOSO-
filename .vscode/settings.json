@@ -2,6 +2,6 @@
     "python.analysis.typeCheckingMode": "off",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.autoFormatStrings": true,
-    "python.analysis.completeFunctionParens": true,
+    "python.analysis.completeFunctionParens": false,
     "pythonIndent.trimLinesWithOnlyWhitespace": true
 }
