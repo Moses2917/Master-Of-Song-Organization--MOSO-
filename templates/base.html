@@ -237,9 +237,24 @@
           {% endif %}
         </ul>
           <div class="d-flex">
-            <button type="button" onclick="login-card.style.display == block">Login</button>
-            <div class="container-sm rounded shadow-lg p-3 bg-body-tertiary" id="login-card" style="display: block;">
-              {% include 'guest.html' %}
+            <div class="container-sm rounded shadow-lg p-3 bg-body-tertiary" id="login-card" style="display: hidden;">
+              <div class="sign-in-wrapper">
+                <a href="{{ url_for('login') }}" class="tech-button">
+                    <span class="button-content">
+                        <span class="button-text">Sign In</span>
+                        <span class="button-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                                <polyline points="10 17 15 12 10 7" />
+                                <line x1="15" y1="12" x2="3" y2="12" />
+                            </svg>
+                        </span>
+                    </span>
+                    <span class="button-glow"></span>
+                </a>
+            </div>
             </div>
           </div>
             <!-- <div class="d-flex">
