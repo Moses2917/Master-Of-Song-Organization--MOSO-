@@ -419,11 +419,16 @@ def today_songs():
                 lyrics = f.read()
             return render_template("display_docx.html", lyrics = lyrics)
         else:
-            with ThreadPoolExecutor() as futures:
-                future = futures.submit(saveHtml, songPth, WordDoc)
-            with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
-                html_text = f.read()
-            return render_template("display_docx.html", lyrics=html_text)
+            try:
+                with ThreadPoolExecutor() as futures:
+                    future = futures.submit(saveHtml, songPth, WordDoc)
+                with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
+                    html_text = f.read()
+                return render_template("display_docx.html", lyrics=html_text)
+            except:
+                with open(cached_txt_files[0], 'r', encoding='utf-8') as f:
+                    lyrics = f.read()
+                return render_template("display_docx.html", lyrics = lyrics)
     else:
         all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
         with ThreadPoolExecutor() as futures:
