@@ -440,6 +440,19 @@ def today_songs():
             html_text = f.read()
         return render_template("display_docx.html", lyrics=html_text)
 
+@app.route('/events')
+def zatik(filename = None):
+    if request.method == 'GET':
+        fp = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ\Զատիկ(2025)/"
+        filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)),glob(fp+'*')))
+        return render_template("event.html", files=filenames)
+    else:
+        data = request.get_json(silent=True)
+        # if data: # Check to see if its empty
+        
+            
+            
+
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc) -> str:
     """

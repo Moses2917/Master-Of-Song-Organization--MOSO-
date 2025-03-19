@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
+    <div class="">
+        <div class="container-md fw-old shadow-lg p-3 mb-5 bg-dark bg-gradient rounded">
+            <h2 class="p-3">Please Choose a song or file:</h2>
+            <div class="text-center mb-4 col-3 mx-auto d-grid gap-2" id="files">
+                <form action="{url_for('zatik')}" method="post"></form>
+                {% for file in files %}
+                <input type="button" class="btn btn-primary" value="{{file}}">
+                <br>
+                {%endfor%}
+                <!-- {{files|safe}} -->
+            </div>
+            
+        </div>
+    </div>
+    
+    
+</div>
+{%endblock%}
