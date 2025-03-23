@@ -33,12 +33,6 @@
   
   <title>MOSO</title>
   <link rel="shortcut icon" href="{{url_for('static', filename='pictures/moso.png')}}" type="image/png">
-  <!-- <style>
-    /* Custom styles to offset the container */
-    .sticky-container {
-      top: 56px;
-    }
-  </style> -->
   <style>
     #btn-back-to-top {
         position: fixed;
@@ -50,6 +44,14 @@
       position: fixed;
       top: 20px;
       left: 20px;
+    }
+    @font-face {
+      font-family: NotoSansArmenian;
+      src: url("{{url_for('static', filename='fonts/NotoSansArmenian-VariableFont_wght.ttf')}}");
+      
+    }
+    body, p, nav, div {
+      font-family: 'NotoSansArmenian', sans-serif;
     }
   </style>
   <style>
@@ -180,6 +182,9 @@
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   
@@ -192,7 +197,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Գլխավոր էջ</a>
           </li>
           {% if session.get('user') and 'userinfo' in session['user'] %}
             {% if session['user']['userinfo']['admin'] %}
@@ -210,13 +215,16 @@
             <a class="nav-link active" href="{{url_for('tsank')}}">Ցանկ Ըստ Թեմա</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url_for('tsank_A_Z')}}">Այբուբենական Ցանկ</a>
+            <a class="nav-link active" href="{{url_for('tsank_A_Z')}}">Այբենական Ցանկ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url_for('check_past_songs')}}">Past Song Finder</a>
+            <a class="nav-link active" href="{{url_for('check_past_songs')}}">Անցյալ Երգեր Գտնող</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url_for('today_songs')}}">Այսորվա Երգեր</a>
+            <a class="nav-link active" href="{{url_for('today_songs')}}">Այսօրվա Երգեր</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('event')}}">Տոնի Երգեր</a>
           </li>
           {% if session['user']%}
             {% if session['user']['userinfo']['admin'] %}

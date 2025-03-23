@@ -2162,7 +2162,7 @@
             "Title": "Եթե Տերոջը շնորհքը չըլլար",
             "latestVersion": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
             "v1": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
-            "key": "Dm",
+            "key": "Em",
             "speed": "92",
             "style": "Disco",
             "song_type": "Opening Song",
@@ -5254,7 +5254,7 @@
             "latestVersion": "Երգարան Word Files/364 Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք v2.docx",
             "v1": "Երգարան Word Files/364 Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք.docx",
             "v2": "Երգարան Word Files/364 Փա՜ռք Քեզ, իմ Տե՛ր, ամենուրեք v2.docx",
-            "key": "Bm",
+            "key": "Cm-Dm",
             "speed": "85",
             "style": "Waltz ",
             "song_type": "Single Song",
@@ -7533,7 +7533,13 @@
             "Title": "Խաչի ճամփան սկսվում է մսուրից,",
             "latestVersion": "RED Words/544.docx",
             "v1": "RED Words/544.docx",
-            "match": null
+            "match": null,
+            "key": "Em",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "545": {
             "Title": "Տե՜ր, գալիս եմ Քեզ մոտ ես ճամփով քարքարոտ,",
@@ -7688,7 +7694,13 @@
                     "412",
                     0.7297021806410253
                 ]
-            ]
+            ],
+            "key": "Bm",
+            "speed": "67",
+            "style": "Beat",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "557": {
             "Title": "Օրհնյալ ես Դու, Թագավոր",
@@ -8169,7 +8181,13 @@
             "Title": "Քո գահի առջև ահա կանգնել եմ,",
             "latestVersion": "RED Words/600.docx",
             "v1": "RED Words/600.docx",
-            "match": null
+            "match": null,
+            "key": "Bm",
+            "speed": "80",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "4/4",
+            "Comments": "Ballad-P5-5"
         },
         "601": {
             "Title": "Իմ փշրված, կոտրած սրտում",
@@ -11318,22 +11336,20 @@
             ]
         },
         "SongNum": {
-            "Title": "Քայլում էի տխուր անապատի մեջ,",
-            "latestVersion": "Երգարան Word Files/307 Քայլում էի տխուր անապատի մեջ, v3.docx",
-            "v1": "RED Words/307.docx",
-            "v2": "Երգարան Word Files/307 Քայլում էի տխուր անապատի մեջ, v2.docx",
-            "v3": "Երգարան Word Files/307 Քայլում էի տխուր անապատի մեջ, v3.docx",
-            "key": "Bm",
-            "speed": "97",
-            "style": "Pop",
-            "song_type": "Single Song",
-            "timeSig": "12/8",
-            "Comments": "Pop-P5-4",
+            "Title": "Եթե Տերոջը շնորհքը չըլլար",
+            "latestVersion": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
+            "v1": "Երգարան Word Files/147 Եթե Տերոջը շնորհքը չըլլար.docx",
+            "key": "Em",
+            "speed": "92",
+            "style": "Disco",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Dance-P5-5",
             "match": [
                 [
                     "old",
-                    "246",
-                    0.9050747581168296
+                    "178",
+                    0.9114885851978776
                 ]
             ]
         }

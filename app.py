@@ -1,6 +1,6 @@
 from datetime import datetime
 from glob import glob
-from concurrent.futures import thread
+from concurrent.futures import ThreadPoolExecutor, thread
 from os import environ as env
 from os import stat
 import os
@@ -440,14 +440,27 @@ def today_songs():
             html_text = f.read()
         return render_template("display_docx.html", lyrics=html_text)
 
-@app.route('/events')
-def zatik(filename = None):
+@app.route('/events', methods=["GET","POST"])
+def event(filename = None):
+    fp = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ\Զատիկ(2025)/"
     if request.method == 'GET':
-        fp = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ\Զատիկ(2025)/"
         filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)),glob(fp+'*')))
         return render_template("event.html", files=filenames)
     else:
-        data = request.get_json(silent=True)
+        selected_file = request.form.get(key='selected_file')
+        print(selected_file)
+        if selected_file:
+            # selected_file = data['selected_file']
+            with ThreadPoolExecutor() as futures:
+                future = futures.submit(saveHtml, fp+selected_file+'.docx', selected_file+'.docx')
+                save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
+                result = future.result()
+                result2 = save.result()
+            with open(f"htmlsongs\\{selected_file+'.docx'}.txt", 'r', encoding='utf-8') as f:
+                html_text = f.read()
+            return render_template("display_docx.html", lyrics=html_text)
+        else:
+            return 'No text found'
         # if data: # Check to see if its empty
         
             

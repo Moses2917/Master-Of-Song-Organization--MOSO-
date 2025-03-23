@@ -4880,7 +4880,13 @@
                     "487",
                     0.8588639638536328
                 ]
-            ]
+            ],
+            "key": "Gm",
+            "speed": "100",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "490": {
             "Title": "Տերն իմ, Սերն իմ, Կյանքն իմ",
@@ -8361,18 +8367,22 @@
             "match": null
         },
         "SongNum": {
-            "Title": "Այս անլույս կյանքում",
-            "latestVersion": "Word songs/568 Այս անլույս կյանքում v3.docx",
-            "v1": "Word songs/568 Այս անլույս կյանքում.docx",
-            "v2": "Word songs/568 Այս անլույս կյանքում v2.docx",
+            "Title": "Ուզում ենք, որ Դու լինես մեր հոգում",
+            "latestVersion": "Word songs/487 Ուզում ենք, որ Դու լինես մեր հոգում.docx",
+            "v1": "Word songs/487 Ուզում ենք, որ Դու լինես մեր հոգում.docx",
+            "match": [
+                [
+                    "new",
+                    "487",
+                    0.8588639638536328
+                ]
+            ],
             "key": "Gm",
-            "speed": "70",
-            "style": "Beat",
-            "song_type": "Worship Song",
-            "timeSig": "4/4",
-            "Comments": "Pop-P1-3",
-            "v3": "Word songs/568 Այս անլույս կյանքում v3.docx",
-            "match": null
+            "speed": "100",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "12/8",
+            "Comments": "Ballad-P4-1"
         },
         "269": {
             "Title": "",
