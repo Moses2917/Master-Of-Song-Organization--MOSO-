@@ -68,9 +68,9 @@ class ModernSongManager:
         ttk.Button(buttons_frame, text="Clear Songs", command=self.clr_listbox, style="secondary.TButton").pack(side=LEFT, padx=(0, 10))
         
         # Additional action buttons
-        
         ttk.Button(buttons_frame, text="Compatibility", command=self.Compatibility, style="primary.TButton").pack(side=LEFT, padx=(0, 10))
         ttk.Button(buttons_frame, text="Possible Songs", command=self.viewPosSongs, style="primary.TButton").pack(side=LEFT, padx=(0, 10))
+        ttk.Button(buttons_frame, text="Update Indexes", command=self.update_indicies, style="primary.TButton").pack(side=LEFT, padx=(0, 10))
         
         # Listbox frame
         self.listbox_frame = ttk.Frame(main_frame)
@@ -192,6 +192,15 @@ class ModernSongManager:
         self.listbox.delete(first=0,last=self.listbox.size())
         self.listy.clear()
 
+    def update_indicies(self):
+        import scanningDir
+        try:
+            scanningDir.findNewFiles()
+            #Add the end once all is added clean up the indexes
+            scanningDir.clean_up_index()
+        except:
+            messagebox.showerror("File Open","A word doc is probably open, please close it and then try to create the file.")
+    
     def viewPosSongs(self):
         songsList = self.listbox.get(0, tk.END)
             #Sort out the old and new, and all numbers
