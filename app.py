@@ -442,9 +442,9 @@ def today_songs():
 
 @app.route('/events', methods=["GET","POST"])
 def event(filename = None):
-    fp = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ\Զատիկ(2025)/"
+    fp = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ"
     if request.method == 'GET':
-        filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)),glob(fp+'*')))
+        filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
         return render_template("event.html", files=filenames)
     else:
         selected_file = request.form.get(key='selected_file')
@@ -461,10 +461,6 @@ def event(filename = None):
             return render_template("display_docx.html", lyrics=html_text)
         else:
             return 'No text found'
-        # if data: # Check to see if its empty
-        
-            
-            
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc) -> str:
