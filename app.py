@@ -442,8 +442,8 @@ def today_songs():
 
 @app.route('/events', methods=["GET", "POST"])
 def event(filename = None):
-    folder_path = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ"
-    folder_path = "static/fonts"
+    folder_path = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե"
+    
     
     if request.method == 'GET':
         # list to hold all dirs, with relative reference starting at fp
