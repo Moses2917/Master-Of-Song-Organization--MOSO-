@@ -14,6 +14,7 @@
   <div class="shadow-lg rounded card-body">
     <h2 class="p-3 card-title" id="card-title">Ընտրեցեք:</h2>
     <form action="{{url_for('event')}}" method="POST">
+      <input name="dir" id="dir" style="display: none;">
       <div class="d-flex flex-column align-items-center gap-2 text-center mb-4 card-text">
         <!-- <div class="d-flex flex-column align-items-center gap-2" id="files">
                     
@@ -26,11 +27,17 @@
 <script>
   const content = {{os_files | safe}}; //Jinja 2: Supplied by server
   document.addEventListener('DOMContentLoaded', function(){
+    // Get tab elements
     const tabLinks = document.querySelectorAll('[data-tab-id]');
+
+    // Fills in the first tab page
     const first_tab = document.querySelector('[data-tab-id="0"]');
     const name = first_tab.getAttribute('name')
+    document.getElementById("dir").value = name
     content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
     first_tab.classList.add("active")
+
+    // Function for tab click
     function handleTabClick(event) {
       event.preventDefault(); //Prevents redirct to link action
       tabLinks.forEach(l => {
@@ -41,10 +48,15 @@
       const name = this.getAttribute('name')
       document.querySelector('.card-text').innerHTML = ''
       content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
+      // document.querySelector('.card-text').innerHTML +=
+      
     }
+
+    // Adds an event listener for clicks on tabs
     tabLinks.forEach((link, index) => {
       link.addEventListener('click', handleTabClick)
     })
+
   })
 </script>
 

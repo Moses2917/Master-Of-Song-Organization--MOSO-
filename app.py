@@ -228,7 +228,7 @@ def saveHtml(filePth, WordDoc):
 
     Parameters:
         filePth (str): The path to the Word document file.
-        WordDoc (str): The name of the Word document.
+        WordDoc (str): The name of the Word document, not the path, but just the filename.
 
     Returns:
         None
@@ -452,7 +452,7 @@ def event(filename = None):
         for root, dirs, files in os.walk(folder_path):
             roots.append(root)
             tmp_file = []
-            files = list(map(lambda file: f'<button type="submit" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>', files))
+            files = list(map(lambda file: f'<button type="submit" name="selected_file" value={os.path.join(root,file)} class="btn btn-outline-light m-2">{file.split(".")[0]}</button>', files))
             os_files[root] = files
         
         # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
@@ -461,16 +461,15 @@ def event(filename = None):
         selected_file = request.form.get(key='selected_file')
         # is_dir = request.form.get('is_dir')
         # print(selected_file)
-        if selected_file:
-            selected_file = os.path.join(folder_path, selected_file+'.docx') # not a good idea I know
-            # Todo: append root path to before slected file. Also make it get the file based upon the dict, not building it
-            os.path.exists()
+        if selected_file and os.path.exists(selected_file):
+            basename = os.path.basename(selected_file) # basename returns the filename. Could've been done in saveHtml
+            
             with ThreadPoolExecutor() as futures:
-                future = futures.submit(saveHtml, folder_path+selected_file+'.docx', selected_file+'.docx')
+                future = futures.submit(saveHtml, selected_file, basename) 
                 save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
                 result = future.result()
                 result2 = save.result()
-            with open(f"htmlsongs\\{selected_file+'.docx'}.txt", 'r', encoding='utf-8') as f:
+            with open(f"htmlsongs\\{basename}.txt", 'r', encoding='utf-8') as f:
                 html_text = f.read()
             return render_template("display_docx.html", lyrics=html_text)
         else:
