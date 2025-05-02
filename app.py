@@ -444,16 +444,17 @@ def today_songs():
 def event(filename = None):
     folder_path = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե"
     
-    
     if request.method == 'GET':
         # list to hold all dirs, with relative reference starting at fp
         roots = []
         os_files = {}
         for root, dirs, files in os.walk(folder_path):
-            roots.append(root)
-            tmp_file = []
-            files = list(map(lambda file: f'<button type="submit" name="selected_file" value={os.path.join(root,file)} class="btn btn-outline-light m-2">{file.split(".")[0]}</button>', files))
-            os_files[root] = files
+            # Ignore the folder itself. So, if "static" we don't want it!
+            if '\\' in root or '/' in root:
+                roots.append(root)
+                tmp_file = []
+                files = list(map(lambda file: f'<button type="submit" name="selected_file" value={os.path.join(root,file)} class="btn btn-outline-light m-2">{file.split(".")[0]}</button>', files))
+                os_files[root] = files
         
         # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
         return render_template("event.html", os_files=os_files, roots=roots)
