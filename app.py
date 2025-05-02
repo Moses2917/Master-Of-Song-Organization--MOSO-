@@ -1202,7 +1202,7 @@ def song_analysis():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000 if os.)) # Uncomment for development
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
