@@ -440,15 +440,25 @@ def today_songs():
             html_text = f.read()
         return render_template("display_docx.html", lyrics=html_text)
 
-@app.route('/events', methods=["GET","POST"])
+@app.route('/events', methods=["GET", "POST"])
 def event(filename = None):
     fp = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ"
+    fp = "static/fonts"
+    
     if request.method == 'GET':
-        filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
-        return render_template("event.html", files=filenames)
+        # list to hold all dirs, with relative reference starting at fp
+        roots = []
+        os_files = {}
+        for root, dirs, files in os.walk(fp):
+            roots.append(root)
+            os_files[root] = files
+        
+        # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
+        return render_template("event.html", os_files=os_files)
     else:
         selected_file = request.form.get(key='selected_file')
-        print(selected_file)
+        is_dir = request.form.get('is_dir')
+        # print(selected_file)
         if selected_file:
             # selected_file = data['selected_file']
             with ThreadPoolExecutor() as futures:
@@ -1188,7 +1198,7 @@ def song_analysis():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001)) # Uncomment for development
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
