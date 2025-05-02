@@ -454,7 +454,7 @@ def event(filename = None):
             os_files[root] = files
         
         # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
-        return render_template("event.html", os_files=os_files)
+        return render_template("event.html", os_files=os_files, roots=roots)
     else:
         selected_file = request.form.get(key='selected_file')
         is_dir = request.form.get('is_dir')
@@ -471,6 +471,10 @@ def event(filename = None):
             return render_template("display_docx.html", lyrics=html_text)
         else:
             return 'No text found'
+
+@app.route('/events/<folder>', methods=["GET", "POST"])
+def eventFolder(folder):
+    return render_template('event.html', files=os.listdir(folder))
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc) -> str:

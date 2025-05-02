@@ -1,26 +1,70 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="text-center">
-    <div class="">
-        <div class="container-md fw-old shadow-lg p-3 mb-5 bg-dark bg-gradient rounded">
-            <h2 class="p-3">Ընտրեցեք Երգ։</h2>
-            <div class="text-center mb-4" id="files">
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs gap-1">
+            {% for root in roots %}
+            <li class="nav-item">
+                <a class="nav-link" href="/events/{{root.split('/')[1]}}" data-tab-id="{{roots.index(root)}}">{{root}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+        <div class="shadow-lg rounded card-body">
+            <h2 class="p-3 card-title">Ընտրեցեք Երգ։</h2>
+            <div class="text-center mb-4 card-body" id="files">
                 <form action="{{url_for('event')}}" method="POST">
                     <div class="d-flex flex-column align-items-center gap-2">
-                        {% for file in files %}
-                        <button type="submit" class="btn btn-primary" name="selected_file" value="{{file}}" is_dir={{ True if '.' in file else False }}>{{file}}</button>
-                        <input value="{{ True if '.' in file else False }}" name="is_dir" style="display: none;">
+                        {% for root, filenames in os_files.items() %}
+                            <h3>{{root|safe}}</h3>
+                            {% for file in filenames %}
+                            <h6>
+                            {{file}}</h6>
+                            {% endfor %}
                         {% endfor %}
                     </div>
                 </form>
             </div>
         </div>
-    </div>
 </div>
 
 <script>
-    
+  document.addEventListener('DOMContentLoaded', function(){
+    const tabLinks = document.querySelectorAll('[data-tab-id]');
+    const first_tab = document.querySelector('[data-tab-id="0"]');
+    first_tab.classList.add("active")
+    function handleTabClick(event) {
+      event.preventDefault(); //Prevents redirct to link action
+      tabLinks.forEach(l => {
+        l.classList.remove('active');
+      })
+    }
+    tabLinks.forEach((link, index) => {
+      link.addEventListener('click', handleTabClick)
+    })
+  })
 </script>
 
+
+<!-- <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="true" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Disabled</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
 
 {% endblock %}
