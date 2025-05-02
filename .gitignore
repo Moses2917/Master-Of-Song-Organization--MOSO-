@@ -13,3 +13,4 @@ testsongs.json
 /__pycache__
 *.pyc
 song_sorter.py
+.DS_Store
