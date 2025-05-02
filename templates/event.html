@@ -1,43 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="card text-center">
-    <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs gap-1">
-            {% for root in roots %}
-            <li class="nav-item">
-                <a class="nav-link" href="/events/{{root.split('/')[1]}}" data-tab-id="{{roots.index(root)}}">{{root}}</a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-        <div class="shadow-lg rounded card-body">
-            <h2 class="p-3 card-title">Ընտրեցեք Երգ։</h2>
-            <div class="text-center mb-4 card-body" id="files">
-                <form action="{{url_for('event')}}" method="POST">
-                    <div class="d-flex flex-column align-items-center gap-2">
-                        {% for root, filenames in os_files.items() %}
-                            <h3>{{root|safe}}</h3>
-                            {% for file in filenames %}
-                            <h6>
-                            {{file}}</h6>
-                            {% endfor %}
-                        {% endfor %}
-                    </div>
-                </form>
-            </div>
-        </div>
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs gap-1">
+      {% for root in roots %}
+      <li class="nav-item">
+        <a class="nav-link" href="/events/{{root.split('/')[1]}}" data-tab-id="{{roots.index(root)}}"
+          name={{root}}>{{root.split('/')[1]}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="shadow-lg rounded card-body">
+    <h2 class="p-3 card-title" id="card-title">Ընտրեցեք:</h2>
+    <form action="{{url_for('event')}}" method="POST">
+      <div class="d-flex flex-column align-items-center gap-2 text-center mb-4 card-text">
+        <!-- <div class="d-flex flex-column align-items-center gap-2" id="files">
+                    
+                  </div> -->
+      </div>
+    </form>
+  </div>
 </div>
 
 <script>
+  const content = {{os_files | safe}}; //Jinja 2: Supplied by server
   document.addEventListener('DOMContentLoaded', function(){
     const tabLinks = document.querySelectorAll('[data-tab-id]');
     const first_tab = document.querySelector('[data-tab-id="0"]');
+    const name = first_tab.getAttribute('name')
+    content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
     first_tab.classList.add("active")
     function handleTabClick(event) {
       event.preventDefault(); //Prevents redirct to link action
       tabLinks.forEach(l => {
         l.classList.remove('active');
       })
+      this.classList.add('active');
+      const tabId = this.getAttribute('data-tab-id')
+      const name = this.getAttribute('name')
+      document.querySelector('.card-text').innerHTML = ''
+      content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
     }
     tabLinks.forEach((link, index) => {
       link.addEventListener('click', handleTabClick)

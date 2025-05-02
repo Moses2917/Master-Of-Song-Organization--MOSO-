@@ -442,27 +442,31 @@ def today_songs():
 
 @app.route('/events', methods=["GET", "POST"])
 def event(filename = None):
-    fp = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ"
-    fp = "static/fonts"
+    folder_path = r"C:\Users\Armne\OneDrive\Երգեր\Զատիկ"
+    folder_path = "static/fonts"
     
     if request.method == 'GET':
         # list to hold all dirs, with relative reference starting at fp
         roots = []
         os_files = {}
-        for root, dirs, files in os.walk(fp):
+        for root, dirs, files in os.walk(folder_path):
             roots.append(root)
+            tmp_file = []
+            files = list(map(lambda file: f'<button type="submit" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>', files))
             os_files[root] = files
         
         # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
         return render_template("event.html", os_files=os_files, roots=roots)
     else:
         selected_file = request.form.get(key='selected_file')
-        is_dir = request.form.get('is_dir')
+        # is_dir = request.form.get('is_dir')
         # print(selected_file)
         if selected_file:
-            # selected_file = data['selected_file']
+            selected_file = os.path.join(folder_path, selected_file+'.docx') # not a good idea I know
+            # Todo: append root path to before slected file. Also make it get the file based upon the dict, not building it
+            os.path.exists()
             with ThreadPoolExecutor() as futures:
-                future = futures.submit(saveHtml, fp+selected_file+'.docx', selected_file+'.docx')
+                future = futures.submit(saveHtml, folder_path+selected_file+'.docx', selected_file+'.docx')
                 save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
                 result = future.result()
                 result2 = save.result()
@@ -471,10 +475,6 @@ def event(filename = None):
             return render_template("display_docx.html", lyrics=html_text)
         else:
             return 'No text found'
-
-@app.route('/events/<folder>', methods=["GET", "POST"])
-def eventFolder(folder):
-    return render_template('event.html', files=os.listdir(folder))
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc) -> str:
