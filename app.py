@@ -450,12 +450,15 @@ def event(filename = None):
         os_files = {}
         for root, dirs, files in os.walk(folder_path):
             # Ignore the folder itself. So, if "static" we don't want it!
-            if '\\' in root or '/' in root:
+            if root != folder_path:
+                root = root.replace("\\","/")
+                # print(root)
                 roots.append(root)
                 tmp_file = []
-                files = list(map(lambda file: f'<button type="submit" name="selected_file" value={os.path.join(root,file)} class="btn btn-outline-light m-2">{file.split(".")[0]}</button>', files))
+                files = list(map(lambda file: f'<button type="submit" name="selected_file" value="{os.path.join(root,file)}" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>' if '.ppt' not in file else '', files))
                 os_files[root] = files
-        
+        roots.sort(reverse=True)
+        # print(roots)
         # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
         return render_template("event.html", os_files=os_files, roots=roots)
     else:

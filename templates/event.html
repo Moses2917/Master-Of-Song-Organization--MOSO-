@@ -5,8 +5,8 @@
     <ul class="nav nav-tabs card-header-tabs gap-1">
       {% for root in roots %}
       <li class="nav-item">
-        <a class="nav-link" href="/events/{{root.split('/')[1]}}" data-tab-id="{{roots.index(root)}}"
-          name={{root}}>{{root.split('/')[1]}}</a>
+        <a class="nav-link" href="/events/{{root.split('/')[7]}}" data-tab-id="{{roots.index(root)}}"
+          name={{root}}>{{root.split('/')[-1]}}</a>
       </li>
       {% endfor %}
     </ul>

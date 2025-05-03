@@ -243,6 +243,7 @@
             {% endif %}
           {% endif %}
         </ul>
+        {% if not session['user']%}
           <div class="d-flex">
             <div class=" p-2" id="login-card" style="display: hidden;">
               <div class="sign-in-wrapper">
@@ -264,6 +265,7 @@
             </div>
             </div>
           </div>
+          {% endif %}
             <!-- <div class="d-flex">
                 <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
                 <div class="input-group">
