@@ -445,6 +445,7 @@ def today_songs():
 @app.route('/events', methods=["GET", "POST"])
 def event(filename = None):
     folder_path = os.path.join(onedrive_path,"Երգեր/Պենտեկոստե")
+    folder_path = "static"
     
     if request.method == 'GET':
         # list to hold all dirs, with relative reference starting at fp
@@ -1207,7 +1208,7 @@ def song_analysis():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000)) # Uncomment for development
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001 if os.name == 'posix' else 5000))
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     
