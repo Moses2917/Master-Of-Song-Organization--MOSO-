@@ -45,6 +45,8 @@ oauth.register(
 search_engine = SearchEngine()
 song_lyrics = search_engine.load_json_data('AllLyrics.json')
 
+onedrive_path = env.get("OneDrive")
+
 def open_past_songs():
     with open("songs_cleaned.json" , 'r', encoding='utf-8') as f:
         all_past_songs:dict = json.load(f)
@@ -442,7 +444,7 @@ def today_songs():
 
 @app.route('/events', methods=["GET", "POST"])
 def event(filename = None):
-    folder_path = r"C:\Users\Armne\OneDrive\Երգեր\Պենտեկոստե"
+    folder_path = os.path.join(onedrive_path,"Երգեր/Պենտեկոստե")
     
     if request.method == 'GET':
         # list to hold all dirs, with relative reference starting at fp
