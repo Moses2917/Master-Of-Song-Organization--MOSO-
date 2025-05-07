@@ -27,12 +27,10 @@
     document.addEventListener("DOMContentLoaded", function () {
         const lyrics = document.getElementById('lyrics');
         if (lyrics) {
-            // Work with innerHTML so we can preserve <br> and other tags
             const html = lyrics.innerHTML;
 
             // Use a regex to match standalone numbers only
             const numberRegex = /\b\d+\b/g;
-
             // Replace each matched number with a red span
             lyrics.innerHTML = html.replace(numberRegex, match => {
                 return `<span style="color: red;">${match}</span>`;
@@ -42,12 +40,9 @@
     document.addEventListener("DOMContentLoaded", function () {
         const lyrics = document.getElementById('lyrics');
         if (lyrics) {
-            // Get the full inner HTML to preserve all tags
             const html = lyrics.innerHTML;
-
             // Regex to match any bracket tag like [start:song], [end:song], etc.
             const bracketRegex = /\[.*?\]/g;
-
             // Replace each match with a blue span
             lyrics.innerHTML = html.replace(bracketRegex, match => {
                 return `<span style="color: blue;">${match}</span>`;
