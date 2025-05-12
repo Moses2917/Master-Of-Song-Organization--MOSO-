@@ -118,7 +118,7 @@
         },
         "10": {
             "Title": "Օրհնենք հարեալ և զորավոր Տիրոջը",
-            "latestVersion": "Word songs/10 Օրհնենք հարեալ և զորավոր Տիրոջը v2.docx",
+            "latestVersion": "Word songs/10 Օրհնենք հարեալ և զորավոր Տիրոջը v3.docx",
             "v1": "Word songs/10  v1.docx",
             "key": "Em",
             "speed": "118",
@@ -127,7 +127,8 @@
             "timeSig": "4/4",
             "Comments": "Disco-P5-4",
             "v2": "Word songs/10 Օրհնենք հարեալ և զորավոր Տիրոջը v2.docx",
-            "match": null
+            "match": null,
+            "v3": "Word songs/10 Օրհնենք հարեալ և զորավոր Տիրոջը v3.docx"
         },
         "11": {
             "Title": "Խորհրդավոր է այս հանդես,",
@@ -4136,7 +4137,7 @@
         },
         "417": {
             "Title": "Մեծարում եմ անունդ ով Տեր",
-            "latestVersion": "Word songs/417 Մեծարում եմ անունդ ով Տեր v4.docx",
+            "latestVersion": "Word songs/417 Մեծարում եմ անունդ ով Տեր v5.docx",
             "v1": "Word songs/417 Մեծարում եմ անունդ ով Տեր.docx",
             "v2": "Word songs/417 Մեծարում եմ անունդ ով Տեր v2.docx",
             "key": "G",
@@ -4153,7 +4154,8 @@
                     "166",
                     0.7916027609728665
                 ]
-            ]
+            ],
+            "v5": "Word songs/417 Մեծարում եմ անունդ ով Տեր v5.docx"
         },
         "418": {
             "Title": "Տեր տուր ինձ այն հոգին,",
@@ -4414,7 +4416,7 @@
         },
         "442": {
             "Title": "Միաշաբթի լուսաբացին",
-            "latestVersion": "Word songs/442 Միաշաբթի լուսաբացին v2.docx",
+            "latestVersion": "Word songs/442 Միաշաբթի լուսաբացին v3.docx",
             "v1": "Word songs/442 Միաշաբթի լուսաբացին.docx",
             "v2": "Word songs/442 Միաշաբթի լուսաբացին v2.docx",
             "key": "G",
@@ -4423,7 +4425,8 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Ballad-P1-8",
-            "match": null
+            "match": null,
+            "v3": "Word songs/442 Միաշաբթի լուսաբացին v3.docx"
         },
         "443": {
             "Title": "Դառնացել է կյանքն այս աշխարհում,",
@@ -5529,7 +5532,7 @@
         },
         "537": {
             "Title": "Կատարվեցավ, Հիսուս հաղթեց",
-            "latestVersion": "Word songs/537 Կատարվեցավ, Հիսուս հաղթեց v2.docx",
+            "latestVersion": "Word songs/537 Կատարվեցավ, Հիսուս հաղթեց v3.docx",
             "v1": "Word songs/537 Կատարվեցավ, Հիսուս հաղթեց.docx",
             "v2": "Word songs/537 Կատարվեցավ, Հիսուս հաղթեց v2.docx",
             "key": "Em",
@@ -5538,7 +5541,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Disco-P5-5",
-            "match": null
+            "match": null,
+            "v3": "Word songs/537 Կատարվեցավ, Հիսուս հաղթեց v3.docx"
         },
         "538": {
             "Title": "Անցկացրու ինձ գավիթով",
@@ -5867,7 +5871,7 @@
         },
         "575": {
             "Title": "Տեսեք ձեռքերը նրա",
-            "latestVersion": "Word songs/575 Տեսեք ձեռքերը նրա v2.docx",
+            "latestVersion": "Word songs/575 Տեսեք ձեռքերը նրա v3.docx",
             "v1": "Word songs/575 Տեսեք ձեռքերը նրա.docx",
             "v2": "Word songs/575 Տեսեք ձեռքերը նրա v2.docx",
             "key": "B flat (-2)",
@@ -5882,7 +5886,8 @@
                     "666",
                     0.8277492840055585
                 ]
-            ]
+            ],
+            "v3": "Word songs/575 Տեսեք ձեռքերը նրա v3.docx"
         },
         "576": {
             "Title": "Փառք և պատիվ ու զօրություն",
@@ -6592,7 +6597,7 @@
         },
         "648": {
             "Title": "Գողգոթայի ճանապարհին",
-            "latestVersion": "Word songs/648 Գողգոթայի ճանապարհին v2.docx",
+            "latestVersion": "Word songs/648 Գողգոթայի ճանապարհին v3.docx",
             "v1": "Word songs/648 Գողքոթայի ճանապարհին մեկին տեսա.docx",
             "v2": "Word songs/648 Գողգոթայի ճանապարհին v2.docx",
             "key": "Em flat(-6)",
@@ -6607,7 +6612,8 @@
                     "843",
                     0.6483537447676514
                 ]
-            ]
+            ],
+            "v3": "Word songs/648 Գողգոթայի ճանապարհին v3.docx"
         },
         "649": {
             "Title": "Առավոտ է հարության",
@@ -7849,7 +7855,7 @@
         },
         "750": {
             "Title": "Փառք տվեք Աստծուն, Նա բարի է",
-            "latestVersion": "Word songs/750 Փառք տվեք Աստծուն, Նա բարի է v2.docx",
+            "latestVersion": "Word songs/750 Փառք տվեք Աստծուն, Նա բարի է v3.docx",
             "v1": "Word songs/750 Փառք տվեք Աստծուն, Նա բարի է.docx",
             "v2": "Word songs/750 Փառք տվեք Աստծուն, Նա բարի է v2.docx",
             "key": "F",
@@ -7864,11 +7870,12 @@
                     "751",
                     0.4562073416804361
                 ]
-            ]
+            ],
+            "v3": "Word songs/750 Փառք տվեք Աստծուն, Նա բարի է v3.docx"
         },
         "751": {
             "Title": "Վերցրեց Նա մեր ցավերը",
-            "latestVersion": "Word songs/751 Վերցրեց Նա մեր ցավերը v2.docx",
+            "latestVersion": "Word songs/751 Վերցրեց Նա մեր ցավերը v3.docx",
             "v1": "Word songs/751 Վերցրեց Նա մեր ցավերը.docx",
             "v2": "Word songs/751 Վերցրեց Նա մեր ցավերը v2.docx",
             "key": "Gm",
@@ -7883,7 +7890,8 @@
                     "750",
                     0.45620734168043614
                 ]
-            ]
+            ],
+            "v3": "Word songs/751 Վերցրեց Նա մեր ցավերը v3.docx"
         },
         "752": {
             "Title": "Տեր ծունկի եմ եկել",
@@ -8241,10 +8249,11 @@
         },
         "792": {
             "Title": "Տոնեցեք օրը փրկության",
-            "latestVersion": "Word songs/792 Տոնեցեք օրը փրկության v2.docx",
+            "latestVersion": "Word songs/792 Տոնեցեք օրը փրկության v3.docx",
             "v1": "Word songs/792 Տոնեցեք օրը փրկության.docx",
             "v2": "Word songs/792 Տոնեցեք օրը փրկության v2.docx",
-            "match": null
+            "match": null,
+            "v3": "Word songs/792 Տոնեցեք օրը փրկության v3.docx"
         },
         "793": {
             "Title": "Ծնկի եկած Գեթսեմանի պարտեզում",
@@ -8260,7 +8269,7 @@
         },
         "794": {
             "Title": "Տեր Հիսուս իմ փրկիիչ",
-            "latestVersion": "Word songs/794 Տեր Հիսուս իմ փրկիիչ v2.docx",
+            "latestVersion": "Word songs/794 Տեր Հիսուս իմ փրկիիչ v3.docx",
             "v1": "Word songs/794 Տեր Հիսուս իմ փրկիիչ.docx",
             "v2": "Word songs/794 Տեր Հիսուս իմ փրկիիչ v2.docx",
             "key": "B",
@@ -8269,7 +8278,8 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Any ballad ",
-            "match": null
+            "match": null,
+            "v3": "Word songs/794 Տեր Հիսուս իմ փրկիիչ v3.docx"
         },
         "795": {
             "Title": "Մարդիկ մենք տեսանք Գողգոթայում",
@@ -8285,7 +8295,7 @@
         },
         "796": {
             "Title": "Ցնծացեք մարդիկ ուրախացեք",
-            "latestVersion": "Word songs/796 Ցնծացեք մարդիկ ուրախացեք v2.docx",
+            "latestVersion": "Word songs/796 Ցնծացեք մարդիկ ուրախացեք v3.docx",
             "v1": "Word songs/796 Ցնծացեք մարդիկ ուրախացեք.docx",
             "v2": "Word songs/796 Ցնծացեք մարդիկ ուրախացեք v2.docx",
             "key": "Gm",
@@ -8294,7 +8304,8 @@
             "song_type": "Single Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3",
-            "match": null
+            "match": null,
+            "v3": "Word songs/796 Ցնծացեք մարդիկ ուրախացեք v3.docx"
         },
         "797": {
             "Title": "Վեր Երկնքում աստղ երևաց",
@@ -8440,6 +8451,11 @@
             "Title": "",
             "latestVersion": "Word songs/  v1.docx",
             "v1": "Word songs/  v1.docx"
+        },
+        "6492": {
+            "Title": "",
+            "latestVersion": "Word songs/6492  v1.docx",
+            "v1": "Word songs/6492  v1.docx"
         }
     }
 }

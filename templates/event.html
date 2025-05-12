@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block content %}
+
 <div class="card text-center">
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs gap-1">
@@ -12,7 +11,7 @@
     </ul>
   </div>
   <div class="shadow-lg rounded card-body">
-    <h2 class="p-3 card-title" id="card-title">Ընտրեցեք:</h2>
+    <!-- <h2 class="p-3 card-title" id="card-title">Ընտրեցեք:</h2> -->
     <form action="{{url_for('event')}}" method="POST">
       <input name="dir" id="dir" style="display: none;">
       <div class="d-flex flex-column align-items-center gap-2 text-center mb-4 card-text">
@@ -37,7 +36,7 @@
     content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
     first_tab.classList.add("active")
     card_title = document.getElementById("card-title")
-    card_title.innerText = name
+    // card_title.innerText = name
     // Function for tab click
     function handleTabClick(event) {
       event.preventDefault(); //Prevents redirct to link action
@@ -50,7 +49,7 @@
       document.querySelector('.card-text').innerHTML = ''
       content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
       card_title = document.getElementById("card-title")
-      card_title.innerText = name
+      // card_title.innerText = name
       
     }
 
@@ -84,4 +83,3 @@
     </div>
   </div> -->
 
-{% endblock %}

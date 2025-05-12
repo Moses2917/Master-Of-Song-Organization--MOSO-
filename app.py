@@ -48,7 +48,7 @@ song_lyrics = search_engine.load_json_data('AllLyrics.json')
 onedrive_path = env.get("OneDrive")
 
 def open_past_songs():
-    with open("songs_cleaned.json" , 'r', encoding='utf-8') as f:
+    with open("songs.json" , 'r', encoding='utf-8') as f:
         all_past_songs:dict = json.load(f)
     return all_past_songs
 
@@ -254,7 +254,7 @@ def saveHtml(filePth, WordDoc):
 
     for para in docParagraphs:
         text += para.text + '\n'
-    text = re.sub(r"\[[(start)(end)]*:song:?(old)?\]", "", text)
+    # text = re.sub(r"\[[(start)(end)]*:song:?(old)?\]", "", text)
     # Split the text into chunks based on line breaks
     chunks = text.split('\n\n')
 
@@ -445,27 +445,35 @@ def today_songs():
 @app.route('/events', methods=["GET", "POST"])
 def event(filename = None):
     folder_path = os.path.join(onedrive_path,"Երգեր/Պենտեկոստե")
-    folder_path = "static"
     
     if request.method == 'GET':
+        with ThreadPoolExecutor() as futures:
+            future = futures.submit(saveHtml, r"C:\Users\moses\OneDrive\Երգեր\Պենտեկոստե\2025\Պենտեկոստե.docx", "Պենտեկոստե.docx") 
+            save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
+            result = future.result()
+            result2 = save.result()
+        with open(f"htmlsongs\Պենտեկոստե.docx.txt", 'r', encoding='utf-8') as f:
+            html_text = f.read()
+        return render_template("display_docx.html", lyrics=html_text)
         # list to hold all dirs, with relative reference starting at fp
-        roots = []
-        os_files = {}
-        for root, dirs, files in os.walk(folder_path):
-            # Ignore the folder itself. So, if "static" we don't want it!
-            if root != folder_path:
-                root = root.replace("\\","/")
-                # print(root)
-                roots.append(root)
-                tmp_file = []
-                files = list(map(lambda file: f'<button type="submit" name="selected_file" value="{os.path.join(root,file)}" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>' if '.ppt' not in file else '', files))
-                os_files[root] = files
-        roots.sort(reverse=True)
-        # print(roots)
-        # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
-        return render_template("event.html", os_files=os_files, roots=roots)
+        # roots = []
+        # os_files = {}
+        # for root, dirs, files in os.walk(folder_path):
+        #     # Ignore the folder itself. So, if "static" we don't want it!
+        #     if root != folder_path:
+        #         root = root.replace("\\","/")
+        #         # print(root)
+        #         roots.append(root)
+        #         tmp_file = []
+        #         files = list(map(lambda file: f'<button type="submit" name="selected_file" value="{os.path.join(root,file)}" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>' if '.ppt' not in file else '', files))
+        #         os_files[root] = files
+        # roots.sort(reverse=True)
+        # # print(roots)
+        # # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
+        # return render_template("event.html", os_files=os_files, roots=roots)
     else:
         selected_file = request.form.get(key='selected_file')
+        # selected_file = 
         # is_dir = request.form.get('is_dir')
         # print(selected_file)
         if selected_file and os.path.exists(selected_file):

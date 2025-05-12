@@ -132,13 +132,13 @@ def getAllNums():
 # gets songs fron recentsongs and sorts by last three months
 def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=True, search_range=90):
     """Generates a list of all the songs sang. Defaults to the last three months both with var and search range.
-        When there is two files both with the same name, the date reader misreads 
-    Args:
+        When there is two files both with the same name, the date reader misreads
+    #### Args:
         sunday_only (bool, optional): If you wish to search only Sunday songs. Defaults to False.
         ignore_sundays (bool, optional): If you wish to ignore Sunday songs. Defaults to False.
         three_month_window (bool, optional): If you want a 3 month search window. Defaults to True.
-        search_range (int, optional): If you want to search within a specific range of dates. Must have three_month_window set to False. Search_range defaults to the three month window.
-    Returns:
+        search_range (int, optional): If you want to search within a specific range of dates. Must have three_month_window set to False. Search_range defaults to the three month window.\n
+    #### Returns:
         blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
     """
     from json import load
@@ -148,7 +148,7 @@ def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=Tru
     if three_month_window: search_window = (current_date + datetime.timedelta(days=-90)).strftime('%m.%d.%y') #should really be if range == 90, or just not exist
     else : search_window = (current_date + datetime.timedelta(days=-search_range)).strftime('%m.%d.%y')
 
-    with open('songs.json', 'r', encoding='utf-8') as f:
+    with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
         allSongs = load(f)
 
 
@@ -536,24 +536,30 @@ def clean_up_index():
         
         with open("songs.json", 'w', encoding='utf-8') as f:
             json.dump(allSongs, f, indent=4, ensure_ascii=False)
-        
-        
-                
 
 # Uncomment this to manually update the index
 # print(findNewFiles())
 # clean_up_index()
 
-def findEmptySongNum() -> str:
+def findEmptySongNum(amount_to_generate=1) -> str | list[str]:
    #doesn't need a book, because all holes in songs should be in olds
    with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
     songs:dict = json.load(f)
-    
-    for x in range(1,1000):
-       if not songs["SongNum"].get(str(x), None): return str(x)
+    if amount_to_generate == 1:
+            if not songs["SongNum"].get(str(x), None): return str(x)
+    elif amount_to_generate > 1:
+        found_nums = []
+        for x in range(1,1000):
+            if len(found_nums) < amount_to_generate:
+                if not songs["SongNum"].get(str(x), None):
+                    songs["SongNum"][x] = True
+                    found_nums.append(x)
+            else:
+                break
+        return found_nums
    return '1000'
 
 
 if __name__ == '__main__':
-    print(findEmptySongNum())
+    print(findEmptySongNum(amount_to_generate=20))
     # print(findNewFiles())

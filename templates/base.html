@@ -205,9 +205,9 @@
               <a class="nav-link active" href="{{ url_for('edit_songs') }}">Edit Songs</a>
             </li>
             
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link active" href="{{url_for('song_matcher')}}">Song Matcher</a>
-            </li>
+            </li> -->
 
             {% endif %}
           {% endif %}
@@ -237,20 +237,21 @@
             <!-- <li class="nav-item">
               <a class="nav-link active" href="{{url_for('transliterate')}}">Transliterate</a>
             </li> -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link active" href="{{url_for('known_songs')}}">Is This a Known Song</a>
-            </li>
+            </li> -->
             {% endif %}
           {% endif %}
         </ul>
-        {% if not session['user']%}
+        {% if session.get('user') and 'userinfo' in session['user'] %}
+          {% if 'Guest' in session['user']['userinfo']['name'] %}
           <div class="d-flex">
             <div class=" p-2" id="login-card" style="display: hidden;">
               <div class="sign-in-wrapper">
                 <a href="{{ url_for('login') }}" class=" nav-link link-underline link-underline-opacity-0 text-white">
-                    <span class="button-content">
+                    <span class="button-content fs-4">
                         <span class="button-text">Sign In</span>
-                        <span class="button-icon">
+                        <!-- <span class="button-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -258,13 +259,29 @@
                                 <polyline points="10 17 15 12 10 7" />
                                 <line x1="15" y1="12" x2="3" y2="12" />
                             </svg>
-                        </span>
+                        </span> -->
+                        <i class="bi bi-box-arrow-right"></i>
                     </span>
                     <span class="button-glow"></span>
                 </a>
             </div>
             </div>
           </div>
+          {%else%}
+          <div class="d-flex">
+            <div class=" p-2" id="login-card" style="display: hidden;">
+              <div class="sign-in-wrapper">
+                <a href="{{ url_for('logout') }}" class=" nav-link link-underline link-underline-opacity-0 text-white">
+                    <span class="button-content fs-4">
+                        <span class="button-text">Logout</span>
+                        <i class="bi bi-box-arrow-left"></i>
+                    </span>
+                    <span class="button-glow"></span>
+                </a>
+            </div>
+            </div>
+          </div>
+          {% endif %}
           {% endif %}
             <!-- <div class="d-flex">
                 <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
@@ -368,7 +385,6 @@
       
       
       {% block content %}{% endblock %}
-
       <script>
         
         document.querySelectorAll("textarea").forEach(function(textarea) {

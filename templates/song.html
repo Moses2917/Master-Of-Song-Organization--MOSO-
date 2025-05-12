@@ -323,11 +323,12 @@
             document.getElementById('lyrics').innerHTML = result;
             document.getElementById('lyrics').lang = 'en';
             // console.log(result);
+        } else {
+            document.getElementById('lyrics').innerHTML = '{{ lyrics | safe}}';
+            document.getElementById('lyrics').lang = 'hy';
         }
+        
     }
-
-    
-
 </script>
 <script>
     addEventListener('onload', probSong())

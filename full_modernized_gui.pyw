@@ -19,8 +19,8 @@ from ttkbootstrap.constants import *
 
 
 class ModernSongManager:
-    def __init__(self, master):
-        self.master = master
+    def __init__(self, master: tbs.Window):
+        self.master: tbs.Window = master
         self.master.title("Master Of Song Organization (MOSO)")
         self.master.geometry("1280x720")
         
@@ -90,12 +90,13 @@ class ModernSongManager:
         updater_frame.pack(fill=X, pady=(20, 0))
         
         ttk.Label(updater_frame, text="Database Updater:", font=("Roboto", 14)).pack(side=LEFT, padx=(0, 10))
-        ttk.Button(updater_frame, text="Select file to update", command=self.ChooseFile, style="outline.info.TButton").pack(side=LEFT)
+        ttk.Button(updater_frame, text="Select file to update", command=self.UpdateFile, style="outline.info.TButton").pack(side=LEFT)
         
         # Bind events
         self.master.bind("<Return>", self.add_song)
         self.master.bind("<Delete>", self.delete_song)
         self.master.bind("<BackSpace>", self.delete_song)
+        # self.master.bind("<BackSpace>", self.delete_song)
             
 
         listy = []
@@ -153,9 +154,7 @@ class ModernSongManager:
 
     def delete_song(self,event=None):
         curr_selection = self.listbox.curselection()
-        if not curr_selection:
-            messagebox.showerror("Error", "Please select a song to delete")
-        else:
+        if curr_selection:
             self.listbox.delete(curr_selection)
 
     def move_up(self):
@@ -277,14 +276,14 @@ class ModernSongManager:
                 my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + "TESTSAVE.docx")
         import scanningDir
         try:
-            scanningDir.findNewFiles()
             #Add the end once all is added clean up the indexes
+            scanningDir.findNewFiles()
             scanningDir.clean_up_index()
         except:
             messagebox.showerror("File Open","A word doc is probably open, please close it and then try to create the file.")
 
 
-    def ChooseFile(self):
+    def UpdateFile(self):
         """
         Allows user to choose a file to update, checks if it should be updated, and if so calls the appropriate function to update it.
         If user chooses not to update it, it simply stops the function from running.
@@ -297,7 +296,7 @@ class ModernSongManager:
                             initialdir='C:/Users/{}/OneDrive/Երգեր'.format(os.environ.get("USERNAME")),
                             filetypes=filetypes)
         # Possibly throw a window to double check if it really is the file you want
-        if input_filename != None:
+        if input_filename != None and input_filename != '':
             message= messagebox.askyesno("MOSO is asking:","Do you wish to update this file(s): " + str(input_filename) + "\n\nYes to cont., No to stop")
             print(message)
             if message == "yes" or message == True:

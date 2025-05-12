@@ -1,5 +1,4 @@
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +9,23 @@
 </head>
 
 <body class="">
-    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-        </div>
-    </nav> -->
-    <div class="container-md py-5">
-        <h3 class="text-center mb-4" id="lyrics" data-id={{ songnum|safe }} lang="hy" > {{ lyrics|safe }}</h3>
+        <div class="fw-bold shadow text-center p-2 bg-body-tertiary rounded" id="toolbar">
+            <label class="">Song Toolbar: </label>
+            <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button"
+            onclick="transliterate()">
+            Transliterate Song
+        </button>
     </div>
-
-    <!-- <div class="z-3 position-absolute">
-        <button type="button" class="rounded-5 btn btn-secondary shadow-lg"><i class="bi bi-type fw-bold"></i></button>
-        
-    </div> -->
+    <div class="container-md py-5">
+        <h3 class="text-center mb-4" id="lyrics" lang="hy">{{ lyrics|safe }}</h3>
+    </div>
 </body>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    function redNums(params) {
         const lyrics = document.getElementById('lyrics');
         if (lyrics) {
             const html = lyrics.innerHTML;
-
             // Use a regex to match standalone numbers only
             const numberRegex = /\b\d+\b/g;
             // Replace each matched number with a red span
@@ -36,8 +33,8 @@
                 return `<span style="color: red;">${match}</span>`;
             });
         }
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+    }
+    function blueLetters(params) {
         const lyrics = document.getElementById('lyrics');
         if (lyrics) {
             const html = lyrics.innerHTML;
@@ -48,6 +45,111 @@
                 return `<span style="color: blue;">${match}</span>`;
             });
         }
-    });
+    }
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     const lyrics = document.getElementById('lyrics');
+    //     if (lyrics) {
+    //         const html = lyrics.innerHTML;
+    //         // Use a regex to match standalone numbers only
+    //         const numberRegex = /\b\d+\b/g;
+    //         // Replace each matched number with a red span
+    //         lyrics.innerHTML = html.replace(numberRegex, match => {
+    //             return `<span style="color: red;">${match}</span>`;
+    //         });
+    //     }
+    // });
+    document.addEventListener("DOMContentLoaded", redNums())
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     const lyrics = document.getElementById('lyrics');
+    //     if (lyrics) {
+    //         const html = lyrics.innerHTML;
+    //         // Regex to match any bracket tag like [start:song], [end:song], etc.
+    //         const bracketRegex = /\[.*?\]/g;
+    //         // Replace each match with a blue span
+    //         lyrics.innerHTML = html.replace(bracketRegex, match => {
+    //             return `<span style="color: blue;">${match}</span>`;
+    //         });
+    //     }
+    // });
+    document.addEventListener("DOMContentLoaded", blueLetters)
+</script>
 
+<script>
+    function armenianToEnglish() {
+        // Armenian to English transliteration mapping
+        const armenianToLatin = {
+            'ա': 'a', 'բ': 'b', 'գ': 'g', 'դ': 'd', 'ե': 'e', 'զ': 'z', 'է': 'e',
+            'ը': '@', 'թ': 't', 'ժ': 'zh', 'ի': 'i', 'լ': 'l', 'խ': 'kh', 'ծ': 'ts',
+            'կ': 'k', 'հ': 'h', 'ձ': 'dz', 'ղ': 'gh', 'ճ': 'ch', 'մ': 'm', 'յ': 'y',
+            'ն': 'n', 'շ': 'sh', 'ո': 'o', 'չ': 'ch', 'պ': 'p', 'ջ': 'j', 'ռ': 'r',
+            'ս': 's', 'վ': 'v', 'տ': 't', 'ր': 'r', 'ց': 'ts', 'ւ': 'v', 'փ': 'p',
+            'ք': 'k', 'օ': 'o', 'ֆ': 'f', 'և': 'ev', 'ու': 'u',
+            // Uppercase mappings
+            'Ա': 'A', 'Բ': 'B', 'Գ': 'G', 'Դ': 'D', 'Ե': 'E', 'Զ': 'Z', 'Է': 'E',
+            'Ը': '@', 'Թ': 'T', 'Ժ': 'Zh', 'Ի': 'I', 'Լ': 'L', 'Խ': 'Kh', 'Ծ': 'Ts',
+            'Կ': 'K', 'Հ': 'H', 'Ձ': 'Dz', 'Ղ': 'Gh', 'Ճ': 'Ch', 'Մ': 'M', 'Յ': 'Y',
+            'Ն': 'N', 'Շ': 'Sh', 'Ո': 'O', 'Չ': 'Ch', 'Պ': 'P', 'Ջ': 'J', 'Ռ': 'R',
+            'Ս': 'S', 'Վ': 'V', 'Տ': 'T', 'Ր': 'R', 'Ց': 'Ts', 'Փ': 'P', 'Ք': 'K',
+            'Օ': 'O', 'Ֆ': 'F'
+        };
+        return armenianToLatin;
+    }
+
+    function transliterate() {
+        lang = document.getElementById('lyrics').lang;
+        if (lang == 'hy') {
+            // text = document.getElementById('lyrics').innerText.trim();
+            text = '{{ lyrics | safe}}'
+            const mapping = armenianToEnglish();
+            let result = '';
+            let i = 0;
+            // let lastWasBreak = false;  // Track if we just added a break
+            let brCt = 0;
+
+            while (i < text.length) {
+                // Handle newline characters
+                if (text[i] === '\n') {
+                    if (brCt < 2) {  // Only add <br> if we haven't just added one
+                        result += '<br>';
+                        // lastWasBreak = true;
+                    } else {
+                        brCt = 0
+                    }
+                    brCt++
+                    i += 1;
+                    continue;
+                }
+
+                // Reset the break tracker when we encounter non-newline characters
+                // lastWasBreak = false;
+
+                // Check for two-character combinations first
+                if (i < text.length - 1 && mapping[text[i] + text[i + 1]]) {
+                    result += mapping[text[i] + text[i + 1]];
+                    i += 2;
+                }
+                // Then check for single characters
+                else if (mapping[text[i]]) {
+                    result += mapping[text[i]];
+                    i += 1;
+                }
+                // If character is not in mapping, keep it as is
+                else {
+                    result += text[i];
+                    i += 1;
+                }
+            }
+
+            document.getElementById('lyrics').innerHTML = result;
+            document.getElementById('lyrics').lang = 'en';
+            console.log(result);
+        } else {
+            document.getElementById('lyrics').innerHTML = '{{ lyrics | safe}}';
+            document.getElementById('lyrics').lang = 'hy';
+        }
+
+        redNums()
+        blueLetters()
+
+    }
 </script>
