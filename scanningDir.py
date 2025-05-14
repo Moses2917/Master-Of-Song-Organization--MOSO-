@@ -541,7 +541,7 @@ def clean_up_index():
 # print(findNewFiles())
 # clean_up_index()
 
-def findEmptySongNum(amount_to_generate=1) -> str | list[str]:
+def findEmptySongNum(amount_to_generate=1):
    #doesn't need a book, because all holes in songs should be in olds
    with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
     songs:dict = json.load(f)
