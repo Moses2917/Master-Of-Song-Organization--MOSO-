@@ -1,19 +1,36 @@
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <title>Այսորվա Երգեր</title>
     <link rel="shortcut icon" href="{{url_for('static', filename='pictures/moso.png')}}" type="image/png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .am {
+            background-image: url('/static/pictures/am.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 36px;
+            height: 36px;
+            display: inline-block;
+        }
+
+        .us {
+            background-image: url('/static/pictures/us.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 36px;
+            height: 36px;
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body class="">
-        <div class="fw-bold shadow text-center p-2 bg-body-tertiary rounded" id="toolbar">
-            <label class="">Song Toolbar: </label>
-            <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button"
-            onclick="transliterate()">
-            Transliterate Song
+    <div class="sticky-top">
+        <button class="btn btn-outline-primary position-absolute top-0 end-0 fs-3" onclick="transliterate()">
+            <span class="am rounded-circle" id="flag-icon"></span>
         </button>
     </div>
     <div class="container-md py-5">
@@ -142,10 +159,12 @@
 
             document.getElementById('lyrics').innerHTML = result;
             document.getElementById('lyrics').lang = 'en';
+            document.getElementById('flag-icon').className = 'us rounded-circle'; //Could've been a eventlistener too 
             console.log(result);
         } else {
             document.getElementById('lyrics').innerHTML = '{{ lyrics | safe}}';
             document.getElementById('lyrics').lang = 'hy';
+            document.getElementById('flag-icon').className = 'am rounded-circle';
         }
 
         redNums()
