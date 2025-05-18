@@ -13,6 +13,7 @@ from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
 import json
+from concurrent.futures import ThreadPoolExecutor
 #Import Custom Lyrics Search Engine
 from lyric_search_engine import SearchEngine
 import logging
@@ -48,7 +49,7 @@ song_lyrics = search_engine.load_json_data('AllLyrics.json')
 onedrive_path = env.get("OneDrive")
 
 def open_past_songs():
-    with open("songs.json" , 'r', encoding='utf-8') as f:
+    with open("songs_cleaned.json" , 'r', encoding='utf-8') as f:
         all_past_songs:dict = json.load(f)
     return all_past_songs
 
@@ -400,7 +401,6 @@ def save_json(json:dict, path:str):
 
 @app.route('/today', methods=['GET'])
 def today_songs():
-    from concurrent.futures import ThreadPoolExecutor
     all_past_songs = open_past_songs() # Need to always get a fresh version of this
     latest_song = list(all_past_songs.items())[-1]
     song_dict:dict = latest_song[1] # the info stored inside the dictionary. ie: "03.16.25.docx": { "dateMod": 1741926049.0, "path": ... , "basePth": "Երգեր\\03.2025", "songList": str(list(tuple())) }

@@ -261,7 +261,7 @@ class ModernSongManager:
         if os.path.exists("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear):
             if self.day_var.get() == "Sunday":
                 my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + "PORC_PORC.docx")
-                quit(root.mainloop())
+                # quit(root.mainloop())
             if self.day_var.get() == "Tuesday":
                 my_doc.save("C:/Users/" + user + "/OneDrive/Երգեր/" + month + "." + fullYear + "/" + month + "." + day + "." + year + ".docx")
             else:
