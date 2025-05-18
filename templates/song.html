@@ -1,5 +1,14 @@
 {%extends 'base.html'%}
 {%block content%}
+<style>
+    @font-face {
+    font-family: 'armoFont';
+    src: url('/static/fonts/yerevanyan/Yerevanyan Regular.otf');
+    }
+    .lyrics{
+        font-family: 'armofont';
+    }
+</style>
 <div class="container-md">
     <!-- <div class="row algin-items-start"> -->
         <div class="fw-bold shadow p-2 bg-body-tertiary rounded" id="toolbar">
@@ -19,7 +28,7 @@
                 <!-- <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" onclick="getProbSong()">
                     getProbSong
                 </button> -->
-                <a href="" id="probSong" style="visibility: hidden;" class="btn btn-primary shadow border border-primary-subtle rounded-3"> Alt. Version</a>
+                <a href="" id="probSong" style="visibility: hidden;" class="btn btn-primary shadow border border-primary-subtle rounded-3" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="We also have this version!"> Alt. Version</a>
             <!-- </nav> -->
         </div>
     <!-- </div> -->
@@ -34,7 +43,7 @@
     </script>
     <br>
     
-    <h3 class="text-center mb-4" id="lyrics" data-id={{ songnum|safe }} lang="hy" > {{ lyrics|safe }}</h3>
+    <h3 class="text-center mb-4 lyrics" id="lyrics" data-id={{ songnum|safe }} lang="hy" > {{ lyrics|safe }}</h3>
     <!-- Past Songs -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasPastSongs" aria-labelledby="offcanvasPastSongsLabel">
         <div class="offcanvas-header">
@@ -331,7 +340,10 @@
     }
 </script>
 <script>
-    addEventListener('onload', probSong())
+    // addEventListener('onload', probSong())
+    addEventListener('load', probSong)
+
+    
     function probSong() {
         let link = document.getElementById("probSong");
         link.href = ''
@@ -357,8 +369,26 @@
                     // console.log(probUrl)
                     link.href=probUrl
                     link.style.visibility = 'visible'
+                    const path = window.location.pathname;
+                    if (path.includes("new") || path.includes("REDergaran")) {
+                        setTimeout(offer_alt_song, 360000);
+                    }
+                    
                 }
             })
+    }
+    
+    function offer_alt_song() {
+        // First check if alt song has been found
+        // Should be checked, bc timeout is set only if its find
+        // Second offer them a alt song
+        // Third hide it after 30 seconds
+
+        const alt_song_button = document.getElementById('probSong')
+        const popover = new bootstrap.Popover(alt_song_button)
+        popover.show()
+        setTimeout(() => { popover.hide()}, 30000)
+
     }
 </script>
 {%endblock%}

@@ -46,12 +46,20 @@
       left: 20px;
     }
     @font-face {
-      font-family: NotoSansArmenian;
+      font-family: 'NotoSansArmenian';
       src: url("{{url_for('static', filename='fonts/NotoSansArmenian-VariableFont_wght.ttf')}}");
       
     }
+    @font-face {
+    font-family: 'armoFont';
+    src: url('/static/fonts/yerevanyan/Yerevanyan Regular.otf');
+    }
     body, p, nav, div {
       font-family: 'NotoSansArmenian', sans-serif;
+    }
+
+    .lyrics{
+      font-family: 'armofont';
     }
   </style>
   <style>
@@ -186,7 +194,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="lyrics">
   
   <nav class="navbar navbar-expand-lg bg-dark bg-gradient fs-5 sticky-top">
     <div class="container-fluid" name="brand">

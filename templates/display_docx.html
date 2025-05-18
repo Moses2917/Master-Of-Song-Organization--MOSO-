@@ -24,6 +24,49 @@
             height: 36px;
             display: inline-block;
         }
+        @font-face {
+            font-family: 'armoFont';
+            src: url('/static/fonts/yerevanyan/Yerevanyan Regular.otf');
+        }
+        @font-face {
+            font-family: 'engFont';
+            src: url('/static/fonts/Nunito/Nunito-VariableFont_wght.ttf');
+            font-weight: 700;
+        }
+        .lyrics{
+            font-family: 'engFont', 'armofont';
+        }
+        /* Flip animation styles */
+        .letter-flip {
+            display: inline-block;
+            animation: flip 0.5s ease-in-out;
+            transform-style: preserve-3d;
+        }
+        .arm{
+            font-family: 'armoFont', sans-serif;
+        }
+        .eng{
+            font-family: 'armoFont1', sans-serif;
+        }
+        @keyframes flip {
+            0% {
+                transform: perspective(400px) rotateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: perspective(400px) rotateY(90deg);
+                opacity: 0.5;
+            }
+            100% {
+                transform: perspective(400px) rotateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Add staggered animation delay for a wave effect */
+        .letter-flip {
+            animation-delay: calc(var(--i) * 0.05s);
+        }
     </style>
 </head>
 
@@ -34,10 +77,10 @@
         </button>
     </div>
     <div class="container-md py-5">
-        <h3 class="text-center mb-4" id="lyrics" lang="hy">{{ lyrics|safe }}</h3>
+        <h3 class="text-center mb-4 lyrics" id="lyrics" lang="hy" >{{ lyrics|safe }}</h3>
     </div>
 </body>
-
+<!-- style="font-family: 'armofont', sans-serif;" -->
 <script>
     function redNums(params) {
         const lyrics = document.getElementById('lyrics');
@@ -98,7 +141,7 @@
             'ա': 'a', 'բ': 'b', 'գ': 'g', 'դ': 'd', 'ե': 'e', 'զ': 'z', 'է': 'e',
             'ը': '@', 'թ': 't', 'ժ': 'zh', 'ի': 'i', 'լ': 'l', 'խ': 'kh', 'ծ': 'ts',
             'կ': 'k', 'հ': 'h', 'ձ': 'dz', 'ղ': 'gh', 'ճ': 'ch', 'մ': 'm', 'յ': 'y',
-            'ն': 'n', 'շ': 'sh', 'ո': 'o', 'չ': 'ch', 'պ': 'p', 'ջ': 'j', 'ռ': 'r',
+            'ն': 'n', 'շ': 'sh', 'ո': 'o',  'չ': 'ch', 'պ': 'p', 'ջ': 'j', 'ռ': 'r', // could also add a ' ո': ' vo',
             'ս': 's', 'վ': 'v', 'տ': 't', 'ր': 'r', 'ց': 'ts', 'ւ': 'v', 'փ': 'p',
             'ք': 'k', 'օ': 'o', 'ֆ': 'f', 'և': 'ev', 'ու': 'u',
             // Uppercase mappings
@@ -137,14 +180,15 @@
                     continue;
                 }
 
-                // Reset the break tracker when we encounter non-newline characters
-                // lastWasBreak = false;
-
                 // Check for two-character combinations first
                 if (i < text.length - 1 && mapping[text[i] + text[i + 1]]) {
                     result += mapping[text[i] + text[i + 1]];
                     i += 2;
                 }
+                // else if (text[i].toLowerCase() == 'ո' && text[i-1] == ' ') {
+                //     result += ' ' + mapping[' '+ text[i]]
+                //     i+=1
+                // }
                 // Then check for single characters
                 else if (mapping[text[i]]) {
                     result += mapping[text[i]];
@@ -156,14 +200,15 @@
                     i += 1;
                 }
             }
-
+            
             document.getElementById('lyrics').innerHTML = result;
             document.getElementById('lyrics').lang = 'en';
+            // document.getElementById('lyrics').style = "font-family: 'engfont', sans-serif;";
             document.getElementById('flag-icon').className = 'us rounded-circle'; //Could've been a eventlistener too 
-            console.log(result);
         } else {
             document.getElementById('lyrics').innerHTML = '{{ lyrics | safe}}';
             document.getElementById('lyrics').lang = 'hy';
+            // document.getElementById('lyrics').style = "font-family: 'armofont', sans-serif;";
             document.getElementById('flag-icon').className = 'am rounded-circle';
         }
 
