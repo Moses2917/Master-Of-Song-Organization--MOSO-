@@ -408,6 +408,8 @@ def today_songs():
     WordDoc = latest_song[0]
     cached_txt_files = glob("htmlsongs\\"+WordDoc+"*") # Cached txt files
     songPth:str = all_past_songs[WordDoc]['path']
+    from doc_color import get_colored_text
+    colored_text = get_colored_text(songPth)
     songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
     onedrive: str | None = env.get("OneDrive")
     songPth = onedrive+songPth
@@ -419,18 +421,18 @@ def today_songs():
         if cached_txt_files:
             with open(cached_txt_files[0], 'r', encoding='utf-8') as f:
                 lyrics = f.read()
-            return render_template("display_docx.html", lyrics = lyrics)
+            return render_template("display_docx.html", lyrics = lyrics, colored_text=colored_text)
         else:
             try:
                 with ThreadPoolExecutor() as futures:
                     future = futures.submit(saveHtml, songPth, WordDoc)
                 with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
                     html_text = f.read()
-                return render_template("display_docx.html", lyrics=html_text)
+                return render_template("display_docx.html", lyrics=html_text, colored_text=colored_text)
             except:
                 with open(cached_txt_files[0], 'r', encoding='utf-8') as f:
                     lyrics = f.read()
-                return render_template("display_docx.html", lyrics = lyrics)
+                return render_template("display_docx.html", lyrics = lyrics, colored_text=colored_text)
     else:
         all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
         with ThreadPoolExecutor() as futures:
@@ -440,21 +442,22 @@ def today_songs():
             result2 = save.result()
         with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
             html_text = f.read()
-        return render_template("display_docx.html", lyrics=html_text)
+        return render_template("display_docx.html", lyrics=html_text, colored_text=colored_text)
 
 @app.route('/events', methods=["GET", "POST"])
-def event(filename = None):
+def event(filename = r"C:\Users\moses\OneDrive\Երգեր\Պենտեկոստե\2025\Պենտեկոստե.docx"):
     folder_path = os.path.join(onedrive_path,"Երգեր/Պենտեկոստե")
-    
+    from doc_color import get_colored_text
+    colored_text = get_colored_text(filename)
     if request.method == 'GET':
         with ThreadPoolExecutor() as futures:
-            future = futures.submit(saveHtml, r"C:\Users\moses\OneDrive\Երգեր\Պենտեկոստե\2025\Պենտեկոստե.docx", "Պենտեկոստե.docx") 
+            future = futures.submit(saveHtml, filename, "Պենտեկոստե.docx") 
             save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
             result = future.result()
             result2 = save.result()
         with open(f"htmlsongs\Պենտեկոստե.docx.txt", 'r', encoding='utf-8') as f:
             html_text = f.read()
-        return render_template("display_docx.html", lyrics=html_text)
+        return render_template("display_docx.html", lyrics=html_text, colored_text=colored_text)
         # list to hold all dirs, with relative reference starting at fp
         # roots = []
         # os_files = {}

@@ -120,7 +120,7 @@
     <path fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"></path>
   </svg>
 </button>
-<div>
+<!-- <div>
     <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
         <a href="#flag-icon"></a>
         <button type="button" class="btn btn-primary">Button</button>
@@ -128,7 +128,7 @@
         <button type="button" class="btn btn-primary">Button</button>
         <button type="button" class="btn btn-primary">Button</button>
     </div>
-</div>
+</div> -->
     <!-- <div id="home-page-flipbook" class="hero-flipbook" data-load-module="HeroFlipbook" data-module-loaded="true">
         <div class="hero-flipbook__nav hero-flipbook__nav--fixed">
             <fieldset id="hero-flipbook__nav-fieldset" class="hero-flipbook__nav-fieldset" aria-label="Hero Navigation">
@@ -174,6 +174,7 @@
         <h3 class="text-center mb-4 lyrics" id="lyrics" lang="hy" >{{ lyrics|safe }}</h3>
     </div>
 </body>
+
 <!-- style="font-family: 'armofont', sans-serif;" -->
 <script>
     function redNums(params) {
@@ -200,35 +201,43 @@
             });
         }
     }
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     const lyrics = document.getElementById('lyrics');
-    //     if (lyrics) {
-    //         const html = lyrics.innerHTML;
-    //         // Use a regex to match standalone numbers only
-    //         const numberRegex = /\b\d+\b/g;
-    //         // Replace each matched number with a red span
-    //         lyrics.innerHTML = html.replace(numberRegex, match => {
-    //             return `<span style="color: red;">${match}</span>`;
-    //         });
-    //     }
-    // });
-    document.addEventListener("DOMContentLoaded", redNums())
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     const lyrics = document.getElementById('lyrics');
-    //     if (lyrics) {
-    //         const html = lyrics.innerHTML;
-    //         // Regex to match any bracket tag like [start:song], [end:song], etc.
-    //         const bracketRegex = /\[.*?\]/g;
-    //         // Replace each match with a blue span
-    //         lyrics.innerHTML = html.replace(bracketRegex, match => {
-    //             return `<span style="color: blue;">${match}</span>`;
-    //         });
-    //     }
-    // });
-    document.addEventListener("DOMContentLoaded", blueLetters)
-</script>
 
-<script>
+    colored_text = {{ colored_text| safe}}
+
+    function add_color_lyrics() {
+        colored_text_transliterated = transliterated_colored_text()
+        const lyrics = document.getElementsByTagName("p"); // Returns a array
+        for (const key in lyrics) {
+            if (Object.prototype.hasOwnProperty.call(lyrics, key)) {
+                const element = lyrics[key];
+                // console.log(element.innerHTML)
+                text = element.innerHTML
+                if (Object.prototype.hasOwnProperty.call(colored_text, text)) {
+                    console.log(text)
+                    color = colored_text[text] // Is an RGB value
+                    element.innerHTML = `<span style=color:#${color}>${text}</span>`
+                    
+                }
+                if (Object.prototype.hasOwnProperty.call(colored_text_transliterated, text)) {
+                    console.log(text)
+                    color = colored_text_transliterated[text] // Is an RGB value
+                    element.innerHTML = `<span style=color:#${color}>${text}</span>`
+                }
+            }
+            
+        }
+    }
+
+    try {
+        document.addEventListener("DOMContentLoaded", add_color_lyrics)
+    } catch (error) {
+        console.log('na')
+    }
+    // Adding this, for better color for start end song
+    document.addEventListener("DOMContentLoaded", redNums)
+    document.addEventListener("DOMContentLoaded", blueLetters)
+    
+
     function armenianToEnglish() {
         // Armenian to English transliteration mapping
         const armenianToLatin = {
@@ -247,6 +256,28 @@
             'Օ': 'O', 'Ֆ': 'F'
         };
         return armenianToLatin;
+    }
+
+    function transliterated_colored_text() {
+        colored_text_transliterated = {}
+        arm_to_latin = armenianToEnglish()
+        for (const key in colored_text) {
+            if (Object.prototype.hasOwnProperty.call(colored_text, key)) {
+                var new_key = ''
+                for (const element of key) {
+                    if (element != ' ') {
+                        new_key += arm_to_latin[element]
+                    } else {
+                        new_key += ' '
+                    }
+                    
+                }
+                colored_text_transliterated[new_key] =colored_text[key]
+                
+            }
+        }
+        console.log(colored_text_transliterated)
+        return colored_text_transliterated
     }
 
     function transliterate() {
@@ -306,6 +337,11 @@
             document.getElementById('flag-icon').className = 'am rounded-circle';
         }
 
+        try {
+            add_color_lyrics()
+        } catch (error) {
+            
+        }
         redNums()
         blueLetters()
 
