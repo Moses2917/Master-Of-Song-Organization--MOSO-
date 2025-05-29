@@ -46,7 +46,7 @@ oauth.register(
 search_engine = SearchEngine()
 song_lyrics = search_engine.load_json_data('AllLyrics.json')
 
-onedrive_path = env.get("OneDrive")
+onedrive_path = env.get("OneDrive") if os.name != "posix" else "/Users/movsesmovsesyan/Library/CloudStorage/OneDrive-Personal"
 
 def open_past_songs():
     with open("songs_cleaned.json" , 'r', encoding='utf-8') as f:
@@ -237,7 +237,8 @@ def saveHtml(filePth, WordDoc):
         None
     """
     from docx import Document
-    def tmp_file_copy(doc_dir):
+    from docx import document
+    def tmp_file_copy(doc_dir) -> document.Document:
         import tempfile
         import shutil
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -248,7 +249,7 @@ def saveHtml(filePth, WordDoc):
             temp_file_path = shutil.copy(doc_dir, tmp_dir)
             # Perform rest of ops in the 'with' statement
             return Document(tmp_file)
-
+    print("Saving File...")
     doc = tmp_file_copy(filePth) #Document(filePth)  # load doc file
     docParagraphs = doc.paragraphs  # returns a list of doc paragrpahs from which text will be extracted
     text = ''
@@ -261,17 +262,37 @@ def saveHtml(filePth, WordDoc):
 
     # Convert chunks to HTML
     html_chunks = []
+    start_song_met = False
+    song_counter = 0
+    song_nums = []
     for chunk in chunks:
+        if "start" in chunk:
+            start_song_met = True
+            song_counter += 1
+        # Song num always comes after the start song line
+        # eg start:song\n659    
+        
         lines = chunk.split('\n')
-        html_lines = ['<p>' + line + '</p>' for line in lines]
+        # html_lines = ['<p>' + line + '</p>' for line in lines] # if not start_song_met and re.match(r'\D', line) else f'<p id={line}>' + line + '</p>' 
+        html_lines = []
+        for line in lines:
+            if start_song_met and re.match(r'\d', line):
+                html_lines.append(f'<div id=song-{song_counter}>')
+                html_lines.append(f'<p id=song-{song_counter}-idk> {line} </p>') # template: song-[index]-[songnumber]
+                song_nums.append(line)
+                start_song_met = False
+            else:
+                html_lines.append('<p>' + line + '</p>')
         html_chunk = ''.join(html_lines)
         html_chunks.append(html_chunk)
 
     # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
     html_text = '<br>'.join(html_chunks)
-    onedrive = env.get("OneDrive")
-    with open(rf"{onedrive}\Documents\Code\Python\htmlsongs\{WordDoc}.txt", 'w', encoding='utf-8') as f:
+    # onedrive = env.get("OneDrive")
+    with open(f"{onedrive_path}/Documents/Code/Python/htmlsongs/{WordDoc}.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
+    
+    return song_nums
 
 @app.route('/search/<searchLyrics>', methods=['GET'])
 def songSearch(searchLyrics) -> list:
@@ -407,12 +428,12 @@ def today_songs():
     last_modified_date: float = song_dict["dateMod"]
     WordDoc = latest_song[0]
     cached_txt_files = glob("htmlsongs\\"+WordDoc+"*") # Cached txt files
-    songPth:str = all_past_songs[WordDoc]['path']
+    basePth:str = all_past_songs[WordDoc]['basePth']
+    # songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
+    onedrive: str | None = env.get("OneDrive")
+    songPth = os.path.join(onedrive,basePth)
     from doc_color import get_colored_text
     colored_text = get_colored_text(songPth)
-    songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
-    onedrive: str | None = env.get("OneDrive")
-    songPth = onedrive+songPth
     dateModOnFile: datetime = datetime.fromtimestamp(last_modified_date)
     currDateMod: datetime = datetime.fromtimestamp(stat(songPth).st_mtime)
     if currDateMod <= dateModOnFile:
@@ -445,19 +466,20 @@ def today_songs():
         return render_template("display_docx.html", lyrics=html_text, colored_text=colored_text)
 
 @app.route('/events', methods=["GET", "POST"])
-def event(filename = r"C:\Users\moses\OneDrive\Երգեր\Պենտեկոստե\2025\Պենտեկոստե.docx"):
+def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե.docx"):
     folder_path = os.path.join(onedrive_path,"Երգեր/Պենտեկոստե")
+    filename = os.path.join(onedrive_path, filename)
     from doc_color import get_colored_text
     colored_text = get_colored_text(filename)
     if request.method == 'GET':
         with ThreadPoolExecutor() as futures:
             future = futures.submit(saveHtml, filename, "Պենտեկոստե.docx") 
-            save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
+            # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
             result = future.result()
-            result2 = save.result()
-        with open(f"htmlsongs\Պենտեկոստե.docx.txt", 'r', encoding='utf-8') as f:
+            # result2 = save.result()
+        with open(f"htmlsongs/Պենտեկոստե.docx.txt", 'r', encoding='utf-8') as f:
             html_text = f.read()
-        return render_template("display_docx.html", lyrics=html_text, colored_text=colored_text)
+        return render_template("display_docx.html", lyrics=html_text, colored_text=colored_text, song_nums=result)
         # list to hold all dirs, with relative reference starting at fp
         # roots = []
         # os_files = {}
