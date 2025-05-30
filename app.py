@@ -251,6 +251,11 @@ def saveHtml(filePth, WordDoc):
             return Document(tmp_file)
     print("Saving File...")
     doc = tmp_file_copy(filePth) #Document(filePth)  # load doc file
+    
+    template = "<span style=color:#${color}>${text}</span>"
+    from doc_color import get_colored_text, get_all_colored_text
+    # colored_text: list[tuple[str,str]] = get_all_colored_text(doc=doc)
+    
     docParagraphs = doc.paragraphs  # returns a list of doc paragrpahs from which text will be extracted
     text = ''
 
@@ -259,16 +264,21 @@ def saveHtml(filePth, WordDoc):
     # text = re.sub(r"\[[(start)(end)]*:song:?(old)?\]", "", text)
     # Split the text into chunks based on line breaks
     chunks = text.split('\n\n')
-
+    
+    
+    
     # Convert chunks to HTML
     html_chunks = []
     start_song_met = False
+    end_of_song = False
     song_counter = 0
     song_nums = []
     for chunk in chunks:
         if "start" in chunk:
             start_song_met = True
             song_counter += 1
+        if "end" in chunk:
+            end_of_song = True
         # Song num always comes after the start song line
         # eg start:song\n659    
         
@@ -277,10 +287,14 @@ def saveHtml(filePth, WordDoc):
         html_lines = []
         for line in lines:
             if start_song_met and re.match(r'\d', line):
+                if song_counter != 1:
+                    html_lines.append(f'</div>')
                 html_lines.append(f'<div id=song-{song_counter}>')
-                html_lines.append(f'<p id=song-{song_counter}-idk> {line} </p>') # template: song-[index]-[songnumber]
+                html_lines.append(f'<p> {line} </p>') # template: song-[index]-[songnumber]
                 song_nums.append(line)
                 start_song_met = False
+            # elif end_of_song:
+            #     html_lines.append(f'</div>')
             else:
                 html_lines.append('<p>' + line + '</p>')
         html_chunk = ''.join(html_lines)
@@ -291,7 +305,7 @@ def saveHtml(filePth, WordDoc):
     # onedrive = env.get("OneDrive")
     with open(f"{onedrive_path}/Documents/Code/Python/htmlsongs/{WordDoc}.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
-    
+    # print(html_text)
     return song_nums
 
 @app.route('/search/<searchLyrics>', methods=['GET'])
@@ -471,6 +485,7 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
     filename = os.path.join(onedrive_path, filename)
     from doc_color import get_colored_text
     colored_text = get_colored_text(filename)
+    # print(colored_text)
     if request.method == 'GET':
         with ThreadPoolExecutor() as futures:
             future = futures.submit(saveHtml, filename, "Պենտեկոստե.docx") 
