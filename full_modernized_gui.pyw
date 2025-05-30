@@ -197,9 +197,9 @@ class ModernSongManager:
             scanningDir.findNewFiles()
             #Add the end once all is added clean up the indexes
             scanningDir.clean_up_index()
-        except:
+        except Exception as e:
             messagebox.showerror("File Open","A word doc is probably open, please close it and then try to create the file.")
-    
+            messagebox.showerror("Error Message", e)
     def viewPosSongs(self):
         songsList = self.listbox.get(0, tk.END)
             #Sort out the old and new, and all numbers
@@ -279,8 +279,9 @@ class ModernSongManager:
             #Add the end once all is added clean up the indexes
             scanningDir.findNewFiles()
             scanningDir.clean_up_index()
-        except:
+        except Exception as e:
             messagebox.showerror("File Open","A word doc is probably open, please close it and then try to create the file.")
+            # messagebox.showerror("Error Message", e)
 
 
     def UpdateFile(self):

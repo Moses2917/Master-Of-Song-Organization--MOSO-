@@ -3105,7 +3105,7 @@
         },
         "315": {
             "Title": "Դու գիտես Տիրոջ պատվերները",
-            "latestVersion": "Word songs/315 Դու գիտես Տիրոջ պատվերները.docx",
+            "latestVersion": "Word songs/315 Դու գիտես Տիրոջ պատվերները v2.docx",
             "v1": "Word songs/315 Դու գիտես Տիրոջ պատվերները.docx",
             "match": [
                 [
@@ -3113,7 +3113,8 @@
                     "519",
                     0.8581558974916762
                 ]
-            ]
+            ],
+            "v2": "Word songs/315 Դու գիտես Տիրոջ պատվերները v2.docx"
         },
         "316": {
             "Title": "Ով Քրիստոս, լույս աշպարհի",
@@ -3477,7 +3478,7 @@
         },
         "353": {
             "Title": "Իջիր Սուրբ Հոգի մեր տաճարում,",
-            "latestVersion": "Word songs\\pptSong\\353 Իջիր Սուրբ Հոգի մեր տաճարում.docx",
+            "latestVersion": "Word songs/353 Իջիր Սուրբ Հոգի մեր տաճարում, v2.docx",
             "v1": "Word songs\\pptSong\\353 Իջիր Սուրբ Հոգի մեր տաճարում.docx",
             "match": [
                 [
@@ -3485,7 +3486,8 @@
                     "353",
                     0.6686890695169527
                 ]
-            ]
+            ],
+            "v2": "Word songs/353 Իջիր Սուրբ Հոգի մեր տաճարում, v2.docx"
         },
         "354": {
             "Title": "Դուք գիտեք, թե հիմա ում եմ ես շատ սիրում",
@@ -4261,7 +4263,7 @@
         },
         "425": {
             "Title": "Առաջնորդող մի ձեռք ունեմ",
-            "latestVersion": "Word songs/425 Առաջնորդող մի ձեռք ունեմ v3.docx",
+            "latestVersion": "Word songs/425 Առաջնորդող մի ձեռք ունեմ v4.docx",
             "v1": "Word songs/425 Առաջնորդող մի ձեռք ունեմ.docx",
             "v2": "Word songs/425 Առաջնորդող մի ձեռք ունեմ v2.docx",
             "v3": "Word songs/425 Առաջնորդող մի ձեռք ունեմ v3.docx",
@@ -4271,7 +4273,8 @@
                     "821",
                     0.7868880859792453
                 ]
-            ]
+            ],
+            "v4": "Word songs/425 Առաջնորդող մի ձեռք ունեմ v4.docx"
         },
         "426": {
             "Title": "Այդ ինչ խաղաղ աչքեր ունես,",
@@ -6681,9 +6684,10 @@
         },
         "655": {
             "Title": "Ով Սուրբ Հոգի հրավիրում ենք Քեզ այս վայր",
-            "latestVersion": "Word songs/655 Ով Սուրբ Հոգի հրավիրում ենք Քեզ այս վայր.docx",
+            "latestVersion": "Word songs/655 Ով Սուրբ Հոգի հրավիրում ենք Քեզ այս վայր v2.docx",
             "v1": "Word songs/655 Ով Սուրբ Հոգի հրավիրում ենք Քեզ այս վայր.docx",
-            "match": null
+            "match": null,
+            "v2": "Word songs/655 Ով Սուրբ Հոգի հրավիրում ենք Քեզ այս վայր v2.docx"
         },
         "656": {
             "Title": "Ամեն օր տեսնում եմ քեզ իմ Տեր",
@@ -6724,7 +6728,7 @@
         },
         "659": {
             "Title": "Նայում եմ Քեզ Տեր իմ թագավոր",
-            "latestVersion": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v3.docx",
+            "latestVersion": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v4.docx",
             "v1": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր.docx",
             "v2": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v2.docx",
             "key": "C",
@@ -6740,7 +6744,8 @@
                     0.882734839930673
                 ]
             ],
-            "v3": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v3.docx"
+            "v3": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v3.docx",
+            "v4": "Word songs/659 Նայում եմ Քեզ Տեր իմ թագավոր v4.docx"
         },
         "660": {
             "Title": "Երբ ով Տեր հպվում ես Դու ինձ",
@@ -7161,7 +7166,7 @@
         },
         "694": {
             "Title": "Տեր ծարավ եմ Քեզ",
-            "latestVersion": "Word songs/694 Տեր ծարավ եմ Քեզ v3.docx",
+            "latestVersion": "Word songs/694 Տեր ծարավ եմ Քեզ v4.docx",
             "v1": "Word songs/694 Տեր ծարավ եմ Քեզ.docx",
             "key": "Am",
             "speed": "65",
@@ -7171,7 +7176,8 @@
             "Comments": "Ballad-P1-8",
             "v2": "Word songs/694 Տեր ծարավ եմ Քեզ v2.docx",
             "v3": "Word songs/694 Տեր ծարավ եմ Քեզ v3.docx",
-            "match": null
+            "match": null,
+            "v4": "Word songs/694 Տեր ծարավ եմ Քեզ v4.docx"
         },
         "695": {
             "Title": "Երգիր Տիրոջը ողջ երկիր",
@@ -7215,7 +7221,7 @@
         },
         "698": {
             "Title": "Լույս աշխարհի երկնքից եկար աշխարհ",
-            "latestVersion": "Word songs\\pptSong\\698.docx",
+            "latestVersion": "Word songs/698 Լույս աշխարհի երկնքից եկար աշխարհ v2.docx",
             "v1": "Word songs\\pptSong\\698.docx",
             "match": [
                 [
@@ -7223,7 +7229,8 @@
                     "944",
                     0.723894564493643
                 ]
-            ]
+            ],
+            "v2": "Word songs/698 Լույս աշխարհի երկնքից եկար աշխարհ v2.docx"
         },
         "699": {
             "Title": "Տեր անչափ հեռու ես Դու",
@@ -7584,7 +7591,7 @@
         },
         "729": {
             "Title": "Հպվիր ինձ Սուրբ Հոգի  հպվիր",
-            "latestVersion": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր.docx",
+            "latestVersion": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր v2.docx",
             "v1": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր.docx",
             "key": "Dm",
             "speed": "72",
@@ -7598,7 +7605,8 @@
                     "776",
                     0.8287645646094488
                 ]
-            ]
+            ],
+            "v2": "Word songs/729 Հպվիր ինձ Սուրբ Հոգի  հպվիր v2.docx"
         },
         "730": {
             "Title": "Օ քո փառքը, ներկայությունը",
@@ -7921,7 +7929,7 @@
         },
         "754": {
             "Title": "Արժան ես փառքերի",
-            "latestVersion": "Word songs/754 Արժան ես փառքերի.docx",
+            "latestVersion": "Word songs/754 Արժան ես փառքերի v2.docx",
             "v1": "Word songs/754 Արժան ես փառքերի.docx",
             "key": "Gm (-2)",
             "speed": "67",
@@ -7935,7 +7943,8 @@
                     "631",
                     0.5722332441804111
                 ]
-            ]
+            ],
+            "v2": "Word songs/754 Արժան ես փառքերի v2.docx"
         },
         "755": {
             "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
@@ -8456,6 +8465,21 @@
             "Title": "",
             "latestVersion": "Word songs/6492  v1.docx",
             "v1": "Word songs/6492  v1.docx"
+        },
+        "16": {
+            "Title": "",
+            "latestVersion": "Word songs/16  v1.docx",
+            "v1": "Word songs/16  v1.docx"
+        },
+        "17": {
+            "Title": "",
+            "latestVersion": "Word songs/17  v1.docx",
+            "v1": "Word songs/17  v1.docx"
+        },
+        "45": {
+            "Title": "",
+            "latestVersion": "Word songs/45  v1.docx",
+            "v1": "Word songs/45  v1.docx"
         }
     }
 }
