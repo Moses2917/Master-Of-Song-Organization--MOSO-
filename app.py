@@ -445,7 +445,7 @@ def today_songs():
     basePth:str = all_past_songs[WordDoc]['basePth']
     # songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
     onedrive: str | None = env.get("OneDrive")
-    songPth = os.path.join(onedrive,basePth)
+    songPth = os.path.join(onedrive,basePth, WordDoc)
     from doc_color import get_colored_text
     colored_text = get_colored_text(songPth)
     dateModOnFile: datetime = datetime.fromtimestamp(last_modified_date)
