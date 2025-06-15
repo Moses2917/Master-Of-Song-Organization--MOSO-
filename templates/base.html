@@ -225,14 +225,17 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('tsank_A_Z')}}">Այբենական Ցանկ</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link active" href="{{url_for('check_past_songs')}}">Անցյալ Երգեր Գտնող</a>
-          </li>
+          </li> -->
+          <li class="nav-item">
+              <a class="nav-link active" href="{{url_for('transliterate')}}">Transliterate</a>
+            </li>
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('today_songs')}}">Այսօրվա Երգեր</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url_for('event')}}">Տոնի Երգեր</a>
+            <a class="nav-link active" href="{{url_for('event')}}#top">Տոնի Երգեր</a>
           </li>
           {% if session['user']%}
             {% if session['user']['userinfo']['admin'] %}
@@ -242,9 +245,6 @@
             <li class="nav-item">
               <a class="nav-link active" href="{{url_for('weekdaySong')}}">New Weekday Song</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link active" href="{{url_for('transliterate')}}">Transliterate</a>
-            </li> -->
             <!-- <li class="nav-item">
               <a class="nav-link active" href="{{url_for('known_songs')}}">Is This a Known Song</a>
             </li> -->
@@ -335,6 +335,7 @@
   </div>
 
   <script>
+    // DEPRICATED
     async function getResults() {
       searchLyrics = document.getElementById('searchLyrics').value;
       let search_url = {{ url_for('songSearch', searchLyrics =searchLyrics)|tojson }} //To get the base url for search
@@ -397,7 +398,7 @@
         
         document.querySelectorAll("textarea").forEach(function(textarea) {
           textarea.style.height = textarea.scrollHeight + "px";
-          textarea.style.overflowY = "hidden";
+          textarea.style.overflowY = "scroll";
           
           textarea.addEventListener("input", function() {
             this.style.height = "auto";
@@ -410,7 +411,7 @@
         function autoTextareaHeight() {
           document.querySelectorAll("textarea").forEach(function(textarea) {
             textarea.style.height = textarea.scrollHeight + "px";
-            textarea.style.overflowY = "hidden";
+            textarea.style.overflowY = "scroll";
             
             textarea.addEventListener("input", function() {
               this.style.height = "auto";

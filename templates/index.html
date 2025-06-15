@@ -84,8 +84,8 @@
                     <label for="query" class="form-label">Search Query:</label>
                     <div class="input-group">
                         <input type="text" id="query" name="query" value="{{ query }}" class="form-control">
+                    </div>
                 </div>
-            </div>
                 
                 <label for="attribute" class="form-label">Search Mode:</label>
                 <div class="input-group" id="search_mode">
@@ -121,15 +121,25 @@
 
                 </div>
                 <br>
-                <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit"
-                    onclick="tsank_search()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
-                        </path>
-                    </svg>
-                    Search</button>
+                    <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit"
+                        onclick="tsank_search()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
+                            </path>
+                        </svg>
+                        Search</button>
+                    <div class="col-4">
+                        <label for="num_results" class="form-label">Number of results</label>
+                        <select class="form-select form-select-lg" name="num_results" id="num_results">
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
             </div>
         </header>
         <div class="container mt-5" id="keyboard_container">
@@ -404,8 +414,17 @@
                     return attr
                 }
             }
+            const inputElement = document.getElementById("num_results");
+            number_results = ''
+            inputElement.addEventListener("input", function(event) {
+            number_results = event.target.value;
+            search()
+            // console.log("New input value:", newInputValue);
+            // Do something with the updated value
+            });
             function search() {
                 spinner() // show spinner while searching
+                // let number_results = document.getElementById("num_results").value
                 fetch('/', {
                     method: 'POST',
                     headers: {
@@ -415,7 +434,8 @@
                         // 'session': session,
                         'attribute': getAttribute(),
                         'book': book.value,
-                        'query': query.value
+                        'query': query.value,
+                        'number_results': number_results
                     })
                 })
                     .then(response => response.text())

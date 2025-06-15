@@ -101,11 +101,11 @@ class SearchEngine:
         all_matches.sort(key=lambda x: x[2], reverse=True)
         
         # Return top k results
-        return all_matches[:top_k]
+        return all_matches[:top_k] if len(all_matches) > top_k else all_matches
     
     def search(self, query, top_k=10):
         """Search for songs matching the query and return top k results"""
-        return self.search_lyrics(query, top_k=top_k)
+        return self.search_lyrics(query, top_k=int(top_k))
     
     def get_lyrics_by_id(self, section, song_id):
         """Retrieve original lyrics for a given song ID"""
@@ -227,7 +227,7 @@ def combine():
 # Todo; 446 and 778 old, keep on matching above 47% for whatever reason.
 
 if __name__ == "__main__":
-    lyr = "-778-Երգեք Տիրոջը  նրա սուրբերԵրգեցեք նրա սուրբ անվանԵրգեցեք Տիրոջըը նրա սուրբերՓառք նրա սուրբ անվանՆրա բարկությունը մի պահ էՓառք նրա սուրբ անվանՆրա Բարությունը հավիտյանՓառք նրա սուրբ անվանԼացը մինջև երեկո էՓառք նրա սուրբ անվանՁայն առավոտը ցնծությանՓառք նրա սուրբ անվան"
+    lyr = "Երգեք Տիրոջը  նրա սուրբերԵրգեցեք նրա սուրբ անվանԵրգեցեք Տիրոջըը նրա սուրբերՓառք նրա սուրբ անվանՆրա բարկությունը մի պահ էՓառք նրա սուրբ անվանՆրա Բարությունը հավիտյանՓառք նրա սուրբ անվանԼացը մինջև երեկո էՓառք նրա սուրբ անվանՁայն առավոտը ցնծությանՓառք նրա սուրբ անվան"
     search_engine = SearchEngine()
     print(search_engine.search_and_display(lyr))
     # Similer_Song_Matcher = SimilerSongMatcher()

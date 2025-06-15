@@ -250,17 +250,61 @@ def saveHtml(filePth, WordDoc):
             # Perform rest of ops in the 'with' statement
             return Document(tmp_file)
     
-    print("Saving File...")
+    # print("Saving File...")
     
-    doc = tmp_file_copy(filePth) #Document(filePth)  # load doc file
+    doc = tmp_file_copy(filePth)
     from doc_color import get_colored_text, get_all_colored_text
-    
-    html_text, song_nums = get_all_colored_text(doc=doc)
-    
+
+    # Extract text WITH color info using Method 1's song logic
+    text_with_colors = ''
+    start_song = False
+    song_counter = 0
+    song_nums = []
+
+    for para in doc.paragraphs:
+        para_html = ''
+        for run in para.runs:
+            text = run.text
+
+            if start_song:
+                if song_counter != 1:
+                    para_html += f'</div>'
+                para_html += f'<div id="song-{song_counter}">'
+                song_nums.append(text)
+                start_song = False
+                
+            if "start" in text:
+                start_song = True
+                song_counter += 1
+            
+            # Add color formatting
+            text_color = run.font.color.rgb
+            if bool(text_color) and str(text_color) != "000000":
+                para_html += f'<span style="color: #{text_color};">{text}</span>'
+            else:
+                para_html += text
+        
+        text_with_colors += para_html + '\n'
+
+    # Spacing logic
+    chunks = text_with_colors.split('\n\n')
+    html_chunks = []
+
+    for chunk in chunks:
+        lines = chunk.split('\n')
+        html_lines = []
+        
+        for line in lines:
+            html_lines.append('<p>' + line + '</p>')
+        
+        html_chunk = ''.join(html_lines)
+        html_chunks.append(html_chunk)
+
+    html_text = '<br>'.join(html_chunks)
+
     with open(f"{onedrive_path}/Documents/Code/Python/htmlsongs/{WordDoc}.txt", 'w', encoding='utf-8') as f:
-        for line in html_text:
-            f.write(line)
-    
+        f.write(html_text)
+    # print(song_nums)
     return song_nums
 
 @app.route('/search/<searchLyrics>', methods=['GET'])
@@ -276,8 +320,11 @@ def songSearch(searchLyrics) -> list:
     """
 
     if searchLyrics:
-        results = search_engine.search(searchLyrics)
+        data = request.get_json(silent=True, cache=True)
+        num_results = 10 if not data.get("number_results", None) else data.get("number_results", None)
+        # print(f"num Results = {num_results}")
         searchResults = []
+        results = search_engine.search(query=searchLyrics, top_k=num_results) if num_results else search_engine.search(query=searchLyrics)
  
         # print(results)
         if results[0][2] > 0:
@@ -298,7 +345,8 @@ def songSearch(searchLyrics) -> list:
                 searchResults.append(
                     f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=result[0],songnum=result[1])}">{result[1]}: {title}</a>'''
                 )
-
+        # for result in searchResults:
+        #     re.match
         return json.dumps(searchResults)
 
 @app.route('/song/<book>/<songnum>', methods=['GET','POST'])
@@ -426,6 +474,7 @@ def today_songs():
                 return render_template("display_docx.html", lyrics = lyrics, colored_text=colored_text)
     else:
         all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
+        # print(WordDoc)
         with ThreadPoolExecutor() as futures:
             future = futures.submit(saveHtml, songPth, WordDoc)
             # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
@@ -1211,7 +1260,9 @@ def song_analysis():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001 if os.name == 'posix' else 5000))
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5002 if os.name == 'posix' else 5000), 
+            #ssl_context=(r'C:\Certbot\live\songinfo.us.to\fullchain.pem',r'C:\Certbot\live\songinfo.us.to\privkey.pem')
+            )
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
     

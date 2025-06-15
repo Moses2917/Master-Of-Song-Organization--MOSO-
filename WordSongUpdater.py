@@ -134,7 +134,7 @@ def getDocTextAndIndentation(filename:str):
     
 
     text_and_indentation = [] #turn into a list of dicts
-    song = []
+    song = [] # Remove this it does nothing.
     bookOld = False
     first = True
     have_we_started = False
@@ -163,6 +163,9 @@ def getDocTextAndIndentation(filename:str):
             right_indent = p.paragraph_format.right_indent
 
             Placeholder = my_doc.add_paragraph(p.text)
+            # for run in p.runs:
+                
+            #     ...
             Placeholder.paragraph_format.space_after = 0
             if first_line_indent is not None:
                 Placeholder.paragraph_format.first_line_indent = first_line_indent
@@ -311,4 +314,5 @@ def getNums(filename: str):
     # return  SongList
 
 if "__main__" == __name__:
-    print(getDocTextAndIndentation(r"C:\Users\moses\OneDrive\Երգեր\10.2024\10.31.24TESTSAVE.docx"))
+    # print(getDocTextAndIndentation(r"C:\Users\moses\OneDrive\Երգեր\10.2024\10.31.24TESTSAVE.docx"))
+    print(getNums(r"C:\Users\moses\OneDrive\Երգեր\Պենտեկոստե\2025\Պենտեկոստե.docx"))
