@@ -473,8 +473,8 @@ def today_songs():
                     lyrics = f.read()
                 return render_template("display_docx.html", lyrics = lyrics, colored_text=colored_text)
     else:
-        all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
-        # print(WordDoc)
+        # all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
+        # print(songPth)
         with ThreadPoolExecutor() as futures:
             future = futures.submit(saveHtml, songPth, WordDoc)
             # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
@@ -762,7 +762,7 @@ def home():
                     filtered_data[query] = table_data[query]
                 else:
                     query = query.lower()
-                    query = re.sub(r'[-:։՝՝՜՛,.(0-9)]+','',query)
+                    query = re.sub(r'[^\w\s]','',query)
                     for song_num, attr in table_data.items():
                         if attribute == 'all':
                             # Search in all attributes
@@ -772,7 +772,7 @@ def home():
                             # Search only in the specified attribute
                             found_song_title = str(attr[attribute]).lower()
                             print(f"Found in dict: {found_song_title}")
-                            found_song_title = re.sub(r'[-:։՝՝՜՛,.(0-9)]+','',found_song_title)
+                            found_song_title = re.sub(r'[^\w\s]','',found_song_title)
                             # found_song_title = re.sub(r'[\\n\s]', ' ', found_song_title)
                             print(f"Found in dict(modified): {found_song_title}")
                             print(f"Usr Input: {query}")
