@@ -354,12 +354,6 @@
         });
     </script>
     <script>
-        const inputElement = document.getElementById("num_results");
-        number_results = ''
-        inputElement.addEventListener("input", function (event) {
-            number_results = event.target.value;
-            search()
-        });
         function book_select() {
             if (attribute.value == 'Full_Text') {
                 tsank_search_div.style.display = 'block'
@@ -397,126 +391,13 @@
             return !open
         }
         // book_select()
-        function spinner() {
-            songstable.innerHTML = '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
-        }
-        function getAttribute() {
-            let query = document.getElementById('query').value;
-            let attr = document.getElementById('attribute').value;
-            if (attr == 'all') {
-                // Check if the attribute is numeric
-                if (!isNaN(query) && query.trim() !== '') {
-                    return 'SongNum';
-                } else {
-                    return 'Title';
-                }
-            }
-            else {
-                return attr
-            }
-        }
-        function search() {
-            spinner() // show spinner while searching
-            // let number_results = document.getElementById("num_results").value
-            fetch('/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    // 'session': session,
-                    'attribute': getAttribute(),
-                    'book': book.value,
-                    'query': query.value,
-                    'number_results': number_results
-                })
-            })
-                .then(response => response.text())
-                .then(text => {
-                    const table = document.createElement('table'); // table
-                    table.classList.add('table')//, 'table-striped', 'table-hover'); // table class
-                    const thead = document.createElement('thead');
-                    const tr = document.createElement('tr');
-                    let ths = ['SongNum', 'Title', 'latestVersion', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments', 'Last Sang On'];
-                    if (attribute.value == 'Full_Text' && query.value != '') {
-                        ths = ['Book', 'SongNum', 'Title', 'Lyrics', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
-                    }
-                    for (const th of ths) {
-                        const thEl = document.createElement('th');
-                        thEl.textContent = th;
-                        tr.appendChild(thEl);
-                    }
-                    thead.appendChild(tr);
-                    table.appendChild(thead);
-                    const tbody = document.createElement('tbody');
-                    tbody.id = "tablebody";
-                    table.appendChild(tbody);
-                    document.getElementById('songstable').innerHTML = '';
-                    document.getElementById('songstable').appendChild(table);
-                    // console.log(text)
-                    // tablebody.textContent='' //clear the table, Could also do class="fw-normal" if too much eye-sore
-                    // for (const [key, value] of entries) {
-                    if (attribute.value == 'Full_Text' && query.value != '') {
-                        const result = JSON.parse(text)//Object.entries(text);
-                        // const result = text.json()
-                        // const entries = result[0]
-                        // console.log(entries)
-                        // const song_order = result[1]
-                        const list = (fs) => {
-                            Object.entries(fs).forEach(([song_num, values]) => {
-                                const row = document.createElement('tr');
-                                row.setAttribute('id', key);
-                                row.innerHTML = `
-                                <td data-bs-toggle="tooltip" data-bs-title="Book">${values['book'] || ''}</td>
-                                <td><a class="btn btn-outline-primary" href="/song/${values['book']}/${song_num}" rel="prefetch">${song_num}</a></td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${values['Title'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="lyrics">${values['lyrics'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Key">${values['key'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${values['speed'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${values['timeSig'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${values['style'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${values['song_type'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${values['Comments'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${values['last_sang_on'] || ''}</td>
-                                `;
-                                tablebody.appendChild(row);
-                            });
-                        }
-                        result.forEach(e => list(e))
-                    }
-                    else {
-                        const result = JSON.parse(text)//Object.entries(text);
-                        const entries = result
-                        const innerDict = result[0];  // Get the dictionary inside key "0"
-
-                        // Print all key-value pairs
-                        Object.entries(innerDict).forEach(([key, value]) => {
-                            console.log(`Key: ${key}, Value:`, value);
-
-                            // for (const [key, value] of Object.entries(tsank)) {
-                            const row = document.createElement('tr');
-                            row.setAttribute('id', key);
-
-                            row.innerHTML = `
-                                <td><a class="btn btn-outline-primary" href="/song/${book.value}/${key}">${key}</a></td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="latestVersion">${value['latestVersion'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${value['last_sang_on'] || ''}</td>
-                                `;
-                            tablebody.appendChild(row);
-                        });
-                    }
-                });
-
-        }
         async function tsank_search() {
             
+            function spinner() {
+                songstable.innerHTML = '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
+            }
+
+
             if (attribute.value == 'Full_Text' && query.value != '') { //and there is a search query in it
                 // spinner()
                 scrollspydiv.style = "position: fixed; left: 20px; display: none"
@@ -528,8 +409,154 @@
                 search()
 
             }
-            
-            if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
+            function getAttribute() {
+                let query = document.getElementById('query').value;
+                let attr = document.getElementById('attribute').value;
+                if (attr == 'all'){
+                    // Check if the attribute is numeric
+                    if (!isNaN(query) && query.trim() !== '') {
+                        return 'SongNum';
+                    } else {
+                        return 'Title';
+                    }
+                }
+                else{
+                    return attr
+                }
+            }
+            const inputElement = document.getElementById("num_results");
+            number_results = ''
+            inputElement.addEventListener("input", function(event) {
+                number_results = event.target.value;
+                search()
+            });
+            function search() {
+                spinner() // show spinner while searching
+                // let number_results = document.getElementById("num_results").value
+                fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        // 'session': session,
+                        'attribute': getAttribute(),
+                        'book': book.value,
+                        'query': query.value,
+                        'number_results': number_results
+                    })
+                })
+                    .then(response => response.text())
+                    .then(text => {
+                        const table = document.createElement('table'); // table
+                        table.classList.add('table')//, 'table-striped', 'table-hover'); // table class
+                        const thead = document.createElement('thead');
+                        const tr = document.createElement('tr');
+                        let ths = ['SongNum', 'Title', 'latestVersion', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments','Last Sang On'];
+                        if (attribute.value == 'Full_Text' && query.value != '') {
+                            ths = ['Book', 'SongNum', 'Title', 'Lyrics', 'Key', 'Speed', 'Time Signature', 'Style', 'Song Type', 'Comments'];
+                        }
+                        for (const th of ths) {
+                            const thEl = document.createElement('th');
+                            thEl.textContent = th;
+                            tr.appendChild(thEl);
+                        }
+                        thead.appendChild(tr);
+                        table.appendChild(thead);
+                        const tbody = document.createElement('tbody');
+                        tbody.id = "tablebody";
+                        table.appendChild(tbody);
+                        document.getElementById('songstable').innerHTML = '';
+                        document.getElementById('songstable').appendChild(table);
+                        // console.log(text)
+                        // tablebody.textContent='' //clear the table, Could also do class="fw-normal" if too much eye-sore
+                        // for (const [key, value] of entries) {
+                            if (attribute.value == 'Full_Text' && query.value != '') {
+                                const result = JSON.parse(text)//Object.entries(text);
+                                // const result = text.json()
+                                // const entries = result[0]
+                                // console.log(entries)
+                                // const song_order = result[1]
+                                const list = (fs) => {Object.entries(fs).forEach(([song_num, values]) => {
+                                    const row = document.createElement('tr');
+                                    row.setAttribute('id', key);
+                                    row.innerHTML = `
+                                    <td data-bs-toggle="tooltip" data-bs-title="Book">${values['book'] || ''}</td>
+                                    <td><a class="btn btn-outline-primary" href="/song/${values['book']}/${song_num}" rel="prefetch">${song_num}</a></td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Title">${values['Title'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="lyrics">${values['lyrics'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Key">${values['key'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Speed">${values['speed'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${values['timeSig'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${values['style'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Type">${values['song_type'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${values['Comments'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${values['last_sang_on'] || ''}</td>
+                                    `;
+                                    tablebody.appendChild(row);
+                                });}
+                                result.forEach(e => list(e))
+                            }
+                            else {
+                                const result = JSON.parse(text)//Object.entries(text);
+                                const entries = result
+                                const innerDict = result[0];  // Get the dictionary inside key "0"
+
+                                // Print all key-value pairs
+                                Object.entries(innerDict).forEach(([key, value]) => {
+                                    console.log(`Key: ${key}, Value:`, value);
+                                
+                                // for (const [key, value] of Object.entries(tsank)) {
+                                    const row = document.createElement('tr');
+                                    row.setAttribute('id', key);
+                                    
+                                    row.innerHTML = `
+                                    <td><a class="btn btn-outline-primary" href="/song/${book.value}/${key}">${key}</a></td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="latestVersion">${value['latestVersion'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
+                                    <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${value['last_sang_on'] || ''}</td>
+                                    `;
+                                    tablebody.appendChild(row);
+                                // }
+                            });
+                                // song_nums = Array(1000).keys()
+                                // song_nums.forEach(song_num => {
+                                //     try {
+                                //         const row = document.createElement('tr');
+                                //         row.setAttribute('id', key);
+                                //         row.innerHTML = `
+                                //         <td><a class="btn btn-outline-primary" href="/song/${book.value}/${song_num}">${song_num}</a></td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="Song Title">${entries[song_num]['Title'] || ''}</td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="lyrics">${entries[song_num]['latestVersion'] || ''}</td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="Key">${entries[song_num]['key'] || ''}</td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="Speed">${entries[song_num]['speed'] || ''}</td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${entries[song_num]['timeSig'] || ''}</td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${entries[song_num]['style'] || ''}</td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="Song Type">${entries[song_num]['song_type'] || ''}</td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${entries[song_num]['Comments'] || ''}</td>
+                                //         <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${entries[song_num]['last_sang_on'] || ''}</td>
+                                //         `;
+                                //         tablebody.appendChild(row);
+                                //     } catch (error) {
+                                //         console.log("song num not found:", song_num)
+                                //     }
+                                    
+                                // });
+                                
+                            }
+                            
+                        
+                    });
+                    
+                }
+
+                if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
                 scrollspydiv.style = "position: fixed; left: 20px;"
                 if (attribute.value == 'all' && query.value == '') { //case: attr.val == 'all'
                     search()
@@ -540,7 +567,7 @@
                 init_tooltip();
             }
             if (book.value == '' && attribute.value != 'Full_Text') { //if a book is not selected
-                songstable.in                                   ss="alert alert-warning f                  ected</div>'
+                songstable.innerHTML = '<div class="alert alert-warning fade show" role="alert">No book selected</div>'
             }
         }
 

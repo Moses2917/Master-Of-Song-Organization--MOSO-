@@ -53,14 +53,12 @@ class SearchEngine:
         # text = re.sub(r'[՝՝՜՛,-:։,.(0-9)]+', '', text, re.MULTILINE)
         # # Remove other punctuation, digits, and normalize whitespace
         # text = re.sub(r'[\\n\s]+', ' ', text, re.MULTILINE)
-
         text = re.sub(pattern=r"[^ա-ֆԱ-Ֆ\s]", repl="",string=text,count=0,flags=re.MULTILINE)
+        text_lines = text.splitlines()
+        text = ""
 
-        # text_lines = text.splitlines()
-        # text = ""
-
-        # for string in text_lines:
-        #     text += string
+        for string in text_lines:
+            text += string
         
         # pprint(text)
         return text.strip()
@@ -71,10 +69,9 @@ class SearchEngine:
             lowercase=True,
             ngram_range=(1, 3),  # Use word n-grams, 3,6 very useful for 1:1 matching of songs
             analyzer='word',
-            min_df=2,            # Ignore very rare terms
-            max_df=0.9,          # Ignore very common terms
-            # strip_accents="unicode",
-            # token_pattern="[ա-ֆԱ-Ֆ]"
+            min_df=1,            # Ignore very rare terms
+            max_df=1,          # Ignore very common terms
+            strip_accents="unicode",
 
         )
         tfidf_matrix = vectorizer.fit_transform(lyrics)
@@ -244,7 +241,7 @@ def combine():
 
 if __name__ == "__main__":
     lyr = "Երգեք Տիրոջը  նրա սուրբերԵրգեցեք նրա սուրբ անվանԵրգեցեք Տիրոջըը նրա սուրբերՓառք նրա սուրբ անվանՆրա բարկությունը մի պահ էՓառք նրա սուրբ անվանՆրա Բարությունը հավիտյանՓառք նրա սուրբ անվանԼացը մինջև երեկո էՓառք նրա սուրբ անվանՁայն առավոտը ցնծությանՓառք նրա սուրբ անվան"
-    lyr = "պաս է Դե հե"# պաս է Դե հե զընգը զընգը դե հե ջան,"
+    lyr = "Եղբայրներ ցնծացեք"# պաս է Դե հե զընգը զընգը դե հե ջան,"
     search_engine = SearchEngine()
     print(search_engine.search(lyr))
     # Similer_Song_Matcher = SimilerSongMatcher()

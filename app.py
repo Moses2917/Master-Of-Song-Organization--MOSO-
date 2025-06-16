@@ -758,27 +758,35 @@ def home():
                 filtered_data = {}
                 query:str
                 # Old code for when I had multiple search options, now just does title, as its the most often used
-                if attribute == 'SongNum': 
-                    filtered_data[query] = table_data[query]
+                # if attribute == 'SongNum': 
+                #     filtered_data[query] = table_data[query]
+                # else:
+                    # Handle numeric queries separately
+                cleaned_numeric_query = re.sub(r'[-՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
+                if cleaned_numeric_query.strip().isdigit():
+                    filtered_data[cleaned_numeric_query] = table_data.get(cleaned_numeric_query, None)
                 else:
-                    query = query.lower()
-                    query = re.sub(r'[^\w\s]','',query)
-                    for song_num, attr in table_data.items():
-                        if attribute == 'all':
-                            # Search in all attributes
-                            if any(query in str(val).lower() for val in attr.values()):
-                                filtered_data[song_num] = attr
-                        elif attribute in attr:
-                            # Search only in the specified attribute
-                            found_song_title = str(attr[attribute]).lower()
-                            print(f"Found in dict: {found_song_title}")
-                            found_song_title = re.sub(r'[^\w\s]','',found_song_title)
-                            # found_song_title = re.sub(r'[\\n\s]', ' ', found_song_title)
-                            print(f"Found in dict(modified): {found_song_title}")
-                            print(f"Usr Input: {query}")
-                            if found_song_title in query:
-                                filtered_data[song_num] = attr
-                            break
+                    query_lower = query.lower()
+                    cleaned_query = re.sub(r'[^ա-ֆԱ-Ֆ\s]','',query_lower)
+                    # print(cleaned_query)
+                    # Build the regex string used for search
+                    regex_str = fr"{cleaned_query}*[ա-ֆԱ-Ֆ].*"
+                    for song_num, attrs in table_data.items():
+                        # attrs is the dict containing all attrs
+                        if re.match(regex_str, table_data[song_num]["Title"].lower()):
+                            match = table_data[song_num]["Title"]
+                            # print(f"Found a potential match at: { match }")
+                            filtered_data[song_num] = attrs
+                        # # Search only in the specified attribute
+                        # found_song_title = str(attr[attribute]).lower()
+                        # print(f"Found in dict: {found_song_title}")
+                        # found_song_title = re.sub(r'[^\w\s]','',found_song_title)
+                        # # found_song_title = re.sub(r'[\\n\s]', ' ', found_song_title)
+                        # print(f"Found in dict(modified): {found_song_title}")
+                        # print(f"Usr Input: {query_cleaned}")
+                        # if found_song_title in query_cleaned:
+                        #     filtered_data[song_num] = attr
+                        # break
                 table_data: list[dict] = [filtered_data]
                 return json.dumps(table_data)
             
