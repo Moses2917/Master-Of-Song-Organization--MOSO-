@@ -5,6 +5,7 @@ from os import environ as env
 from os import stat
 import os
 from os.path import join
+from pprint import pprint
 from random import random
 import re
 import secrets
@@ -122,7 +123,7 @@ def logout():
         )
     )
 
-#Function to check the eligability of user to access the webpage, BOOL
+# Function to check the eligability of user to have admin access
 def isUserAllowed(email):
     """
     Checks if the provided email is allowed to access the webpage.
@@ -487,34 +488,35 @@ def today_songs():
 @app.route('/events', methods=["GET", "POST"])
 def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե.docx"):
     folder_path = os.path.join(onedrive_path,"Երգեր/Պենտեկոստե")
-    filename = os.path.join(onedrive_path, filename)
+    print(folder_path)
+    # filename = os.path.join(onedrive_path, filename)
     # from doc_color import get_colored_text
     # colored_text = get_colored_text(filename)
     if request.method == 'GET':
-        with ThreadPoolExecutor() as futures:
-            future = futures.submit(saveHtml, filename, "Պենտեկոստե.docx") 
-            # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
-            result = future.result()
-            # result2 = save.result()
-        with open(f"htmlsongs/Պենտեկոստե.docx.txt", 'r', encoding='utf-8') as f:
-            html_text = f.read()
-        return render_template("display_docx.html", lyrics=html_text, song_nums=result)
+        # with ThreadPoolExecutor() as futures:
+        #     future = futures.submit(saveHtml, filename, "Պենտեկոստե.docx") 
+        #     # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
+        #     result = future.result()
+        #     # result2 = save.result()
+        # with open(f"htmlsongs/Պենտեկոստե.docx.txt", 'r', encoding='utf-8') as f:
+        #     html_text = f.read()
+        # return render_template("display_docx.html", lyrics=html_text, song_nums=result)
         # list to hold all dirs, with relative reference starting at fp
-        # roots = []
-        # os_files = {}
-        # for root, dirs, files in os.walk(folder_path):
-        #     # Ignore the folder itself. So, if "static" we don't want it!
-        #     if root != folder_path:
-        #         root = root.replace("\\","/")
-        #         # print(root)
-        #         roots.append(root)
-        #         tmp_file = []
-        #         files = list(map(lambda file: f'<button type="submit" name="selected_file" value="{os.path.join(root,file)}" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>' if '.ppt' not in file else '', files))
-        #         os_files[root] = files
-        # roots.sort(reverse=True)
-        # # print(roots)
-        # # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
-        # return render_template("event.html", os_files=os_files, roots=roots)
+        roots = []
+        os_files = {}
+        for root, dirs, files in os.walk(folder_path):
+            # Ignore the folder itself. So, if "static" we don't want it!
+            if root != folder_path:
+                root = root.replace("\\","/")
+                # print(root)
+                roots.append(root)
+                tmp_file = []
+                files = list(map(lambda file: f'<button type="submit" name="selected_file" value="{os.path.join(root,file)}" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>' if '.ppt' not in file else '', files))
+                os_files[root] = files
+        roots.sort(reverse=True)
+        # print(roots)
+        # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
+        return render_template("event.html", os_files=os_files, roots=roots)
     else:
         selected_file = request.form.get(key='selected_file')
         # selected_file = 
@@ -533,6 +535,54 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
             return render_template("display_docx.html", lyrics=html_text)
         else:
             return 'No text found'
+
+
+@app.route('/youth', methods=["GET", "POST"])
+def youth():
+    # folder_path = os.path.join(onedrive_path,"Youth Songs")
+
+    
+    folder_path = os.path.join(onedrive_path,"Youth Songs")
+    # folder_path = "static/pictures"
+    # filename = os.path.join(onedrive_path, filename)
+    # from doc_color import get_colored_text
+    # colored_text = get_colored_text(filename)
+    if request.method == 'GET':
+        roots = []
+        os_files = {}
+        for root, dirs, files in os.walk(folder_path):
+            # Ignore the folder itself. So, if "static" we don't want it!
+            # if root != folder_path:
+            root = root.replace("\\","/")
+            # print(root)
+            roots.append(root)
+            tmp_file = []
+            files = list(map(lambda file: f'<button type="submit" name="selected_file" value="{os.path.join(root,file)}" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>' if '.ppt' not in file else '', files))
+            os_files[root] = files
+        roots.sort(reverse=True)
+        # print(roots)
+        # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
+        # pprint(os_files)
+        return render_template("youth.html", os_files=os_files)#, roots=roots)
+    else:
+        selected_file = request.form.get(key='selected_file')
+        # selected_file = 
+        # is_dir = request.form.get('is_dir')
+        # print(selected_file)
+        if selected_file and os.path.exists(selected_file):
+            basename = os.path.basename(selected_file) # basename returns the filename. Could've been done in saveHtml
+            
+            with ThreadPoolExecutor() as futures:
+                future = futures.submit(saveHtml, selected_file, basename) 
+                save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
+                result = future.result()
+                result2 = save.result()
+            with open(f"htmlsongs\\{basename}.txt", 'r', encoding='utf-8') as f:
+                html_text = f.read()
+            return render_template("display_docx.html", lyrics=html_text)
+        else:
+            return 'No text found'
+
 
 @app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc) -> str:

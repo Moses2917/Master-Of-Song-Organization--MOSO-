@@ -2875,7 +2875,7 @@
             "latestVersion": "Word songs/297 Տիրոջ հաղթության դրոշ v4.docx",
             "v1": "Word songs\\297 Տիրոջ հաղթության դրոշ.docx",
             "key": "F#m",
-            "speed": "67",
+            "speed": "64",
             "style": "Ballad",
             "song_type": "Worship Song",
             "timeSig": "4/4",
@@ -5198,7 +5198,7 @@
         },
         "511": {
             "Title": "Աղաղակեցեք դեաի Տեր",
-            "latestVersion": "Word songs/511 Աղաղակեցեք դեաի Տեր v3.docx",
+            "latestVersion": "Word songs/511 Աղաղակեցեք դեաի Տեր v5.docx",
             "v1": "Word songs/511 Աղաղակեցեք դեաի Տեր.docx",
             "key": "Gm",
             "speed": "68",
@@ -5208,7 +5208,9 @@
             "Comments": "Pop-P1-3",
             "match": null,
             "v2": "Word songs/511 Աղաղակեցեք դեաի Տեր v2.docx",
-            "v3": "Word songs/511 Աղաղակեցեք դեաի Տեր v3.docx"
+            "v3": "Word songs/511 Աղաղակեցեք դեաի Տեր v3.docx",
+            "v4": "Word songs/511 Աղաղակեցեք դեաի Տեր v4.docx",
+            "v5": "Word songs/511 Աղաղակեցեք դեաի Տեր v5.docx"
         },
         "512": {
             "Title": "Սուրբ Հոգի արի (3) Սուրբ Հոգի",
@@ -5754,7 +5756,7 @@
         },
         "556": {
             "Title": "Սուրբ ես (2) Օրհնյալ Աստված",
-            "latestVersion": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v3.docx",
+            "latestVersion": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v5.docx",
             "v1": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված.docx",
             "v2": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v2.docx",
             "v3": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v3.docx",
@@ -5764,7 +5766,9 @@
             "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Dance-P5-5",
-            "match": null
+            "match": null,
+            "v4": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v4.docx",
+            "v5": "Word songs/556 Սուրբ ես (2) Օրհնյալ Աստված v5.docx"
         },
         "557": {
             "Title": "Ողջույն ձեզ հավատացյալներ",
@@ -5868,7 +5872,13 @@
                     "735",
                     0.9156336458103839
                 ]
-            ]
+            ],
+            "key": "-5",
+            "speed": "73",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "574": {
             "Title": "Երբ մեկնես ձեռքդ հզոր կհանես ինձ խավարից",
@@ -8435,8 +8445,8 @@
             ]
         },
         "760": {
-            "Title": "",
-            "latestVersion": "Word songs/760  v1.docx",
+            "Title": "Քո աչքերը ինձ տեսան",
+            "latestVersion": "Word songs/760  v3.docx",
             "v1": "Word songs/760  v1.docx",
             "key": "Am",
             "speed": "68",
@@ -8444,13 +8454,8 @@
             "song_type": "Worship Song",
             "timeSig": "4/4",
             "Comments": "Ballad-P1-8",
-            "match": [
-                [
-                    "new",
-                    "760",
-                    1.0000000000000004
-                ]
-            ]
+            "v2": "Word songs/760  v2.docx",
+            "v3": "Word songs/760  v3.docx"
         },
         "15": {
             "Title": "Ինձ տար Քո ետևից, և ես պիտի վազեմ",
@@ -8460,38 +8465,28 @@
             "v4": "Word songs/15 Ինձ տար Քո ետևից, և ես պիտի վազեմ v4.docx"
         },
         "SongNum": {
-            "Title": "Ուզում ենք, որ Դու լինես մեր հոգում",
-            "latestVersion": "Word songs/487 Ուզում ենք, որ Դու լինես մեր հոգում.docx",
-            "v1": "Word songs/487 Ուզում ենք, որ Դու լինես մեր հոգում.docx",
+            "Title": "Մենք սպասում ենք խոստացված վերջին անձրևներին",
+            "latestVersion": "Word songs/573 Մենք սպասում ենք խոստացված վերջին անձրևներին.docx",
+            "v1": "Word songs/573 Մենք սպասում ենք խոստացված վերջին անձրևներին.docx",
             "match": [
                 [
                     "new",
-                    "487",
-                    0.8588639638536328
+                    "735",
+                    0.9156336458103839
                 ]
             ],
-            "key": "Gm",
-            "speed": "100",
-            "style": "Ballad",
-            "song_type": "Single Song",
-            "timeSig": "12/8",
-            "Comments": "Ballad-P4-1"
+            "key": "-5",
+            "speed": "73",
+            "style": "Beat",
+            "song_type": "Worship Song",
+            "timeSig": "4/4",
+            "Comments": "Pop-P1-3"
         },
         "269": {
             "Title": "",
             "latestVersion": "Word songs/269  v2.docx",
             "v1": "Word songs/269  v1.docx",
             "v2": "Word songs/269  v2.docx"
-        },
-        "": {
-            "Title": "",
-            "latestVersion": "Word songs/  v1.docx",
-            "v1": "Word songs/  v1.docx"
-        },
-        "6492": {
-            "Title": "",
-            "latestVersion": "Word songs/6492  v1.docx",
-            "v1": "Word songs/6492  v1.docx"
         },
         "16": {
             "Title": "Երգում եմ քեզ իմ տեր փառք ու օրհնություն",

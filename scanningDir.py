@@ -1,5 +1,6 @@
 from genericpath import isfile
 import json
+from pprint import pprint
 import os, datetime, re
 
 
@@ -133,11 +134,13 @@ def getAllNums():
 def songCollector(sunday_only=False,ignore_sundays=False, three_month_window=True, search_range=90):
     """Generates a list of all the songs sang. Defaults to the last three months both with var and search range.
         When there is two files both with the same name, the date reader misreads
+
     #### Args:
-        sunday_only (bool, optional): If you wish to search only Sunday songs. Defaults to False.
+    # sunday_only (bool, optional): If you wish to search only Sunday songs. Defaults to False.
         ignore_sundays (bool, optional): If you wish to ignore Sunday songs. Defaults to False.
         three_month_window (bool, optional): If you want a 3 month search window. Defaults to True.
         search_range (int, optional): If you want to search within a specific range of dates. Must have three_month_window set to False. Search_range defaults to the three month window.\n
+
     #### Returns:
         blocked_list: a list containing two sub lists one of songs one for the matching book and another for the filename/date
     """
@@ -421,29 +424,29 @@ def findNewFiles():  # is for finding new files so as to only go through and add
     
     for filepth, basePth in filePths:
         with os.scandir(filepth) as songFolder:
-            for songs in songFolder:
-                if ".docx" in songs.path:
-                    if allsongs.get(songs.name, None):
+            for song_file in songFolder:
+                if ".docx" in song_file.path:
+                    if allsongs.get(song_file.name, None):
                         # lookup file in index, and if none do not run code go to else statement
-                        dateModOnFile = datetime.fromtimestamp(allsongs[songs.name]['dateMod'])
-                        currDateMod = datetime.fromtimestamp(stat(songs.path).st_mtime)
+                        dateModOnFile = datetime.fromtimestamp(allsongs[song_file.name]['dateMod'])
+                        currDateMod = datetime.fromtimestamp(stat(song_file.path).st_mtime)
 
                         # if it exists in the index then do this after setting vars for comparison of dates
                         if not (currDateMod <= dateModOnFile):
                             # if the date modified of a file is greater than the one on file repalce it
-                            allsongs[songs.name] = {
-                                'dateMod': stat(songs.path).st_mtime,
-                                'path': songs.path, # Possibly don't need this as I am already saving the base path, therefore this is a derived value.
+                            allsongs[song_file.name] = {
+                                'dateMod': stat(song_file.path).st_mtime,
+                                'path': song_file.path, # Possibly don't need this as I am already saving the base path, therefore this is a derived value.
                                 'basePth': basePth,
-                                'songList': getNums(songs.path)
+                                'songList': getNums(song_file.path)
                             }
-                            print("Updated this file", songs.name)
+                            print("Updated this file", song_file.name)
                     else:
-                        allsongs[songs.name] = {
-                            'dateMod': stat(songs.path).st_mtime,
-                            'path': songs.path,
+                        allsongs[song_file.name] = {
+                            'dateMod': stat(song_file.path).st_mtime,
+                            'path': song_file.path,
                             'basePth': basePth,
-                            'songList': getNums(songs.path)
+                            'songList': getNums(song_file.path)
                         }
 
     # save to json
@@ -457,32 +460,33 @@ def findNewFiles():  # is for finding new files so as to only go through and add
     # allsongs = {} # uncomment this if you want to start from scratch or use this when making a new json, not based on songs.json
     for filepth, basePth in filePths:
         with os.scandir(filepth) as songFolder:
-            for songs in songFolder:
-                if ".docx" in songs.path:
-                    if allsongs.get(songs.name, None):
+            for song_file in songFolder:
+                if ".docx" in song_file.path:
+                    if allsongs.get(song_file.name, None):
                         # lookup file in index, and if none do not run code go to else statement
-                        dateModOnFile = datetime.fromtimestamp(allsongs[songs.name]['dateMod'])
-                        currDateMod = datetime.fromtimestamp(stat(songs.path).st_mtime)
+                        dateModOnFile = datetime.fromtimestamp(allsongs[song_file.name]['dateMod'])
+                        currDateMod = datetime.fromtimestamp(stat(song_file.path).st_mtime)
                         # if os.path.isfile(allsongs[songs.name]['path']):
                         # if it exists in the index then do this after setting vars for comparison of dates
                         if not (currDateMod <= dateModOnFile):
                             # if the date modified of a file is greater than the one on file repalce it
-                            allsongs[songs.name] = {
-                                'dateMod': stat(songs.path).st_mtime,
-                                'path': songs.path,
+                            allsongs[song_file.name] = {
+                                'dateMod': stat(song_file.path).st_mtime,
+                                'path': song_file.path,
                                 'basePth': basePth,
-                                'songList': getNums(songs.path)
+                                'songList': getNums(song_file.path)
                             }
-                            print("Updated this file", songs.name)
+                            print("Updated this file", song_file.name)
                         # else:
-                        #     print('Deleted:', songs.name)
+                        #     print('Deleted:', song_file.name)
                         #     allsongs[songs.name] = {}
                     else:
-                        allsongs[songs.name] = {
-                            'dateMod': stat(songs.path).st_mtime,
-                            'path': songs.path,
+                        print(f"Found a new file: {song_file.name}")
+                        allsongs[song_file.name] = {
+                            'dateMod': stat(song_file.path).st_mtime,
+                            'path': song_file.path,
                             'basePth': basePth,
-                            'songList': getNums(songs.path) # TODO: Make this a list again, and ensure there are no conflicts with anything using all Songs
+                            'songList': getNums(song_file.path) # TODO: Make this a list again, and ensure there are no conflicts with anything using all Songs
                         }
                     
     with open("songs_cleaned.json", mode='w', encoding='utf-8') as saveFile:
@@ -492,15 +496,10 @@ def findNewFiles():  # is for finding new files so as to only go through and add
 
 def clean_up_index():
     """
-    Cleans up the index by removing songs that no longer exist in the file system.
+    Cleans up the index by removing songs that no longer exist in the file system.\n
 
     This function reads the 'songs_cleaned.json' file, which contains a dictionary of song metadata. It iterates over each song in the dictionary and checks if the corresponding file exists in the file system. If a song file is not found, it is marked for deletion. After identifying all the songs to be deleted, the function removes them from the dictionary and writes the updated dictionary back to the 'songs_cleaned.json' file.
 
-    Parameters:
-    None
-
-    Returns:
-    None
     """
     OneDrive_pth = os.environ.get("OneDrive")
     with open("songs_cleaned.json", 'r', encoding='utf-8') as allSongs:

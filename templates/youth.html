@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 {%block content%}
+<!-- <br>
+<h2 class="text-center">Youth Songs</h2>
+<br> -->
 <div class="card text-center">
   <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs gap-1">
+    <!-- <ul class="nav nav-tabs card-header-tabs gap-1">
       {% for root in roots %}
       <li class="nav-item">
-        <a class="nav-link" href="/events/{{root.split('/')[7]}}" data-tab-id="{{roots.index(root)}}"
+        <a class="nav-link" href="/youth/{{root.split('/')[7]}}" data-tab-id="{{roots.index(root)}}"
           name={{root}}>{{root.split('/')[-1]}}</a>
       </li>
       {% endfor %}
-    </ul>
+    </ul> -->
+    Youth Songs
   </div>
   <div class="shadow-lg rounded card-body">
     <!-- <h2 class="p-3 card-title" id="card-title">Ընտրեցեք:</h2> -->
-    <form action="{{url_for('event')}}" method="POST">
+    <form action="{{url_for('youth')}}" method="POST">
       <input name="dir" id="dir" style="display: none;">
       <div class="d-flex flex-column align-items-center gap-2 text-center mb-4 card-text">
-        <!-- <div class="d-flex flex-column align-items-center gap-2" id="files">
-                    
-                  </div> -->
+        <div class="d-flex flex-column align-items-center gap-2" id="files"></div>
       </div>
     </form>
   </div>
@@ -27,37 +29,10 @@
 <script>
   const content = {{os_files | safe}}; //Jinja 2: Supplied by server
   document.addEventListener('DOMContentLoaded', function(){
-    // Get tab elements
-    const tabLinks = document.querySelectorAll('[data-tab-id]');
-
     // Fills in the first tab page
-    const first_tab = document.querySelector('[data-tab-id="0"]');
-    const name = first_tab.getAttribute('name')
-    document.getElementById("dir").value = name
+    const name = 'static/pictures'
     content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
-    first_tab.classList.add("active")
     card_title = document.getElementById("card-title")
-    // card_title.innerText = name
-    // Function for tab click
-    function handleTabClick(event) {
-      event.preventDefault(); //Prevents redirct to link action
-      tabLinks.forEach(l => {
-        l.classList.remove('active');
-      })
-      this.classList.add('active');
-      const tabId = this.getAttribute('data-tab-id')
-      const name = this.getAttribute('name')
-      document.querySelector('.card-text').innerHTML = ''
-      content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
-      card_title = document.getElementById("card-title")
-      // card_title.innerText = name
-      
-    }
-
-    // Adds an event listener for clicks on tabs
-    tabLinks.forEach((link, index) => {
-      link.addEventListener('click', handleTabClick)
-    })
 
   })
 </script>

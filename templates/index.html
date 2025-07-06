@@ -515,6 +515,7 @@
                 });
 
         }
+        
         async function tsank_search() {
             
             if (attribute.value == 'Full_Text' && query.value != '') { //and there is a search query in it
@@ -528,7 +529,7 @@
                 search()
 
             }
-            
+
             if (book.value != '' && attribute.value != 'Full_Text') { //case: attr.val != 'Full_Text'
                 scrollspydiv.style = "position: fixed; left: 20px;"
                 if (attribute.value == 'all' && query.value == '') { //case: attr.val == 'all'
@@ -540,7 +541,7 @@
                 init_tooltip();
             }
             if (book.value == '' && attribute.value != 'Full_Text') { //if a book is not selected
-                songstable.in                                   ss="alert alert-warning f                  ected</div>'
+                songstable.innerHTML = '<div class="alert alert-warning fade show" role="alert">No book selected</div>'
             }
         }
 

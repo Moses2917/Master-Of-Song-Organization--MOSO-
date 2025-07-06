@@ -17,7 +17,6 @@ from random import choices
 from regex import F
 from scanningDir import songCollector, songChecker,songSearch
 from re import findall
-from musical_compatibility import MusicalCompatibility
 
 # def getAttrs(book:str, songnum:str):
 #     with open("")
@@ -159,7 +158,6 @@ def find_weekday_songs() -> dict:
         REDergaran = load(f)
     songlist = {}
     ct = 1
-    # compatibility = MusicalCompatibility()
     for song_pairs in latter_half_songs:
         # must do songs, bc as of now its a pair of two
         for song in song_pairs: # song = (book,songNum), song_pairs = [(book,songNum),(book,songNum)]
@@ -200,7 +198,6 @@ def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_
     """
     # Only for sunday songs
     sang_in_last_3months = songCollector(sunday_only=True)
-    # sang_in_last_year = songCollector(sunday_only=True,three_month_window=False, search_range=360)
     all_songs_sang = collect_all_songs(only_sunday=True)
     possible_sunday_songs = []
     for key in all_songs_sang: # only doing this so I don't have to make another list
@@ -230,6 +227,11 @@ def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_
     # return choose(possible_sunday_songs)
 
 # print(f"Haven't sang this in a while!\nOpening:{find_sunday_song(only_first_two_songs=True)}\nWorship:{find_sunday_song(only_worship_songs=True)}\nLast:{find_sunday_song(only_last_two_songs=True)}")
+
+def get_weekday_song():
+    sang_in_last_3months = songCollector(sunday_only=True)
+    all_songs_sang = collect_all_songs(only_sunday=True)
+
 
 if "__main__" == __name__:
     find_weekday_songs()
