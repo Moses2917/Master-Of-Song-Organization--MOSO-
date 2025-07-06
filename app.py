@@ -1089,8 +1089,8 @@ def newSundaySong():
 @app.route('/weekdaySong', methods=['GET', 'POST'])
 def weekdaySong():
     if request.method == 'POST':
-        from song_curator import find_weekday_songs
-        reccomened_songs = find_weekday_songs()
+        from song_curator import get_weekday_song
+        reccomened_songs = get_weekday_song()
         return jsonify(reccomened_songs)
     return render_template('newWeekdaySongs.html')
 

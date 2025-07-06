@@ -11,15 +11,18 @@ from ast import literal_eval
 import datetime
 from json import load
 from operator import index
+from pprint import pprint
 from random import choice as choose
 from random import choices
-
+from time import time
 from regex import F
 from scanningDir import songCollector, songChecker,songSearch
 from re import findall
 
-# def getAttrs(book:str, songnum:str):
-#     with open("")
+with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+    wordSongs = load(f)["SongNum"]
+with open("REDergaran.json", 'r', encoding='utf-8') as f:
+    REDergaran = load(f)["SongNum"]
 
 def sang_once(song_num, book = 'New'):
     return book
@@ -38,18 +41,21 @@ def getSong(book:str, songnum:str, batch = 0) -> dict:
     """
     if batch == 0:
         from json import load
-        if book.lower() == "old" or book.lower() == "wordsongsindex":
-            with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
-                wordSongs = load(f)["SongNum"]
-                return wordSongs[songnum]
-        else:
-            with open("REDergaran.json", 'r', encoding='utf-8') as f:
-                REDergaran = load(f)["SongNum"]
-                return REDergaran[songnum]
+        if book.lower() == "old" or book.lower() == "wordsongsindex": return wordSongs[songnum]
+        else: return REDergaran[songnum]
     else:
         pass
     
 def collect_all_songs(only_sunday=False, include_sunday=False) -> dict:
+    """Returns all songs sang before a 3-month period.
+
+    Args:
+        only_sunday (bool, optional): return only sunday songs. Defaults to False.
+        include_sunday (bool, optional): All songs, so Tue Thur and Sunday. Defaults to False.
+
+    Returns:
+        found_songs (dict): Dict of only the sogns that meet the specified reqs
+    """
     with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
         data = load(f)
     
@@ -96,10 +102,7 @@ def get_a_unknown_song():
                         filtered_songs[songnum][key] = known_songs['New'][songnum][key]
     
     # choices()
-    print("Here are some unknowns that we could potentially sing today: ",choices(list(filtered_songs), k=2))
-    
-
-        
+    print("Here are some unknowns that we could potentially sing today: ",choices(list(filtered_songs), k=2)) 
 
 def find_weekday_songs() -> dict:
     """
@@ -183,6 +186,7 @@ def find_weekday_songs() -> dict:
 
     
     return songlist
+
 ## TODO: Add a check to make sure that the song has been sang at least once
 def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
     """
@@ -229,10 +233,77 @@ def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_
 # print(f"Haven't sang this in a while!\nOpening:{find_sunday_song(only_first_two_songs=True)}\nWorship:{find_sunday_song(only_worship_songs=True)}\nLast:{find_sunday_song(only_last_two_songs=True)}")
 
 def get_weekday_song():
-    sang_in_last_3months = songCollector(sunday_only=True)
-    all_songs_sang = collect_all_songs(only_sunday=True)
+    available_songs = collect_all_songs() # Songs not sang 3mths ago
+    possible_songs: dict[str, dict[dict, datetime.datetime]] = {
+        "Old": {},
+        "New": {},
+    } # Used for date verification
+    songs = []#used for random pick
+
+    # Assemble all songs into a long list then pick some random ones from there.
+    for date, song_info in available_songs.items():
+        # print(date, literal_eval(song_info["songList"]))
+        song_list = literal_eval(song_info["songList"])
+        file_date = findall(r"(.*\d)", date)[0]
+        date_format = "%m.%d.%y"
+        file_date = datetime.datetime.strptime(file_date, date_format) # file_date is now a datetime object
+        for song in song_list:
+            book: str = song[0]
+            song_num: str = song[1]
+            exists: datetime.datetime | bool = possible_songs[book].get(song_num, False)
+            if exists:
+                # does not account for alt songs with same words, but different numbers
+                if exists < file_date:
+                    # simple logic to get the most recent date
+                    possible_songs[book][song_num] = file_date
+            else:
+                # could store it as a string, but this is eaiser for future comaprisons
+                possible_songs[book][song_num] = file_date
+                songs.append(f"{song_num}_{book}")
+
+    # Generate the list of weights:
+    # make weights more skewing toward files
+    # that are older sucha s 1.5-2yrs older.
+    # btw: need to do this after the for loop above
+    # so that we will have the most recent song date
+    weights = []
+    YR_IN_SECONDS = 31540000
+    two_yrs_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*2)
+    one_yr_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS)
+    for song in songs:
+        base_weight = 1
+        (song_num, book) = song.split('_')
+        # get date
+        song_date = possible_songs[book][song_num]
+        if two_yrs_ago > song_date:
+            base_weight = 10
+        elif one_yr_ago > song_date:
+            base_weight = 5
+
+        weights.append(base_weight)
+        
+        # pprint(song_date if song_date < datetime.datetime(year=2023, month=12, day=30) else None)
+
+    results: list[str] = choices(songs, weights=weights, k=6)
+    songlist = {}
+    ct = 1
+    for result in results:
+        (song_num, book) = result.split('_')
+        song_data = getSong(book, song_num)
+        songlist[ct] = {
+            'songnum': song_num,
+            'title': song_data['Title'],
+            'date': possible_songs[book][song_num].strftime("%m.%d.%Y"),
+            'book': book,
+             'weekday': possible_songs[book][song_num].strftime('%A')
+        }
+        ct+=1
+
+    return songlist
 
 
 if "__main__" == __name__:
-    find_weekday_songs()
-    get_a_unknown_song()
+    # find_weekday_songs()
+    # get_a_unknown_song()
+    # pprint(collect_all_songs())
+    pprint(get_weekday_song())
