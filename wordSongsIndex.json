@@ -4757,12 +4757,12 @@
             "latestVersion": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
             "v1": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց.docx",
             "v2": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
-            "key": "C#m / Dm",
-            "speed": "68",
+            "key": " Dm",
+            "speed": "70",
             "style": "Ballad",
             "song_type": "Single Song",
             "timeSig": "6/8",
-            "Comments": "Ballad-P4-3",
+            "Comments": "Pop-P5-3",
             "match": [
                 [
                     "new",
@@ -5100,7 +5100,7 @@
         },
         "504": {
             "Title": "Զորությունդ պիտ փառաբանեմ",
-            "latestVersion": "Word songs/504 Զորությունդ պիտ փառաբանեմ v3.docx",
+            "latestVersion": "Word songs/504 Զորությունդ պիտ փառաբանեմ v4.docx",
             "v1": "Word songs/504 Զորությունդ պիտ փառաբանեմ.docx",
             "key": "F (or -6)",
             "speed": "122",
@@ -5110,7 +5110,8 @@
             "Comments": "Dance-P5-4",
             "v2": "Word songs/504 Զորությունդ պիտ փառաբանեմ v2.docx",
             "match": null,
-            "v3": "Word songs/504 Զորությունդ պիտ փառաբանեմ v3.docx"
+            "v3": "Word songs/504 Զորությունդ պիտ փառաբանեմ v3.docx",
+            "v4": "Word songs/504 Զորությունդ պիտ փառաբանեմ v4.docx"
         },
         "505": {
             "Title": "Գերել ես սիրտը իմ Քո սիրով",
@@ -6569,7 +6570,7 @@
         },
         "644": {
             "Title": "Գալիս եմ ներկայությանդ մեջ",
-            "latestVersion": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v2.docx",
+            "latestVersion": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v3.docx",
             "v1": "Word songs/644 Գալիս եմ ներկայությանդ մեջ.docx",
             "v2": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v2.docx",
             "key": "Dm",
@@ -6585,7 +6586,8 @@
                     "707",
                     0.9075711557764314
                 ]
-            ]
+            ],
+            "v3": "Word songs/644 Գալիս եմ ներկայությանդ մեջ v3.docx"
         },
         "645": {
             "Title": "Փառք ու պատիվ Քեզ, ով հայր իմ Աստված",
@@ -7209,7 +7211,7 @@
         },
         "695": {
             "Title": "Երգիր Տիրոջը ողջ երկիր",
-            "latestVersion": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v4.docx",
+            "latestVersion": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v5.docx",
             "v1": "Word songs/695 Երգիր Տիրոջը ողջ երկիր.docx",
             "key": "Em",
             "speed": "110",
@@ -7227,7 +7229,8 @@
                     0.6101305123672977
                 ]
             ],
-            "v4": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v4.docx"
+            "v4": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v4.docx",
+            "v5": "Word songs/695 Երգիր Տիրոջը ողջ երկիր v5.docx"
         },
         "696": {
             "Title": "Բարձրերում բնակվող, Քո երեսն եմ փնտրում",
@@ -7677,7 +7680,7 @@
         },
         "733": {
             "Title": "Կա մի աշխարհ լուսե",
-            "latestVersion": "Word songs/733 Կա մի աշխարհ լուսե v4.docx",
+            "latestVersion": "Word songs/733 Կա մի աշխարհ լուսե v5.docx",
             "v1": "Word songs/733 Կա մի աշխարհ լուսե.docx",
             "v2": "Word songs/733 Կա մի աշխարհ լուսե v2.docx",
             "key": "Gm (-2)",
@@ -7694,7 +7697,8 @@
                 ]
             ],
             "v3": "Word songs/733 Կա մի աշխարհ լուսե v3.docx",
-            "v4": "Word songs/733 Կա մի աշխարհ լուսե v4.docx"
+            "v4": "Word songs/733 Կա մի աշխարհ լուսե v4.docx",
+            "v5": "Word songs/733 Կա մի աշխարհ լուսե v5.docx"
         },
         "734": {
             "Title": "Դու ապավենն ես իմ սրտի",
@@ -7984,7 +7988,7 @@
         },
         "755": {
             "Title": "Դու ինձ հայտնել ես Քո սուրբ ճամփան",
-            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v4.docx",
+            "latestVersion": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v5.docx",
             "v1": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան.docx",
             "v2": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v2.docx",
             "key": "Cm",
@@ -7995,7 +7999,8 @@
             "Comments": "Latin Dance- P2-8",
             "v3": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v3.docx",
             "match": null,
-            "v4": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v4.docx"
+            "v4": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v4.docx",
+            "v5": "Word songs/755 Դու ինձ հայտնել ես Քո սուրբ ճամփան v5.docx"
         },
         "756": {
             "Title": "Օրհնյալ է Տերը օրհնյալ ամեն օր",
@@ -8372,7 +8377,7 @@
         },
         "799": {
             "Title": "Դու, Տե՜ր գիտես ամեն մեկին",
-            "latestVersion": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx",
+            "latestVersion": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v3.docx",
             "v1": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին.docx",
             "v2": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v2.docx",
             "key": "Dm",
@@ -8382,7 +8387,8 @@
             "Worship_Song": "",
             "timeSig": "4/4",
             "Comments": "Pop-P1-3",
-            "match": null
+            "match": null,
+            "v3": "Word songs/799 Դու, Տե՜ր գիտես ամեն մեկին v3.docx"
         },
         "800": {
             "Title": "Սիրիր, Սիրիր քո Տեր Աստծուն,",
@@ -8446,7 +8452,7 @@
         },
         "760": {
             "Title": "Քո աչքերը ինձ տեսան",
-            "latestVersion": "Word songs/760  v3.docx",
+            "latestVersion": "Word songs/760 Քո աչքերը ինձ տեսան v4.docx",
             "v1": "Word songs/760  v1.docx",
             "key": "Am",
             "speed": "68",
@@ -8455,7 +8461,8 @@
             "timeSig": "4/4",
             "Comments": "Ballad-P1-8",
             "v2": "Word songs/760  v2.docx",
-            "v3": "Word songs/760  v3.docx"
+            "v3": "Word songs/760  v3.docx",
+            "v4": "Word songs/760 Քո աչքերը ինձ տեսան v4.docx"
         },
         "15": {
             "Title": "Ինձ տար Քո ետևից, և ես պիտի վազեմ",
@@ -8465,22 +8472,23 @@
             "v4": "Word songs/15 Ինձ տար Քո ետևից, և ես պիտի վազեմ v4.docx"
         },
         "SongNum": {
-            "Title": "Մենք սպասում ենք խոստացված վերջին անձրևներին",
-            "latestVersion": "Word songs/573 Մենք սպասում ենք խոստացված վերջին անձրևներին.docx",
-            "v1": "Word songs/573 Մենք սպասում ենք խոստացված վերջին անձրևներին.docx",
+            "Title": "Քո ձեռքը շինեց ինձ,հաստատեց",
+            "latestVersion": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
+            "v1": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց.docx",
+            "v2": "Word songs/474 Քո ձեռքը շինեց ինձ,հաստատեց v2.docx",
+            "key": " Dm",
+            "speed": "70",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Pop-P5-3",
             "match": [
                 [
                     "new",
-                    "735",
-                    0.9156336458103839
+                    "564",
+                    0.959183306624407
                 ]
-            ],
-            "key": "-5",
-            "speed": "73",
-            "style": "Beat",
-            "song_type": "Worship Song",
-            "timeSig": "4/4",
-            "Comments": "Pop-P1-3"
+            ]
         },
         "269": {
             "Title": "",

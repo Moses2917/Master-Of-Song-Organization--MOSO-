@@ -16,6 +16,7 @@ from flask import Flask, jsonify, render_template, request, redirect, url_for, s
 import json
 from concurrent.futures import ThreadPoolExecutor
 #Import Custom Lyrics Search Engine
+from WordSongUpdater import getNums
 from lyric_search_engine import SearchEngine
 import logging
 logging.basicConfig(
@@ -65,6 +66,10 @@ with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
 def robots():
     with open('./templates/robots.txt', 'r') as f:
         return f.read() 
+
+# @app.route("/.well-known/security.txt", methods=["GET"])
+# def security():
+#     return "Please leave any security concerns or issues on this project's github page at this url: https://github.com/Moses2917/Master-Of-Song-Organization--MOSO- "
 
 #This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
 @app.route("/callback", methods=["GET", "POST"])
@@ -305,7 +310,11 @@ def saveHtml(filePth, WordDoc):
 
     with open(f"{onedrive_path}/Documents/Code/Python/htmlsongs/{WordDoc}.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
-    # print(song_nums)
+    
+    # Gets rid of old/new book value
+    # to match the previosu format
+    song_nums: list = getNums(filePth, return_list=True)
+    song_nums = list(map(lambda x: x[1], song_nums))
     return song_nums
 
 @app.route('/search/<searchLyrics>', methods=['GET'])
@@ -488,7 +497,7 @@ def today_songs():
 @app.route('/events', methods=["GET", "POST"])
 def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե.docx"):
     folder_path = os.path.join(onedrive_path,"Երգեր/Պենտեկոստե")
-    print(folder_path)
+    # print(folder_path)
     # filename = os.path.join(onedrive_path, filename)
     # from doc_color import get_colored_text
     # colored_text = get_colored_text(filename)
@@ -807,36 +816,20 @@ def home():
                 table_data = load_table_data(book=book)
                 filtered_data = {}
                 query:str
-                # Old code for when I had multiple search options, now just does title, as its the most often used
-                # if attribute == 'SongNum': 
-                #     filtered_data[query] = table_data[query]
-                # else:
-                    # Handle numeric queries separately
                 cleaned_numeric_query = re.sub(r'[-՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
                 if cleaned_numeric_query.strip().isdigit():
                     filtered_data[cleaned_numeric_query] = table_data.get(cleaned_numeric_query, None)
                 else:
                     query_lower = query.lower()
                     cleaned_query = re.sub(r'[^ա-ֆԱ-Ֆ\s]','',query_lower)
-                    # print(cleaned_query)
                     # Build the regex string used for search
-                    regex_str = fr"{cleaned_query}*[ա-ֆԱ-Ֆ].*"
+                    regex_str = f"{cleaned_query}*[ա-ֆԱ-Ֆ].*"
                     for song_num, attrs in table_data.items():
                         # attrs is the dict containing all attrs
                         if re.match(regex_str, table_data[song_num]["Title"].lower()):
                             match = table_data[song_num]["Title"]
                             # print(f"Found a potential match at: { match }")
                             filtered_data[song_num] = attrs
-                        # # Search only in the specified attribute
-                        # found_song_title = str(attr[attribute]).lower()
-                        # print(f"Found in dict: {found_song_title}")
-                        # found_song_title = re.sub(r'[^\w\s]','',found_song_title)
-                        # # found_song_title = re.sub(r'[\\n\s]', ' ', found_song_title)
-                        # print(f"Found in dict(modified): {found_song_title}")
-                        # print(f"Usr Input: {query_cleaned}")
-                        # if found_song_title in query_cleaned:
-                        #     filtered_data[song_num] = attr
-                        # break
                 table_data: list[dict] = [filtered_data]
                 return json.dumps(table_data)
             
@@ -852,9 +845,6 @@ def home():
                 "admin": False,
             },
         }
-    # elif request.remote_addr == get_my_ip():
-    #     session['user'] = 'local'
-    #     return redirect('/')
     return render_template('index.html')
 
 @app.route('/editsongs', methods=['GET', 'POST'])

@@ -278,7 +278,7 @@ def saveDocFromDoc(song_Doc: docx, oldBook:bool, songNum:str):
         else:
             print("Lyrics Updated")
 
-def getNums(filename: str):
+def getNums(filename: str, return_list=False):
     """Reads the file and returns a dict with the text along with a bool if it is from the old book"""
     doc = docx.Document(filename)
     SongList = []
@@ -310,9 +310,9 @@ def getNums(filename: str):
             bookOld = False
             
     # return text_and_indentation
-    return str(SongList)
-    # return  SongList
+    if return_list: return SongList
+    else: return str(SongList)
 
 if "__main__" == __name__:
     # print(getDocTextAndIndentation(r"C:\Users\moses\OneDrive\Երգեր\10.2024\10.31.24TESTSAVE.docx"))
-    print(getNums(r"C:\Users\moses\OneDrive\Երգեր\Պենտեկոստե\2025\Պենտեկոստե.docx"))
+    song_nums = getNums(r"C:\Users\moses\OneDrive\Երգեր\07.2025\07.27.25.docx", return_list=True)
