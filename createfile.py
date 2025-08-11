@@ -63,10 +63,10 @@ def getDocTextAndIndentation(filePath:str, my_doc):
 def getRandomDoc():
     from random import randint
     from glob import glob
-    rDoc = randint(0, 3) #Choose a random number from 4 numbers
     DrivePath = os.environ.get("OneDrive")
     posible_rand_docs = glob(DrivePath+"\\*.docx")
-    return docx.Document(posible_rand_docs[rDoc])
+    random_doc_num = randint(0, len(posible_rand_docs))
+    return docx.Document(posible_rand_docs[random_doc_num-1])
 
 #parses the data inputed and sends back a python-docx file object
 def getPcSongs(songs, imp, user):

@@ -3,78 +3,6 @@ import json
 from pprint import pprint
 import os, datetime, re
 
-
-def getRecentSongs():
-    # Todo: posibily change function to always append to it the latest files instead of just rewriting it always
-    # Also bc the program sorts the songs here the current sorting process is now made partly obsolete, but maybe not bc program still needs to sort with3 month window
-    import WordSongUpdater
-    #     Finds all possible dir/paths to docx files that possibly can be used, with datetime and os
-    songBuffer = ""
-    user = os.environ.get("USERNAME")
-    three_months_from_now = (datetime.date.today() + datetime.timedelta(days=-90)).strftime(
-        '%Y')  # currently returns '2023' to use multi funnel/net system to go from big -> fine net
-    RelevantDate = (datetime.datetime.today() + datetime.timedelta(days=-90))
-    with os.scandir(r'C:\Users\{}\OneDrive\Երգեր'.format(user)) as PosFiles:
-        for file in PosFiles:
-            if three_months_from_now in file.name:
-
-                if "." in file.name:
-
-                    date = datetime.datetime.strptime(file.name, '%m.%Y')
-                    if date > RelevantDate:
-
-                        songBuffer += "\n" + file.path
-                        # print(file.path)
-                        for docs in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}'.format(user, file.name)):
-
-                            # this can be a bit redundant sometimes however its also safer
-                            docName = re.sub(".docx", "", docs.name)
-                            try:
-                                dateD = datetime.datetime.strptime(docName, "%m.%d.%y")
-                            except:
-                                dateD = datetime.datetime(1970, 1, 1, 0, 0, 0)
-                            if dateD > RelevantDate:
-                                # pass
-                                # print(docName) # this is a str not a os.direntry
-                                # print(docs.path) # EX: C:\Users\Armne\OneDrive\Երգեր\09.2023\09.28.23.docx
-                                songBuffer += "\nFilename/Date: " + docName
-                                songBuffer += "\nSongs in that file: " + WordSongUpdater.getNums(docs.path)
-                                # Now it can be passed to WordSongUpdater.getNums()
-                else:
-                    for folders in os.scandir(r'C:\Users\{}\OneDrive\Երգեր\{}'.format(user, file.name)):
-                        # print(folders.path)
-                        date = datetime.datetime.strptime(folders.name, '%m.%Y')
-                        if date > RelevantDate:
-                            songBuffer += "\n" + folders.path
-                            docName = re.sub(".docx", "", folders.name)
-
-                            try:
-                                dateD = datetime.datetime.strptime(docName, "%m.%Y")
-
-                            except:
-                                dateD = datetime.datetime(1970, 1, 1, 0, 0, 0)
-
-                            if dateD > RelevantDate:
-                                # pass
-                                # print(docName) # this is all of the indiv songs that are rel, now need to check folders
-                                for files in os.scandir(
-                                        r'C:\Users\{}\OneDrive\Երգեր\{}\{}'.format(user, file.name, docName)):
-                                    doc2Name = re.sub(".docx", "", files.name)
-                                    doc2Name = re.sub("PORC_PORC", "", doc2Name)
-                                    doc2Name = re.sub("TESTSAVE", "", doc2Name)
-
-                                    dateD = datetime.datetime.strptime(doc2Name, "%m.%d.%y")
-
-                                    if dateD > RelevantDate:
-                                        # print(files.path)
-                                        songBuffer += "\nFilename/Date: " + files.name
-                                        songBuffer += "\nSongs in that file: " + WordSongUpdater.getNums(files.path)
-                                # print(r'C:\Users\{}\OneDrive\Երգեր\{}\{}'.format(user,file.name,folders.name)) # EX: C:\Users\Armne\OneDrive\Երգեր\09.2023\09.28.23.docx
-                                # Now it can be passed to WordSongUpdater.getNums()
-    with open("RecentSongs.txt", 'w', encoding='utf-8') as f:
-        f.write(songBuffer)
-
-
 def getAllNums():
     """
     Retrieves all songs from the 'Երգեր' directory and its subdirectories that were created or modified after January 17, 2023.
@@ -294,60 +222,6 @@ def songChecker(book: str, songNum: str, three_month_window = True, ignore_sunda
         # return True, date_newest
     return False
 
-## TODO: Figure out why this is false
-# print(songChecker('Old', '652'))
-
-def toJson():
-    """Generates a json version of AllSongs.txt and save it to the disk
-    underneath the same name, so AllSongs.json
-    """
-    import json
-    with open("AllSongs.txt", 'r', encoding='utf-8') as lines:
-        data = lines.read()
-        data = data.strip().split("\n")
-        result = {}
-        # basePath = ""
-        for line in data:
-            songs = []
-            if 'Folder Path: ' in line:
-                line = re.sub('Folder Path: ', '', line)
-                basePath = line
-            if 'Filename/Date: ' in line:
-                line = re.sub('Filename/Date: ', '', line)
-                filenameDate = line
-            if 'Songs in that file' in line:
-                songs_str = line.split(': ')[1]
-                # songs_list = ast.literal_eval(songs_str)
-                songs_list = eval(songs_str)
-
-                for song in songs_list:
-                    song_elements = list(song)
-
-                    # Check if the list is not empty before accessing the first element
-                    song_id_list = [element for element in song_elements if element is not None and element.isdigit()]
-                    song_type_list = [element for element in song_elements if
-                                      element is not None and not element.isdigit()]
-
-                    if song_id_list:
-                        song_id = song_id_list[0]
-                    else:
-                        song_id = None
-
-                    if song_type_list:
-                        song_type = song_type_list[0]
-                    else:
-                        song_type = None
-
-                    songs.append({"type": song_type, "id": song_id})
-
-                result.update({
-                    filenameDate: {
-                        "songs": songs,
-                        "basePath": basePath,
-                    }})
-    with open('allSongs.json', 'w', encoding='utf-8') as f:
-        json.dump(result, f, indent=4, ensure_ascii=False)
-
 
 def findNewFiles():  # is for finding new files so as to only go through and add those insted of the whole library, which in the near future will be a headache when it gets bigger
     """This will make a dict. stored and accessed as a json file. It will store the name of the doc, as well as all
@@ -558,7 +432,7 @@ def findEmptySongNum(amount_to_generate=1):
             else:
                 break
         return found_nums
-   return '1000'
+   return '1001'
 
 
 if __name__ == '__main__':
