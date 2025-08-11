@@ -44,7 +44,7 @@ class SearchEngine:
         # print(all_lyrics[705], song_ids[705])
         txt = all_lyrics[705]
         return all_lyrics, song_ids
-    
+
     def preprocess_text(self, text):
         """Standardize text for better matching"""
         # Convert to lowercase
@@ -54,14 +54,14 @@ class SearchEngine:
         # # Remove other punctuation, digits, and normalize whitespace
         # text = re.sub(r'[\\n\s]+', ' ', text, re.MULTILINE)
 
-        text = re.sub(pattern=r"[^ա-ֆԱ-Ֆ\s]", repl="",string=text,count=0,flags=re.MULTILINE)
+        text = re.sub(pattern=r"[^ա-ֆԱ-Ֆ և \s]", repl="",string=text,count=0,flags=re.MULTILINE)
 
         # text_lines = text.splitlines()
         # text = ""
 
         # for string in text_lines:
         #     text += string
-        
+
         # pprint(text)
         return text.strip()
 
@@ -79,21 +79,21 @@ class SearchEngine:
         )
         tfidf_matrix = vectorizer.fit_transform(lyrics)
         return vectorizer, tfidf_matrix
-    
+
     def clean_query(self, query):
         """Clean and standardize query text"""
         # Handle numeric queries separately
         clean_query = re.sub(r'[-՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
         if clean_query.strip().isdigit():
             return clean_query.strip()
-        
+
         # Apply same preprocessing as for stored lyrics
         return self.preprocess_text(query)
 
     def search_lyrics(self, query, top_k=10):
         results = []
         clean_query = self.clean_query(query)
-        
+
         # If query is just a number, treat as song ID lookup
         if clean_query.isdigit():
             if self.is_valid('old', clean_query):
@@ -106,48 +106,48 @@ class SearchEngine:
         # For text search, use TF-IDF to get all possible matches
         query_vec = self.vectorizer.transform([clean_query])
         cosine_similarities = cosine_similarity(query_vec, self.tfidf_matrix).flatten()
-        
+
         # Create a list of (section, song_id, similarity) tuples for all songs
         all_matches = []
         for idx, similarity in enumerate(cosine_similarities):
             section, song_id = self.song_ids[idx]
             all_matches.append((section, song_id, float(similarity)))
-        
+
         # Sort by similarity score in descending order
         all_matches.sort(key=lambda x: x[2], reverse=True)
-        
+
         # Return top k results
         return all_matches[:top_k] if len(all_matches) > top_k else all_matches
-    
+
     def search(self, query, top_k=10):
         """Search for songs matching the query and return top k results"""
         return self.search_lyrics(query, top_k=int(top_k))
-    
+
     def get_lyrics_by_id(self, section, song_id):
         """Retrieve original lyrics for a given song ID"""
         if section in self.song_lyrics and song_id in self.song_lyrics[section]:
             return self.song_lyrics[section][song_id]
         return None
-    
+
     def search_and_display(self, query, top_k=10):
         """Search and display results with similarity scores"""
         results = self.search(query, top_k=top_k)
-        
+
         print(f"Top {len(results)} results for: {query}")
         print("-" * 40)
-        
+
         for i, (section, song_id, similarity) in enumerate(results):
             print(f"{i+1}. Section: {section}, Song ID: {song_id}")
             print(f"   Similarity: {similarity:.4f}")
-            
+
             # Get a snippet of the lyrics
             lyrics = self.get_lyrics_by_id(section, song_id)
             if lyrics:
                 snippet = lyrics[:100] + "..." if len(lyrics) > 100 else lyrics
                 print(f"   Snippet: {snippet}")
-            
+
             print()
-        
+
         return results
 
 class SimilerSongMatcher(SearchEngine):
@@ -191,7 +191,7 @@ class SimilerSongMatcher(SearchEngine):
                 self.REDergaran["SongNum"][song_num]["match"] = match
         except Exception as e:
             pass
-    
+
     def load_data_and_run(self, book:str, index:dict):
         for song_num in index["SongNum"]:
             self.comapre(song_num, book)
@@ -204,7 +204,7 @@ class SimilerSongMatcher(SearchEngine):
             elif book == 'old':
                 with open('wordSongsIndex.json', mode='w', encoding='utf-8') as json_file:
                     json.dump(self.wordSongsIndex, json_file, ensure_ascii=False, indent=4)
-                
+
         except Exception as e:
             raise e
 
@@ -236,7 +236,7 @@ def combine():
         except:
             pass
         # REDergaran["SongNum"][song_num]["match"] = wordSongsIndex["SongNum"][song_num]["match"]
-    
+
     # with open('matched_songs.json', mode='w', encoding='utf-8') as json_file:
         # json.dump(REDergaran, json_file, ensure_ascii=False, indent=4)
 
