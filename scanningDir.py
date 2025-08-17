@@ -436,5 +436,5 @@ def findEmptySongNum(amount_to_generate=1):
 
 
 if __name__ == '__main__':
-    print(findEmptySongNum(amount_to_generate=20))
-    # print(findNewFiles())
+    # print(findEmptySongNum(amount_to_generate=20))
+    print(songSearch('177', 'new'))

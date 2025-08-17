@@ -2,4 +2,4 @@
 @echo launching GUI...
 @echo off
 @REM cd C:\Users\Armne\OneDrive\Documents\Code\Python
-c:\Users\Armne\AppData\Local\Programs\Python\Python39\python.exe full_modernized_gui.pyw
+c:\Users\Armne\AppData\Local\Programs\Python\Python39\python.exe moso.pyw

@@ -2,4 +2,4 @@
 @echo launching GUI...
 @echo off
 cd C:\Users\moses\OneDrive\Documents\Code\Python
-M:\pythPATH\python.exe full_modernized_gui.pyw
+M:\pythPATH\python.exe moso.pyw
