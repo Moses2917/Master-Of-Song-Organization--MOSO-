@@ -91,7 +91,10 @@ class ModernSongManager:
         
         ttk.Label(updater_frame, text="Database Updater:", font=("Roboto", 14)).pack(side=LEFT, padx=(0, 10))
         ttk.Button(updater_frame, text="Select file to update", command=self.UpdateFile, style="outline.info.TButton").pack(side=LEFT)
-        
+
+        ttk.Label(updater_frame, text="New Song: ", font=("Roboto", 14)).pack(side=LEFT, padx=(10, 0))
+        ttk.Button(updater_frame, text="New Song Doc", command=self.new_song, style="outline.info.TButton").pack(side=LEFT)
+
         # Bind events
         self.master.bind("<Return>", self.add_song)
         self.master.bind("<Delete>", self.delete_song)
@@ -373,7 +376,32 @@ class ModernSongManager:
                 
             else:
                 messagebox.showinfo(title="Compatability Chart",message=f"Song number: {song_num} in Book: {bookType} not found.")
-
+    def new_song(self, event=None):
+        """
+        Allows user to add a new song to the database.
+        If user chooses not choose a new song to add, it simply stops the function from running.
+        """
+        from scanningDir import findEmptySongNum
+        from tkinter import filedialog as fd
+        filetypes = ( ('word doc', '*.docx'), ('All files', '*.*') )
+        input_filename = None
+        input_filename = fd.askopenfilenames(
+                            title='Open a file',
+                            initialdir='C:/Users/{}/OneDrive/Երգեր'.format(os.environ.get("USERNAME")),
+                            filetypes=filetypes)
+        # Possibly throw a window to double check if it really is the file you want
+        if input_filename != None and input_filename != '':
+            message= messagebox.askyesno("MOSO is asking:","Do you wish to add this new song(s) to the database: " + str(input_filename) + "\n\nYes to cont., No to stop")
+            print(message)
+            if message == "yes" or message == True:
+                for filename in input_filename:
+                    new_song_doc = docx.Document(filename)
+                    try: SongUpdater.saveDocFromDoc(new_song_doc,findEmptySongNum()[0])
+                    except Exception as err: messagebox.showerror("Could not update", f"Could not update this file. Becuase of error: {err}")
+            # elif message == False:
+            #     ChooseFile()
+            else:
+                print("Closing window")
 
 if __name__ == "__main__":
     root = tbs.Window(themename="darkly")

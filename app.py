@@ -535,13 +535,14 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
             basename = os.path.basename(selected_file) # basename returns the filename. Could've been done in saveHtml
             
             with ThreadPoolExecutor() as futures:
-                future = futures.submit(saveHtml, selected_file, basename) 
+                Future_song_nums = futures.submit(saveHtml, selected_file, basename) 
                 save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
-                result = future.result()
+                song_nums = Future_song_nums.result()
                 result2 = save.result()
             with open(f"htmlsongs\\{basename}.txt", 'r', encoding='utf-8') as f:
-                html_text = f.read()
-            return render_template("display_docx.html", lyrics=html_text)
+                html_text = f.read() 
+            # print(song_nums)
+            return render_template("display_docx.html", lyrics=html_text, song_nums=song_nums)
         else:
             return 'No text found'
 
@@ -572,7 +573,7 @@ def youth():
         # print(roots)
         # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
         # pprint(os_files)
-        return render_template("youth.html", os_files=os_files)#, roots=roots)
+        return render_template("youth.html", os_files=os_files, roots=roots)
     else:
         selected_file = request.form.get(key='selected_file')
         # selected_file = 

@@ -362,7 +362,18 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                             'basePth': basePth,
                             'songList': getNums(song_file.path) # TODO: Make this a list again, and ensure there are no conflicts with anything using all Songs
                         }
-                    
+    # Sort the entires by song num
+    def sortEntries():
+        """Sort the entires by song num
+        """
+        # Returns sorted keys
+        sorted_keys = sorted(allsongs.keys(), key=int)
+        # Adding the songs in new sorted order
+        sorted_dict = {}
+        for key in sorted_keys:
+            sorted_dict[key] = allsongs[key]
+        return sorted_dict
+    allsongs = sortEntries()
     with open("songs_cleaned.json", mode='w', encoding='utf-8') as saveFile:
         dump(allsongs, saveFile, indent=4, ensure_ascii=False)
     
@@ -424,7 +435,7 @@ def findEmptySongNum(amount_to_generate=1):
             if not songs["SongNum"].get(str(x), None): return str(x)
     elif amount_to_generate > 1:
         found_nums = []
-        for x in range(1,1000):
+        for x in range(1,10000):
             if len(found_nums) < amount_to_generate:
                 if not songs["SongNum"].get(str(x), None):
                     songs["SongNum"][x] = True
@@ -432,7 +443,7 @@ def findEmptySongNum(amount_to_generate=1):
             else:
                 break
         return found_nums
-   return '1001'
+#    return 'N'
 
 
 if __name__ == '__main__':

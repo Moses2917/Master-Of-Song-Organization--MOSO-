@@ -300,13 +300,17 @@
             }
             
             document.getElementById('lyrics').innerHTML = result;
-            document.getElementById('expandableButton').innerText = 'Song List'
+            if (document.getElementById('expandableButton') != null) {
+                document.getElementById('expandableButton').innerText  = 'Song List'
+            }
             document.getElementById('lyrics').lang = 'en';
             // document.getElementById('lyrics').style = "font-family: 'engfont', sans-serif;";
             document.getElementById('flag-icon').className = 'us rounded-circle'; //Could've been a eventlistener too 
         } else {
             document.getElementById('lyrics').innerHTML = '{{ lyrics | safe}}';
-            document.getElementById('expandableButton').innerText = 'Ցանկ'
+            if (document.getElementById('expandableButton') != null) {
+                document.getElementById('expandableButton').innerText = 'Ցանկ'
+            }
             document.getElementById('lyrics').lang = 'hy';
             // document.getElementById('lyrics').style = "font-family: 'armofont', sans-serif;";
             document.getElementById('flag-icon').className = 'am rounded-circle';

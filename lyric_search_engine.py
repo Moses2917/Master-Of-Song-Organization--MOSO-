@@ -242,6 +242,17 @@ def combine():
 
 # Todo; 446 and 778 old, keep on matching above 47% for whatever reason.
 
+# from sentence_transformers import SentenceTransformer
+# from torch.cuda import is_available
+# from re import sub, MULTILINE
+# from sklearn.metrics.pairwise import cosine_similarity
+# def text_normalization(text)->str:
+#     # return sub()
+#     text = sub(pattern=r"[^ա-ֆԱ-Ֆ-և\s]", repl="",string=text,count=0,flags=MULTILINE)
+#     return text
+
+# SimilarityModel = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2", device= "cuda" if is_available() else "mps")
+
 if __name__ == "__main__":
     lyr = "Երգեք Տիրոջը  նրա սուրբերԵրգեցեք նրա սուրբ անվանԵրգեցեք Տիրոջըը նրա սուրբերՓառք նրա սուրբ անվանՆրա բարկությունը մի պահ էՓառք նրա սուրբ անվանՆրա Բարությունը հավիտյանՓառք նրա սուրբ անվանԼացը մինջև երեկո էՓառք նրա սուրբ անվանՁայն առավոտը ցնծությանՓառք նրա սուրբ անվան"
     lyr = "պաս է Դե հե"# պաս է Դե հե զընգը զընգը դե հե ջան,"

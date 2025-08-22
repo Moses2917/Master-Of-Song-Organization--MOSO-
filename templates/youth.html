@@ -4,7 +4,7 @@
 <h2 class="text-center">Youth Songs</h2>
 <br> -->
 <div class="card text-center">
-  <div class="card-header">
+  <div class="card-header" data-tab-id="0">
     <!-- <ul class="nav nav-tabs card-header-tabs gap-1">
       {% for root in roots %}
       <li class="nav-item">
@@ -30,7 +30,9 @@
   const content = {{os_files | safe}}; //Jinja 2: Supplied by server
   document.addEventListener('DOMContentLoaded', function(){
     // Fills in the first tab page
-    const name = 'static/pictures'
+    const first_tab = document.querySelector('[data-tab-id="0"]');
+    const name = 'C:/Users/moses/OneDrive/Youth Songs' //first_tab.getAttribute('name')
+    // document.getElementById("dir").value = name
     content[name].forEach((n) =>{document.querySelector('.card-text').innerHTML += n})
     card_title = document.getElementById("card-title")
 
