@@ -64,7 +64,7 @@ def getRandomDoc():
     from random import randint
     from glob import glob
     DrivePath = os.environ.get("OneDrive")
-    posible_rand_docs = glob(DrivePath+"\\*.docx")
+    posible_rand_docs = glob("song_templates/*.docx")
     random_doc_num = randint(0, len(posible_rand_docs))
     return docx.Document(posible_rand_docs[random_doc_num-1])
 
