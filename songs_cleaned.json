@@ -1955,10 +1955,28 @@
         "basePth": "Երգեր\\08.2025",
         "songList": "[('New', '225'), ('New', '648'), ('New', '69'), ('New', '146'), ('New', '373'), ('New', '520')]"
     },
-    "08.14.25PORC_PORC.docx": {
-        "dateMod": 1755229339.5445354,
-        "path": "C:\\Users\\Armne\\OneDrive\\Երգեր\\08.2025\\08.14.25PORC_PORC.docx",
+    "08.17.25.docx": {
+        "dateMod": 1755231094.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\08.2025\\08.17.25.docx",
         "basePth": "Երգեր\\08.2025",
-        "songList": "[('New', '115'), ('Old', '634'), ('Old', '15'), ('New', '585'), ('New', '543'), ('Old', '709'), ('New', '253'), ('New', '512')]"
+        "songList": "[('New', '115'), ('Old', '634'), ('Old', '424'), ('Old', '709'), ('New', '585'), ('Old', '15'), ('New', '253'), ('New', '512')]"
+    },
+    "08.19.25.docx": {
+        "dateMod": 1755655601.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\08.2025\\08.19.25.docx",
+        "basePth": "Երգեր\\08.2025",
+        "songList": "[('New', '529'), ('New', '453'), ('New', '196'), ('New', '170'), ('New', '25'), ('New', '546')]"
+    },
+    "08.21.25.docx": {
+        "dateMod": 1755828547.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\08.2025\\08.21.25.docx",
+        "basePth": "Երգեր\\08.2025",
+        "songList": "[('New', '494'), ('New', '37'), ('New', '212'), ('New', '312'), ('New', '403'), ('New', '7')]"
+    },
+    "08.21.25PORC_PORC.docx": {
+        "dateMod": 1755837029.0,
+        "path": "C:\\Users\\moses\\OneDrive\\Երգեր\\08.2025\\08.21.25PORC_PORC.docx",
+        "basePth": "Երգեր\\08.2025",
+        "songList": "[('Old', '700'), ('Old', '504'), ('Old', '753'), ('Old', '603'), ('New', '367'), ('Old', '694'), ('Old', '410'), ('Old', '745')]"
     }
 }

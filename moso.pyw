@@ -202,7 +202,7 @@ class ModernSongManager:
             scanningDir.clean_up_index()
         except Exception as e:
             messagebox.showerror("File Open","A word doc is probably open, please close it and then try to create the file.")
-            messagebox.showerror("Error Message", e)
+            messagebox.showerror("Error Message", e.with_traceback())
     def viewPosSongs(self):
         songsList = self.listbox.get(0, tk.END)
             #Sort out the old and new, and all numbers

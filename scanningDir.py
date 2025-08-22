@@ -373,7 +373,7 @@ def findNewFiles():  # is for finding new files so as to only go through and add
         for key in sorted_keys:
             sorted_dict[key] = allsongs[key]
         return sorted_dict
-    allsongs = sortEntries()
+    # allsongs = sortEntries()
     with open("songs_cleaned.json", mode='w', encoding='utf-8') as saveFile:
         dump(allsongs, saveFile, indent=4, ensure_ascii=False)
     

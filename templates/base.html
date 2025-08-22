@@ -240,6 +240,9 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('youth')}}#top">Youth</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('playlist')}}#top">Playlist</a>
+          </li>
           {% if session['user']%}
             {% if session['user']['userinfo']['admin'] %}
             <li class="nav-item">

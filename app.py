@@ -1304,8 +1304,9 @@ def song_analysis():
     }
     
     return render_template('song_analysis.html', analysis=analysis_data)
-
-
+@app.route("/playlist")
+def playlist():
+    return render_template('playlist.html')
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{%block content%}
+<br>
+<div class="container-sm">
+    <div class="card text-center">
+        <div class="card-body">
+            <h4 class="card-title">Playlist</h4>
+            <p class="card-text">View a playlist</p>
+            <div class="mb-3">
+                <label for="playlist-code" class="form-label">Enter playlist code:</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="playlist-code"
+                    id="playlist-code"
+                    aria-describedby="helpId"
+                    placeholder="Enter in code"
+                    maxlength="10"
+                    
+                />
+                <div id="error-feedback" class="invalid-feedback">
+                    Maximum 10 characters allowed
+                </div>
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+                <small id="helpId" class="form-text text-muted">If you do not have one, you can generate one once you login with your email</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let code = document.getElementById("playlist-code");
+    
+    code.addEventListener("input", () => {
+        // if (code.value.length >= 10) {
+        //     code.classList.add("is-invalid");
+        // } else {
+        //     code.classList.remove("is-invalid");
+        // }
+    });
+</script>
+
+
+{%endblock%}
