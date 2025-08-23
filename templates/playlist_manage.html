@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{%block content%}
+<br>
+<div class="container-sm">
+    <div class="card">
+        <div class="card-body text-center">
+            <div class="d-flex justify-content-between">
+                <div class="d-grid gap-2">
+                    <a
+                        name="back-button"
+                        id="back-button"
+                        class="btn btn-primary"
+                        href="{{url_for('playlist')}}"
+                        role="button"
+                        ><i class="bi bi-arrow-left">
+                            Go Back
+                        </i></a
+                    >
+                    
+                </div>
+
+                <div class="d-grid gap-2 col-2">
+                    <button type="button" name="" id="" class="btn btn-primary">
+                        <i class="bi bi-music-note-list">Add Playlist</i>
+                    </button> 
+                </div>
+            </div>
+            <h4 class="card-title ">Your Playlists</h4>
+            <p class="card-text">Choose one or make a new one</p>
+        </div>
+        <!-- JJINJA logic to insert user data -->
+        <ul class="list-group list-group-flush">
+            <!-- <li class="list-group-item">
+                <p class="text-muted">This is just a preview</p>
+            </li> -->
+            <li class="list-group-item">Worship
+                <!-- list-group-flush list-group-horizontal -->
+
+                <ul class="list-group list-group-horizontal ">
+                    <li class="list-group-item">571 God Will Make a Way</li>
+                    <li class="list-group-item">Worship</li>
+                    <li class="list-group-item">Worship</li>
+                    <li class="list-group-item">Worship</li>
+
+                </ul>
+
+                Code: 123asd
+
+            </li>
+            <li class="list-group-item">Easy Worship</li>
+            <li class="list-group-item">Favorite Worship</li>
+            <li class="list-group-item">Moses Said So</li>
+        </ul>
+    </div>
+
+</div>
+{%endblock%}

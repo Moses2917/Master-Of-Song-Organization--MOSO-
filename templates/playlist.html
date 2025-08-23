@@ -5,7 +5,19 @@
     <div class="card text-center">
         <div class="card-body">
             <h4 class="card-title">Playlist</h4>
-            <p class="card-text">View a playlist</p>
+            <!-- <p class="card-text">View a playlist</p> -->
+            {% if session.get('user', none) %}
+            {% if session['user']['userinfo']['name'] != "Guest" %}
+            <a
+                name="create-playlist"
+                id="create-playlist"
+                class="btn btn-primary"
+                href="{{url_for('manage_playlist')}}"
+                role="button"
+                >Manage Playlists</a
+            >
+            {% endif %}
+            {% endif %}
             <div class="mb-3">
                 <label for="playlist-code" class="form-label">Enter playlist code:</label>
                 <input

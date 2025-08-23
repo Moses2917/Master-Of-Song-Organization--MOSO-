@@ -1308,6 +1308,14 @@ def song_analysis():
 def playlist():
     return render_template('playlist.html')
 
+@app.route("/playlist/manage")
+def manage_playlist():
+    return render_template(template_name_or_list="playlist_manage.html")
+
+@app.route("/playlist/manage/add")
+def add_playlist():
+    return render_template('playlist_add.html')
+
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5002 if os.name == 'posix' else 5000), 
