@@ -270,18 +270,23 @@ def get_weekday_song():
     YR_IN_SECONDS = 31540000
     two_yrs_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*2)
     one_yr_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS)
-    for song in songs:
+    three_mths_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*0.25)#12/4=3Time for 3mths
+    for song in collected_songs:
         base_weight = 1
         (song_num, book) = song.split('_')
-        # get date
+        # get the latest date sang
         song_date = possible_songs[book][song_num]
         if two_yrs_ago > song_date:
             base_weight = 10
         elif one_yr_ago > song_date:
             base_weight = 5
+        elif three_mths_ago > song_date:
+            # Song date is smaller than 3 mth date, then it was longer than 3 mth ago
+            weights.append(base_weight)
+        else:
+            collected_songs.remove(song)
 
-        weights.append(base_weight)
-        
+
         # pprint(song_date if song_date < datetime.datetime(year=2023, month=12, day=30) else None)
 
     results: list[str] = choices(songs, weights=weights, k=6)
