@@ -9,15 +9,21 @@
     <h2 class="text-center">Click the button to generate songs:</h2>
     <div class="row justify-content-center" id="SongSection">
       <div class="col-auto">
-        <div class="">
-          <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="Weekday_Songs" value="Get Weekday Songs" onclick="getWeekdayRecs()">
-          <button class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="cp_block" onclick="copy_order()">
+        <div class="text-center">
+          <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="Weekday_Songs"
+            value="Get Weekday Songs" onclick="getWeekdayRecs()">
+          <button type="button" id="exact-order" class="btn btn-dark" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
+            Exact Order
+          </button>
+          <button class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="cp_block"
+            onclick="copy_order()">
             <i class="bi bi-clipboard"></i>
             Copy Order
           </button>
         </div>
       </div>
     </div>
+
   </div>
   <p class="text-end" id="hint-am">
     Խորհուրդ. Սեղմեք այն երգը որը ցանկանում եք բացել։
@@ -62,13 +68,17 @@
   async function getWeekdayRecs() {
     blinking_placeholder();
     const songOrder = document.getElementById('song_order');
-
+    const exactOrderBtn = document.getElementById('exact-order');
+    const isPressed = exactOrderBtn.getAttribute('aria-pressed') === 'true';
     const url = window.location.href;
     fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
+      body: JSON.stringify ({
+        "exact-order": isPressed
+      })
     })
       .then(response => response.text())
       .catch((error) => {

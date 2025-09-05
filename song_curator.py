@@ -9,6 +9,7 @@
 
 from ast import literal_eval
 import datetime
+from functools import reduce
 from json import load
 from operator import index
 from pprint import pprint
@@ -45,7 +46,7 @@ def getSong(book:str, songnum:str, batch = 0) -> dict:
         else: return REDergaran[songnum]
     else:
         pass
-    
+
 def collect_all_songs(only_sunday=False, include_sunday=False) -> dict:
     """Returns all songs sang before a 3-month period.
 
@@ -58,7 +59,7 @@ def collect_all_songs(only_sunday=False, include_sunday=False) -> dict:
     """
     with open('songs_cleaned.json', 'r', encoding='utf-8') as f:
         data = load(f)
-    
+
     found_songs = {}
     for key in data:
         file_date = key
@@ -100,14 +101,14 @@ def get_a_unknown_song():
                         filtered_songs[songnum] = {}
                     if not songSearch(songnum, 'New'):
                         filtered_songs[songnum][key] = known_songs['New'][songnum][key]
-    
+
     # choices()
-    print("Here are some unknowns that we could potentially sing today: ",choices(list(filtered_songs), k=2)) 
+    print("Here are some unknowns that we could potentially sing today: ",choices(list(filtered_songs), k=2))
 
 def find_weekday_songs() -> dict:
     """
-    Finds middle day songs by analyzing and narrowing down the list of songs 
-    that have not been sung in the last 3 months, and then identifies the top 
+    Finds middle day songs by analyzing and narrowing down the list of songs
+    that have not been sung in the last 3 months, and then identifies the top
     songs based on certain criteria.
 
     Returns:
@@ -122,7 +123,7 @@ def find_weekday_songs() -> dict:
     all_songs_sang = collect_all_songs(include_sunday=True)
     # Just read the first two songs as the opening songs instead of looking for them
     # maybe, just maybe, filter out sundays
-    # also add a date checking so no 
+    # also add a date checking so no
     possible_opening_songs = []
     possible_latter_half_songs = []
     for key in all_songs_sang:
@@ -144,7 +145,7 @@ def find_weekday_songs() -> dict:
             # no two pair, sometimes its only 5 not 6
             # so no even pair found, therefore just pass
             pass
-            
+
         # The issue here is that I am checking tuesday & thursdayfiles
         # ofc its not going to apear in the last 3 months
         # because I am checking only for sundays
@@ -184,7 +185,7 @@ def find_weekday_songs() -> dict:
         # compatibility.get_transition_recommendation(song_pairs)
         # print(f"This has an approx. musical compatability of ...")
 
-    
+
     return songlist
 
 ## TODO: Add a check to make sure that the song has been sang at least once
@@ -232,18 +233,18 @@ def find_sunday_song(only_first_two_songs=False, only_worship_songs=False, only_
 
 # print(f"Haven't sang this in a while!\nOpening:{find_sunday_song(only_first_two_songs=True)}\nWorship:{find_sunday_song(only_worship_songs=True)}\nLast:{find_sunday_song(only_last_two_songs=True)}")
 
-def get_weekday_song():
+def get_weekday_song(exact=False):
     available_songs = collect_all_songs() # Songs not sang 3mths ago
     possible_songs: dict[str, dict[dict, datetime.datetime]] = {
         "Old": {},
         "New": {},
     } # Used for date verification
-    songs = []#used for random pick
+    collected_songs = []#used for random pick
 
     # Assemble all songs into a long list then pick some random ones from there.
     for date, song_info in available_songs.items():
         # print(date, literal_eval(song_info["songList"]))
-        song_list = literal_eval(song_info["songList"])
+        song_list: list[tuple[str,str]] = literal_eval(song_info["songList"])
         file_date = findall(r"(.*\d)", date)[0]
         date_format = "%m.%d.%y"
         file_date = datetime.datetime.strptime(file_date, date_format) # file_date is now a datetime object
@@ -255,12 +256,15 @@ def get_weekday_song():
                 # does not account for alt songs with same words, but different numbers
                 if exists < file_date:
                     # simple logic to get the most recent date
+                    # by always updating with the most recent
+                    # instance that song was sang
                     possible_songs[book][song_num] = file_date
             else:
                 # could store it as a string, but this is eaiser for future comaprisons
                 possible_songs[book][song_num] = file_date
-                songs.append(f"{song_num}_{book}")
-
+                collected_songs.append(f"{song_num}_{book}")
+    if exact:
+        return get_exact_weekday_order(possible_songs, available_songs)
     # Generate the list of weights:
     # make weights more skewing toward files
     # that are older sucha s 1.5-2yrs older.
@@ -271,6 +275,7 @@ def get_weekday_song():
     two_yrs_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*2)
     one_yr_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS)
     three_mths_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*0.25)#12/4=3Time for 3mths
+    temp_collected_songs = []
     for song in collected_songs:
         base_weight = 1
         (song_num, book) = song.split('_')
@@ -283,13 +288,12 @@ def get_weekday_song():
         elif three_mths_ago > song_date:
             # Song date is smaller than 3 mth date, then it was longer than 3 mth ago
             weights.append(base_weight)
-        else:
-            collected_songs.remove(song)
+            temp_collected_songs.append(song)
 
 
         # pprint(song_date if song_date < datetime.datetime(year=2023, month=12, day=30) else None)
-
-    results: list[str] = choices(songs, weights=weights, k=6)
+    collected_songs = temp_collected_songs
+    results: list[str] = choices(collected_songs, weights=weights, k=6)
     songlist = {}
     ct = 1
     for result in results:
@@ -306,9 +310,63 @@ def get_weekday_song():
 
     return songlist
 
+def get_exact_weekday_order(possible_songs, available_songs:dict):
+    weights = []
+    YR_IN_SECONDS = 31540000
+    two_yrs_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*2)
+    one_yr_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS)
+    three_mths_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*0.25)#12/4=3Time for 3mths
+    collected_songs = []
+    for date, song_info in available_songs.items():
+        song_list: list[tuple[str,str]] = literal_eval(song_info["songList"])
+        dates: list[float] = []
+        invalid_song = False # Due to date
+        for song in song_list:
+            book: str = song[0]
+            song_num: str = song[1]
+
+            # get the latest date sang
+            song_date:datetime.datetime = possible_songs[book][song_num]
+            if song_date > three_mths_ago:
+                invalid_song = True
+                break
+            else:
+                dates.append(song_date.timestamp())
+
+        if not invalid_song:
+            avg_date_timestamp = reduce(lambda x,y: x+y, dates, 0.0)/len(dates)
+            avg_date = datetime.datetime.fromtimestamp(avg_date_timestamp)
+            print("The average date is: ", avg_date)
+            print(date)
+            print(song_list)
+            base_weight = 1
+            if two_yrs_ago > avg_date:
+                base_weight = 10
+            elif one_yr_ago > avg_date:
+                base_weight = 5
+            weights.append(base_weight)
+            collected_songs.append(song_list)
+    results: list[list[tuple[str,str]]] = choices(collected_songs, weights=weights)
+    songlist = {}
+    ct = 1
+    for result in results:
+        for song_info in result:
+            song_num = song_info[1]
+            book = song_info[0]
+            song_data = getSong(book, song_num)
+            songlist[ct] = {
+                'songnum': song_num,
+                'title': song_data['Title'],
+                'date': possible_songs[book][song_num].strftime("%m.%d.%Y"),
+                'book': book,
+                'weekday': possible_songs[book][song_num].strftime('%A')
+            }
+            ct+=1
+
+    return songlist
 
 if "__main__" == __name__:
     # find_weekday_songs()
     # get_a_unknown_song()
     # pprint(collect_all_songs())
-    pprint(get_weekday_song())
+    pprint(get_weekday_song(True))

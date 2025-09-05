@@ -13,6 +13,7 @@ from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
+from flask_sitemap import Sitemap
 import json
 from concurrent.futures import ThreadPoolExecutor
 #Import Custom Lyrics Search Engine
@@ -28,6 +29,16 @@ if ENV_FILE:
     load_dotenv(ENV_FILE)
 
 app = Flask(__name__)
+app.config.update({
+    'SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS': True,  # Automatically include simple routes
+    'SITEMAP_MAX_URL_COUNT': 10000,  # Adjust based on your needs
+})
+from werkzeug.middleware.proxy_fix import ProxyFix
+
+app.wsgi_app = ProxyFix(
+    app.wsgi_app, x_for=1, x_host=1
+)
+ext = Sitemap(app=app)
 
 secret_key = env.get("APP_SECRET_KEY")
 
@@ -65,7 +76,7 @@ with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
 @app.route("/robots.txt", methods=["GET"])
 def robots():
     with open('./templates/robots.txt', 'r') as f:
-        return f.read() 
+        return f.read()
 
 # @app.route("/.well-known/security.txt", methods=["GET"])
 # def security():
@@ -85,7 +96,7 @@ def callback():
 
     Returns:
     redirect: A redirect response to the temporary home page.
-    """ 
+    """
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
     session['user']['userinfo']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
@@ -93,7 +104,7 @@ def callback():
     #remember to flash('Բարի Գալուստ, {{session.user.userinfo.name}}!')
     # return redirect("/")
     return redirect("/")
-  
+
 
 #the /login route, users will be redirected to Auth0 to begin the authentication flow.
 @app.route("/login")
@@ -132,10 +143,10 @@ def logout():
 def isUserAllowed(email):
     """
     Checks if the provided email is allowed to access the webpage.
-    
+
     Args:
         email (str): The email to be checked.
-    
+
     Returns:
         bool: True if the email is allowed, False otherwise.
     """
@@ -188,7 +199,7 @@ def getSong(book:str, songnum:str, batch = 0) -> dict:
 
 def openWord(songNum, book):
     """
-    Opens a word document based on the provided song number and book, 
+    Opens a word document based on the provided song number and book,
     and returns the contents of the document as a HTML formatted string.
 
     Args:
@@ -200,25 +211,25 @@ def openWord(songNum, book):
     """
     from docx import Document
     #Used to find and open word doc, sends back a html formated str of it
-    
+
     if ("word" in book.lower() or "old" in book.lower()):
         index = wordSongsIndex
     else:
         index = REDergaran
-    
+
     if index["SongNum"].get(songNum,None):
         songPth = index["SongNum"][songNum]["latestVersion"]
         filePth = env.get("OneDrive")+"\\"+songPth #find pth from index, and attach the location for onedrive
         doc = Document(filePth) #load doc file
         docParagraphs = doc.paragraphs # returns a list of doc paragrpahs from which text will be extracted
         text = ''
-        
+
         for para in docParagraphs:
             text += para.text + '\n'
-        
+
         # Split the text into chunks based on line breaks
         chunks = text.split('\n\n')
-        
+
         # Convert chunks to HTML
         html_chunks = []
         for chunk in chunks:
@@ -255,9 +266,9 @@ def saveHtml(filePth, WordDoc):
             temp_file_path = shutil.copy(doc_dir, tmp_dir)
             # Perform rest of ops in the 'with' statement
             return Document(tmp_file)
-    
+
     # print("Saving File...")
-    
+
     doc = tmp_file_copy(filePth)
     from doc_color import get_colored_text, get_all_colored_text
 
@@ -278,18 +289,18 @@ def saveHtml(filePth, WordDoc):
                 para_html += f'<div id="song-{song_counter}">'
                 song_nums.append(text)
                 start_song = False
-                
+
             if "start" in text:
                 start_song = True
                 song_counter += 1
-            
+
             # Add color formatting
             text_color = run.font.color.rgb
             if bool(text_color) and str(text_color) != "000000":
                 para_html += f'<span style="color: #{text_color};">{text}</span>'
             else:
                 para_html += text
-        
+
         text_with_colors += para_html + '\n'
 
     # Spacing logic
@@ -299,10 +310,10 @@ def saveHtml(filePth, WordDoc):
     for chunk in chunks:
         lines = chunk.split('\n')
         html_lines = []
-        
+
         for line in lines:
             html_lines.append('<p>' + line + '</p>')
-        
+
         html_chunk = ''.join(html_lines)
         html_chunks.append(html_chunk)
 
@@ -310,7 +321,7 @@ def saveHtml(filePth, WordDoc):
 
     with open(f"{onedrive_path}/Documents/Code/Python/htmlsongs/{WordDoc}.txt", 'w', encoding='utf-8') as f:
         f.write(html_text)
-    
+
     # Gets rid of old/new book value
     # to match the previosu format
     song_nums: list = getNums(filePth, return_list=True)
@@ -335,7 +346,7 @@ def songSearch(searchLyrics) -> list:
         # print(f"num Results = {num_results}")
         searchResults = []
         results = search_engine.search(query=searchLyrics, top_k=num_results) if num_results else search_engine.search(query=searchLyrics)
- 
+
         # print(results)
         if results[0][2] > 0:
             for result in results:
@@ -344,14 +355,14 @@ def songSearch(searchLyrics) -> list:
                         index = json.load(f)
                 else:
                     with open('REDergaran.json', 'r', encoding='utf-8') as f:
-                        index = json.load(f) 
-                
+                        index = json.load(f)
+
                 title = index['SongNum'][result[1]]['Title']
-                
+
                 title = title.split('\n')[0]
-                
-                
-                
+
+
+
                 searchResults.append(
                     f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=result[0],songnum=result[1])}">{result[1]}: {title}</a>'''
                 )
@@ -363,16 +374,16 @@ def songSearch(searchLyrics) -> list:
 def display_song(book, songnum) -> str:
     """
     This function handles HTTP requests to the '/song/<book>/<songnum>' route.
-    
+
     It takes two parameters: 'book' and 'songnum', which are used to identify a specific song.
-    
-    The function returns a rendered HTML template ('song.html') with the song's lyrics, 
+
+    The function returns a rendered HTML template ('song.html') with the song's lyrics,
     past songs, and similar songs.
-    
+
     Parameters:
     book (str): The book identifier for the song (e.g., 'Old' or 'New').
     songnum (str): The song number identifier.
-    
+
     Returns:
     A rendered HTML template with the song's lyrics, past songs, and similar songs.
     """
@@ -382,10 +393,10 @@ def display_song(book, songnum) -> str:
 
     with open('REDergaran.json', 'r', encoding='utf-8') as f:
         REDergaran = json.load(f)
-    
+
     with open('song_occurrences.json', 'r', encoding='utf-8') as f:
         occr = json.load(f)
-    
+
     book = book.lower()
     if book == 'wordsongsindex' or book == 'old':
         book = 'Old'
@@ -395,7 +406,7 @@ def display_song(book, songnum) -> str:
     similar_songs = None
     if songnum in occr[book]:
         similar_songs = occr[book][songnum]
-    
+
     # template = f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=book,songnum=songnum)}">{songnum}: {title}</a>'''
     if past_songs != None:
         for songs in past_songs:
@@ -434,12 +445,12 @@ def display_song(book, songnum) -> str:
                 song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
         similar_songs = song_titles
         # print(similar_songs)
-    
+
     import concurrent.futures
     with concurrent.futures.ThreadPoolExecutor() as exec:
         future = exec.submit(openWord,songnum,book)
         lyrics = future.result()
-        
+
     return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum)
 
 def save_json(json:dict, path:str):
@@ -503,7 +514,7 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
     # colored_text = get_colored_text(filename)
     if request.method == 'GET':
         # with ThreadPoolExecutor() as futures:
-        #     future = futures.submit(saveHtml, filename, "Պենտեկոստե.docx") 
+        #     future = futures.submit(saveHtml, filename, "Պենտեկոստե.docx")
         #     # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
         #     result = future.result()
         #     # result2 = save.result()
@@ -528,19 +539,19 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
         return render_template("event.html", os_files=os_files, roots=roots)
     else:
         selected_file = request.form.get(key='selected_file')
-        # selected_file = 
+        # selected_file =
         # is_dir = request.form.get('is_dir')
         # print(selected_file)
         if selected_file and os.path.exists(selected_file):
             basename = os.path.basename(selected_file) # basename returns the filename. Could've been done in saveHtml
-            
+
             with ThreadPoolExecutor() as futures:
-                Future_song_nums = futures.submit(saveHtml, selected_file, basename) 
+                Future_song_nums = futures.submit(saveHtml, selected_file, basename)
                 save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
                 song_nums = Future_song_nums.result()
                 result2 = save.result()
             with open(f"htmlsongs\\{basename}.txt", 'r', encoding='utf-8') as f:
-                html_text = f.read() 
+                html_text = f.read()
             # print(song_nums)
             return render_template("display_docx.html", lyrics=html_text, song_nums=song_nums)
         else:
@@ -551,7 +562,7 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
 def youth():
     # folder_path = os.path.join(onedrive_path,"Youth Songs")
 
-    
+
     folder_path = os.path.join(onedrive_path,"Youth Songs")
     # folder_path = "static/pictures"
     # filename = os.path.join(onedrive_path, filename)
@@ -576,14 +587,14 @@ def youth():
         return render_template("youth.html", os_files=os_files, roots=roots)
     else:
         selected_file = request.form.get(key='selected_file')
-        # selected_file = 
+        # selected_file =
         # is_dir = request.form.get('is_dir')
         # print(selected_file)
         if selected_file and os.path.exists(selected_file):
             basename = os.path.basename(selected_file) # basename returns the filename. Could've been done in saveHtml
-            
+
             with ThreadPoolExecutor() as futures:
-                future = futures.submit(saveHtml, selected_file, basename) 
+                future = futures.submit(saveHtml, selected_file, basename)
                 save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
                 result = future.result()
                 result2 = save.result()
@@ -620,7 +631,7 @@ def ServiceSongOpen(WordDoc) -> str:
         else:
             # with open("songs.json" , 'r', encoding='utf-8') as f:
             #     songs = json.load(f)
-            
+
             songPth = all_past_songs[WordDoc]['path']
             songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
             onedrive = env.get("OneDrive")
@@ -656,7 +667,7 @@ def getSongAttributes(book,songnum) -> dict:
 @app.route('/attributeSearch', methods=['GET','POST'])
 def attributeSearch() -> dict:
     """This inputs a list of attributes and the finds songs whose attributes match the input attributes.
-    
+
     Input:
         dict: A list of attributes
         ex:
@@ -674,9 +685,9 @@ def attributeSearch() -> dict:
             "v1": "Երգարան Word Files/1 Եղբայրնե՛ր, ցնծացե՛ք.docx"
         }
         attributes = {key: true, speed: true, style: false, song_type: false, timeSig: true}
-        
+
         dict: A list of song attributes
-    
+
     Returns:
         dict: A dictionary where the keys are the song numbers and the values are the dictionaries of the respective songs
 
@@ -690,7 +701,7 @@ def attributeSearch() -> dict:
         del songattrs["Comments"]
     if songattrs.get("Title", None):
         del songattrs["Title"]
-    
+
     temp = {}
     for attribute in songattrs:
         if attributes.get(attribute):#Check if the attribute is in the dictionary
@@ -701,7 +712,7 @@ def attributeSearch() -> dict:
     from json import load
     # with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
     #     wordSongs = load(f)["SongNum"]
-    
+
     # with open("REDergaran.json", 'r', encoding='utf-8') as f:
     #     REDergaran = load(f)["SongNum"]
     returnSongs = {}
@@ -714,21 +725,21 @@ def attributeSearch() -> dict:
             for attr in songattrs:
                 foundSongAttr = song.get(attr)
                 if foundSongAttr != songattrs[attr]: matched = False
-            
+
             if matched:
                 found_songs[songNum] = song
 
         return found_songs
-                
+
     # Filter songs from both sources
     returnSongs["WordSongsIndex"] =filter_songs(wordSongsIndex["SongNum"])
     returnSongs["REDergaran"]=filter_songs(REDergaran["SongNum"])
     return jsonify(returnSongs)
-            
+
 def get_my_ip() -> str:
     """
     Retrieves the public IP address of the device making the request.
-    
+
     Returns:
         str: The public IP address as a string.
     """
@@ -749,13 +760,15 @@ def get_my_ip() -> str:
     except: ip = get_local_ip()
     print('My public IP address is: {}'.format(ip))
     return ip
-
+# @ext.register_generator
+# def home():
+#     yield 'home', {}
 @app.route('/', methods=['GET', 'POST'])
 def home():
     """
     Handles HTTP requests to the root URL ('/').
 
-    This function is responsible for handling both GET and POST requests. It checks for user sessions, 
+    This function is responsible for handling both GET and POST requests. It checks for user sessions,
     handles search queries, and returns relevant table data in JSON format or renders a blank HTML template if no user is logged in.
 
     Parameters:
@@ -784,7 +797,7 @@ def home():
                 attribute = data['attribute']
                 book = data['book']
                 # print(query)
-            
+
             if attribute == 'Full_Text':
                 song_order = []
                 table_data = []
@@ -806,13 +819,13 @@ def home():
                         song[song_num]['lyrics'] = clean_lyrics#[:100]
                         song_order.append(song_num)
                         table_data.append(song)
-                        
+
                 return json.dumps(table_data, ensure_ascii=False)
-            
+
             if book and attribute and not query:
                 # print(load_table_data(book=book))
                 return json.dumps([load_table_data(book=book)])
-            
+
             if query and book and attribute: # if attr is full_text
                 table_data = load_table_data(book=book)
                 filtered_data = {}
@@ -833,7 +846,7 @@ def home():
                             filtered_data[song_num] = attrs
                 table_data: list[dict] = [filtered_data]
                 return json.dumps(table_data)
-            
+
             elif not book:
                 flash('No book selected','warning') #practically not needed anymore
         return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
@@ -852,15 +865,15 @@ def home():
 def edit_songs():
     """
     Handles HTTP requests to the '/editsongs' route, allowing users to edit song information.
-    
+
     If the request method is 'POST', it retrieves the song number and book from the request form,
     updates the song information based on the user's input, and saves the changes to a JSON file.
-    
+
     The function returns a rendered template of the 'edit_songs.html' page, passing the updated song information and current values as parameters.
-    
+
     Parameters:
     None
-    
+
     Returns:
     A rendered template of the 'edit_songs.html' page
     """
@@ -868,20 +881,20 @@ def edit_songs():
     current_values = None
     is_found = False
     if request.method == 'POST':
-        
+
         song_num = request.form.get('songNum')
         book = request.form.get('book')
         # Bool_Lyrics = request.form.get('lyrics', False)
-        
+
         # if Bool_Lyrics:
         #     return render_template('song.html', lyrics = openWord(song_num, book), book=book) #sending the book var inorder for the back button to function properly
-        
+
         with open(f'{book}.json',encoding='utf-8') as f:
             data = json.load(f)
-        
+
         songs = data.get('SongNum')  # Get the songs under the "SongNum" key
         song_info = songs.get(song_num)
-        
+
         if song_info:
             # Save the current values before they are edited
             current_values = song_info.copy()
@@ -889,7 +902,7 @@ def edit_songs():
                 flash("That song does not exist",'error')
         # else:
         #     flash("That song does not exist")
-            
+
         if request.form.get('edit'):
             song_info['key'] = request.form.get('key')
             song_info['speed'] = request.form.get('speed')
@@ -901,7 +914,7 @@ def edit_songs():
             songs["SongNum"] = song_info
             # with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
             #     json.dump(songs, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
-        
+
         if request.form.get('submit'):
             song_info['key'] = request.form.get('key')
             song_info['speed'] = request.form.get('speed')
@@ -915,7 +928,7 @@ def edit_songs():
             #     return flash("That song does not exist",'error')
         with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
                 json.dump(data, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
-            
+
     return render_template('edit_songs.html', song_info=song_info, current_values=current_values) #add pretty=json.dumps(session.get('user'), indent=4) for debuging auth
 
     # return render_template('edit_songs.html')
@@ -924,14 +937,14 @@ def edit_songs():
 def tsank():
     """
     Handles HTTP requests to the '/tsank' route, supporting both GET and POST methods.
-    
+
     Retrieves the 'temmas' value from the request form data and uses it to load a JSON file.
-    
+
     If 'temmas' is not None, it extracts a number from the value, uses it to index into the loaded JSON data,
     and renders the 'temas.html' template with the selected data.
-    
+
     If 'temmas' is None, it renders the 'tema.html' template with the original 'temmas' value and an empty list.
-    
+
     Returns a rendered HTML template.
     """
     temma = request.form.get("temmas", None)
@@ -943,7 +956,7 @@ def tsank():
             temmalist = json.load(f)
         temmalist = temmalist[int(temmaNumber[0])-1]
         return render_template('temas.html', temmalist=temmalist)
-            
+
     return render_template("tema.html", temmas=temma,temmalist=temmalist)
 
 @app.route('/tsank_a_z', methods=['GET','POST'])
@@ -970,16 +983,16 @@ def tsank_letter(book, letter):
 def check_past_songs():
     """
     Handles the '/past_songs' route, accepting both GET and POST requests.
-    
+
     When a POST request is made, it retrieves the 'SongNumTuple' from the request form,
     parses it to extract the song number and book, and then uses these values to search
     for past songs. If past songs are found, it formats the song titles and redirects the
-    user to the 'display_song' route. If no past songs are found, it renders the 
+    user to the 'display_song' route. If no past songs are found, it renders the
     'check_past_songs.html' template.
-    
+
     Parameters:
     None
-    
+
     Returns:
     A redirect response to the 'display_song' route or a rendered 'check_past_songs.html' template.
     """
@@ -991,10 +1004,10 @@ def check_past_songs():
         book = pair[1].split(': ')[1]
         with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
             wordSongsIndex = json.load(f)
-    
+
         with open('REDergaran.json', 'r', encoding='utf-8') as f:
             REDergaran = json.load(f)
-        
+
         past_songs = songSearch(SongNum, book)
         if past_songs != None:
             for songs in past_songs:
@@ -1022,9 +1035,9 @@ def check_past_songs():
 @app.route('/past_songs/<songnum>', methods=['GET','POST'])
 def past_songs(songnum):
     """
-    Handles HTTP requests to the '/past_songs/<songnum>' route. 
-    This function takes a song number and book as input, 
-    searches for past songs matching the given song number and book, 
+    Handles HTTP requests to the '/past_songs/<songnum>' route.
+    This function takes a song number and book as input,
+    searches for past songs matching the given song number and book,
     and returns a rendered template with the past songs data.
 
     Parameters:
@@ -1042,7 +1055,7 @@ def past_songs(songnum):
         wordSongsIndex = json.load(f)
     with open('REDergaran.json', 'r', encoding='utf-8') as f:
         REDergaran = json.load(f)
-    
+
     from scanningDir import songSearch
     past_songs = songSearch(SongNum, book)
     if past_songs != None:
@@ -1061,7 +1074,7 @@ def past_songs(songnum):
                             title = title.split('\n')[0]
                     song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
             songs['songs'] = song_titles
-            
+
     return render_template('pastsongtemplate.html', past_songs=past_songs)
 
 @app.route('/newSundaySong', methods=['GET', 'POST'])
@@ -1073,15 +1086,17 @@ def newSundaySong():
         only_last_two_songs = data['only_last_two_songs']
         from song_curator import find_sunday_song
         reccomened_songs = find_sunday_song(only_first_two_songs, only_worship_songs, only_last_two_songs)
-        
+
         return jsonify(reccomened_songs) if reccomened_songs else jsonify(None)
     return render_template('newSundaySongs.html')
 
 @app.route('/weekdaySong', methods=['GET', 'POST'])
 def weekdaySong():
     if request.method == 'POST':
+        req_body:dict = request.get_json()
+        exact_order=req_body.get('exact-order', False)
         from song_curator import get_weekday_song
-        reccomened_songs = get_weekday_song()
+        reccomened_songs = get_weekday_song(exact=exact_order)
         return jsonify(reccomened_songs)
     return render_template('newWeekdaySongs.html')
 
@@ -1122,7 +1137,7 @@ def posible_alt_song(songnum,book): # COuld also do only num,book,lyrics
             return jsonify(None)
     except:
         return jsonify(None)
-    
+
 
 @app.route('/known_songs', methods=['GET','POST'])
 def known_songs():# add some func to be able to go backwards
@@ -1138,7 +1153,7 @@ def known_songs():# add some func to be able to go backwards
             isSunday = request_data['isSunday']
             isWeekday = request_data['isWeekday']
             known = request_data['choirKnows']
-            
+
             # print(songnum)
             # print(book)
             # print(isHoliday)
@@ -1151,7 +1166,7 @@ def known_songs():# add some func to be able to go backwards
             # print(book)
             # print("Skipped")
             update_known_songs(book, songnum, skipped=skipped)
-        
+
     return render_template('known_songs.html', skipped_songs = get_skipped_songs())
 
 @app.route('/known_songs/newSong', methods=['GET'])
@@ -1176,7 +1191,7 @@ def get_skipped_songs():# add some func to be able to go backwards
 
 @app.route('/song_matcher')
 def song_matcher():
-    
+
     return render_template('song_matching.html',song1='',song2='')
 
 # @app.route('/song_analysis', methods=['GET', 'POST'])
@@ -1190,14 +1205,14 @@ def song_analysis():
         red_songs = json.load(f)
     with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
         word_songs = json.load(f)
-    
+
     # Initialize counters
     key_distribution = {}
     tempo_distribution = {}
     style_distribution = {}
     type_distribution = {}
     total_songs = 0
-    
+
     def analyze_tempo_ranges(tempo_distribution):
         ranges = {
             'Slow (<=72)': 0,
@@ -1205,7 +1220,7 @@ def song_analysis():
             'Fast (109-144)': 0,
             'Very Fast (>144)': 0
         }
-        
+
         for tempo, count in tempo_distribution.items():
             try:
                 tempo_val = float(tempo)
@@ -1224,13 +1239,13 @@ def song_analysis():
     def analyze_key_relationships(key_distribution):
         major_keys = {}
         minor_keys = {}
-        
+
         for key, count in key_distribution.items():
             if 'm' in key.lower():
                 minor_keys[key] = count
             else:
                 major_keys[key] = count
-                
+
         return {
             'major': major_keys,
             'minor': minor_keys,
@@ -1246,7 +1261,7 @@ def song_analysis():
             if key and style:
                 combo = f"{key} - {style}"
                 combinations[combo] = combinations.get(combo, 0) + 1
-        
+
         # Get top 10 most common combinations
         return dict(sorted(combinations.items(), key=lambda x: x[1], reverse=True)[:10])
 
@@ -1258,7 +1273,7 @@ def song_analysis():
             speed = song_data.get('speed', '').strip()
             style = song_data.get('style', '').strip()
             song_type = song_data.get('song_type', '').strip()
-            
+
             # Only count non-empty values
             if key and key.lower() != 'unknown':
                 key_distribution[key] = key_distribution.get(key, 0) + 1
@@ -1268,14 +1283,14 @@ def song_analysis():
                 style_distribution[style] = style_distribution.get(style, 0) + 1
             if song_type and song_type.lower() != 'unknown':
                 type_distribution[song_type] = type_distribution.get(song_type, 0) + 1
-    
+
     # Process both song collections
     process_songs(red_songs)
     process_songs(word_songs)
 
     # Sort tempo distribution by speed if possible
     try:
-        tempo_distribution = dict(sorted(tempo_distribution.items(), 
+        tempo_distribution = dict(sorted(tempo_distribution.items(),
                                        key=lambda x: float(x[0])))
     except ValueError:
         # If conversion fails, keep original order
@@ -1285,7 +1300,7 @@ def song_analysis():
     tempo_ranges = analyze_tempo_ranges(tempo_distribution)
     key_relationships = analyze_key_relationships(key_distribution)
     combinations = analyze_combinations(red_songs) # You might want to merge both song collections here
-    
+
     analysis_data = {
         'key_distribution': key_distribution,
         'tempo_distribution': tempo_distribution,
@@ -1302,7 +1317,7 @@ def song_analysis():
         'key_relationships': key_relationships,
         'combinations': combinations
     }
-    
+
     return render_template('song_analysis.html', analysis=analysis_data)
 @app.route("/playlist")
 def playlist():
@@ -1315,12 +1330,14 @@ def manage_playlist():
 @app.route("/playlist/manage/add")
 def add_playlist():
     return render_template('playlist_add.html')
-
+@app.route("/googleeb915e9a415f695e.html")
+def google():
+    return render_template("googleeb915e9a415f695e.html")
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5002 if os.name == 'posix' else 5000), 
+    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5002 if os.name == 'posix' else 5000)
             #ssl_context=(r'C:\Certbot\live\songinfo.us.to\fullchain.pem',r'C:\Certbot\live\songinfo.us.to\privkey.pem')
             )
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
-    
+
