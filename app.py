@@ -36,7 +36,7 @@ app.config.update({
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 app.wsgi_app = ProxyFix(
-    app.wsgi_app, x_for=1, x_host=1
+    app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
 )
 ext = Sitemap(app=app)
 
@@ -451,7 +451,7 @@ def display_song(book, songnum) -> str:
         future = exec.submit(openWord,songnum,book)
         lyrics = future.result()
 
-    return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum)
+    return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum, book=book)
 
 def save_json(json:dict, path:str):
     from json import dump

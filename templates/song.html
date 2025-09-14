@@ -12,7 +12,7 @@
 <div class="container-md">
     <!-- <div class="row algin-items-start"> -->
         <div class="fw-bold shadow p-2 bg-body-tertiary rounded" id="toolbar">
-            <label class="">Song Toolbar:</label>
+            <h5 class="d-flex align-items-center">Song Toolbar:</h5>
             <!-- <nav class="navbar navbar-expand-lg rounded-3 fs-5" id="toolbar"> -->
                 <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPastSongs"
                     aria-controls="offcanvasPastSongs">
@@ -25,10 +25,13 @@
                 <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" onclick="transliterate()">
                     Transliterate Song
                 </button>
-                <!-- <button class="btn btn-primary shadow border border-primary-subtle rounded-3" type="button" onclick="getProbSong()">
-                    getProbSong
-                </button> -->
                 <a href="" id="probSong" style="visibility: hidden;" class="btn btn-primary shadow border border-primary-subtle rounded-3" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="We also have this version!"> Alt. Version</a>
+                <div class="">
+                    <button class="btn btn-primary shadow border border-primary-subtle rounded-3 disabled" type="button" onclick="getProbSong()" >
+                        {{book|safe}}
+                    </button>
+
+                </div>
             <!-- </nav> -->
         </div>
     <!-- </div> -->
