@@ -459,7 +459,7 @@ def save_json(json:dict, path:str):
         dump(json, f, ensure_ascii=False, indent=4)
 
 @app.route('/today', methods=['GET'])
-def today_songs():
+def today_songs(retry=False):
     all_past_songs = open_past_songs() # Need to always get a fresh version of this
     latest_song = list(all_past_songs.items())[-1]
     song_dict:dict = latest_song[1] # the info stored inside the dictionary. ie: "03.16.25.docx": { "dateMod": 1741926049.0, "path": ... , "basePth": "Երգեր\\03.2025", "songList": str(list(tuple())) }
@@ -472,8 +472,8 @@ def today_songs():
     songPth = os.path.join(onedrive,basePth, WordDoc)
     # from doc_color import get_colored_text
     # colored_text = get_colored_text(songPth)
-    dateModOnFile: datetime = datetime.fromtimestamp(last_modified_date)
-    currDateMod: datetime = datetime.fromtimestamp(stat(songPth).st_mtime)
+    # dateModOnFile: datetime = datetime.fromtimestamp(last_modified_date)
+    # currDateMod: datetime = datetime.fromtimestamp(stat(songPth).st_mtime)
     # if currDateMod <= dateModOnFile:
     if False:
         # Bigger number means further in time
@@ -494,15 +494,24 @@ def today_songs():
                     lyrics = f.read()
                 return render_template("display_docx.html", lyrics = lyrics, colored_text=colored_text)
     else:
-        # all_past_songs[WordDoc]["dateMod"] = currDateMod.timestamp()
-        # print(songPth)
-        with ThreadPoolExecutor() as futures:
-            future = futures.submit(saveHtml, songPth, WordDoc)
-            # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
-            result = future.result()
-            # result2 = save.result()
-        with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
-            html_text = f.read()
+        try:
+            with ThreadPoolExecutor() as futures:
+                future = futures.submit(saveHtml, songPth, WordDoc)
+                # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
+                result = future.result()
+                # result2 = save.result()
+            with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
+                html_text = f.read()
+        except FileNotFoundError as TodaySongNotFound:
+            if retry:
+                raise TodaySongNotFound
+            else:
+                # Just in case, update the index, then try again.
+                from scanningDir import findNewFiles, clean_up_index
+                findNewFiles()
+                # Add the end once all is added clean up the indexes
+                clean_up_index()
+                return today_songs(retry=True)
         return render_template("display_docx.html", lyrics=html_text, song_nums=result)
 
 @app.route('/events', methods=["GET", "POST"])
