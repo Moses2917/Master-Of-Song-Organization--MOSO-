@@ -12,6 +12,11 @@
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='pictures/moso.png') }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='pictures/moso.png') }}">
   
+  <!-- Will be used for dynamic page descriptions -->
+  <!-- needs too be above defaults tags inorder to replace them -->
+  <!-- because browsers will choose the first instance and use it -->
+  {% block extra_header %}{% endblock %}
+
   <!-- Apple Splash Screens - Just key sizes -->
   <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='splash/apple-splash-2048-2732.png') }}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='splash/apple-splash-512-512.png') }}" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
@@ -19,12 +24,11 @@
   
   <!-- Apple Preview Image -->
   <meta property="og:title" content="MOSO: Master Of Song Organization">
-  <meta property="og:description" content="The ultimate armenian song organization and retrival tool."> <!-- Add a descriptive tagline -->
+  <meta property="og:description" content="The ultimate armenian song organization and retrival tool.">
   <meta property="og:site_name" content="MOSO">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ request.url }}">
   <meta property="og:image" content="{{ url_for('static', filename='pictures/app_preview.png', _external=True) }}">
-
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='pictures/moso.png') }}">

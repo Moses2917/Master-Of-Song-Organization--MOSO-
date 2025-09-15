@@ -1,4 +1,9 @@
 {%extends 'base.html'%}
+{% block extra_header%}
+<meta property="og:site_name" content="MOSO Song Lyrics">
+<meta property="og:title" content="MOSO Lyrics | {{ songnum|safe }} {{book | safe}}">
+<title>MOSO Lyrics | {{ songnum|safe }} {{book | safe}}</title>
+{%endblock%}
 {%block content%}
 <style>
     @font-face {
