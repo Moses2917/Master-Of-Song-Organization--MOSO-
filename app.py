@@ -105,6 +105,17 @@ def callback():
     # return redirect("/")
     return redirect("/")
 
+@app.before_request
+def before_request():
+    if session.get("user",False) and 'access_token' not in session['user'] and request.endpoint != 'login':
+        session["user"] = {
+            "userinfo":{
+                "name": "Guest",
+                "email": "guest@example.com",
+                "admin": False,
+                
+            },
+        }
 
 #the /login route, users will be redirected to Auth0 to begin the authentication flow.
 @app.route("/login")
@@ -197,7 +208,7 @@ def getSong(book:str, songnum:str, batch = 0) -> dict:
     else:
         pass
 
-def openWord(songNum, book):
+def openWord(songNum, book, plaintext=False):
     """
     Opens a word document based on the provided song number and book,
     and returns the contents of the document as a HTML formatted string.
@@ -240,7 +251,10 @@ def openWord(songNum, book):
 
         # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
         html_text = '<br>'.join(html_chunks)
-        return html_text
+        if plaintext:
+            return (html_text, text)
+        else:
+            return html_text
 
 def saveHtml(filePth, WordDoc):
     """
@@ -448,10 +462,10 @@ def display_song(book, songnum) -> str:
 
     import concurrent.futures
     with concurrent.futures.ThreadPoolExecutor() as exec:
-        future = exec.submit(openWord,songnum,book)
-        lyrics = future.result()
+        future = exec.submit(openWord,songnum,book,True)
+        lyrics, plaintext = future.result()
 
-    return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum, book=book)
+    return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum, book=book, plaintext=plaintext)
 
 def save_json(json:dict, path:str):
     from json import dump
@@ -1342,6 +1356,13 @@ def add_playlist():
 @app.route("/googleeb915e9a415f695e.html")
 def google():
     return render_template("googleeb915e9a415f695e.html")
+
+# @app.before_request
+# def _ip_debug():
+#     print("remote_addr:", request.remote_addr,
+#           "access_route:", list(request.access_route),
+#           "xff:", request.headers.get("X-Forwarded-For"))
+
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
     app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5002 if os.name == 'posix' else 5000)
