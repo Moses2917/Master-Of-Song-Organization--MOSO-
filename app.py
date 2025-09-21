@@ -800,89 +800,69 @@ def home():
     Returns:
     A JSON response containing search results or a rendered HTML template.
     """
-    # print(request.remote_addr,get_my_ip())
-    # if session.get('user', None):
-    #     # session['user']['userinfo']['admin'] = isUserAllowed(session['user']['userinfo']['email'])
-    #     # if session['user'] == 'local':
-    #     #     session['user']['userinfo']['admin'] = True
-    #     if isUserAllowed(session['user']['userinfo']['email']):
-    #         session['user']['userinfo']['admin'] = True
-    if session.get('user') and isinstance(session['user'], dict) and 'userinfo' in session['user']:
-        # session['user']['userinfo']['admin'] = True
-        # else:
-        #     session['user']['userinfo']['admin'] = False
-        table_data = None # doing this so that it does not get referenced before assginment
-        book = request.args.get('book', None)
-        if request.method == 'POST':
-            data = request.get_json(silent=True)
-            if data:
-                query = data['query']
-                attribute = data['attribute']
-                book = data['book']
-                # print(query)
+    table_data = None # doing this so that it does not get referenced before assginment
+    book = request.args.get('book', None)
+    if request.method == 'POST':
+        data = request.get_json(silent=True)
+        if data:
+            query = data['query']
+            attribute = data['attribute']
+            book = data['book']
+            # print(query)
 
-            if attribute == 'Full_Text':
-                song_order = []
-                table_data = []
-                links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
-                from re import findall
-                for link in links:
-                    song = {}
-                    book = findall('/song/(.*?)/', link)[0]
-                    try:
-                        song_num = findall(r'\d+', link)[0]
-                    except IndexError:
-                        song_num = None
-                    # table_data[book] = {new:[1,3],old:[2]} # correct order is 3,1,2
-                    if song_num: # edge case where I pick up songNum from index
-                        song[song_num] = getSong(book, song_num)
-                        song[song_num]["book"] = book
-                        lyrics = song_lyrics[book][song_num][:100]
-                        clean_lyrics = re.sub("   ",'',(re.sub(r'[:,.(0-9)\n]+','',lyrics)))
-                        song[song_num]['lyrics'] = clean_lyrics#[:100]
-                        song_order.append(song_num)
-                        table_data.append(song)
+        if attribute == 'Full_Text':
+            song_order = []
+            table_data = []
+            links = json.loads(songSearch(query)) # returns a list of links ex: <a class="list-group-item list-group-item-action" href="/song/New/300">300: Օրհնյալ Սուրբ Հոգի, մեծ Մխիթարիչ,</a>
+            from re import findall
+            for link in links:
+                song = {}
+                book = findall('/song/(.*?)/', link)[0]
+                try:
+                    song_num = findall(r'\d+', link)[0]
+                except IndexError:
+                    song_num = None
+                # table_data[book] = {new:[1,3],old:[2]} # correct order is 3,1,2
+                if song_num: # edge case where I pick up songNum from index
+                    song[song_num] = getSong(book, song_num)
+                    song[song_num]["book"] = book
+                    lyrics = song_lyrics[book][song_num][:100]
+                    clean_lyrics = re.sub("   ",'',(re.sub(r'[:,.(0-9)\n]+','',lyrics)))
+                    song[song_num]['lyrics'] = clean_lyrics#[:100]
+                    song_order.append(song_num)
+                    table_data.append(song)
 
-                return json.dumps(table_data, ensure_ascii=False)
+            return json.dumps(table_data, ensure_ascii=False)
 
-            if book and attribute and not query:
-                # print(load_table_data(book=book))
-                return json.dumps([load_table_data(book=book)])
+        if book and attribute and not query:
+            # print(load_table_data(book=book))
+            return json.dumps([load_table_data(book=book)])
 
-            if query and book and attribute: # if attr is full_text
-                table_data = load_table_data(book=book)
-                filtered_data = {}
-                query:str
-                cleaned_numeric_query = re.sub(r'[-՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
-                if cleaned_numeric_query.strip().isdigit():
-                    filtered_data[cleaned_numeric_query] = table_data.get(cleaned_numeric_query, None)
-                else:
-                    query_lower = query.lower()
-                    cleaned_query = re.sub(r'[^ա-ֆԱ-Ֆ\s]','',query_lower)
-                    # Build the regex string used for search
-                    regex_str = f"{cleaned_query}*[ա-ֆԱ-Ֆ].*"
-                    for song_num, attrs in table_data.items():
-                        # attrs is the dict containing all attrs
-                        if re.match(regex_str, table_data[song_num]["Title"].lower()):
-                            match = table_data[song_num]["Title"]
-                            # print(f"Found a potential match at: { match }")
-                            filtered_data[song_num] = attrs
-                table_data: list[dict] = [filtered_data]
-                return json.dumps(table_data)
+        if query and book and attribute: # if attr is full_text
+            table_data = load_table_data(book=book)
+            filtered_data = {}
+            query:str
+            cleaned_numeric_query = re.sub(r'[-՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
+            if cleaned_numeric_query.strip().isdigit():
+                filtered_data[cleaned_numeric_query] = table_data.get(cleaned_numeric_query, None)
+            else:
+                query_lower = query.lower()
+                cleaned_query = re.sub(r'[^ա-ֆԱ-Ֆ\s]','',query_lower)
+                # Build the regex string used for search
+                regex_str = f"{cleaned_query}*[ա-ֆԱ-Ֆ].*"
+                for song_num, attrs in table_data.items():
+                    # attrs is the dict containing all attrs
+                    if re.match(regex_str, table_data[song_num]["Title"].lower()):
+                        match = table_data[song_num]["Title"]
+                        # print(f"Found a potential match at: { match }")
+                        filtered_data[song_num] = attrs
+            table_data: list[dict] = [filtered_data]
+            return json.dumps(table_data)
 
-            elif not book:
-                flash('No book selected','warning') #practically not needed anymore
-        return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
-    else:
-        # session["user"] = random() * 10 ** 17
-        session["user"] = {
-            "userinfo":{
-                "name": "Guest",
-                "email": "guest@example.com",
-                "admin": False,
-            },
-        }
-    return render_template('index.html')
+        elif not book:
+            flash('No book selected','warning') #practically not needed anymore
+    return render_template('index.html', table_data = table_data, book=book) #returns book, for continuity purposes
+
 
 @app.route('/editsongs', methods=['GET', 'POST'])
 def edit_songs():
