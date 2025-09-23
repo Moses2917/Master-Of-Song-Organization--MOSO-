@@ -270,7 +270,6 @@
             {% endif %}
           {% endif %}
         </ul>
-        {% if session.get('user') and 'userinfo' in session['user'] %}
           {% if 'Guest' in session['user']['userinfo']['name'] %}
           <div class="d-flex">
             <div class=" p-2" id="login-card" style="display: hidden;">
@@ -308,7 +307,6 @@
             </div>
             </div>
           </div>
-          {% endif %}
           {% endif %}
             <!-- <div class="d-flex">
                 <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">

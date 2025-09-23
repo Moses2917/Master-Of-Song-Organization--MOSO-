@@ -107,15 +107,19 @@ def callback():
 
 @app.before_request
 def before_request():
-    if session.get("user",False) and 'access_token' not in session['user'] and request.endpoint != 'login':
-        session["user"] = {
-            "userinfo":{
+    if not session.get("user", False) and request.endpoint not in ('login', 'logout'): # If true then no acc at all
+        if not session.get("access_token", False): # If true, then need to provide a user account
+            session["user"] = {
                 "name": "Guest",
-                "email": "guest@example.com",
-                "admin": False,
-                
-            },
-        }
+                "userinfo":{
+                    "name": "Guest",
+                    "email": "guest@example.com",
+                    "admin": False,
+                    
+                },
+            }
+        
+            
 
 #the /login route, users will be redirected to Auth0 to begin the authentication flow.
 @app.route("/login")
@@ -284,7 +288,6 @@ def saveHtml(filePth, WordDoc):
     # print("Saving File...")
 
     doc = tmp_file_copy(filePth)
-    from doc_color import get_colored_text, get_all_colored_text
 
     # Extract text WITH color info using Method 1's song logic
     text_with_colors = ''
