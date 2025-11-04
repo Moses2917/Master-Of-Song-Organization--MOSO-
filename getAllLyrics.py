@@ -173,10 +173,13 @@ def wordsToJson():
         from json import dump
         dump(songLyrics,f,ensure_ascii=False,indent=4)
 
-def singleWordToJson(songNum:str):
-    with open("REDergaran.json", 'r', encoding="utf-8") as f:
-        Songs = load(f)
-    
+def singleWordToJson(songNum:str, book = "new"):
+    if book == "new":
+        with open("REDergaran.json", 'r', encoding="utf-8") as f:
+            Songs = load(f)
+    else:
+        with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
+            Songs = load(f)
     #load the dir to update
     with open('AllLyrics.json', 'r', encoding='utf-8') as f:
         songLyrics = load(f)
@@ -197,7 +200,7 @@ def singleWordToJson(songNum:str):
 
 if __name__ == "__main__":
     pass
-    # singleWordToJson('664')
+    singleWordToJson('776', "old")
     # singleWordToJson('95')
     # singleWordToJson('96')
     # onedrive = ENV.get('onedrive')

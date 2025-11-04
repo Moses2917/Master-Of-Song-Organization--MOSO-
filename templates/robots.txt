@@ -1,1 +1,5 @@
 User-agent: *
+
+Disallow: 
+
+Sitemap: https://songinfo.us.to/sitemap.xml

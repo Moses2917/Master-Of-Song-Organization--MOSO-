@@ -975,10 +975,10 @@
             "latestVersion": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v3.docx",
             "v1": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր.docx",
             "v2": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
-            "key": "Fm",
+            "key": "Dm",
             "speed": "100",
             "style": "Samba",
-            "song_type": "Single Song",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3",
             "match": [
@@ -5884,10 +5884,10 @@
             "latestVersion": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են v6.docx",
             "v1": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են.docx",
             "v2": "Երգարան Word Files/399 Փառքն ու պատիվը Աստծուն վայել են v2.docx",
-            "key": "Am (+1)",
-            "speed": "107",
+            "key": "Bm",
+            "speed": "104",
             "style": "Samba",
-            "song_type": "Single Song",
+            "song_type": "Opening Song",
             "timeSig": "4/4",
             "Comments": "Latin Dance-P2-3",
             "match": [
@@ -11713,22 +11713,24 @@
             ]
         },
         "SongNum": {
-            "Title": "Տկար զավակդ եմ, ո՜վ Տեր,",
-            "latestVersion": "RED Words/53.docx",
-            "v1": "RED Words/53.docx",
-            "key": "C#m",
-            "speed": "70",
-            "style": "Waltz ",
-            "song_type": "Single Song",
-            "timeSig": "3/4",
-            "Comments": "Ballad-P1-6",
+            "Title": "Սրտիս մեջ կա անուշ երգ մ'այսօր",
+            "latestVersion": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v3.docx",
+            "v1": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր.docx",
+            "v2": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
+            "key": "Dm",
+            "speed": "100",
+            "style": "Samba",
+            "song_type": "Opening Song",
+            "timeSig": "4/4",
+            "Comments": "Latin Dance-P2-3",
             "match": [
                 [
                     "old",
-                    "61",
-                    0.8742826742350854
+                    "72",
+                    0.983257108122343
                 ]
-            ]
+            ],
+            "v3": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v3.docx"
         },
         "177 ": {
             "Title": "",
