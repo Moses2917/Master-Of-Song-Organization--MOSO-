@@ -19,6 +19,8 @@ from time import time
 from regex import F
 from scanningDir import songCollector, songChecker,songSearch
 from re import findall
+YR_IN_SECONDS = 31540000
+THREE_MONTHS_AGO = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*0.25)#12/4=3Time for 3mths
 
 with open("wordSongsIndex.json", 'r', encoding='utf-8') as f:
     wordSongs = load(f)["SongNum"]
@@ -104,7 +106,7 @@ def get_a_unknown_song():
 
     # choices()
     print("Here are some unknowns that we could potentially sing today: ",choices(list(filtered_songs), k=2))
-
+# Depricated
 def find_weekday_songs() -> dict:
     """
     Finds middle day songs by analyzing and narrowing down the list of songs
@@ -312,7 +314,7 @@ def get_weekday_song(exact=False):
 
 def get_exact_weekday_order(possible_songs, available_songs:dict):
     weights = []
-    YR_IN_SECONDS = 31540000
+
     two_yrs_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*2)
     one_yr_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS)
     three_mths_ago = datetime.datetime.fromtimestamp(time()-YR_IN_SECONDS*0.25)#12/4=3Time for 3mths
@@ -365,8 +367,159 @@ def get_exact_weekday_order(possible_songs, available_songs:dict):
 
     return songlist
 
+
+def get_sunday_songs(only_first_two_songs=False, only_worship_songs=False, only_last_two_songs=False):
+    available_songs = collect_all_songs(True) # Songs not sang 3mths ago
+    last_known_date_sang: dict[str, dict[dict, datetime.datetime]] = {
+        "Old": {},
+        "New": {},
+    } # Used for date verification, holds only the latest date
+    collected_songs = []#used for random pick
+
+    # Assemble all songs into a long list then pick some random ones from there.
+    for date, song_info in available_songs.items():
+        # print(date, literal_eval(song_info["songList"]))
+        song_list: list[tuple[str,str]] = literal_eval(song_info["songList"])
+        file_date = findall(r"(.*\d)", date)[0]
+        date_format = "%m.%d.%y"
+        file_date = datetime.datetime.strptime(file_date, date_format) # file_date is now a datetime object
+        for song in song_list:
+            book: str = song[0]
+            song_num: str = song[1]
+            exists: datetime.datetime | bool = last_known_date_sang[book].get(song_num, False)
+            if exists:
+                # does not account for alt songs with same words, but different numbers
+                if exists < file_date:
+                    # simple logic to get the most recent date
+                    # by always updating with the most recent
+                    # instance that song was sang
+                    last_known_date_sang[book][song_num] = file_date
+            else:
+                # could store it as a string, but this is eaiser for future comaprisons
+                last_known_date_sang[book][song_num] = file_date
+                collected_songs.append(f"{song_num}_{book}")
+
+    possible_songs = [] # put a obj in here, then pick a random one
+    # Expect the prog to put objs of the correct size in here such as,
+    # Only first two, or last, or all, or etc
+    for date, song_info in available_songs.items():
+        song_list: list[tuple[str,str]] = literal_eval(song_info["songList"])
+        file_date = findall(r"(.*\d)", date)[0]
+        date_format = "%m.%d.%y"
+        file_date = datetime.datetime.strptime(file_date, date_format) # file_date is now a datetime object
+        # print(str(file_date))
+        # 3 month window of files ot drop, if file older than 3 month, keep it
+        if file_date < THREE_MONTHS_AGO:
+            if not(only_first_two_songs) and not(only_worship_songs) and not(only_last_two_songs):
+                if check_if_valid(song_list, last_known_date_sang):
+                    possible_songs.append(song_list)
+            elif only_first_two_songs:
+                if check_if_valid(song_list[:2], last_known_date_sang):
+                    possible_songs.append(song_list[:2])
+            elif only_worship_songs:
+                if check_if_valid(song_list[2:6], last_known_date_sang):
+                    possible_songs.append(song_list[2:6]) # 1 = 2nd song, and is not included
+            elif only_last_two_songs:
+                if len(song_list[6:8]) >= 2:
+                    if check_if_valid(song_list[6:8], last_known_date_sang):
+                        possible_songs.append(song_list[6:8])
+    # print(print(check_if_valid([('New', '399'), ('Old', '514')], last_known_date_sang)))
+    # Due to the scarcity of sunday songs
+    # I don't see a real reason to implement weighted choices
+    results: list[tuple[str,str]] = choices(possible_songs)[0]
+    # Reuslts = [('Old', '327'), ('New', '199')]
+    songlist = {}
+    ct = 1
+    for result in results:
+        song_num = result[1]
+        book = result[0]
+        song_data = getSong(book, song_num)
+        songlist[ct] = {
+            'songnum': song_num,
+            'title': song_data['Title'],
+            'date': last_known_date_sang[book][song_num].strftime("%m.%d.%Y"),
+            'book': book,
+            'weekday': last_known_date_sang[book][song_num].strftime('%A')
+        }
+        ct+=1
+
+    return songlist
+
+def check_if_valid(song_list, last_known_date_sang: dict[str, dict[dict, datetime.datetime]]):
+    """Checks if a song can be sang again, by checking if it was sang in the last three months
+
+    Args:
+        book (str): The name of the book
+        songnum (str): The number of the song
+        last_known_date_sang (dict[str, dict[dict, datetime.datetime]]): The dictionary containing the last known date that a song was sang
+
+    """
+    for song in song_list:
+        book: str = song[0]
+        song_num: str = song[1]
+
+        # get the latest date sang
+        song_date:datetime.datetime = last_known_date_sang[book][song_num]
+        if song_date > THREE_MONTHS_AGO:
+            return False
+    return True
+
+def get_last_sang_date():
+    available_songs = collect_all_songs(only_sunday=True) # Songs not sang 3mths ago
+    last_known_date_sang: dict[str, dict[dict, datetime.datetime]] = {
+        "Old": {},
+        "New": {},
+    } # Used for date verification, holds only the latest date
+    collected_songs = []#used for random pick
+
+    # Assemble all songs into a long list then pick some random ones from there.
+    for date, song_info in available_songs.items():
+        # print(date, literal_eval(song_info["songList"]))
+        song_list: list[tuple[str,str]] = literal_eval(song_info["songList"])
+        file_date = findall(r"(.*\d)", date)[0]
+        date_format = "%m.%d.%y"
+        file_date = datetime.datetime.strptime(file_date, date_format) # file_date is now a datetime object
+        for song in song_list:
+            book: str = song[0]
+            song_num: str = song[1]
+            exists: datetime.datetime | bool = last_known_date_sang[book].get(song_num, False)
+            if exists:
+                # does not account for alt songs with same words, but different numbers
+                if exists < file_date:
+                    # simple logic to get the most recent date
+                    # by always updating with the most recent
+                    # instance that song was sang
+                    last_known_date_sang[book][song_num] = file_date
+            else:
+                # could store it as a string, but this is eaiser for future comaprisons
+                last_known_date_sang[book][song_num] = file_date
+                collected_songs.append(f"{song_num}_{book}")
+    return last_known_date_sang
+
+def song_gen_tester(iterations = 100, debug=False):
+    last_known_date_sang = get_last_sang_date()
+    collected_samples:dict[int,dict] = {}
+    for iter in range(iterations):
+        collected_samples[iter] = get_sunday_songs()
+    fails = []
+    for iter, response in collected_samples.items():
+        for index, songdata in response.items():
+            if songdata.get("songnum") == '399':
+                pass
+            if not check_if_valid([(songdata.get("book"), songdata.get("songnum"))], last_known_date_sang):
+                fails.append(songdata)
+
+    print(f"You have {len(fails)} failed gens out of {iterations} iterations")
+    if debug:
+        pprint(collected_samples)
+
 if "__main__" == __name__:
+    pass
+    # pprint(find_sunday_song(only_worship_songs=True))
+    # pprint(get_sunday_songs(only_worship_songs=True))
+    song_gen_tester(100)
     # find_weekday_songs()
     # get_a_unknown_song()
-    # pprint(collect_all_songs())
-    pprint(get_weekday_song(True))
+    # print(possible_songs)
+    # print(find_sunday_song(True))
+    # pprint(get_weekday_song(True))
