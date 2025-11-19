@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1 class="text-center">Ցանկ</h1>
+
+<div id="songstable" class="table-responsive fw-bold container-md" data-bs-spy="scroll" data-bs-target="#scrollspy"
+    data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0">
+
+{% if table_data %}
+    <table
+        class="table"
+    >
+        <thead>
+            <tr>
+                <th>SongNum</th>
+                <th>Title</th>
+                <th>Key</th>
+                <th>Speed</th>
+                <th>Time Signature</th>
+                <th>Style</th>
+                <th>Song Type</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+
+        <tbody id="tablebody">
+            {% for songnum, song_data in table_data.items() %}
+            <tr id="{{songnum}}" style="animation: 0.4s ease 0s 1 normal forwards running fadeInRow;">
+                <td><a class="btn btn-outline-primary" href="/song/{{book}}/{{songnum}}">{{songnum}}</a></td>
+                <td data-bs-toggle="tooltip" data-bs-title="Song Title">{{song_data.get('Title', '')}}</td>
+                </td>
+                <td data-bs-toggle="tooltip" data-bs-title="Key">{{song_data['key']}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Speed">{{song_data['speed']}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">{{song_data['timeSig']}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">{{song_data['style']}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Song Type">{{song_data['song_type']}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">{{song_data['Comments']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</div>
+{% endblock %}
