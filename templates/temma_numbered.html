@@ -1,17 +1,111 @@
 {% extends 'base.html' %}
 
+{% block extra_header %}
+<!-- SEO Meta Tags -->
+<title>{{ book }} - Complete Song List | MOSO</title>
+<meta name="description" content="Browse all {{ table_data|length }} songs from {{ book }}. Full indexed list with song details including keys, tempo, time signatures, and styles for Armenian worship music.">
+<meta name="keywords" content="Armenian songs, {{ book }}, worship music, church songs, song index, lyrics">
+<link rel="canonical" href="{{ request.url }}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ book }} - Complete Song List | MOSO">
+<meta property="og:description" content="Browse all {{ table_data|length }} songs from {{ book }} with complete details and metadata.">
+<meta property="og:url" content="{{ request.url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MOSO">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ book }} - Complete Song List">
+<meta name="twitter:description" content="Browse all {{ table_data|length }} songs from {{ book }}">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ book }} Song Collection",
+  "description": "Complete indexed list of {{ table_data|length }} songs from {{ book }}",
+  "numberOfItems": {{ table_data|length }},
+  "itemListElement": [
+    {% for songnum, song_data in table_data.items() %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": "{{ song_data.get('Title', 'Song ' ~ songnum) }}",
+      "url": "{{ request.url_root }}song/{{ book }}/{{ songnum }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<style>
+/* Offset scroll position to account for fixed navbar */
+tr[id^="song-"] {
+    scroll-margin-top: 80px; /* Adjust this value to match your navbar height */
+}
+
+/* Back to top button */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    background: #0b5ed7;
+    transform: scale(1.1);
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+</style>
+{% endblock %}
 
 {% block content %}
 
-<h1 class="text-center">Ցանկ</h1>
+<h1 class="text-center mb-2">{{ book }} - Ցանկ</h1>
+<p class="text-center text-muted mb-4">{{ table_data|length }} songs total</p>
 
-<div id="songstable" class="table-responsive fw-bold container-md" data-bs-spy="scroll" data-bs-target="#scrollspy"
-    data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0">
+<!-- Quick Jump Links -->
+<div class="text-center mb-4">
+    <div class="btn-group btn-group-sm" role="group">
+        {% set ranges = [
+            (1, 100, '1-100'),
+            (101, 200, '101-200'),
+            (201, 300, '201-300'),
+            (301, 400, '301-400'),
+            (401, 500, '401-500'),
+            (501, 600, '501-600'),
+            (601, 700, '601-700'),
+            (701, 800, '701-800'),
+            (801, 900, '801-900'),
+            (901, 1000, '901-1000')
+        ] %}
+        {% for start, end, label in ranges %}
+            <a href="#song-{{ start }}" class="btn btn-outline-secondary">{{ label }}</a>
+        {% endfor %}
+    </div>
+</div>
 
-{% if table_data %}
-    <table
-        class="table"
-    >
+<div id="songstable" class="table-responsive fw-bold container-md">
+    {% if table_data %}
+    <table class="table">
         <thead>
             <tr>
                 <th>SongNum</th>
@@ -24,23 +118,53 @@
                 <th>Comments</th>
             </tr>
         </thead>
-
         <tbody id="tablebody">
             {% for songnum, song_data in table_data.items() %}
-            <tr id="{{songnum}}" style="animation: 0.4s ease 0s 1 normal forwards running fadeInRow;">
+            <tr id="song-{{songnum}}" style="animation: 0.4s ease 0s 1 normal forwards running fadeInRow;">
                 <td><a class="btn btn-outline-primary" href="/song/{{book}}/{{songnum}}">{{songnum}}</a></td>
                 <td data-bs-toggle="tooltip" data-bs-title="Song Title">{{song_data.get('Title', '')}}</td>
-                </td>
-                <td data-bs-toggle="tooltip" data-bs-title="Key">{{song_data['key']}}</td>
-                <td data-bs-toggle="tooltip" data-bs-title="Speed">{{song_data['speed']}}</td>
-                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">{{song_data['timeSig']}}</td>
-                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">{{song_data['style']}}</td>
-                <td data-bs-toggle="tooltip" data-bs-title="Song Type">{{song_data['song_type']}}</td>
-                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">{{song_data['Comments']}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Key">{{song_data.get('key', '')}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Speed">{{song_data.get('speed', '')}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">{{song_data.get('timeSig', '')}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">{{song_data.get('style', '')}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Song Type">{{song_data.get('song_type', '')}}</td>
+                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">{{song_data.get('Comments', '')}}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-{% endif %}
+    {% else %}
+    <div class="alert alert-info text-center">
+        No songs found in this collection.
+    </div>
+    {% endif %}
 </div>
+
+<!-- Back to Top Button -->
+<button id="backToTop" title="Back to top">↑</button>
+
+<script>
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Back to top button
+    var backToTopBtn = document.getElementById('backToTop');
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    };
+
+    backToTopBtn.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+});
+</script>
+
 {% endblock %}

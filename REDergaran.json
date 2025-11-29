@@ -127,7 +127,13 @@
                     "8",
                     0.9749464119359084
                 ]
-            ]
+            ],
+            "key": "Bm",
+            "speed": "",
+            "style": "",
+            "song_type": "All",
+            "timeSig": "",
+            "Comments": "Piano"
         },
         "10": {
             "Title": "Աստված իմ, երբ հոգիս նայի",
@@ -1999,7 +2005,13 @@
                     "135",
                     0.7398901109513623
                 ]
-            ]
+            ],
+            "key": "Cm",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P3-1"
         },
         "133": {
             "Title": "Տերը լույս ու փրկություն է մեզ համար,",
@@ -3516,7 +3528,7 @@
             "Title": "Ինչո՞ւ ես տանջում քեզ այդպես,",
             "latestVersion": "RED Words/234.docx",
             "v1": "RED Words/234.docx",
-            "key": "Dm",
+            "key": "Em",
             "speed": "95",
             "style": "Pop",
             "song_type": "Single Song",
@@ -11713,24 +11725,22 @@
             ]
         },
         "SongNum": {
-            "Title": "Սրտիս մեջ կա անուշ երգ մ'այսօր",
-            "latestVersion": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v3.docx",
-            "v1": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր.docx",
-            "v2": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v2.docx",
-            "key": "Dm",
-            "speed": "100",
-            "style": "Samba",
-            "song_type": "Opening Song",
-            "timeSig": "4/4",
-            "Comments": "Latin Dance-P2-3",
+            "Title": "Շուրջս կենաց հուզյալ ծովուն",
+            "latestVersion": "RED Words/132.docx",
+            "v1": "RED Words/132.docx",
             "match": [
                 [
                     "old",
-                    "72",
-                    0.983257108122343
+                    "135",
+                    0.7398901109513623
                 ]
             ],
-            "v3": "Երգարան Word Files/63 Սրտիս մեջ կա անուշ երգ մ'այսօր v3.docx"
+            "key": "Cm",
+            "speed": "65",
+            "style": "Ballad",
+            "song_type": "Single Song",
+            "timeSig": "6/8",
+            "Comments": "Ballad-P3-1"
         },
         "177 ": {
             "Title": "",

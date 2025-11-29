@@ -79,33 +79,23 @@
         <header class="header mb-4">
             <h1 class="text-center">Ցանկ</h1>
             <div id="searchbar">
-                
+
                 <div id="tsank_search_div">
                     <label for="query" class="form-label">Search Query:</label>
                     <div class="input-group">
                         <input type="text" id="query" name="query" value="{{ query }}" class="form-control">
                     </div>
                 </div>
-                
+
                 <label for="attribute" class="form-label">Search Mode:</label>
                 <div class="input-group" id="search_mode">
                     <select id="attribute" name="attribute" class="form-select" onchange="book_select()">
                         <option value="Full_Text">Lyrics</option>
                         <option value="all">Tsank Search</option>
                         <option value="attr_search">Attribute Search</option>
-                        <!-- <option value="Title" {{ 'selected' if attribute=='Title' }}>Title</option>
-                            <option value="latestVersion" {{ 'selected' if attribute=='latestVersion' }}>Latest Version</option>
-                            <option value="key" {{ 'selected' if attribute=='key' }}>Key</option>
-                            <option value="speed" {{ 'selected' if attribute=='speed' }}>Speed</option>
-                            <option value="timeSig" {{ 'selected' if attribute=='timeSig' }}>Time Signature</option>
-                            <option value="style" {{ 'selected' if attribute=='style' }}>Style</option>
-                            <option value="song_type" {{ 'selected' if attribute=='song_type' }}>Song Type</option>
-                            <option value="Comments" {{ 'selected' if attribute=='Comments' }}>Comments</option> -->
                     </select>
-                    <!-- <i class="bi bi-chevron-down float-end"></i> -->
-                     
                 </div>
-                
+
                 <div id="book_select_div" style="display: none;">
                     <label for="book" class="form-label">Please Choose the Book:</label>
                     <div class="input-group">
@@ -113,38 +103,34 @@
                             <option value="">--Please choose an option--</option>
                             <option value="REDergaran" {{ 'selected' if request.form.get('book')=='REDergaran' }}>
                                 REDErgaran</option>
-                            <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex'}}>
+                            <option value="wordSongsIndex" {{ 'selected' if request.form.get('book')=='wordSongsIndex' }}>
                                 Old Book</option>
                         </select>
                     </div>
                 </div>
 
+            </div>
+            <br>
+            <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit"
+                onclick="tsank_search()">
+                <i class="bi bi-search"></i>
+                Search
+            </button>
+            <br>
+            <div class="row justify-content-between">
+                <div class="col-4" id="num_results_div">
+                    <label for="num_results" class="form-label">Number of results</label>
+                    <select class="form-select form-select-lg" name="num_results" id="num_results">
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                    </select>
                 </div>
-                <br>
-                    <button type="submit" class="btn btn-dark shadow border border-dark-subtle rounded-3" id="submit"
-                        onclick="tsank_search()">
-                        <i class="bi bi-search"></i>
-                        Search
-                    </button>
-                    <br>
-                    <div class="row justify-content-between">
-                        <div class="col-4" id="num_results_div">
-                            <label for="num_results" class="form-label">Number of results</label>
-                            <select class="form-select form-select-lg" name="num_results" id="num_results">
-                                <option value="10" selected>10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            arm
-                        </div>
-
-                    </div>
             </div>
         </header>
+    </div>
         <div class="container mt-5" id="keyboard_container">
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-outline-light" id="keyboard_btn" onclick="toggleKeyboard()">Show
@@ -226,26 +212,26 @@
     </div>
     <!-- For attr search -->
     <div id="attributetable" style="display: none;" class="container-md" onchange="tsank_attribute_search()">
-    
+
         <div class="input-group mb-3">
             <input type="text" name="key" id="key" class="form-control">
             <input type="checkbox" name="key_checkbox" id="key_checkbox" class="btn-check" onchange="tsank_attribute_search()">
             <label for="key_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Key</label>
         </div>
-    
+
         <div class="input-group mb-3">
             <input type="number" class="form-control" name="tempo" id="tempo">
             <!-- The value of these checkboxes is only used to determine which attrs to search -->
             <input type="checkbox" name="tempo" id="tempo_checkbox" class="btn-check" onchange="tsank_attribute_search()">
             <label for="tempo_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Tempo</label>
         </div>
-    
+
         <div class="input-group mb-3">
             <input type="text" name="style" id="style" class="form-control">
             <input type="checkbox" name="style_checkbox" id="style_checkbox" class="btn-check" onchange="tsank_attribute_search()">
             <label for="style_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Style</label>
         </div>
-    
+
         <div class="input-group mb-3">
             <!-- <input type="" name="song_type" id="song_type" class="form-control"> -->
             <select name="song_type" id="song_type" class="form-control">
@@ -257,20 +243,20 @@
             <input type="checkbox" name="song_type_checkbox" id="song_type_checkbox" class="btn-check" onchange="tsank_attribute_search()">
             <label for="song_type_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Song Type</label>
         </div>
-    
+
         <div class="input-group mb-3">
             <input type="text" name="timeSig" id="timeSig" class="form-control">
             <input type="checkbox" name="timeSig_checkbox" id="timeSig_checkbox" class="btn-check" onchange="tsank_attribute_search()">
             <label for="timeSig_checkbox" class="btn btn-outline-primary shadow border border-primary fs-5">Time Sig.</label>
         </div>
-    
+
     </div>
     <div id="songstable" class="table-responsive fw-bold container-md" data-bs-spy="scroll" data-bs-target="#scrollspy"
         data-bs-smooth-scroll="true" data-bs-offset="0" tabindex="0">
         <!-- style="overflow: auto; position: relative;"> -->
     </div>
     <div class="text-center" id="load_more" style="display: none;">
-        <button class="btn btn-outline-primary"> 
+        <button class="btn btn-outline-primary">
             Load More
         </button>
     </div>
@@ -395,7 +381,7 @@
             if (open) {
                 // If open then close
             } else {
-                
+
             }
             return !open
         }
@@ -518,9 +504,9 @@
                 });
 
         }
-        
+
         async function tsank_search() {
-            
+
             if (attribute.value == 'Full_Text' && query.value != '') { //and there is a search query in it
                 // spinner()
                 scrollspydiv.style = "position: fixed; left: 20px; display: none"
@@ -555,7 +541,7 @@
         function spinner() {
               '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
         }
-        
+
         function getChecked() {
             var key_checked = document.getElementById("key_checkbox").checked
             var tempo_checked = document.getElementById("tempo_checkbox").checked
@@ -571,7 +557,7 @@
                 "timeSig" : timeSig_checked
             }
         }
-        
+
         function getSongAttrs(checked_attrs) {
             // checked_attrs = getChecked()
             songattrs = {}
@@ -592,7 +578,7 @@
                 if (song_type != "") {
                     songattrs["song_type"] = song_type
                 }
-                
+
                 // console.log("song_type:", document.getElementById("song_type").value)
             }
             if (checked_attrs["timeSig"]) {
@@ -609,7 +595,7 @@
             // console.log("checkedAttrs", checked_attrs)
             songattrs = getSongAttrs(checked_attrs)
             if (Object.keys(songattrs).length > 0) {
-                
+
 
                 const url = "/attributeSearch"
                 fetch(url,{
@@ -1150,7 +1136,7 @@
 
                 // Clear any pending timer
                 clearTimeout(debounceTimer);
-                
+
                 // If query is too short, don't search
                 if (!query || query.length < MIN_QUERY_LENGTH) return;
 

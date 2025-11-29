@@ -200,7 +200,7 @@ def singleWordToJson(songNum:str, book = "new"):
 
 if __name__ == "__main__":
     pass
-    singleWordToJson('776', "old")
+    updateSongLyrics('776', "old")
     # singleWordToJson('95')
     # singleWordToJson('96')
     # onedrive = ENV.get('onedrive')

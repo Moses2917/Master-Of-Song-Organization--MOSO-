@@ -431,21 +431,19 @@ def findEmptySongNum(amount_to_generate=1):
    #doesn't need a book, because all holes in songs should be in olds
    with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
     songs:dict = json.load(f)
-    if amount_to_generate == 1:
-            if not songs["SongNum"].get(str(x), None): return str(x)
-    elif amount_to_generate > 1:
-        found_nums = []
-        for x in range(1,10000):
-            if len(found_nums) < amount_to_generate:
-                if not songs["SongNum"].get(str(x), None):
-                    songs["SongNum"][x] = True
-                    found_nums.append(x)
-            else:
-                break
-        return found_nums
+    # elif amount_to_generate > 1:
+    found_nums = []
+    for x in range(1,10000):
+        if len(found_nums) < amount_to_generate:
+            if not songs["SongNum"].get(str(x), None):
+                songs["SongNum"][x] = True
+                found_nums.append(x)
+        else:
+            break
+    return found_nums
 #    return 'N'
 
 
 if __name__ == '__main__':
-    # print(findEmptySongNum(amount_to_generate=20))
-    print(songSearch('177', 'new'))
+    print(findEmptySongNum(amount_to_generate=1))
+    # print(songSearch('177', 'new'))

@@ -14,3 +14,4 @@ testsongs.json
 *.pyc
 song_sorter.py
 .DS_Store
+htmlsongs/*

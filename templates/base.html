@@ -7,11 +7,13 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="MOSO Songs">
-  
+
   <!-- Apple Touch Icons -->
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='pictures/moso.png') }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='pictures/moso.png') }}">
-  
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <!-- Will be used for dynamic page descriptions -->
   <!-- needs too be above defaults tags inorder to replace them -->
   <!-- because browsers will choose the first instance and use it -->
@@ -42,11 +44,12 @@
       font-display: block;
       font-family: bootstrap-icons;
       src: url("{{url_for('static', filename='css/bootstrap-icons/fonts/bootstrap-icons.woff2')}}?e34853135f9e39acf64315236852cd5a") format("woff2"), url("{{url_for('static', filename='css/bootstrap-icons/fonts/bootstrap-icons.woff')}}?e34853135f9e39acf64315236852cd5a") format("woff")
-  }
+
+    }
   </style>
-  
+
   <title>MOSO</title>
-  <link rel="shortcut icon" href="{{url_for('static', filename='pictures/moso.png')}}" type="image/png">
+  <link rel="icon" as="image" href="{{url_for('static', filename='pictures/moso.png')}}" type="image/png">
   <style>
     #btn-back-to-top {
         position: fixed;
@@ -62,7 +65,7 @@
     @font-face {
       font-family: 'NotoSansArmenian';
       src: url("{{url_for('static', filename='fonts/NotoSansArmenian-VariableFont_wght.ttf')}}");
-      
+
     }
     @font-face {
     font-family: 'armoFont';
@@ -125,90 +128,87 @@
     .content-wrapper {
       animation: fadeIn 0.3s ease-in-out;
     }
-  
+
     @keyframes fadeIn {
       from {
         opacity: 0;
         transform: translateY(10px);
       }
-  
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-  
+
     /* Nav Link Click Effect */
     .nav-link.active {
       transition: transform 0.2s ease, color 0.2s ease;
     }
-  
+
     .nav-link.active:active {
       transform: scale(0.95);
       color: #4169e1 !important;
     }
-  
+
     /* Button Click Animation */
     .btn {
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-  
+
     .btn:active {
       transform: scale(0.95);
       box-shadow: 0 0 0 2px rgba(65, 105, 225, 0.4);
     }
-  
+
     /* Card Hover & Click Effects */
     /* .card {
       transition: transform 0.2s ease;
     }
-  
+
     .card:hover {
       transform: translateY(-2px);
     }
-  
+
     .card:active {
       transform: translateY(0);
     } */
-  
+
     /* Alert Appearance Animation */
     .alert {
       animation: slideIn 0.3s ease-out;
     }
-  
+
     @keyframes slideIn {
       from {
         transform: translateY(-20px);
         opacity: 0;
       }
-  
+
       to {
         transform: translateY(0);
         opacity: 1;
       }
     }
-  
+
     /* Search Input Focus Effect */
     .form-control:focus {
       transition: box-shadow 0.2s ease;
       box-shadow: 0 0 0 2px rgba(65, 105, 225, 0.4);
     }
-  
+
     /* Back to Top Smooth Scroll */
     #backToTop {
       transition: opacity 0.3s ease, transform 0.2s ease;
     }
-  
+
     #backToTop:active {
       transform: scale(0.9);
     }
   </style>
-  <script src="{{url_for('static', filename='js/chart.js')}}"></script>
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
 </head>
 <body class="lyrics">
-  
+
   <nav class="navbar navbar-expand-lg bg-dark bg-gradient fs-5 sticky-top">
     <div class="container-fluid" name="brand">
        <a href="{{url_for('home')}}" class="navbar-brand" name="brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50" name="brand" alt="GOTO Home" aria-label="brand"></a>
@@ -225,13 +225,16 @@
             <li class="nav-item">
               <a class="nav-link active" href="{{ url_for('edit_songs') }}">Edit Songs</a>
             </li>
-            
+
             <!-- <li class="nav-item">
               <a class="nav-link active" href="{{url_for('song_matcher')}}">Song Matcher</a>
             </li> -->
 
             {% endif %}
           {% endif %}
+          <!-- <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('tsank_numbered')}}">Ցանկ</a>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('tsank')}}">Ցանկ Ըստ Թեմա</a>
           </li>
@@ -253,7 +256,10 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('youth')}}#top">Youth</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('playlist')}}#top">Playlist</a>
+          </li> -->
+          <li class="nav-item" hidden>
             <a class="nav-link active" href="{{url_for('playlist')}}#top">Playlist</a>
           </li>
           {% if session['user']%}
@@ -332,7 +338,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-  
+
           <div class="input-group">
             <input type="text" name="searchLyrics" id="searchLyrics" class="form-control me-2" placeholder="Search"
               aria-label="Search" oninput='getResults()'>
@@ -368,7 +374,7 @@
           .then(text => {
               //text = Array.from(text);
               //text.forEach(manifestResults);
-              
+
               for (const element of text){
                   if (resultsUl.childNodes.length <= 10){
                     resultsUl.innerHTML += element;
@@ -380,7 +386,7 @@
       if (!lyrics){
           resultsUl.innerHTML = `<li class="list-group-item"> No results found. </li>`;
       }
-      fix to make it work later    
+      fix to make it work later
       console.log(resultsUl.innerHTML.text)*/
     }
   </script>
@@ -396,7 +402,7 @@
       {% endwith %}
       <!-- {% if request.url %}  {%endif%}    -->
 
-      
+
       <button
       type="button"
       class="z-3 btn btn-danger btn-floating btn-lg rounded-circle"
@@ -407,29 +413,27 @@
           <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
         </svg>
       </button>
-
-      
-      
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAACAES66VjaoxH24U"></div>
       {% block content %}{% endblock %}
       <script>
-        
+
         document.querySelectorAll("textarea").forEach(function(textarea) {
           textarea.style.height = textarea.scrollHeight + "px";
           textarea.style.overflowY = "scroll";
-          
+
           textarea.addEventListener("input", function() {
             this.style.height = "auto";
             this.style.height = this.scrollHeight + "px";
             autoTextareaHeight()
           });
         });
-      
+
         // credit to https://stackoverflow.com/questions/454202/
         function autoTextareaHeight() {
           document.querySelectorAll("textarea").forEach(function(textarea) {
             textarea.style.height = textarea.scrollHeight + "px";
             textarea.style.overflowY = "scroll";
-            
+
             textarea.addEventListener("input", function() {
               this.style.height = "auto";
               this.style.height = this.scrollHeight + "px";
@@ -440,12 +444,12 @@
 
       <script type="text/javascript">{//Get the button
           let mybutton = document.getElementById("btn-back-to-top");
-          
+
           // When the user scrolls down 20px from the top of the document, show the button
           window.onscroll = function () {
             scrollFunction();
           };
-          
+
           function scrollFunction() {
             if (
               document.body.scrollTop > 20 ||
@@ -458,7 +462,7 @@
           }
           // When the user clicks on the button, scroll to the top of the document
           mybutton.addEventListener("click", backToTop);
-          
+
           function backToTop() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;

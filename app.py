@@ -69,14 +69,14 @@ def open_past_songs():
 all_past_songs = open_past_songs()
 # Should only load this once instead of every time
 with open('REDergaran.json', mode='r', encoding='utf-8') as json_file:
-    REDergaran:dict = json.load(json_file)
+    REDergaran:dict[str, dict[str,str]] = json.load(json_file)
 with open('wordSongsIndex.json', mode='r', encoding='utf-8') as json_file:
-    wordSongsIndex:dict = json.load(json_file)
+    wordSongsIndex:dict[str, dict[str,str]] = json.load(json_file)
 
-@app.route("/robots.txt", methods=["GET"])
-def robots():
-    with open('./templates/robots.txt', 'r') as f:
-        return f.read()
+# @app.route("/robots.txt", methods=["GET"])
+# def robots():
+#     with open('./templates/robots.txt', 'r') as f:
+#         return f.read()
 
 # @app.route("/.well-known/security.txt", methods=["GET"])
 # def security():
@@ -115,11 +115,11 @@ def before_request():
                     "name": "Guest",
                     "email": "guest@example.com",
                     "admin": False,
-                    
+
                 },
             }
-        
-            
+
+
 
 #the /login route, users will be redirected to Auth0 to begin the authentication flow.
 @app.route("/login")
@@ -180,9 +180,12 @@ def load_table_data(book:str):
         dict: a dict containing all of the songs in that index
     """
     try:
-        return wordSongsIndex.get('SongNum') if book == "wordSongsIndex" else REDergaran.get('SongNum')
-    except FileNotFoundError:
-        return None
+        table_data: dict[str, str] = wordSongsIndex.get('SongNum', {}) if book == "wordSongsIndex" else REDergaran.get('SongNum', {})
+        return table_data
+    except FileNotFoundError as error:
+        print('There was an error opening the file')
+        print(error)
+        return {}
 
 # @app.route('/getTableData', methods=['GET', 'POST'])
 def getSong(book:str, songnum:str, batch = 0) -> dict:
@@ -250,7 +253,12 @@ def openWord(songNum, book, plaintext=False):
         for chunk in chunks:
             lines = chunk.split('\n')
             html_lines = ['<p>' + line + '</p>' for line in lines]
-            html_chunk = ''.join(html_lines)
+            # html_chunk = ''.join(html_lines)
+            html_chunk = '<section class = "Verse/Chorus" >'
+            for line in html_lines:
+                html_chunk += line
+            html_chunk += '</section>'
+            # html_chunk = ''.join(f'<section class = "Verse/Chorus" > {html_lines} </section>')
             html_chunks.append(html_chunk)
 
         # Join the chunks with line breaks, adding or subtracting br will add or subtract the breaks between the paragraphs
@@ -269,7 +277,7 @@ def saveHtml(filePth, WordDoc):
         WordDoc (str): The name of the Word document, not the path, but just the filename.
 
     Returns:
-        None
+        list of song nums
     """
     from docx import Document
     from docx import document
@@ -404,6 +412,16 @@ def display_song(book, songnum) -> str:
     Returns:
     A rendered HTML template with the song's lyrics, past songs, and similar songs.
     """
+
+    # issue: getting book.value etc, from scrapers finding my js
+    # Issue: BUg where /song/docx/*.docx, would go here
+    # fix:
+    book = book.lower()
+    if 'docx' in book and '.docx' in songnum:
+        return redirect(f"{url_for('ServiceSongOpen', WordDoc=songnum)}")
+    # if (book == "REDergaran") or (book == "New") or (book == "Old") or (book == "wordSongsIndex"):
+    if not(book in ('redergaran', 'new', 'old', 'wordsongsindex')):
+        return "Page not found, please enter the correct parameters.", 404
     from scanningDir import songSearch
     with open('wordSongsIndex.json', 'r', encoding='utf-8') as f:
         wordSongsIndex = json.load(f)
@@ -414,7 +432,6 @@ def display_song(book, songnum) -> str:
     with open('song_occurrences.json', 'r', encoding='utf-8') as f:
         occr = json.load(f)
 
-    book = book.lower()
     if book == 'wordsongsindex' or book == 'old':
         book = 'Old'
     else:
@@ -631,7 +648,7 @@ def youth():
             return 'No text found'
 
 
-@app.route('/song/docx/<WordDoc>', methods=['GET','POST'])
+@app.route('/docx/<WordDoc>', methods=['GET','POST'])
 def ServiceSongOpen(WordDoc) -> str:
     """
     Renders the song.html template with lyrics from a .docx file.
@@ -653,7 +670,7 @@ def ServiceSongOpen(WordDoc) -> str:
             # print(foundFiles)
             with open(foundFiles[0], 'r', encoding='utf-8') as f:
                 lyrics = f.read()
-            return render_template("song.html", lyrics = lyrics)
+            return render_template("display_docx.html", lyrics = lyrics)
         else:
             # with open("songs.json" , 'r', encoding='utf-8') as f:
             #     songs = json.load(f)
@@ -941,6 +958,7 @@ def edit_songs():
 
 @app.route('/tsank', methods=['GET','POST'])
 def tsank():
+    # TODO: Change this func def to temma
     """
     Handles HTTP requests to the '/tsank' route, supporting both GET and POST methods.
 
@@ -964,6 +982,47 @@ def tsank():
         return render_template('temas.html', temmalist=temmalist)
 
     return render_template("tema.html", temmas=temma,temmalist=temmalist)
+
+@app.route('/tsank_nums', methods=['GET', 'POST'])
+def tsank_numbered() -> str:
+    table_data:dict[str,str] = load_table_data('REDergaran') # type: ignore
+    book = 'REDergaran'
+    if request.method == 'POST':
+        return render_template('temma_numbered.html', table_data=table_data)
+        data = request.get_json(silent=True)
+        if data:
+            query = data['query']
+            attribute = data['attribute']
+            book = data['book']
+            # Better wasy to get the book attr
+            book = request.args.get('book', None)
+
+        if book and attribute and not query:
+            # print(load_table_data(book=book))
+            return json.dumps([load_table_data(book=book)])
+
+        if query and book and attribute: # if attr is full_text
+            table_data = load_table_data(book=book)
+            filtered_data = {}
+            query:str
+            cleaned_numeric_query = re.sub(r'[-՛:։,.\\n\s]+', ' ', query, re.MULTILINE)
+            if cleaned_numeric_query.strip().isdigit():
+                filtered_data[cleaned_numeric_query] = table_data.get(cleaned_numeric_query, None)
+            else:
+                query_lower = query.lower()
+                cleaned_query = re.sub(r'[^ա-ֆԱ-Ֆ\s]','',query_lower)
+                # Build the regex string used for search
+                regex_str = f"{cleaned_query}*[ա-ֆԱ-Ֆ].*"
+                for song_num, attrs in table_data.items():
+                    # attrs is the dict containing all attrs
+                    if re.match(regex_str, table_data[song_num]["Title"].lower()):
+                        match = table_data[song_num]["Title"]
+                        # print(f"Found a potential match at: { match }")
+                        filtered_data[song_num] = attrs
+            table_data: list[dict] = [filtered_data]
+            return json.dumps(table_data)
+    else:
+        return render_template('temma_numbered.html', table_data=table_data, book=book)
 
 @app.route('/tsank_a_z', methods=['GET','POST'])
 def tsank_A_Z():
@@ -1090,8 +1149,8 @@ def newSundaySong():
         only_first_two_songs = data['only_first_two_songs']
         only_worship_songs = data['only_worship_songs']
         only_last_two_songs = data['only_last_two_songs']
-        from song_curator import find_sunday_song
-        reccomened_songs = find_sunday_song(only_first_two_songs, only_worship_songs, only_last_two_songs)
+        from song_curator import get_sunday_songs
+        reccomened_songs = get_sunday_songs(only_first_two_songs, only_worship_songs, only_last_two_songs)
 
         return jsonify(reccomened_songs) if reccomened_songs else jsonify(None)
     return render_template('newSundaySongs.html')
@@ -1336,10 +1395,15 @@ def manage_playlist():
 @app.route("/playlist/manage/add")
 def add_playlist():
     return render_template('playlist_add.html')
-@app.route("/googleeb915e9a415f695e.html")
-def google():
-    return render_template("googleeb915e9a415f695e.html")
+# @app.route("/googleeb915e9a415f695e.html")
+# def google():
+#     return render_template("googleeb915e9a415f695e.html")
+@app.route("/privacy", methods=['GET'])
+def privacy_policy():
+    with open('privacypolicy.md', 'r', encoding='utf-8') as f:
+        policy = f.read()
 
+    return render_template('privacy.html', policy=policy)
 # @app.before_request
 # def _ip_debug():
 #     print("remote_addr:", request.remote_addr,

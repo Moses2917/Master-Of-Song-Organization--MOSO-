@@ -51,6 +51,12 @@
 <div class="container-md col-auto vstack gap-2" id="Results">
 </div>
 
+<div class="container-md">
+  <ol class="list-group list-group-numbered shadow p-3 mb-5 bg-body-tertiary rounded" id="song_order"
+    style="display: none;">
+  </ol>
+</div>
+
 <script>
   document.getElementById('SongSection').onchange = function() {
     // var first_two_songs = document.getElementById('only_first_two_songs').checked;
@@ -61,27 +67,35 @@
     // if (last_two_songs){document.getElementById('only_first_two_songs').checked = false; document.getElementById('only_worship_songs').checked = false; }
     getSundayRecs();
   }
+  function blinking_placeholder() {
+    const song_order = document.getElementById('song_order');
+    song_order.innerHTML = ''
+    const elem = `      <li class="list-group-item">
+      <div class="placeholder-glow ">
+        <p aria-hidden="true">
+          <span class="placeholder col-9"></span>
+        </p>
+        <p aria-hidden="true">
+          <span class="placeholder col-6"></span>
+        </p>
+    </div>`
+    array = [1, 2, 3, 4, 5, 6];
+    array.forEach(element => {
+      song_order.innerHTML += elem
+    })
+    song_order.style.display = 'block'
+  }
   async function getSundayRecs() {
-    // Gets a bool representing if its been checked
+    blinking_placeholder();
+    const songOrder = document.getElementById('song_order');
     var first_two_songs = document.getElementById('only_first_two_songs').checked;
     var worship_songs = document.getElementById('only_worship_songs').checked;
     var last_two_songs = document.getElementById('only_last_two_songs').checked;
-
-    if (first_two_songs || worship_songs ||last_two_songs) {
-      
-    
-      const Results = document.getElementById('Results');
-    
-      //const Results = document.getElementById('Results')
-      Results.innerHTML = ""
-      // Get the song number, and make the url
-      
-      // var url = {{ url_for('newSundaySong')| tojson }}
-      const url = window.location.href;
-      fetch(url,{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
+    const url = window.location.href;
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
       },
         body: JSON.stringify({
           'only_first_two_songs': first_two_songs,
@@ -90,41 +104,40 @@
         })
       })
       .then(response =>response.text())
-      .then(text =>{
-        text = JSON.parse(text);
-        // text = Array.from(text)
-        text.forEach(element => {
-          Results.innerHTML += `<div class="d-flex justify-content-center"><a class="btn btn-outline-primary fs-5" href="/song/${element[0]}/${element[1]}">${element[1]}: ${element[2]}</a></div>`
-        });
-        // Results.innerHTML += text
-        console.log(text)
-      })
+      // .then(text =>{
+      //   text = JSON.parse(text);
+      //   // text = Array.from(text)
+      //   text.forEach(element => {
+      //     Results.innerHTML += `<div class="d-flex justify-content-center"><a class="btn btn-outline-primary fs-5" href="/song/${element[0]}/${element[1]}">${element[1]}: ${element[2]}</a></div>`
+      //   });
+      //   // Results.innerHTML += text
+      //   console.log(text)
+      // })
       .catch((error) => {
-        Results.innerHTML = `<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card border-0 shadow-sm">
-        <div class="card-body text-center p-5">
-          <i class="bi bi-exclamation-circle text-danger mb-4" style="font-size: 3rem;"></i>
-          <h2 class="mb-4">We're Having Technical Difficulties</h2>
-          <p class="text-secondary mb-4">We apologize for the inconvenience. Please try refreshing your page or try again in a few moments.</p>
-          <div class="d-flex justify-content-center gap-3">
-            <button onclick="window.location.reload()" class="btn btn-primary">
-              <i class="bi bi-arrow-clockwise me-2"></i>Refresh Page
-            </button>
-            <a href="/" class="btn btn-outline-secondary">
-              <i class="bi bi-house-door me-2"></i>Return Home
-            </a>
-          </div>
+        console.error('Error:', error);
+      })
+      .then(text => {
+        const songs = Object.values(JSON.parse(text));
+        songOrder.innerHTML = ''
+        console.log(songs)
+        // Store the song text as we generate it
+        currentSongText = songs.map(element => `${element['songnum']}: ${element['title']}`).join('\n');
+
+        songs.forEach(element => {
+          songOrder.innerHTML += `
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">${element['book']}: ${element['songnum']}: ${element['title']}
         </div>
+          This song was last sang on ${element['date']} which was a ${element['weekday']}
+          <br>
+          <a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/${element['book']}/${element['songnum']}">
+            Open Song
+          </a>
       </div>
-    </div>
-  </div>
-</div>`
-      });
-    } else{
-      Results.innerHTML = ""
-    }
+    </li>`
+        });
+      })
   }
 
 </script>
