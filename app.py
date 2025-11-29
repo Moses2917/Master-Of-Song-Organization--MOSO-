@@ -16,6 +16,7 @@ from flask import Flask, jsonify, render_template, request, redirect, url_for, s
 from flask_sitemap import Sitemap
 import json
 from concurrent.futures import ThreadPoolExecutor
+from functools import wraps
 #Import Custom Lyrics Search Engine
 from WordSongUpdater import getNums
 from lyric_search_engine import SearchEngine
@@ -24,6 +25,21 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
+
+def read_env_manual(env_path):
+    """Manually read .env file and return dict of key-value pairs"""
+    env_vars = {}
+    try:
+        with open(env_path, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and '=' in line:
+                    key, value = line.split('=', 1)
+                    env_vars[key.strip()] = value.strip()
+    except FileNotFoundError:
+        pass
+    return env_vars
+
 ENV_FILE = find_dotenv("{}\Documents\Code\.env".format(env.get("OneDrive")))
 if ENV_FILE:
     load_dotenv(ENV_FILE)
@@ -43,6 +59,13 @@ ext = Sitemap(app=app)
 secret_key = env.get("APP_SECRET_KEY")
 
 app.secret_key = secret_key if secret_key else secrets.token_urlsafe(16)
+
+# Load Turnstile secret key
+TURNSTILE_SECRET_KEY = env.get("TURNSTILE_SECRET_KEY")
+if not TURNSTILE_SECRET_KEY:
+    # Fallback: try manual read if dotenv didn't load it
+    manual_env = read_env_manual(ENV_FILE)
+    TURNSTILE_SECRET_KEY = manual_env.get("TURNSTILE_SECRET_KEY")
 
 oauth = OAuth(app)
 
@@ -167,6 +190,82 @@ def isUserAllowed(email):
     """
     with open("{}\\Documents\\Code\\allowedEmails.csv".format(env.get("OneDrive")), 'r') as f:
         return email in f.read()
+
+def verify_turnstile(token, remote_ip=None):
+    """
+    Verify Cloudflare Turnstile token with Cloudflare API.
+
+    Args:
+        token (str): The cf-turnstile-response token from client
+        remote_ip (str, optional): The user's IP address
+
+    Returns:
+        tuple: (success: bool, error_msg: str or None)
+    """
+    if not token:
+        return False, "Missing Turnstile token"
+
+    if not TURNSTILE_SECRET_KEY:
+        logging.error("TURNSTILE_SECRET_KEY not configured")
+        return False, "Server configuration error"
+
+    # Cloudflare Turnstile verification endpoint
+    verify_url = "https://challenges.cloudflare.com/turnstile/v0/siteverify"
+
+    payload = {
+        "secret": TURNSTILE_SECRET_KEY,
+        "response": token
+    }
+
+    if remote_ip:
+        payload["remoteip"] = remote_ip
+
+    try:
+        import requests
+        response = requests.post(verify_url, json=payload, timeout=5)
+        result = response.json()
+
+        if result.get("success"):
+            return True, None
+        else:
+            error_codes = result.get("error-codes", [])
+            logging.warning(f"Turnstile verification failed: {error_codes}")
+            return False, f"Verification failed: {', '.join(error_codes)}"
+
+    except requests.RequestException as e:
+        logging.error(f"Turnstile verification request failed: {e}")
+        return False, "Verification service unavailable"
+    except Exception as e:
+        logging.error(f"Unexpected error during Turnstile verification: {e}")
+        return False, "Verification error"
+
+def require_turnstile(f):
+    """
+    Decorator to require valid Turnstile token for POST requests.
+    Returns JSON error response (403) if verification fails.
+    """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if request.method == 'POST':
+            # Get token from form data or JSON body
+            token = request.form.get('cf-turnstile-response')
+            if not token and request.is_json:
+                data = request.get_json(silent=True)
+                token = data.get('cf-turnstile-response') if data else None
+
+            # Get user's IP address
+            remote_ip = request.remote_addr
+
+            # Verify token
+            success, error_msg = verify_turnstile(token, remote_ip)
+
+            if not success:
+                logging.warning(f"Turnstile verification failed for {request.endpoint}: {error_msg}")
+                return jsonify({"error": "Turnstile verification failed", "details": error_msg}), 403
+
+        return f(*args, **kwargs)
+
+    return decorated_function
 
 # Table data loading logic
 def load_table_data(book:str):
@@ -549,6 +648,7 @@ def today_songs(retry=False):
         return render_template("display_docx.html", lyrics=html_text, song_nums=result)
 
 @app.route('/events', methods=["GET", "POST"])
+@require_turnstile
 def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե.docx"):
     folder_path = os.path.join(onedrive_path,"Երգեր/Պենտեկոստե")
     # print(folder_path)
@@ -602,6 +702,7 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
 
 
 @app.route('/youth', methods=["GET", "POST"])
+@require_turnstile
 def youth():
     # folder_path = os.path.join(onedrive_path,"Youth Songs")
 
@@ -708,6 +809,7 @@ def getSongAttributes(book,songnum) -> dict:
     return jsonify(getSong(book, songnum))
 
 @app.route('/attributeSearch', methods=['GET','POST'])
+@require_turnstile
 def attributeSearch() -> dict:
     """This inputs a list of attributes and the finds songs whose attributes match the input attributes.
 
@@ -807,6 +909,7 @@ def get_my_ip() -> str:
 # def home():
 #     yield 'home', {}
 @app.route('/', methods=['GET', 'POST'])
+@require_turnstile
 def home():
     """
     Handles HTTP requests to the root URL ('/').
@@ -885,6 +988,7 @@ def home():
 
 
 @app.route('/editsongs', methods=['GET', 'POST'])
+@require_turnstile
 def edit_songs():
     """
     Handles HTTP requests to the '/editsongs' route, allowing users to edit song information.
@@ -1045,6 +1149,7 @@ def tsank_letter(book, letter):
     return render_template('tsank_letter.html', selected_letter = selected_letter)
 
 @app.route('/past_songs', methods=['GET','POST'])
+@require_turnstile
 def check_past_songs():
     """
     Handles the '/past_songs' route, accepting both GET and POST requests.
@@ -1143,6 +1248,7 @@ def past_songs(songnum):
     return render_template('pastsongtemplate.html', past_songs=past_songs)
 
 @app.route('/newSundaySong', methods=['GET', 'POST'])
+@require_turnstile
 def newSundaySong():
     if request.method == 'POST':
         data = request.get_json()
@@ -1156,6 +1262,7 @@ def newSundaySong():
     return render_template('newSundaySongs.html')
 
 @app.route('/weekdaySong', methods=['GET', 'POST'])
+@require_turnstile
 def weekdaySong():
     if request.method == 'POST':
         req_body:dict = request.get_json()
@@ -1205,6 +1312,7 @@ def posible_alt_song(songnum,book): # COuld also do only num,book,lyrics
 
 
 @app.route('/known_songs', methods=['GET','POST'])
+@require_turnstile
 def known_songs():# add some func to be able to go backwards
     from known_songs import update_known_songs, get_skipped_songs
     if request.method == "POST":
