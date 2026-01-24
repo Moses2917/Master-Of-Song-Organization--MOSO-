@@ -237,10 +237,6 @@ def findNewFiles():  # is for finding new files so as to only go through and add
                      '2022']  # list of unneeded dirs
         return any(item in text for item in blacklist)
 
-    def fileCrawler(filePth: str):  # is_file or is_folder
-
-        return isfile(filePth)
-
     # toJson() #run this to update the json index -_-
     OneDrivePth = os.environ.get("OneDrive")  # gets the base path to onedrive from enviornment variables!
 
@@ -445,5 +441,7 @@ def findEmptySongNum(amount_to_generate=1):
 
 
 if __name__ == '__main__':
-    print(findEmptySongNum(amount_to_generate=1))
+    findNewFiles()
+
+    # print(findEmptySongNum(amount_to_generate=1))
     # print(songSearch('177', 'new'))

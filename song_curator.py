@@ -16,7 +16,6 @@ from pprint import pprint
 from random import choice as choose
 from random import choices
 from time import time
-from regex import F
 from scanningDir import songCollector, songChecker,songSearch
 from re import findall
 YR_IN_SECONDS = 31540000
@@ -338,9 +337,9 @@ def get_exact_weekday_order(possible_songs, available_songs:dict):
         if not invalid_song:
             avg_date_timestamp = reduce(lambda x,y: x+y, dates, 0.0)/len(dates)
             avg_date = datetime.datetime.fromtimestamp(avg_date_timestamp)
-            print("The average date is: ", avg_date)
-            print(date)
-            print(song_list)
+            # print("The average date is: ", avg_date)
+            # print(date)
+            # print(song_list)
             base_weight = 1
             if two_yrs_ago > avg_date:
                 base_weight = 10

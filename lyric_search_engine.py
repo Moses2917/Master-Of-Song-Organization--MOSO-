@@ -150,6 +150,22 @@ class SearchEngine:
 
         return results
 
+# from rapidfuzz import fuzz, process
+# class FuzzySearch(SearchEngine):
+#     def __init__(self):
+#         super().__init__()
+#         self.lyrics = super().extract_lyrics(super().load_json_data('AllLyrics.json'))
+        
+#     def search(self, query, limit=10):
+#         results = process.extract(
+#             query,
+#             self.lyrics,
+#             scorer=fuzz.token_set_ratio,
+#             processor=lambda x: x['lyrics'],
+#             limit=limit
+#         )
+#         return results
+
 class SimilerSongMatcher(SearchEngine):
     def __init__(self):
         super().__init__()
