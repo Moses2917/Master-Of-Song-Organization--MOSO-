@@ -5,21 +5,27 @@
 {% if session['user']['userinfo']['admin'] %}
 
 <div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
-  <div class="row align-items-start justify-content-center ">
+  <div class="row align-items-start justify-content-center">
     <h2 class="text-center">Click the button to generate songs:</h2>
     <div class="row justify-content-center" id="SongSection">
       <div class="col-auto">
         <div class="text-center">
+
           <input class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="Weekday_Songs"
             value="Get Weekday Songs" onclick="getWeekdayRecs()">
-          <button type="button" id="exact-order" class="btn btn-dark" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
+
+          <input class="btn-check" type="checkbox" id="exact-order" value="exact-order" autocomplete="off"
+            onchange="getWeekdayRecs()">
+          <label class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" for="exact-order">
             Exact Order
-          </button>
+          </label>
+
           <button class="btn btn-dark shadow border border-dark-subtle rounded-3 fs-5" type="button" id="cp_block"
             onclick="copy_order()">
             <i class="bi bi-clipboard"></i>
             Copy Order
           </button>
+
         </div>
       </div>
     </div>
@@ -32,19 +38,15 @@
     Hint: Just click the song you want to open.
   </p>
 </div>
+
 <div class="container-md">
   <ol class="list-group list-group-numbered shadow p-3 mb-5 bg-body-tertiary rounded" id="song_order"
     style="display: none;">
   </ol>
 </div>
-</div>
 
 <script>
   let currentSongText = '';
-
-  function spinner() {
-    '<div class="d-flex justify-content-center "> <div class="spinner-border m-5" role="status"> <span class="visually-hidden">Loading...</span> </div> </div>'
-  }
 
   function blinking_placeholder() {
     const song_order = document.getElementById('song_order');
@@ -65,18 +67,44 @@
     song_order.style.display = 'block'
   }
 
+  function renderSongs(songs) {
+    const songOrder = document.getElementById('song_order');
+    songOrder.innerHTML = '';
+    currentSongText = songs.map(element => `${element['songnum']}: ${element['title']}`).join('\n');
+    if (!songs.length) {
+      songOrder.innerHTML = `<li class="list-group-item text-center text-muted">No matching songs found. Try toggling Exact Order off.</li>`;
+      return;
+    }
+    songs.forEach(element => {
+      const isPlaceholder = !element['songnum'];
+      const openLink = isPlaceholder
+        ? ''
+        : `<a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/${element['book']}/${element['songnum']}">Open Song</a>`;
+      songOrder.innerHTML += `
+    <li class="list-group-item d-flex justify-content-between align-items-start${isPlaceholder ? ' opacity-50' : ''}">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">${isPlaceholder ? '' : `${element['book']}: `}${element['songnum'] ?? ''}${isPlaceholder ? '' : `: ${element['title']}`}
+        </div>
+          ${isPlaceholder ? element['title'] : `This song was last sang on ${element['date']} which was a ${element['weekday']}`}
+          <br>
+          ${openLink}
+      </div>
+    </li>`;
+    });
+  }
+
   async function getWeekdayRecs() {
     blinking_placeholder();
     const songOrder = document.getElementById('song_order');
-    const exactOrderBtn = document.getElementById('exact-order');
-    const isPressed = exactOrderBtn.getAttribute('aria-pressed') === 'true';
+    const exactOrderChk = document.getElementById('exact-order');
+    const isPressed = exactOrderChk.checked;
     const url = window.location.href;
     fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify ({
+      body: JSON.stringify({
         "exact-order": isPressed
       })
     })
@@ -86,25 +114,7 @@
       })
       .then(text => {
         const songs = Object.values(JSON.parse(text));
-        songOrder.innerHTML = ''
-        console.log(songs)
-        // Store the song text as we generate it
-        currentSongText = songs.map(element => `${element['songnum']}: ${element['title']}`).join('\n');
-
-        songs.forEach(element => {
-          songOrder.innerHTML += `
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">${element['book']}: ${element['songnum']}: ${element['title']}
-        </div>
-          This song was last sang on ${element['date']} which was a ${element['weekday']}
-          <br>
-          <a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/${element['book']}/${element['songnum']}">
-            Open Song
-          </a>
-      </div>
-    </li>`
-        });
+        renderSongs(songs);
       })
   }
 
