@@ -497,56 +497,85 @@ def today_songs(retry=False):
     all_past_songs = open_past_songs() # Need to always get a fresh version of this
     latest_song = list(all_past_songs.items())[-1]
     song_dict:dict = latest_song[1] # the info stored inside the dictionary. ie: "03.16.25.docx": { "dateMod": 1741926049.0, "path": ... , "basePth": "Երգեր\\03.2025", "songList": str(list(tuple())) }
-    last_modified_date: float = song_dict["dateMod"]
     WordDoc = latest_song[0]
-    cached_txt_files = glob("htmlsongs\\"+WordDoc+"*") # Cached txt files
     basePth:str = all_past_songs[WordDoc]['basePth']
-    # songPth = songPth.split("OneDrive")[1] # bc of the way it's saved ie C:\Users\moses\OneDrive\Երգեր\06.2024\06.25.24.docx
     onedrive: str | None = env.get("OneDrive")
     songPth = os.path.join(onedrive,basePth, WordDoc)
-    # from doc_color import get_colored_text
-    # colored_text = get_colored_text(songPth)
-    # dateModOnFile: datetime = datetime.fromtimestamp(last_modified_date)
-    # currDateMod: datetime = datetime.fromtimestamp(stat(songPth).st_mtime)
-    # if currDateMod <= dateModOnFile:
-    if False:
-        # Bigger number means further in time
-        # Run this if the date on file, is the latest date
-        if cached_txt_files:
-            with open(cached_txt_files[0], 'r', encoding='utf-8') as f:
-                lyrics = f.read()
-            return render_template("display_docx.html", lyrics = lyrics, colored_text=colored_text)
+    cache_path = f"htmlsongs\\{WordDoc}.txt"
+
+    try:
+        # Only re-render the .docx when the cache is missing or older than
+        # the source file. This makes repeat visits to /today near-instant.
+        cache_exists = os.path.exists(cache_path)
+        doc_exists = os.path.exists(songPth)
+        cache_fresh = False
+        if cache_exists and doc_exists:
+            cache_fresh = os.stat(cache_path).st_mtime >= os.stat(songPth).st_mtime
+        elif cache_exists:
+            # Source file unavailable but cache is present — serve it
+            cache_fresh = True
+
+        if cache_fresh:
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                html_text = f.read()
+            from ast import literal_eval
+            result = [num for (_book, num) in literal_eval(song_dict["songList"]) if num]
         else:
-            try:
-                with ThreadPoolExecutor() as futures:
-                    future = futures.submit(saveHtml, songPth, WordDoc)
-                with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
-                    html_text = f.read()
-                return render_template("display_docx.html", lyrics=html_text, colored_text=colored_text)
-            except:
-                with open(cached_txt_files[0], 'r', encoding='utf-8') as f:
-                    lyrics = f.read()
-                return render_template("display_docx.html", lyrics = lyrics, colored_text=colored_text)
-    else:
-        try:
             with ThreadPoolExecutor() as futures:
                 future = futures.submit(saveHtml, songPth, WordDoc)
-                # save = futures.submit(save_json, all_past_songs, "songs_cleaned.json")
                 result = future.result()
-                # result2 = save.result()
-            with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
+            with open(cache_path, 'r', encoding='utf-8') as f:
                 html_text = f.read()
-        except FileNotFoundError as TodaySongNotFound:
-            if retry:
-                raise TodaySongNotFound
-            else:
-                # Just in case, update the index, then try again.
-                from scanningDir import findNewFiles, clean_up_index
-                findNewFiles()
-                # Add the end once all is added clean up the indexes
-                clean_up_index()
-                return today_songs(retry=True)
-        return render_template("display_docx.html", lyrics=html_text, song_nums=result)
+    except FileNotFoundError as TodaySongNotFound:
+        if retry:
+            raise TodaySongNotFound
+        else:
+            # Just in case, update the index, then try again.
+            from scanningDir import findNewFiles, clean_up_index
+            findNewFiles()
+            # Add the end once all is added clean up the indexes
+            clean_up_index()
+            return today_songs(retry=True)
+    return render_template("display_docx.html", lyrics=html_text, song_nums=result)
+
+@app.route('/archive', methods=['GET'])
+def service_archive():
+    """Lists every past service grouped by year -> month, newest first."""
+    from ast import literal_eval
+    from re import findall as re_findall
+    import datetime as _dt
+    all_past_songs = open_past_songs()
+    archive_data: dict[int, dict[int, list]] = {}
+    for word_doc, info in all_past_songs.items():
+        try:
+            day_str = re_findall(r"(.*\d)", word_doc)[0]
+            dt = _dt.datetime.strptime(day_str, "%m.%d.%y")
+        except (IndexError, ValueError):
+            continue
+        try:
+            song_list = literal_eval(info.get("songList", "[]"))
+        except Exception:
+            song_list = []
+        entry = {
+            'word_doc': word_doc,
+            'date': dt,
+            'weekday': dt.strftime('%A'),
+            'song_count': sum(1 for (_b, n) in song_list if n),
+        }
+        archive_data.setdefault(dt.year, {}).setdefault(dt.month, []).append(entry)
+    # Sort: years desc, months desc, entries newest-first within month
+    sorted_archive = {}
+    for year in sorted(archive_data, reverse=True):
+        sorted_archive[year] = {}
+        for month in sorted(archive_data[year], reverse=True):
+            sorted_archive[year][month] = sorted(
+                archive_data[year][month], key=lambda e: e['date'], reverse=True
+            )
+    month_names = {
+        1: 'Հունվար', 2: 'Փետրվար', 3: 'Մարտ', 4: 'Ապրիլ', 5: 'Մայիս', 6: 'Հունիս',
+        7: 'Հուլիս', 8: 'Օգոստոս', 9: 'Սեպտեմբեր', 10: 'Հոկտեմբեր', 11: 'Նոյեմբեր', 12: 'Դեկտեմբեր',
+    }
+    return render_template('archive.html', archive=sorted_archive, month_names=month_names)
 
 @app.route('/events', methods=["GET", "POST"])
 def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե.docx"):
@@ -628,7 +657,7 @@ def youth():
         # filenames = list(map(lambda x: re.sub(r".docx",'',os.path.basename(x)), glob(fp+'*')))
         # pprint(os_files)
         return render_template("youth.html", os_files=os_files, roots=roots)
-    else:
+    elif request.method == 'POST':
         selected_file = request.form.get(key='selected_file')
         # selected_file =
         # is_dir = request.form.get('is_dir')
@@ -666,11 +695,17 @@ def ServiceSongOpen(WordDoc) -> str:
     """
     if '.docx' in WordDoc:
         foundFiles = glob("htmlsongs\\"+WordDoc+"*")
+        # Derive song numbers from the index so the sidebar works on cached reads too
+        from ast import literal_eval
+        try:
+            song_nums = [num for (_b, num) in literal_eval(all_past_songs.get(WordDoc, {}).get("songList", "[]")) if num]
+        except Exception:
+            song_nums = None
         if foundFiles:
             # print(foundFiles)
             with open(foundFiles[0], 'r', encoding='utf-8') as f:
                 lyrics = f.read()
-            return render_template("display_docx.html", lyrics = lyrics)
+            return render_template("display_docx.html", lyrics = lyrics, song_nums=song_nums)
         else:
             # with open("songs.json" , 'r', encoding='utf-8') as f:
             #     songs = json.load(f)
@@ -689,7 +724,7 @@ def ServiceSongOpen(WordDoc) -> str:
             # saveHtml()
             with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
                 html_text = f.read()
-            return render_template("display_docx.html", lyrics=html_text)
+            return render_template("display_docx.html", lyrics=html_text, song_nums=song_nums)
     else:
         flash("That song does not exist",'error')
 
@@ -1412,7 +1447,7 @@ def privacy_policy():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5002 if os.name == 'posix' else 5000)
+    app.run(debug=False, host='0.0.0.0', port=env.get("PORT", 5002 if os.name == 'posix' else 5000)
             #ssl_context=(r'C:\Certbot\live\songinfo.us.to\fullchain.pem',r'C:\Certbot\live\songinfo.us.to\privkey.pem')
             )
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))

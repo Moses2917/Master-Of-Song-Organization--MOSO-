@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block extra_header%}
+<meta property="og:site_name" content="MOSO Song Lyrics">
+<meta property="og:title" content="MOSO Lyrics | Արխիվ">
+<title>MOSO | Արխիվ</title>
+{%endblock%}
+{%block content%}
+<div class="container-md">
+
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h2 class="mb-0">Անցյալ Պաշտամունքներ</h2>
+    <a class="btn btn-dark shadow border border-dark-subtle rounded-3" href="{{url_for('today_songs')}}">
+      Այսօրվա Երգեր
+    </a>
+  </div>
+
+  {% if archive %}
+  <!-- Year tabs -->
+  <ul class="nav nav-tabs mb-3" id="yearTabs" role="tablist">
+    {% for year in archive.keys() %}
+    <li class="nav-item" role="presentation">
+      <button class="nav-link {% if loop.first %}active{% endif %}" type="button"
+              data-year="{{year}}">{{year}}</button>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <!-- Year panes -->
+  {% for year, months in archive.items() %}
+  <div class="year-pane" data-year="{{year}}" {% if not loop.first %}style="display:none"{% endif %}>
+    {% for month, entries in months.items() %}
+      <h5 class="mt-4 mb-3 text-secondary">{{ month_names[month] }} {{year}}
+        <span class="badge bg-light text-dark fs-6 align-middle">{{entries|length}}</span>
+      </h5>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-2">
+        {% for entry in entries %}
+        <div class="col">
+          <a class="card text-decoration-none text-reset h-100 shadow-sm"
+             href="{{url_for('ServiceSongOpen', WordDoc=entry.word_doc)}}">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="card-title mb-0">{{ entry.date.strftime('%m.%d.%y') }}</h6>
+                <span class="badge bg-secondary">{{entry.song_count}} երգ</span>
+              </div>
+              <p class="card-text text-muted small mb-0 mt-1">{{ entry.weekday }}</p>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearButtons = document.querySelectorAll('#yearTabs .nav-link');
+      const yearPanes = document.querySelectorAll('.year-pane');
+      yearButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          yearButtons.forEach(b => b.classList.remove('active'));
+          yearPanes.forEach(p => p.style.display = 'none');
+          btn.classList.add('active');
+          const target = document.querySelector('.year-pane[data-year="' + btn.dataset.year + '"]');
+          if (target) target.style.display = '';
+        });
+      });
+    });
+  </script>
+  {% else %}
+  <p class="text-muted">Ոչ մի պաշտամունք գտնված չէ։</p>
+  {% endif %}
+
+</div>
+{%endblock%}
