@@ -12,7 +12,7 @@ import secrets
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask, jsonify, render_template, request, redirect, url_for, session, flash
+from flask import Flask, abort, jsonify, render_template, request, redirect, url_for, session, flash
 from flask_sitemap import Sitemap
 import json
 from concurrent.futures import ThreadPoolExecutor
@@ -32,6 +32,9 @@ app = Flask(__name__)
 app.config.update({
     'SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS': True,  # Automatically include simple routes
     'SITEMAP_MAX_URL_COUNT': 10000,  # Adjust based on your needs
+    'SESSION_COOKIE_SECURE': True,
+    'SESSION_COOKIE_HTTPONLY': True,
+    'SESSION_COOKIE_SAMESITE': 'Lax',
 })
 from werkzeug.middleware.proxy_fix import ProxyFix
 
@@ -167,6 +170,39 @@ def isUserAllowed(email):
     """
     with open("{}\\Documents\\Code\\allowedEmails.csv".format(env.get("OneDrive")), 'r') as f:
         return email in f.read()
+
+EDITABLE_BOOKS = {
+    'REDergaran': 'REDergaran.json',
+    'wordSongsIndex': 'wordSongsIndex.json',
+}
+
+def require_song_editor():
+    """Abort unless the request has an authenticated, currently authorized editor."""
+    user = session.get('user')
+    if not isinstance(user, dict) or not user.get('access_token'):
+        abort(401, description='Authentication is required to edit songs.')
+
+    userinfo = user.get('userinfo')
+    email = userinfo.get('email') if isinstance(userinfo, dict) else None
+    if not isinstance(email, str) or not isUserAllowed(email):
+        abort(403, description='Editor permission is required to edit songs.')
+
+def get_csrf_token():
+    """Return the per-session token used by the edit-song forms."""
+    token = session.get('_csrf_token')
+    if not isinstance(token, str) or not token:
+        token = secrets.token_urlsafe(32)
+        session['_csrf_token'] = token
+    return token
+
+def validate_csrf_token():
+    """Reject edit requests without the session-bound CSRF token."""
+    submitted_token = request.form.get('csrf_token')
+    expected_token = session.get('_csrf_token')
+    if not isinstance(expected_token, str) or not isinstance(submitted_token, str):
+        abort(400, description='A valid CSRF token is required.')
+    if not secrets.compare_digest(expected_token, submitted_token):
+        abort(400, description='A valid CSRF token is required.')
 
 # Table data loading logic
 def load_table_data(book:str):
@@ -935,59 +971,69 @@ def edit_songs():
     Returns:
     A rendered template of the 'edit_songs.html' page
     """
+    require_song_editor()
+
     song_info = None
     current_values = None
-    is_found = False
+    book = None
+    song_num = None
     if request.method == 'POST':
-
-        song_num = request.form.get('songNum')
+        # Authorization above must remain before parsing request fields.
+        validate_csrf_token()
+        action = request.form.get('action')
         book = request.form.get('book')
-        # Bool_Lyrics = request.form.get('lyrics', False)
+        song_num = request.form.get('songNum')
 
-        # if Bool_Lyrics:
-        #     return render_template('song.html', lyrics = openWord(song_num, book), book=book) #sending the book var inorder for the back button to function properly
+        if action not in ('lookup', 'save'):
+            abort(400, description='An edit-song action is required.')
+        if not isinstance(song_num, str) or not song_num.strip():
+            abort(400, description='A song number is required.')
+        if not isinstance(book, str) or not book:
+            abort(400, description='A song book is required.')
 
-        with open(f'{book}.json',encoding='utf-8') as f:
+        filename = EDITABLE_BOOKS.get(book)
+        if filename is None:
+            abort(422, description='The selected song book is not editable.')
+
+        with open(filename, encoding='utf-8') as f:
             data = json.load(f)
 
-        songs = data.get('SongNum')  # Get the songs under the "SongNum" key
+        songs = data.get('SongNum')
+        if not isinstance(songs, dict):
+            abort(500, description='The selected song book has an invalid format.')
+
         song_info = songs.get(song_num)
+        if not isinstance(song_info, dict):
+            abort(422, description='The selected song does not exist.')
+        current_values = song_info.copy()
 
-        if song_info:
-            # Save the current values before they are edited
-            current_values = song_info.copy()
-            if not current_values:
-                flash("That song does not exist",'error')
-        # else:
-        #     flash("That song does not exist")
+        if action == 'save':
+            fields = {
+                'key': 'key',
+                'speed': 'speed',
+                'style': 'style',
+                'Song Type': 'song_type',
+                'Time Signature': 'timeSig',
+                'Comments': 'Comments',
+            }
+            if any(field not in request.form for field in fields):
+                abort(400, description='All editable song fields are required.')
 
-        if request.form.get('edit'):
-            song_info['key'] = request.form.get('key')
-            song_info['speed'] = request.form.get('speed')
-            song_info['style'] = request.form.get('style')
-            song_info['song_type'] = request.form.get('Song Type')
-            # song_info['Worship_Song'] = request.form.get('Worship_Song')
-            song_info['timeSig'] = request.form.get('Time Signature')
-            song_info['Comments'] = request.form.get('Comments')
-            songs["SongNum"] = song_info
-            # with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
-            #     json.dump(songs, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
-
-        if request.form.get('submit'):
-            song_info['key'] = request.form.get('key')
-            song_info['speed'] = request.form.get('speed')
-            song_info['style'] = request.form.get('style')
-            song_info['song_type'] = request.form.get('Song Type')
-            # song_info['Worship_Song'] = request.form.get('Worship_Song')
-            song_info['timeSig'] = request.form.get('Time Signature')
-            song_info['Comments'] = request.form.get('Comments')
+            for form_field, song_field in fields.items():
+                song_info[song_field] = request.form[form_field]
             songs[song_num] = song_info
-            # if song_info:
-            #     return flash("That song does not exist",'error')
-        with open(f'{book}.json', 'w', encoding='utf-8') as f:  # Save the changes to the same file
-                json.dump(data, f, indent=4, ensure_ascii=False)  # Write the whole data back to the file
 
-    return render_template('edit_songs.html', song_info=song_info, current_values=current_values) #add pretty=json.dumps(session.get('user'), indent=4) for debuging auth
+            with open(filename, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+
+    return render_template(
+        'edit_songs.html',
+        song_info=song_info,
+        current_values=current_values,
+        book=book,
+        song_num=song_num,
+        csrf_token=get_csrf_token(),
+    )
 
     # return render_template('edit_songs.html')
 
@@ -1452,4 +1498,3 @@ if __name__ == '__main__':
             )
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))
-
