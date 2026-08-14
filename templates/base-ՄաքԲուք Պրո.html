@@ -1,1003 +1,503 @@
 <!DOCTYPE html>
-
 <html lang="en" data-bs-theme="dark">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Apple Web App Meta Tags -->
-
   <meta name="mobile-web-app-capable" content="yes">
-
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
   <meta name="apple-mobile-web-app-title" content="MOSO Songs">
 
-
-
   <!-- Apple Touch Icons -->
-
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='pictures/moso.png') }}">
-
   <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='pictures/moso.png') }}">
-
-
 
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-
-
   <!-- Will be used for dynamic page descriptions -->
-
   <!-- needs too be above defaults tags inorder to replace them -->
-
   <!-- because browsers will choose the first instance and use it -->
-
   {% block extra_header %}{% endblock %}
 
-
-
   <!-- Apple Splash Screens - Just key sizes -->
-
-  <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='splash/apple-splash-2048-2732.png') }}"
-    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-
-  <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='splash/apple-splash-512-512.png') }}"
-    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-
-  <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='splash/apple-splash-512-512.png') }}"
-    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-
+  <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='splash/apple-splash-2048-2732.png') }}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='splash/apple-splash-512-512.png') }}" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='splash/apple-splash-512-512.png') }}" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
   <!-- If the block is present, do not run this code -->
-
   {% if not self.extra_header() %}
-
   <!-- Apple Preview Image -->
-
   <meta property="og:title" content="MOSO: Master Of Song Organization">
-
   <meta property="og:description" content="The ultimate armenian song organization and retrival tool.">
-
   <meta property="og:site_name" content="MOSO">
-
   <meta property="og:type" content="website">
-
   {%endif%}
-
   <meta property="og:url" content="{{ request.url }}">
-
   <meta property="og:image" content="{{ url_for('static', filename='pictures/app_preview.png', _external=True) }}">
-
   <!-- Favicon -->
-
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='pictures/moso.png') }}">
-
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
-
   <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
-
   <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap-icons.min.css')}}">
-
   <style>
-    @font-face {
-
+  @font-face {
       font-display: block;
-
       font-family: bootstrap-icons;
+      src: url("{{url_for('static', filename='css/bootstrap-icons/fonts/bootstrap-icons.woff2')}}?e34853135f9e39acf64315236852cd5a") format("woff2"), url("{{url_for('static', filename='css/bootstrap-icons/fonts/bootstrap-icons.woff')}}?e34853135f9e39acf64315236852cd5a") format("woff")
 
-      src: url("{{url_for('static', filename='css/bootstrap-icons/fonts/bootstrap-icons.woff2')}}?e34853135f9e39acf64315236852cd5a") format("woff2"),
-      url("{{url_for('static', filename='css/bootstrap-icons/fonts/bootstrap-icons.woff')}}?e34853135f9e39acf64315236852cd5a") format("woff")
     }
   </style>
-
-
 
   <title>MOSO</title>
-
   <link rel="icon" as="image" href="{{url_for('static', filename='pictures/moso.png')}}" type="image/png">
-
   <style>
     #btn-back-to-top {
-
-      position: fixed;
-
-      bottom: 20px;
-
-      right: 20px;
-
-      display: none;
-
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
     }
-
     #waypoint-nav {
-
       position: fixed;
-
       top: 20px;
-
       left: 20px;
-
     }
-
     @font-face {
-
       font-family: 'NotoSansArmenian';
-
       src: url("{{url_for('static', filename='fonts/NotoSansArmenian-VariableFont_wght.ttf')}}");
 
-
-
     }
-
     @font-face {
-
-      font-family: 'armoFont';
-
-      src: url('/static/fonts/yerevanyan/Yerevanyan Regular.otf');
-
+    font-family: 'armoFont';
+    src: url('/static/fonts/yerevanyan/Yerevanyan Regular.otf');
     }
-
-    body,
-    p,
-    nav,
-    div {
-
+    body, p, nav, div {
       font-family: 'NotoSansArmenian', sans-serif;
-
     }
 
-
-
-    .lyrics {
-
+    .lyrics{
       font-family: 'armofont';
-
     }
   </style>
-
   <style>
-    .navbar {
+  .navbar {
+    background: linear-gradient(145deg, #222a31 0%, #2c3e50 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
 
-      background: linear-gradient(145deg, #222a31 0%, #2c3e50 100%);
+/* Enhanced Navbar Link Animations */
+.navbar .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
 
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #4169e1;
+    transition: width 0.3s ease;
+}
 
-    }
+.navbar .nav-link:hover::after {
+    width: 100%;
+}
 
+/* Navbar Brand Enhancement */
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
 
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
 
-    /* Enhanced Navbar Link Animations */
+/* Mobile Toggle Button Enhancement */
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
 
-    .navbar .nav-link {
-
-      position: relative;
-
-      transition: color 0.3s ease;
-
-    }
-
-
-
-    .navbar .nav-link::after {
-
-      content: '';
-
-      position: absolute;
-
-      width: 0;
-
-      height: 2px;
-
-      bottom: 0;
-
-      left: 0;
-
-      background-color: #4169e1;
-
-      transition: width 0.3s ease;
-
-    }
-
-
-
-    .navbar .nav-link:hover::after {
-
-      width: 100%;
-
-    }
-
-
-
-    /* Navbar Brand Enhancement */
-
-    .navbar-brand img {
-
-      transition: transform 0.3s ease;
-
-    }
-
-
-
-    .navbar-brand:hover img {
-
-      transform: scale(1.05);
-
-    }
-
-
-
-    /* Mobile Toggle Button Enhancement */
-
-    .navbar-toggler {
-
-      border: 1px solid rgba(255, 255, 255, 0.1);
-
-      transition: background-color 0.3s ease;
-
-    }
-
-
-
-    .navbar-toggler:hover {
-
-      background-color: rgba(255, 255, 255, 0.05);
-
-    }
-
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
     /* Smooth Page Transitions */
-
     .content-wrapper {
-
       animation: fadeIn 0.3s ease-in-out;
-
     }
-
-
 
     @keyframes fadeIn {
-
       from {
-
         opacity: 0;
-
         transform: translateY(10px);
-
       }
-
-
 
       to {
-
         opacity: 1;
-
         transform: translateY(0);
-
       }
-
     }
-
-
 
     /* Nav Link Click Effect */
-
     .nav-link.active {
-
       transition: transform 0.2s ease, color 0.2s ease;
-
     }
-
-
 
     .nav-link.active:active {
-
       transform: scale(0.95);
-
       color: #4169e1 !important;
-
     }
-
-
 
     /* Button Click Animation */
-
     .btn {
-
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-
     }
-
-
 
     .btn:active {
-
       transform: scale(0.95);
-
       box-shadow: 0 0 0 2px rgba(65, 105, 225, 0.4);
-
     }
-
-
 
     /* Card Hover & Click Effects */
-
     /* .card {
-
       transition: transform 0.2s ease;
-
     }
-
-
 
     .card:hover {
-
       transform: translateY(-2px);
-
     }
-
-
 
     .card:active {
-
       transform: translateY(0);
-
     } */
 
-
-
     /* Alert Appearance Animation */
-
     .alert {
-
       animation: slideIn 0.3s ease-out;
-
     }
-
-
 
     @keyframes slideIn {
-
       from {
-
         transform: translateY(-20px);
-
         opacity: 0;
-
       }
-
-
 
       to {
-
         transform: translateY(0);
-
         opacity: 1;
-
       }
-
     }
-
-
 
     /* Search Input Focus Effect */
-
     .form-control:focus {
-
       transition: box-shadow 0.2s ease;
-
       box-shadow: 0 0 0 2px rgba(65, 105, 225, 0.4);
-
     }
-
-
 
     /* Back to Top Smooth Scroll */
-
     #backToTop {
-
       transition: opacity 0.3s ease, transform 0.2s ease;
-
     }
-
-
 
     #backToTop:active {
-
       transform: scale(0.9);
-
     }
   </style>
-
 </head>
-
 <body class="lyrics">
 
-
-
   <nav class="navbar navbar-expand-lg bg-dark bg-gradient fs-5 sticky-top">
-
     <div class="container-fluid" name="brand">
-
-      <a href="{{url_for('home')}}" class="navbar-brand" name="brand"><img
-          src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50" name="brand" alt="GOTO Home"
-          aria-label="brand"></a>
-
-      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
+       <a href="{{url_for('home')}}" class="navbar-brand" name="brand"><img src="{{url_for('static', filename='pictures/moso.png')}}" width="50" height="50" name="brand" alt="GOTO Home" aria-label="brand"></a>
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
           <li class="nav-item">
-
             <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Գլխավոր էջ</a>
-
           </li>
-
           {% if session.get('user') and 'userinfo' in session['user'] %}
+            {% if session['user']['userinfo']['admin'] %}
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('edit_songs') }}">Edit Songs</a>
+            </li>
 
-          {% if session['user']['userinfo']['admin'] %}
-
-          <li class="nav-item">
-
-            <a class="nav-link active" href="{{ url_for('edit_songs') }}">Edit Songs</a>
-
-          </li>
-
-
-
-          <!-- <li class="nav-item">
-
+            <!-- <li class="nav-item">
               <a class="nav-link active" href="{{url_for('song_matcher')}}">Song Matcher</a>
-
             </li> -->
 
-
-
+            {% endif %}
           {% endif %}
-
-          {% endif %}
-
           <!-- <li class="nav-item">
-
             <a class="nav-link active" href="{{url_for('tsank_numbered')}}">Ցանկ</a>
-
           </li> -->
-
           <li class="nav-item">
-
             <a class="nav-link active" href="{{url_for('tsank')}}">Ցանկ Ըստ Թեմա</a>
-
           </li>
-
           <li class="nav-item">
-
             <a class="nav-link active" href="{{url_for('tsank_A_Z')}}">Այբենական Ցանկ</a>
-
           </li>
-
           <!-- <li class="nav-item">
-
             <a class="nav-link active" href="{{url_for('check_past_songs')}}">Անցյալ Երգեր Գտնող</a>
-
           </li> -->
-
           <li class="nav-item">
-
-            <a class="nav-link active" href="{{url_for('transliterate')}}">Transliterate</a>
-
-          </li>
-
+              <a class="nav-link active" href="{{url_for('transliterate')}}">Transliterate</a>
+            </li>
           <li class="nav-item">
-
             <a class="nav-link active" href="{{url_for('service_archive')}}">Արխիվ</a>
-
           </li>
-
           <li class="nav-item">
-
             <a class="nav-link active" href="{{url_for('event')}}#top">Տոնի Երգեր</a>
-
           </li>
-
           <li class="nav-item">
-
             <a class="nav-link active" href="{{url_for('youth')}}#top">Youth</a>
-
           </li>
-
           <!-- <li class="nav-item">
-
             <a class="nav-link active" href="{{url_for('playlist')}}#top">Playlist</a>
-
           </li> -->
-
           <li class="nav-item" hidden>
-
             <a class="nav-link active" href="{{url_for('playlist')}}#top">Playlist</a>
-
           </li>
-
           {% if session['user']%}
 
-
-
-          <li class="nav-item">
-
-            <a class="nav-link active" href="{{url_for('newSundaySong')}}">New Sunday Song</a>
-
-          </li>
-
-          <!-- <li class="nav-item">
-
+            <li class="nav-item">
+              <a class="nav-link active" href="{{url_for('newSundaySong')}}">New Sunday Song</a>
+            </li>
+            <!-- <li class="nav-item">
               <a class="nav-link active" href="{{url_for('known_songs')}}">Is This a Known Song</a>
-
             </li> -->
 
-
-
-          <li class="nav-item">
-
-            <a class="nav-link active" href="{{url_for('weekdaySong')}}">New Weekday Song</a>
-
-          </li>
-
+            <li class="nav-item">
+              <a class="nav-link active" href="{{url_for('weekdaySong')}}">New Weekday Song</a>
+            </li>
           {% endif %}
-
         </ul>
-
-        {% if 'Guest' in session['user']['userinfo']['name'] %}
-
-        <div class="d-flex">
-
-          <div class=" p-2" id="login-card" style="display: hidden;">
-
-            <div class="sign-in-wrapper">
-
-              <a href="{{ url_for('login') }}" class=" nav-link link-underline link-underline-opacity-0 text-white">
-
-                <span class="button-content fs-4">
-
-                  <span class="button-text">Sign In</span>
-
-                  <!-- <span class="button-icon">
-
+          {% if 'Guest' in session['user']['userinfo']['name'] %}
+          <div class="d-flex">
+            <div class=" p-2" id="login-card" style="display: hidden;">
+              <div class="sign-in-wrapper">
+                <a href="{{ url_for('login') }}" class=" nav-link link-underline link-underline-opacity-0 text-white">
+                    <span class="button-content fs-4">
+                        <span class="button-text">Sign In</span>
+                        <!-- <span class="button-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
-
                                 stroke-linejoin="round">
-
                                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-
                                 <polyline points="10 17 15 12 10 7" />
-
                                 <line x1="15" y1="12" x2="3" y2="12" />
-
                             </svg>
-
                         </span> -->
-
-                  <i class="bi bi-box-arrow-right"></i>
-
-                </span>
-
-                <span class="button-glow"></span>
-
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {%else%}
-
-        <div class="d-flex">
-
-          <div class=" p-2" id="login-card" style="display: hidden;">
-
-            <div class="sign-in-wrapper">
-
-              <a href="{{ url_for('logout') }}" class=" nav-link link-underline link-underline-opacity-0 text-white">
-
-                <span class="button-content fs-4">
-
-                  <span class="button-text">Logout</span>
-
-                  <i class="bi bi-box-arrow-left"></i>
-
-                </span>
-
-                <span class="button-glow"></span>
-
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {% endif %}
-
-        <!-- <div class="d-flex">
-
-                <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
-
-                <div class="input-group">
-
-                    <span class="input-group-text">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
-
-                        </svg>
-
+                        <i class="bi bi-box-arrow-right"></i>
                     </span>
-
+                    <span class="button-glow"></span>
+                </a>
+            </div>
+            </div>
+          </div>
+          {%else%}
+          <div class="d-flex">
+            <div class=" p-2" id="login-card" style="display: hidden;">
+              <div class="sign-in-wrapper">
+                <a href="{{ url_for('logout') }}" class=" nav-link link-underline link-underline-opacity-0 text-white">
+                    <span class="button-content fs-4">
+                        <span class="button-text">Logout</span>
+                        <i class="bi bi-box-arrow-left"></i>
+                    </span>
+                    <span class="button-glow"></span>
+                </a>
+            </div>
+            </div>
+          </div>
+          {% endif %}
+            <!-- <div class="d-flex">
+                <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+                        </svg>
+                    </span>
                     <input class="form-control d-flex" type="text" placeholder="Search" aria-label="Search" readonly>
-
                 </div>
-
             </button>
-
             </div> -->
-
       </div>
-
     </div>
-
   </nav>
 
-
-
   <div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-
     <div class="modal-dialog modal-lg">
-
       <div class="modal-content">
-
         <div class="modal-header">
-
           <h1 class="modal-title fs-4" id="searchModalLabel">Enter Song Lyrics</h1>
-
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
         </div>
-
         <div class="modal-body">
 
-
-
           <div class="input-group">
-
             <input type="text" name="searchLyrics" id="searchLyrics" class="form-control me-2" placeholder="Search"
               aria-label="Search" oninput='getResults()'>
-
           </div>
-
           <br>
-
           <form method="post">
-
             <ul class="list-group" id="searchResults"></ul>
-
           </form>
-
           <!-- search results -->
-
         </div>
-
         <div class="modal-footer">
-
           <p class="text-start fs-5" id="hint">Խորհուրդ. Սեղմեք այն երգը,<br> Որը ցանկանում եք բացել։</p>
-
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 
-
-
   <script>
-
     // DEPRICATED
-
     async function getResults() {
-
       searchLyrics = document.getElementById('searchLyrics').value;
+      let search_url = {{ url_for('songSearch', searchLyrics =searchLyrics)|tojson }} //To get the base url for search
+      if (searchLyrics){
+          search_url = search_url + searchLyrics;
+      }
+      //const foundLyrics = await fetch(search_url);
+      const resultsUl = document.getElementById("searchResults");
+      resultsUl.innerHTML = '';
+      fetch(search_url)
+          .then(response => response.json())
+          //.then(text => resultsUl.innerHTML = `<li class="list-group-item"> ${text} </li>`)
+          .then(text => {
+              //text = Array.from(text);
+              //text.forEach(manifestResults);
 
-      let search_url = {{ url_for('songSearch', searchLyrics = searchLyrics) | tojson
-    }} //To get the base url for search
-
-    if (searchLyrics) {
-
-      search_url = search_url + searchLyrics;
-
-    }
-
-    //const foundLyrics = await fetch(search_url);
-
-    const resultsUl = document.getElementById("searchResults");
-
-    resultsUl.innerHTML = '';
-
-    fetch(search_url)
-
-      .then(response => response.json())
-
-      //.then(text => resultsUl.innerHTML = `<li class="list-group-item"> ${text} </li>`)
-
-      .then(text => {
-
-        //text = Array.from(text);
-
-        //text.forEach(manifestResults);
-
-
-
-        for (const element of text) {
-
-          if (resultsUl.childNodes.length <= 10) {
-
-            resultsUl.innerHTML += element;
-
-          }
-
-        }
-
-      });
-
-
+              for (const element of text){
+                  if (resultsUl.childNodes.length <= 10){
+                    resultsUl.innerHTML += element;
+                  }
+              }
+          });
 
   /*    console.log(search_url)
-
       if (!lyrics){
-
           resultsUl.innerHTML = `<li class="list-group-item"> No results found. </li>`;
-
       }
-
       fix to make it work later
-
       console.log(resultsUl.innerHTML.text)*/
-
     }
-
   </script>
-
   <div class="" id="top">
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-
-    {% if messages %}
-
-    {% for category, message in messages %}
-
-    <div class="alert alert-{{ category }} fade show" role="alert">
-
-      {{ message }}
-
-    </div>
-
-    {% endfor %}
-
-    {% endif %}
-
-    {% endwith %}
-
-    <!-- {% if request.url %}  {%endif%}    -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }} fade show" role="alert">
+          {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <!-- {% if request.url %}  {%endif%}    -->
 
 
-
-
-
-    <button type="button" class="z-3 btn btn-danger btn-floating btn-lg rounded-circle" id="btn-back-to-top">
-
+      <button
+      type="button"
+      class="z-3 btn btn-danger btn-floating btn-lg rounded-circle"
+      id="btn-back-to-top"
+      >
       <!-- <i class="fas fa-arrow-up"></i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up fw-bold" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+        </svg>
+      </button>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAACAES66VjaoxH24U"></div>
+      {% block content %}{% endblock %}
+      <script>
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up fw-bold"
-        viewBox="0 0 16 16">
-
-        <path fill-rule="evenodd"
-          d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5" />
-
-      </svg>
-
-    </button>
-
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAACAES66VjaoxH24U"></div>
-
-    {% block content %}{% endblock %}
-
-    <script>
-
-
-
-      document.querySelectorAll("textarea").forEach(function (textarea) {
-
-        textarea.style.height = textarea.scrollHeight + "px";
-
-        textarea.style.overflowY = "scroll";
-
-
-
-        textarea.addEventListener("input", function () {
-
-          this.style.height = "auto";
-
-          this.style.height = this.scrollHeight + "px";
-
-          autoTextareaHeight()
-
-        });
-
-      });
-
-
-
-      // credit to https://stackoverflow.com/questions/454202/
-
-      function autoTextareaHeight() {
-
-        document.querySelectorAll("textarea").forEach(function (textarea) {
-
+        document.querySelectorAll("textarea").forEach(function(textarea) {
           textarea.style.height = textarea.scrollHeight + "px";
-
           textarea.style.overflowY = "scroll";
 
-
-
-          textarea.addEventListener("input", function () {
-
+          textarea.addEventListener("input", function() {
             this.style.height = "auto";
-
             this.style.height = this.scrollHeight + "px";
-
+            autoTextareaHeight()
           });
-
         });
 
-      }
+        // credit to https://stackoverflow.com/questions/454202/
+        function autoTextareaHeight() {
+          document.querySelectorAll("textarea").forEach(function(textarea) {
+            textarea.style.height = textarea.scrollHeight + "px";
+            textarea.style.overflowY = "scroll";
 
-    </script>
+            textarea.addEventListener("input", function() {
+              this.style.height = "auto";
+              this.style.height = this.scrollHeight + "px";
+            });
+          });
+        }
+      </script>
 
+      <script type="text/javascript">{//Get the button
+          let mybutton = document.getElementById("btn-back-to-top");
 
+          // When the user scrolls down 20px from the top of the document, show the button
+          window.onscroll = function () {
+            scrollFunction();
+          };
 
-    <script type="text/javascript">{//Get the button
-
-        let mybutton = document.getElementById("btn-back-to-top");
-
-
-
-        // When the user scrolls down 20px from the top of the document, show the button
-
-        window.onscroll = function () {
-
-          scrollFunction();
-
-        };
-
-
-
-        function scrollFunction() {
-
-          if (
-
-            document.body.scrollTop > 20 ||
-
-            document.documentElement.scrollTop > 20
-
-          ) {
-
-            mybutton.style.display = "block";
-
-          } else {
-
-            mybutton.style.display = "none";
-
+          function scrollFunction() {
+            if (
+              document.body.scrollTop > 20 ||
+              document.documentElement.scrollTop > 20
+            ) {
+              mybutton.style.display = "block";
+            } else {
+              mybutton.style.display = "none";
+            }
           }
+          // When the user clicks on the button, scroll to the top of the document
+          mybutton.addEventListener("click", backToTop);
 
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-
-        mybutton.addEventListener("click", backToTop);
-
-
-
-        function backToTop() {
-
-          document.body.scrollTop = 0;
-
-          document.documentElement.scrollTop = 0;
-
-        }
-      }
-
-    </script>
-
-
+          function backToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+          }}
+          </script>
 
   </div>
-
-  <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-
+  <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
-
     document.addEventListener('DOMContentLoaded', function () {
-
       // Smooth scroll for all links
-
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
         anchor.addEventListener('click', function (e) {
-
           e.preventDefault();
-
           const target = document.querySelector(this.getAttribute('href'));
-
           if (target) {
-
             target.scrollIntoView({
-
               behavior: 'smooth'
-
             });
-
           }
-
         });
-
       });
 
-
-
       // Back to Top smooth scroll
-
       const backToTop = document.getElementById('backToTop');
-
       if (backToTop) {
-
         backToTop.addEventListener('click', function (e) {
-
           e.preventDefault();
-
           window.scrollTo({
-
             top: 0,
-
             behavior: 'smooth'
-
           });
-
         });
-
       }
-
     });
-
   </script>
-
 </body>
-
 </html>

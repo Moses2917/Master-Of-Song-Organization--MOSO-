@@ -2,7 +2,7 @@
 
 {%block content%}
 
-{% if session['user']['userinfo']['admin'] %}
+{% if session['user']['userinfo']['name'] != "Guest" %}
 
 <div class="container-md fw-bold shadow p-3 mb-5 bg-body-tertiary rounded" id="SongNumInput">
   <div class="row align-items-start justify-content-center">

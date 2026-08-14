@@ -58,7 +58,7 @@
 </div>
 
 <script>
-  document.getElementById('SongSection').onchange = function () {
+  document.getElementById('SongSection').onchange = function() {
     // var first_two_songs = document.getElementById('only_first_two_songs').checked;
     // var worship_songs = document.getElementById('only_worship_songs').checked;
     // var last_two_songs = document.getElementById('only_last_two_songs').checked;
@@ -97,13 +97,13 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        'only_first_two_songs': first_two_songs,
-        'only_worship_songs': worship_songs,
-        'only_last_two_songs': last_two_songs
+        body: JSON.stringify({
+          'only_first_two_songs': first_two_songs,
+          'only_worship_songs': worship_songs,
+          'only_last_two_songs': last_two_songs
+        })
       })
-    })
-      .then(response => response.text())
+      .then(response =>response.text())
       // .then(text =>{
       //   text = JSON.parse(text);
       //   // text = Array.from(text)

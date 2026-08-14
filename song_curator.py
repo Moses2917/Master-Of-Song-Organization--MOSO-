@@ -438,6 +438,8 @@ def get_sunday_songs(only_first_two_songs=False, only_worship_songs=False, only_
         for song in song_list:
             book: str = song[0]
             song_num: str = song[1]
+            if not song_num or book not in last_known_date_sang:
+                continue
             exists: datetime.datetime | bool = last_known_date_sang[book].get(song_num, False)
             if exists:
                 # does not account for alt songs with same words, but different numbers
@@ -485,13 +487,24 @@ def get_sunday_songs(only_first_two_songs=False, only_worship_songs=False, only_
     for result in results:
         song_num = result[1]
         book = result[0]
-        song_data = getSong(book, song_num)
+        if not song_num or book not in last_known_date_sang:
+            ct += 1
+            continue
+        song_date = last_known_date_sang[book].get(song_num)
+        if song_date is None:
+            ct += 1
+            continue
+        try:
+            song_data = getSong(book, song_num)
+        except KeyError:
+            ct += 1
+            continue
         songlist[ct] = {
             'songnum': song_num,
             'title': song_data['Title'],
-            'date': last_known_date_sang[book][song_num].strftime("%m.%d.%Y"),
+            'date': song_date.strftime("%m.%d.%Y"),
             'book': book,
-            'weekday': last_known_date_sang[book][song_num].strftime('%A')
+            'weekday': song_date.strftime('%A')
         }
         ct+=1
 
@@ -509,9 +522,11 @@ def check_if_valid(song_list, last_known_date_sang: dict[str, dict[dict, datetim
     for song in song_list:
         book: str = song[0]
         song_num: str = song[1]
-
-        # get the latest date sang
-        song_date:datetime.datetime = last_known_date_sang[book][song_num]
+        if not song_num or book not in last_known_date_sang:
+            continue
+        song_date:datetime.datetime = last_known_date_sang[book].get(song_num)
+        if song_date is None:
+            continue
         if song_date > THREE_MONTHS_AGO:
             return False
     return True
@@ -534,6 +549,8 @@ def get_last_sang_dic() -> dict[str, dict[dict, datetime.datetime]]:
         for song in song_list:
             book: str = song[0]
             song_num: str = song[1]
+            if not song_num or book not in last_known_date_sang:
+                continue
             exists: datetime.datetime | bool = last_known_date_sang[book].get(song_num, False)
             if exists:
                 # does not account for alt songs with same words, but different numbers

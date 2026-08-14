@@ -3,6 +3,10 @@
 <meta property="og:site_name" content="MOSO Song Lyrics">
 <meta property="og:title" content="MOSO Lyrics | Արխիվ">
 <title>MOSO | Արխիվ</title>
+<style>
+  .archive-card-link { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .archive-card-link:hover { transform: translateY(-3px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.35) !important; }
+</style>
 {%endblock%}
 {%block content%}
 <div class="container-md">
@@ -15,6 +19,18 @@
   </div>
 
   {% if archive %}
+  <!-- Day filter -->
+  <div class="btn-group mb-3" role="group" aria-label="Ֆիլտր ըստ օրվա">
+    <input type="radio" class="btn-check" name="dayFilter" id="filter-all" autocomplete="off" checked>
+    <label class="btn btn-dark border border-dark-subtle shadow-sm" for="filter-all">Բոլորը</label>
+
+    <input type="radio" class="btn-check" name="dayFilter" id="filter-sunday" autocomplete="off">
+    <label class="btn btn-dark border border-dark-subtle shadow-sm" for="filter-sunday">Կիրակի</label>
+
+    <input type="radio" class="btn-check" name="dayFilter" id="filter-weekday" autocomplete="off">
+    <label class="btn btn-dark border border-dark-subtle shadow-sm" for="filter-weekday">Այլ օրեր</label>
+  </div>
+
   <!-- Year tabs -->
   <ul class="nav nav-tabs mb-3" id="yearTabs" role="tablist">
     {% for year in archive.keys() %}
@@ -29,18 +45,19 @@
   {% for year, months in archive.items() %}
   <div class="year-pane" data-year="{{year}}" {% if not loop.first %}style="display:none"{% endif %}>
     {% for month, entries in months.items() %}
-      <h5 class="mt-4 mb-3 text-secondary">{{ month_names[month] }} {{year}}
+    <div class="month-group">
+      <h5 class="month-header mt-4 mb-3 text-secondary">{{ month_names[month] }} {{year}}
         <span class="badge bg-light text-dark fs-6 align-middle">{{entries|length}}</span>
       </h5>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-2">
         {% for entry in entries %}
-        <div class="col">
-          <a class="card text-decoration-none text-reset h-100 shadow-sm"
+        <div class="col archive-card" data-day-type="{{ 'sunday' if entry.weekday == 'Sunday' else 'weekday' }}">
+          <a class="card text-decoration-none text-reset h-100 bg-body-tertiary border border-secondary-subtle shadow-sm archive-card-link"
              href="{{url_for('ServiceSongOpen', WordDoc=entry.word_doc)}}">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
                 <h6 class="card-title mb-0">{{ entry.date.strftime('%m.%d.%y') }}</h6>
-                <span class="badge bg-secondary">{{entry.song_count}} երգ</span>
+                <span class="badge {{ 'bg-warning text-dark' if entry.weekday == 'Sunday' else 'bg-secondary' }}">{{entry.song_count}} երգ</span>
               </div>
               <p class="card-text text-muted small mb-0 mt-1">{{ entry.weekday }}</p>
             </div>
@@ -48,6 +65,7 @@
         </div>
         {% endfor %}
       </div>
+    </div>
     {% endfor %}
   </div>
   {% endfor %}
@@ -64,6 +82,21 @@
           const target = document.querySelector('.year-pane[data-year="' + btn.dataset.year + '"]');
           if (target) target.style.display = '';
         });
+      });
+
+      // Day filter
+      function applyFilter(filter) {
+        document.querySelectorAll('.archive-card').forEach(card => {
+          card.classList.toggle('d-none', filter !== 'all' && card.dataset.dayType !== filter);
+        });
+        // Hide month sections that have no visible cards
+        document.querySelectorAll('.month-group').forEach(group => {
+          const visible = group.querySelectorAll('.archive-card:not(.d-none)').length;
+          group.classList.toggle('d-none', visible === 0);
+        });
+      }
+      document.querySelectorAll('input[name="dayFilter"]').forEach(input => {
+        input.addEventListener('change', () => applyFilter(input.id.replace('filter-', '')));
       });
     });
   </script>
