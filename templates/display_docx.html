@@ -36,6 +36,7 @@
         }
         .lyrics{
             font-family: 'engFont', 'armofont';
+            white-space: pre-wrap;
         }
         /* Flip animation styles */
         .letter-flip {
@@ -218,7 +219,7 @@
         }
     }
 
-    colored_text = {{ colored_text| safe}}
+    colored_text = {{ colored_text|default({}, true)|tojson }}
 
     function add_color_lyrics() {
         colored_text_transliterated = transliterated_colored_text()
@@ -299,7 +300,7 @@
         lang = document.getElementById('lyrics').lang;
         if (lang == 'hy') {
             // text = document.getElementById('lyrics').innerText.trim();
-            text = '{{ lyrics | safe}}'
+            text = {{ lyrics|tojson }}
             const mapping = armenianToEnglish();
             let result = '';
             let i = 0;
@@ -349,7 +350,7 @@
             // document.getElementById('lyrics').style = "font-family: 'engfont', sans-serif;";
             document.getElementById('flag-icon').className = 'us rounded-circle'; //Could've been a eventlistener too 
         } else {
-            document.getElementById('lyrics').innerHTML = '{{ lyrics | safe}}';
+            document.getElementById('lyrics').innerHTML = {{ lyrics|tojson }};
             if (document.getElementById('expandableButton') != null) {
                 document.getElementById('expandableButton').innerText = 'Ցանկ'
             }
@@ -448,14 +449,15 @@
                 // console.log(entries)
                 // const song_order = result[1]
                 const list = (fs) => {
+                    const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
                     Object.entries(fs).forEach(([song_num, values]) => {
                         const row = document.createElement('tr');
                         // row.setAttribute('id', key);
                         row.innerHTML = `
-                            <td data-bs-toggle="tooltip" data-bs-title="Book">${values['book'] || ''}</td>
-                            <td><a class="btn btn-outline-primary" href="/song/${values['book']}/${song_num}" rel="prefetch">${song_num}</a></td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Song Title">${values['Title'] || ''}</td>
-                            <td data-bs-toggle="tooltip" data-bs-title="lyrics">${values['lyrics'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Book">${esc(values['book'])}</td>
+                            <td><a class="btn btn-outline-primary" href="/song/${encodeURIComponent(values['book'] || '')}/${encodeURIComponent(song_num)}" rel="prefetch">${esc(song_num)}</a></td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Title">${esc(values['Title'])}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="lyrics">${esc(values['lyrics'])}</td>
                             `;
                         tablebody.appendChild(row);
                     });

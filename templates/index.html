@@ -451,22 +451,23 @@
                         // const entries = result[0]
                         // console.log(entries)
                         // const song_order = result[1]
+                        const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
                         const list = (fs) => {
                             Object.entries(fs).forEach(([song_num, values]) => {
                                 const row = document.createElement('tr');
                                 row.setAttribute('id', key);
                                 row.innerHTML = `
-                                <td data-bs-toggle="tooltip" data-bs-title="Book">${values['book'] || ''}</td>
-                                <td><a class="btn btn-outline-primary" href="/song/${values['book']}/${song_num}" rel="prefetch">${song_num}</a></td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${values['Title'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="lyrics">${values['lyrics'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Key">${values['key'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${values['speed'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${values['timeSig'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${values['style'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${values['song_type'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${values['Comments'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${values['last_sang_on'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Book">${esc(values['book'])}</td>
+                                <td><a class="btn btn-outline-primary" href="/song/${encodeURIComponent(values['book'] || '')}/${encodeURIComponent(song_num)}" rel="prefetch">${esc(song_num)}</a></td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${esc(values['Title'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="lyrics">${esc(values['lyrics'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Key">${esc(values['key'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${esc(values['speed'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${esc(values['timeSig'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${esc(values['style'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${esc(values['song_type'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${esc(values['Comments'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${esc(values['last_sang_on'])}</td>
                                 `;
                                 tablebody.appendChild(row);
                             });
@@ -479,6 +480,7 @@
                         const innerDict = result[0];  // Get the dictionary inside key "0"
 
                         // Print all key-value pairs
+                        const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
                         Object.entries(innerDict).forEach(([key, value]) => {
                             console.log(`Key: ${key}, Value:`, value);
 
@@ -487,16 +489,16 @@
                             row.setAttribute('id', key);
 
                             row.innerHTML = `
-                                <td><a class="btn btn-outline-primary" href="/song/${book.value}/${key}">${key}</a></td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="latestVersion">${value['latestVersion'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${value['last_sang_on'] || ''}</td>
+                                <td><a class="btn btn-outline-primary" href="/song/${encodeURIComponent(book.value)}/${encodeURIComponent(key)}">${esc(key)}</a></td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${esc(value['Title'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="latestVersion">${esc(value['latestVersion'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Key">${esc(value['key'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${esc(value['speed'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${esc(value['timeSig'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${esc(value['style'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${esc(value['song_type'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${esc(value['Comments'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Last_Sang_On">${esc(value['last_sang_on'])}</td>
                                 `;
                             tablebody.appendChild(row);
                         });
@@ -628,6 +630,7 @@
                         document.getElementById('songstable').appendChild(table);
 
                         // tablebody.textContent='' //clear the table
+                        const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
                         for (const [book, indivBook] of Object.entries(text)) {
 
                             // for (const [key, value] of Object.entries(text)) {
@@ -636,16 +639,16 @@
                                 row.setAttribute('id', key);
                                 // if (attribute.value == 'Full_Text' && query.value != ''){
                                 row.innerHTML = `
-                                <td data-bs-toggle="tooltip" data-bs-title="Book">${book || ''}</td>
-                                <td><a class="btn btn-outline-primary" href="/song/${value['book']}/${key}">${key}</a></td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
-                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Book">${esc(book)}</td>
+                                <td><a class="btn btn-outline-primary" href="/song/${encodeURIComponent(value['book'] || '')}/${encodeURIComponent(key)}">${esc(key)}</a></td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Title">${esc(value['Title'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${esc(value['latestVersion'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Key">${esc(value['key'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Speed">${esc(value['speed'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${esc(value['timeSig'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${esc(value['style'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Type">${esc(value['song_type'])}</td>
+                                <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${esc(value['Comments'])}</td>
                             `;
                                 tablebody.appendChild(row);
                             }

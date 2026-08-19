@@ -32,7 +32,7 @@
 </div>
 
 <script>
-  const content = {{os_files | safe}}; //Jinja 2: Supplied by server
+  const content = {{os_files | tojson}}; //Jinja 2: Supplied by server
   document.addEventListener('DOMContentLoaded', function(){
     // Fills in the first tab page
     const first_tab = document.querySelector('[data-tab-id="0"]');

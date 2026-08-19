@@ -1,10 +1,10 @@
 {%extends 'base.html'%}
 {% block extra_header%}
 <meta property="og:site_name" content="MOSO Song Lyrics">
-<meta property="og:title" content="MOSO Lyrics | {{ songnum|safe }} {{book | safe}}">
-<meta name="description" content="{{ plaintext|safe }}">
-<meta name="og:description" content="{{ plaintext|safe }}">
-<title>{{ songnum|safe }} {{book | safe}} | MOSO Lyrics</title>
+<meta property="og:title" content="MOSO Lyrics | {{ songnum }} {{book }}">
+<meta name="description" content="{{ plaintext }}">
+<meta name="og:description" content="{{ plaintext }}">
+<title>{{ songnum }} {{book }} | MOSO Lyrics</title>
 {%endblock%}
 {%block content%}
 <style>
@@ -35,7 +35,7 @@
                 <a href="" id="probSong" style="visibility: hidden;" class="btn btn-primary shadow border border-primary-subtle rounded-3" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="We also have this version!"> Alt. Version</a>
                 <div class="">
                     <button class="btn btn-primary shadow border border-primary-subtle rounded-3 disabled" type="button" onclick="getProbSong()" >
-                        {{book|safe}}
+                        {{book}}
                     </button>
 
                 </div>
@@ -53,7 +53,7 @@
     </script>
     <br>
     
-    <article class="text-center mb-4 lyrics h3" id="lyrics" data-id={{ songnum|safe }} lang="hy" > {{ lyrics|safe }}</article>
+    <article class="text-center mb-4 lyrics h3" id="lyrics" data-id="{{ songnum }}" lang="hy" > {{ lyrics|safe }}</article>
     <!-- Past Songs -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasPastSongs" aria-labelledby="offcanvasPastSongsLabel">
         <div class="offcanvas-header">
@@ -196,24 +196,25 @@
                 document.getElementById('songstable').appendChild(table);
 
                 // tablebody.textContent='' //clear the table
+                const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
                 for (const [book, indivBook] of Object.entries(text)) {
-                    
+
                     // for (const [key, value] of Object.entries(text)) {
                     for (const [key, value] of Object.entries(indivBook)) {
                         const row = document.createElement('tr');
                         row.setAttribute('id', key);
                         // if (attribute.value == 'Full_Text' && query.value != ''){
                         row.innerHTML = `
-                            <td data-bs-toggle="tooltip" data-bs-title="Book">${ book || ''}</td>
-                            <td><a class="btn btn-outline-primary" href="/song/${value['book']}/${key}">${key}</a></td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Song Title">${value['Title'] || ''}</td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${value['latestVersion'] || ''}</td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Key">${value['key'] || ''}</td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Speed">${value['speed'] || ''}</td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${value['timeSig'] || ''}</td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${value['style'] || ''}</td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Song Type">${value['song_type'] || ''}</td>
-                            <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${value['Comments'] || ''}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Book">${esc(book)}</td>
+                            <td><a class="btn btn-outline-primary" href="/song/${encodeURIComponent(value['book'] || '')}/${encodeURIComponent(key)}">${esc(key)}</a></td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Title">${esc(value['Title'])}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Latest Version">${esc(value['latestVersion'])}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Key">${esc(value['key'])}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Speed">${esc(value['speed'])}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Time Signature">${esc(value['timeSig'])}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Piano Style">${esc(value['style'])}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Type">${esc(value['song_type'])}</td>
+                            <td data-bs-toggle="tooltip" data-bs-title="Song Comments">${esc(value['Comments'])}</td>
                         `;
                         tablebody.appendChild(row);
                     }
@@ -343,7 +344,7 @@
             document.getElementById('lyrics').lang = 'en';
             // console.log(result);
         } else {
-            document.getElementById('lyrics').innerHTML = '{{ lyrics | safe}}';
+            document.getElementById('lyrics').innerHTML = {{ lyrics|tojson }};
             document.getElementById('lyrics').lang = 'hy';
         }
         

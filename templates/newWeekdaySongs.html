@@ -69,6 +69,7 @@
 
   function renderSongs(songs) {
     const songOrder = document.getElementById('song_order');
+    const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
     songOrder.innerHTML = '';
     currentSongText = songs.map(element => `${element['songnum']}: ${element['title']}`).join('\n');
     if (!songs.length) {
@@ -76,16 +77,19 @@
       return;
     }
     songs.forEach(element => {
-      const isPlaceholder = !element['songnum'];
+      const book = element['book'] || '';
+      const songnum = element['songnum'] || '';
+      const title = element['title'] || '';
+      const isPlaceholder = !songnum;
       const openLink = isPlaceholder
         ? ''
-        : `<a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/${element['book']}/${element['songnum']}">Open Song</a>`;
+        : `<a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/${encodeURIComponent(book)}/${encodeURIComponent(songnum)}">Open Song</a>`;
       songOrder.innerHTML += `
     <li class="list-group-item d-flex justify-content-between align-items-start${isPlaceholder ? ' opacity-50' : ''}">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">${isPlaceholder ? '' : `${element['book']}: `}${element['songnum'] ?? ''}${isPlaceholder ? '' : `: ${element['title']}`}
+        <div class="fw-bold">${isPlaceholder ? '' : `${esc(book)}: `}${esc(songnum)}${isPlaceholder ? '' : `: ${esc(title)}`}
         </div>
-          ${isPlaceholder ? element['title'] : `This song was last sang on ${element['date']} which was a ${element['weekday']}`}
+          ${isPlaceholder ? esc(title) : `This song was last sang on ${esc(element['date'])} which was a ${esc(element['weekday'])}`}
           <br>
           ${openLink}
       </div>

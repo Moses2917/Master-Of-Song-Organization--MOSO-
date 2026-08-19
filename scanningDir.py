@@ -2,6 +2,7 @@ from genericpath import isfile
 import json
 from pprint import pprint
 import os, datetime, re
+from ast import literal_eval
 
 def getAllNums():
     """
@@ -131,7 +132,7 @@ def search_song(data: json, song_num, book, fast_method=False):
     found_list = []
     found = False
     for item in data:
-        songList = eval(data[item]['songList'])
+        songList = literal_eval(data[item]['songList'])
         for song in songList:
             if song[1] == song_num and song[0] == book:
                 found_list.append({

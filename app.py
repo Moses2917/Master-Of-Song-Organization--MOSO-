@@ -13,18 +13,21 @@ from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, abort, jsonify, render_template, request, redirect, url_for, session, flash
+from markupsafe import escape as html_escape
+from ast import literal_eval
 from flask_sitemap import Sitemap
 import json
 from concurrent.futures import ThreadPoolExecutor
 #Import Custom Lyrics Search Engine
 from WordSongUpdater import getNums
+from doc_color import render_docx_html
 from lyric_search_engine import SearchEngine
 import logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
-ENV_FILE = find_dotenv("{}\Documents\Code\.env".format(env.get("OneDrive")))
+ENV_FILE = find_dotenv(r"{}\Documents\Code\.env".format(env.get("OneDrive")))
 if ENV_FILE:
     load_dotenv(ENV_FILE)
 
@@ -187,6 +190,25 @@ def require_song_editor():
     if not isinstance(email, str) or not isUserAllowed(email):
         abort(403, description='Editor permission is required to edit songs.')
 
+def require_login():
+    """Abort unless the request has an authenticated, non-guest user."""
+    user = session.get('user')
+    if not isinstance(user, dict) or not user.get('access_token'):
+        abort(401, description='Login is required for this action.')
+
+def is_path_within(child, root):
+    """True only if child resolves to a location inside root (same drive, no traversal)."""
+    try:
+        resolved_root = os.path.realpath(root)
+        return os.path.commonpath([os.path.realpath(child), resolved_root]) == resolved_root
+    except ValueError:
+        # Different drives on Windows — containment impossible.
+        return False
+
+def is_safe_doc_name(name):
+    """True if name cannot traverse out of a directory (no separators, '..', or drive letters)."""
+    return not any(sep in name for sep in ('/', '\\', '..')) and ':' not in name
+
 def get_csrf_token():
     """Return the per-session token used by the edit-song forms."""
     token = session.get('_csrf_token')
@@ -304,13 +326,24 @@ def openWord(songNum, book, plaintext=False):
         else:
             return html_text
 
-def saveHtml(filePth, WordDoc):
+DOCX_CACHE_PREFIX = '<!-- MOSO DOCX HTML v2 -->\n'
+
+def is_current_docx_cache(cache_path):
+    """Return whether a cached DOCX page was produced by the current renderer."""
+    try:
+        with open(cache_path, 'r', encoding='utf-8') as cache_file:
+            return cache_file.read(len(DOCX_CACHE_PREFIX)) == DOCX_CACHE_PREFIX
+    except OSError:
+        return False
+
+def saveHtml(filePth, WordDoc, output_dir=None):
     """
     Saves the contents of a Word document to an HTML file to later be displayed.
 
     Parameters:
         filePth (str): The path to the Word document file.
         WordDoc (str): The name of the Word document, not the path, but just the filename.
+        output_dir (str | None): Optional cache directory, primarily for tests.
 
     Returns:
         list of song nums
@@ -333,55 +366,11 @@ def saveHtml(filePth, WordDoc):
 
     doc = tmp_file_copy(filePth)
 
-    # Extract text WITH color info using Method 1's song logic
-    text_with_colors = ''
-    start_song = False
-    song_counter = 0
-    song_nums = []
-
-    for para in doc.paragraphs:
-        para_html = ''
-        for run in para.runs:
-            text = run.text
-
-            if start_song:
-                if song_counter != 1:
-                    para_html += f'</div>'
-                para_html += f'<div id="song-{song_counter}">'
-                song_nums.append(text)
-                start_song = False
-
-            if "start" in text:
-                start_song = True
-                song_counter += 1
-
-            # Add color formatting
-            text_color = run.font.color.rgb
-            if bool(text_color) and str(text_color) != "000000":
-                para_html += f'<span style="color: #{text_color};">{text}</span>'
-            else:
-                para_html += text
-
-        text_with_colors += para_html + '\n'
-
-    # Spacing logic
-    chunks = text_with_colors.split('\n\n')
-    html_chunks = []
-
-    for chunk in chunks:
-        lines = chunk.split('\n')
-        html_lines = []
-
-        for line in lines:
-            html_lines.append('<p>' + line + '</p>')
-
-        html_chunk = ''.join(html_lines)
-        html_chunks.append(html_chunk)
-
-    html_text = '<br>'.join(html_chunks)
-
-    with open(f"{onedrive_path}/Documents/Code/Python/htmlsongs/{WordDoc}.txt", 'w', encoding='utf-8') as f:
-        f.write(html_text)
+    html_text = render_docx_html(doc=doc)
+    cache_dir = output_dir or os.path.join(onedrive_path, "Documents", "Code", "Python", "htmlsongs")
+    os.makedirs(cache_dir, exist_ok=True)
+    with open(os.path.join(cache_dir, f"{WordDoc}.txt"), 'w', encoding='utf-8') as f:
+        f.write(DOCX_CACHE_PREFIX + html_text)
 
     # Gets rid of old/new book value
     # to match the previosu format
@@ -425,7 +414,7 @@ def songSearch(searchLyrics) -> list:
 
 
                 searchResults.append(
-                    f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=result[0],songnum=result[1])}">{result[1]}: {title}</a>'''
+                    f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=result[0],songnum=result[1])}">{html_escape(result[1])}: {html_escape(title)}</a>'''
                 )
         # for result in searchResults:
         #     re.match
@@ -494,13 +483,13 @@ def display_song(book, songnum) -> str:
                         if song_pair[1] in REDergaran['SongNum']:
                             title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
                             title = title.split('\n')[0]
-                    song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
+                    song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{html_escape(song_pair[1])}: {html_escape(title)}</a>''')
             songs['songs'] = song_titles
     if similar_songs != None:
         song_titles = []
         for song_pair in similar_songs:
             # print(song_pair)
-            song_pair = tuple(eval(song_pair))
+            song_pair = tuple(literal_eval(song_pair))
             # print(song_pair)
             if not (None in song_pair):
                 title = ""
@@ -512,14 +501,20 @@ def display_song(book, songnum) -> str:
                     if song_pair[1] in REDergaran['SongNum']:
                         title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
                         title = title.split('\n')[0]
-                song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
+                song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{html_escape(song_pair[1])}: {html_escape(title)}</a>''')
         similar_songs = song_titles
         # print(similar_songs)
 
     import concurrent.futures
-    with concurrent.futures.ThreadPoolExecutor() as exec:
-        future = exec.submit(openWord,songnum,book,True)
-        lyrics, plaintext = future.result()
+    try:
+        with concurrent.futures.ThreadPoolExecutor() as exec:
+            future = exec.submit(openWord,songnum,book,True)
+            word_content = future.result()
+    except FileNotFoundError:
+        abort(404, description='Song document not found.')
+    if word_content is None:
+        abort(404, description='Song document not found.')
+    lyrics, plaintext = word_content
 
     return render_template('song.html', lyrics=lyrics, past_songs=past_songs, similar_songs=similar_songs, songnum=songnum, book=book, plaintext=plaintext)
 
@@ -544,9 +539,12 @@ def today_songs(retry=False):
         # the source file. This makes repeat visits to /today near-instant.
         cache_exists = os.path.exists(cache_path)
         doc_exists = os.path.exists(songPth)
-        cache_fresh = False
+        cache_fresh = cache_exists and not doc_exists
         if cache_exists and doc_exists:
-            cache_fresh = os.stat(cache_path).st_mtime >= os.stat(songPth).st_mtime
+            cache_fresh = (
+                is_current_docx_cache(cache_path)
+                and os.stat(cache_path).st_mtime >= os.stat(songPth).st_mtime
+            )
         elif cache_exists:
             # Source file unavailable but cache is present — serve it
             cache_fresh = True
@@ -639,7 +637,7 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
                 # print(root)
                 roots.append(root)
                 tmp_file = []
-                files = list(map(lambda file: f'<button type="submit" name="selected_file" value="{os.path.join(root,file)}" class="btn btn-outline-light m-2">{file.split(".")[0]}</button>' if '.ppt' not in file else '', files))
+                files = list(map(lambda file: f'<button type="submit" name="selected_file" value="{html_escape(os.path.join(root,file))}" class="btn btn-outline-light m-2">{html_escape(file.split(".")[0])}</button>' if '.ppt' not in file else '', files))
                 os_files[root] = files
         roots.sort(reverse=True)
         # print(roots)
@@ -650,7 +648,7 @@ def event(filename = r"Երգեր/Պենտեկոստե/2025/Պենտեկոստե
         # selected_file =
         # is_dir = request.form.get('is_dir')
         # print(selected_file)
-        if selected_file and os.path.exists(selected_file):
+        if selected_file and os.path.isfile(selected_file) and is_path_within(selected_file, folder_path) and selected_file.lower().endswith('.docx'):
             basename = os.path.basename(selected_file) # basename returns the filename. Could've been done in saveHtml
 
             with ThreadPoolExecutor() as futures:
@@ -698,7 +696,7 @@ def youth():
         # selected_file =
         # is_dir = request.form.get('is_dir')
         # print(selected_file)
-        if selected_file and os.path.exists(selected_file):
+        if selected_file and os.path.isfile(selected_file) and is_path_within(selected_file, folder_path) and selected_file.lower().endswith('.docx'):
             basename = os.path.basename(selected_file) # basename returns the filename. Could've been done in saveHtml
 
             with ThreadPoolExecutor() as futures:
@@ -729,7 +727,7 @@ def ServiceSongOpen(WordDoc) -> str:
     - If the .docx file does not exist, it attempts to open the file from the OneDrive path and save the lyrics as an html file.
     - If the file does not exist and cannot be opened, it flashes an error message.
     """
-    if '.docx' in WordDoc:
+    if '.docx' in WordDoc and is_safe_doc_name(WordDoc) and WordDoc in all_past_songs:
         foundFiles = glob("htmlsongs\\"+WordDoc+"*")
         # Derive song numbers from the index so the sidebar works on cached reads too
         from ast import literal_eval
@@ -737,7 +735,7 @@ def ServiceSongOpen(WordDoc) -> str:
             song_nums = [num for (_b, num) in literal_eval(all_past_songs.get(WordDoc, {}).get("songList", "[]")) if num]
         except Exception:
             song_nums = None
-        if foundFiles:
+        if foundFiles and is_current_docx_cache(foundFiles[0]):
             # print(foundFiles)
             with open(foundFiles[0], 'r', encoding='utf-8') as f:
                 lyrics = f.read()
@@ -752,17 +750,19 @@ def ServiceSongOpen(WordDoc) -> str:
             songPth = onedrive+songPth
             # print(songPth)
             # songPth = fr"{onedrive}\Երգեր\Պենտեկոստե\2024\2024 Պենտեկոստե.docx"
-            import threading as th
-            wordDocThread = th.Thread(target=saveHtml,args=[songPth,WordDoc])#, args=[MS_WORD, songPth])
-            wordDocThread.start()
-            from time import sleep
-            sleep(0.75)
-            # saveHtml()
+            if not os.path.isfile(songPth):
+                if foundFiles:
+                    with open(foundFiles[0], 'r', encoding='utf-8') as f:
+                        html_text = f.read()
+                    return render_template("display_docx.html", lyrics=html_text, song_nums=song_nums)
+                abort(404, description='Service document not found.')
+            saveHtml(songPth, WordDoc)
             with open(f"htmlsongs\\{WordDoc}.txt", 'r', encoding='utf-8') as f:
                 html_text = f.read()
             return render_template("display_docx.html", lyrics=html_text, song_nums=song_nums)
     else:
         flash("That song does not exist",'error')
+        return redirect(url_for("home"))
 
 @app.route('/song/<book>/<songnum>/attributes', methods=['GET','POST'])
 def getSongAttributes(book,songnum) -> dict:
@@ -1171,7 +1171,7 @@ def check_past_songs():
                             if song_pair[1] in REDergaran['SongNum']:
                                 title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
                                 title = title.split('\n')[0]
-                        song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
+                        song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{html_escape(song_pair[1])}: {html_escape(title)}</a>''')
                 songs['songs'] = song_titles
         # return render_template('song.html', lyrics = openWord(SongNum, book), past_songs = past_songs)
         return redirect(url_for('display_song'), book=book,songnum=SongNum)#, title=title) #sending the book var inorder for the back button to function properly
@@ -1218,7 +1218,7 @@ def past_songs(songnum):
                         if song_pair[1] in REDergaran['SongNum']:
                             title = REDergaran['SongNum'][song_pair[1]]["Title"]#REDergaran.get(['SongNum'][song_pair[1]]["Title"],None) # doing this to try to account for unusual song nums such as '32121'
                             title = title.split('\n')[0]
-                    song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{song_pair[1]}: {title}</a>''')
+                    song_titles.append(f'''<a class="list-group-item list-group-item-action" href="{url_for('display_song',book=song_pair[0],songnum=song_pair[1])}">{html_escape(song_pair[1])}: {html_escape(title)}</a>''')
             songs['songs'] = song_titles
 
     return render_template('pastsongtemplate.html', past_songs=past_songs)
@@ -1289,6 +1289,7 @@ def posible_alt_song(songnum,book): # COuld also do only num,book,lyrics
 def known_songs():# add some func to be able to go backwards
     from known_songs import update_known_songs, get_skipped_songs
     if request.method == "POST":
+        require_login()
         request_data = request.get_json()
         # these are neccesary either way, just don't want to set unneccesary vars
         skipped = request_data['skipped']
@@ -1493,8 +1494,13 @@ def privacy_policy():
 
 if __name__ == '__main__':
     print("Barev Dzez, ev bari galust MOSO-i system....\nLaunching Server...")
-    app.run(debug=False, host='0.0.0.0', port=env.get("PORT", 5002 if os.name == 'posix' else 5000)
-            #ssl_context=(r'C:\Certbot\live\songinfo.us.to\fullchain.pem',r'C:\Certbot\live\songinfo.us.to\privkey.pem')
-            )
+    port = int(env.get("PORT", 5002 if os.name == 'posix' else 5000))
+    if env.get("MOSO_DEV"):
+        # Dev server fallback (never use in production)
+        app.run(debug=False, host='0.0.0.0', port=port)
+    else:
+        from waitress import serve
+        serve(app, host='0.0.0.0', port=port, threads=8)
+    # ssl_context=(r'C:\Certbot\live\songinfo.us.to\fullchain.pem',r'C:\Certbot\live\songinfo.us.to\privkey.pem')
     # try: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5000))
     # except: app.run(debug=True, host='0.0.0.0', port=env.get("PORT", 5001))

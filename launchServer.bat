@@ -1,5 +1,5 @@
 @echo Barev Dzez, ev bari galust MOSO-i system....
 @echo launching Server...
 @echo off
-cd C:\Users\moses\OneDrive\Documents\Code\Python
+cd /d "%~dp0"
 start python.exe app.py

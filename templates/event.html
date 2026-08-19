@@ -11,7 +11,7 @@
       {% for root in roots %}
       <li class="nav-item">
         <a class="nav-link" href="/events/{{root.split('/')[7]}}" data-tab-id="{{roots.index(root)}}"
-          name={{root}}>{{root.split('/')[-1]}}</a>
+          name="{{root}}">{{root.split('/')[-1]}}</a>
       </li>
       {% endfor %}
     </ul>
@@ -30,7 +30,7 @@
 </div>
 
 <script>
-  const content = {{os_files | safe}}; //Jinja 2: Supplied by server
+  const content = {{os_files | tojson}}; //Jinja 2: Supplied by server
   document.addEventListener('DOMContentLoaded', function(){
     // Get tab elements
     const tabLinks = document.querySelectorAll('[data-tab-id]');

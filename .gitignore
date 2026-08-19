@@ -1,17 +1,30 @@
+# Secrets — never commit
+.env
+*.env
 
-yolov8x.pt
-yolov8x-seg.pt
-yolov8n.pt
-yolov8n-seg.pt
-yolov8n-cls.pt
+# Binaries / drivers (download at runtime instead)
+*.exe
+*.dll
+*.pt
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE / editor
+.idea/
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Media cache / test data
 bus.jpg
+htmlsongs/*
+testsongs.json
+
+# Local-only scripts & scratch files
 livestreamDownloader.py
 jsonsss.py
-livestreamDownloader.py
-testsongs.json
-*.pyc
-/__pycache__
-*.pyc
 song_sorter.py
-.DS_Store
-htmlsongs/*

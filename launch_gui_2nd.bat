@@ -1,5 +1,5 @@
 @echo Barev Dzez, ev bari galust MOSO systema....
 @echo launching GUI...
 @echo off
-cd C:\Users\moses\OneDrive\Documents\Code\Python
-M:\pythPATH\python.exe moso.pyw
+cd /d "%~dp0"
+python.exe moso.pyw

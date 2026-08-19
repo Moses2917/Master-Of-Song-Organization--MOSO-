@@ -1,8 +1,56 @@
 import os
 import re
-from tracemalloc import start
+from html import escape
+
 from docx import Document
-from docx import shared
+
+
+_RGB_HEX = re.compile(r"^[0-9A-Fa-f]{6}$")
+
+
+def _render_run(run) -> str:
+    """Render one Word run while preserving its direct RGB font color."""
+    text = escape(run.text).replace("\r\n", "\n").replace("\r", "\n").replace("\n", "<br>")
+    rgb = run.font.color.rgb
+    if rgb and _RGB_HEX.fullmatch(str(rgb)):
+        return f'<span style="color: #{str(rgb).upper()};">{text}</span>'
+    return text
+
+
+def render_docx_html(filepath='', doc=None) -> str:
+    """Convert a DOCX into safe HTML while retaining paragraphs, breaks, and RGB run colors."""
+    if doc is None:
+        doc = Document(filepath)
+
+    html_parts = []
+    song_number = 0
+    song_open = False
+
+    for paragraph in doc.paragraphs:
+        paragraph_text = paragraph.text.lower()
+        starts_song = "[start:song" in paragraph_text
+        ends_song = "[end:song" in paragraph_text
+
+        if starts_song:
+            if song_open:
+                html_parts.append("</div>")
+            song_number += 1
+            html_parts.append(f'<div id="song-{song_number}">')
+            song_open = True
+
+        paragraph_html = "".join(_render_run(run) for run in paragraph.runs)
+        if not paragraph_html and paragraph.text:
+            paragraph_html = escape(paragraph.text).replace("\n", "<br>")
+        html_parts.append(f"<p>{paragraph_html or '&nbsp;'}</p>")
+
+        if ends_song and song_open:
+            html_parts.append("</div>")
+            song_open = False
+
+    if song_open:
+        html_parts.append("</div>")
+
+    return "".join(html_parts)
 
 
 def get_colored_text(filepath='', doc=None) -> dict:
@@ -116,6 +164,5 @@ if '__main__' == __name__:
     # colored_text = get_all_colored_text(filepath)
     # for line in colored_text[0]:
     #     print(line)
-    
+
     # print(colored_text[1])
-    

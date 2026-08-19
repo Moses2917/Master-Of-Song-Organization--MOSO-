@@ -120,18 +120,21 @@
         const songs = Object.values(JSON.parse(text));
         songOrder.innerHTML = ''
         console.log(songs)
+        const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
         // Store the song text as we generate it
         currentSongText = songs.map(element => `${element['songnum']}: ${element['title']}`).join('\n');
 
         songs.forEach(element => {
+          const book = element['book'] || '';
+          const songnum = element['songnum'] || '';
           songOrder.innerHTML += `
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">${element['book']}: ${element['songnum']}: ${element['title']}
+        <div class="fw-bold">${esc(book)}: ${esc(songnum)}: ${esc(element['title'])}
         </div>
-          This song was last sang on ${element['date']} which was a ${element['weekday']}
+          This song was last sang on ${esc(element['date'])} which was a ${esc(element['weekday'])}
           <br>
-          <a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/${element['book']}/${element['songnum']}">
+          <a class="btn btn-outline-primary shadow border border-primary-subtle" href="/song/${encodeURIComponent(book)}/${encodeURIComponent(songnum)}">
             Open Song
           </a>
       </div>

@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import pandas as pd
 import numpy as np
+from ast import literal_eval
 
 # Define the RNN model
 class SongRNN_1(nn.Module):
@@ -136,7 +137,7 @@ def sort_X_Data():
     listy = []
     for list_of_vals in datas:
         if not ('Old' in list_of_vals):
-            listy.append(eval(list_of_vals))
+            listy.append(literal_eval(list_of_vals))
     X = pd.DataFrame(listy)
     print(X.drop(X.columns[8:11],axis=1).to_pickle('x_training_data.pkl'))
 
